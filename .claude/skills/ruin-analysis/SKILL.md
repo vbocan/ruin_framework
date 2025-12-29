@@ -47,9 +47,8 @@ Apply flags from [flags.md](flags.md).
 
 ### Step 4: Output
 
-Generate files per [output-format.md](output-format.md):
-- `{batch_id}_{paper_id}.json` - structured data
-- `{batch_id}_{paper_id}_provenance.md` - human-readable narrative
+Generate a single batch file per [output-format.md](output-format.md):
+- `output/{JOURNAL_ACRONYM}/{batch_id}.json` - contains all papers with embedded provenance
 
 ## Quick Reference
 
