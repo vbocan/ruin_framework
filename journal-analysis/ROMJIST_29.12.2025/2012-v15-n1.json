@@ -1,0 +1,159 @@
+{
+  "batch_id": "2012-v15-n1",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 15,
+    "issue": 1,
+    "year": 2012
+  },
+
+  "papers": [
+    {
+      "paper_id": "cabarle2012",
+      "paper": {
+        "title": "Improving GPU Simulations of Spiking Neural P Systems",
+        "authors": ["Francis George C. Cabarle", "Henry N. Adorna", "Miguel A. Martinez-del-Amor", "Mario J. Perez-Jimenez"],
+        "abstract": "Presents extensions and improvements of a Spiking Neural P system simulator on GPUs. Uses matrix representation of SNP system computations for parallel implementation. Introduces two-level parallelism for computation simulations. Reports 2.31x speedup over CPU-based simulations for a 16-neuron benchmark with 65536 nondeterministic choices.",
+        "keywords": ["Membrane computing", "spiking neural network", "Spiking Neural P systems", "GPU computing", "CUDA"],
+        "doi": null,
+        "pages": "5-20"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 50,
+        "intellectual_integrity": 86,
+        "composite": 77,
+        "final": 77
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Theoretical computer science paper on membrane computing. Formal definitions of SNP systems, configuration vectors, and spiking transition matrices are necessary for the algorithm and correctness proofs. Lemmas and theorems prove simulation correctness. Formalism is proportionate for Level 3-4 complexity."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** GPU-based parallel simulation of Spiking Neural P systems using matrix algebra\n**Level:** 3-4 (Medium-High)\n**Rationale:** Novel parallel algorithm with formal correctness proofs. Extends matrix representation of SNP systems to GPU architecture. Requires complexity analysis and proof of simulation faithfulness.\n\n### Formal Elements\n- Definitions: 4 (SNP system, configuration vector, spiking vector, spiking transition matrix)\n- Lemmas: 2 (nondeterministic choices, algorithm correctness)\n- Theorems: 1 (simulation correctness)\n- Equations: ~8 (matrix operations, complexity formulas)\n\n### Proportionality\nCalculated complexity: 4x2 + 2x3 + 1x3 = 17\nExpected range (Level 3-4): 10-80\nRatio: 0.2x upper bound (Level 4)\n\n**Assessment:** Proportionate - Formal definitions enable proof of algorithm correctness. Matrix representation is core algorithmic contribution.\n\n### Necessity Test Results\n- Definition 1 (SNP system): NECESSARY - defines computational model being simulated\n- Definition 2-4 (vectors, matrix): NECESSARY - enable matrix-based parallel computation\n- Lemma 1: NECESSARY - determines parallelism achievable on GPU\n- Lemma 2, Theorem 1: NECESSARY - prove simulation correctness\n- Equation (2): NECESSARY - core algorithm for computing next configuration\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 26. Self-citations: ~4 (15%). All self-citations relate to prior work on SNP systems and GPU simulations. No concerning patterns.\n\n---\n\n## Structural Analysis\n\nWell-structured with clear progression: preliminaries, algorithm, analysis, experiments. Benchmark results provided with hardware specifications. Limitations acknowledged (memory constraints, specific SNP system types). No public code repository mentioned.\n\n---\n\n## Conclusion\n\nSolid theoretical contribution to membrane computing. The formal apparatus is appropriate for a paper proving algorithm correctness. Matrix representation enables efficient GPU parallelization. Experimental validation shows measurable speedups. The formalism serves the theoretical claims rather than decorating trivial content."
+    },
+    {
+      "paper_id": "jebasingh2012",
+      "paper": {
+        "title": "Constructing Non-Periodic Tiling Patterns with P System",
+        "authors": ["Stephen Raj Jebasingh", "Thamburaj Robinson", "Atulya K. Nagar"],
+        "abstract": "Introduces Tissue-like Parametric Tile Pasting P System (t-PTPPS) with geometric operations to generate non-periodic tiling patterns. Demonstrates generative capabilities with alternate boat sequence, self-similar tilings, and chair tilings. Discusses computational complexity and power of systems with different geometric operations.",
+        "keywords": ["P systems", "Pasting system", "Two dimensional pattern"],
+        "doi": null,
+        "pages": "21-32"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 30,
+        "intellectual_integrity": 85,
+        "composite": 71,
+        "final": 71
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Theoretical paper proposing new P system variant for tiling pattern generation. Formal definition of t-PTPPS and geometric operations is necessary for reproducibility. Theorems on language family relationships are core theoretical contributions. Formalism is proportionate for Level 3-4 complexity."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** New variant of P systems (Tissue-like Parametric Tile Pasting P System) for generating non-periodic tiling patterns\n**Level:** 3-4 (Medium-High)\n**Rationale:** Introduces new computational model with formal definition. Proves theorems about relationships between language families. Requires precise specification of geometric operations.\n\n### Formal Elements\n- Formal system definition: 1 (t-PTPPS as 9-tuple)\n- Operation definitions: 4 (rotation, edge relabeling, path rewriting, scaling)\n- Theorems: 4 (on computational complexity and language family inclusion)\n- Detailed examples: 3 (with full rule specifications)\n\n### Proportionality\nCalculated complexity: ~6x2 + 4x3 = 24\nExpected range (Level 3-4): 10-80\nRatio: 0.3x upper bound (Level 4)\n\n**Assessment:** Proportionate - This is a theoretical model paper; formal definitions are essential.\n\n### Necessity Test Results\n- t-PTPPS definition: NECESSARY - defines new computational model\n- Geometric operations: NECESSARY - must be unambiguous for implementation\n- Theorems 1-4: NECESSARY - prove relationships between language families\n- Examples: NECESSARY - validate generative power\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 19. Self-citations: ~5 (26%) - elevated but all relate to prior tiling/P-system work by the same group. No irrelevant self-citations detected.\n\n---\n\n## Structural Analysis\n\nClear structure with formal definitions followed by examples and theorems. Proofs provided for all theorems. Limitations section absent but scope is clearly theoretical. No software artifacts.\n\n---\n\n## Conclusion\n\nWell-executed theoretical contribution to P systems and tiling theory. The formal apparatus is necessary for defining the new computational model and proving its properties. Examples demonstrate practical application of the formalism. Elevated self-citation rate reflects a specialized research group building on prior work."
+    },
+    {
+      "paper_id": "niu2012",
+      "paper": {
+        "title": "Solving Common Algorithmic Problem by Recognizer Tissue P Systems",
+        "authors": ["Yunyun Niu", "Linqiang Pan", "Mario J. Perez-Jimenez"],
+        "abstract": "Presents polynomial-time solution to Common Algorithmic Decision Problem using tissue P systems with cell division. CAP is an NP-complete problem to which several other NP-complete problems reduce in linear time. Provides formal verification of solution correctness including polynomial uniformity, boundness, soundness, and completeness proofs.",
+        "keywords": ["membrane computing", "tissue P system", "cell division", "common algorithmic problem"],
+        "doi": null,
+        "pages": "33-49"
+      },
+      "scores": {
+        "formalism": 90,
+        "citation_integrity": 95,
+        "structural_integrity": 90,
+        "artifact_availability": 30,
+        "intellectual_integrity": 91,
+        "composite": 76,
+        "final": 76
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Complexity theory paper proving polynomial-time solution to NP-complete problem. Heavy formalism is required and expected for Level 4-5 complexity. Detailed propositions and proofs verify algorithm correctness. This is exemplary use of formalism for theoretical computer science."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Polynomial-time solution to Common Algorithmic Decision Problem (NP-complete) using tissue P systems with cell division\n**Level:** 4-5 (High-Very High)\n**Rationale:** Complexity theory paper. Proves polynomial-time solution to NP-complete problem. Requires formal verification of soundness and completeness. This is exactly the domain where heavy formalism is mandatory.\n\n### Formal Elements\n- Definition 1: Recognizer tissue P system with cell division (detailed formal specification)\n- Definition 2: Polynomial-time solvability conditions\n- System construction: Complete formal specification with 17 rule types\n- Propositions: 6 (verification of computation stages)\n- Proofs: Full proofs for polynomial uniformity, boundness, soundness, completeness\n\n### Proportionality\nCalculated complexity: ~10x2 + 6x3 + 6x4 = 62\nExpected range (Level 4-5): 30-150\nRatio: 0.4x upper bound (Level 5)\n\n**Assessment:** Proportionate - This is a complexity theory paper; formal proofs are essential.\n\n### Necessity Test Results\n- Definition 1: NECESSARY - defines the computational model\n- Definition 2: NECESSARY - establishes solvability criteria\n- System construction: NECESSARY - specifies the solution\n- Propositions 1-6: NECESSARY - verify correctness of each computation stage\n- Proofs: NECESSARY - establish polynomial time complexity and correctness\n\n### Issues\nNone identified. This paper exemplifies appropriate use of formalism for complexity theory.\n\n---\n\n## Citation Analysis\n\nTotal references: 15. Self-citations: ~3 (20%). All self-citations relate to prior P systems complexity work. References cover relevant P systems and complexity theory literature.\n\n---\n\n## Structural Analysis\n\nExcellent structure: preliminaries, solution construction, detailed verification. Three-stage algorithm (generation, checking, output) clearly explained. Formal verification section is thorough. No implementation artifacts but theoretical contribution is primary.\n\n---\n\n## Conclusion\n\nOutstanding theoretical contribution to membrane computing complexity theory. The formal verification is comprehensive and necessary for establishing polynomial-time solvability of an NP-complete problem. This is a model example of appropriate formalism in theoretical computer science - the claims require and justify the formal apparatus."
+    },
+    {
+      "paper_id": "li2012",
+      "paper": {
+        "title": "A Modified Estimation of Distribution Algorithm for Digital Filter Design",
+        "authors": ["Yuquan Li", "Gexiang Zhang", "Jixiang Cheng", "Xiangxiang Zeng", "Marian Gheorghe", "Susan Elias"],
+        "abstract": "Proposes modified EDA (mEDA) using centro-individual sampling and fuzzy C-means clustering for digital IIR filter design. Experiments on 27 benchmark functions show mEDA outperforms seven algorithms. Four types of IIR filters designed with better performance than HGA, HTGA, TIA, and CCGA.",
+        "keywords": ["Modified EDA", "Centro-individual sampling", "Fuzzy C-means clustering", "Digital IIR filter", "Numeric optimization"],
+        "doi": null,
+        "pages": "50-62"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 40,
+        "intellectual_integrity": 84,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Applied optimization paper with algorithm modifications. Equations describe CIS sampling (Eq. 1) and FCM clustering (Eq. 2). IIR filter transfer functions use standard signal processing notation. Statistical tests validate performance. Formalism is proportionate for Level 2-3 applied algorithm work."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Modified Estimation of Distribution Algorithm with centro-individual sampling and fuzzy C-means for optimization and IIR filter design\n**Level:** 2-3 (Low-Medium)\n**Rationale:** Extends existing EDA with two techniques. Standard ML/optimization methodology. Empirical validation on benchmarks and filter design.\n\n### Formal Elements\n- Equation (1): CIS sampling formula (core contribution)\n- Equation (2): Fuzzy C-means objective function (standard)\n- Equations (3)-(7): IIR filter transfer functions (domain standard)\n- Pseudocode: 2 algorithms (mEDA, CIS)\n- Statistical tests: Wilcoxon, Friedman\n\n### Proportionality\nCalculated complexity: ~7x2 = 14\nExpected range (Level 2-3): 0-40\nRatio: 0.35x upper bound (Level 3)\n\n**Assessment:** Proportionate - Equations describe algorithm contributions and are standard for optimization domain.\n\n### Necessity Test Results\n- Equation (1): NECESSARY - core sampling contribution, enables implementation\n- Equation (2): NECESSARY - standard FCM, required for methodology clarity\n- Equations (3)-(7): NECESSARY - standard IIR notation, required for filter specification\n- Pseudocode: NECESSARY - enables algorithm reproduction\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 29. Self-citations: ~3 (10%). References cover EDA literature, optimization benchmarks, and filter design methods comprehensively.\n\n---\n\n## Structural Analysis\n\nWell-organized with clear algorithm description, extensive benchmarking, and application demonstration. Tables compare against multiple algorithms. Filter designs include magnitude response plots. Limitations implicitly acknowledged through parameter sensitivity discussion.\n\n---\n\n## Conclusion\n\nSolid applied optimization paper. The formalism is standard for the domain - sampling equations, clustering objectives, and filter transfer functions are all necessary for methodology and reproducibility. Extensive experimental comparison validates the approach. No formalism theater detected."
+    },
+    {
+      "paper_id": "muniyandi2012",
+      "paper": {
+        "title": "Modeling Hormone-induced Calcium Oscillations in Liver Cell with Membrane Computing",
+        "authors": ["Ravie Chandren Muniyandi", "Abdullah Mohd. Zin"],
+        "abstract": "Investigates membrane computing for modeling hormone-induced calcium oscillations in liver cells. Converts ODE model to membrane computing formalism. Verifies model using Gillespie algorithm simulation and PRISM probabilistic model checker. Demonstrates membrane computing preserves fundamental biological properties.",
+        "keywords": ["membrane computing", "hormone induced calcium oscillations", "Gillespie algorithm", "PRISM"],
+        "doi": null,
+        "pages": "63-76"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 50,
+        "intellectual_integrity": 83,
+        "composite": 75,
+        "final": 75
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Biological modeling paper using membrane computing. ODE equations from source model are necessary context. Membrane system definition and evolution rules enable model specification. PRISM reward specifications are necessary for formal verification. Formalism is proportionate for Level 2-3 applied modeling work."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Converting ODE biological model to membrane computing, with simulation and model checking verification\n**Level:** 2-3 (Low-Medium)\n**Rationale:** Applied membrane computing for biological modeling. Converts existing ODE model to P system representation. Verification via standard tools (Gillespie, PRISM).\n\n### Formal Elements\n- Equations (1)-(2): ODE model (source from Somogyi & Stucki)\n- Membrane system definition: HCOLC tuple notation\n- Evolution rules: 5 rules (R1-R5) with kinetic constants\n- PRISM reward specifications: 5 reward definitions\n\n### Proportionality\nCalculated complexity: ~8x2 = 16\nExpected range (Level 2-3): 0-40\nRatio: 0.4x upper bound (Level 3)\n\n**Assessment:** Proportionate - Formalism describes model conversion and verification.\n\n### Necessity Test Results\n- Equations (1)-(2): NECESSARY - source model being converted\n- Membrane system definition: NECESSARY - P system representation\n- Evolution rules R1-R5: NECESSARY - biological process specifications\n- PRISM rewards: NECESSARY - enable model checking verification\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 25. Self-citations: ~4 (16%). Self-citations relate to prior membrane computing modeling work. References cover membrane computing, biological modeling, and verification tools.\n\n---\n\n## Structural Analysis\n\nFollows stated framework: requirements extraction, model building, simulation, verification. Four experiments with different parameter values. Limitations discussed (parameter selection for stochastic systems). Comparison with ODE approach provided.\n\n---\n\n## Conclusion\n\nCompetent biological modeling paper demonstrating membrane computing applicability. The formalism serves clear purposes: specifying the biological model, enabling simulation, and supporting formal verification. Honest discussion of limitations (parameter selection challenges). No decorative formalism - all formal elements contribute to methodology."
+    }
+  ],
+
+  "batch_notes": "Volume 15 Issue 1 (2012) - Special issue from BIC-TA 2011 conference on bio-inspired computing. **No formalism theater detected.** All 5 papers have domain-appropriate formalism for membrane computing and natural computing: GPU simulation with correctness proofs, tiling P systems with language family theorems, NP-complete problem solution with complexity proofs, EDA optimization with standard equations, and biological modeling with verification. This is a theoretical computer science issue where heavy formalism is expected and justified. Final: 0 CRITICAL, 0 LIMITED, 5 ADEQUATE, 0 STRONG."
+}

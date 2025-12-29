@@ -1,0 +1,163 @@
+{
+  "batch_id": "2011-v14-n3",
+  "analysis_timestamp": "2025-12-29T15:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 14,
+    "issue": 3,
+    "year": 2011
+  },
+
+  "papers": [
+    {
+      "paper_id": "ravariu2011",
+      "paper": {
+        "title": "Arguments for The NOI Nanotransistor Affiliation to The FETs Family",
+        "authors": ["Cristian Ravariu", "Adrian Rusu"],
+        "abstract": "Among the nanodevices, the vacuum nanotransistors are intensively studied in the last decade. A recent novel device was proposed as the NOI - Nothing On Insulator - nanotransistor, inspired from ultrathin SOI devices. The paper proves that its particularity comes from affiliation to the FETs family, monitoring the gate-control on the drain current. A new model parameter comes to complete the NOI theory. The third order derivative was used for the extraction of a threshold drain-source voltage.",
+        "keywords": ["SOI devices", "Field Effect Transistors", "modeling", "simulation"],
+        "doi": null,
+        "pages": "203-211"
+      },
+      "scores": {"formalism": 85, "citation_integrity": 85, "structural_integrity": 85, "artifact_availability": 50, "intellectual_integrity": 85, "composite": 76, "final": 76},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Novel nanodevice physics paper with appropriate Level 4 formalism. Poisson's equation integration, carrier concentration modeling, and threshold extraction via third-order derivatives are intrinsically necessary for semiconductor device theory."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Novel vacuum nanotransistor (NOI) device physics and FET classification\n**Level:** 4 (High - semiconductor device physics)\n**Rationale:** Paper develops new analytical models for carrier transport in a novel nanostructure, requiring solution of Poisson's equation and derivation of threshold parameters.\n\n### Formal Elements\n- Definitions: 0 formal\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 major (drain current model, Poisson equation, carrier concentration, threshold extraction)\n\n### Proportionality\nCalculated complexity: ~8\nExpected range (Level 4): 30-80\nRatio: 0.1x upper bound\n\n**Assessment:** Proportionate - equations are standard semiconductor physics (Poisson equation, carrier concentration formula). Formalism is minimal and necessary.\n\n### Necessity Test\n- Eq. 1 (ID-VDS tunneling model): NECESSARY - defines novel device behavior\n- Eq. 2 (Poisson equation): NECESSARY - fundamental physics\n- Eq. 3 (VG-fS relationship): NECESSARY - derives gate control mechanism\n- Eq. 4 (carrier concentration): NECESSARY - proves FET-like behavior\n- Third-order derivative method: NECESSARY - establishes threshold extraction methodology\n\n### Issues\nNone identified. Paper uses appropriate physics formalism for Level 4 device theory.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio: ~3/19 = 15.8% (references 2,4-6,9,12-15 by Ravariu)\nTopical similarity: HIGH - all self-citations are directly on NOI device development\nNo citation concerns identified.\n\n---\n\n## Structural Analysis\n\nClaim-evidence ratio: Adequate - analytical model supported by Atlas simulations\nLimitations: Acknowledged implicitly (specific parameter ranges)\nArtifacts: Simulation methodology described but no public code/data\n\n---\n\n## Conclusion\n\nSolid semiconductor device physics paper with appropriate formalism for Level 4 content. The mathematical treatment (Poisson equation, threshold extraction) is intrinsic to device physics methodology. Self-citations are topically relevant to prior NOI device work."
+    },
+    {
+      "paper_id": "cismaru2011",
+      "paper": {
+        "title": "EMBG Resonators Based on Carbon Nanotubes for DNA Detection",
+        "authors": ["Alina Cismaru", "Marius Voicu", "Antonio Radoi", "Adrian Dinescu", "Dan Neculoiu", "Mircea Dragoman"],
+        "abstract": "The paper presents modeling, fabrication and measurements of microwave propagation in electromagnetic band gap (EMBG) CNTs based resonator for DNA detection. Detection of DNA using EMBG resonators based on CNTs was demonstrated by a shift of the resonance frequency and an averaged phase shift of 20 degrees for a broadband frequency range of 6-20 GHz.",
+        "keywords": ["electromagnetic band gap", "resonators", "CNTs", "DNA detection", "high frequency"],
+        "doi": null,
+        "pages": "212-221"
+      },
+      "scores": {"formalism": 90, "citation_integrity": 90, "structural_integrity": 85, "artifact_availability": 60, "intellectual_integrity": 88, "composite": 81, "final": 81},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Experimental microwave biosensor paper. Minimal formalism (standard impedance calculations) appropriate for Level 3 applied physics. Strong experimental validation with fabrication details and measured S-parameters."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Electromagnetic band gap resonator with CNTs for DNA sensing at microwave frequencies\n**Level:** 3 (Medium - applied electromagnetics with novel sensing application)\n**Rationale:** Novel application combining EMBG structures with CNT-DNA composites for biosensing. Contribution is primarily experimental with CST simulations.\n\n### Formal Elements\n- Definitions: 0 formal\n- Theorems: 0\n- Proofs: 0\n- Equations: Impedance values mentioned (Z1=40 ohm, Z2=116 ohm, Zd=46 ohm) - standard design parameters\n\n### Proportionality\nCalculated complexity: ~2\nExpected range (Level 3): 10-40\nRatio: 0.05x upper bound\n\n**Assessment:** Proportionate - Paper is primarily experimental. Minimal equations are standard CPW impedance values from EM simulation.\n\n### Necessity Test\n- Impedance values: NECESSARY - standard microwave design parameters\n- CST simulation methodology: APPROPRIATE - standard EM modeling approach\n\n### Issues\nNone identified. Paper appropriately focuses on experimental results rather than unnecessary formalization.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio: 0/7 = 0%\nNo self-citation concerns. References are topically relevant to EMBG structures and DNA sensing.\n\n---\n\n## Structural Analysis\n\nClaim-evidence ratio: Strong - claims supported by fabrication details, SEM photos, and measured S-parameters\nLimitations: Acknowledged (next step is ss DNA vs ds DNA hybridization)\nArtifacts: Fabrication process described in detail, measured data presented\n\n---\n\n## Conclusion\n\nStrong experimental paper demonstrating novel DNA sensing approach using EMBG-CNT resonators. Formalism is minimal and appropriate - the paper's strength is in the experimental demonstration rather than mathematical analysis. Phase shift and frequency shift measurements provide concrete evidence for sensing mechanism."
+    },
+    {
+      "paper_id": "serban2011",
+      "paper": {
+        "title": "CO2 Sensing Layers for SAW/BAW Devices",
+        "authors": ["Bogdan Serban", "A. K. Sarin Kumar", "Mihai Brezeanu", "Cornel Cobianu", "Octavian Buiu", "Cazimir Bostan", "Nicolae Varachiu", "Stefan Costea"],
+        "abstract": "The CO2 sensing performance of several coating layers deposited on piezoelectric devices (Surface and Bulk Acoustic wave - SAW/BAW) are discussed and compared. The layers are amino groups-based polymers and their selection was based on two principles: Hard Soft Acid Bases (HSAB) and Bronsted-Lowry.",
+        "keywords": ["SAW", "BAW", "CO2 sensing", "HSAB", "Bronsted-Lowry"],
+        "doi": null,
+        "pages": "222-231"
+      },
+      "scores": {"formalism": 85, "citation_integrity": 75, "structural_integrity": 80, "artifact_availability": 50, "intellectual_integrity": 80, "composite": 73, "final": 73},
+      "flags": ["ELEVATED_SELF_CITATION"],
+      "flag_details": {"ELEVATED_SELF_CITATION": "Self-citation ratio ~6/23 = 26%. References 6-14 include multiple prior works by same research group. However, citations are topically relevant to CO2 sensing with SAW/BAW devices."},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Applied chemistry/sensor paper comparing sensing mechanisms. Chemical reaction equations (Eq. 1) and sensitivity measurements are appropriate for Level 2 applied sensor research. Elevated self-citation but topically relevant."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Comparison of CO2 sensing mechanisms using different polymer coatings on SAW/BAW devices\n**Level:** 2 (Low - applied sensor characterization)\n**Rationale:** Paper compares existing sensing mechanisms (HSAB vs Bronsted-Lowry) using standard frequency shift measurements. No novel algorithms or theoretical contributions.\n\n### Formal Elements\n- Definitions: 0 formal\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (chemical reaction equation for tertiary amines with CO2)\n\n### Proportionality\nCalculated complexity: ~2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Proportionate - Minimal formalism appropriate for experimental sensor comparison.\n\n### Necessity Test\n- Eq. 1 (amine-CO2 reaction): NECESSARY - explains sensing mechanism chemistry\n- Sensitivity calculations: NECESSARY - standard sensor metrics\n\n### Issues\nNone with formalism. Paper appropriately focuses on experimental comparison of sensing materials.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio: ~6/23 = 26% (elevated but not excessive)\nTopical similarity: HIGH - all self-citations are on SAW/BAW CO2 sensing\nPatent citations (refs 8,11,13,14) from same group - relevant prior work\n\n---\n\n## Structural Analysis\n\nClaim-evidence ratio: Adequate - frequency shifts and sensitivities measured and compared\nLimitations: Not explicitly discussed but comparison implicitly acknowledges tradeoffs\nArtifacts: Experimental methodology described\n\n---\n\n## Conclusion\n\nSolid applied sensor comparison paper with appropriate minimal formalism. The elevated self-citation is justified by the group's prior work in this specific sensing domain. Experimental data supports the conclusion that HSAB principle provides better sensing selection criteria."
+    },
+    {
+      "paper_id": "neacsu2011",
+      "paper": {
+        "title": "A Continuous Chaos Generator Using Harmonic Oscillator Circuit",
+        "authors": ["Cristian Neacsu", "Valentin Chesaru", "Claudius Dan", "Mircea Bodea"],
+        "abstract": "This paper presents a continuous time chaos generator based on a simple oscillator structure. The developed mathematical model, Spice simulation and hardware implementation of the circuit demonstrate the strange attractor and chaotic behavior.",
+        "keywords": ["chaos generator", "harmonic oscillator", "strange attractor", "Lyapunov exponent"],
+        "doi": null,
+        "pages": "232-241"
+      },
+      "scores": {"formalism": 90, "citation_integrity": 90, "structural_integrity": 90, "artifact_availability": 70, "intellectual_integrity": 90, "composite": 85, "final": 85},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Nonlinear dynamics paper with appropriate Level 4 formalism. Differential equations, Jacobian analysis, eigenvalue calculations, and Lyapunov exponent estimation are intrinsically necessary for chaos characterization. Hardware validation included."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Chaos generation in harmonic oscillator with amplitude control\n**Level:** 4 (High - nonlinear dynamics/chaos theory)\n**Rationale:** Paper analyzes bifurcation and chaotic behavior, requiring dynamical systems analysis including Jacobian, eigenvalues, Lyapunov exponents, and Poincare sections.\n\n### Formal Elements\n- Definitions: 0 formal (Lambert function referenced)\n- Theorems: 0\n- Proofs: 0\n- Equations: 17 (differential equations 1-6, canonical form 7, Lambert function 8-9, fixed point 10-11, Jacobian 12-17)\n\n### Proportionality\nCalculated complexity: ~34\nExpected range (Level 4): 30-80\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate - Equations are intrinsic to chaos analysis (state equations, Jacobian, eigenvalues).\n\n### Necessity Test\n- Eqs 1-3 (circuit differential equations): NECESSARY - define system dynamics\n- Eq. 7 (canonical form): NECESSARY - standard chaos analysis formulation\n- Eqs 8-9 (Lambert function): NECESSARY - closed-form solution\n- Eqs 12-17 (Jacobian/eigenvalues): NECESSARY - stability and bifurcation analysis\n- Divergence calculation: NECESSARY - attractor characterization\n\n### Issues\nNone identified. All formalism is intrinsic to nonlinear dynamics methodology.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio: 0/3 = 0%\nMinimal but appropriate references to chaos theory fundamentals.\n\n---\n\n## Structural Analysis\n\nClaim-evidence ratio: Strong - theory validated by SPICE simulation, Matlab analysis, and hardware oscilloscope captures\nLimitations: Not explicitly discussed\nArtifacts: Circuit schematic provided, component values specified, Lyapunov exponent measurements shown\n\n---\n\n## Conclusion\n\nExcellent nonlinear dynamics paper with complete theoretical-simulation-hardware validation chain. Formalism is appropriate for Level 4 chaos analysis. Poincare sections, bifurcation analysis, and Lyapunov exponent estimation are standard methodology for chaos characterization."
+    },
+    {
+      "paper_id": "rusu2011",
+      "paper": {
+        "title": "Programmable Low Pass Filter Using the Gated Diode in Breakdown Collapse Regime",
+        "authors": ["Alexandru Rusu", "Dragos Dobrescu", "Corneliu Burileanu", "Adrian Rusu"],
+        "abstract": "This paper presents a unity-gain follower amplifier based on a gated diode operated in breakdown regime in common cathode configuration. The maximum frequency that can be applied on the entrance of the amplifier so that the output remains undistorted is dependent on the bias current therefore it can be used also as a programmable low pass filter.",
+        "keywords": ["Gated Diode", "Breakdown", "Common Cathode", "Small Signal"],
+        "doi": null,
+        "pages": "242-250"
+      },
+      "scores": {"formalism": 85, "citation_integrity": 85, "structural_integrity": 85, "artifact_availability": 65, "intellectual_integrity": 85, "composite": 80, "final": 80},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Semiconductor device characterization with appropriate Level 3-4 formalism. Current-voltage relations and capacitance-frequency equations are standard device physics. Experimental validation with DC and AC measurements."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Gated diode breakdown characterization and application as programmable filter\n**Level:** 3-4 (Medium-High - semiconductor device physics)\n**Rationale:** Novel application of gated diode in breakdown regime requiring device characterization and frequency response analysis.\n\n### Formal Elements\n- Definitions: 0 formal\n- Theorems: 0\n- Proofs: 0\n- Equations: ~6 (current definition, capacitance relation, frequency limit formula, empirical fit)\n\n### Proportionality\nCalculated complexity: ~12\nExpected range (Level 3): 10-40\nRatio: 0.3x upper bound\n\n**Assessment:** Proportionate - Equations are standard device physics relations.\n\n### Necessity Test\n- Current-capacitance relation: NECESSARY - fundamental physics\n- Frequency-bias current relationship: NECESSARY - key finding for programmable filter\n- Empirical fit (f_max = 7x10^11 * I_A^1.5643): NECESSARY - extracted from measurements\n\n### Issues\nNone identified. Formalism is standard semiconductor device characterization.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio: ~1/5 = 20%\nReference [1] is prior work on gated diode breakdown characterization - topically relevant.\n\n---\n\n## Structural Analysis\n\nClaim-evidence ratio: Strong - theoretical explanation supported by DC measurements, capacitance measurements, and AC characterization\nLimitations: Acknowledged (effect at 1-3 uA needs further study)\nArtifacts: Measurement setup described, 4156C and 4284A instruments specified\n\n---\n\n## Conclusion\n\nWell-structured device characterization paper with appropriate formalism. The frequency-bias current relationship is the key contribution, derived from measurements. Good balance of theory and experimental validation."
+    },
+    {
+      "paper_id": "stanescu2011",
+      "paper": {
+        "title": "Adjustable LDO with External Control Technique for Current Limit",
+        "authors": ["Cornel Stanescu", "Radu Iacob", "Cristian Dinca", "Ovidiu Profirescu"],
+        "abstract": "This paper presents an adjustable LDO with external control technique for the current limit. Using an external resistor, the user can change the current limit within wide domain. The proposed LDO has a fast transient response and can deliver up to 300 mA continuous load current.",
+        "keywords": ["LDO", "current limit", "CMOS", "external control"],
+        "doi": null,
+        "pages": "251-258"
+      },
+      "scores": {"formalism": 90, "citation_integrity": 90, "structural_integrity": 90, "artifact_availability": 70, "intellectual_integrity": 90, "composite": 85, "final": 85},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Circuit design paper with minimal, appropriate formalism. Equations 1-2 are standard Ohm's law calculations for design. Strong validation with HSPICE simulations and silicon measurements in 0.5um CMOS."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** CMOS LDO voltage regulator with external current limit control\n**Level:** 3 (Medium - analog IC design)\n**Rationale:** Novel circuit technique for externally programmable current limit. Contribution is circuit design validated by simulation and silicon.\n\n### Formal Elements\n- Definitions: 0 formal\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (Ohm's law for IREXT, VIN_MIN calculation)\n\n### Proportionality\nCalculated complexity: ~4\nExpected range (Level 3): 10-40\nRatio: 0.1x upper bound\n\n**Assessment:** Proportionate - Minimal equations are basic circuit calculations.\n\n### Necessity Test\n- Eq. 1 (I_REXT = V_REF/R_EXT): NECESSARY - fundamental design calculation\n- Eq. 2 (VIN_MIN): NECESSARY - operating condition specification\n\n### Issues\nNone identified. Paper appropriately focuses on circuit design and silicon validation rather than unnecessary formalization.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio: 3/3 = 100% (but only 3 references total)\nAll self-citations are prior LDO work by same author - directly relevant prior art.\n\n---\n\n## Structural Analysis\n\nClaim-evidence ratio: Strong - HSPICE simulation results match silicon measurements\nLimitations: Acknowledged (discrepancy in I_OUT-SC without R_EXT noted)\nArtifacts: Fabricated in 0.5um CMOS, 1.3 mm2 die area, measured results presented\n\n---\n\n## Conclusion\n\nExcellent circuit design paper with complete simulation-silicon validation. Minimal formalism is appropriate - the contribution is the circuit technique, not mathematical analysis. Good acknowledgment of measurement discrepancies requiring further analysis."
+    },
+    {
+      "paper_id": "giacomozzi2011",
+      "paper": {
+        "title": "A Flexible Fabrication Process for RF MEMS Devices",
+        "authors": ["F. Giacomozzi", "V. Mulloni", "S. Colpo", "J. Iannacci", "B. Margesin", "A. Faes"],
+        "abstract": "RF MEMS are assuming a great importance in the fast evolving telecommunication market and space applications. The paper reports about the fabrication process and its capabilities. The most important process features are described together with some modifications required for specific devices.",
+        "keywords": ["RF-MEMS", "fabrication process"],
+        "doi": null,
+        "pages": "259-268"
+      },
+      "scores": {"formalism": 95, "citation_integrity": 90, "structural_integrity": 85, "artifact_availability": 70, "intellectual_integrity": 90, "composite": 85, "final": 85},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Process technology paper with zero unnecessary formalism. Purely descriptive of fabrication steps with excellent detail on temperatures, thicknesses, and materials. Strong validation with device photos and S-parameter measurements."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** RF MEMS fabrication process development at FBK\n**Level:** 2-3 (Low-Medium - process technology description)\n**Rationale:** Paper describes fabrication process steps and capabilities. Contribution is process development, not algorithmic or theoretical.\n\n### Formal Elements\n- Definitions: 0 formal\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate - Zero formalism is exactly appropriate for a process technology paper.\n\n### Necessity Test\nNo formal elements to test. Paper is descriptive technology documentation.\n\n### Issues\nNone. Paper exemplifies appropriate lack of formalism for descriptive process work.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio: ~3/7 = 43% (refs 2,3,7 by FBK team)\nAll self-citations are directly on FBK RF MEMS process and devices - appropriate prior work.\n\n---\n\n## Structural Analysis\n\nClaim-evidence ratio: Strong - process claims supported by device photos, SEM images, and S-parameter measurements\nLimitations: Acknowledged (dielectric charging discussed with solution)\nArtifacts: Complete process flow described with parameters\n\n---\n\n## Conclusion\n\nExemplary process technology paper. Zero formalism is correct for descriptive fabrication work. Strong experimental validation with device performance data. The paper correctly focuses on process details rather than mathematical decoration."
+    },
+    {
+      "paper_id": "bunea2011",
+      "paper": {
+        "title": "Analytic and Electromagnetic Investigation of Millimeter Wave Membrane Supported CPWs Processed on High Resistivity Silicon",
+        "authors": ["Alina-Cristina Bunea", "Dan Neculoiu", "Alexandru Muller"],
+        "abstract": "This paper investigates a series of membrane supported millimeter wave transmission lines up to 110 GHz. Three approaches, based on full-wave electromagnetic simulations, analytic closed form equations and equivalent circuit were used. The effective permittivity of a membrane supported CPW line was extracted from measurements and is in very good agreement with EM simulated data.",
+        "keywords": ["effective permittivity", "characteristic impedance", "electromagnetic modeling", "millimeter wave", "silicon micromachining"],
+        "doi": null,
+        "pages": "269-283"
+      },
+      "scores": {"formalism": 90, "citation_integrity": 90, "structural_integrity": 90, "artifact_availability": 65, "intellectual_integrity": 90, "composite": 84, "final": 84},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Transmission line modeling paper with appropriate Level 3-4 formalism. Equations 1-8 are standard CPW design formulas from established references. Strong validation comparing analytic, EM simulation, and measurement results."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Millimeter-wave CPW characterization on membrane using analytic, EM, and equivalent circuit methods\n**Level:** 3-4 (Medium-High - microwave engineering)\n**Rationale:** Paper compares three modeling approaches for mm-wave transmission lines. Uses established formulas and validates against measurements.\n\n### Formal Elements\n- Definitions: 0 formal\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (CPW characteristic impedance, elliptic integral ratio, effective permittivity formulas from [8,9])\n\n### Proportionality\nCalculated complexity: ~16\nExpected range (Level 3): 10-40\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate - Equations are standard CPW formulas from references [8,9].\n\n### Necessity Test\n- Eq. 1 (Z_c characteristic impedance): NECESSARY - standard CPW formula\n- Eq. 2 (elliptic integral ratio): NECESSARY - computational technique\n- Eq. 3 (effective permittivity): NECESSARY - accounts for finite substrate\n- Eqs 5-8 (open-end capacitance, effective permittivity): NECESSARY - standard microstrip formulas\n\n### Issues\nNone identified. All equations are referenced to established sources and necessary for transmission line design.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio: ~1/10 = 10%\nReference [4] is prior work on MEMS antennas - topically relevant.\n\n---\n\n## Structural Analysis\n\nClaim-evidence ratio: Strong - analytic formulas validated against EM simulation and measurements\nLimitations: Acknowledged (certain calibration sensitivity for low insertion loss)\nArtifacts: Fabrication process described, Matlab code mentioned, VNA measurements presented\n\n---\n\n## Conclusion\n\nStrong transmission line modeling paper demonstrating good agreement between three analysis methods. Formalism is appropriate - all equations are standard microwave engineering formulas from established references. Excellent validation chain from theory to simulation to measurement."
+    },
+    {
+      "paper_id": "buiculescu2011",
+      "paper": {
+        "title": "Operating Frequency Extension of Surface Assembled Microwave Components",
+        "authors": ["Valentin Buiculescu"],
+        "abstract": "A novel transition from microstrip and coplanar lines to the specific signal interfaces of usual surface assembled components is considered. It is aimed to improve the bandwidth of printed circuit board based packages provided by smaller values and better geometry controlled parasitic elements.",
+        "keywords": ["surface mount assembly", "coplanar waveguide", "microstrip line", "low-pass filter", "substrate-integrated waveguide"],
+        "doi": null,
+        "pages": "284-295"
+      },
+      "scores": {"formalism": 85, "citation_integrity": 90, "structural_integrity": 85, "artifact_availability": 60, "intellectual_integrity": 85, "composite": 79, "final": 79},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "RF packaging paper with appropriate Level 2-3 formalism. Equations 1-8 are standard transmission line formulas from established references. Novel transition design validated with CST simulation and PCB measurements."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Novel transition structure for extending bandwidth of surface-mount RF components\n**Level:** 2-3 (Low-Medium - RF packaging/transmission lines)\n**Rationale:** Paper proposes novel transition geometry for improved bandwidth. Uses standard transmission line formulas from references.\n\n### Formal Elements\n- Definitions: 0 formal\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (inductance calculation from [6], LPF component relations, open-end capacitance from [5])\n\n### Proportionality\nCalculated complexity: ~16\nExpected range (Level 2): 0-15\nRatio: 1.1x upper bound (slightly elevated but justified)\n\n**Assessment:** Proportionate - Equations are standard RF/microwave formulas from established references.\n\n### Necessity Test\n- Eq. 1 (series reactance): NECESSARY - fundamental design constraint\n- Eqs 2-4 (inductance calculation): NECESSARY - wire inductance from [6]\n- Eq. 5 (open-end capacitance): NECESSARY - standard microstrip formula from [5]\n- Eqs 6-8 (effective permittivity): NECESSARY - standard microstrip formulas\n\n### Issues\nNone identified. All equations are referenced to established sources.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio: ~2/11 = 18%\nReferences [7,11] are author's prior work on SIW transitions - directly relevant.\n\n---\n\n## Structural Analysis\n\nClaim-evidence ratio: Adequate - simulation results compared with measurements\nLimitations: Acknowledged (FR-4 permittivity tolerance explains measurement discrepancy)\nArtifacts: Test structures fabricated, CST simulation methodology described\n\n---\n\n## Conclusion\n\nSolid RF packaging paper with appropriate formalism. All equations are standard transmission line formulas properly referenced. Good acknowledgment of measurement-simulation discrepancy due to substrate material tolerance."
+    }
+  ],
+
+  "batch_notes": "Volume 14 Issue 3 (2011) analyzed with RUIN Framework v2.0 and Necessity Test. **All 9 papers pass formalism proportionality tests.** This batch represents solid experimental/applied work in electronics, MEMS, and microwave engineering. Papers appropriately match formalism level to concept complexity: Level 4 papers (chaos, nanodevice physics) use necessary dynamical systems and semiconductor physics equations; Level 2-3 papers (sensors, circuits, fabrication) minimize formalism and focus on experimental validation. One paper flagged for elevated self-citation (26%) but citations are topically relevant. Final: 0 CRITICAL, 0 CONCERNING, 0 LIMITED, 3 ADEQUATE, 6 STRONG."
+}

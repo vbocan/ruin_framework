@@ -1,0 +1,333 @@
+{
+  "batch_id": "2023-v26-n2",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 26,
+    "issue": 2,
+    "year": 2023
+  },
+
+  "papers": [
+    {
+      "paper_id": "yurtkan2023",
+      "paper": {
+        "title": "Student Success Prediction Using Feedforward Neural Networks",
+        "authors": ["Kamil Yurtkan", "Ahmet Adalier", "Umut Tekguc"],
+        "abstract": "Predicts student success using feedforward neural networks with variance-based feature selection. Tested on X-API dataset from Kalboard 360. Achieves 91.95% with behavioral features and 93.17% without feature selection.",
+        "keywords": ["Educational data mining", "feature selection", "feedforward neural networks", "student performance", "student success prediction"],
+        "doi": "10.59277/ROMJIST.2023.2.01",
+        "pages": "121-136"
+      },
+      "scores": {
+        "formalism": 40,
+        "citation_integrity": 80,
+        "structural_integrity": 75,
+        "artifact_availability": 50,
+        "intellectual_integrity": 45,
+        "composite": 54,
+        "final": 0
+      },
+      "flags": ["FORMALISM_THEATER"],
+      "flag_details": {
+        "FORMALISM_THEATER": "Level 2 applied ML paper presents textbook backpropagation equations (Eq. 1) as if novel. Feature vector notation (Eq. 2-3) is trivial set-builder notation for simple lists. Standard FFNN applied to educational dataset requires no mathematical formulation beyond implementation details."
+      },
+      "verdict": {
+        "classification": "CRITICAL",
+        "disqualified": true,
+        "summary": "Standard feedforward neural network applied to student success prediction. Presents textbook backpropagation as formal contribution. Feature selection based on variance is elementary. FORMALISM_THEATER: Level 2 paper with unnecessary mathematical presentation of standard algorithms."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** FFNN for student success prediction\n**Level:** 2 (Standard ML application)\n**Rationale:** Applying existing FFNN architecture to educational dataset. No novel ML contribution.\n\n### Necessity Test\n- Backpropagation (Eq. 1): FAILS - Standard textbook algorithm, not a novel contribution\n- Feature vectors (Eq. 2-3): FAILS - Trivial notation for \"list of features\"\n- Variance-based selection: Could be described in plain English\n\n**Verdict:** FORMALISM_THEATER - Mathematical notation used for standard, well-known algorithms.\n\n### Issues\n- Presents standard FFNN backpropagation as if it were a contribution\n- Feature vector notation adds no clarity over prose description"
+    },
+    {
+      "paper_id": "mortazavi2023",
+      "paper": {
+        "title": "Detecting Images with Adult Content Using SURF and Haar Wavelet",
+        "authors": ["Mohammad Mortazavi T.", "Omid Mahdi Ebadati E.", "Dang N. H. Thanh", "Tudor Barbu"],
+        "abstract": "Framework for detecting nudity using SURF algorithm and Haar wavelet. Offline/online modules. 899 images, 300 features per image, bag of features with SVM. Achieves 89.3% accuracy, 86.2% sensitivity, 92.03% specificity.",
+        "keywords": ["Adult content", "Haar wavelets", "machine learning", "machine vision", "nudity detection", "SURF", "SVM"],
+        "doi": "10.59277/ROMJIST.2023.2.02",
+        "pages": "137-150"
+      },
+      "scores": {
+        "formalism": 45,
+        "citation_integrity": 75,
+        "structural_integrity": 70,
+        "artifact_availability": 40,
+        "intellectual_integrity": 50,
+        "composite": 53,
+        "final": 0
+      },
+      "flags": ["FORMALISM_THEATER"],
+      "flag_details": {
+        "FORMALISM_THEATER": "Level 2 applied CV paper presents standard SURF algorithm equations (Hessian matrix Eq. 1, descriptor vector Eq. 2) copied from algorithm documentation. No novel mathematical contribution. Bag of features + SVM is a standard pipeline requiring no formal presentation."
+      },
+      "verdict": {
+        "classification": "CRITICAL",
+        "disqualified": true,
+        "summary": "Standard SURF + SVM pipeline for adult content detection. Equations are copied from SURF algorithm description - not novel contributions. FORMALISM_THEATER: Presenting standard algorithm formulas as if they were research contributions."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Image classification for adult content\n**Level:** 2 (Standard CV pipeline)\n**Rationale:** Combining existing techniques (SURF, Haar, SVM) for classification task.\n\n### Necessity Test\n- Hessian matrix (Eq. 1): FAILS - This is the standard SURF definition, not a contribution\n- SURF descriptor (Eq. 2): FAILS - Copied from algorithm specification\n- Bag of features: Standard technique, no formalization needed\n\n**Verdict:** FORMALISM_THEATER - Equations are from algorithm documentation, not original work.\n\n### Issues\n- Presents SURF algorithm equations as contributions\n- No novel mathematical formulation\n- Dataset not publicly available"
+    },
+    {
+      "paper_id": "badovinac2023",
+      "paper": {
+        "title": "Biometric Authentication Model Based on Transformation of Face Image into a PIN Number Usable During the Covid-19 Pandemic",
+        "authors": ["Nenad Badovinac", "Dejan Simic"],
+        "abstract": "Biometric authentication using eye features (IPD, eye color) to generate stable PIN. Works with face masks during Covid-19. Uses SDK for iris landmark detection. Tested on 50 persons with 6 facial expressions each. 1% deviation threshold enables authentication.",
+        "keywords": ["Biometric authentication", "Covid-19", "electronic payments", "facial biometric", "PIN number"],
+        "doi": "10.59277/ROMJIST.2023.2.03",
+        "pages": "151-162"
+      },
+      "scores": {
+        "formalism": 65,
+        "citation_integrity": 75,
+        "structural_integrity": 75,
+        "artifact_availability": 50,
+        "intellectual_integrity": 70,
+        "composite": 66,
+        "final": 66
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "LIMITED",
+        "disqualified": false,
+        "summary": "Practical biometric system for Covid-era authentication. Minimal formalism - simple IPD calculations and PIN generation algorithm. Appropriate for applied security engineering paper. Novel application concept though limited technical depth."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Eye-based biometric PIN generation\n**Level:** 2 (Applied biometric system)\n**Rationale:** Practical system integrating existing SDK with novel application.\n\n### Necessity Test\n- IPD calculation: Simple Euclidean distance - appropriately minimal\n- PIN algorithm: Clearly described, no excessive notation\n- Eye color classification: Referenced to prior work\n\n**Verdict:** Appropriate minimal formalism for application paper.\n\n### Issues\n- Limited novelty in core algorithms\n- SDK-dependent implementation"
+    },
+    {
+      "paper_id": "muller2023_editorial",
+      "paper": {
+        "title": "Editorial: Special Issue on Topics in Electronics, Microtechnologies and Materials Science",
+        "authors": ["Raluca Muller", "Miron Adrian Dinescu"],
+        "abstract": "Editorial introducing CAS 2022 conference special issue. Summarizes 7 selected papers on electronic instrumentation, Schottky diodes, SiC BJT, V2O5 properties, SAW sensors, SARS-CoV-2 biosensor, and SiC etching.",
+        "keywords": ["CAS 2022", "Editorial", "Electronics", "Microtechnologies", "Materials Science"],
+        "doi": "10.59277/ROMJIST.2023.2.04",
+        "pages": "163-166"
+      },
+      "scores": {
+        "formalism": null,
+        "citation_integrity": null,
+        "structural_integrity": null,
+        "artifact_availability": null,
+        "intellectual_integrity": null,
+        "composite": null,
+        "final": null
+      },
+      "flags": ["EDITORIAL"],
+      "flag_details": {
+        "EDITORIAL": "This is an editorial/introduction to a special issue, not a research paper. Not scored under RUIN framework."
+      },
+      "verdict": {
+        "classification": "NOT_APPLICABLE",
+        "disqualified": false,
+        "summary": "Editorial introducing CAS 2022 special issue. Not a research paper - excluded from RUIN scoring."
+      },
+      "provenance": "## Editorial\n\nThis is an editorial introducing a special issue from the CAS 2022 conference. It summarizes the 7 papers included in the special issue but contains no original research content. Excluded from RUIN analysis."
+    },
+    {
+      "paper_id": "onet2023",
+      "paper": {
+        "title": "A Blended On-Campus and At-Home Approach to Laboratories on Electronic Circuits",
+        "authors": ["Raul Onet", "Marius Neag", "Albert Fazakas", "Paul Miresan", "Gabriel Petrasuc", "Iulian Sularea", "Alessandro Battigelli", "Michael Murray", "Martin Hill"],
+        "abstract": "HELP kit for blended electronics lab education. Portable kit with Hantek 2D72 oscilloscope and custom electronic board. Tested with 18 students split into two groups. HELP group achieved nearly 2 points higher lab marks and 1+ point higher exam marks.",
+        "keywords": ["Assessment of laboratory work", "electrical engineering education", "home electronics laboratory", "online learning", "portable electronic laboratory kits"],
+        "doi": "10.59277/ROMJIST.2023.2.05",
+        "pages": "167-180"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 75,
+        "intellectual_integrity": 80,
+        "composite": 80,
+        "final": 80
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Engineering education paper describing practical lab kit development. No unnecessary formalism - appropriate descriptive approach for hardware/education paper. Clear methodology with controlled study showing positive outcomes."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Educational laboratory kit development\n**Level:** 1 (Engineering description and educational study)\n**Rationale:** Hardware design and educational assessment - no theoretical framework needed.\n\n### Necessity Test\n- Block diagrams: Appropriate for hardware description\n- Circuit specifications: Necessary technical details\n- No mathematical formalism: Correct choice for this content\n\n**Verdict:** Appropriate - descriptive paper correctly avoids unnecessary formalism.\n\n### Issues\nNone - formalism level matches content complexity."
+    },
+    {
+      "paper_id": "pascu2023",
+      "paper": {
+        "title": "Enhanced Method of Schottky Barrier Diodes Performance Assessment",
+        "authors": ["Razvan Pascu", "Gheorghe Pristavu", "Dan-Theodor Oneata", "Marius Stoian", "Cosmin Romanitan", "Mihaela Kusko", "Florin Draghici", "Gheorghe Brezeanu"],
+        "abstract": "Characterization of Ti/Si and Mo/Si Schottky diodes over 15-500K temperature range. Post-metallization annealing in forming gas. XRD confirms silicide formation. P-diode model explains behavior as three parallel diodes. Wide temperature characterization methodology.",
+        "keywords": ["Forming gas", "inhomogeneity", "metal silicides", "p-diode model", "Schottky barrier diode"],
+        "doi": "10.59277/ROMJIST.2023.2.06",
+        "pages": "181-192"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 80,
+        "composite": 79,
+        "final": 79
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Semiconductor device characterization with standard thermionic emission equations. Formalism is necessary for device physics analysis. P-diode model provides useful extension. XRD characterization supports claims."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Schottky diode characterization\n**Level:** 3 (Device physics and characterization)\n**Rationale:** Semiconductor device analysis requiring physical models.\n\n### Necessity Test\n- Thermionic emission (Eq. 1-2): PASSES - Standard necessary equations for SBD analysis\n- Richardson constant: Standard device physics\n- Inhomogeneity model: Appropriate for observed behavior\n\n**Verdict:** Formalism is domain-appropriate and necessary.\n\n### Issues\nNone - standard semiconductor device paper."
+    },
+    {
+      "paper_id": "ammar2023",
+      "paper": {
+        "title": "Design, Fabrication and Characterization of 10 kV 4H-SiC BJT for the Phototransistor Target",
+        "authors": ["Ali Ammar", "Mihai Lazar", "Bertrand Vergne", "Sigo Scharnholz", "Luong Viet Phung", "Pierre Brosselard", "Dominique Tournier", "Camille Sonneville", "Christophe Raynaud", "Marcin Zielinski", "Herve Morel", "Dominique Planson"],
+        "abstract": "10 kV, 10 A SiC BJT design and fabrication. JTE + guard ring peripheral protection. TCAD simulations for optimization. Achieved 11 kV breakdown voltage. Current gain up to 20-27. Optical control tests show encouraging results for phototransistor application.",
+        "keywords": ["Bipolar junction transistor", "high-voltage power semiconductor device", "peripheral protection", "power electronics", "silicon carbide"],
+        "doi": "10.59277/ROMJIST.2023.2.07",
+        "pages": "193-204"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 75,
+        "intellectual_integrity": 80,
+        "composite": 79,
+        "final": 79
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Power semiconductor device paper with appropriate TCAD-based design methodology. Minimal mathematical formalism - focus on fabrication process and characterization results. 11 kV blocking voltage achievement validates design approach."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** High-voltage SiC BJT design and fabrication\n**Level:** 3 (Power electronics device)\n**Rationale:** Novel device design with fabrication and characterization.\n\n### Necessity Test\n- TCAD simulations: Appropriate methodology\n- Fabrication process: Descriptive, no unnecessary formalism\n- Characterization: Standard I-V measurements\n\n**Verdict:** Appropriate formalism level for device fabrication paper.\n\n### Issues\nNone - good balance of design, fabrication, and characterization."
+    },
+    {
+      "paper_id": "romanitan2023",
+      "paper": {
+        "title": "Relationship Between Structural and Optical Properties in Vanadium Pentoxide",
+        "authors": ["Cosmin Romanitan", "Iuliana Mihalache", "Silviu Vulpe", "Marius Stoian", "Ioan-Valentin Tudose", "Raluca Gavrila", "Pericle Varasteanu", "Marian Popescu", "Oana Brincoveanu", "Nikolay Djourelov", "Emmanouel Koudoumas", "Mirela Suchea"],
+        "abstract": "V2O5 thin films by spray pyrolysis (SPT) and RF magnetron sputtering (RF-MS). Morpho-structural characterization via SEM, AFM, XRD, XRR. Rietveld refinement for crystal structure. DRS for bandgap. XPS explains bandgap differences via V4+ oxidation state.",
+        "keywords": ["RF magnetron sputtering", "spray pyrolysis technique", "vanadium oxide", "X-ray diffraction"],
+        "doi": "10.59277/ROMJIST.2023.2.08",
+        "pages": "205-217"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 80,
+        "composite": 79,
+        "final": 79
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Materials science characterization paper. Rietveld refinement equation (Eq. 1) is standard and necessary for XRD analysis. Comprehensive characterization using multiple techniques (SEM, AFM, XRD, XRR, DRS, XPS) with proper correlation of structural-optical properties."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** V2O5 thin film characterization\n**Level:** 3 (Materials science characterization)\n**Rationale:** Multi-technique materials analysis correlating structure to properties.\n\n### Necessity Test\n- Rietveld refinement (Eq. 1): PASSES - Standard necessary equation for XRD analysis\n- Unit cell parameters: Necessary for crystal structure\n- Bandgap from DRS: Standard Kubelka-Munk analysis\n\n**Verdict:** Appropriate formalism for materials characterization.\n\n### Issues\nNone - comprehensive materials science paper."
+    },
+    {
+      "paper_id": "vasilache2023",
+      "paper": {
+        "title": "Development of 0-level Packaged Dual SAW Pressure and Temperature Sensors on GaN Thin Membranes",
+        "authors": ["Dan Vasilache", "Alexandra Nicoloiu", "George Boldeiu", "Ioana Zdru", "Thanasis Kostopoulos", "Monica Nedelcu", "Antonis Stavrinidis", "Claudia Nastase", "George Stavrinidis", "George Konstantinidis", "Adrian Dinescu", "Alexandru Muller"],
+        "abstract": "Dual SAW pressure/temperature sensor on GaN/Si/Mo membrane. FEM simulations for mechanical behavior. E-beam nanolithography for 8.7 GHz operation. 0-level packaging with Si caps. High sensitivity before and after packaging. Membrane breaks at 14-16 Bar as simulated.",
+        "keywords": ["Dual pressure and temperature sensor", "GaN membrane", "package", "surface acoustic wave"],
+        "doi": "10.59277/ROMJIST.2023.2.09",
+        "pages": "218-226"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 75,
+        "intellectual_integrity": 80,
+        "composite": 80,
+        "final": 80
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "SAW sensor development with FEM simulation and fabrication. Minimal formalism - sensitivity and PCF definitions are standard. Good correlation between FEM predictions and experimental results (membrane failure at 14-16 Bar). Packaging methodology enables dual sensing."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** GaN-based SAW pressure/temperature sensor\n**Level:** 3 (Sensor engineering with FEM)\n**Rationale:** Novel dual-mode sensor with packaging solution.\n\n### Necessity Test\n- FEM simulations: Appropriate for mechanical analysis\n- Sensitivity equations: Standard sensor characterization\n- PCF/TCF definitions: Necessary for sensor performance\n\n**Verdict:** Appropriate formalism for sensor development paper.\n\n### Issues\nNone - good integration of simulation, fabrication, and testing."
+    },
+    {
+      "paper_id": "chiriac2023",
+      "paper": {
+        "title": "Ultrasensitive Electrochemical Sensor Based on Vertical Graphene for SARS-CoV-2 Protein N Detection",
+        "authors": ["Eugen Chiriac", "Bianca Adiaconita", "Petruta Preda", "Tiberiu Burinaru", "Catalin Marculescu", "Cristina Pachiu", "Gabriel Craciun", "Andrei Avram", "Marioara Avram"],
+        "abstract": "Electrochemical biosensor for SARS-CoV-2 N protein using vertical graphene modified interdigitated electrodes. AuNPs decoration via APTES/cysteamine functionalization. Characterized by SEM, AFM, Raman. EIS and CV detection methods. Tests at 1 aM concentration.",
+        "keywords": ["EIS detection", "electrochemical biosensor", "graphene", "SARS-CoV-2"],
+        "doi": "10.59277/ROMJIST.2023.2.10",
+        "pages": "227-237"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 80,
+        "structural_integrity": 80,
+        "artifact_availability": 65,
+        "intellectual_integrity": 75,
+        "composite": 74,
+        "final": 74
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Biosensor development paper with appropriate descriptive approach. Minimal formalism - focus on fabrication process and characterization. Raman spectroscopy confirms graphene quality. EIS characterization is standard methodology."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Graphene-based SARS-CoV-2 biosensor\n**Level:** 2-3 (Applied sensor development)\n**Rationale:** Device fabrication and characterization paper.\n\n### Necessity Test\n- Fabrication steps: Descriptive, appropriate\n- Characterization: Standard AFM, Raman, EIS methods\n- No excessive mathematical formalism\n\n**Verdict:** Appropriate minimal formalism for device paper.\n\n### Issues\n- Could provide more quantitative detection limits\n- Limited comparison to existing sensors"
+    },
+    {
+      "paper_id": "beydoun2023",
+      "paper": {
+        "title": "SiC Plasma and Electrochemical Etching for Integrated Technology Processes",
+        "authors": ["Nour Beydoun", "Mihai Lazar", "Xavier Gassmann"],
+        "abstract": "Deep SiC etching combining plasma and electrochemical methods. APTES functionalization for Ni electroplating mask adhesion. ICP/RIE etching up to 30 um. Electrochemical etching with p-type stop layer achieves 80 um depth. Enables vertical power device integration.",
+        "keywords": ["APTES", "etching", "ICP", "Ni electroplating", "plasma", "RIE", "SiC"],
+        "doi": "10.59277/ROMJIST.2023.2.11",
+        "pages": "238-246"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 80,
+        "structural_integrity": 80,
+        "artifact_availability": 70,
+        "intellectual_integrity": 80,
+        "composite": 77,
+        "final": 77
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Process development paper with appropriate descriptive methodology. No unnecessary formalism - focus on etching parameters and results. Combines plasma and electrochemical etching to achieve 80 um depth. Clear process flow with SEM characterization."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** SiC deep etching for power device integration\n**Level:** 2 (Process development)\n**Rationale:** Combining existing techniques for deeper etching.\n\n### Necessity Test\n- Process parameters: Appropriately described\n- SEM characterization: Standard methodology\n- No mathematical formalism: Correct for process paper\n\n**Verdict:** Appropriate - process development paper correctly avoids unnecessary formalism.\n\n### Issues\nNone - good process paper with clear results."
+    }
+  ],
+
+  "batch_notes": "Volume 26 Issue 2 (2023) analyzed with RUIN Framework v2.0 and Necessity Test. **2 papers flagged for FORMALISM_THEATER and disqualified:** (1) yurtkan2023 - presents textbook backpropagation as contribution for standard FFNN application; (2) mortazavi2023 - copies SURF algorithm equations as if novel. **1 paper excluded as EDITORIAL** (muller2023_editorial). Remaining 8 papers have appropriate formalism for their domains (semiconductor devices, sensors, materials, processes). Final: 2 CRITICAL (disqualified), 1 NOT_APPLICABLE (editorial), 1 LIMITED, 4 ADEQUATE, 2 STRONG."
+}

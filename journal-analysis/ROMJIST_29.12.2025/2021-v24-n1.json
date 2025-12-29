@@ -1,0 +1,218 @@
+{
+  "batch_id": "2021-v24-n1",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 24,
+    "issue": 1,
+    "year": 2021
+  },
+
+  "papers": [
+    {
+      "paper_id": "paper677",
+      "paper": {
+        "title": "Programmable Capacitor Multiplier Based on Gm-cell with Two Outputs - Topology, Circuit Implementations and Applications",
+        "authors": ["Paul Coste", "Paul Martari", "Marius Neag", "Marina Topa", "Vlad Ionescu"],
+        "abstract": "Novel circuit topology for programmable capacitance multipliers using linear transconductors (Gm cells). Single transconductor core with two outputs instead of two Gm cells. Kwan-Martin and Welland transconductor implementations. Active cascoding for output resistance boosting. Applications: triangular wave generator (2.67-21.4kHz), programmable pole integrator (75-575kHz), capacitorless LDO with 100pF equivalent from 5pF. Designed in 0.18um CMOS.",
+        "keywords": ["Microelectronics", "capacitor multiplier", "linear transconductor", "active cascode", "triangular wave generator", "programmable pole frequency", "capacitorless LDO"],
+        "doi": null,
+        "pages": "4-27"
+      },
+      "scores": {
+        "formalism": 90,
+        "citation_integrity": 95,
+        "structural_integrity": 90,
+        "artifact_availability": 70,
+        "intellectual_integrity": 91,
+        "composite": 86,
+        "final": 86
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Solid analog IC design paper with novel topology. All formalism (impedance equations, transfer functions, parametric analysis) is necessary for circuit design. Three validated applications demonstrate practical utility."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Programmable capacitance multiplier circuit topology\n**Level:** 4 (High - Analog IC design with theoretical analysis)\n**Rationale:** Novel circuit topology requiring impedance analysis, transfer function derivation, and parametric optimization. Not a simple application but a circuit design contribution.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: ~15 (impedance, transfer functions, gain expressions)\n\n### Proportionality\nCalculated complexity: 15 (equations counted as formalism)\nExpected range (Level 4): 30-80\nRatio: 0.2x upper bound\n\n**Assessment:** Proportionate - formalism is actually below expected for Level 4.\n\n### Necessity Test Applied\n| Element | Could be English? | Changes implementation? | Enables proofs/bounds? | Verdict |\n|---------|-------------------|------------------------|------------------------|--------|\n| ZIN equation (Eq. 1) | No - impedance algebra | Yes - sizing depends on it | Yes - frequency response | NECESSARY |\n| Cequivalent (Eq. 3) | No - ratio relationship | Yes - multiplication factor | Yes - design equations | NECESSARY |\n| Pole/zero (Eq. 5-6) | No - frequency domain | Yes - bandwidth limits | Yes - stability analysis | NECESSARY |\n| Active cascode gain (Eq. 13) | No - output resistance | Yes - circuit performance | Yes - design trade-offs | NECESSARY |\n| All parametric simulations | N/A - empirical validation | Yes | Yes | NECESSARY |\n\n### Issues\nNone identified. All equations serve circuit design purposes.\n\n---\n\n## Citation Analysis\n\nReferences span 1995-2019, appropriate for analog IC design. Citations to foundational transconductor work (Kwan-Martin, Welland). No self-citation issues detected.\n\n---\n\n## Structural Analysis\n\nClear structure: topology -> analysis -> implementations -> applications. Three distinct applications validate the design. Simulation results in 0.18um CMOS technology.\n\n---\n\n## Conclusion\n\nExcellent analog IC paper with rigorous but necessary formalism. The mathematics enables circuit sizing and performance prediction. Three validated applications (waveform generator, integrator, LDO) demonstrate practical value. Classification: STRONG."
+    },
+    {
+      "paper_id": "paper678",
+      "paper": {
+        "title": "Electrical characterization of a pseudo-mos transistor with organic thin film produced by nanotechnologies",
+        "authors": ["Cristian Ravariu", "E. Mihaiescu", "Alina Morosan", "Avireni Srinivasulu"],
+        "abstract": "Organic thin film transistor (OTFT) using PABA-Fe3O4 nanoparticles as p-type semiconductor on polystyrene insulator. Pseudo-MOS configuration for characterization. Green organic electronics with non-toxic precursors. Doping concentration ~8e13 cm-3, hole mobility 0.2 cm2/Vs, interface charge 6e10 e/cm2.",
+        "keywords": ["Experiment", "organic shell", "green electronics", "electrical characterization", "thin film transistor"],
+        "doi": null,
+        "pages": "28-36"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 80,
+        "intellectual_integrity": 86,
+        "composite": 85,
+        "final": 85
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Experimental device physics paper with fabrication and characterization. All equations (drain current, capacitance, mobility extraction) are standard device physics necessary for parameter extraction from measurements."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Organic thin film transistor fabrication and characterization\n**Level:** 3 (Medium - Device physics with experimental validation)\n**Rationale:** Fabrication of novel OTFT structure with electrical characterization. Parameter extraction requires device physics models.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 11 (device physics equations for parameter extraction)\n\n### Proportionality\nCalculated complexity: 11\nExpected range (Level 3): 10-40\nRatio: 0.3x upper bound\n\n**Assessment:** Proportionate - formalism within expected range for device physics.\n\n### Necessity Test Applied\n| Element | Could be English? | Changes implementation? | Enables proofs/bounds? | Verdict |\n|---------|-------------------|------------------------|------------------------|--------|\n| Drain current Eq. (1) | No - MOSFET physics | Yes - mobility extraction | Yes - device modeling | NECESSARY |\n| Capacitance Eq. (3) | No - device physics | Yes - parameter extraction | Yes - characterization | NECESSARY |\n| Accumulation voltage Eq. (5) | No - threshold extraction | Yes - device operation | Yes - interface charge | NECESSARY |\n| Mobility Eq. (10) | No - saturation physics | Yes - performance metric | Yes - device comparison | NECESSARY |\n| Depletion width Eq. (11) | No - device physics | Yes - film thickness | Yes - depletion analysis | NECESSARY |\n\n### Issues\nNone identified. Standard device physics formalism for MOSFET characterization.\n\n---\n\n## Citation Analysis\n\n27 references spanning device physics, organic electronics, and characterization methods. Appropriate mix of foundational and recent work. No excessive self-citation.\n\n---\n\n## Structural Analysis\n\nClear experimental workflow: fabrication -> measurement -> parameter extraction. Includes actual I-V characteristics. Limitations acknowledged (probe positioning sensitivity).\n\n---\n\n## Conclusion\n\nSolid experimental paper with appropriate device physics formalism. Novel green organic semiconductor (PABA-Fe3O4) with practical characterization. Equations enable reproducible parameter extraction. Classification: STRONG."
+    },
+    {
+      "paper_id": "paper679",
+      "paper": {
+        "title": "Sink Location Privacy Protection Algorithm Based on Virtual Circle in WSNs",
+        "authors": ["Leqiang Bai", "Jizhe Yu", "Keyan Cao"],
+        "abstract": "Sink location privacy algorithm using virtual circle topology. Two-stage phantom source node selection with mathematical models. Fake packet injection to fake sinks and random destinations. Normal distribution for fake sink placement. Simulation shows improved safe time against adversary tracking.",
+        "keywords": ["Wireless sensor networks (WSN)", "sink location privacy", "virtual circle", "phantom source node", "fake sink"],
+        "doi": null,
+        "pages": "37-57"
+      },
+      "scores": {
+        "formalism": 45,
+        "citation_integrity": 85,
+        "structural_integrity": 75,
+        "artifact_availability": 30,
+        "intellectual_integrity": 66,
+        "composite": 57,
+        "final": 25
+      },
+      "flags": ["FORMALISM_THEATER", "DECORATIVE_DEFINITIONS"],
+      "flag_details": {
+        "FORMALISM_THEATER": "Level 2 network protocol paper uses extensive mathematical notation for concepts expressible in English. Coordinate geometry for 'expected phantom source node' (Eq. 4-7) is unnecessary - could simply say 'tangent point to circle' or 'intersection with circle'. The algorithm is fundamentally a heuristic routing scheme with fake traffic injection.",
+        "DECORATIVE_DEFINITIONS": "Formal 'Definition' blocks for trivial concepts: 'virtual circle' (just a circle), 'expected phantom source node' (tangent point), 'first/second stage phantom source node' (routing hops). These add no precision beyond plain English descriptions."
+      },
+      "verdict": {
+        "classification": "CRITICAL",
+        "disqualified": true,
+        "summary": "WSN privacy protocol with disproportionate coordinate geometry. The core contribution (fake traffic + phantom routing) is Level 2 but dressed in unnecessary mathematical notation. Tangent point calculations and normal distribution fake sink placement could be described in plain engineering terms."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** WSN sink privacy via phantom routing and fake traffic\n**Level:** 2 (Low - Heuristic protocol design)\n**Rationale:** The contribution is a routing heuristic: create phantom source nodes, inject fake packets toward fake sinks. No proofs of privacy guarantees, no complexity analysis, no information-theoretic bounds. Pure engineering heuristic.\n\n### Formal Elements\n- Definitions: 4 (virtual circle, expected phantom source, first/second stage phantom source)\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 (coordinate geometry, normal distribution)\n\n### Proportionality\nCalculated complexity: 4*2 + 14 = 22\nExpected range (Level 2): 0-15\nRatio: 1.5x upper bound (ELEVATED)\n\n**Assessment:** Disproportionate - heuristic routing scheme with formal apparatus.\n\n### Necessity Test Applied\n| Element | Could be English? | Changes implementation? | Enables proofs/bounds? | Verdict |\n|---------|-------------------|------------------------|------------------------|--------|\n| Eq. (1) Circle equation | YES - 'circle of radius R' | No - trivial | No | UNNECESSARY |\n| Eq. (2-3) Line equations | YES - 'tangent line' | No - basic geometry | No | UNNECESSARY |\n| Eq. (4-5) Tangent point | YES - 'find tangent point' | Minimal - standard geometry | No | UNNECESSARY |\n| Eq. (6-7) Intersection | YES - 'line-circle intersection' | Minimal | No | UNNECESSARY |\n| Eq. (9) Distance to line | YES - 'perpendicular distance' | Minimal | No | UNNECESSARY |\n| Eq. (10-13) Fake sink placement | Partially - uses normal dist | Somewhat | No privacy proof | MARGINAL |\n| Eq. (14) Probability | YES - 'most fake sinks near circle' | Minimal | No | UNNECESSARY |\n\n**Critical Finding:** The paper has NO security proofs. The formalism doesn't enable proving any privacy bounds. An adversary model is described but never formally analyzed.\n\n### Issues\n1. Coordinate geometry for what is essentially 'pick a point on the circle' and 'route via phantom nodes'\n2. No formal privacy analysis despite mathematical apparatus\n3. Definitions like 'virtual circle: a circle with sink B as center and R as radius' add nothing\n4. The algorithm description in Section 4 could be written in pseudocode without any equations\n\n---\n\n## Citation Analysis\n\n27 references to WSN privacy literature. Citations appear topically relevant. No obvious self-citation issues.\n\n---\n\n## Structural Analysis\n\nSimulation-only validation. No analytical privacy guarantees. Safe time improvement shown empirically but not bounded theoretically.\n\n---\n\n## Conclusion\n\nThis is formalism theater: a heuristic routing protocol dressed in coordinate geometry that enables no formal analysis. The core idea (phantom routing + fake traffic) is reasonable engineering, but the mathematical notation adds apparent complexity without enabling proofs or bounds. A programmer implementing this would ignore the equations and just implement 'pick tangent point, route via phantom, inject fake packets.' Classification: CRITICAL (capped at 25)."
+    },
+    {
+      "paper_id": "paper680",
+      "paper": {
+        "title": "An Improved User Authentication Protocol Based on Chaotic Maps for Multiserver Environment",
+        "authors": ["Devender Kumar", "Satish Chand", "Bijendra Kumar"],
+        "abstract": "Improved authentication protocol for multiserver environment using Chebyshev chaotic maps. Cryptanalysis of Li et al.'s protocol showing user anonymity and smart card loss vulnerabilities. BAN logic proof of mutual authentication. Random oracle formal security analysis. AVISPA tool verification.",
+        "keywords": ["User authentication", "smart card", "session key agreement", "multiserver environment", "chaotic maps"],
+        "doi": null,
+        "pages": "58-78"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 50,
+        "intellectual_integrity": 85,
+        "composite": 76,
+        "final": 76
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Cryptographic protocol with appropriate formalism. BAN logic proofs, random oracle analysis, and AVISPA verification are standard for security protocol papers. Chebyshev polynomial properties and DLP/DHP assumptions are necessary for security arguments."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Multiserver authentication protocol using chaotic maps\n**Level:** 4 (High - Cryptographic protocol with security proofs)\n**Rationale:** Security protocol design requires formal proofs of authentication and key agreement properties. BAN logic and random oracle model are standard for this domain.\n\n### Formal Elements\n- Definitions: 2 (DLP, DHP for chaotic maps)\n- Theorems: 2 (formal security theorems)\n- Proofs: 2 (BAN logic, random oracle proofs)\n- Equations: ~20 (protocol operations, hash computations)\n\n### Proportionality\nCalculated complexity: 2*2 + 2*3 + 2*4 + 20 = 38\nExpected range (Level 4): 30-80\nRatio: 0.5x upper bound\n\n**Assessment:** Proportionate - formalism appropriate for cryptographic protocol.\n\n### Necessity Test Applied\n| Element | Could be English? | Changes implementation? | Enables proofs/bounds? | Verdict |\n|---------|-------------------|------------------------|------------------------|--------|\n| Chebyshev polynomial def | No - mathematical property | Yes - security basis | Yes - DLP assumption | NECESSARY |\n| Semi-group property | No - commutative property | Yes - key exchange | Yes - correctness | NECESSARY |\n| DLP/DHP assumptions | No - hardness assumptions | Yes - security | Yes - reduction proofs | NECESSARY |\n| BAN logic formalization | No - formal verification | N/A | Yes - mutual auth proof | NECESSARY |\n| Random oracle algorithms | Partially | Yes - security model | Yes - formal security | NECESSARY |\n| Protocol message notation | Partially | Yes - implementation | Yes - correctness | NECESSARY |\n\n### Issues\nNone identified. Standard cryptographic protocol formalism.\n\n---\n\n## Citation Analysis\n\n37 references spanning authentication protocols, chaotic maps, and formal verification. Appropriate for the domain. No self-citation issues.\n\n---\n\n## Structural Analysis\n\nClear structure: related work -> cryptanalysis -> proposed protocol -> formal proofs -> comparison. Multiple verification methods (BAN, random oracle, AVISPA) strengthen the contribution.\n\n---\n\n## Conclusion\n\nWell-structured cryptographic protocol paper. The formalism (BAN logic, random oracle, AVISPA) is standard and necessary for establishing security properties. The Chebyshev polynomial background enables the security reduction. Classification: ADEQUATE."
+    },
+    {
+      "paper_id": "paper681",
+      "paper": {
+        "title": "A Novel Multiplicative Fuzzy Regression Function with A Multiplicative Fuzzy Clustering Algorithm",
+        "authors": ["Nimet Yapici Pehlivan", "Ismail Burhan Turksen"],
+        "abstract": "Novel Multiplicative Fuzzy Regression Function (MFRF) based on Multiplicative Fuzzy Clustering (MFC) algorithm. Membership values as multipliers of original inputs rather than additional inputs. Comparison with FF-LSE and LSE on Concrete Compressive Strength dataset. Performance analysis with R2 and RMSE metrics.",
+        "keywords": ["Fuzzy Systems", "Databases and Information Systems", "Data Mining and Analysis"],
+        "doi": null,
+        "pages": "79-98"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 60,
+        "intellectual_integrity": 82,
+        "composite": 77,
+        "final": 77
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Fuzzy systems paper with appropriate formalism. Objective function (Eq. 1), membership update equations (Eq. 4-5), and regression formulas are standard and necessary for fuzzy clustering methodology. Experimental comparison validates approach."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Multiplicative fuzzy clustering and regression\n**Level:** 3 (Medium - Novel fuzzy algorithm with theoretical formulation)\n**Rationale:** Proposes new clustering objective function and membership transformation. Requires mathematical specification for reproducibility.\n\n### Formal Elements\n- Definitions: 1 (objective function formulation)\n- Theorems: 0\n- Proofs: 0\n- Equations: ~20 (objective function, membership updates, regression models)\n\n### Proportionality\nCalculated complexity: 1*2 + 20 = 22\nExpected range (Level 3): 10-40\nRatio: 0.55x upper bound\n\n**Assessment:** Proportionate - formalism within expected range for fuzzy systems.\n\n### Necessity Test Applied\n| Element | Could be English? | Changes implementation? | Enables proofs/bounds? | Verdict |\n|---------|-------------------|------------------------|------------------------|--------|\n| Objective function (Eq. 1) | No - optimization target | Yes - algorithm behavior | Yes - convergence | NECESSARY |\n| Membership update (Eq. 4) | No - iterative formula | Yes - core algorithm | Yes - convergence | NECESSARY |\n| Cluster center update (Eq. 5) | No - update rule | Yes - core algorithm | Yes - convergence | NECESSARY |\n| Input matrix variants (Eq. 6-11) | Partially | Yes - model variants | No | MARGINAL |\n| R2/RMSE (Eq. 15-16) | No - standard metrics | Yes - evaluation | Yes - comparison | NECESSARY |\n\n### Issues\nMinor: Many model variants (M1-M6) could be condensed, but this is standard for empirical fuzzy systems papers.\n\n---\n\n## Citation Analysis\n\n30 references covering fuzzy clustering, regression, and concrete strength prediction. Appropriate domain coverage. Citations to foundational FCM and IFC work.\n\n---\n\n## Structural Analysis\n\nClear algorithm presentation with step-by-step procedures. Extensive experimental comparison with multiple parameter settings. Tables and figures support analysis.\n\n---\n\n## Conclusion\n\nSolid fuzzy systems contribution with appropriate mathematical specification. The formalism enables algorithm reproduction and comparison with existing methods. Experimental validation on real dataset. Classification: ADEQUATE."
+    },
+    {
+      "paper_id": "paper682",
+      "paper": {
+        "title": "Machine Learning Techniques for Improving the Performance Metrics of Functional Verification",
+        "authors": ["Mihai-Corneliu Cristescu"],
+        "abstract": "Survey of ML techniques for functional verification. Coverage: automated code generation from specifications, coverage-directed test generation (GA, Bayesian networks, Markov chains, SVM), automated bug detection, and formal verification speedup. Comparison of evolutionary programming, ILP, and data mining approaches.",
+        "keywords": ["Artificial Intelligence", "Machine Learning", "Data Mining", "Support Vector Machine", "Evolutionary Programming", "Functional Verification", "Formal Verification", "Intelligent Verification"],
+        "doi": null,
+        "pages": "99-116"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 95,
+        "structural_integrity": 90,
+        "artifact_availability": 30,
+        "intellectual_integrity": 87,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Well-structured survey paper. Minimal formalism - mostly descriptive comparison of ML techniques for verification. Appropriate for survey format. Strong citation coverage of the field."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Survey of ML for functional verification\n**Level:** 2 (Low - Survey/review paper)\n**Rationale:** This is a survey paper synthesizing existing work. No novel algorithms or proofs expected.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (descriptive survey)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate - survey paper with no unnecessary formalism.\n\n### Necessity Test Applied\nN/A - This is a survey paper with descriptive content. The lack of formal notation is appropriate.\n\n### Issues\nNone identified. Survey format is appropriate for the content.\n\n---\n\n## Citation Analysis\n\n31 references covering ML, verification, and intelligent verification systems. Excellent domain coverage spanning 2006-2020. References major venues (DAC, DATE, IEEE TCAD).\n\n---\n\n## Structural Analysis\n\nWell-organized survey: framework structure -> code generation -> coverage-directed testing -> bug detection -> formal verification. Clear comparison tables. Future directions discussed.\n\n---\n\n## Conclusion\n\nExcellent survey paper with appropriate minimal formalism. Comprehensive coverage of ML for verification domain. Clear organization and synthesis of existing work. Classification: ADEQUATE."
+    },
+    {
+      "paper_id": "paper683",
+      "paper": {
+        "title": "Open-source SoC-based Off-the-shelf Industrial-Grade Low-Cost Logic Analyzer",
+        "authors": ["Andrei Gindac", "Andrei-Edward Popa", "Andrei-Alexandru Ulmamei", "Calin Bira"],
+        "abstract": "152-channel 250 MHz logic analyzer using Zynq-7000 SoC. Comparison of HLS and HDL implementations. PYNQ framework with Jupyter notebook interface. Cost-performance metric: MSa/s*channels/USD. Best result: 250 MHz HDL implementation with 92 MSa/s*ch per USD.",
+        "keywords": ["SoC", "FPGA", "HLS", "HDL", "many channels", "logic analyzer"],
+        "doi": null,
+        "pages": "117-126"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 100,
+        "intellectual_integrity": 85,
+        "composite": 89,
+        "final": 89
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Practical engineering paper with open-source implementation. Minimal formalism - one cost-performance metric. Hardware implementation comparison (HLS vs HDL). Open-source code repository provided."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Low-cost multi-channel logic analyzer design\n**Level:** 2 (Low - Engineering implementation)\n**Rationale:** Practical system implementation using existing SoC platform. No novel algorithms, just engineering optimization.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (only one cost-performance metric definition)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate - engineering paper with minimal formalism.\n\n### Necessity Test Applied\n| Element | Could be English? | Changes implementation? | Enables proofs/bounds? | Verdict |\n|---------|-------------------|------------------------|------------------------|--------|\n| MSa/s*ch/USD metric | Yes - but metric is clear | Yes - comparison basis | N/A | APPROPRIATE |\n\n### Issues\nNone identified. Engineering implementation paper with appropriate minimal formalism.\n\n---\n\n## Citation Analysis\n\n21 references covering logic analyzers, FPGA design, and Linux tools. Appropriate for engineering paper. Comparison with commercial products provides context.\n\n---\n\n## Structural Analysis\n\nClear engineering workflow: system description -> software setup -> digital design (HLS vs HDL) -> results comparison. Open-source repository referenced. Practical reproducibility.\n\n---\n\n## Conclusion\n\nExcellent practical engineering paper. Open-source implementation with clear comparison of design approaches. Minimal formalism appropriate for implementation-focused work. High artifact availability boosts score. Classification: STRONG."
+    }
+  ],
+
+  "batch_notes": "Volume 24 Issue 1 (2021) analyzed with RUIN Framework v2.0 and Necessity Test. **1 paper flagged for formalism theater:** paper679 (WSN privacy) uses coordinate geometry for a heuristic routing scheme with no security proofs. Other 6 papers show domain-appropriate formalism: analog IC design, device physics, cryptographic protocols, fuzzy systems, ML survey, and FPGA engineering. Final: 1 CRITICAL, 0 LIMITED, 3 ADEQUATE, 3 STRONG."
+}

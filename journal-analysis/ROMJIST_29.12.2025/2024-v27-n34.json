@@ -1,0 +1,163 @@
+{
+  "batch_id": "2024-v27-n34",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 27,
+    "issue": "3-4",
+    "year": 2024
+  },
+
+  "papers": [
+    {
+      "paper_id": "lu2024",
+      "paper": {
+        "title": "Dimension-Reduced Modeling for Local Volatility Surface via Unsupervised Learning",
+        "authors": ["Zheng-Liang Lu", "U Hou Lok"],
+        "abstract": "LVS dimension reduction via PCA and MPCA. Black-Scholes volatility smile. Tensor structure preservation. MARD validation shows 80% within 10%.",
+        "keywords": ["Dimension reduction", "implied volatilities", "local volatility surfaces", "multilinear principal component analysis", "unsupervised learning"],
+        "doi": null,
+        "pages": "255-266"
+      },
+      "scores": {"formalism": 80, "citation_integrity": 90, "structural_integrity": 85, "artifact_availability": 50, "intellectual_integrity": 85, "composite": 76, "final": 76},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Quantitative finance with established mathematical foundations. Black-Scholes equations (Eq. 1-6), Dupire's formula, PCA/MPCA tensor decomposition are all NECESSARY for volatility surface modeling. Level 4 mathematical finance - formalism is inherent to the domain."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 4 (Mathematical finance, stochastic calculus)\n\n### Necessity Test\n- Black-Scholes SDE (Eq. 1): NECESSARY - foundational model\n- Call/Put pricing formulas (Eq. 2-3): NECESSARY - derived from SDE\n- Gaussian kernel smoothing (Eq. 4): NECESSARY - standard technique for surface construction\n- Dupire's equation (Eq. 6): NECESSARY - canonical formula for local volatility extraction\n- PCA eigenvalue decomposition: NECESSARY - core methodology\n\n**Verdict:** All formalism is intrinsic to mathematical finance. No theater detected."
+    },
+    {
+      "paper_id": "ulmamei2024",
+      "paper": {
+        "title": "An Approach for Implementing Electronic Image Stabilization Using an FPGA System",
+        "authors": ["Andrei-Alexandru Ulmamei", "Calin Bira"],
+        "abstract": "FPGA-based EIS implementation on Zynq UltraScale+ ZU7EV. Harris Corner Detector, Lucas-Kanade optical flow. 4K-UHD stabilization at 2.5x state of art.",
+        "keywords": ["Electronic image stabilization", "Field Programmable Gate Array", "System on Chip"],
+        "doi": null,
+        "pages": "267-280"
+      },
+      "scores": {"formalism": 75, "citation_integrity": 85, "structural_integrity": 90, "artifact_availability": 65, "intellectual_integrity": 82, "composite": 77, "final": 77},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Hardware implementation paper with standard image processing formalism. Affine transformation matrix (Eq. 1-3) is NECESSARY for describing geometric transformations in image stabilization."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 3 (FPGA design, image processing)\n\n### Necessity Test\n- Affine transformation matrix M (Eq. 1-2): NECESSARY - fundamental to image warping\n- Coordinate transformation (Eq. 3): NECESSARY - describes pixel mapping\n- Harris Corner detection, Lucas-Kanade: Standard computer vision algorithms (described procedurally)\n\n**Verdict:** Minimal formalism, all appropriate for hardware implementation description."
+    },
+    {
+      "paper_id": "gemikonakli2024",
+      "paper": {
+        "title": "A Queuing Model to Evaluate the Network Performance Considering the Heterogeneity and Mobility of Relay Nodes in Disaster Area",
+        "authors": ["Eser Gemikonakli"],
+        "abstract": "CTMC queuing model for H2H/M2M integrated traffic. Relay node mobility effects. Single buffer policy analysis. DES validation with <5% discrepancy.",
+        "keywords": ["Disaster network", "H2H and M2M communication", "mobility aspects", "buffer management", "performance analysis"],
+        "doi": null,
+        "pages": "281-294"
+      },
+      "scores": {"formalism": 80, "citation_integrity": 85, "structural_integrity": 85, "artifact_availability": 50, "intellectual_integrity": 83, "composite": 75, "final": 75},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Queuing theory application with appropriate formalism. Continuous Time Markov Chains, state transition probabilities, and QoS metrics are NECESSARY for performance modeling. Table 1 abbreviations support mathematical notation used throughout."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 3-4 (Queuing theory, stochastic processes)\n\n### Necessity Test\n- Arrival/departure rates (lambda, mu): NECESSARY - standard queuing notation\n- Traffic load parameters: NECESSARY - performance analysis\n- CTMC state transitions: NECESSARY - analytical modeling methodology\n- Performance metrics (MQL, RT, BP): NECESSARY - standard QoS measures\n\n**Verdict:** Queuing theory formalism is intrinsic to the methodology. Validated by DES."
+    },
+    {
+      "paper_id": "essiz2024",
+      "paper": {
+        "title": "Deep Learning-Based Prediction Models for the Detection of Vitamin D Deficiency and 25-Hydroxyvitamin D Levels Using Complete Blood Count Tests",
+        "authors": ["Ugur Engin Essiz", "Cigdem Inan Aci", "Esra Sarac", "Mehmet Aci"],
+        "abstract": "DL models for VDD prediction from CBC tests. CNN, RNN, LSTM, GRU, Autoencoder comparison. ETC and Multi-task LASSO feature selection. 907 patients from Turkish lab.",
+        "keywords": ["25(OH)D level", "classification", "deep learning", "feature selection", "prediction", "vitamin D deficiency"],
+        "doi": null,
+        "pages": "295-309"
+      },
+      "scores": {"formalism": 55, "citation_integrity": 85, "structural_integrity": 85, "artifact_availability": 60, "intellectual_integrity": 70, "composite": 69, "final": 55},
+      "flags": ["FORMALISM_THEATER"],
+      "flag_details": {"FORMALISM_THEATER": "Level 2 applied ML classification problem. Table 1 (basic statistics) is appropriate, but paper lacks algorithmic necessity - standard DL architectures applied to tabular data. No novel mathematical contribution. Equations describing CNN/RNN layers are reproduced from textbooks without modification. 'Three separate models' framing inflates contribution for what is standard hyperparameter tuning."},
+      "verdict": {"classification": "LIMITED", "disqualified": true, "summary": "DISQUALIFIED: Applied ML classification with standard architectures. No novel formalism. DL equations are textbook reproductions applied to tabular medical data. Level 2 problem dressed with Level 3 terminology."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 2 (Applied ML classification - standard DL on tabular data)\n\n### Necessity Test\n- CNN, RNN, LSTM, GRU architectures: UNNECESSARY to restate - standard textbook algorithms\n- Feature selection (ETC, LASSO): Standard preprocessing, not novel\n- Three 'separate models': Actually same methodology with different labels\n\n### Formalism Theater Patterns Detected\n1. **Decorative Definitions**: DL layer equations reproduced without modification\n2. **Inflated Contribution**: 'Three models' are trivial label variations\n3. **Complexity Mismatch**: Level 2 problem (classification) with Level 3 presentation\n\n**Verdict:** FORMALISM_THEATER - Disqualified."
+    },
+    {
+      "paper_id": "travin2024",
+      "paper": {
+        "title": "Statistical Computational Model of Fission Products Composition of Irradiated Nuclear Fuel and Their Contribution to Gas-aerosol Emissions of Nuclear Power Plants",
+        "authors": ["Sergey Travin", "Oleg B. Gromov", "Gheorghe Duca", "Radu-Emil Precup"],
+        "abstract": "Radionuclide composition statistical analysis. Zipf-Mandelbrot distribution for rank-size modeling. VVER-440 reactor fuel analysis. 20 orders of magnitude variability.",
+        "keywords": ["Dose load", "isotope", "nuclear fuel", "nuclear power plant gas-aerosol emission", "radionuclide", "uranium fission fragments"],
+        "doi": null,
+        "pages": "310-322"
+      },
+      "scores": {"formalism": 75, "citation_integrity": 85, "structural_integrity": 80, "artifact_availability": 45, "intellectual_integrity": 78, "composite": 70, "final": 70},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Nuclear physics statistical modeling. Radioactive decay equations (N(t), A(t)) are NECESSARY for activity calculations. Zipf-Mandelbrot distribution application is appropriate for rank-size analysis of radionuclides."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 3 (Nuclear physics, statistical modeling)\n\n### Necessity Test\n- Radionuclide emission model (Eq. 1): NECESSARY - conservation of matter\n- Decay equation N(t) = N0 * e^(-kt): NECESSARY - fundamental physics\n- Zipf-Mandelbrot distribution: APPROPRIATE for rank-size analysis\n- Fig. 1 demonstration model: Illustrative, not decorative\n\n**Verdict:** Domain-appropriate formalism for nuclear/radiological modeling."
+    },
+    {
+      "paper_id": "cascaval2024",
+      "paper": {
+        "title": "Near-optimal March Tests for Three-Cell and Four-Cell Coupling Fault Models in Random-Access Memories",
+        "authors": ["Petru Cascaval", "Doina Cascaval"],
+        "abstract": "Multirun march tests for RAM coupling faults. Eulerian graph coverage for near-optimality. 37n for 3-cell, 73n for 4-cell models. Extends unlinked static CF model.",
+        "keywords": ["Eulerian graph", "four-cell coupling", "multirun march tests", "near-optimal tests", "RAM testing", "three-cell coupling"],
+        "doi": null,
+        "pages": "323-335"
+      },
+      "scores": {"formalism": 85, "citation_integrity": 90, "structural_integrity": 90, "artifact_availability": 55, "intellectual_integrity": 88, "composite": 80, "final": 80},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Memory testing theory with rigorous formalism. Fault primitives (Table 1), state graphs, Eulerian coverage are NECESSARY for proving test optimality. Level 4 hardware testing theory."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 4 (Memory testing theory, graph theory)\n\n### Necessity Test\n- Fault primitive notation (Table 1): NECESSARY - standard in memory test literature\n- State/transition graphs: NECESSARY - optimality proofs require graph coverage\n- Eulerian graph property: NECESSARY - defines near-optimality criterion\n- Data background patterns (Fig. 3): NECESSARY - multirun testing methodology\n- Observability conditions OC1, OC2: NECESSARY - formal test requirements\n\n**Verdict:** All formalism is essential for proving test properties. Strong theoretical contribution."
+    },
+    {
+      "paper_id": "yalda2024",
+      "paper": {
+        "title": "Network Traffic Prediction Performance Using LSTM",
+        "authors": ["Khirota Yalda", "Diyar Jamal Hamad", "Nicolae Tapus", "Ibrahim Taner Okumus"],
+        "abstract": "LSTM for network traffic prediction. Activation function comparison (Sigmoid, Tanh, ReLU). Optimizer comparison (Adam, etc.). MAE, MAPE, MSE, RMSE, R-squared evaluation.",
+        "keywords": ["Activation function", "LSTM", "optimization algorithms", "traffic prediction"],
+        "doi": null,
+        "pages": "336-347"
+      },
+      "scores": {"formalism": 45, "citation_integrity": 80, "structural_integrity": 75, "artifact_availability": 40, "intellectual_integrity": 55, "composite": 55, "final": 45},
+      "flags": ["FORMALISM_THEATER"],
+      "flag_details": {"FORMALISM_THEATER": "Level 1-2 applied ML paper reproduces textbook LSTM equations (Eq. 1), activation functions (Eq. 2-4), and optimizer update rules without modification. No novel methodology - standard hyperparameter comparison. Equations are decorative definitions adding no scientific value. Sigmoid, Tanh, ReLU definitions are undergraduate-level material reproduced verbatim."},
+      "verdict": {"classification": "CRITICAL", "disqualified": true, "summary": "DISQUALIFIED: Textbook equation reproduction as research contribution. LSTM gate equations (Eq. 1), activation function definitions (Eq. 2-4), Adam optimizer formula are standard material with no modification. Level 1-2 hyperparameter comparison dressed as research."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 1-2 (Applied ML - hyperparameter tuning exercise)\n\n### Necessity Test\n- LSTM equations (Eq. 1): UNNECESSARY - textbook reproduction, no modification\n- Sigmoid function (Eq. 2): UNNECESSARY - undergraduate material\n- Tanh function (Eq. 3): UNNECESSARY - undergraduate material  \n- ReLU function (Eq. 4): UNNECESSARY - undergraduate material\n- Adam optimizer (Eq. 5): UNNECESSARY - textbook reproduction\n\n### Formalism Theater Patterns Detected\n1. **Decorative Definitions**: All equations are textbook reproductions\n2. **Set Notation for Lists**: Activation functions could be described in one sentence\n3. **No Novel Contribution**: Comparing standard hyperparameters on standard data\n4. **Complexity Mismatch**: Level 1-2 task with Level 3 formalism presentation\n\n**Verdict:** FORMALISM_THEATER - Disqualified. Severe case."
+    },
+    {
+      "paper_id": "wen2024",
+      "paper": {
+        "title": "Stable Levitation of Single-point Levitation Systems for Maglev Trains by Improved Cascade Control",
+        "authors": ["Jie Wen", "Fangling Wang"],
+        "abstract": "Cascade control for EMS maglev. Lyapunov and sliding mode controllers for electromagnet system. PID with switching for motion system. Nonlinear system without linearization.",
+        "keywords": ["Single-point levitation systems", "maglev train", "sliding mode control", "Lyapunov control", "cascade control"],
+        "doi": null,
+        "pages": "348-361"
+      },
+      "scores": {"formalism": 80, "citation_integrity": 90, "structural_integrity": 85, "artifact_availability": 55, "intellectual_integrity": 85, "composite": 77, "final": 77},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Nonlinear control theory with appropriate formalism. Electromagnetic force equations, Lyapunov stability analysis, sliding mode controller design are NECESSARY for control system development. No linearization - handles nonlinear dynamics directly."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 4 (Nonlinear control theory)\n\n### Necessity Test\n- Electromagnetic system dynamics: NECESSARY - system model\n- Lyapunov controller design: NECESSARY - stability proof methodology\n- Sliding mode control: NECESSARY - robustness to disturbances\n- Cascade control structure: NECESSARY - hierarchical control design\n- Magnetic flux/force equations: NECESSARY - physics of levitation\n\n**Verdict:** Control theory formalism is essential and well-applied."
+    },
+    {
+      "paper_id": "milea2024",
+      "paper": {
+        "title": "Design and Implementation of an Automated Instrument for Battery Charging Experiments",
+        "authors": ["Petru-Lucian Milea", "Grigore Tiplea"],
+        "abstract": "Automated battery charge-discharge test instrument. Exponential current pulses during CC phase. Boost converter without output filter. Microcontroller-based monitoring.",
+        "keywords": ["Automated instrument", "average values determination", "efficiency", "exponential pulses", "charging batteries", "charge-discharge cycles", "energy monitoring"],
+        "doi": null,
+        "pages": "362-378"
+      },
+      "scores": {"formalism": 75, "citation_integrity": 85, "structural_integrity": 90, "artifact_availability": 75, "intellectual_integrity": 82, "composite": 79, "final": 79},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Instrumentation design with appropriate circuit analysis. RL circuit equations (Eq. 1-3) are NECESSARY for describing exponential pulse generation in boost converter topology. Time constant calculations required for design."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 3 (Power electronics, instrumentation)\n\n### Necessity Test\n- Exponential current rise (Eq. 1): NECESSARY - describes coil charging dynamics\n- Circuit resistance calculation (Eq. 2): NECESSARY - determines time constant\n- Current decay through battery (Eq. 3): NECESSARY - describes discharge path\n- Time constant tau_on, tau_off: NECESSARY - design parameters\n\n**Verdict:** Standard circuit analysis formalism, appropriate for instrumentation design."
+    }
+  ],
+
+  "batch_notes": "Volume 27 Issue 3-4 (2024) analyzed with RUIN Framework v2.0 and Necessity Test. **2 papers flagged FORMALISM_THEATER and DISQUALIFIED**: (1) paper783/yalda2024 - severe case of textbook equation reproduction as research (LSTM, activation functions); (2) paper780/essiz2024 - standard DL classification inflated as three 'separate models'. Remaining 7 papers show domain-appropriate formalism: mathematical finance (Level 4), hardware implementation, queuing theory, nuclear physics, memory testing theory (Level 4), nonlinear control (Level 4), instrumentation. Final: 1 CRITICAL, 1 LIMITED, 3 ADEQUATE, 4 STRONG. Disqualification rate: 22% (2/9)."
+}

@@ -1,0 +1,195 @@
+{
+  "batch_id": "2022-v25-n2",
+  "analysis_timestamp": "2025-12-29T14:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 25,
+    "issue": 2,
+    "year": 2022
+  },
+
+  "papers": [
+    {
+      "paper_id": "paper711",
+      "paper": {
+        "title": "The Impact of Features and Preprocessing on Automatic Text Summarization",
+        "authors": ["Salih Bal", "Efnan Sora Gunal"],
+        "abstract": "Automatic text summarization obtains a shortened and informative version of a given text without manual intervention based on specific features, preprocessing methods, and decision mechanisms. This paper aims to thoroughly analyze the impact of common features and preprocessing techniques on the performance of automatic text summarization, particularly in the Turkish language.",
+        "keywords": ["Computational linguistics", "automatic text summarization", "feature extraction", "feature selection", "machine learning", "preprocessing"],
+        "doi": null,
+        "pages": "117-132"
+      },
+      "scores": {"formalism": 75, "citation_integrity": 90, "structural_integrity": 85, "artifact_availability": 50, "intellectual_integrity": 82, "composite": 74, "final": 74},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Empirical NLP study with appropriate Level 2 formalism. Equations describe standard similarity metrics (cosine), feature calculations, and evaluation algorithms - all necessary for reproducibility. No formalism theater detected."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Empirical evaluation of features and preprocessing for extractive text summarization in Turkish\n**Level:** 2 (Applied NLP/empirical study)\n**Rationale:** Paper applies existing NLP techniques to a new language domain with systematic experimental evaluation. Core contribution is empirical comparison, not algorithmic novelty.\n\n### Formal Elements\n- Definitions: 0 formal definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: 18 (feature calculations, similarity metrics, LSA decomposition)\n\n### Proportionality\nCalculated complexity: 18 (equations counted as light formalism)\nExpected range (Level 2): 0-15\nRatio: 1.2x upper bound\n\n**Assessment:** Proportionate - Equations describe standard NLP computations (cosine similarity Eq. 2-5, LSA via SVD Eq. 14-18, evaluation algorithms Tables 5-6). All are necessary for implementation and reproducibility.\n\n### Necessity Test Applied\n- Position feature f1(Si) = (N-P(Si))/N (Eq. 1): NECESSARY - defines scoring mechanism\n- Cosine similarity equations (Eq. 2-5): NECESSARY - standard IR measures\n- Distributional features (Eq. 6-12): NECESSARY - specifies compactness metrics\n- LSA decomposition B = S^2*V^T (Eq. 14): NECESSARY - standard matrix factorization\n- Proposed feature (Eq. 16-18): NECESSARY - defines novel contribution\n\n### Issues\nNone identified. All equations serve implementation purposes.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 0 of 33 references. Reference list covers relevant prior work in text summarization across multiple languages (Turkish, English, Indonesian, Kannada).\n\n---\n\n## Structural Analysis\n\nWell-structured empirical paper with clear methodology. Two datasets (100+20 documents), two evaluation metrics, exhaustive feature selection (65,535 subsets). Limitations: Turkish-language specific results may not generalize. No code/data repository mentioned.\n\n---\n\n## Conclusion\n\nSolid empirical NLP study with appropriate formalism for a Level 2 applied research paper. Mathematical notation serves reproducibility rather than decoration. Novel LSA-based feature (f16) contributes incrementally to the field."
+    },
+    {
+      "paper_id": "paper712",
+      "paper": {
+        "title": "Fuzzy AHP-based Prioritization of the Optimal Alternative of External Equity Financing for Start-ups of Lending Company in Uncertain Environment",
+        "authors": ["Chun-Yueh Lin"],
+        "abstract": "This paper presents a novel model that applies a combination of triangular fuzzy numbers and the analytic hierarchy process (AHP) to the decision-making process to evaluate the optimal alternative of external equity financing for start-ups companies in the financial technology (FinTech) industry.",
+        "keywords": ["Fuzzy systems", "external equity financing", "peer to peer lending company", "FinTech industry", "start-ups", "AHP"],
+        "doi": null,
+        "pages": "133-149"
+      },
+      "scores": {"formalism": 40, "citation_integrity": 80, "structural_integrity": 70, "artifact_availability": 30, "intellectual_integrity": 58, "composite": 51, "final": 25},
+      "flags": ["FORMALISM_THEATER", "DECORATIVE_DEFINITIONS"],
+      "flag_details": {"FORMALISM_THEATER": "Level 1-2 decision-making case study uses extensive triangular fuzzy number notation (LL, MM, UU matrices) and multi-step AHP calculations for what amounts to weighted ranking of three financing alternatives. The fuzzy apparatus is disproportionate to the decision complexity.", "DECORATIVE_DEFINITIONS": "Table 1 presents linguistic scales with formal fuzzy tuple notation (8,9,9), (7,8,9) etc. for subjective expert opinions. The entire fuzzy-AHP machinery could be replaced with simple weighted scoring."},
+      "verdict": {"classification": "CRITICAL", "disqualified": true, "summary": "Decision-making case study dressed in fuzzy-AHP formalism. Core problem - ranking three financing options (EC, AF, VC) - does not require triangular fuzzy numbers. The mathematical apparatus serves to obscure rather than illuminate. Level 1 business decision presented with Level 3-4 formalism."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Ranking three external equity financing alternatives for FinTech startups using expert opinion\n**Level:** 1-2 (Business decision-making case study)\n**Rationale:** Core task is straightforward multi-criteria ranking. Fuzzy-AHP is applied machinery, not novel contribution. Final output is simple ranking: EC > AF > VC.\n\n### Formal Elements\n- Definitions: 0 formal, but Table 1 defines 9-point fuzzy scale\n- Theorems: 0\n- Proofs: 0\n- Equations: Multiple (fuzzy weight calculations, defuzzification, normalization)\n- Tables of fuzzy matrices: 10+ tables with (LL, MM, UU) notation\n\n### Proportionality\nCalculated complexity: ~40 (extensive fuzzy notation throughout)\nExpected range (Level 1-2): 0-15\nRatio: >2.5x upper bound\n\n**Assessment:** DISPROPORTIONATE - Heavy fuzzy-AHP formalism for simple ranking problem.\n\n### Necessity Test Applied\n- Triangular fuzzy numbers (Fig. 1, Table 1): UNNECESSARY - Could use simple Likert scales\n- Fuzzy pairwise comparison matrices (Tables 2-9): UNNECESSARY - Standard AHP would suffice\n- Defuzzification formula (Step 5): UNNECESSARY - If you didn't need fuzzy numbers, you don't need defuzzification\n- Normalization (Eq. 1): MARGINAL - Basic arithmetic\n\n**Key Question:** Would a competent financial analyst need fuzzy triangular numbers to rank EC vs AF vs VC? NO.\n\n### Issues\n- Set-theoretic and matrix notation for expert opinion aggregation\n- Seven-step fuzzy-AHP procedure for three-option ranking\n- Paper acknowledges result is simply: EC (0.482) > AF (0.378) > VC (0.140)\n- This ranking could be obtained via simple weighted voting\n\n---\n\n## Citation Analysis\n\nSelf-citations: 4 references to Lin (2020) - the author's prior work on fuzzy-AHP. SCR appears elevated but within bounds. Citations heavily skewed toward MCDM literature.\n\n---\n\n## Structural Analysis\n\nCase study format with expert survey. Limited to P2P lending startups. No validation of fuzzy-AHP vs simpler methods. No sensitivity analysis on fuzzy parameters.\n\n---\n\n## Conclusion\n\nClassic formalism theater. The fuzzy-AHP apparatus obscures a straightforward business decision. A simple ranked-choice or weighted-criteria approach would yield equivalent practical insights with far less mathematical machinery. The paper demonstrates competence in applying fuzzy-AHP methodology but fails to justify why such complexity is necessary for the problem domain."
+    },
+    {
+      "paper_id": "paper713",
+      "paper": {
+        "title": "Computational Cost Reduction of Convolution Neural Networks by Insignificant Filter Removal",
+        "authors": ["Amit Verma", "Toshanlal Meenpal", "Bibhudendra Acharya"],
+        "abstract": "We propose an eigenvalue-based framework (EVF) to reduce computational cost by removing insignificant convolution layers filters from the network while maintaining similar accuracy. Proposed method is architecture independent and may easily be deployed to existing deep learning platforms.",
+        "keywords": ["Computational cost reduction", "convolutional filter", "VGG-16", "AlexNet"],
+        "doi": null,
+        "pages": "150-165"
+      },
+      "scores": {"formalism": 80, "citation_integrity": 85, "structural_integrity": 85, "artifact_availability": 60, "intellectual_integrity": 82, "composite": 77, "final": 77},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "CNN filter pruning paper with appropriate Level 3 formalism. Eigenvalue-based method requires gradient matrices (Gs), autocorrelation detection, and lambda-value computation. Mathematical framework is necessary for the algorithm specification."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Novel CNN filter pruning method using eigenvalue-based significance scoring\n**Level:** 3 (Novel algorithm with mathematical foundation)\n**Rationale:** Paper proposes new EVF (Eigenvalue-based Framework) for identifying insignificant filters. Method requires formal specification of gradient computation, autocorrelation, and threshold selection.\n\n### Formal Elements\n- Definitions: Gradient operators Sx, Sy, Sz (Eq. 2, 3, 5)\n- Theorems: 0\n- Proofs: 0\n- Equations: 12 (convolution cost O(), Taylor expansion, gradient square matrix Gs, lambda computation)\n\n### Proportionality\nCalculated complexity: ~28\nExpected range (Level 3): 10-40\nRatio: 0.7x upper bound\n\n**Assessment:** Proportionate - Mathematical framework serves algorithm specification.\n\n### Necessity Test Applied\n- Computational complexity O(ClNln^2Xfl+1Yfl+1) (Section 3.1): NECESSARY - quantifies reduction target\n- Sobel gradient operators (Eq. 2-3, 5): NECESSARY - defines feature detection\n- Taylor series approximation P(u,v,d) (Eq. 6-7): NECESSARY - derives autocorrelation measure\n- Gradient square matrix Gs (Eq. 11): NECESSARY - core of EVF method\n- Lambda-value computation (Eq. 12): NECESSARY - determines filter significance\n- Threshold Mth = epsilon * M (Section 3.3): NECESSARY - defines pruning criterion\n\n**All formalism supports algorithm implementation and reproducibility.**\n\n### Issues\nNone identified. Equations are well-integrated with algorithm description.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 0 of 27 references. Comprehensive coverage of network pruning literature (Li et al., Luo et al., He et al.). Comparison with state-of-the-art methods in Table 7.\n\n---\n\n## Structural Analysis\n\nClear algorithm presentation (Algorithm 1). Experiments on VGG-16 and AlexNet with ImageNet validation. Tables 2-5 detail architecture before/after pruning. Fig. 6 shows accuracy vs epsilon trade-off. Limitation: no retraining comparison.\n\n---\n\n## Conclusion\n\nWell-structured neural network compression paper. The EVF method is novel and the mathematical framework (Sobel operators, gradient matrices, eigenvalue computation) is necessary for precise algorithm specification. Results show 12-21% parameter reduction with minimal accuracy loss."
+    },
+    {
+      "paper_id": "paper714",
+      "paper": {
+        "title": "Editorial: Special Issue on Electronics, Microtechnologies and Materials Science",
+        "authors": ["Raluca Muller", "Miron Adrian Dinescu"],
+        "abstract": "This special issue presents a selection of extended contributions of best papers from the International Semiconductor Conference (CAS 2021).",
+        "keywords": ["CAS 2021", "semiconductor", "microtechnologies"],
+        "doi": null,
+        "pages": "166-169"
+      },
+      "scores": {"formalism": 100, "citation_integrity": 100, "structural_integrity": 100, "artifact_availability": 100, "intellectual_integrity": 100, "composite": 100, "final": 100},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Editorial introducing special issue. Not a research paper - no formalism expected or present. Appropriately summarizes the seven papers in the special issue without mathematical content."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Editorial introduction to CAS 2021 special issue\n**Level:** N/A (Editorial, not research paper)\n**Rationale:** Editorials summarize included papers and acknowledge contributors. No research claims requiring formal support.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\n**Assessment:** N/A - Editorial appropriately contains no formalism.\n\n### Issues\nNone. This is not a research paper.\n\n---\n\n## Citation Analysis\n\nNo citations. Appropriate for editorial format.\n\n---\n\n## Structural Analysis\n\nStandard editorial format: conference background, paper summaries, acknowledgments.\n\n---\n\n## Conclusion\n\nEditorial content appropriately formatted. No RUIN Framework concerns as this is not a research paper."
+    },
+    {
+      "paper_id": "paper715",
+      "paper": {
+        "title": "Compact Implementation of an RFID Tag with Electromagnetic Wave Polarization Diversity",
+        "authors": ["Dan Neculoiu", "Alina-Cristina Bunea", "Ovidiu George Profirescu"],
+        "abstract": "The paper presents a backscattering RFID system with reduced interference of incident and reflected electromagnetic waves. The tag system is designed for 5 GHz operating frequency and uses two microstrip patch antennas with linear polarization in perpendicular directions.",
+        "keywords": ["Amplitude modulation", "microstrip patch antenna", "RFID", "wave polarization diversity"],
+        "doi": null,
+        "pages": "170-178"
+      },
+      "scores": {"formalism": 90, "citation_integrity": 95, "structural_integrity": 90, "artifact_availability": 70, "intellectual_integrity": 91, "composite": 86, "final": 86},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Hardware RF design paper with appropriate Level 3-4 formalism. Antenna design equations (fc, Zin) and electromagnetic wave equations are standard and necessary for microstrip patch antenna design. Experimental validation with fabricated prototype."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** 5 GHz RFID tag design using polarization diversity with microstrip patch antennas\n**Level:** 3-4 (RF hardware design with electromagnetic analysis)\n**Rationale:** Microstrip antenna design inherently requires electromagnetic field equations. The polarization diversity concept requires formal treatment of E-field orientation.\n\n### Formal Elements\n- Definitions: 0 formal\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (fc and Zin for antenna design)\n\n### Proportionality\nCalculated complexity: ~6\nExpected range (Level 3-4): 10-80\nRatio: 0.15x upper bound (conservative formalism)\n\n**Assessment:** Proportionate - Equations are standard antenna design formulas. Paper emphasizes fabrication and measurement over theory.\n\n### Necessity Test Applied\n- fc = c/(2L*sqrt(epsilon_r*mu_0)) (Eq. 1): NECESSARY - fundamental antenna resonance formula\n- Zin(d) = cos^2(pi*d/L) * Zin(0) (Eq. 2): NECESSARY - inset feed impedance matching\n\n**Both equations are standard RF design tools, not decorative.**\n\n### Issues\nNone. Minimal but appropriate formalism for an experimental hardware paper.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 1 of 9 references (Neculoiu & Bunea 2021 conference paper). Appropriate for extended journal version. References cover antenna theory fundamentals (Balanis, Milligan).\n\n---\n\n## Structural Analysis\n\nClear design-fabrication-measurement flow. CST Microwave Studio simulations validated by VNA measurements (Fig. 4). Experimental setup documented (Fig. 6). Demonstrated working RFID tag at 100mm and 300mm ranges.\n\n---\n\n## Conclusion\n\nExcellent hardware paper with minimal, appropriate formalism. Focus on fabrication and experimental validation. The 62x67mm FR4 prototype demonstrates concept viability. Potential for 5G/IoT applications noted."
+    },
+    {
+      "paper_id": "paper716",
+      "paper": {
+        "title": "High Power Supply Rejection Capacitor-less Low Dropout Regulators Based on High Slew Rate Symmetrical Operational Transconductance Amplifiers",
+        "authors": ["Iulian Sularea", "Cristian Raducan", "Marius Neag"],
+        "abstract": "This paper introduces a power supply rejection (PSR) enhancement technique for capacitor-less low dropout (LDO) voltage regulators with PMOS pass transistor. Circuit implementation is based on an additional OTA that senses the supply variations by using a high pass filter and generates the cancelling signal current.",
+        "keywords": ["Capacitor-less LDO", "class-A symmetrical OTA", "class-AB symmetrical OTA", "high SR symmetrical OTA", "PSR enhancer"],
+        "doi": null,
+        "pages": "179-204"
+      },
+      "scores": {"formalism": 90, "citation_integrity": 90, "structural_integrity": 90, "artifact_availability": 65, "intellectual_integrity": 90, "composite": 84, "final": 84},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Analog IC design paper with appropriate Level 4 formalism. Small-signal analysis, pole-zero expressions, transfer functions, and composite scoring formulas are standard and necessary for LDO design. Two LDO implementations with SPICE validation."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Capacitor-less LDO design with feed-forward PSR enhancement\n**Level:** 4 (Analog IC design with stability analysis)\n**Rationale:** LDO design inherently requires small-signal modeling, pole-zero analysis, and transfer function derivation for stability and PSR characterization.\n\n### Formal Elements\n- Definitions: ZL, ADC, loop gain expressions\n- Theorems: 0\n- Proofs: 0\n- Equations: ~24 (vOUT, ZL, igds&CDB, vG, pole/zero locations, GmPSR, 0dB)\n\n### Proportionality\nCalculated complexity: ~50\nExpected range (Level 4): 30-80\nRatio: 0.6x upper bound\n\n**Assessment:** Proportionate - Standard analog IC design formalism.\n\n### Necessity Test Applied\n- vOUT = (ivIN * ZL)/(1+LG) (Eq. 1): NECESSARY - fundamental regulation equation\n- ZL parallel impedance (Eq. 2): NECESSARY - load modeling\n- vG = CGS/(CGS+CGD) * vIN (Eq. 3): NECESSARY - explains feedforward path\n- Pole expressions p1, p2, p3 (Eq. 13-16): NECESSARY - stability analysis\n- Zero expressions z1, z2 (Eq. 14, 17): NECESSARY - frequency compensation\n- GmPSR (Eq. 21): NECESSARY - defines PSR enhancer gain\n- Unity gain frequency 0dB (Eq. 18, 24): NECESSARY - bandwidth specification\n\n**All equations are standard analog IC analysis, not decorative.**\n\n### Issues\nNone. Comprehensive small-signal analysis appropriate for LDO design.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 0 of 12 references. Appropriate coverage of LDO literature and PSR enhancement techniques.\n\n---\n\n## Structural Analysis\n\nTwo complete LDO designs (LDO1: class-A OTA, LDO2: class-AB OTA). Small-signal models (Figs. 6-7, 9-10). SPICE simulation results. New Figure of Merit (FoM) proposed for comparison. 0.18um CMOS process, 1.5V output, 50mA load.\n\n---\n\n## Conclusion\n\nHigh-quality analog IC paper. Feed-forward supply cancellation technique is well-motivated by analysis of unwanted signal paths (Section 2.1). Mathematical framework supports design decisions. Simulation results validate PSR improvement (>40dB at 1MHz)."
+    },
+    {
+      "paper_id": "paper717",
+      "paper": {
+        "title": "Methods for Assessing the Stability of Conditionally Stable Circuits by Using Small-signal Simulations",
+        "authors": ["Valentin Beleca", "Cosmin-Sorin Plesa", "Raul Onet", "Marius Neag"],
+        "abstract": "The popular Bode stability criterion is not suitable for assessing the stability of feedback systems for which the phase characteristic of their loop gain, T(s), crosses the -180 horizontal more than once. This paper introduces a three-step method for assessing the stability of all feedback systems by using small-signal analysis.",
+        "keywords": ["Bode stability criterion", "conditionally stable circuits", "multiple critical frequencies", "Nyquist contour", "Nyquist stability criterion", "pole-zero analysis"],
+        "doi": null,
+        "pages": "205-223"
+      },
+      "scores": {"formalism": 90, "citation_integrity": 90, "structural_integrity": 90, "artifact_availability": 55, "intellectual_integrity": 90, "composite": 82, "final": 82},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Control systems theory paper with appropriate Level 4 formalism. Transfer functions T1(s)-T4(s), pole-zero analysis, and Nyquist contour plotting are inherently mathematical topics. Formalism is the subject matter, not decoration."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Extension of Bode stability criterion for conditionally stable feedback circuits\n**Level:** 4 (Control systems theory)\n**Rationale:** Stability analysis of feedback systems is inherently mathematical. Transfer functions, poles, zeros, and Nyquist contours are the fundamental concepts.\n\n### Formal Elements\n- Definitions: T1(s), T2(s), T3(s), T4(s) transfer functions\n- Theorems: Extension of Bode criterion (Section 2.6)\n- Proofs: 0 formal, but stability demonstrated via Nyquist contours\n- Equations: 4 transfer functions plus stability analysis\n\n### Proportionality\nCalculated complexity: ~30\nExpected range (Level 4): 30-80\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate - Transfer functions ARE the content, not decoration.\n\n### Necessity Test Applied\n- T1(s) = 10000(s+1)(s+1)/[(s/0.1+1)^3] (Eq. 1): NECESSARY - defines example circuit\n- T2(s), T3(s), T4(s) (Eq. 2-4): NECESSARY - demonstrate different stability cases\n- Nyquist contour analysis: NECESSARY - proves stability when Bode fails\n\n**This is a paper ABOUT mathematical analysis. The formalism IS the contribution.**\n\n### Issues\nNone. The paper's contribution is a methodological extension to stability analysis.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 2 references to Neag et al. prior conference work. SCR is low. Appropriate references to Bode (1945), Nyquist (1932), and control theory textbooks.\n\n---\n\n## Structural Analysis\n\nFour example circuits with increasing complexity. Step responses confirm Nyquist predictions vs Bode (Figs. 3, 8, 12, 16). Three-step MATLAB-based method proposed. Relationship between PM and overshoot analyzed (Section 2.7).\n\n---\n\n## Conclusion\n\nValuable contribution to control systems methodology. The paper correctly identifies cases where Bode criterion fails and proposes practical extensions. MATLAB scripts for Nyquist contour generation increase practical utility."
+    },
+    {
+      "paper_id": "paper718",
+      "paper": {
+        "title": "On the Reverse Breakdown Behavior of GaAs PIN Diodes for High Power Applications",
+        "authors": ["Patrick Scharf", "Fabio Alberto Velarde Gonzalez", "Andre Lange", "Tobias Urban", "Volker Dudek"],
+        "abstract": "A first GaAs PIN diode for 900 V operation is fabricated and characterized. The temperature-dependent reverse breakdown behavior is investigated with the help of TCAD simulations and high-voltage measurements. Based on these results, an analytical model is generated.",
+        "keywords": ["analytical model", "GaAs", "high-voltage measurements", "PIN diode", "power electronics", "reverse breakdown", "TCAD simulations"],
+        "doi": null,
+        "pages": "224-234"
+      },
+      "scores": {"formalism": 85, "citation_integrity": 90, "structural_integrity": 90, "artifact_availability": 60, "intellectual_integrity": 87, "composite": 81, "final": 81},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Semiconductor device characterization paper with appropriate Level 3 formalism. Analytical model equations (saturation current, multiplication coefficient, breakdown voltage) are necessary for device modeling. TCAD simulations validated by measurements."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Temperature-dependent reverse breakdown characterization and modeling of GaAs PIN diodes\n**Level:** 3 (Device physics with analytical modeling)\n**Rationale:** Semiconductor device modeling requires formal expressions for current-voltage behavior. Arrhenius equation for temperature dependence is standard physics.\n\n### Formal Elements\n- Definitions: Multiplication coefficient M, saturation current IS\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (I=IS*M, Arrhenius IS, Miller M, linear VBD)\n\n### Proportionality\nCalculated complexity: ~12\nExpected range (Level 3): 10-40\nRatio: 0.3x upper bound\n\n**Assessment:** Proportionate - Standard device physics equations.\n\n### Necessity Test Applied\n- I = IS * M (Eq. 1): NECESSARY - defines total current model\n- IS = A * exp(-EA/(kb*T)) (Eq. 2): NECESSARY - Arrhenius temperature dependence\n- M = 1/(1-(|V/VBD|)^n) (Eq. 3): NECESSARY - Miller multiplication coefficient\n- VBD = m*T + b (Eq. 4): NECESSARY - breakdown voltage temperature dependence\n\n**All equations are standard semiconductor device physics.**\n\n### Issues\nNone. Conservative, appropriate formalism for device characterization.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 1 of 21 references (Scharf et al. 2021 conference paper). Appropriate for extended journal version. References cover GaAs physics, MOCVD fabrication, and power electronics.\n\n---\n\n## Structural Analysis\n\nFabrication process documented (Fig. 1). TCAD simulations (Silvaco Atlas) vs measurements. Analytical model fit parameters (Table 2). Temperature range -40C to 150C covers automotive requirements. Edge termination issue identified for future work.\n\n---\n\n## Conclusion\n\nSolid device characterization paper. First GaAs PIN diode for 900V operation. Analytical model enables further optimization. Formalism is minimal and appropriate for the physics-based content."
+    },
+    {
+      "paper_id": "paper719",
+      "paper": {
+        "title": "Battery Connected Linear Voltage Regulator for Very Low Current Consumption Automotive Applications",
+        "authors": ["Ionut-Alin Ilie", "Cristian Stefan Zegheru", "Adrian-Gabriel Bajenaru", "Gheorghe Brezeanu"],
+        "abstract": "This paper presents a battery connected linear voltage regulator suitable for always-on automotive applications. The regulator has a fixed 5V output voltage and can deliver up to 0.5A to the load. The total quiescent current is 3.8 uA at no load.",
+        "keywords": ["pMOS", "power supply rejection ratio", "very low quiescent current"],
+        "doi": null,
+        "pages": "235-245"
+      },
+      "scores": {"formalism": 85, "citation_integrity": 85, "structural_integrity": 85, "artifact_availability": 75, "intellectual_integrity": 85, "composite": 82, "final": 82},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Automotive IC design paper with appropriate Level 3-4 formalism. Output voltage equation, pole identification, and PSRR specification are standard analog design requirements. Silicon implementation with measured results."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Ultra-low quiescent current LDO design for automotive always-on applications\n**Level:** 3-4 (Analog IC design with silicon validation)\n**Rationale:** LDO design requires specification of output voltage, stability, and PSRR through standard analog IC formalism.\n\n### Formal Elements\n- Definitions: 0 formal\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 explicit (VO = (1+R1/R2)*VREF) plus pole identification\n\n### Proportionality\nCalculated complexity: ~8\nExpected range (Level 3-4): 10-80\nRatio: 0.1x upper bound (minimal formalism)\n\n**Assessment:** Proportionate - Paper focuses on circuit implementation and measurements rather than theory.\n\n### Necessity Test Applied\n- VO = (1+R1/R2)*VREF (Eq. 1): NECESSARY - standard feedback divider equation\n- Pole identification (p1-p4): NECESSARY - stability analysis\n- Adaptive biasing description: NECESSARY (prose, not formal)\n\n**Minimal but sufficient formalism for the design paper.**\n\n### Issues\nNone. Practical IC design paper with appropriate level of mathematical detail.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 1 of 8 references (Ilie et al. 2021 conference paper). Extended journal version. References cover LDO design techniques and automotive applications.\n\n---\n\n## Structural Analysis\n\nClear architecture (Fig. 3). Regulation loop analysis (Fig. 4). 0.8um BiCMOS implementation. Measured results: 3.8uA no-load, 75uA at 500mA, 65dB PSRR at 100Hz. Temperature characterization -40C to 150C. Comparison with prior work (Table 2).\n\n---\n\n## Conclusion\n\nExcellent practical IC design paper. Silicon-validated results meet all stated specifications. Very low quiescent current (3.8uA) is impressive for automotive applications. Minimal formalism appropriate for implementation-focused work."
+    },
+    {
+      "paper_id": "paper720",
+      "paper": {
+        "title": "Motion Algorithms for a Neuroprosthesis Equipped with Velostat Sensors",
+        "authors": ["Mirela-Iuliana Gheorghe", "Monica Dascalu", "Cristian Ovidiu Opris", "Florin-Cristian Vasiliu", "David Catalin Dragomir", "Eduard Franti"],
+        "abstract": "The objective is to present new motion algorithms tested on a neural prosthesis prototype equipped with manually fabricated Velostat sensors used for providing tactile feedback to the patient. The implemented motion algorithms are based on how the motors rotate to achieve specific movements.",
+        "keywords": ["Algorithms", "microsystems", "Velostat", "actuators", "neuroprosthesis"],
+        "doi": null,
+        "pages": "246-259"
+      },
+      "scores": {"formalism": 85, "citation_integrity": 80, "structural_integrity": 80, "artifact_availability": 55, "intellectual_integrity": 81, "composite": 75, "final": 75},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Robotics/prosthetics paper with minimal, appropriate formalism. Pressure calculation formula (Eq. 1) is basic physics. Focus is on prototype development and algorithm implementation rather than mathematical modeling."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Motion control algorithms for 3D-printed neuroprosthesis with tactile feedback\n**Level:** 2 (Applied robotics/embedded systems)\n**Rationale:** Paper describes prototype development and control algorithm implementation. Core contribution is engineering implementation, not algorithmic novelty.\n\n### Formal Elements\n- Definitions: 0 formal\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (P = M*gn/S for pressure calculation)\n\n### Proportionality\nCalculated complexity: ~2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound (very conservative)\n\n**Assessment:** Proportionate - Minimal formalism for a prototype development paper.\n\n### Necessity Test Applied\n- P = M*gn/S (Eq. 1): NECESSARY - basic physics for pressure sensor characterization\n\n**Single equation is appropriate and necessary.**\n\n### Issues\nNone. Paper correctly focuses on implementation details rather than mathematical modeling.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 1 of 15 references (Gheorghe et al. 2021 conference paper). Extended journal version. References cover prosthetics, EMG control, and Velostat sensor applications.\n\n---\n\n## Structural Analysis\n\n3D-printed anthropomorphic prosthesis. Five DC motors with magnetic encoders. Velostat pressure sensors on fingertips. Arduino Mega2560 control. Algorithm descriptions (grasping with 2 fingers, spherical object with 3 fingers). Organigram in Fig. 8.\n\n---\n\n## Conclusion\n\nPractical prosthetics development paper. Focus on prototype hardware and control software. Minimal formalism is entirely appropriate. Velostat sensor characterization (Figs. 5-7) and motion algorithms are well-documented."
+    },
+    {
+      "paper_id": "paper721",
+      "paper": {
+        "title": "Vis-active TiO2 - rGO Photocatalysts for Advanced Wastewater Treatment",
+        "authors": ["Ioana Tismanar", "Alexandru Cosmin Obreja", "Octavian Buiu", "Anca Duta"],
+        "abstract": "This paper analyzes the performance of TiO2-rGO composites as potential photocatalysts to be implemented at industrial scale. The properties of the composite thin films are discussed along with the efficiencies in degrading the methylene blue standard pollutant.",
+        "keywords": ["Photocatalyst aqueous stability", "TiO2-rGO composite thin film", "Vis-active photocatalyst"],
+        "doi": null,
+        "pages": "260-271"
+      },
+      "scores": {"formalism": 90, "citation_integrity": 90, "structural_integrity": 85, "artifact_availability": 60, "intellectual_integrity": 88, "composite": 81, "final": 81},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Materials science paper with minimal, appropriate formalism. Bandgap energy value (Eg=3.2eV) and volumetric ratios are standard materials characterization. Focus on experimental synthesis and photocatalytic efficiency measurements."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** TiO2-rGO composite thin films for visible-light photocatalysis\n**Level:** 2-3 (Materials synthesis and characterization)\n**Rationale:** Experimental materials science paper. Focus on synthesis, characterization (XRD, SEM, EDX, AFM), and photocatalytic testing.\n\n### Formal Elements\n- Definitions: 0 formal\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 explicit (volumetric ratios given as proportions)\n\n### Proportionality\nCalculated complexity: ~0\nExpected range (Level 2-3): 0-40\nRatio: 0x upper bound (no formal equations)\n\n**Assessment:** Proportionate - Experimental paper appropriately relies on measurements rather than theory.\n\n### Necessity Test Applied\n- Eg,anatase = 3.2 eV: NECESSARY - standard materials property\n- Volumetric ratios (TTIP:EtOH:AcAc:HAc:H2O = 1:0.8:0.04:0.009:0.12): NECESSARY - synthesis reproducibility\n\n**No formal equations, appropriate for experimental materials paper.**\n\n### Issues\nNone. Pure experimental paper with appropriate characterization methodology.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 2 of 11 references (Tismanar et al. 2021). Extended journal version. References cover TiO2 photocatalysis and graphene oxide composites.\n\n---\n\n## Structural Analysis\n\nDouble-layer deposition: SPD TiO2 + sol-spray TiO2-rGO. rGO content varied: 0.15%, 0.9%, 3%, 5%, 7.5%. Characterization: XRD (Fig. 1, 3), SEM (Figs. 2, 4, 5, 6), EDX (Tables 1-6), AFM/RMS. Photocatalytic tests: MB degradation under UV+VIS and UV. Stability analysis before/after photocatalysis.\n\n---\n\n## Conclusion\n\nWell-executed experimental materials science paper. Systematic investigation of rGO content effects on photocatalytic efficiency and stability. Optimal composition identified: 5%w rGO. No formalism theater - appropriate experimental methodology."
+    }
+  ],
+
+  "batch_notes": "Volume 25 Issue 2 (2022) analyzed with RUIN Framework v2.0 and Necessity Test. **10 research papers + 1 editorial analyzed. 1 paper flagged for formalism theater and disqualified.** Paper 712 (Fuzzy AHP for financing) uses extensive fuzzy-AHP machinery for simple three-option ranking - classic formalism theater. The remaining 9 research papers demonstrate appropriate formalism proportional to concept complexity. Hardware/IC papers (715, 716, 717, 718, 719) show Level 3-4 formalism necessary for circuit analysis. Applied papers (711, 713, 720, 721) use conservative Level 2-3 formalism. Final: 1 CRITICAL (disqualified), 2 ADEQUATE, 7 STRONG, 1 EDITORIAL (not rated)."
+}

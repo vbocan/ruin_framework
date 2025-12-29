@@ -1,0 +1,147 @@
+{
+  "batch_id": "2014-v17-n1",
+  "analysis_timestamp": "2025-12-29T14:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 17,
+    "issue": 1,
+    "year": 2014
+  },
+
+  "papers": [
+    {
+      "paper_id": "jiang2014",
+      "paper": {
+        "title": "Small universal sequential spiking neural P systems based on minimum spike number",
+        "authors": ["Keqin Jiang", "Yufang Huang", "Jinbang Xu", "Zhihua Chen"],
+        "abstract": "Spiking neural P systems (SN P systems) are a class of distributed parallel computing devices inspired from the way neurons communicate by means of spikes. This work constructs universal sequential SN P systems based on minimum spike number, using 137 neurons for computing functions and 126 neurons for generating sets of numbers.",
+        "keywords": ["membrane computing", "spiking neural P system", "sequentiality", "small universal system"],
+        "doi": null,
+        "pages": "5-18"
+      },
+      "scores": {"formalism": 90, "citation_integrity": 90, "structural_integrity": 85, "artifact_availability": 30, "intellectual_integrity": 88, "composite": 74, "final": 74},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Theoretical computer science paper proving computational universality of min-sequential SN P systems. Heavy formalism is appropriate for Level 5 complexity (Turing completeness proofs). Formal system definitions, theorem statements, and detailed module constructions are necessary for the universality results."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computational universality of sequential spiking neural P systems using minimum spike number strategy\n**Level:** 5 (Very High)\n**Rationale:** The paper proves Turing completeness by constructing universal systems that can simulate any register machine. This is fundamental computability theory requiring rigorous formal treatment.\n\n### Formal Elements\n- Definitions: 1 (SN P system with min-sequentiality)\n- Theorems: 2 (Theorem 1: 137 neurons for computing, Theorem 2: 126 neurons for generating)\n- Proofs: 2 (detailed constructions)\n- Equations: Multiple (formalism complexity, spike counting)\n\n### Proportionality\nCalculated complexity: ~20 (1x2 + 2x3 + 2x4 = 16 base, plus equations)\nExpected range (Level 5): 60-150\nRatio: 0.13x upper bound\n\n**Assessment:** Proportionate - The formalism is actually conservative for a universality proof paper. The detailed module constructions (ADD, SUB, INPUT, OUTPUT) are necessary for the proof.\n\n### Necessity Test Applied\n- System definition (Definition 1): NECESSARY - defines the exact computational model being studied\n- Module diagrams (Figs. 2-5): NECESSARY - specify the universal machine construction\n- Neuron counting: NECESSARY - the paper's contribution is achieving small bounds\n- Register machine simulation: NECESSARY - standard technique for proving universality\n\n### Issues\nNone identified. This is standard theoretical computer science presentation.\n\n---\n\n## Citation Analysis\n\nReferences 28 sources covering membrane computing, spiking neural P systems, and small universal systems. Self-citations appear related to the research line. No citation manipulation detected.\n\n---\n\n## Structural Analysis\n\nClear structure with introduction, preliminaries, main constructions, and conclusions. Claims are supported by detailed proofs. No explicit limitations section, but this is typical for theoretical CS papers. No artifacts (theoretical paper).\n\n---\n\n## Conclusion\n\nA solid theoretical computer science contribution following standard presentation conventions for universality proofs in membrane computing. The formalism is necessary and appropriately employed for the concept complexity level."
+    },
+    {
+      "paper_id": "kong2014",
+      "paper": {
+        "title": "Small Universal Spiking Neural P Systems with Astrocytes",
+        "authors": ["Yuan Kong", "Keqin Jiang", "Zhihua Chen", "Jinbang Xu"],
+        "abstract": "Investigates small universal SNPA systems (without delay and forgetting rules) by simulating a register machine. Obtains 57 neurons and 19 astrocytes for computing functions, and 54 neurons and 17 astrocytes for generating numbers.",
+        "keywords": ["Membrane computing", "Spiking neural P system", "Astrocyte", "Universality", "Register machine"],
+        "doi": null,
+        "pages": "19-32"
+      },
+      "scores": {"formalism": 90, "citation_integrity": 90, "structural_integrity": 85, "artifact_availability": 30, "intellectual_integrity": 88, "composite": 74, "final": 74},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Theoretical paper on computational universality with astrocytes in SN P systems. Level 5 complexity (Turing completeness) justifies the formal treatment. Demonstrates that astrocytes reduce neuron count compared to previous systems."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computational universality of spiking neural P systems with astrocytes\n**Level:** 5 (Very High)\n**Rationale:** Proves Turing completeness by simulating universal register machines. The astrocyte feature enables reducing neuron count while maintaining universality.\n\n### Formal Elements\n- Definitions: 2 (Register machine, SNPA system)\n- Theorems: 2 (Theorem 1: 57 neurons + 19 astrocytes, Theorem 2: 54 neurons + 17 astrocytes)\n- Proofs: 2 (detailed constructions)\n- Equations: Multiple (threshold conditions, configuration notation)\n\n### Proportionality\nCalculated complexity: ~20\nExpected range (Level 5): 60-150\nRatio: 0.13x upper bound\n\n**Assessment:** Proportionate - Conservative formalism for universality proof.\n\n### Necessity Test Applied\n- SNPA system definition: NECESSARY - defines the computational model with astrocytes\n- Astrocyte threshold semantics: NECESSARY - key feature enabling the improvement\n- Module constructions (Figs. 2-9): NECESSARY - core of the universality proof\n- Register machine definition: NECESSARY - standard simulation target\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n19 references covering P systems, spiking neural systems, and universality. Appropriate coverage of related work. No issues detected.\n\n---\n\n## Structural Analysis\n\nWell-organized with clear progression from definitions to constructions to results. Detailed figures support the proofs. No explicit limitations section.\n\n---\n\n## Conclusion\n\nStrong theoretical contribution showing astrocytes improve the efficiency of universal SN P systems. Formalism is necessary and well-employed."
+    },
+    {
+      "paper_id": "metta2014",
+      "paper": {
+        "title": "Parallel Programming in Spiking Neural P Systems with Anti-Spikes",
+        "authors": ["Venkata Padmavati Metta", "Kamala Krithivasan"],
+        "abstract": "In spiking neural P systems with anti-spikes, integers can be represented as spikes/anti-spikes. This paper implements programming language constructs like if, while, seq, par, and alt using SN PA systems, simulating a general-purpose parallel programming language handling integer variables.",
+        "keywords": ["spiking neural P systems with anti-spikes", "Occam", "simulation"],
+        "doi": null,
+        "pages": "33-45"
+      },
+      "scores": {"formalism": 80, "citation_integrity": 85, "structural_integrity": 80, "artifact_availability": 30, "intellectual_integrity": 82, "composite": 69, "final": 69},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Novel representation of programming language constructs in SN PA systems. Level 3 complexity (novel algorithm/representation) with appropriate formalism. The spike-based encoding of integers and control structures is well-motivated."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Implementing Occam-like parallel programming constructs in SN PA systems\n**Level:** 3 (Medium)\n**Rationale:** Novel representation scheme mapping programming language semantics to neural P systems. Not proving universality but demonstrating expressiveness.\n\n### Formal Elements\n- Definitions: 1 (SN PA system - Definition 2.1)\n- Theorems: 0\n- Proofs: 0 (informal correctness arguments)\n- Equations: Multiple (variable representation, operations)\n\n### Proportionality\nCalculated complexity: ~8\nExpected range (Level 3): 10-40\nRatio: 0.2x upper bound\n\n**Assessment:** Proportionate - Appropriate level of formalism for demonstrating the representation.\n\n### Necessity Test Applied\n- SN PA system definition: NECESSARY - establishes the computational substrate\n- Variable representation (2n spikes for value n): NECESSARY - core encoding scheme\n- Spiking rules for operations: NECESSARY - define the semantics of operations\n- Control construct implementations: NECESSARY - main contribution\n\n### Issues\nNone identified. The diagrams (Figs. 1-6) effectively illustrate the constructions.\n\n---\n\n## Citation Analysis\n\n7 references, appropriate for the focused scope. Covers SN P systems and Occam.\n\n---\n\n## Structural Analysis\n\nClear organization: background, variable representation, operations, control constructs. The modular presentation aids understanding. Open problem noted at end.\n\n---\n\n## Conclusion\n\nWell-executed demonstration of programming language implementation in SN PA systems. Formalism serves the expository purpose effectively."
+    },
+    {
+      "paper_id": "nicolescu2014",
+      "paper": {
+        "title": "Complex Objects for Complex Applications",
+        "authors": ["Radu Nicolescu", "Huiling Wu"],
+        "abstract": "Further develops Prolog-like complex objects proposal with new solutions: a faster SAT solution with fixed number of rules, and transformations for termination detection algorithms. Demonstrates efficient high-level programming style for P systems.",
+        "keywords": ["P systems", "Prolog terms", "complex objects", "generic rules", "data structures", "NP-complete", "termination detection", "Dijkstra-Scholten"],
+        "doi": null,
+        "pages": "46-62"
+      },
+      "scores": {"formalism": 85, "citation_integrity": 90, "structural_integrity": 85, "artifact_availability": 40, "intellectual_integrity": 87, "composite": 75, "final": 75},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Advanced P systems programming with complex objects. Level 4 complexity (type system design, SAT solving, distributed algorithms). The Prolog-like term notation and generic rules are well-motivated extensions to P systems."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Complex objects (Prolog-like terms) for P systems programming, with SAT solver and termination detection\n**Level:** 4 (High)\n**Rationale:** Introduces a type system for P systems with unification-based matching, applies it to NP-complete problems and distributed algorithm verification.\n\n### Formal Elements\n- Definitions: Grammar for complex objects, generic rule format\n- Theorems: 0 formal theorems, but Conjecture 1 stated\n- Proofs: Detailed examples and constructions\n- Equations: Arithmetic operations, SAT encoding\n\n### Proportionality\nCalculated complexity: ~25\nExpected range (Level 4): 30-80\nRatio: 0.3x upper bound\n\n**Assessment:** Proportionate - Formalism is appropriate for the complexity level.\n\n### Necessity Test Applied\n- Complex object grammar: NECESSARY - defines the new data representation\n- Unification semantics: NECESSARY - enables pattern matching in rules\n- Generic rule format: NECESSARY - extends P system rule expressiveness\n- SAT encoding: NECESSARY - demonstrates practical applicability\n- Dijkstra-Scholten algorithm: NECESSARY - shows distributed algorithm expression\n\n### Issues\nNone identified. The formalism extends standard P systems in a principled way.\n\n---\n\n## Citation Analysis\n\n22 references covering P systems, distributed algorithms, and SAT solving. Well-grounded in prior work.\n\n---\n\n## Structural Analysis\n\nComprehensive treatment with definitions, examples, and applications. Claims supported by constructions. Parallel composition semantics well-defined.\n\n---\n\n## Conclusion\n\nSignificant contribution to P systems programming methodology. The complex objects formalism is a principled extension enabling high-level programming."
+    },
+    {
+      "paper_id": "peng2014a",
+      "paper": {
+        "title": "A Region-based Color Image Segmentation Method Based on P Systems",
+        "authors": ["Hong Peng", "Yufan Yang", "Jiarong Zhang", "Xiaoli Huang", "Jun Wang"],
+        "abstract": "Proposes a novel region-based color image segmentation method using tissue-like P systems. Achieves adaptive selection of target regions. Evaluated on real-life color images.",
+        "keywords": ["Membrane computing", "Tissue-like P systems", "Color image segmentation", "Region-based segmentation"],
+        "doi": null,
+        "pages": "63-75"
+      },
+      "scores": {"formalism": 65, "citation_integrity": 85, "structural_integrity": 75, "artifact_availability": 40, "intellectual_integrity": 70, "composite": 63, "final": 63},
+      "flags": ["FORMALISM_THEATER"],
+      "flag_details": {"FORMALISM_THEATER": "The tissue-like P system formalism (Eq. 1) provides a standard framework, but the actual image processing is based on conventional techniques: standard deviation for similarity (Eq. 2-5), Euclidean distance (Eq. 6-7). The P system membrane structure and communication rules add complexity without clear computational benefit over conventional parallel region growing. The paper is fundamentally a Level 2 applied algorithm dressed in P system notation."},
+      "verdict": {"classification": "LIMITED", "disqualified": true, "summary": "Applied image segmentation using P systems framework. Level 2 concept (standard region growing) wrapped in membrane computing formalism. The P system notation adds notational overhead without demonstrated computational advantage over conventional methods."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Color image segmentation using region growing with tissue-like P systems\n**Level:** 2 (Low)\n**Rationale:** The core algorithm is standard region-based segmentation (similarity threshold, Euclidean distance). The P system framework provides parallelization structure but no novel algorithmic insight.\n\n### Formal Elements\n- Definitions: 1 (Tissue-like P system, Eq. 1)\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (standard deviation, distance, threshold)\n\n### Proportionality\nCalculated complexity: ~16\nExpected range (Level 2): 0-15\nRatio: 1.1x upper bound\n\n**Assessment:** Marginally elevated - The P system formalism is essentially a wrapper around conventional segmentation.\n\n### Necessity Test Applied\n- Tissue P system definition (Eq. 1): MARGINAL - Standard P system notation, not specific contribution\n- Standard deviation equations (Eq. 2-5): NECESSARY - Define similarity measure\n- Euclidean distance (Eq. 6-7): NECESSARY - Define distance measure\n- Evolution/communication rules: UNNECESSARY - Could be expressed as simple parallel operations\n- Division rule for membranes: MARGINAL - Provides parallelization structure\n\n### Issues\n- The P system formalism adds notational complexity without clear advantage\n- Comparison with Shih's method shows similar or slightly better results, but doesn't demonstrate P system benefit\n- No complexity analysis comparing P system approach to conventional methods\n\n---\n\n## Citation Analysis\n\n24 references covering image segmentation and membrane computing. Adequate coverage.\n\n---\n\n## Structural Analysis\n\nExperimental results on several images. No explicit limitations section. Code/data not available.\n\n---\n\n## Conclusion\n\nThe paper applies P systems to image segmentation but doesn't demonstrate clear advantages over conventional parallel region growing. The membrane computing formalism appears decorative rather than essential."
+    },
+    {
+      "paper_id": "peng2014b",
+      "paper": {
+        "title": "DE-MC: A Membrane Clustering Algorithm Based on Differential Evolution Mechanism",
+        "authors": ["Hong Peng", "Jiarong Zhang", "Yang Jiang", "Xiaoli Huang", "Jun Wang"],
+        "abstract": "Proposes a clustering algorithm using cell-like P systems with differential evolution. The DE-MC algorithm is evaluated on artificial and real-life data sets and compared with k-means, GA-based, and DE-based clustering algorithms.",
+        "keywords": ["Membrane computing", "P systems", "Clustering algorithm", "Differential evolution"],
+        "doi": null,
+        "pages": "76-88"
+      },
+      "scores": {"formalism": 55, "citation_integrity": 85, "structural_integrity": 75, "artifact_availability": 40, "intellectual_integrity": 62, "composite": 57, "final": 57},
+      "flags": ["FORMALISM_THEATER"],
+      "flag_details": {"FORMALISM_THEATER": "The cell-like P system with two-layer membrane structure is essentially a parallel differential evolution algorithm. The 'evolution rules' (Eq. 2-4) are standard DE mutation, crossover, and selection. The 'communication rules' are simply sharing the global best solution. The P system formalism adds no computational advantage and obscures the simple parallel DE structure. Level 2 applied optimization algorithm dressed in membrane computing notation."},
+      "verdict": {"classification": "LIMITED", "disqualified": true, "summary": "Parallel differential evolution clustering wrapped in P system formalism. The membrane structure provides no algorithmic innovation - it's standard island-model parallel DE. The P system notation is decorative and obscures rather than clarifies the algorithm."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Clustering using parallel differential evolution with P system structure\n**Level:** 2 (Low)\n**Rationale:** Standard differential evolution algorithm with island-model parallelization. The P system structure maps directly to parallel DE populations.\n\n### Formal Elements\n- Definitions: 0 formal P system definition (informal description)\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (DE operators, clustering metric)\n\n### Proportionality\nCalculated complexity: ~14\nExpected range (Level 2): 0-15\nRatio: 0.9x upper bound\n\n**Assessment:** Within range but formalism is decorative.\n\n### Necessity Test Applied\n- Membrane structure (Fig. 1): UNNECESSARY - Standard parallel DE island topology\n- Object representation: UNNECESSARY - Standard DE vector representation\n- Mutation rule (Eq. 2): NECESSARY - Standard DE/best/1/bin mutation\n- Crossover rule (Eq. 3): NECESSARY - Standard DE crossover\n- Selection rule (Eq. 4): NECESSARY - Standard DE selection\n- Communication rules: UNNECESSARY - Standard global best sharing in parallel DE\n- Clustering metric (Eq. 6): NECESSARY - Standard k-means objective\n\n### Issues\n- The P system formalism is a thin wrapper around parallel DE\n- 'Evolution rules' and 'communication rules' are standard DE operations renamed\n- No demonstration that P system framing provides any advantage\n- Experimental comparison doesn't isolate P system contribution\n\n---\n\n## Citation Analysis\n\n22 references covering clustering and membrane computing. Adequate.\n\n---\n\n## Structural Analysis\n\nClear algorithm description. Experimental comparison with baselines. No explicit limitations.\n\n---\n\n## Conclusion\n\nThe paper presents parallel DE for clustering with P system terminology. The membrane computing framing is decorative - the algorithm is standard island-model parallel DE."
+    },
+    {
+      "paper_id": "perezhurtado2014",
+      "paper": {
+        "title": "A P-Lingua based Simulator for Tissue P Systems with Cell Separation",
+        "authors": ["Ignacio Perez-Hurtado", "Luis Valencia-Cabrera", "Jose M. Chacon", "Agustin Riscos-Nunez", "Mario J. Perez-Jimenez"],
+        "abstract": "Presents an extension of P-Lingua specification language to include tissue P systems with cell separation. Includes parser updates and a new built-in simulation algorithm. Case study of SAT solution demonstrates the dynamics.",
+        "keywords": ["P-Lingua", "tissue P systems", "cell separation", "simulator", "SAT"],
+        "doi": null,
+        "pages": "89-102"
+      },
+      "scores": {"formalism": 80, "citation_integrity": 90, "structural_integrity": 85, "artifact_availability": 70, "intellectual_integrity": 84, "composite": 81convergence", "final": 80},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Software engineering paper extending P-Lingua to tissue P systems with cell separation. Level 2-3 complexity with appropriate formalism. The formal P system definition is necessary for specifying the simulator semantics. Software is available."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** P-Lingua simulator extension for tissue P systems with cell separation\n**Level:** 2-3 (Low-Medium)\n**Rationale:** Software implementation paper requiring formal specification of the simulated model. The P system definition is the simulator's target semantics.\n\n### Formal Elements\n- Definitions: 2 (Tissue P system with cell separation - Def. 1, Solution criteria - Def. 2)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (algorithm is procedural)\n\n### Proportionality\nCalculated complexity: ~8\nExpected range (Level 2-3): 0-25\nRatio: 0.3x upper bound\n\n**Assessment:** Proportionate - Formalism serves the specification purpose.\n\n### Necessity Test Applied\n- Tissue P system definition (Def. 1): NECESSARY - Specifies what the simulator implements\n- Decision problem solution criteria (Def. 2): NECESSARY - Defines correctness of recognizer systems\n- P-Lingua syntax: NECESSARY - Documents the language extension\n- Simulation algorithm: NECESSARY - Core contribution\n\n### Issues\nNone identified. The formalism appropriately specifies the simulator's target semantics.\n\n---\n\n## Citation Analysis\n\n12 references covering P-Lingua and tissue P systems. Appropriate for software paper.\n\n---\n\n## Structural Analysis\n\nWell-organized: preliminaries, syntax extension, simulator algorithm, case study. SAT case study with timing results. Software available at referenced URL.\n\n---\n\n## Conclusion\n\nSolid software contribution extending P-Lingua. The formal definitions appropriately specify the simulator semantics. Good artifact availability."
+    },
+    {
+      "paper_id": "subramanian2014",
+      "paper": {
+        "title": "Parallel Array-rewriting P Systems",
+        "authors": ["K.G. Subramanian", "Pradeep Isawasan", "Ibrahim Venkat", "Linqiang Pan"],
+        "abstract": "Introduces parallel array P systems with parallel rewriting of arrays in regions. Compares generative power with array grammars. Shows hollow rectangles and squares can be generated with priority on rules. Reduces membrane count in constructions.",
+        "keywords": ["Two-dimensional array", "Array grammar", "Array P system", "Parallel rewriting"],
+        "doi": null,
+        "pages": "103-116"
+      },
+      "scores": {"formalism": 85, "citation_integrity": 90, "structural_integrity": 85, "artifact_availability": 30, "intellectual_integrity": 86, "composite": 72, "final": 72},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Formal language theory paper on parallel array P systems. Level 4 complexity (language theoretic results, generative power comparison). Theorems and lemmas comparing language families are appropriate formalism."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Parallel array-rewriting P systems and their generative power compared to array grammars\n**Level:** 4 (High)\n**Rationale:** Formal language theory comparing generative capacity of computational models. Requires formal definitions and inclusion/non-inclusion proofs.\n\n### Formal Elements\n- Definitions: 3 (Array P system, Parallel array P system, 2RLG)\n- Theorems: 2 (Theorem 1, Theorem 2)\n- Lemmas: 6 (Lemmas 1-6)\n- Proofs: Multiple (by construction)\n\n### Proportionality\nCalculated complexity: ~36 (3x2 + 2x3 + 6x3 + proofs)\nExpected range (Level 4): 30-80\nRatio: 0.45x upper bound\n\n**Assessment:** Proportionate - Appropriate for formal language theory.\n\n### Necessity Test Applied\n- Array and array grammar definitions: NECESSARY - Standard formalisms in the field\n- Array P system definition (Def. 1): NECESSARY - Model being extended\n- Parallel array P system (Def. 3): NECESSARY - Main contribution\n- Theorems comparing language families: NECESSARY - Main results\n- Construction proofs: NECESSARY - Establish the inclusion relations\n\n### Issues\nNone identified. Standard presentation for formal language theory.\n\n---\n\n## Citation Analysis\n\n16 references covering array grammars, P systems, and formal languages. Appropriate coverage.\n\n---\n\n## Structural Analysis\n\nClassic formal language theory structure: definitions, examples, theorems, proofs. Clear separation results. Application to floor designs.\n\n---\n\n## Conclusion\n\nSolid formal language theory contribution. The formalism is standard and necessary for the language-theoretic results."
+    }
+  ],
+
+  "batch_notes": "Volume 17 Issue 1 (2014) is a special issue on membrane computing / P systems. Analyzed with RUIN Framework v2.0 and Necessity Test. **2 papers flagged for formalism theater** (both from same research group applying P systems to image/data processing without clear computational advantage). The theoretical papers (jiang2014, kong2014, nicolescu2014, subramanian2014) demonstrate appropriate formalism for Level 4-5 complexity. The software paper (perezhurtado2014) properly uses formal definitions for specification. The applied papers (peng2014a, peng2014b) wrap conventional algorithms in P system notation without demonstrated benefit. Final: 2 CRITICAL (disqualified), 1 LIMITED, 4 ADEQUATE, 1 STRONG."
+}

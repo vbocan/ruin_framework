@@ -1,0 +1,215 @@
+{
+  "batch_id": "2020-v23-n2",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 23,
+    "issue": 2,
+    "year": 2020
+  },
+
+  "papers": [
+    {
+      "paper_id": "paper642",
+      "paper": {
+        "title": "Architectural Features for Artificial Intelligence & Blockchain in the Nano-Era",
+        "authors": ["Mihaela Malita", "Razvan Mihai", "Gheorghe M. Stefan"],
+        "abstract": "AI and BC are computationally demanding domains requiring powerful computation engines. Presents functional aspects and architectural requirements for implementing safe & intelligent computing. Asserts improvements from emerging nano-technologies focused on interconnection problems.",
+        "keywords": ["Artificial Intelligence", "Blockchain", "nano-technologies", "accelerator architecture", "SIMD", "Map-Scan-Reduce"],
+        "doi": null,
+        "pages": "115-126"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 40,
+        "intellectual_integrity": 81,
+        "composite": 71,
+        "final": 71
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Architecture survey paper with appropriate formalism for parallel computing concepts. Vector operations and reduction formulas are standard and necessary for describing SIMD architectures."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Parallel computer architecture for AI and blockchain acceleration\n**Level:** 3 (Medium)\n**Rationale:** Proposes novel accelerator architecture with Map-Scan-Reduce organization. Not just API integration but architectural design with formal computational model basis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: ~12 (vector operations, reduction operations, scan operations)\n\n### Necessity Test Applied\n| Element | Could be English? | Changes Implementation? | Enables Proofs? | Verdict |\n|---------|------------------|------------------------|-----------------|----------|\n| Vi = [si1si2...sin] | No - array indexing notation standard | Yes | N/A | Necessary |\n| si j <= b j ? OP(si j, sk j) : si j | No - predicated operation | Yes | N/A | Necessary |\n| redOP(Vi) = OPj(bj ? sij) | No - reduction semantics | Yes | N/A | Necessary |\n| Complexity O(n), O(log n) | No - standard CS notation | Yes | N/A | Necessary |\n\n### Proportionality\nCalculated complexity: ~24 (12 equations x 2)\nExpected range (Level 3): 0-40\nRatio: 0.6x upper bound\n\n**Assessment:** Proportionate - equations describe standard parallel computing operations (SIMD, reduction, scan) that are essential for architecture specification.\n\n### Issues\nNone identified. The formalism is standard notation for parallel computing architectures.\n\n---\n\n## Citation Analysis\n\nReferences: 24\nSelf-citations: 7 (refs 14, 15, 16, 18, 19, 20, 21, 22 reference Stefan/Malita works)\nSCR: ~29% - Elevated but justifiable given the authors are the primary researchers in ConnexArray technology being extended.\n\nTopical similarity of self-citations: All self-citations relate to the same ConnexArray/parallel architecture research line - relevant.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Adequate - claims about architecture supported by prior silicon implementations and simulations.\nLimitations: Acknowledged (\"von Neumann Bottleneck\", latency issues).\nArtifacts: References prior silicon implementations but no public repository.\n\n---\n\n## Conclusion\n\nA well-structured architecture paper that appropriately uses formal notation for parallel computing concepts. The vector operation notation, reduction operations, and complexity analysis are standard and necessary for specifying SIMD architectures. Self-citation rate is elevated but citations are topically relevant to the research line. No formalism theater detected."
+    },
+    {
+      "paper_id": "paper643",
+      "paper": {
+        "title": "New steps for advancing the Nothing On Insulator Triode 3nm gap and preliminary expanded technology",
+        "authors": ["Cristian Ravariu", "Dan E. Mihaiescu", "Alina Morosan", "Vlad Placinta"],
+        "abstract": "Presents NOI-Triode device with 3nm vacuum gap. Simulations show better swing versus 14nm gap. Functional simulations prove current density vectors. Preliminary technology based on MALDI laser ablation produced 10um gap.",
+        "keywords": ["Microelectronics", "Electronic Packaging", "Nanotechnology", "Simulations"],
+        "doi": null,
+        "pages": "127-139"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 75,
+        "structural_integrity": 85,
+        "artifact_availability": 60,
+        "intellectual_integrity": 80,
+        "composite": 75,
+        "final": 75
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Semiconductor device simulation paper with appropriate formalism for nanoelectronics. Equations for threshold voltage (VT) and subthreshold swing (SS) are standard device physics parameters necessary for device characterization."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Novel vacuum nanotransistor (NOI-Triode) simulation and preliminary fabrication\n**Level:** 3 (Medium)\n**Rationale:** Proposes device optimization, compares with experimental devices, includes fabrication attempts. Standard semiconductor device simulation work.\n\n### Formal Elements\n- Definitions: 2 (VT definition Eq.1, SS definition Eq.2, VD-ON Eq.3)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (device parameters)\n\n### Necessity Test Applied\n| Element | Could be English? | Changes Implementation? | Enables Proofs? | Verdict |\n|---------|------------------|------------------------|-----------------|----------|\n| VT = VG at ID=10%*ID,max (Eq.1) | No - standard definition | Yes - defines operating point | N/A | Necessary |\n| SS = dVG/(d log ID) (Eq.2) | No - standard device parameter | Yes - key performance metric | N/A | Necessary |\n| VD-ON = VD at ID=10%*ID,max (Eq.3) | No - parallels VT definition | Yes - operating point | N/A | Necessary |\n\n### Proportionality\nCalculated complexity: 4 (2 definitions x 2)\nExpected range (Level 3): 0-40\nRatio: 0.1x upper bound\n\n**Assessment:** Proportionate - minimal formalism, only standard device physics parameters.\n\n### Issues\nNone identified. The three equations define standard semiconductor device parameters.\n\n---\n\n## Citation Analysis\n\nReferences: 23\nSelf-citations: ~9 (refs 6, 7, 8, 9, 13, 14, 19, 21, 22, 23 reference Ravariu works)\nSCR: ~39% - Elevated\n\n**Assessment:** High self-citation rate but the author is the originator of the NOI transistor concept (since 2005). Self-citations are to prior work in the same device family.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Good - simulation results and comparisons with literature experimental data.\nLimitations: Acknowledged (Gate leakage current, gap size limitations in fabrication).\nArtifacts: Silvaco Atlas simulations described; no public dataset.\n\n---\n\n## Conclusion\n\nA standard semiconductor device simulation paper with minimal and appropriate formalism. The equations define standard device parameters (VT, SS, VD-ON) that are necessary for device characterization. High self-citation rate is justified by the author being the primary researcher in this device family."
+    },
+    {
+      "paper_id": "paper644",
+      "paper": {
+        "title": "Wideband Sub-terahertz Coplanar Waveguide-Fed Spiral Antenna",
+        "authors": ["Alina-Cristina Bunea", "Dan Neculoiu", "Marius Andrei Avram", "Mihai Iovea"],
+        "abstract": "Design, simulation and characterization of wideband sub-THz membrane supported CPW-fed Archimedean spiral antenna. 3D EM model developed. 2 turns antenna optimized showing |S11|<-10dB between 60-150 GHz, directivity 7-10 dBi, efficiency >60%.",
+        "keywords": ["Microelectronics and Electronic Packaging", "Nanotechnology", "Antennas", "Sub-terahertz", "circular polarization"],
+        "doi": null,
+        "pages": "140-156"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 95,
+        "structural_integrity": 90,
+        "artifact_availability": 80,
+        "intellectual_integrity": 89,
+        "composite": 87,
+        "final": 87
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Excellent RF/antenna engineering paper with appropriate formalism. Equations for spiral geometry, input impedance (Babinet's principle), and frequency bounds are standard antenna design equations, necessary for reproducible design."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Sub-THz spiral antenna design with fabrication and measurement\n**Level:** 3 (Medium)\n**Rationale:** Novel antenna design with 3D EM simulation, fabrication, and experimental validation. Standard RF engineering work with solid experimental component.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 9 (Eqs 1-9: spiral geometry, impedance, frequency bounds)\n\n### Necessity Test Applied\n| Element | Could be English? | Changes Implementation? | Enables Proofs? | Verdict |\n|---------|------------------|------------------------|-----------------|----------|\n| r = a*theta (Eq.1) | No - spiral geometry | Yes | N/A | Necessary |\n| Zin = Zstrip*Zslot = eta^2/4 (Eq.2) | No - impedance derivation | Yes | N/A | Necessary |\n| eta = sqrt(mu/epsilon) (Eq.3) | No - wave impedance | Yes | N/A | Necessary |\n| Zin,n arm = eta/(4*sin(pi/n)) (Eq.5) | No - n-arm impedance | Yes | N/A | Necessary |\n| r = r0*e^(a*theta) (Eq.6) | No - log spiral | Yes | N/A | Necessary |\n| Sinuous equation (Eq.7) | No - sinuous curve | Yes | N/A | Necessary |\n| flow = c/(2*pi*Rout) (Eq.8) | No - frequency bound | Yes | N/A | Necessary |\n| fhigh = c/(4*Rin) (Eq.9) | No - frequency bound | Yes | N/A | Necessary |\n\n### Proportionality\nCalculated complexity: ~18 (9 equations x 2)\nExpected range (Level 3): 0-40\nRatio: 0.45x upper bound\n\n**Assessment:** Proportionate - all equations are standard antenna design formulas enabling reproducible design.\n\n### Issues\nNone identified. Standard RF engineering equations.\n\n---\n\n## Citation Analysis\n\nReferences: 24\nSelf-citations: 2 (refs 8, 24)\nSCR: ~8% - Normal\n\n**Assessment:** Healthy citation practice with minimal self-citation.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Excellent - simulation validated by fabrication and measurement.\nLimitations: Implicitly acknowledged in measurement vs simulation comparison.\nArtifacts: Fabricated devices described; measurements shown.\n\n---\n\n## Conclusion\n\nHigh-quality RF engineering paper with excellent balance of theory, simulation, and experimental validation. Formalism is standard for antenna design and fully justified. Fabricated prototype measurements validate simulations. One of the stronger papers in this batch."
+    },
+    {
+      "paper_id": "paper645",
+      "paper": {
+        "title": "Low cost approaches for High Resolution Digitally Programmable Potentiometers",
+        "authors": ["Giorgiana-Catalina Ilie (Chiranu)", "Cristian Tudoran", "Otilia Neagoe", "Gheorghe Brezeanu"],
+        "abstract": "Solutions for implementing high resolution digitally programmable potentiometer considering production cost and performance (linearity, wiper resistance, total resistance variations). 11 architectures compared, designed in 5V 0.18um CMOS, verified by simulation.",
+        "keywords": ["Digitally programmable potentiometer", "high resolution", "production cost", "linearity characteristics", "wiper resistance", "total resistance variations"],
+        "doi": null,
+        "pages": "157-175"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 95,
+        "structural_integrity": 90,
+        "artifact_availability": 50,
+        "intellectual_integrity": 89,
+        "composite": 79,
+        "final": 79
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Solid IC design paper comparing 11 DPP architectures. Equations for linearity metrics (INL, DNL, ZSE, FSE, TCR) are standard analog IC characterization formulas necessary for comparative analysis."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Digital potentiometer architecture comparison for cost-effective IC design\n**Level:** 2-3 (Low to Medium)\n**Rationale:** Comparative study of existing architectures with simulation-based evaluation. Applies standard analog IC design methodology.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (INL Eq.1, DNL Eq.2, ZSE Eq.3, FSE Eq.4, VLSB Eq.5, TCR Eq.6, Rwiper Eq.7)\n\n### Necessity Test Applied\n| Element | Could be English? | Changes Implementation? | Enables Proofs? | Verdict |\n|---------|------------------|------------------------|-----------------|----------|\n| INL(k) = (VWreal(k) - VWideal(k))/VLSB (Eq.1) | No - standard metric | Yes | N/A | Necessary |\n| DNL = (VW(k) - VW(k-1) - VLSB)/VLSB (Eq.2) | No - standard metric | Yes | N/A | Necessary |\n| ZSE = VWreal(0)/VLSB (Eq.3) | No - standard metric | Yes | N/A | Necessary |\n| FSE = (VWreal(255) - VHL)/VLSB (Eq.4) | No - standard metric | Yes | N/A | Necessary |\n| VLSB = VHL/255 (Eq.5) | No - resolution def | Yes | N/A | Necessary |\n| TCR = dRHL/(dT*RHL) (Eq.6) | No - standard metric | Yes | N/A | Necessary |\n| Rwiper = (VW - VH)/Iload (Eq.7) | No - Ohm's law | Yes | N/A | Necessary |\n\n### Proportionality\nCalculated complexity: ~14 (7 equations x 2)\nExpected range (Level 2-3): 0-40\nRatio: 0.35x upper bound\n\n**Assessment:** Proportionate - all equations are standard analog IC characterization metrics.\n\n### Issues\nNone identified. Standard IC design characterization formulas.\n\n---\n\n## Citation Analysis\n\nReferences: 9\nSelf-citations: 1 (ref 4)\nSCR: ~11% - Normal\n\n**Assessment:** Healthy citation practice.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Excellent - comprehensive simulation results for all 11 architectures.\nLimitations: Acknowledged (process variations, mismatches not fully simulated).\nArtifacts: CMOS simulation results; no public models.\n\n---\n\n## Conclusion\n\nThorough comparative study of digital potentiometer architectures. Formalism is limited to standard analog IC metrics (INL, DNL, ZSE, FSE, TCR) which are necessary for objective comparison. Good engineering methodology with clear conclusions and recommendations."
+    },
+    {
+      "paper_id": "paper646",
+      "paper": {
+        "title": "New Extraction Method of the Bipolar Transistor Model Parameters Used in Bandgap Voltage References",
+        "authors": ["Stefan Marinca", "Mircea Bodea", "Angelica Stiglet", "Bogdan Baron"],
+        "abstract": "New extraction method for critical model parameters (VG0, XTI) affecting temperature variation of bandgap voltage references. Parameters extracted from raw voltage vs temperature data, not from direct BT measurements. Tested on LDOs with 5V nominal output.",
+        "keywords": ["bipolar transistor", "base-emitter voltage", "model parameters", "bandgap voltage reference", "temperature variation", "silicon based temperature sensor"],
+        "doi": null,
+        "pages": "176-187"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 60,
+        "intellectual_integrity": 84,
+        "composite": 78,
+        "final": 78
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Solid analog IC characterization paper. Equations for Vbe temperature dependence and bandgap voltage reference are standard semiconductor physics formulas, necessary for the parameter extraction methodology."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Model parameter extraction for bandgap voltage references\n**Level:** 3 (Medium)\n**Rationale:** Novel extraction methodology for bipolar transistor parameters. Applies established semiconductor physics with new extraction approach.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: ~25 (Eqs 1-30: Vbe temperature dependence, bandgap voltage, parameter extraction)\n\n### Necessity Test Applied\n| Element | Could be English? | Changes Implementation? | Enables Proofs? | Verdict |\n|---------|------------------|------------------------|-----------------|----------|\n| Vbe(T) = VG0 - (VG0-Vbe0)*T/T0 - XTI*kT/q*ln(T/T0) (Eq.1) | No - physics | Yes | N/A | Necessary |\n| Temperature coefficient equations (Eqs 2-4) | No - physics | Yes | N/A | Necessary |\n| XTI extraction (Eq.9) | No - derivation | Yes | N/A | Necessary |\n| VG0 extraction (Eq.10) | No - derivation | Yes | N/A | Necessary |\n| Error sensitivity (Eqs 11-12) | No - analysis | Yes | N/A | Necessary |\n| Bandgap voltage (Eqs 18-25) | No - physics | Yes | N/A | Necessary |\n\n### Proportionality\nCalculated complexity: ~50 (25 equations x 2)\nExpected range (Level 3): 0-40\nRatio: 1.25x upper bound\n\n**Assessment:** Slightly elevated but justified - comprehensive derivation of extraction methodology requires step-by-step equation development.\n\n### Issues\nNone identified. All equations are semiconductor physics or mathematical derivations.\n\n---\n\n## Citation Analysis\n\nReferences: 14\nSelf-citations: 5 (refs 9, 10, 12, 13, 14 - Marinca patents and papers)\nSCR: ~36% - Elevated\n\n**Assessment:** High self-citation rate but primarily to patents (US 8531169, 9218015, 9285820, 9658637) which represent prior art by the same author. Topically relevant.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Good - methodology validated on 16 silicon samples.\nLimitations: Dedicated section (Section 6) discussing PTAT nonlinearity, collector current variation, bandgap narrowing.\nArtifacts: Silicon results shown; LDO samples tested.\n\n---\n\n## Conclusion\n\nWell-structured paper presenting novel parameter extraction methodology with silicon validation. Formalism is slightly elevated but justified by the need for complete derivation. The paper properly acknowledges error sources and limitations."
+    },
+    {
+      "paper_id": "paper647",
+      "paper": {
+        "title": "Analysis and design of a high efficiency current mode buck converter with I2C controlled output voltage",
+        "authors": ["Cosmin Alexandru Iordache", "Mircea Bodea"],
+        "abstract": "Analysis and design of current mode buck converter with I2C controlled output voltage. Asynchronous version handles 300W (7.5A), synchronous version handles 360W (15A). Input 48V, output 1.5-40V. Uses LT3724/LT3800 controllers.",
+        "keywords": ["Microelectronics", "dc-dc converter", "I2C", "buck", "current mode", "wide output voltage", "high efficiency", "synchronous rectifier"],
+        "doi": null,
+        "pages": "188-203"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 95,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 86,
+        "composite": 82,
+        "final": 82
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Applied power electronics paper with appropriate formalism. Equations for inductance, power loss, and feedback resistors are standard power converter design formulas necessary for component selection and validation."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Buck converter design with I2C digital control\n**Level:** 2-3 (Low to Medium)\n**Rationale:** Applied power electronics design integrating commercial controllers with digital interface. Standard design methodology with prototype validation.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (Eqs 1-7: inductance, conduction loss, transition loss, total loss, bulk capacitance, resistor divider, low-side loss)\n\n### Necessity Test Applied\n| Element | Could be English? | Changes Implementation? | Enables Proofs? | Verdict |\n|---------|------------------|------------------------|-----------------|----------|\n| L >= VOUT*(VIN_MAX-VOUT)/(fSW*VIN_MAX*dIL) (Eq.1) | No - standard formula | Yes | N/A | Necessary |\n| PCOND = IOUT^2 * VOUT/VIN * RDS_ON (Eq.2) | No - power loss | Yes | N/A | Necessary |\n| PTRAN = 2*VIN^2 * IOUT * CRSS * fSW (Eq.3) | No - switching loss | Yes | N/A | Necessary |\n| PFET = PCOND + PTRAN (Eq.4) | Trivial sum, OK | Yes | N/A | Acceptable |\n| CIN_BULK formula (Eq.5) | No - ripple calc | Yes | N/A | Necessary |\n| RVOUTFB = RVARI2C * (VOUT/1.231 - 1) (Eq.6) | No - feedback | Yes | N/A | Necessary |\n| PLow_side_cond (Eq.7) | No - power loss | Yes | N/A | Necessary |\n\n### Proportionality\nCalculated complexity: ~14 (7 equations x 2)\nExpected range (Level 2-3): 0-40\nRatio: 0.35x upper bound\n\n**Assessment:** Proportionate - standard power electronics design equations.\n\n### Issues\nNone identified. All equations are standard power converter design formulas.\n\n---\n\n## Citation Analysis\n\nReferences: 13\nSelf-citations: 3 (refs 4, 12, 13)\nSCR: ~23% - Elevated but acceptable\n\n**Assessment:** Self-citations reference prior work on the CCUEDC system being upgraded. Topically relevant.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Excellent - simulation (LTSpice) and laboratory measurements with oscilloscope captures.\nLimitations: Implicitly in comparison of arv vs srv versions.\nArtifacts: Prototype built and tested; Bode plots measured.\n\n---\n\n## Conclusion\n\nSolid applied power electronics paper with good balance of design, simulation, and experimental validation. Formalism is minimal and entirely standard for power converter design. Laboratory measurements validate the design approach."
+    },
+    {
+      "paper_id": "paper648",
+      "paper": {
+        "title": "A comparison between the Gm based implementations of voltage mode and current mode capacitance multipliers",
+        "authors": ["Gabriel Bonteanu", "Arcadie Cracan", "Ioan Alexandru Nica", "Stefan Viorel Savinescu"],
+        "abstract": "Comparison between Gm-based voltage mode and current mode capacitance multipliers. Voltage mode uses Miller effect, current mode uses current mirror principle. Results show voltage mode advantage for low frequency behavior. First order LPF implemented using discrete Gm ICs.",
+        "keywords": ["MOS capacitor", "capacitance multiplier", "adjustable capacitor", "transconductance amplifier"],
+        "doi": null,
+        "pages": "204-220"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 95,
+        "structural_integrity": 85,
+        "artifact_availability": 80,
+        "intellectual_integrity": 84,
+        "composite": 83,
+        "final": 83
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Analog IC design paper comparing capacitance multiplier topologies. The impedance derivations and equivalent circuit analysis are standard and necessary for understanding circuit behavior. Physical implementation validates theoretical analysis."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Transconductance-based capacitance multiplier comparison\n**Level:** 3 (Medium)\n**Rationale:** Theoretical analysis of two circuit topologies with simulation and physical implementation. Standard analog IC analysis methodology.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: ~57 (Eqs 1-57: impedance derivations, equivalent circuits, frequency analysis)\n\n### Necessity Test Applied\n| Element | Could be English? | Changes Implementation? | Enables Proofs? | Verdict |\n|---------|------------------|------------------------|-----------------|----------|\n| Vi = Vc - Vi2 = Ic(1/sC + 1/gm2) (Eq.1) | No - circuit analysis | Yes | N/A | Necessary |\n| Zeq = Vi/Ii (various) | No - impedance | Yes | N/A | Necessary |\n| Ceq = C(1 + gm1/gm2) (Eq.12) | No - key result | Yes | N/A | Necessary |\n| Req = 1/(gm2 + gm1) (Eq.13) | No - key result | Yes | N/A | Necessary |\n| Non-ideal analysis (Eqs 14-57) | No - complete analysis | Yes | N/A | Necessary |\n\n### Proportionality\nCalculated complexity: ~114 (57 equations x 2)\nExpected range (Level 3): 0-40\nRatio: 2.85x upper bound\n\n**Assessment:** Elevated formalism but justified - this is a detailed circuit analysis paper requiring step-by-step derivation of impedance expressions for both ideal and non-ideal cases. The equations are circuit analysis, not decorative.\n\n### Issues\nThe equation count is high but each equation is a necessary step in the impedance derivation. This is standard analog circuit analysis methodology.\n\n---\n\n## Citation Analysis\n\nReferences: 5\nSelf-citations: 2 (refs 3, 4)\nSCR: ~40% - Elevated\n\n**Assessment:** High percentage but only 5 total references. Self-citations are to prior conference papers on the same topic - directly relevant.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Excellent - theory validated by simulation (AMS 0.18um) and physical implementation (LM13700).\nLimitations: Acknowledged (trade-off between frequency behavior and dynamic range).\nArtifacts: Physical PCB implementation with measurements.\n\n---\n\n## Conclusion\n\nThorough analog circuit analysis paper. While equation count is high, each equation is a necessary step in deriving impedance expressions. The paper follows standard analog IC analysis methodology and validates theory with both simulation and physical measurement. No formalism theater - this is legitimate circuit analysis."
+    }
+  ],
+
+  "batch_notes": "Volume 23 Issue 2 (2020) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** All 7 papers are in electronics/microelectronics domain with domain-appropriate formalism: computer architecture (paper642), nanoelectronics simulation (paper643), RF antenna design (paper644), IC design methodology (paper645, paper646, paper648), and power electronics (paper647). Elevated self-citation rates observed in papers 642, 643, and 646 but topically justified. Final: 0 CRITICAL, 0 LIMITED, 4 ADEQUATE, 3 STRONG."
+}

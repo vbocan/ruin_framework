@@ -1,0 +1,187 @@
+{
+  "batch_id": "2014-v17-n3",
+  "analysis_timestamp": "2025-12-29T15:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 17,
+    "issue": 3,
+    "year": 2014
+  },
+
+  "papers": [
+    {
+      "paper_id": "cboiangiu2014",
+      "paper": {
+        "title": "Applying Localized Otsu for Watershed Segmented Images",
+        "authors": ["Costin-Anton Boiangiu", "Andrei Tigora"],
+        "abstract": "Image binarization method applying localized Otsu thresholding to irregular regions determined through watershed segmentation. Multi-scale segmentation approach using downsampled images. Implemented in C++ with OpenCV.",
+        "keywords": ["image binarization", "watershed segmentation", "Otsu thresholding", "multi-scale processing"],
+        "doi": null,
+        "pages": "219-229"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 40,
+        "intellectual_integrity": 80,
+        "composite": 70,
+        "final": 70
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Applied image processing combining watershed segmentation with Otsu binarization. Equations 1-4 are standard Otsu formulas serving as background reference. Formalism is appropriate for Level 2 algorithmic combination paper."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Image binarization using watershed segmentation combined with Otsu thresholding\n**Level:** 2 (Low)\n**Rationale:** Combines existing algorithms (Otsu, Canny, watershed) in novel configuration. No new algorithm invented.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (Otsu formulas from 1979 paper)\n\n### Proportionality\nCalculated complexity: 4\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Proportionate - equations describe existing Otsu method for context.\n\n### Necessity Test Applied\n- Eq. 1 (inter-class variance): Could be cited rather than repeated, but serves educational purpose\n- Eq. 2-3 (class probability/mean): Standard definitions\n- Eq. 4 (threshold selection): Standard argmax\n\n**Verdict:** Equations are textbook Otsu formulas. Not decorative theater - they explain the method being combined. Acceptable for applied work.\n\n---\n\n## Citation Analysis\n\n17 references cited. Self-citation: 1/17 (Tigora's previous work). References cover relevant binarization literature (Niblack, Sauvola, Wolf-Jolion). No concerning patterns.\n\n---\n\n## Structural Analysis\n\nClear algorithm description with 7 numbered steps. Performance evaluation with timing results. Limitations acknowledged (method not useful for natural images, some artifacts remain). No code/data availability.\n\n---\n\n## Conclusion\n\nSolid applied image processing paper with appropriate formalism. The contribution is the multi-scale watershed-guided binarization approach, not mathematical novelty. Equations serve reference purposes. Minor deduction for lack of artifact availability."
+    },
+    {
+      "paper_id": "zhuyan2014",
+      "paper": {
+        "title": "On the Harmonic Index of Unicyclic Conjugated Molecules",
+        "authors": ["Yan Zhu", "Renying Chang"],
+        "abstract": "Sharp lower bound on the harmonic index of unicyclic conjugated graphs (unicyclic graphs with perfect matching). Also provides sharp lower bound in terms of order and given size of matching.",
+        "keywords": ["harmonic index", "unicyclic graph", "perfect matching", "graph theory"],
+        "doi": null,
+        "pages": "230-236"
+      },
+      "scores": {
+        "formalism": 95,
+        "citation_integrity": 95,
+        "structural_integrity": 90,
+        "artifact_availability": 20,
+        "intellectual_integrity": 93,
+        "composite": 75,
+        "final": 75
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Pure mathematics paper proving bounds on harmonic index for graph classes. Heavy formalism is intrinsically necessary for mathematical proofs. Level 4 complexity with appropriate Level 4 formalism."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Proving lower bounds on harmonic index for unicyclic graphs with perfect matchings\n**Level:** 4 (High)\n**Rationale:** Pure mathematical graph theory with formal proofs of bounds. Requires rigorous mathematical treatment.\n\n### Formal Elements\n- Definitions: 3 (harmonic index, graph constructions)\n- Theorems: 2 (Theorems 3.1, 3.2)\n- Proofs: 2 (full mathematical proofs)\n- Lemmas: 4 (Lemmas 2.1-2.4)\n- Equations: Multiple (inequality derivations)\n\n### Proportionality\nCalculated complexity: ~40\nExpected range (Level 4): 30-80\nRatio: Within range\n\n**Assessment:** Proportionate - this is pure mathematics requiring formal proof apparatus.\n\n### Necessity Test Applied\n- Harmonic index definition H(G): NECESSARY - the object of study\n- Lemmas 2.1-2.4: NECESSARY - building blocks for main theorems\n- Theorem 3.1 proof: NECESSARY - main contribution\n- Theorem 3.2 proof: NECESSARY - main contribution\n- Inequality manipulations: NECESSARY - mathematical proof technique\n\n**Verdict:** All formalism is intrinsically necessary. Mathematical proofs cannot be stated in plain English. This is legitimate pure mathematics.\n\n---\n\n## Citation Analysis\n\n17 references. Self-citation: 2/17 (Chang-Zhu previous work on related topic). References cover harmonic index literature appropriately. No concerning patterns.\n\n---\n\n## Structural Analysis\n\nClassic mathematics paper structure: Introduction, Lemmas, Theorems, Proofs. No experiments (pure theory). Acknowledgments include funding sources. No code/data (not applicable for pure math).\n\n---\n\n## Conclusion\n\nExcellent pure mathematics paper with appropriate formalism for the subject matter. The proofs are rigorous and the results are sharp (tight bounds). Artifact availability score is low but appropriate since pure math papers don't produce code/data artifacts."
+    },
+    {
+      "paper_id": "msaracevic2014",
+      "paper": {
+        "title": "Construction and Notation of Convex Polygon Triangulation Based on Ballot Problem",
+        "authors": ["Muzafer H. Saracevic", "Predrag S. Stanimirovic", "Predrag V. Krtolica", "Sead H. Masovic"],
+        "abstract": "New method for constructing and storing convex polygon triangulations based on ballot problem and lattice path. Provides bidirectional algorithms: Triangulation-to-ballot and Ballot-to-triangulation. Stack-based compact encoding for storage.",
+        "keywords": ["triangulation", "convex polygon", "Catalan numbers", "ballot problem", "lattice path", "stacks"],
+        "doi": null,
+        "pages": "237-251"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 86,
+        "composite": 82,
+        "final": 82
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Novel algorithmic contribution with combinatorial proofs. Establishes bijection between ballot records and polygon triangulations. Formalism is proportionate for Level 3 algorithmic work with correctness proofs."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Algorithm for generating convex polygon triangulations via ballot problem bijection\n**Level:** 3 (Medium)\n**Rationale:** Novel algorithm with combinatorial correspondence proof. Requires proving the bijection works.\n\n### Formal Elements\n- Definitions: 1 (distance function)\n- Theorems: 0\n- Propositions: 2 (Proposition 2.1, 3.1) with proofs\n- Equations: 3 (Catalan formula, recurrence relation, binomial)\n- Algorithms: 4 (formal pseudocode)\n\n### Proportionality\nCalculated complexity: ~20\nExpected range (Level 3): 10-40\nRatio: 0.5x upper bound\n\n**Assessment:** Proportionate - proofs establish correctness of the bijection.\n\n### Necessity Test Applied\n- Catalan number formula (Eq. 1-2): NECESSARY - proves count correspondence\n- Proposition 2.1 (Rn = Cn): NECESSARY - establishes bijection count\n- Algorithm pseudocode: NECESSARY - specifies the procedure\n- Segner recurrence: NECESSARY - proves Catalan connection\n\n**Verdict:** Formalism is appropriate. The combinatorial proofs establish that the ballot-triangulation correspondence is valid. Cannot be replaced with English.\n\n---\n\n## Citation Analysis\n\n7 references. No self-citations visible. References cover relevant combinatorics and triangulation literature. Clean citation pattern.\n\n---\n\n## Structural Analysis\n\nWell-organized: Preliminaries, Main algorithms, Stack application, Experimental results. Comparative analysis with Hurtado-Noy method. Performance tables included. Java implementation available via URL.\n\n---\n\n## Conclusion\n\nStrong algorithmic contribution with proper mathematical foundation. The ballot-triangulation bijection is novel and the proofs are sound. Good experimental validation comparing storage efficiency. Code availability is a plus."
+    },
+    {
+      "paper_id": "wpalma2014",
+      "paper": {
+        "title": "A Binary Coded Firefly Algorithm that Solves the Set Covering Problem",
+        "authors": ["Broderick Crawford", "Ricardo Soto", "Miguel Olivares-Suarez", "Wenceslao Palma", "Fernando Paredes", "Eduardo Olguin", "Enrique Norero"],
+        "abstract": "Binary coded firefly algorithm for non-unicost set covering problem. Tests different transfer functions (s-shaped, v-shaped) for mapping continuous to discrete search space. Evaluated on 65 OR-Library instances.",
+        "keywords": ["set covering problem", "binary firefly algorithm", "metaheuristic", "transfer functions"],
+        "doi": null,
+        "pages": "252-264"
+      },
+      "scores": {
+        "formalism": 65,
+        "citation_integrity": 85,
+        "structural_integrity": 80,
+        "artifact_availability": 30,
+        "intellectual_integrity": 73,
+        "composite": 62,
+        "final": 62
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Applied metaheuristics paper adapting Firefly Algorithm for binary optimization. Equations are mix of textbook content (SCP formulation), cited work (FA equations), and actual contribution (transfer functions). Acceptable for Level 2 empirical work."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Applying Firefly Algorithm to Set Covering Problem with binary transfer functions\n**Level:** 2 (Low)\n**Rationale:** Applies existing metaheuristic (FA) to existing problem (SCP). Novel contribution is the binary adaptation mechanism.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 (Eq. 1-10)\n\n### Proportionality\nCalculated complexity: 10\nExpected range (Level 2): 0-15\nRatio: 0.67x upper bound\n\n**Assessment:** On higher end for Level 2, but within acceptable range.\n\n### Necessity Test Applied\n- Eq. 1-3 (SCP formulation): MARGINAL - standard ILP, could cite\n- Eq. 4-6 (FA equations): MARGINAL - from Yang's paper, could cite\n- Eq. 7-9 (transfer functions): NECESSARY - paper's contribution\n- Eq. 10 (RPD): UNNECESSARY - trivial percentage\n- Transfer function table: NECESSARY - defines the variants tested\n\n**Verdict:** Not formalism theater, but the paper includes more background equations than strictly necessary. The actual contribution (binary mapping via transfer functions) is modest. Empirical evaluation is the main content.\n\n---\n\n## Citation Analysis\n\n31 references. Self-citations: ~6/31 (Crawford et al. previous metaheuristic work). Higher than average but on related topics. References cover SCP and metaheuristics literature adequately.\n\n---\n\n## Structural Analysis\n\nClear structure: Problem description, Algorithm overview, Proposed approach, Experiments. Tables with benchmark results. Algorithm pseudocode included. Future work mentions autonomous search. No code availability.\n\n---\n\n## Conclusion\n\nStandard applied metaheuristics paper. The contribution is incremental (binary adaptation of FA for SCP). Formalism is acceptable but includes some unnecessary background equations. Experimental evaluation is competent but not exceptional (results show competitive but not state-of-art performance)."
+    },
+    {
+      "paper_id": "gciobanu2014",
+      "paper": {
+        "title": "A Nominal Approach of Fusion Calculus",
+        "authors": ["Andrei Alexandru", "Gabriel Ciobanu"],
+        "abstract": "Nominal semantics of the monadic fusion calculus using Fraenkel-Mostowski framework. Compact transition rules using nominal quantifier. Proves equivalence between nominal semantics and original Parrow-Victor semantics.",
+        "keywords": ["fusion calculus", "nominal sets", "Fraenkel-Mostowski set theory", "process algebra", "formal semantics"],
+        "doi": null,
+        "pages": "265-288"
+      },
+      "scores": {
+        "formalism": 95,
+        "citation_integrity": 95,
+        "structural_integrity": 90,
+        "artifact_availability": 10,
+        "intellectual_integrity": 93,
+        "composite": 72,
+        "final": 72
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Theoretical CS paper providing nominal semantics for process calculus. Heavy formalism is intrinsically necessary for defining formal semantics and proving equivalence. Level 5 concept with appropriate Level 5 formalism."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Nominal semantics for fusion calculus using FM set theory\n**Level:** 5 (Very High)\n**Rationale:** Defines formal operational semantics and proves semantic equivalence. Core theoretical computer science.\n\n### Formal Elements\n- Definitions: 15+ (Definitions 2.1-4.8)\n- Theorems: 5+ (with proofs)\n- Propositions: 10+ (with proofs)\n- Transition rules: Full operational semantics (OUT, INP, PAR, COM, SCOPE, etc.)\n\n### Proportionality\nCalculated complexity: >100\nExpected range (Level 5): 60-150\nRatio: Within expected range\n\n**Assessment:** Proportionate - formal semantics requires extensive definitions and proofs.\n\n### Necessity Test Applied\n- FM set theory foundations (Section 2): NECESSARY - mathematical framework\n- SA-action definitions: NECESSARY - defines permutation semantics\n- Process syntax (Definition 4.1): NECESSARY - defines the calculus\n- Transition rules: NECESSARY - operational semantics\n- Equivalence theorems: NECESSARY - main contribution\n\n**Verdict:** All formalism is intrinsically necessary. This is theoretical CS where the formalism IS the contribution. Cannot be simplified without destroying the work.\n\n---\n\n## Citation Analysis\n\n11 references. No self-citations. References cover nominal sets, FM theory, and fusion calculus literature appropriately. Clean citation pattern.\n\n---\n\n## Structural Analysis\n\nClassic theoretical CS structure: Nominal Techniques, Fusion Calculus background, Nominal Fusion Calculus, Proofs. 24 pages of dense formal content. No experiments (pure theory). No code/data (not applicable).\n\n---\n\n## Conclusion\n\nExcellent theoretical paper providing nominal semantics for fusion calculus. The formalism is the contribution - proving that nominal techniques can express fusion calculus semantics more compactly. Artifact score is low but appropriate for pure theory."
+    },
+    {
+      "paper_id": "ichitescu2014",
+      "paper": {
+        "title": "Sugeno Measures on the Code Space",
+        "authors": ["Ion Chitescu", "Anca Plavitu"],
+        "abstract": "Concrete matricial representation of all Sugeno measures on Borel sets of the code space. The code space is the infinite product of a finite alphabet. Representation via lambda-distributions with bijection theorems.",
+        "keywords": ["Borel sets", "code space", "monotone measure", "Sugeno measure", "lambda-distribution"],
+        "doi": null,
+        "pages": "289-301"
+      },
+      "scores": {
+        "formalism": 95,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 10,
+        "intellectual_integrity": 92,
+        "composite": 71,
+        "final": 71
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Pure mathematics paper on measure theory. Provides concrete representation of Sugeno measures on code space via bijection with distribution families. Heavy formalism is intrinsically required for mathematical proofs."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Representation theorem for Sugeno measures on topological code spaces\n**Level:** 5 (Very High)\n**Rationale:** Advanced measure theory with full proofs of bijection theorems. Pure mathematics.\n\n### Formal Elements\n- Definitions: 6 (lambda-rule, lambda-measure, distributions, etc.)\n- Theorems: 5 (Theorems 3.2, 3.3, 3.5, 3.9, 3.10)\n- Lemmas: 2 (Lemma 3.1, 3.7)\n- Proofs: Full mathematical proofs throughout\n\n### Proportionality\nCalculated complexity: ~70\nExpected range (Level 5): 60-150\nRatio: Within expected range\n\n**Assessment:** Proportionate - measure theory requires rigorous formalism.\n\n### Necessity Test Applied\n- Lambda-rule definition: NECESSARY - defines measure property\n- Distribution definitions: NECESSARY - the representation objects\n- Bijection proofs: NECESSARY - main contribution\n- Lemma 3.1 (null-additivity): NECESSARY - building block\n- Theorem 3.3 (Dirac characterization): NECESSARY - key result\n\n**Verdict:** All formalism is intrinsically necessary. Mathematical representation theorems cannot be stated informally. The proofs establish the claimed bijections rigorously.\n\n---\n\n## Citation Analysis\n\n14 references. Self-citations: 2/14 (Chitescu previous work on related topic). References cover measure theory and Sugeno measure literature. No concerning patterns.\n\n---\n\n## Structural Analysis\n\nClassic mathematics paper: Introduction, Preliminary Facts, Results. Clean theorem-proof structure. Future work mentioned (Choquet/Sugeno integrals, cellular automata). No code/data (not applicable for pure math).\n\n---\n\n## Conclusion\n\nSolid pure mathematics paper proving representation theorems for Sugeno measures. The matricial representation is novel and the proofs are complete. Appropriate formalism for the subject matter."
+    }
+  ],
+
+  "batch_notes": "Volume 17 Issue 3 (2014) analyzed with RUIN Framework v2.0 and Necessity Test. **No papers flagged for formalism theater.** This batch contains 3 pure mathematics/theoretical CS papers (Zhu, Alexandru, Chitescu) where heavy formalism is intrinsically necessary, 1 algorithmic paper with proofs (Saracevic), and 2 applied papers (Boiangiu, Crawford) with appropriate formalism. Final: 0 CRITICAL, 0 LIMITED, 5 ADEQUATE, 1 STRONG. This is a well-balanced batch with legitimate formalism across all papers."
+}

@@ -1,0 +1,147 @@
+{
+  "batch_id": "2024-v27-n1",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 27,
+    "issue": 1,
+    "year": 2024
+  },
+
+  "papers": [
+    {
+      "paper_id": "antonescu2024",
+      "paper": {
+        "title": "Multi-Function Scan Circuit for Assisting the Parallel Computational Map Pattern",
+        "authors": ["Mihai Antonescu", "Gheorghe M. Stefan"],
+        "abstract": "Benes-Waksman permutation network adapted for permute, pack, prefix sum, and reduction functions. O(log n) depth with O(n log n) size. Cell redesign for multi-functionality. Map-Scan-Reduce architecture.",
+        "keywords": ["Benes network", "General-Purpose Accelerator", "Multi-Function Permutation circuit", "Scan Circuit"],
+        "doi": null,
+        "pages": "1-18"
+      },
+      "scores": {"formalism": 85, "citation_integrity": 90, "structural_integrity": 90, "artifact_availability": 60, "intellectual_integrity": 88, "composite": 81, "final": 81},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Hardware design for parallel computing patterns. Big-O complexity bounds (O(log n), O(n log n)) and recursive network definitions are intrinsically necessary for circuit analysis. Set notation in function definitions (e.g., {y2i, y2i-1}) represents actual circuit I/O mappings. Formalism is appropriate for Level 4 digital circuit design."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 4 (Hardware architecture/digital circuits)\n\n### Necessity Test\n- Recursive network definitions (Fig. 2): NECESSARY - defines actual circuit topology\n- Big-O complexity (Sperm(n), Dperm(n)): NECESSARY - standard circuit analysis\n- Cell function notation {y2i, y2i-1}: NECESSARY - specifies actual hardware behavior\n- Permute function pi?: NECESSARY - describes multiplexer control logic\n\n### Formalism Theater Check\n**PASS** - No decorative formalism detected. All mathematical notation directly corresponds to circuit elements or standard complexity analysis."
+    },
+    {
+      "paper_id": "hentout2024",
+      "paper": {
+        "title": "Shortest Path Planning and Efficient Fuzzy Logic Control of Mobile Robots in Indoor Static and Dynamic Environments",
+        "authors": ["Abdelfetah Hentout", "Abderraouf Maoudj", "Ahmed Kouider"],
+        "abstract": "DCA for shortest path in static environments. EFLC for dynamic obstacle avoidance. V-REP simulation validation. Grid-based map representation.",
+        "keywords": ["Deterministic constructive algorithm", "indoor static and dynamic environments", "fuzzy logic control", "mobile robots", "shortest path planning"],
+        "doi": null,
+        "pages": "21-36"
+      },
+      "scores": {"formalism": 65, "citation_integrity": 85, "structural_integrity": 85, "artifact_availability": 50, "intellectual_integrity": 72, "composite": 70, "final": 70},
+      "flags": ["FORMALISM_THEATER"],
+      "flag_details": {"FORMALISM_THEATER": "Set notation for simple lists: 't in {1...4}', 'j in {1...m}' for obstacle segments is unnecessary formalism. Equations 1-4 use set membership notation where simple enumeration would suffice. The problem is fundamentally algorithmic (Level 2) but dressed in mathematical notation. Constraint Ar,tj and Bi,tj could be stated as simple collision detection conditions."},
+      "verdict": {"classification": "LIMITED", "disqualified": true, "summary": "Mobile robot path planning with fuzzy control. Core concept is Level 2 (applied robotics algorithm) but uses unnecessary set-theoretic notation. Equations 1-4 formalize simple geometric intersection tests with excessive notation. Set membership symbols for indexing obstacle segments is decorative."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 2 (Applied robotics/path planning)\n\n### Necessity Test\n- Segment equations (Eq. 1): MARGINAL - standard line equation, acceptable\n- Set notation 't in {1...4}', 'j in {1...m}': UNNECESSARY - simple loop indices\n- Ar,tj, Bi,tj indicator functions (Eq. 3-4): UNNECESSARY - collision detection as set intersection when simple boolean conditions suffice\n- Path optimization formulation: MARGINAL - standard but overly formalized for algorithmic content\n\n### Formalism Theater Check\n**FAIL** - Level 2 paper uses set-theoretic notation for simple enumeration and indexing. Indicator function notation for collision detection is decorative when plain boolean conditions would be clearer."
+    },
+    {
+      "paper_id": "hafs2024",
+      "paper": {
+        "title": "Enhancing Recognition in Multimodal Biometric Systems: Score Normalization and Fusion of Online Signatures and Fingerprints",
+        "authors": ["Toufik Hafs", "Hatem Zehir", "Ali Hafs", "Hanene Brahmia", "Amine Nait-Ali"],
+        "abstract": "Score-level fusion of fingerprints and online signatures. EMD for signature processing. Min-max score normalization. Weighted sum fusion. EER of 1.69%.",
+        "keywords": ["Empirical mode decomposition", "fingerprints", "image and signal processing", "min-max", "multibiometrics", "online handwritten signatures", "scores fusion", "weighted sum"],
+        "doi": null,
+        "pages": "37-49"
+      },
+      "scores": {"formalism": 70, "citation_integrity": 85, "structural_integrity": 85, "artifact_availability": 55, "intellectual_integrity": 75, "composite": 72, "final": 72},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Applied biometrics with score fusion. Equations are standard signal processing (EMD sifting) and simple averaging (Eq. 1 reference signature). SD threshold (Eq. 2) is standard EMD convergence criterion. No theater detected - formalism appropriate for Level 2-3 biometrics."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 2-3 (Applied biometrics/signal processing)\n\n### Necessity Test\n- Reference signature averaging (Eq. 1): NECESSARY - defines enrollment process\n- EMD stopping criterion (Eq. 2): NECESSARY - standard algorithm parameter\n- IMF conditions: NECESSARY - defines valid decomposition\n\n### Formalism Theater Check\n**PASS** - Equations are standard signal processing formulations without decorative additions."
+    },
+    {
+      "paper_id": "roman2024",
+      "paper": {
+        "title": "Hybrid Data-Driven Active Disturbance Rejection Sliding Mode Control with Tower Crane Systems Validation",
+        "authors": ["Raul-Cristian Roman", "Radu-Emil Precup", "Emil M. Petriu", "Anamaria-Ioana Borlea"],
+        "abstract": "ADRC-SMC hybrid controller. SMA for parameter tuning. Extended Luenberger state observer. Tower crane experimental validation. Stability via SMC reaching conditions.",
+        "keywords": ["Active disturbance rejection control system structure", "sliding mode control", "slime mould algorithm", "tower crane system", "real-time experiments"],
+        "doi": null,
+        "pages": "50-64"
+      },
+      "scores": {"formalism": 85, "citation_integrity": 90, "structural_integrity": 90, "artifact_availability": 75, "intellectual_integrity": 88, "composite": 84, "final": 84},
+      "flags": [],
+      "flag_details": {},
+      "verdict": {"classification": "STRONG", "disqualified": false, "summary": "Data-driven control theory with experimental validation. Heavy formalism is appropriate for Level 4 control systems. Disturbed double integrator model (Eq. 1), ADRC control law (Eq. 2, 4), filter transfer function (Eq. 3), and optimization problem (Eq. 5) are all necessary for control system design. Real experimental validation on tower crane."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 4 (Advanced control theory)\n\n### Necessity Test\n- Double integrator model (Eq. 1): NECESSARY - standard ADRC formulation\n- Control law (Eq. 2, 4): NECESSARY - defines controller structure\n- Filter transfer function (Eq. 3): NECESSARY - implementation detail\n- Optimization problem (Eq. 5): NECESSARY - optimal tuning formulation\n- Stability conditions via SMC: NECESSARY - theoretical foundation\n\n### Formalism Theater Check\n**PASS** - All formalism is intrinsic to control systems methodology. Level 4 complexity justifies heavy mathematical treatment."
+    },
+    {
+      "paper_id": "popescu2024",
+      "paper": {
+        "title": "Software Platform Based on the hLARM Formalism for Modeling Complex Systems",
+        "authors": ["Dragos Constantin Popescu", "Ioan Dumitrache"],
+        "abstract": "hLARM modeling platform implementation. Logic-algebraic relational modeling. Trust factors with predicates. Analysis, synthesis, structural equivalence procedures. GUI and inference algorithms.",
+        "keywords": ["Complexity", "modeling", "platform", "relational modeling", "trust factors"],
+        "doi": null,
+        "pages": "65-80"
+      },
+      "scores": {"formalism": 75, "citation_integrity": 85, "structural_integrity": 85, "artifact_availability": 65, "intellectual_integrity": 78, "composite": 76, "final": 76},
+      "flags": ["FORMALISM_THEATER"],
+      "flag_details": {"FORMALISM_THEATER": "Definition of F and phi (Eq. 1) uses formal logic notation for what is essentially a rule-probability table. The formalism (predicates F^k(u,w,y) with attached trust factors p(F^k)) is the paper's own invented notation rather than standard formalism. While creating a new formal language is the paper's contribution, the actual platform implementation would work identically with simpler rule-table representation. The decorative aspect is marginal but present."},
+      "verdict": {"classification": "ADEQUATE", "disqualified": false, "summary": "Modeling platform for complex systems. The hLARM formalism (Eq. 1) is the paper's claimed contribution but uses unnecessary formal notation for rule-probability associations. However, since the paper explicitly claims to introduce a new formalism, this is borderline acceptable. Platform implementation details are well-described."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 3 (Software platform/modeling)\n\n### Necessity Test\n- hLARM formalism (Eq. 1): MARGINAL - paper's contribution but notation is heavier than necessary\n- Parameter notation (ui, wi, yi): NECESSARY - standard I/O nomenclature\n- Inference procedures: NECESSARY - defines platform functionality\n\n### Formalism Theater Check\n**MARGINAL FAIL** - The formalism is the paper's claimed contribution, but the notation F^k(u,w,y) with vector phi of trust factors could be presented more simply as rule tables. However, the paper's explicit goal is to create a formal framework, making this borderline acceptable. Flagged but not disqualified as Level 3 concept."
+    },
+    {
+      "paper_id": "shambour2024",
+      "paper": {
+        "title": "An Effective Doctor Recommendation Algorithm for Online Healthcare Platforms",
+        "authors": ["Qusai Y. Shambour", "Mosleh M. Abualhaj", "Ahmad A. Abu-Shareha"],
+        "abstract": "Multi-criteria CF with content filtering hybrid. Doctor-doctor similarity via quasi-norm. Salton's cosine index. Cold-start and sparsity mitigation. RateMDs-style dataset.",
+        "keywords": ["Content filtering", "doctor", "multi-criteria collaborative filtering", "medical informatics", "recommender systems"],
+        "doi": null,
+        "pages": "81-93"
+      },
+      "scores": {"formalism": 60, "citation_integrity": 85, "structural_integrity": 85, "artifact_availability": 55, "intellectual_integrity": 68, "composite": 68, "final": 68},
+      "flags": ["FORMALISM_THEATER"],
+      "flag_details": {"FORMALISM_THEATER": "Utility theory invocation (Eq. 1) for simple weighted average is unnecessary formalism. Multi-Attribute Utility Theory citation to justify U^t(x) = sum of weighted ratings is excessive theoretical framing for an elementary computation. The quasi-norm similarity (Eq. 3) and Salton index (Eq. 4) are standard but the surrounding mathematical presentation is heavier than the Level 2 content requires."},
+      "verdict": {"classification": "LIMITED", "disqualified": true, "summary": "Recommender system for healthcare. Level 2 applied ML concept uses unnecessary formal treatment. Multi-Attribute Utility Theory citation (Eq. 1) for weighted averaging is decorative. Standard similarity metrics presented with excessive notation. Core idea is simple hybrid recommendation."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 2 (Applied recommender systems)\n\n### Necessity Test\n- Utility function (Eq. 1): UNNECESSARY - Multi-Attribute Utility Theory cited for simple weighted sum\n- Prediction metric (Eq. 2): MARGINAL - standard CF formula\n- Quasi-norm similarity (Eq. 3): MARGINAL - valid metric but unnecessarily complex notation\n- Salton index (Eq. 4): NECESSARY - standard measure\n\n### Formalism Theater Check\n**FAIL** - Level 2 paper invokes utility theory framework for elementary weighted averaging. The mathematical presentation is disproportionate to conceptual complexity. Simple hybrid recommender dressed in formal notation."
+    },
+    {
+      "paper_id": "mone2024",
+      "paper": {
+        "title": "Multi-participant Decision-making Based on Digital Platforms: A Case Study for the Romanian Academy",
+        "authors": ["Firicel Mone", "Maria Visan", "Mihaela Simionescu"],
+        "abstract": "Teleconference platform adoption case study. Platform economy framework. SARIMA model for participant prediction. Romanian Academy implementation. Zoom/Webex/Zoho comparison.",
+        "keywords": ["Blockchain", "multi-participant decision-making", "platform economy", "SARMA model", "teleconference platforms"],
+        "doi": null,
+        "pages": "94-105"
+      },
+      "scores": {"formalism": 55, "citation_integrity": 70, "structural_integrity": 75, "artifact_availability": 40, "intellectual_integrity": 60, "composite": 58, "final": 58},
+      "flags": ["FORMALISM_THEATER"],
+      "flag_details": {"FORMALISM_THEATER": "SARIMA model mentioned in abstract but the extracted content shows primarily a platform comparison table and process description. Mathematical modeling appears disconnected from the case study narrative. The paper is fundamentally a Level 1 descriptive case study with statistical forecasting grafted on."},
+      "verdict": {"classification": "CRITICAL", "disqualified": true, "summary": "Platform adoption case study with grafted SARIMA forecasting. Level 1 descriptive content (platform comparison table, adoption process narrative) with statistical model added for apparent rigor. Blockchain keyword without visible blockchain content. Fundamental mismatch between descriptive case study and claimed quantitative analysis."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 1 (Descriptive case study/platform comparison)\n\n### Necessity Test\n- Platform comparison table: APPROPRIATE for Level 1\n- SARIMA model: UNNECESSARY/DISCONNECTED - statistical forecasting grafted onto descriptive case study\n- Decision-making process description: APPROPRIATE for Level 1\n\n### Formalism Theater Check\n**FAIL** - Level 1 descriptive paper claims SARIMA modeling to appear more rigorous. The core content is platform selection narrative and comparison tables. Blockchain keyword appears without substantive content. Classic case of mathematical decoration on non-technical case study."
+    },
+    {
+      "paper_id": "ning2024",
+      "paper": {
+        "title": "Neural Network-based Pattern Recognition in the Framework of Edge Computing",
+        "authors": ["Jing Ning"],
+        "abstract": "NN optimization for edge computing. Model compression, distributed NN, knowledge distillation. MNIST pattern recognition. Backpropagation training. 6-12% efficiency improvement claimed.",
+        "keywords": ["Edge computing", "Mixed National Institute of Standards and Technology Database", "neural networks", "pattern recognition"],
+        "doi": null,
+        "pages": "106-119"
+      },
+      "scores": {"formalism": 50, "citation_integrity": 65, "structural_integrity": 70, "artifact_availability": 35, "intellectual_integrity": 55, "composite": 52, "final": 52},
+      "flags": ["FORMALISM_THEATER"],
+      "flag_details": {"FORMALISM_THEATER": "Table 1 presents trivial definitions ('Input layer accepts external input data'). Backpropagation equations (Eq. 1-4) are textbook content presented as contribution. Forward propagation y_hat = f^L(...f^2(f^1(x))) and softmax are elementary. Loss function (Eq. 3) is standard cross-entropy. Paper presents introductory NN tutorial material as research contribution."},
+      "verdict": {"classification": "CRITICAL", "disqualified": true, "summary": "Introductory ML tutorial dressed as research paper. Table 1 defines input/hidden/output layers at elementary level. Backpropagation equations are textbook content. Claims NN optimization for edge computing but presents no novel compression or distillation techniques in extracted content. MNIST experiments without clear methodology. Level 1 tutorial content with false research framing."},
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Level:** 1-2 (Introductory ML tutorial)\n\n### Necessity Test\n- NN layer definitions (Table 1): UNNECESSARY - elementary definitions not research content\n- Forward propagation (Eq. 1-2): UNNECESSARY - textbook material\n- Cross-entropy loss (Eq. 3): UNNECESSARY - standard formula, not contribution\n- Backpropagation (Eq. 4): UNNECESSARY - textbook derivation\n\n### Formalism Theater Check\n**FAIL** - Paper presents introductory neural network material as research contribution. Elementary equations and definitions are formatted as novel formalism. No evidence of actual novel contribution to edge computing optimization in extracted content."
+    }
+  ],
+
+  "batch_notes": "Volume 27 Issue 1 (2024) analyzed with RUIN Framework v2.0 and Necessity Test. **4 papers flagged for formalism theater, 3 disqualified.** Paper 758 (scan circuits) and 761 (ADRC-SMC) show appropriate Level 4 formalism with experimental validation. Paper 759 uses set notation for simple indexing. Paper 763 invokes utility theory for weighted averages. Paper 764 is a Level 1 case study with grafted SARIMA. Paper 765 presents textbook ML as research. Final: 2 CRITICAL (disqualified), 2 LIMITED (disqualified), 2 ADEQUATE, 2 STRONG."
+}

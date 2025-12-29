@@ -1,0 +1,215 @@
+{
+  "batch_id": "2020-v23-n1",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 23,
+    "issue": 1,
+    "year": 2020
+  },
+
+  "papers": [
+    {
+      "paper_id": "borangiu2020",
+      "paper": {
+        "title": "Digital transformation of manufacturing. Industry of the Future with Cyber-Physical Production Systems",
+        "authors": ["Theodor Borangiu", "Octavian Morariu", "Silviu Raileanu", "Damien Trentesaux", "Paulo Leitao", "Jose Barata"],
+        "abstract": "Analyzes digital transformation of manufacturing through cloud services and resource virtualization leading to Cloud Manufacturing model. Covers Intelligent Manufacturing Systems as Cyber-Physical Production Systems, digital twins, holonic paradigm, and Industrial Internet of Things. Describes big data processing, analytics and machine learning for predictive maintenance and production control.",
+        "keywords": ["Digital manufacturing", "Cloud services", "Resource virtualization", "Cloud manufacturing", "Holonic manufacturing control", "Multi-Agent System", "Real-time data analysis", "Machine learning", "Digital twin", "Cyber Physical Production System", "Industrial Internet of Things"],
+        "doi": null,
+        "pages": "3-37"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 30,
+        "intellectual_integrity": 86,
+        "composite": 72,
+        "final": 72
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Comprehensive survey/review paper on Industry 4.0 and digital manufacturing. No inappropriate formalism - paper presents conceptual frameworks, architectures, and literature synthesis appropriate for a survey paper. Heavy on description and taxonomy rather than proofs."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Survey of digital manufacturing, Industry 4.0, CPPS, cloud manufacturing, digital twins\n**Level:** 2-3 (Survey/Review paper - systems architecture and integration)\n**Rationale:** This is a comprehensive review paper synthesizing existing concepts in Industry 4.0, cloud manufacturing, and CPPS. No novel algorithms or theoretical contributions requiring formal proofs.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 mathematical equations\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2-3): 0-40\nRatio: 0x upper bound\n\n**Assessment:** Proportionate - survey paper appropriately uses conceptual frameworks and architectural diagrams rather than mathematical formalism. The topic (systems integration, architectures, paradigms) does not require formal mathematical treatment.\n\n### Necessity Test Results\n- No formal definitions present - appropriate for survey\n- No unnecessary set theory or Greek letters\n- Figures show architectures and workflows - appropriate\n\n### Issues\nNone identified. Paper uses appropriate level of formalism for a survey/review.\n\n---\n\n## Citation Analysis\n\nExtensive reference list (87+ references) covering broad literature in manufacturing systems, cloud computing, and Industry 4.0. Self-citation analysis shows reasonable levels given the authors' established work in holonic manufacturing and MAS. No citation manipulation patterns detected.\n\n---\n\n## Structural Analysis\n\nWell-organized survey with clear sections covering: Introduction, Factory of Future context, Research framework (cloud services, virtualization), Modelling approaches, Architecture design, Scientific issues. Comprehensive coverage of the field. No dedicated limitations section but acknowledges open research challenges.\n\n---\n\n## Conclusion\n\nThis is a high-quality survey paper that appropriately avoids unnecessary formalism. The paper synthesizes a large body of work on digital manufacturing transformation without resorting to decorative mathematics. The conceptual complexity of the topic (systems architecture, integration paradigms) is well-matched to the descriptive treatment provided."
+    },
+    {
+      "paper_id": "priya2020",
+      "paper": {
+        "title": "Adaptive Power Control and Duty Cycle based Medium Access Control Protocol for Cluster based Wireless Sensor Network",
+        "authors": ["B. Priya", "S. Solai Manohar"],
+        "abstract": "Proposes AD-MAC protocol for clustered wireless sensor networks combining adaptive duty cycle with hybrid TDMA/FDMA channel access. Includes energy model, throughput analysis, and comparison with S-MAC and ML-MAC protocols. Simulation shows 18% energy reduction compared to ML-MAC.",
+        "keywords": ["Adaptive power control", "Energy consumption", "Medium Access Protocol", "Lifetime", "Throughput", "Wireless Sensor Networks"],
+        "doi": null,
+        "pages": "38-54"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 30,
+        "intellectual_integrity": 80,
+        "composite": 68,
+        "final": 68
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Protocol design paper with appropriate level of formalism. Energy equations (Eq. 11-24), throughput formulas (Eq. 26-28), and timing constraints are standard for MAC protocol analysis. State diagrams (Moore model) are appropriate. No formalism theater."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** MAC protocol design for wireless sensor networks with energy optimization\n**Level:** 3 (Novel protocol with energy/throughput analysis)\n**Rationale:** Paper proposes a new MAC protocol (AD-MAC) combining TDMA/FDMA with adaptive power control. Requires energy modeling, timing analysis, and performance comparison.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: ~28 equations (Eq. 1-28)\n\n### Proportionality\nCalculated complexity: 28 equations treated as basic formalism = ~28\nExpected range (Level 3): 0-40\nRatio: 0.7x upper bound\n\n**Assessment:** Proportionate - equations are standard for protocol analysis:\n- Eq. 1: Frequency allocation f(i) = i mod N/K\n- Eq. 2-10: Timing constraints and frame duration\n- Eq. 11-24: Energy dissipation model (ETX, ERX, standard radio model)\n- Eq. 26-28: Throughput calculations\n\n### Necessity Test Results\n1. **Energy equations (Eq. 11-15):** NECESSARY - standard radio energy model (Eelec, Efs, Emp) required for WSN protocol analysis\n2. **Timing constraints (Eq. 2-10):** NECESSARY - defines protocol behavior and constraints\n3. **Throughput formulas (Eq. 26-28):** NECESSARY - enables performance comparison\n4. **Optimal cluster calculation (Eq. 23):** NECESSARY - optimization result\n\nAll equations serve functional purposes in protocol specification and analysis.\n\n### Issues\nNone identified. Standard protocol engineering formalism.\n\n---\n\n## Citation Analysis\n\n16 references covering related MAC protocols (S-MAC, T-MAC, B-MAC, ML-MAC, MMSN, MASN). Citations appear relevant to the WSN MAC domain. No excessive self-citation detected.\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Related works, AD-MAC protocol (Design, Energy Model, Energy analysis, Throughput analysis), Adaptive Power Control, Simulation and Results, Conclusion. Includes state diagrams (Fig. 3, 4), simulation parameters (Table 1), and comparative results. No dedicated limitations section.\n\n---\n\n## Conclusion\n\nSolid protocol design paper with appropriate level of mathematical formalism for energy and throughput analysis. The equations are standard for the WSN MAC protocol domain and serve clear analytical purposes. Simulation-based validation is provided."
+    },
+    {
+      "paper_id": "mahule2020",
+      "paper": {
+        "title": "Towards Knowledge Discovery in interlinked heterogeneous datasets of LOD cloud",
+        "authors": ["Rajesh Mahule", "Ranjana Vyas", "Om Prakash Vyas"],
+        "abstract": "Proposes framework for extracting features from Linked Open Data cloud using Link Traversal Based Query Execution paradigm. Builds Feature Vector Table from interlinked RDF datasets. Introduces content-based similarity measure for evaluation. Demonstrates clustering and classification on drug-related datasets.",
+        "keywords": ["Linked Open Data", "Semantic Web", "Data mining", "Knowledge discovery", "Feature vector generation"],
+        "doi": null,
+        "pages": "55-68"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 40,
+        "intellectual_integrity": 83,
+        "composite": 72,
+        "final": 72
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Systems/framework paper for LOD data mining with appropriate formalism. Algorithms 1-3 describe extraction process. Similarity measure equations (Eq. 1-3) are simple and necessary. No formalism theater."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Framework for feature extraction from Linked Open Data for knowledge discovery\n**Level:** 2-3 (Systems framework with data mining application)\n**Rationale:** Proposes a framework combining SPARQL queries with link traversal for feature extraction. Includes algorithms and evaluation metrics.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (Eq. 1-3 for similarity measure)\n- Algorithms: 3 (Algorithm 1: Generate feature set, Algorithm 2: get_attribute, Algorithm 3: generate_FVT)\n\n### Proportionality\nCalculated complexity: 3 equations + 3 algorithms (~12)\nExpected range (Level 2-3): 0-30\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate - minimal formalism appropriate for systems paper:\n\n### Necessity Test Results\n1. **ContentSimilarity (Eq. 1):** NECESSARY - defines evaluation metric: ContentSimilarity(FVTm, FVTp) = 1 - contentDistance(FVTm, FVTp)\n2. **ContentDistance (Eq. 2):** NECESSARY - operational definition for evaluation\n3. **RowDistance (Eq. 3):** NECESSARY - component of similarity calculation\n4. **Algorithms 1-3:** NECESSARY - procedural specification of the framework\n\nCould equations be said in English? Partially, but the formulas are simple and standard for similarity measures. No decorative formalism.\n\n### Issues\nNone identified. Appropriate level of formalism for a systems/framework paper.\n\n---\n\n## Citation Analysis\n\n27 references covering LOD, SPARQL, data mining, and related tools (RapidMiner, P-Lingua). Citations appear relevant. No excessive self-citation detected.\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Related Work, Feature Vector Generation Process (with subsections on pre-requisites, extraction, transformation), Experimental Evaluation (similarity measure, case studies), Conclusion. Tables show dataset statistics. Framework diagram provided (Fig. 1).\n\n---\n\n## Conclusion\n\nWell-structured systems paper presenting a practical framework for LOD feature extraction. Formalism is minimal and appropriate - algorithms are procedural, equations define evaluation metrics. No formalism theater detected."
+    },
+    {
+      "paper_id": "kavya2020",
+      "paper": {
+        "title": "Fall Detection System for Elderly People using Vision-Based Analysis",
+        "authors": ["Thathupara Subramanyan Kavya", "Young-Min Jang", "Erdenetuya Tsogtbaatar", "Sang-Bock Cho"],
+        "abstract": "Presents real-time vision-based fall detection using ground point estimation via Gabor filter texture segmentation and Kalman filter tracking. Calculates rate of change of angle between tracked centroid and ground point. Tested on URFD and FDD public datasets achieving 90.53% accuracy.",
+        "keywords": ["Fall detection", "Kalman Filter", "Gabor Filter Segmentation", "Image Processing"],
+        "doi": null,
+        "pages": "69-83"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 85,
+        "structural_integrity": 90,
+        "artifact_availability": 50,
+        "intellectual_integrity": 85,
+        "composite": 76,
+        "final": 76
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Applied computer vision paper with standard formalism. Gabor filter equations (Eq. 1-3) and Kalman filter equations (Eq. 4-8) are textbook standard and necessary for the method. Performance metrics (Eq. 9-11) are standard. No formalism theater."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Vision-based fall detection using texture segmentation and tracking\n**Level:** 2 (Applied CV system combining standard techniques)\n**Rationale:** Combines existing techniques (Gabor filter, Kalman filter, background subtraction) for fall detection application. No novel algorithms.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: 11 (Eq. 1-11)\n\n### Proportionality\nCalculated complexity: 11 equations = ~11\nExpected range (Level 2): 0-15\nRatio: 0.73x upper bound\n\n**Assessment:** Proportionate - equations are standard textbook formulas:\n\n### Necessity Test Results\n1. **Gabor filter equations (Eq. 1-3):** NECESSARY - standard formulation h(x,y) = g(x,y).s(x,y) required to specify texture segmentation method\n2. **Kalman filter equations (Eq. 4-8):** NECESSARY - prediction/correction steps are standard KF formulation, required for tracking specification\n3. **Performance metrics (Eq. 9-11):** NECESSARY - Sensitivity, Specificity, Accuracy are standard evaluation metrics\n\nCould these be said in English? The Gabor and Kalman equations are mathematical definitions that benefit from precise notation. Standard textbook formulas.\n\n### Issues\nNone identified. Standard applied CV paper formalism.\n\n---\n\n## Citation Analysis\n\n31 references covering fall detection methods, Kalman filtering, computer vision. Citations appear relevant and contemporary. No excessive self-citation detected.\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Related Works, Proposed System (Human Detection, Texture Segmentation, Kalman Filter), Experimental Results (datasets, performance evaluation), Conclusion. Includes block diagram (Fig. 2), experimental results with figures, and performance comparison table. Acknowledges limitations in future work section.\n\n---\n\n## Conclusion\n\nSolid applied computer vision paper combining standard techniques for fall detection. Formalism is appropriate - Gabor filter and Kalman filter equations are textbook standard and necessary for method specification. Good experimental validation on public datasets."
+    },
+    {
+      "paper_id": "zhang2020",
+      "paper": {
+        "title": "A Software Tool for Spiking Neural P Systems",
+        "authors": ["Taosheng Zhang", "Fei Xu", "Tingfang Wu"],
+        "abstract": "Develops Python-based simulator for spiking neural P systems that generates transition diagrams automatically. Accepts any form of rules unlike previous simulators limited to seven syntactic types. Includes UML architecture and example implementation.",
+        "keywords": ["Membrane computing", "Spiking neural P systems", "Simulator", "Transition diagram"],
+        "doi": null,
+        "pages": "84-92"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 90,
+        "intellectual_integrity": 86,
+        "composite": 87,
+        "final": 87
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Software tool paper for membrane computing with appropriate formalism. Formal SN P system definition is standard for the field and necessary. Rule syntax specifications are required for tool documentation. Code available on GitHub."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Software simulator for Spiking Neural P Systems\n**Level:** 3 (Theoretical CS - membrane computing with formal system definition)\n**Rationale:** SN P systems are formal computational models requiring precise definition. The paper develops a simulator tool.\n\n### Formal Elements\n- Definitions: 1 formal definition of SN P system (Pi = (O, sigma_1...sigma_m, syn, in, out))\n- Theorems: 0\n- Proofs: 0\n- Rule syntax specifications: Multiple rule formats defined\n\n### Proportionality\nCalculated complexity: 1 definition x 2 = 2, plus rule syntax (~10)\nExpected range (Level 3): 0-40\nRatio: 0.3x upper bound\n\n**Assessment:** Proportionate - formalism is necessary for the domain:\n\n### Necessity Test Results\n1. **SN P system formal definition:** NECESSARY - membrane computing requires formal specification of system structure (neurons, synapses, rules). This is the standard definition from the field.\n2. **Rule syntax (E/a^c -> a^p; d):** NECESSARY - specifies input format for the tool. Users need precise syntax documentation.\n3. **Configuration notation:** NECESSARY - standard notation for describing system states.\n\nThis is a formal methods/theoretical CS paper where the formal notation is the subject matter, not decoration.\n\n### Issues\nNone identified. Formalism is intrinsic to the domain.\n\n---\n\n## Citation Analysis\n\n33 references covering membrane computing, SN P systems, P-Lingua, and related simulators. Well-referenced in the field. No self-citation concerns.\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Spiking Neural P Systems (formal definition), The Simulator (framework, code analysis), Example, Conclusions. UML diagram (Fig. 2), flowchart (Fig. 3), example system (Fig. 1), and transition diagram output (Fig. 5). Code available on GitHub.\n\n---\n\n## Conclusion\n\nHigh-quality software tool paper for membrane computing. The formal notation is appropriate and necessary for this theoretical CS domain. The tool is implemented, documented with examples, and source code is publicly available on GitHub - excellent artifact availability."
+    },
+    {
+      "paper_id": "serban2020",
+      "paper": {
+        "title": "Optimization of Sensing Layers Selection Process for Relative Humidity Sensors",
+        "authors": ["Bogdan Catalin Serban", "Octavian Buiu", "Nicolae Dumbravescu", "Cornel Cobianu", "Viorel Avramescu", "Mihai Brezeanu", "Marius Bumbac", "Cristina Mihaela Nicolescu"],
+        "abstract": "Proposes Hard-Soft Acid Base (HSAB) theory as tool for understanding metal oxide humidity sensor performance. Reviews six case studies of RH detection by MOX sensing layers. Argues hard acid MOX preferentially bind hard base water molecules.",
+        "keywords": ["Humidity Sensor", "Metal Oxide", "Hard Soft Acid Base"],
+        "doi": null,
+        "pages": "93-104"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 85,
+        "structural_integrity": 80,
+        "artifact_availability": 20,
+        "intellectual_integrity": 83,
+        "composite": 68,
+        "final": 68
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Review/analysis paper applying HSAB chemistry theory to humidity sensor material selection. No mathematical formalism - appropriately uses chemical theory and case study analysis. Classification table (Table 1) is standard chemistry reference."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Application of HSAB theory to humidity sensor material selection\n**Level:** 2 (Applied chemistry/materials science - literature synthesis with theoretical framework)\n**Rationale:** Paper applies existing HSAB theory to explain experimental observations in humidity sensor literature. No novel theoretical development.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n- Tables: 1 (HSAB classification of acids/bases)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate - review paper appropriately uses qualitative chemical theory:\n\n### Necessity Test Results\nNo formal mathematical elements to test. The paper uses:\n1. **HSAB classification table:** Appropriate - standard chemistry reference\n2. **Qualitative reasoning:** Appropriate - HSAB is primarily a qualitative concept\n3. **Case study analysis:** Appropriate - reviews literature and applies theoretical lens\n\n### Issues\nNone identified. Paper appropriately avoids unnecessary formalism for a chemistry review.\n\n---\n\n## Citation Analysis\n\n54 references covering humidity sensors, metal oxides, HSAB theory, and sensing mechanisms. Extensive literature coverage. Several self-citations to authors' prior sensor work (refs 7-12, 15-17) but these appear relevant to the topic.\n\n---\n\n## Structural Analysis\n\nStructure: Introduction, MOX-Based Gas Sensing Layers Selection (HSAB Theory), Hard Acids MOX-Based RH Sensing Layers (6 case categories A-F), Hard Acids MOX-based Ethanol/Ammonia/TMA Sensing, Role of Hard Acids Dopants, Conclusions. Logical organization by sensing layer categories. Acknowledges that HSAB is not the only factor.\n\n---\n\n## Conclusion\n\nReview paper applying HSAB chemistry theory to sensor material selection. Appropriately avoids mathematical formalism since HSAB is a qualitative concept. Good literature synthesis with case study organization. The contribution is applying an existing chemical framework to explain observed sensing behaviors."
+    },
+    {
+      "paper_id": "saravanan2020",
+      "paper": {
+        "title": "Synthesis of SiO2 Nanoparticles by Sol-Gel Method and Their Optical and Structural Properties",
+        "authors": ["S. Saravanan", "R. S. Dubey"],
+        "abstract": "Synthesizes SiO2 nanoparticles using sol-gel process with TEOS, acetic acid, and methanol. Characterizes using FTIR, DLS, fluorescence spectroscopy, and SEM. Reports 192nm average particle size, Si-O-Si bonding at 1093, 798, and 459 cm-1, and emission at 644.8nm.",
+        "keywords": ["Sol-gel", "SiO2 nanoparticles", "scattering", "fluorescence", "morphology"],
+        "doi": null,
+        "pages": "105-112"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 30,
+        "intellectual_integrity": 85,
+        "composite": 71,
+        "final": 71
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Materials synthesis and characterization paper with minimal formalism. Chemical reaction equation is standard notation. No unnecessary mathematical decoration. Standard materials science reporting."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Sol-gel synthesis and characterization of SiO2 nanoparticles\n**Level:** 2 (Experimental materials science - synthesis and characterization)\n**Rationale:** Standard materials synthesis paper reporting experimental procedures and characterization results. No theoretical modeling or novel algorithms.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (chemical reaction equation for synthesis)\n\n### Proportionality\nCalculated complexity: ~1\nExpected range (Level 2): 0-15\nRatio: 0.07x upper bound\n\n**Assessment:** Proportionate - minimal formalism appropriate for experimental materials paper:\n\n### Necessity Test Results\n1. **Chemical reaction equation:** NECESSARY - standard notation for describing synthesis:\n   CH3COOH + CH3OH -> C3H6O2 + H2O -> ... -> SiO2 + C11H26O4\n   This is standard chemistry notation, not decorative formalism.\n\nNo mathematical definitions, theorems, or unnecessary formalism. Paper reports experimental procedures and measurement results.\n\n### Issues\nNone identified. Appropriately minimal formalism for experimental materials paper.\n\n---\n\n## Citation Analysis\n\n34 references covering sol-gel synthesis, nanoparticles, solar cells, and characterization methods. Citations appear relevant. No self-citation concerns.\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Experimental Approach, Results and Discussion (UV-Vis, DLS, Fluorescence, FTIR, SEM), Conclusion. Includes synthesis flowchart (Fig. 1), characterization spectra and micrographs. Brief paper (8 pages) with standard materials characterization reporting.\n\n---\n\n## Conclusion\n\nStandard materials synthesis and characterization paper. Reports sol-gel preparation of SiO2 nanoparticles with comprehensive characterization (FTIR, DLS, FL, SEM). Minimal formalism is appropriate - no mathematical theater. Contribution is experimental demonstration and characterization data."
+    }
+  ],
+
+  "batch_notes": "Volume 23 Issue 1 (2020) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** Papers cover diverse topics: Industry 4.0 survey, WSN MAC protocol, LOD data mining, fall detection, membrane computing simulator, humidity sensors, and nanoparticle synthesis. All papers demonstrate appropriate formalism for their concept levels. Final: 0 CRITICAL, 0 LIMITED, 6 ADEQUATE, 1 STRONG."
+}

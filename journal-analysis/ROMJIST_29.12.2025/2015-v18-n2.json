@@ -1,0 +1,159 @@
+{
+  "batch_id": "2015-v18-n2",
+  "analysis_timestamp": "2025-12-29T00:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 18,
+    "issue": 2,
+    "year": 2015
+  },
+
+  "papers": [
+    {
+      "paper_id": "paun2015",
+      "paper": {
+        "title": "HPC Application in Cloud Environment",
+        "authors": ["M. Paun", "C. Leangsuksun", "R. Nassar", "T. Thanakornworakij"],
+        "abstract": "Reliability model of Cloud system under four scenarios: independent/correlated hardware and software failures. Uses Multivariate Weibull and Exponential distributions. Develops optimal checkpoint placement technique based on reliability information. Shows that correlated failures decrease system reliability and MTTF.",
+        "keywords": ["Fault tolerance", "reliability", "cloud computing", "cloud performance"],
+        "doi": null,
+        "pages": "109-125"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 30,
+        "intellectual_integrity": 86,
+        "composite": 72,
+        "final": 72
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Reliability theory paper with substantial mathematical formalism. Multivariate Weibull/Exponential models, reliability equations (5-8), PDF derivations (9-12), failure rate formulas (13-16), and optimal checkpoint models are all NECESSARY for the theoretical contribution. The formalism enables proofs of reliability properties and MTTF calculations."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Reliability modeling for HPC applications in cloud computing with optimal checkpoint placement\n**Level:** 4 (High)\n**Rationale:** Novel reliability models incorporating correlated failures using multivariate distributions. Derives closed-form reliability functions, failure rates, MTTF, and optimal checkpoint intervals.\n\n### Formal Elements\n- Definitions: ~5 (Multivariate Exponential, Multivariate Weibull, excess life, reliability scenarios)\n- Theorems: 0 (implicit in derivations)\n- Proofs: Multiple derivations (Eqs 5-16)\n- Equations: 25+ (reliability functions, PDFs, failure rates, MTTF, checkpoint optimization)\n\n### Proportionality\nCalculated complexity: ~50 (5 defs x 2 + 0 theorems + 10 derivations x 4)\nExpected range (Level 4): 30-80\nRatio: 0.63x upper bound\n\n**Assessment:** Proportionate - the mathematical apparatus is essential for reliability theory.\n\n### Necessity Test Applied to Key Elements\n\n1. **Multivariate Exponential Model (Eq. 1)**: NECESSARY - enables modeling of correlated software failures. Cannot express shock model dependencies in plain English.\n\n2. **Multivariate Weibull (Eq. 2)**: NECESSARY - derived from Eq. 1 via variable transformation to model correlated hardware failures. Standard technique in reliability engineering.\n\n3. **Excess Life PDF (Eq. 3)**: NECESSARY - accounts for node age since last failure, critical for accurate reliability estimation.\n\n4. **Four Reliability Scenarios (Eqs. 5-8)**: NECESSARY - each equation models different correlation assumptions. These enable comparison of system behavior under different failure modes.\n\n5. **PDF Derivations (Eqs. 9-12)**: NECESSARY - required for MTTF calculations via integration.\n\n6. **Failure Rate Equations (Eqs. 13-16)**: NECESSARY - enable analysis of how failure rate changes with time and correlation.\n\n7. **Optimal Checkpoint Equations (Eqs. 18-26)**: NECESSARY - derived from reliability model to optimize checkpoint intervals.\n\n**Verdict:** All formalism passes the Necessity Test. This is genuine applied mathematics for reliability engineering.\n\n### Issues\nNone identified. The formalism is well-motivated and used throughout.\n\n---\n\n## Citation Analysis\n\nTotal citations: 24\nSelf-citations: 1 (Gottumukkala et al. [7] - extends author's previous work)\nSCR: 4.2% - Normal range\n\nReferences are appropriate: Weibull modeling [9,10,23], software reliability [17,20,22], cloud computing [3,6,10,21], checkpoint optimization [15].\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Related Work, TTF Considerations, Cloud Reliability Model, Reliability/MTTF/Failure Rate Analysis, Optimal Checkpoint, Conclusions.\n\nLimitations: Not explicitly stated but implicit (model assumptions about distribution parameters).\n\nArtifacts: Numerical examples provided but no code/data repository.\n\n---\n\n## Conclusion\n\nHigh-quality reliability theory paper with substantial but necessary mathematical formalism. The multivariate distribution approach to correlated failures and the optimal checkpoint derivation represent genuine theoretical contributions. All equations serve the analytical goals of the paper. Recommended for the rigor of its mathematical treatment."
+    },
+    {
+      "paper_id": "maican2015",
+      "paper": {
+        "title": "Minimum Spanning Tree Algorithm on MapReduce One-Chip Architecture",
+        "authors": ["Voichita Maican"],
+        "abstract": "Parallel algorithm for minimum spanning tree on one-chip many-core MapReduce architecture. Dense and sparse matrix representations considered. Achieves O(N log N) time with N execution units and O(N) size, compared to hypercube's O(N log N) time but O(N log N) size. Energy performance of 7 pJ/op vs 150 pJ/op for Intel Xeon Phi.",
+        "keywords": ["parallel computing", "MapReduce", "many core", "minimum spanning tree", "parallel algorithm"],
+        "doi": null,
+        "pages": "126-143"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 60,
+        "intellectual_integrity": 85,
+        "composite": 79,
+        "final": 79
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Parallel algorithms paper with appropriate formalism. Definitions 1-2 (Spanning Tree, MST) are standard graph theory prerequisites. Algorithm pseudocode and complexity analysis O(N log N) are necessary for algorithm specification. ISA description is domain-appropriate."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Parallel MST algorithm on custom MapReduce hardware\n**Level:** 3 (Medium)\n**Rationale:** Novel parallel algorithm with complexity analysis, custom hardware architecture description.\n\n### Formal Elements\n- Definitions: 2 (Spanning Tree, MST - standard graph theory)\n- Theorems: 0\n- Proofs: 0 (complexity analysis implicit)\n- Equations: ~5 (complexity bounds, ISA definitions)\n- Algorithms: 2 (dense and sparse MST pseudocode)\n\n### Proportionality\nCalculated complexity: ~10 (2 defs x 2 + algorithms)\nExpected range (Level 3): 10-40\nRatio: 0.25x upper bound\n\n**Assessment:** Proportionate - minimal formalism appropriate for algorithm paper.\n\n### Necessity Test Applied to Key Elements\n\n1. **Definition 1 (Spanning Tree)**: NECESSARY - standard prerequisite for MST algorithm. Could arguably be assumed known, but brief and appropriate.\n\n2. **Definition 2 (MST)**: NECESSARY - defines the problem being solved.\n\n3. **ISA Definition Structure**: NECESSARY - specifies the instruction set for the MapReduce architecture. Domain-specific notation.\n\n4. **Algorithm Pseudocode (Dense MST)**: NECESSARY - specifies the parallel algorithm precisely.\n\n5. **Algorithm Pseudocode (Sparse MST)**: NECESSARY - different algorithm for sparse representation.\n\n6. **Complexity Analysis O(N log N)**: NECESSARY - key claim comparing to hypercube.\n\n**Verdict:** All formalism passes the Necessity Test. Standard algorithm paper conventions.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal citations: 9\nSelf-citations: 2 ([7] Stefan & Malita, [8] Stefan - architecture references)\nSCR: 22% - Elevated but self-citations are directly relevant (describing the same architecture)\n\nTopical similarity of self-citations: >0.8 (same MapReduce architecture)\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Architecture Description, Dense MST Algorithm, Sparse MST Algorithm, Architecture Upgrades, Conclusions.\n\nLimitations: Not explicitly stated.\n\nArtifacts: Verilog simulator used; code listings in appendix.\n\n---\n\n## Conclusion\n\nSolid parallel algorithms paper with appropriate formalism. The two standard graph theory definitions are brief prerequisites. The main contribution is the parallel algorithm and complexity analysis, which are presented clearly with pseudocode. The architecture ISA description is domain-appropriate."
+    },
+    {
+      "paper_id": "hayat2015",
+      "paper": {
+        "title": "Computing Topological Indices of Honeycomb Derived Networks",
+        "authors": ["Sakander Hayat", "Mehar Ali Malik", "Muhammad Imran"],
+        "abstract": "Defines new classes of networks from honeycomb networks using stellation, medial, and dual graph operations. Derives analytical closed formulas for general Randic index R_alpha(G), first Zagreb index M1(G), atom-bond connectivity ABC(G), and geometric-arithmetic GA(G) indices for hexagonal and honeycomb derived networks.",
+        "keywords": ["General Randic index", "First Zagreb index", "Atom-bond connectivity (ABC) index", "Geometric-arithmetic (GA) index", "Honeycomb derived networks"],
+        "doi": null,
+        "pages": "144-165"
+      },
+      "scores": {
+        "formalism": 90,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 20,
+        "intellectual_integrity": 87,
+        "composite": 70,
+        "final": 70
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Pure mathematics paper in chemical graph theory. The formalism IS the contribution - deriving closed-form expressions for topological indices of new graph families. 6 definitions, multiple theorems with proofs. All formalism necessary for mathematical proofs."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Deriving closed-form topological indices for honeycomb-derived graph families\n**Level:** 4-5 (High to Very High)\n**Rationale:** Pure mathematical proofs deriving analytical formulas for graph invariants. This is discrete mathematics research.\n\n### Formal Elements\n- Definitions: 6 (Wiener index, Randic index, First/Second Zagreb index, ABC index, GA index)\n- Theorems: 16+ (each computing indices for different graph families)\n- Proofs: 16+ (by direct computation using edge partitions)\n- Equations: 50+ (closed-form expressions)\n\n### Proportionality\nCalculated complexity: ~100 (6 defs x 2 + 16 theorems x 3 + proofs)\nExpected range (Level 4-5): 60-150\nRatio: 0.67x-1.25x upper bound\n\n**Assessment:** Proportionate - this is a pure mathematics paper. The formalism IS the research.\n\n### Necessity Test Applied to Key Elements\n\n1. **Definition 1.1 (Wiener Index)**: NECESSARY - defines a standard topological index being computed.\n\n2. **Definition 1.2 (Randic Index)**: NECESSARY - defines the core index family being studied.\n\n3. **Definitions 1.3-1.6 (Zagreb, ABC, GA)**: NECESSARY - define the indices computed in the paper.\n\n4. **Edge Partition Tables**: NECESSARY - the combinatorial data enabling proofs.\n\n5. **Theorem 2.1.1 (General Randic Index for HcDN1)**: NECESSARY - the theorem IS a result. The closed-form expressions for different alpha values are the contribution.\n\n6. **All subsequent theorems**: NECESSARY - each derives a new closed-form expression.\n\n**Verdict:** ALL formalism passes the Necessity Test. This is pure mathematics - the formulas ARE the contribution.\n\n### Issues\nNone identified. This is exactly the appropriate level of formalism for discrete mathematics.\n\n---\n\n## Citation Analysis\n\nTotal citations: 33\nSelf-citations: ~4 ([13-15, 19] - Imran et al.)\nSCR: 12% - Normal range\n\nSelf-citations are topically relevant (previous topological index computations).\n\n---\n\n## Structural Analysis\n\nClear mathematical paper structure: Introduction with definitions, Main Results (theorems), Proofs.\n\nLimitations: Implicit (applies only to specific graph families).\n\nArtifacts: Mathematical proofs provided in full.\n\n---\n\n## Conclusion\n\nExcellent pure mathematics paper. The formalism is not decorative - it IS the research contribution. The paper derives new closed-form expressions for topological indices of novel graph families. Every definition, theorem, and equation serves the mathematical goals. Appropriate for chemical graph theory / discrete mathematics."
+    },
+    {
+      "paper_id": "teodorescu2015",
+      "paper": {
+        "title": "On the Regularities and Randomness of the Dynamics of Simple and Composed CAs with Applications",
+        "authors": ["Horia-Nicolai Teodorescu"],
+        "abstract": "Analyzes elementary dynamic properties of cyclic cellular automata emphasizing decorrelation of cycles. Introduces completely periodical CAs (CPCAs) and equal length cycle CAs (ELC-CAs). Analyzes correlation between cycles for PRNG and CDMA applications. Proposes stacked CAs for improved decorrelation.",
+        "keywords": ["cellular automata", "pseudo-random number generator", "dynamics", "spread spectrum", "CDMA"],
+        "doi": null,
+        "pages": "166-181"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 40,
+        "intellectual_integrity": 83,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Theoretical computer science paper analyzing CA dynamics. Definitions of CPCA, ELC-CA, divergence measures are necessary for mathematical analysis. Properties 1-4 are proven facts about CAs. Correlation analysis equations are necessary for CDMA/PRNG evaluation."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Analysis of cyclic cellular automata dynamics for PRNG/CDMA applications\n**Level:** 3 (Medium)\n**Rationale:** Theoretical analysis of CA properties with mathematical characterization of cycle correlations.\n\n### Formal Elements\n- Definitions: ~8 (CPCA, ELC-CA, Euclidean distance, normalized distance, divergence, etc.)\n- Properties: 4 (proven mathematical facts about CAs)\n- Equations: ~15 (correlation measures, distance formulas)\n\n### Proportionality\nCalculated complexity: ~30 (8 defs x 2 + 4 properties x 3)\nExpected range (Level 3): 10-40\nRatio: 0.75x upper bound\n\n**Assessment:** Proportionate - theoretical CS paper with necessary mathematical apparatus.\n\n### Necessity Test Applied to Key Elements\n\n1. **Definition: CPCA (Completely Periodical CA)**: NECESSARY - introduces new concept being studied. Cannot be replaced with plain English while maintaining precision.\n\n2. **Definition: ELC-CA (Equal Length Cycle CA)**: NECESSARY - central concept of the paper.\n\n3. **Property 1 (Cycles partition domain)**: NECESSARY - mathematical fact enabling subsequent analysis.\n\n4. **Property 2 (No fixed points)**: NECESSARY - characterizes CPCA behavior.\n\n5. **Property 3 (Boundary conditions)**: NECESSARY - specifies when CAs cannot be CPCAs.\n\n6. **Euclidean Distance Definition**: NECESSARY - enables quantitative comparison of cycles.\n\n7. **Divergence Measures (d-divergence, c-divergence)**: NECESSARY - enable quality assessment of cycle families for CDMA.\n\n8. **Correlation Equations**: NECESSARY - standard statistical measures applied to CA cycles.\n\n**Verdict:** All formalism passes the Necessity Test. The mathematical apparatus enables rigorous analysis of CA dynamics.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal citations: 25\nSelf-citations: 1 ([22] - previous work on CA phase diagrams)\nSCR: 4% - Normal range\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Basic Concepts, Dynamic Properties, Cycle Correlation, Hybrid CAs, Conclusions.\n\nLimitations: Implicit (specific CA rules studied).\n\nArtifacts: Numerical examples with specific rules (60, 102).\n\n---\n\n## Conclusion\n\nSolid theoretical computer science paper. The definitions and properties are necessary for rigorous analysis of CA dynamics. The correlation measures enable quantitative assessment of cycle independence for PRNG/CDMA applications. All formalism serves analytical goals."
+    },
+    {
+      "paper_id": "simecek2015",
+      "paper": {
+        "title": "Utilization of GPU Acceleration in Le Bail Fitting Method",
+        "authors": ["I. Simecek", "O. Marsik", "M. Jelinek"],
+        "abstract": "GPU parallelization of Le Bail fitting method used in applied crystallography. Explains crystallography background and Le Bail method. Describes CUDA implementation and optimization. Achieves significant speedup over sequential implementation.",
+        "keywords": ["Le Bail fitting method", "GPGPU", "parallel execution", "applied crystallography"],
+        "doi": null,
+        "pages": "182-196"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 50,
+        "intellectual_integrity": 83,
+        "composite": 74,
+        "final": 74
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Applied systems paper on GPU parallelization. Crystallography equations (1-2) are BACKGROUND from existing literature, not novel. Le Bail equations (3-6) are standard method being parallelized. Algorithm pseudocode is necessary for implementation specification. No decorative formalism."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** GPU parallelization of crystallographic fitting algorithm\n**Level:** 2 (Low)\n**Rationale:** Engineering implementation of existing algorithm on parallel architecture. The contribution is parallelization strategy, not mathematical novelty.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (standard crystallography formulas from literature)\n- Algorithms: 2 (DoLeBail, DoLeastSquares pseudocode)\n\n### Proportionality\nCalculated complexity: ~6\nExpected range (Level 2): 0-15\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate - minimal formalism, mostly background equations.\n\n### Necessity Test Applied to Key Elements\n\n1. **Equations 1-2 (Bragg's Law, Q formula)**: NECESSARY as BACKGROUND - these are standard crystallography formulas explaining the domain. Not novel but needed for reader context.\n\n2. **Equation 3 (Integrated Intensity)**: NECESSARY - core Le Bail formula being parallelized. Reader needs this to understand the algorithm.\n\n3. **Equation 4 (Least Squares)**: NECESSARY - standard linear algebra. Explains the second phase of the algorithm.\n\n4. **Equations 5-6 (Implementation formulas)**: NECESSARY - specify the computations being parallelized.\n\n5. **Algorithm 1 (DoLeBail)**: NECESSARY - specifies the algorithm for parallel implementation.\n\n6. **Algorithm 2 (DoLeastSquares)**: NECESSARY - specifies the least squares phase.\n\n**Verdict:** All formalism passes the Necessity Test. The equations are either domain background or algorithm specification.\n\n### Issues\nNone identified. The formalism is minimal and appropriate for an implementation paper.\n\n---\n\n## Citation Analysis\n\nTotal citations: 9\nSelf-citations: 0\nSCR: 0% - Excellent\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction/Background, Algorithm Design, Implementation (CUDA), Optimization, Results, Conclusions.\n\nLimitations: Implicit (specific GPU architecture).\n\nArtifacts: Implementation described; performance results provided.\n\n---\n\n## Conclusion\n\nSolid applied systems paper on GPU parallelization. The formalism is minimal and appropriate - crystallography background equations and algorithm pseudocode. The contribution is the parallel implementation and optimization strategy, not mathematical novelty. No decorative formalism detected."
+    }
+  ],
+
+  "batch_notes": "Volume 18 Issue 2 (2015) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** All 5 papers have domain-appropriate formalism: (1) reliability theory with necessary mathematical models, (2) parallel algorithms with standard definitions, (3) pure discrete mathematics (formalism IS the contribution), (4) CA dynamics theory with necessary definitions/properties, (5) GPU implementation with background equations. Final: 0 CRITICAL, 0 LIMITED, 5 ADEQUATE, 0 STRONG. This batch shows appropriate use of formalism across diverse topics from pure mathematics to applied engineering."
+}

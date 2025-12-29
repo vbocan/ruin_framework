@@ -1,0 +1,217 @@
+{
+  "batch_id": "2023-v26-n1",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 26,
+    "issue": 1,
+    "year": 2023
+  },
+
+  "papers": [
+    {
+      "paper_id": "chen2023",
+      "paper": {
+        "title": "A Frequent Construction Mining Scheme Based on Syntax Tree",
+        "authors": ["Bob Chen", "Weiming Peng", "Jihua Song"],
+        "abstract": "NLP construction mining from syntax trees. Proposes algorithm to extract frequent semantic constructions from phrase structure trees. Extends PrefixSpan algorithm for construction mining with gap handling. Corpus-based extraction of linguistic constructions.",
+        "keywords": ["Construction", "data mining", "semantic recognition", "sequential pattern mining"],
+        "doi": "10.59277/ROMJIST.2023.1.01",
+        "pages": "3-20"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 50,
+        "intellectual_integrity": 80,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Pattern mining algorithm for NLP constructions. Definitions 1-7 (construction, constant, empty slot, phrase tree, tree sequence, support, frequent construction) are necessary for algorithm specification. Algorithm pseudocode and complexity analysis appropriate for data mining paper."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Sequential pattern mining for NLP constructions\n**Level:** 3 (Algorithm design with theoretical foundations)\n**Rationale:** Novel algorithm extending PrefixSpan for construction mining with gap handling.\n\n### Necessity Test\n- Definition 1 (Construction): Necessary - defines core mining target\n- Definition 2-3 (Constant/Empty slot): Necessary - specifies pattern structure\n- Definition 4 (Phrase structure tree): Necessary - defines input data structure\n- Definition 5-7 (Tree sequence, Support, Frequent construction): Necessary - standard data mining formalisms\n- Algorithm pseudocode: Necessary for reproducibility\n\n**Verdict:** Formalism appropriate for algorithm design paper. Definitions are functional, not decorative.\n\n### Issues\nNone identified."
+    },
+    {
+      "paper_id": "unguritu2023",
+      "paper": {
+        "title": "Design and Assessment of an Anti-lock Braking System Controller",
+        "authors": ["Maria-Geanina Unguritu", "Teodor-Constantin Nichitelea"],
+        "abstract": "ABS controller design using Simulink. Mathematical modeling of quarter-car ABS system. Proposes three-position regulator vs standard bang-bang controller. Simulation shows improved braking time and distance.",
+        "keywords": ["Anti-lock braking system", "automation and control theory", "modelling", "simulation"],
+        "doi": "10.59277/ROMJIST.2023.1.02",
+        "pages": "21-32"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 85,
+        "composite": 80,
+        "final": 80
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Control systems engineering paper with appropriate formalism. Equations (1)-(7) for vehicle/wheel dynamics are standard control theory. Burckhardt tire model (Eq. 7) with empirical coefficients. Simulink model with experimental validation. Formalism is domain-standard and necessary."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** ABS controller design\n**Level:** 3 (Control systems engineering)\n**Rationale:** Novel three-position regulator for ABS with simulation validation.\n\n### Necessity Test\n- Eq. 1 (Force equilibrium): Necessary for vehicle dynamics\n- Eq. 2 (Newton's second law): Fundamental physics\n- Eq. 3-5 (Vehicle/wheel kinematics): Necessary for simulation model\n- Eq. 6 (Wheel slip): Standard ABS definition\n- Eq. 7 (Burckhardt model): Established tire-road friction model\n- Table 1 (Surface coefficients): Empirical data, necessary\n\n**Verdict:** All equations are standard control theory formulations. No decorative formalism.\n\n### Issues\nNone identified."
+    },
+    {
+      "paper_id": "georgieva2023",
+      "paper": {
+        "title": "Transforming 3D Models to Semantic Web Representation",
+        "authors": ["Tsvetanka Georgieva-Trifonova", "Miroslav Galabov"],
+        "abstract": "Rule-based X3D to RDF transformation using RML. SPARQL queries for validation and reverse transformation. Ontology-based 3D model representation for semantic web applications.",
+        "keywords": ["Ontology", "RDF mapping language", "X3D models"],
+        "doi": "10.59277/ROMJIST.2023.1.03",
+        "pages": "33-48"
+      },
+      "scores": {
+        "formalism": 65,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 80,
+        "intellectual_integrity": 75,
+        "composite": 77,
+        "final": 77
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Applied semantic web engineering paper. No mathematical formalism - uses code listings (RML rules, SPARQL queries) which are appropriate for the domain. Transformation rules are functional specifications, not decorative. Tables show query results for validation."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** X3D to RDF transformation\n**Level:** 2 (Applied semantic web engineering)\n**Rationale:** Rule-based data transformation, standard technology application.\n\n### Necessity Test\n- RML rule listings (1-5): Necessary - functional specifications\n- SPARQL queries: Necessary - validation and reverse transformation\n- Tables 1-5: Query results, necessary for demonstration\n- No mathematical notation misuse\n\n**Verdict:** Paper uses code/query listings instead of mathematical formalism. Appropriate for software engineering domain.\n\n### Issues\nNone identified."
+    },
+    {
+      "paper_id": "abramov2023",
+      "paper": {
+        "title": "New Opportunities Model for Monitoring, Analyzing and Forecasting the Official Statistics on Coronavirus Disease Pandemic",
+        "authors": ["Sergey M. Abramov", "Sergey Travin", "Gheorghe Duca", "Radu-Emil Precup"],
+        "abstract": "COVID-19 pandemic modeling using parabolic regression. Proposes 'new opportunities model' extending SI model with transition detection. Applied to Russia, Romania, Moldova, and Campania region.",
+        "keywords": ["Coronavirus disease 2019 pandemic", "new opportunities model", "official statistics", "optimization", "parabolic regression", "prediction"],
+        "doi": "10.59277/ROMJIST.2023.1.04",
+        "pages": "48-63"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 85,
+        "structural_integrity": 80,
+        "artifact_availability": 60,
+        "intellectual_integrity": 75,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Epidemiological modeling paper. SI model equations (5)-(8) are standard. Dataset definition (Eq. 1), secondary data calculations (Eq. 2-4) are necessary. New opportunities model steps (NO1-NO4) appropriately formalized. Phase plane visualizations support analysis."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** COVID-19 pandemic forecasting\n**Level:** 3 (Mathematical modeling with optimization)\n**Rationale:** Extends classical SI model with regime change detection.\n\n### Necessity Test\n- Eq. 1 (Dataset definition): Necessary for data specification\n- Eq. 2-4 (Secondary data): Simple arithmetic, necessary\n- Eq. 5-6 (SI model): Standard epidemiological formulation\n- Eq. 7-8 (Solution): Analytical solution, necessary for prediction\n- Eq. 10 (Parameter estimation): Necessary for model fitting\n- Steps SI1-SI3, NO1-NO4: Algorithm specification, appropriate\n\n**Verdict:** Formalism is standard for mathematical modeling. Ball trajectory analogy is pedagogical, not decorative.\n\n### Issues\nNone identified."
+    },
+    {
+      "paper_id": "mathur2023",
+      "paper": {
+        "title": "Linear Voltage Controlled Oscillator Implementation in Electronically Variable Immittances",
+        "authors": ["Koushick Mathur", "Palaniandavar Venkateswaran", "Rabindranath Nandi"],
+        "abstract": "CFA-MMCC based voltage-tunable inductor and FDNR design. Applications to selective filters and LC-type linear VCO. PSPICE simulation and hardware verification up to 13.6MHz.",
+        "keywords": ["Current Feedback Amplifier (CFA)", "linear voltage control oscillator", "quadrature", "selective filter", "synthetic inductor/FDNR"],
+        "doi": "10.59277/ROMJIST.2023.1.05",
+        "pages": "65-77"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 85,
+        "structural_integrity": 90,
+        "artifact_availability": 75,
+        "intellectual_integrity": 85,
+        "composite": 83,
+        "final": 83
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Analog circuit design paper with appropriate formalism. Table 2 (L/D realization) specifies component selection and immittance functions - necessary for design. Equations (3)-(7) for parasitic analysis are standard circuit theory. PSPICE and hardware validation included."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Voltage-tunable immittance circuits\n**Level:** 3 (Analog circuit design)\n**Rationale:** Novel CFA-MMCC composite for tunable L and D elements.\n\n### Necessity Test\n- Table 1 (Literature comparison): Appropriate survey\n- Table 2 (L/D realization): Necessary design specification\n- Eq. 3-4 (Parasitic effects on L/D): Necessary for accuracy analysis\n- Eq. 5-7 (Modified immittance): Standard circuit analysis\n- PSPICE simulation + hardware: Validation\n\n**Verdict:** Formalism is domain-standard for analog electronics. All equations derive from circuit theory.\n\n### Issues\nNone identified."
+    },
+    {
+      "paper_id": "gaiseanu2023",
+      "paper": {
+        "title": "Information: From Cognitive-Sentient Exploration of Reality to Predictive Big Data Assisted Informational Era",
+        "authors": ["Florin Gaiseanu"],
+        "abstract": "Philosophical paper on information in consciousness and living structures. Proposes Informational Model of Consciousness (IMC) and Informational System of Human Body (ISHB). Discusses COVID-19 prediction using big data.",
+        "keywords": ["Applications", "artificial intelligence", "cognitive-sentient exploration of reality", "information", "informational era", "informational model of consciousness"],
+        "doi": "10.59277/ROMJIST.2023.1.06",
+        "pages": "78-99"
+      },
+      "scores": {
+        "formalism": 30,
+        "citation_integrity": 70,
+        "structural_integrity": 60,
+        "artifact_availability": 20,
+        "intellectual_integrity": 40,
+        "composite": 40,
+        "final": 40
+      },
+      "flags": ["FORMALISM_THEATER"],
+      "flag_details": {
+        "FORMALISM_THEATER": "Equations (1)-(7) are pseudo-mathematical notation for philosophical concepts. Eq. 1 (entropy/information) is Shannon formula but applied metaphorically. Eq. 2-4 use chemical-like notation (=>) for philosophical 'informatter' concepts. Eq. 5 and 7 define ISHB/ISLS as set notation for list of acronyms - classic decorative formalism. No mathematical operations, no predictions derivable from equations."
+      },
+      "verdict": {
+        "classification": "CRITICAL",
+        "disqualified": true,
+        "summary": "FORMALISM THEATER. Paper presents philosophical speculation about consciousness using pseudo-mathematical notation. Equations are decorative: Eq. 5 'ISHB = (CASI + CDC + IES + MIS + GTS + IGG + IC)' is set notation for a list of acronyms, not a computable relationship. Eq. 2-4 use arrow notation for metaphysical claims about 'informatter'. No empirical validation, no testable predictions. Level 1 concepts dressed in Level 4 notation."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Philosophy of information and consciousness\n**Level:** 1-2 (Philosophical speculation, non-mathematical)\n**Rationale:** Discusses consciousness, living structures, archaic philosophy. No computable claims.\n\n### Necessity Test\n- Eq. 1 (Shannon formula): Borrowed from information theory, applied metaphorically to consciousness\n- Eq. 2-3 ('Informatter' reactions): Pseudo-chemical notation for philosophical concepts\n- Eq. 4 (A+B+I structuration): No mathematical meaning, decorative\n- Eq. 5 (ISHB definition): Set notation for acronym list - FORMALISM THEATER\n- Eq. 7 (ISLS definition): Same pattern - acronyms in equation format\n\n**Verdict:** DISQUALIFIED. Level 1 philosophical content using Level 4 mathematical notation decoratively. Classic formalism theater: equations that cannot be computed, derived from, or validated.\n\n### Issues\n- Set notation for simple lists (Definition 5, 7)\n- Pseudo-chemical reaction notation for metaphysical claims\n- No empirical content despite equation-heavy presentation\n- Self-citation heavy (author's prior philosophical work)"
+    },
+    {
+      "paper_id": "milicevic2023",
+      "paper": {
+        "title": "Development of Microcomputers and Motor Control Software for Steel Pipe Cutting Units",
+        "authors": ["Miroslav Milicevic", "Valentina Nejkovic"],
+        "abstract": "Microcomputer design for DC motor control in steel pipe cutting. Replaces hydraulic system with DC motor and thyristor regulator. Real-time control software development.",
+        "keywords": ["hardware", "length", "microcomputer", "motor", "pipe", "regulation", "software", "speed"],
+        "doi": "10.59277/ROMJIST.2023.1.07",
+        "pages": "100-117"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 80,
+        "structural_integrity": 80,
+        "artifact_availability": 60,
+        "intellectual_integrity": 75,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Industrial control systems paper. DC motor equations (1)-(3) are standard electromechanical modeling. Transfer function derivation (Eq. 4-6) is necessary for control design. Laplace domain analysis appropriate for control engineering. Practical industrial application."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** DC motor control for industrial application\n**Level:** 2-3 (Applied control engineering)\n**Rationale:** Standard DC motor control with microcomputer implementation.\n\n### Necessity Test\n- Eq. 1 (Rotor voltage): Standard DC motor equation\n- Eq. 2 (Torque equilibrium): Fundamental mechanics\n- Eq. 3 (Excitation): Standard motor modeling\n- Eq. 4-6 (Transfer function): Necessary for control design\n- Fig. 1 (Speed regulation modes): Necessary operational specification\n\n**Verdict:** Formalism is standard for control engineering. All equations are functional, derived from motor physics.\n\n### Issues\nNone identified."
+    }
+  ],
+
+  "batch_notes": "Volume 26 Issue 1 (2023) analyzed with RUIN Framework v2.0 and Necessity Test. **1 paper flagged FORMALISM_THEATER and DISQUALIFIED**: gaiseanu2023 uses pseudo-mathematical notation for philosophical speculation about consciousness (set notation for acronym lists, pseudo-chemical notation for metaphysical claims). Remaining 6 papers have domain-appropriate formalism: NLP algorithm design, ABS control, semantic web engineering, pandemic modeling, analog circuits, motor control. Final: 1 CRITICAL (disqualified), 0 LIMITED, 4 ADEQUATE, 2 STRONG."
+}

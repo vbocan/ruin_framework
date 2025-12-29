@@ -1,0 +1,187 @@
+{
+  "batch_id": "2017-v20-n1",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 20,
+    "issue": 1,
+    "year": 2017
+  },
+
+  "papers": [
+    {
+      "paper_id": "yu2017",
+      "paper": {
+        "title": "Fault Diagnosis of Power Systems Using Fuzzy Reasoning Spiking Neural P Systems with Interval-valued Fuzzy Numbers",
+        "authors": ["Wenping Yu", "Jun Wang", "Hong Peng", "Jun Ming", "Chengyu Tao", "Tao Wang"],
+        "abstract": "Combining interval-valued fuzzy numbers with spiking neural P systems (SN P systems), an extended SN P system model is developed for fault diagnosis of power systems, called fuzzy reasoning spiking neural P systems with interval-valued fuzzy numbers (ivFRSN P systems). The ivFRSN P systems can better characterize uncertain alarm information in power systems.",
+        "keywords": ["Power system", "Fault diagnosis", "Fuzzy reasoning spiking neural P systems", "Interval-valued fuzzy numbers"],
+        "doi": null,
+        "pages": "5-17"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 30,
+        "intellectual_integrity": 84,
+        "composite": 71,
+        "final": 71
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Novel extension of membrane computing for power system fault diagnosis. Formalism is domain-appropriate: interval-valued fuzzy numbers are necessary for handling SCADA uncertainty, and matrix-based reasoning algorithm enables parallel computation."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Extension of spiking neural P systems with interval-valued fuzzy numbers for power system fault diagnosis\n**Level:** 3 (Medium)\n**Rationale:** Novel model combining membrane computing with fuzzy set theory; introduces new computational framework (ivFRSN P systems) with formal reasoning algorithm.\n\n### Formal Elements\n- Definitions: 1 (ivFRSN P system construct with 4 components)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (fuzzy reasoning formulas)\n- Matrix operations: 6 (synaptic matrices, multiplication operations)\n\n### Proportionality\nCalculated complexity: 2 + 0 + 0 = 2 (definitions only)\nExpected range (Level 3): 0-40\nRatio: 0.05x upper bound\n\n**Assessment:** Proportionate - The interval-valued fuzzy number operations and matrix-based reasoning algorithm are necessary for the model. The formal definition (Definition 1) is required to establish the computational framework.\n\n### Necessity Test Applied\n1. Interval-valued fuzzy number arithmetic (Section 2.1): NECESSARY - enables handling of uncertainty bounds in SCADA alarm data\n2. Definition 1 (ivFRSN P system): NECESSARY - establishes the formal computational model\n3. Matrix operations D1, D2, E, C: NECESSARY - enable parallel fuzzy reasoning algorithm\n4. Equations (2) and (3): NECESSARY - define the actual computation steps\n\n### Issues\nNone identified. Formalism is appropriate for applied membrane computing research.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio: Low (~2/24 references). References appropriately cover membrane computing foundations (Paun), fuzzy sets, and power system diagnosis methods.\n\n---\n\n## Structural Analysis\n\nClear structure with problem description, model definition, algorithm, and case studies on 6-bus 69kV distribution system. Two case studies validate the approach. No explicit limitations section but comparison with CTPN method provided.\n\n---\n\n## Conclusion\n\nSolid applied membrane computing paper with appropriate formalism. The interval-valued fuzzy extension to spiking neural P systems is well-motivated by the need to handle uncertainty in power system fault diagnosis. The mathematical framework enables the fuzzy reasoning algorithm and is not decorative."
+    },
+    {
+      "paper_id": "rong2017",
+      "paper": {
+        "title": "A Novel Approach to Fault Classification of Power Transmission Lines Using Singular Value Decomposition and Fuzzy Reasoning Spiking Neural P Systems",
+        "authors": ["Haina Rong", "Ming Zhu", "Zhipeng Feng", "Gexiang Zhang", "Kang Huang"],
+        "abstract": "A novel approach for classifying different types of faults occurring in power transmission lines is proposed by considering wavelet transform, singular value decomposition and Fuzzy Reasoning Spiking Neural P Systems (FRSNPS). Singular value decomposition in wavelet domain is used to extract features; FRSNPS is applied to build the fault type classification model.",
+        "keywords": ["Membrane computing", "fuzzy reasoning spiking neural P systems", "fault classification", "wavelet transform", "singular value decomposition"],
+        "doi": null,
+        "pages": "18-31"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 40,
+        "intellectual_integrity": 86,
+        "composite": 74,
+        "final": 74
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Applied membrane computing with signal processing for fault classification. Wavelet transform and SVD are standard signal processing tools; FRSNPS formalism enables the classification model. 100% accuracy on 1200 simulations demonstrates effectiveness."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fault classification in power transmission lines using wavelet/SVD feature extraction and fuzzy reasoning spiking neural P systems\n**Level:** 3 (Medium)\n**Rationale:** Novel combination of signal processing (wavelet transform, SVD) with membrane computing for classification. Extends prior work on fault section identification to fault type classification.\n\n### Formal Elements\n- Definitions: 1 (rFRSNPS system - 6 components)\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (reasoning algorithm formulas)\n- Fuzzy production rules: 12 (R1-R12)\n- Matrix definitions: 6 (D1, D2, E, C, vectors)\n\n### Proportionality\nCalculated complexity: 2 (definition)\nExpected range (Level 3): 0-40\nRatio: 0.05x upper bound\n\n**Assessment:** Proportionate - Signal processing mathematics (wavelet, SVD) is standard for fault analysis. FRSNPS formalism is necessary for building the classification model.\n\n### Necessity Test Applied\n1. Wavelet transform decomposition: NECESSARY - standard technique for extracting fault features from transient signals\n2. SVD for feature extraction: NECESSARY - reduces dimensionality and reveals signal structure\n3. rFRSNPS definition: NECESSARY - establishes the classification framework\n4. Fuzzy membership functions (Fig. 3): NECESSARY - converts crisp values to fuzzy inputs\n5. Reasoning algorithm equations (1), (2): NECESSARY - define computation\n\n### Issues\nNone identified. All formalism serves the methodology.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio: Moderate (~3-4/24 references to authors' prior work on FRSNPS). Self-citations are relevant - extend prior fault section identification work.\n\n---\n\n## Structural Analysis\n\nExcellent empirical validation: 1200 independent simulations with 100% accuracy across 10 fault types. Robustness tested against noise (SNR 25dB-40dB) and varying transmission line parameters. Clear methodology section.\n\n---\n\n## Conclusion\n\nWell-executed applied research combining signal processing with membrane computing. The approach achieves 100% classification accuracy and demonstrates robustness. Formalism is appropriate - wavelet/SVD are standard signal processing tools, and the FRSNPS framework provides interpretable classification unlike black-box neural networks."
+    },
+    {
+      "paper_id": "wang2017",
+      "paper": {
+        "title": "Spiking Neural P Systems with Anti-Spikes and without Annihilating Priority",
+        "authors": ["Xun Wang", "Tao Song", "Pan Zheng", "Shaohua Hao", "Tongmao Ma"],
+        "abstract": "ASN P systems without annihilating priority are introduced. When a neuron has both spikes and anti-spikes, the annihilation is not obligatory and the neuron can choose non-deterministically spiking or annihilating. It is proved that such systems with at most two rules per neuron can achieve Turing completeness as number generators.",
+        "keywords": ["Membrane computing", "Spiking neural P system", "Turing completeness", "Register machine", "Anti-spike"],
+        "doi": null,
+        "pages": "32-41"
+      },
+      "scores": {
+        "formalism": 90,
+        "citation_integrity": 95,
+        "structural_integrity": 90,
+        "artifact_availability": 20,
+        "intellectual_integrity": 91,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Theoretical computer science paper proving Turing completeness of ASN P systems without annihilating priority. Formal proof via register machine simulation is ESSENTIAL for establishing computational universality. Answers an open problem from 2009."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computational universality of spiking neural P systems with anti-spikes and without annihilating priority\n**Level:** 4-5 (High to Very High)\n**Rationale:** Proves Turing completeness via register machine simulation. Answers an open problem from prior literature [INT J COMPUT COMMUN & CONTROL, 2009]. This is fundamental theoretical computer science.\n\n### Formal Elements\n- Definitions: 1 (ASN P system without annihilating priority)\n- Theorems: 1 (Theorem 0.1: NRE = N2ASNPnopri(cate2, rule2))\n- Proofs: 1 (complete proof via register machine simulation)\n- Corollary: 1\n- Formal modules: 3 (ADD, SUB, FIN modules for register machine simulation)\n\n### Proportionality\nCalculated complexity: 2 + 3 + 4 = 9\nExpected range (Level 4): 0-80\nRatio: 0.11x upper bound\n\n**Assessment:** Proportionate - actually UNDER the expected formalism for a Turing completeness proof. The formal apparatus is minimal and essential.\n\n### Necessity Test Applied\n1. ASN P system definition: ESSENTIAL - establishes the computational model being analyzed\n2. Register machine definition: ESSENTIAL - standard tool for proving computational universality\n3. ADD/SUB/FIN module constructions: ESSENTIAL - constitute the actual proof\n4. Theorem 0.1 and proof: ESSENTIAL - the main contribution proving NRE = N2ASNPnopri\n\n### Issues\nNone. This is a clean theoretical paper with exactly the formalism needed to prove computational universality.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio: Low (~3/20 references). Appropriately cites foundational work (Ionescu, Paun) and the original ASN P systems paper where the open problem was posed.\n\n---\n\n## Structural Analysis\n\nClassic theoretical CS structure: definitions, theorem statement, proof by construction. The register machine simulation is carefully detailed with ADD, SUB, and FIN modules. Result is optimal (minimal rules per neuron).\n\n---\n\n## Conclusion\n\nExcellent theoretical contribution answering an open problem from 2009. The paper proves that removing annihilating priority does not reduce computational power of ASN P systems. Formalism is essential - you cannot prove Turing completeness without formal mathematical proof. The result is also optimal in the sense of minimal rules per neuron."
+    },
+    {
+      "paper_id": "pan2017",
+      "paper": {
+        "title": "Flat maximal parallelism in tissue P systems with promoters",
+        "authors": ["Linqiang Pan", "Yanfeng Wang", "Suxia Jiang", "Bosheng Song"],
+        "abstract": "Tissue P systems with promoters working in flat maximally parallel way are considered. It is proved that such systems with at most two promoters and symport rules of length 1 are Turing universal. A uniform solution to the SAT problem is provided.",
+        "keywords": ["Tissue P system", "Promoter", "Flat maximal parallelism", "SAT problem", "Universality"],
+        "doi": null,
+        "pages": "42-56"
+      },
+      "scores": {
+        "formalism": 90,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 30,
+        "intellectual_integrity": 90,
+        "composite": 75,
+        "final": 75
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Theoretical membrane computing paper proving Turing universality and providing polynomial-time solution to SAT. Both results require formal proofs. Demonstrates that flat maximal parallelism increases computational power compared to standard maximally parallel mode."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computational power and complexity of tissue P systems with promoters under flat maximal parallelism\n**Level:** 4 (High)\n**Rationale:** Two major results: (1) Turing universality proof via register machine simulation, (2) polynomial-time SAT solution demonstrating computational efficiency. Both are fundamental theoretical CS contributions.\n\n### Formal Elements\n- Definition: 1 (tissue P system with promoters and cell division - formal tuple)\n- Theorems: 2 (Theorem 1: universality, Theorem 2: SAT in PMCfTP2DS(1))\n- Proofs: 2 (complete proofs for both theorems)\n- Formal system constructions: 2 (register machine simulation modules, SAT solving system)\n\n### Proportionality\nCalculated complexity: 2 + 6 + 8 = 16\nExpected range (Level 4): 0-80\nRatio: 0.2x upper bound\n\n**Assessment:** Proportionate - appropriate formalism for proving universality and NP-completeness results.\n\n### Necessity Test Applied\n1. Definition 1 (tissue P system): ESSENTIAL - establishes the computational model\n2. Theorem 1 (universality): ESSENTIAL - proves NRE characterization\n3. Register machine simulation: ESSENTIAL - standard technique for universality proofs\n4. Theorem 2 (SAT): ESSENTIAL - proves computational efficiency\n5. SAT solving construction: ESSENTIAL - demonstrates polynomial-time solution\n\n### Issues\nNone. Theoretical computer science paper with exactly the formalism needed.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio: Moderate (~4-5/38 references). Appropriate for continuation of research program in tissue P systems.\n\n---\n\n## Structural Analysis\n\nStrong theoretical structure: definitions, two main theorems with complete proofs, detailed SAT construction with formal verification. Resource analysis provided (polynomial bounds on alphabet size, cells, rules).\n\n---\n\n## Conclusion\n\nStrong theoretical contribution showing that flat maximal parallelism increases computational power of tissue P systems with promoters (from finite sets in maximally parallel mode to NRE). The SAT solution demonstrates computational efficiency. All formalism is essential for the proofs."
+    },
+    {
+      "paper_id": "carandang2017",
+      "paper": {
+        "title": "CuSNP: Spiking Neural P Systems Simulators in CUDA",
+        "authors": ["Jym Paul A. Carandang", "John Matthew B. Villaflores", "Francis George C. Cabarle", "Henry N. Adorna", "Miguel A. Martinez-del-Amor"],
+        "abstract": "CuSNP is a project involving sequential (CPU) and parallel (GPU) simulators for SN P systems. Results include: P-Lingua file parser, extension of matrix representation to include delay, comparison of simulators using sorting networks, extended regular expression support. GPU simulator runs up to 50x faster than CPU simulator.",
+        "keywords": ["Membrane computing", "SN P systems", "CUDA", "GPU"],
+        "doi": null,
+        "pages": "57-70"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 83,
+        "composite": 80,
+        "final": 80
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "GPU simulator implementation with formal correctness proofs. Matrix representation (11 definitions) enables GPU parallelization. Lemma 1 and Theorem 2-3 prove algorithm correctness. Up to 50x speedup demonstrated. Code available publicly."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** GPU-accelerated simulator for spiking neural P systems with delay\n**Level:** 2-3 (Low to Medium)\n**Rationale:** Systems/software engineering with formal correctness proofs. Extends matrix representation from prior work to handle delays.\n\n### Formal Elements\n- Definitions: 11 (Configuration Vector, Spiking Vector, Status Vector, Rule Representation, Delay Vector, Loss Vector, Gain Vector, Transition Matrix, Indicator Vector, Removing Matrix, Net Gain Vector)\n- Lemma: 1 (Lemma 1: net gain vector computation)\n- Theorems: 2 (Theorem 2: configuration computation, Theorem 3: algorithm correctness)\n- Proofs: 3 (for Lemma 1, Theorem 2, Theorem 3)\n- Algorithms: 2 (Algorithm 1: main simulation, Algorithm 2: compute spiking vector)\n\n### Proportionality\nCalculated complexity: 22 + 6 + 12 = 40\nExpected range (Level 2): 0-15\nRatio: 2.67x upper bound\n\n**Assessment:** ELEVATED but JUSTIFIED - The matrix definitions are NOT decorative; they directly enable GPU parallelization. The formal proofs ensure simulator correctness, which is essential for a tool paper.\n\n### Necessity Test Applied\n1. Matrix definitions (1-11): NECESSARY - enable GPU parallel operations; directly map to CUDA kernels\n2. Lemma 1 (net gain): NECESSARY - proves correctness of configuration update formula\n3. Theorem 2: NECESSARY - proves algorithm computes correct configuration\n4. Theorem 3: NECESSARY - proves overall algorithm correctness\n5. Algorithms 1-2: NECESSARY - specify the actual implementation\n\n### Issues\nNone. Although formalism is elevated for the concept level, it serves the essential purpose of proving simulator correctness and enabling GPU implementation.\n\n---\n\n## Citation Analysis\n\nNo excessive self-citation. Appropriately cites P-Lingua, prior GPU simulation work, and SN P systems foundations.\n\n---\n\n## Structural Analysis\n\nGood experimental methodology: comparison of CPU vs GPU on two sorting network types, profiling analysis. Code publicly available at referenced URL. Limitations discussed (bitonic sorters, thread limitations).\n\n---\n\n## Conclusion\n\nWell-executed simulator paper. The matrix representation enables GPU parallelization and the formal proofs ensure correctness. The 50x speedup demonstrates practical value. Higher formalism is justified by the need for provably correct simulation and GPU-amenable data structures."
+    },
+    {
+      "paper_id": "valencia2017",
+      "paper": {
+        "title": "A Simulation Software Tool for Cell-like Spiking Neural P Systems",
+        "authors": ["Luis Valencia-Cabrera", "Tingfang Wu", "Zhiqiang Zhang", "Linqiang Pan", "Mario J. Perez-Jimenez"],
+        "abstract": "Cell-like spiking neural P systems (cSN P systems) combine cell-like P systems with spiking neural P systems. A software tool within P-Lingua and MeCoSim framework is presented for design, simulation and experimental validation.",
+        "keywords": ["Bio-inspired computing", "Membrane computing", "Spiking neural P system", "Cell-like P system", "P-Lingua"],
+        "doi": null,
+        "pages": "71-84"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 90,
+        "intellectual_integrity": 85,
+        "composite": 86,
+        "final": 86
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Software tool paper integrating cell-like SN P systems into P-Lingua/MeCoSim. Formal definitions are domain-standard from membrane computing literature. Tool publicly available via MeCoSim download."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** P-Lingua/MeCoSim software tool for simulating cell-like spiking neural P systems\n**Level:** 2 (Low)\n**Rationale:** Software tool development. Definitions are standard from membrane computing literature, used to specify the language syntax and simulator semantics.\n\n### Formal Elements\n- Definitions: Standard P system definitions (from literature)\n  - P systems with multiset rewriting rules (Section 2.1)\n  - SN P systems (Section 2.2)\n  - Cell-like SN P systems (Section 2.3)\n- Theorems: 0\n- Proofs: 0\n- Grammar/syntax specifications for P-Lingua language\n\n### Proportionality\nCalculated complexity: ~6 (definitions from prior work)\nExpected range (Level 2): 0-15\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate - Definitions are necessary to specify what the tool simulates. They are domain-standard, not novel mathematical apparatus.\n\n### Necessity Test Applied\n1. P system definitions (Sections 2.1-2.3): NECESSARY - specify the computational model being simulated\n2. P-Lingua syntax specification: NECESSARY - defines the input language for users\n3. Semantic rules: NECESSARY - define how the simulator interprets the input\n\n### Issues\nNone. Formalism is standard for the domain and necessary for the tool specification.\n\n---\n\n## Citation Analysis\n\nAppropriate citations to P-Lingua framework papers, MeCoSim, and foundational membrane computing work. Self-citations relate to the framework being extended.\n\n---\n\n## Structural Analysis\n\nGood software paper structure: background on P systems, tool architecture, language specification, case studies demonstrating usage. Tool publicly available via MeCoSim.\n\n---\n\n## Conclusion\n\nSolid software tool paper extending the P-Lingua/MeCoSim framework to support cell-like spiking neural P systems. The formal definitions are standard in membrane computing and necessary to specify the simulator's behavior. High artifact availability score due to public tool release."
+    }
+  ],
+
+  "batch_notes": "Volume 20 Issue 1 (2017) - Special Issue on Membrane Computing from ACMC 2016. Analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** This is a thematic issue on membrane computing, a formal computational theory field where mathematical rigor is inherent to the subject matter. Papers 3-4 prove computational universality (Turing completeness) which REQUIRES formal proofs. Papers 1-2 apply membrane computing to power system diagnosis with appropriate domain formalism. Papers 5-6 are software tools with correctness proofs or standard definitions. Final: 0 CRITICAL, 0 LIMITED, 4 ADEQUATE, 2 STRONG."
+}

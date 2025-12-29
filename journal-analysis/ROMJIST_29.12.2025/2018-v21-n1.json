@@ -1,0 +1,215 @@
+{
+  "batch_id": "2018-v21-n1",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 21,
+    "issue": 1,
+    "year": 2018
+  },
+
+  "papers": [
+    {
+      "paper_id": "groza2018",
+      "paper": {
+        "title": "Digitally controlled oscillator for all-digital frequency locked loops",
+        "authors": ["R. Groza", "I. A. Potarniche", "B. S. Kirei", "M. D. Topa"],
+        "abstract": "A digitally controlled oscillator for all-digital frequency lock loops using log-domain circuits. Ring topology with four integrators. Bias circuit with binary decoder and current division network. 10-bit control word yields 1024 frequencies. 180nm CMOS, 90kHz-3.7MHz range, 105uW at 1MHz, -88dBc/Hz phase noise at 100kHz offset.",
+        "keywords": ["DCO", "ADFLL", "ELIN", "sub-threshold", "log-domain"],
+        "doi": null,
+        "pages": "3-17"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 60,
+        "intellectual_integrity": 86,
+        "composite": 80,
+        "final": 80
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Novel log-domain DCO design with comprehensive simulation results. All formalism (transfer functions, Barkhausen criterion, log/exp cell equations) is necessary for analog circuit design. Comparison with prior work demonstrates competitive performance."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Log-domain digitally controlled oscillator for ADFLL\n**Level:** 3 (Medium)\n**Rationale:** Novel circuit topology using log-domain integrators with digital frequency control. Requires circuit theory formalism.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (transfer functions, Barkhausen criterion, log/exp relationships, output current)\n\n### Proportionality\nCalculated complexity: 14 (7 equations x 2)\nExpected range (Level 3): 0-40\nRatio: 0.35x upper bound\n\n**Assessment:** Proportionate - All equations derive from standard circuit analysis (transfer functions, Barkhausen stability criterion for oscillation, transistor operating equations). Each equation is necessary for the design methodology.\n\n### Necessity Test Applied\n- Eq. 1 (Transfer function H(s)): Necessary - standard integrator characterization\n- Eq. 2 (Barkhausen criterion): Necessary - fundamental for oscillator design\n- Eq. 3-4 (Log/Exp voltage-current): Necessary - core operating principle of log-domain circuits\n- Eq. 5 (Integrator transfer with bias currents): Necessary - shows tunability mechanism\n- Eq. 6 (Output current formula): Necessary - describes digital control relationship\n\n### Issues\nNone identified. Paper presents appropriate formalism for analog IC design.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 0/16 references. Well-balanced reference list covering ADPLL fundamentals, VCO implementations, and log-domain circuits.\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Architecture overview, Proposed DCO, Simulation results, Conclusion. Simulation results include transient waveforms, frequency tuning curves, phase noise. Comparison table with prior work provided. No limitations section but simulation-only nature is acknowledged.\n\n---\n\n## Conclusion\n\nSolid analog IC design paper with appropriate formalism for the complexity level. The log-domain approach is well-motivated and the 10-bit tuning resolution is clearly explained. Main limitation is simulation-only validation - silicon implementation mentioned as future work."
+    },
+    {
+      "paper_id": "datcu2018",
+      "paper": {
+        "title": "Dynamically changing the secret key of an FPGA chaos-based cipher",
+        "authors": ["Octaviana Datcu", "Radu Hobincu", "Lucian Petrica"],
+        "abstract": "Chaos-based cipher with dynamic key exchange. Colpitts oscillator transmitter embeds secret key. High order sliding mode differentiator (HOSMO) estimates transmitter states and recovers key. Baptista-type encryption with XOR modification for uniform ciphertext distribution. Key sensitivity to 10^-15 variations demonstrated.",
+        "keywords": ["Baptista type algorithms", "chaos-based cryptography", "high order sliding mode observers", "estimation"],
+        "doi": null,
+        "pages": "18-33"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 85,
+        "structural_integrity": 80,
+        "artifact_availability": 50,
+        "intellectual_integrity": 81,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Novel chaos-based key exchange mechanism with HOSMO for key recovery. Formalism (Lyapunov exponents, differential equations, correction factors) is necessary for chaotic system analysis. Security comparison with AES provided though performance is 500x slower."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Chaos-based cryptography with dynamic key exchange\n**Level:** 3-4 (Medium-High)\n**Rationale:** Combines chaos theory, cryptography, and control theory (sliding mode observers). Novel key exchange mechanism.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (Logistic map, Lyapunov exponents, Colpitts oscillator ODEs, HOSMO state equations, correction factors)\n\n### Proportionality\nCalculated complexity: 16 (8 equations x 2)\nExpected range (Level 3-4): 10-80\nRatio: 0.2-0.4x upper bound\n\n**Assessment:** Proportionate - Chaos-based cryptography inherently requires mathematical formalism for Lyapunov exponents (security analysis), differential equations (transmitter/receiver dynamics), and state estimation.\n\n### Necessity Test Applied\n- Eq. 1 (Logistic map): Necessary - fundamental chaotic function for encryption\n- Eq. 2-3 (Lyapunov exponents): Necessary - key validation requires positive exponent verification\n- Eq. 4 (Colpitts oscillator): Necessary - transmitter dynamics for key embedding\n- Eq. 5-8 (HOSMO equations): Necessary - state estimation for key recovery\n\n### Issues\nNone identified. Mathematical formalism is required by the problem domain.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 2/15 references ([1] and [14]) - both directly relevant prior work on Baptista cipher implementation. SCR = 13.3%, within normal range. Reference list covers chaos theory, cryptography, and sliding mode control.\n\n---\n\n## Structural Analysis\n\nComprehensive structure with system overview, key generation/validation, transmitter/receiver design, encryption/decryption algorithms, simulation results. Honest performance comparison with AES (500x slower). Limitations acknowledged: key recovery precision limited to 2 decimal places, large ciphertext size.\n\n---\n\n## Conclusion\n\nNovel approach to chaos-based key exchange with appropriate formalism. Main contributions are the dynamic key changing mechanism and HOSMO-based recovery. Limitations are honestly discussed including performance gap with standard cryptography and precision constraints."
+    },
+    {
+      "paper_id": "dragan2018",
+      "paper": {
+        "title": "Charge retention of a Floating gate Transistor for a Reset Controller",
+        "authors": ["Anca Mihaela Dragan", "Alina Negut", "Andrei Enache", "Vlad Anghel", "Gheorghe Brezeanu"],
+        "abstract": "Reset controller (voltage supervisor) in Deep N-Well 0.35um CMOS. Programmable voltage reference using floating gate transistors. Charge retention analyzed using Arrhenius model. 1500h stress at 225C equivalent to ~40000 years at 27C. Maximum VTH variation 220ppm after stress.",
+        "keywords": ["On-Chip Isolation", "Deep N-Well", "Reset Controller", "Programmable Voltage Reference", "Floating Gate Transistors", "Charge Retention", "Arrhenius Model"],
+        "doi": null,
+        "pages": "34-48"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 80,
+        "intellectual_integrity": 88,
+        "composite": 85,
+        "final": 85
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Well-executed reliability study with experimental validation. Arrhenius model equations are standard for accelerated life testing. Circuit implementation demonstrated with simulation and measurement. Comprehensive charge retention characterization."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** FG transistor reliability for voltage supervisor\n**Level:** 2-3 (Low-Medium)\n**Rationale:** Circuit implementation with standard reliability analysis methodology.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (Arrhenius model equations 3.1-3.7, capacitive divider 4.1-4.2)\n\n### Proportionality\nCalculated complexity: 14\nExpected range (Level 2-3): 0-40\nRatio: 0.35-0.93x upper bound\n\n**Assessment:** Proportionate - Arrhenius model is the industry standard for accelerated life testing of semiconductor devices. Equations directly enable the reliability predictions.\n\n### Necessity Test Applied\n- Eq. 3.1-3.5 (Arrhenius model): Necessary - industry standard for reliability extrapolation\n- Eq. 3.6-3.7 (VTH variation): Necessary - links physical measurements to reliability predictions\n- Eq. 4.1-4.2 (Capacitive divider): Necessary - circuit operation explanation\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 1/16 references ([1]) - directly relevant prior work. SCR = 6.25%, well within normal range. Good coverage of FG devices, reliability testing, and voltage supervisor design.\n\n---\n\n## Structural Analysis\n\nExcellent structure: DNW process description, charge retention theory, circuit design, experimental results. Tables 1-3 provide simulation vs. measurement comparison. Figures 9-16 show comprehensive VTH distribution analysis. Limitations acknowledged through stress test methodology.\n\n---\n\n## Conclusion\n\nStrong applied research paper demonstrating circuit design with rigorous reliability characterization. The Arrhenius-based methodology is appropriate and the experimental validation (1500h at 225C) provides confidence in long-term reliability claims. Fabricated and measured results strengthen the contribution."
+    },
+    {
+      "paper_id": "pachiu2018",
+      "paper": {
+        "title": "Fabrication and characterization of suspended microstructures of ultrananocrystalline diamond",
+        "authors": ["C. Pachiu", "T. Sandu", "C. Tibeica", "A. Avram", "L. M. Veca", "R. Popa", "M. Popescu", "R. Gavrila", "C. Popov", "V. Avramescu"],
+        "abstract": "UNCD suspended microstructures fabricated without sacrificial layer. Bridges and cantilevers via O2/SF6 RIE. Young's modulus 300-315 GPa via nanoindentation. Residual compressive stress ~350 MPa estimated via FEM analysis of buckling profiles.",
+        "keywords": ["residual stress", "ultrananocrystalline diamond", "MEMS", "suspended microstructures"],
+        "doi": null,
+        "pages": "49-60"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 86,
+        "composite": 82,
+        "final": 82
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Well-executed MEMS fabrication paper with mechanical characterization. Minimal formalism (buckling equations) is appropriate and necessary for stress analysis. FEM validation of analytical model shows 20% difference explained by non-ideal clamping effects."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** UNCD MEMS fabrication and mechanical characterization\n**Level:** 3 (Medium)\n**Rationale:** Novel sacrificial-layer-free fabrication with quantitative stress analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (buckling stress Eq. 1, buckling profile Eq. 2)\n\n### Proportionality\nCalculated complexity: 4\nExpected range (Level 3): 0-40\nRatio: 0.1x upper bound\n\n**Assessment:** Proportionate - Minimal formalism used. Only standard mechanics equations for buckling analysis.\n\n### Necessity Test Applied\n- Eq. 1 (Compressive stress from buckling): Necessary - fundamental relationship for stress extraction from buckling amplitude\n- Eq. 2 (Buckling mode shape): Necessary - validates measured profiles against analytical model\n\n### Issues\nNone identified. Appropriate level of formalism for MEMS fabrication paper.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 1/22 references ([14]) - conference version of this work. SCR = 4.5%, well within normal range. Comprehensive coverage of diamond MEMS, fabrication techniques, and mechanical characterization.\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Fabrication, Characterization (SEM, nanoindentation, WLI), FEM analysis, Conclusions. Multiple characterization techniques (SEM, nanoindentation, WLI) strengthen claims. FEM vs. analytical comparison (20% difference) honestly discussed with physical explanation.\n\n---\n\n## Conclusion\n\nSolid MEMS fabrication paper with appropriate characterization methodology. The sacrificial-layer-free approach is practical and the stress analysis via buckling is well-executed. Young's modulus (300-315 GPa) is lower than literature values, which is acknowledged and attributed to grain boundary effects."
+    },
+    {
+      "paper_id": "moagar2018",
+      "paper": {
+        "title": "3D Printed acceleration sensor: a case study",
+        "authors": ["G. Moagar-Poladian", "C. Tibeica", "V. Moagar-Poladian"],
+        "abstract": "Sensor conversion concept: magnetic field sensor to acceleration sensor via 3D printing. PA2200 polymer SLS. Seismic mass with spring suspension. Magnetic field varies linearly between opposed NdFeB magnets. FEM simulations for magnetic, thermal, and modal analysis. Sensitivity 13mV/g, range +/-60g.",
+        "keywords": ["Magnetic sensor", "acceleration sensor", "3D Printing", "sensor conversion"],
+        "doi": null,
+        "pages": "61-81"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 85,
+        "structural_integrity": 80,
+        "artifact_availability": 60,
+        "intellectual_integrity": 79,
+        "composite": 74,
+        "final": 74
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Novel concept of sensor conversion via 3D printing. Minimal formalism (displacement functions, temperature effects) is appropriate for application paper. FEM simulations demonstrate feasibility. Comparison with commercial sensor (SensoNor SA20) shows competitive performance."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** 3D printed acceleration sensor by conversion from magnetic sensor\n**Level:** 2 (Low)\n**Rationale:** Novel concept but primarily integration/application of existing technologies (commercial magnetic sensor, 3D printing, magnets).\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: ~5 (polynomial fits for displacement vs. temperature, Eq. 1 for dual-sensor compensation)\n\n### Proportionality\nCalculated complexity: 10\nExpected range (Level 2): 0-15\nRatio: 0.67x upper bound\n\n**Assessment:** Proportionate - Minimal formalism. Polynomial regression equations are empirical fits from simulation data, not unnecessary theoretical constructs.\n\n### Necessity Test Applied\n- Temperature-dependent displacement equations: Necessary - characterize sensor behavior\n- Eq. 1 (Dual-sensor differential): Necessary - explains temperature compensation method\n- Could formalism be removed? Yes for some polynomials, but they serve practical calibration purposes.\n\n### Issues\nNone identified. Appropriate level for proof-of-concept application paper.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 1/14 references ([7]) - conference version. SCR = 7.1%, normal range. Limited references but covers 3D printing, MEMS sensors, relevant prior work.\n\n---\n\n## Structural Analysis\n\nComprehensive structure covering concept, magnetic/thermal/modal simulations, material comparison, temperature compensation. Table 3 provides commercial sensor comparison. Discussion section addresses limitations (polymer creep, lower resonance frequency). Size not optimized.\n\n---\n\n## Conclusion\n\nInteresting proof-of-concept for sensor conversion via 3D printing. While primarily simulation-based, the comparison with commercial sensors and discussion of practical limitations shows good engineering judgment. Main value is the concept rather than deep technical novelty."
+    },
+    {
+      "paper_id": "sandu2018",
+      "paper": {
+        "title": "Modeling issues regarding thermal conductivity of graphene-based nanocomposites",
+        "authors": ["Titus Sandu", "Mihai Gologanu", "Rodica Voicu", "George Boldeiu", "Victor Moagar-Poladian"],
+        "abstract": "Effective medium approximations for graphene nanocomposite thermal conductivity. Maxwell-Garnett and coherent potential approximations extended to arbitrary filler shapes. Oblate spheroid model overestimates conductivity vs. flat disk model for graphene nanodots. Percolation thresholds calculated.",
+        "keywords": ["Composites", "graphene", "graphene-based composites", "thermal conductivity", "thermal interface materials", "Maxwell-Garnett approximation", "coherent potential approximation"],
+        "doi": null,
+        "pages": "82-92"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 40,
+        "intellectual_integrity": 84,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Theoretical physics paper extending effective medium theory. Heavy formalism (MGA, CPA equations, depolarization factors) is necessary and appropriate for Level 4 theoretical work. Key finding: oblate spheroid approximation overestimates thermal conductivity for flat graphene nanodots."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Effective medium theory for graphene composite thermal conductivity\n**Level:** 4 (High)\n**Rationale:** Theoretical physics/materials science with mathematical derivations extending classical approximations.\n\n### Formal Elements\n- Definitions: 0 (formal definitions embedded in equations)\n- Theorems: 0\n- Proofs: 0 (derivations from first principles)\n- Equations: 15 (Laplace equation, boundary conditions, polarizability, MGA/CPA equations, eigenvalue expressions)\n\n### Proportionality\nCalculated complexity: 30\nExpected range (Level 4): 30-80\nRatio: 0.38x upper bound\n\n**Assessment:** Proportionate - Effective medium theory inherently requires mathematical formalism. Equations derive thermal conductivity from electromagnetic/thermal analogies.\n\n### Necessity Test Applied\n- Eq. 1-4 (Laplace equation, boundary conditions): Necessary - fundamental problem setup\n- Eq. 5-6 (Normalized polarizability): Necessary - core theoretical concept\n- Eq. 7-11 (MGA derivation): Necessary - main approximation method\n- Eq. 14 (CPA): Necessary - alternative method for percolation\n- Eq. 15 (Shelled particle): Necessary - interfacial resistance modeling\n\nAll equations enable predictions that cannot be stated in plain English.\n\n### Issues\nNone identified. Formalism is domain-appropriate.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 5/34 references ([22-25], [26]) - directly relevant prior work on electrostatic eigenvalues and nanoparticle modeling. SCR = 14.7%, at upper edge of normal range but all citations are topically relevant. Comprehensive literature coverage.\n\n---\n\n## Structural Analysis\n\nClear theoretical structure: Introduction, MGA/CPA development, Numerical results, Conclusions. Table 1 provides eigenmode data. Figures show thermal enhancement predictions. Limitation: purely theoretical, no experimental validation.\n\n---\n\n## Conclusion\n\nSolid theoretical contribution extending effective medium theory to arbitrary filler shapes. The key finding that oblate spheroid models overestimate conductivity for flat disks has practical implications for graphene composite design. Percolation analysis via CPA adds value beyond simple MGA."
+    },
+    {
+      "paper_id": "serban2018",
+      "paper": {
+        "title": "Nanostructured semiconducting metal oxides for ethanol gas sensing. A possible HSAB interpretation",
+        "authors": ["B. C. Serban", "O. Buiu", "M. Brezeanu", "O. Ionescu", "C. Cobianu"],
+        "abstract": "HSAB (Hard-Soft Acid-Base) theory applied to MOX ethanol sensors. Ethanol as hard base interacts preferentially with hard acid metal oxides (SnO2, TiO2, In2O3, Fe2O3, Ga2O3). Literature survey validates HSAB-based sensor selection.",
+        "keywords": ["ethanol sensing", "HSAB", "semiconducting metal oxides", "hard-soft acid-base"],
+        "doi": null,
+        "pages": "93-96"
+      },
+      "scores": {
+        "formalism": 90,
+        "citation_integrity": 85,
+        "structural_integrity": 75,
+        "artifact_availability": 30,
+        "intellectual_integrity": 82,
+        "composite": 69,
+        "final": 69
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Short communication proposing HSAB framework for MOX sensor selection. No unnecessary formalism - purely qualitative chemical classification applied to literature survey. Provides useful heuristic for sensor material selection."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** HSAB theory interpretation of MOX ethanol sensors\n**Level:** 1-2 (Trivial-Low)\n**Rationale:** Literature survey with conceptual framework application. No new experimental work or algorithmic development.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1-2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate - Short communication with no formalism. HSAB classification is inherently qualitative. No unnecessary mathematical decoration.\n\n### Necessity Test Applied\nNo formal elements to test. Paper uses qualitative chemical classification (hard/soft acids and bases) which is appropriate for the conceptual contribution.\n\n### Issues\nNone identified. Absence of formalism is appropriate.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 7/38 references ([9], [10], [14]-[19]) - prior work on quantum dots and SAW sensors applying HSAB. SCR = 18.4%, elevated but all citations are directly relevant to HSAB sensor applications. This is the authors' research program.\n\n---\n\n## Structural Analysis\n\nShort communication format (4 pages). Table 1 provides HSAB classification. Three cases discussed systematically. No experimental section. No limitations discussed. Suggests future work on electronegativity/HOMO-LUMO calculations.\n\n---\n\n## Conclusion\n\nUseful conceptual contribution for sensor material selection. The HSAB heuristic provides a qualitative framework for understanding why certain MOX materials work for ethanol sensing. Value is in synthesis of literature through this lens rather than new experimental results."
+    }
+  ],
+
+  "batch_notes": "Volume 21 Issue 1 (2018) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** All 7 papers have domain-appropriate formalism ranging from zero (short communication) to theoretical physics level. Topics cover analog IC design, chaos-based cryptography, reliability engineering, MEMS fabrication, sensor design, effective medium theory, and chemical sensing. Final: 0 CRITICAL, 0 LIMITED, 4 ADEQUATE, 3 STRONG."
+}

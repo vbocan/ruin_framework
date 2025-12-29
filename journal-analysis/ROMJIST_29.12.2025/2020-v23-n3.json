@@ -1,0 +1,215 @@
+{
+  "batch_id": "2020-v23-n3",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 23,
+    "issue": 3,
+    "year": 2020
+  },
+
+  "papers": [
+    {
+      "paper_id": "paper659",
+      "paper": {
+        "title": "Recovery of old dialectal materials and maps through image processing",
+        "authors": ["Silviu-Ioan Bejinariu", "Nicolae Saramandu", "Manuela Nevaci", "Vasile Apopei", "Horia-Nicolai Teodorescu"],
+        "abstract": "Preservation of linguistic heritage through digital recovery of old linguistic maps. Median and average filters applied to 228 original drawings from NALRR-MD. Discusses optimal filter window selection and layer superposition using QGIS and ImagePro.",
+        "keywords": ["Databases and Information Systems", "Image restoration", "Linguistic atlases", "Geographic Information System"],
+        "doi": null,
+        "pages": "223-237"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 95,
+        "structural_integrity": 90,
+        "artifact_availability": 60,
+        "intellectual_integrity": 89,
+        "composite": 82,
+        "final": 82
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Applied image processing paper with appropriate formalism. Probability calculations for filter window selection (Section 3.2) are necessary for justifying design choices. No decorative formalism detected."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Image restoration for linguistic atlas digitization\n**Level:** 2-3 (Applied image processing with some theoretical justification)\n**Rationale:** Uses standard median/average filters with theoretical analysis of window size selection.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (probability calculations for filter thresholds)\n\n### Proportionality\nCalculated complexity: 6\nExpected range (Level 2-3): 0-40\nRatio: 0.15x upper bound\n\n**Assessment:** Proportionate - probability analysis in Section 3.2 justifies filter window choices.\n\n### Necessity Test\n- Probability equations for whisker pixels: **NECESSARY** - enables quantitative filter selection\n- Histogram analysis: **NECESSARY** - provides empirical validation\n- Could be said in plain English? NO - mathematical precision required for filter optimization\n\n**Verdict:** All formalism passes Necessity Test.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 2/17 references (11.8%) - Normal range.\nTopical similarity: Both self-citations relate to linguistic atlas processing and image restoration.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Strong - empirical results with visual comparisons.\nLimitations: Acknowledged in Section 4 (morphological operators not always effective).\nArtifacts: 228 processed maps produced; ImagePro tool mentioned but not publicly available.\n\n---\n\n## Conclusion\n\nSolid applied image processing paper with practical contribution (228 digitized linguistic maps). Formalism is minimal and justified - probability analysis supports filter design decisions. No formalism theater detected."
+    },
+    {
+      "paper_id": "paper660",
+      "paper": {
+        "title": "Predicting Students Final GPA using 15 Classification Algorithms",
+        "authors": ["Njoud Alangari", "Raad Alturki"],
+        "abstract": "Educational Data Mining study comparing 15 classification algorithms for student GPA prediction. Naive Bayes and Hoeffding Tree achieve 91% accuracy. Dataset of 5566 students, 64 attributes. Rules extracted from tree-based classifiers identify key courses affecting final GPA.",
+        "keywords": ["Data Mining", "Machine Learning", "Classification", "Prediction", "Educational Data Mining"],
+        "doi": null,
+        "pages": "238-249"
+      },
+      "scores": {
+        "formalism": 90,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 30,
+        "intellectual_integrity": 88,
+        "composite": 74,
+        "final": 74
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Empirical ML comparison study with appropriate minimal formalism. Uses standard accuracy metrics without unnecessary mathematical decoration. Practical contribution through rule extraction."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** ML algorithm comparison for educational data mining\n**Level:** 2 (Empirical comparison of existing algorithms)\n**Rationale:** Applies 15 standard classifiers to new dataset; no novel algorithmic contributions.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (uses standard accuracy metric)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate - empirical study appropriately avoids unnecessary formalism.\n\n### Necessity Test\n- Accuracy metric: Standard, no formal definition needed\n- Classification rules: Presented in natural language (appropriate)\n- No set theory for data operations\n\n**Verdict:** Appropriately minimal formalism for empirical ML study.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 0/24 references (0%) - No concerns.\nLiterature review: Comprehensive coverage of EDM classification studies.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Strong - extensive experimental results (15 classifiers, 10-fold CV).\nLimitations: Briefly mentioned (more metrics could be used).\nArtifacts: Dataset not publicly available (institutional data).\n\n---\n\n## Conclusion\n\nWell-executed empirical study comparing classification algorithms for student performance prediction. Appropriate absence of unnecessary formalism for a Level 2 comparative study. Main limitation is artifact availability (institutional data restrictions)."
+    },
+    {
+      "paper_id": "paper661",
+      "paper": {
+        "title": "Evaluating the Impact of Feature Selection Methods on the Performance of the Machine Learning Models in Detecting DDoS Attacks",
+        "authors": ["Naveen Bindra", "Manu Sood"],
+        "abstract": "Comparison of feature selection methods (Filter, Wrapper, Embedded) with 5 ML classifiers for DDoS detection using CICIDS2017 dataset. Random Forest with Lasso-RFE achieves best results. Features reduced from 85 to 12-15 without accuracy loss.",
+        "keywords": ["DDoS detection", "DDoS attack", "machine learning", "feature selection", "SciKit-Learn", "network traffic classification"],
+        "doi": null,
+        "pages": "250-261"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 50,
+        "intellectual_integrity": 86,
+        "composite": 77,
+        "final": 77
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Applied ML paper on DDoS detection with feature selection. Standard accuracy formula included but appropriate for methodology explanation. Uses contemporary CICIDS2017 dataset."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Feature selection impact on ML-based DDoS detection\n**Level:** 2 (Empirical comparison of existing methods)\n**Rationale:** Compares standard feature selection methods with standard classifiers on new dataset.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (accuracy = correct predictions / total instances)\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Proportionate - single accuracy equation is standard and appropriate.\n\n### Necessity Test\n- Accuracy formula: **APPROPRIATE** - clarifies metric for readers unfamiliar with ML\n- PCA projection formula: **APPROPRIATE** - standard explanation of dimensionality reduction\n- No set theory for list operations\n\n**Verdict:** Formalism appropriate for applied security ML paper.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 0/23 references (0%) - No concerns.\nLiterature: Good coverage of feature selection and IDS literature.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Strong - experimental results with 10-fold cross-validation.\nLimitations: Acknowledged (more metrics could improve analysis).\nArtifacts: CICIDS2017 dataset is public; code not provided.\n\n---\n\n## Conclusion\n\nSolid empirical study on feature selection for network intrusion detection. Appropriate minimal formalism - one accuracy equation for clarity. Contemporary dataset (CICIDS2017) adds relevance."
+    },
+    {
+      "paper_id": "paper662",
+      "paper": {
+        "title": "Sparse Matrix-Vector Multiplication on a Map-Reduce Many-Core Accelerator",
+        "authors": ["Voichita Dragomir", "Gheorghe M. Stefan"],
+        "abstract": "Map-Reduce Accelerator (MRA) for SpMV computation. SIMD and SPMD algorithms for structured and unstructured sparse matrices. Achieves 5-12x better utilization than GPU (20-50% vs 0.65-3.9%) and 2.5x energy efficiency improvement over GeForce GTX 280.",
+        "keywords": ["sparse matrix", "matrix-vector multiplication", "unstructured sparse matrix", "structured sparse matrix", "heterogenous computing"],
+        "doi": null,
+        "pages": "262-273"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 95,
+        "structural_integrity": 90,
+        "artifact_availability": 40,
+        "intellectual_integrity": 89,
+        "composite": 77,
+        "final": 77
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Computer architecture paper with appropriate formalism. Execution time formulas and use coefficient equations are necessary for performance analysis. Assembly code listings demonstrate implementation."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Many-core accelerator architecture for sparse matrix computation\n**Level:** 3-4 (Novel architecture with algorithm design)\n**Rationale:** Proposes new accelerator architecture with specific algorithms and performance analysis.\n\n### Formal Elements\n- Definitions: 3 (use coefficient, data structures, instruction set)\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (execution time formulas, acceleration factors)\n\n### Proportionality\nCalculated complexity: 16\nExpected range (Level 3-4): 10-80\nRatio: 0.2x upper bound\n\n**Assessment:** Proportionate - performance analysis equations are essential for architecture evaluation.\n\n### Necessity Test\n- Use coefficient (alpha): **NECESSARY** - quantifies architecture efficiency\n- Execution time formulas: **NECESSARY** - enables performance comparison\n- Assembly code listings: **NECESSARY** - demonstrates implementation feasibility\n- Could be said in English? NO - precise complexity analysis requires mathematical formulation\n\n**Verdict:** All formalism passes Necessity Test.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 2/7 references (28.6%) - Elevated but related (prior architecture work).\nTopical similarity: Self-citations to prior MRA work are highly relevant.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Strong - quantitative comparisons with GPU baseline.\nLimitations: Implicit (SPMD algorithm data not yet complete for some applications).\nArtifacts: MRA simulated; 65nm implementation mentioned.\n\n---\n\n## Conclusion\n\nWell-structured architecture paper with justified formalism. Performance equations enable meaningful comparison with GPU alternatives. Elevated self-citation ratio is acceptable given the continuing architecture development."
+    },
+    {
+      "paper_id": "paper663",
+      "paper": {
+        "title": "Specific Absorption Rate Calculation Model in Case of Exposure to Microwaves Sources",
+        "authors": ["L. El Amrani", "T. Mazri", "N. Hmina"],
+        "abstract": "SAR calculation model for multiple radiation sources. Considers path losses, frequency bands, and source types (base stations, smartphones). Validated with EM radiation meter measurements at Ibn Tofail University. Two-ray propagation model for near-field calculations.",
+        "keywords": ["Specific Absorption Rate (SAR)", "Electrical Field", "Biological Effects", "Path Losses", "Base station", "Smartphone", "Frequency band", "Power density", "Electromagnetic radiations"],
+        "doi": null,
+        "pages": "274-291"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 50,
+        "intellectual_integrity": 84,
+        "composite": 76,
+        "final": 76
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "EM exposure modeling paper with appropriate physics-based formalism. SAR equations (Eq. 1-14) are standard electromagnetic theory necessary for the model. Validated with field measurements."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Multi-source SAR calculation model with experimental validation\n**Level:** 3 (Applied physics modeling with empirical validation)\n**Rationale:** Develops SAR model integrating standard propagation equations for novel multi-source scenario.\n\n### Formal Elements\n- Definitions: 2 (SAR, power density)\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 (SAR formula, propagation models, path loss)\n\n### Proportionality\nCalculated complexity: 32\nExpected range (Level 3): 10-40\nRatio: 0.8x upper bound\n\n**Assessment:** Proportionate - physics-based modeling requires standard electromagnetic equations.\n\n### Necessity Test\n- SAR equation (Eq. 1): **NECESSARY** - fundamental definition for exposure assessment\n- Two-ray model (Eq. 6): **NECESSARY** - standard propagation for near-field scenarios\n- Path loss equations: **NECESSARY** - required for received power calculation\n- Could be said in English? NO - physics modeling requires mathematical precision\n\n**Verdict:** All formalism passes Necessity Test - standard EM theory application.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 2/30 references (6.7%) - Normal range.\nTopical similarity: Self-citations to prior SAR work are highly relevant.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Strong - model validated with EM meter measurements at 3 locations.\nLimitations: Acknowledged (climate influence on measurements noted).\nArtifacts: Algorithm described; field measurements provided.\n\n---\n\n## Conclusion\n\nApplied physics paper with appropriate electromagnetic formalism. SAR equations are standard and necessary for exposure modeling. Experimental validation at real-world locations strengthens contribution."
+    },
+    {
+      "paper_id": "paper664",
+      "paper": {
+        "title": "Wavelet Based Performance Analysis of SVM and RBF Kernel for Classifying Stress Conditions of Sleep EEG",
+        "authors": ["Prabhat Kumar Upadhyay", "Chetna Nagpal"],
+        "abstract": "Sleep EEG classification under thermal stress using wavelet transform features with SVM and RBFNN classifiers. SVM achieves 96.4% accuracy for chronic stress, 94.1% for acute stress. 84.4% accuracy for stress type identification. Animal model (rats) with heat exposure.",
+        "keywords": ["Wavelet transform", "Heat stress", "RBF", "SVM", "Sleep EEG"],
+        "doi": null,
+        "pages": "292-310"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 40,
+        "intellectual_integrity": 86,
+        "composite": 74,
+        "final": 74
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Biomedical signal processing paper with appropriate formalism. Wavelet transform equations (Eq. 1-6) and SVM formulation (Eq. 8-9) are standard and necessary for methodology. Gaussian RBF kernel equation is standard."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Sleep EEG classification for stress detection using wavelets and ML\n**Level:** 3 (Signal processing with ML classification)\n**Rationale:** Applies wavelet feature extraction with SVM/RBF classification to novel stress detection problem.\n\n### Formal Elements\n- Definitions: 2 (CWT, scalogram)\n- Theorems: 0\n- Proofs: 0\n- Equations: 9 (CWT equations, RBF formula, SVM hyperplane, Gaussian kernel)\n\n### Proportionality\nCalculated complexity: 22\nExpected range (Level 3): 10-40\nRatio: 0.55x upper bound\n\n**Assessment:** Proportionate - signal processing paper requires wavelet and ML equations.\n\n### Necessity Test\n- CWT equations (Eq. 1-6): **NECESSARY** - define feature extraction methodology\n- Scalogram energy (Eq. 2): **NECESSARY** - explains power calculation\n- SVM hyperplane (Eq. 8): **NECESSARY** - core classification method\n- RBF kernel (Eq. 7, 9): **NECESSARY** - defines classifier kernel function\n- Could be said in English? NO - mathematical precision required for reproducibility\n\n**Verdict:** All formalism passes Necessity Test.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 2/52 references (3.8%) - Normal range.\nLiterature: Extensive coverage of sleep EEG and stress classification.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Strong - detailed experimental results with multiple metrics.\nLimitations: Acknowledged in ethics statement (animal model).\nArtifacts: Data from animal experiments; code not provided.\n\n---\n\n## Conclusion\n\nWell-structured biomedical signal processing paper. Wavelet and ML formalism is standard and necessary for methodology description. High classification accuracy (94-96%) on stress detection task."
+    },
+    {
+      "paper_id": "paper665",
+      "paper": {
+        "title": "Probabilistic modeling of the self-assembly of the 1-dimensional DNA structures",
+        "authors": ["Alex Amarioarei", "Gefry Barad", "Eugen Czeizler", "Andrei Paun", "Romica Trandafir"],
+        "abstract": "Probabilistic approaches for tile-based 1D DNA self-assembly. Proves Han's hook length formula using assembly probability model. Identifies algebraic structures (Operads, Hopf Algebras) underlying self-assembly. Signal-passing TAM simulation of staged assembly.",
+        "keywords": ["natural computing", "self-assembly", "signal and staged TAM", "probabilistic models", "hook length formulas", "operads and Hopf Algebras"],
+        "doi": null,
+        "pages": "311-329"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 95,
+        "structural_integrity": 85,
+        "artifact_availability": 50,
+        "intellectual_integrity": 88,
+        "composite": 78,
+        "final": 78
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Theoretical computer science paper on DNA self-assembly with appropriate heavy formalism. Level 4-5 topic (mathematical proofs of combinatorial formulas) justifies extensive formal definitions. Provides probabilistic proof of Han's hook length formula."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Probabilistic modeling of DNA tile self-assembly with algebraic structures\n**Level:** 4-5 (Theoretical CS with mathematical proofs)\n**Rationale:** Proves combinatorial theorem (Han's formula) using probabilistic assembly model. Connects to Operads and Hopf Algebras.\n\n### Formal Elements\n- Definitions: 5+ (TAM, assembly sequences, planar binary trees, operad, Markov chain)\n- Theorems: 2 (Han's hook length formula, Proposition 1-2)\n- Proofs: 2 (probabilistic proof of Han's formula, Proposition 1)\n- Equations: 15+ (probability distributions, recursive formulas, combinatorial identities)\n\n### Proportionality\nCalculated complexity: ~70\nExpected range (Level 4-5): 30-150\nRatio: 0.5x upper bound\n\n**Assessment:** Proportionate - theoretical paper proving mathematical results requires heavy formalism.\n\n### Necessity Test\n- Tile Assembly Model definitions: **NECESSARY** - foundational for paper's contribution\n- Probability formulas P(T): **NECESSARY** - core of probabilistic proof\n- Hook length formulas: **NECESSARY** - the theorem being proved\n- Operad definition: **NECESSARY** - identifies algebraic structure\n- Could be said in English? NO - mathematical proof requires formal precision\n\n**Verdict:** All formalism passes Necessity Test - theoretical paper with mathematical proofs.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 2/25 references (8%) - Normal range.\nLiterature: Strong coverage of TAM, combinatorics, and algebraic structures.\n\n---\n\n## Structural Analysis\n\nClaim-Evidence Ratio: Strong - formal proofs with software simulation validation.\nLimitations: Noted (2D assembly pathways remain open problem).\nArtifacts: ISU-TAS simulator mentioned; Mathematica code shown.\n\n---\n\n## Conclusion\n\nTheoretical computer science paper with justified heavy formalism. Proves mathematical result (Han's formula) using novel probabilistic approach to DNA self-assembly. Level 4-5 complexity justifies extensive formal apparatus. No formalism theater - all definitions and proofs serve the mathematical contribution."
+    }
+  ],
+
+  "batch_notes": "Volume 23 Issue 3 (2020) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** All 7 papers have domain-appropriate formalism: image processing (paper659), EDM empirical study (paper660), ML feature selection (paper661), computer architecture (paper662), EM exposure modeling (paper663), biomedical signal processing (paper664), and theoretical CS with combinatorial proofs (paper665). The batch shows good diversity in concept complexity levels (2-5) with formalism appropriately scaled to each paper's requirements. Final classification: 0 CRITICAL, 0 CONCERNING, 0 LIMITED, 5 ADEQUATE, 2 STRONG."
+}

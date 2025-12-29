@@ -1,0 +1,327 @@
+{
+  "batch_id": "2018-v21-n3",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 21,
+    "issue": 3,
+    "year": 2018
+  },
+
+  "papers": [
+    {
+      "paper_id": "paper593",
+      "paper": {
+        "title": "A Homomorphic Property of the Cryptosystems Based on Word Problem",
+        "authors": ["P. Jeyanthi Abisha", "D. Jayaseelan Samuel"],
+        "abstract": "Discusses homomorphic property of public key cryptosystems based on word problem. Uses finitely presented partially commutative groups. Applies homomorphic encryption to electronic voting schemes. Probabilistic encryption via relator insertion.",
+        "keywords": ["E-voting", "Finitely Presented Partially Commutative Groups", "Homomorphic Encryption", "Public Key Cryptosystems", "Word Problem"],
+        "doi": null,
+        "pages": "210-218"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 30,
+        "intellectual_integrity": 86,
+        "composite": 72,
+        "final": 72
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Cryptographic construction using group-theoretic word problem. All formal definitions (free partially commutative groups, Thue systems, word problem) are necessary for the cryptosystem construction and security arguments. Homomorphic property proof requires formal machinery."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Public key cryptosystem using word problem in finitely presented groups\n**Level:** 4 (Cryptographic construction with algebraic proofs)\n**Rationale:** Novel cryptographic construction requiring group-theoretic foundations and security properties.\n\n### Formal Elements\n- Definitions: 6 (alphabet, reduced word, concurrency relation, group presentation, Thue system, code)\n- Theorems: 0 explicit, but construction correctness implied\n- Proofs: Implicit via example verification\n- Equations: Multiple (group operations, morphism properties)\n\n### Proportionality\nCalculated complexity: ~18\nExpected range (Level 4): 30-80\nRatio: 0.2x upper bound\n\n**Assessment:** Proportionate - formalism is actually conservative for cryptographic construction.\n\n### Necessity Test\n- Definition 3.1 (reduced word): NECESSARY - foundational for word problem\n- Definition 3.2 (concurrency relation): NECESSARY - defines group structure\n- Definition 3.3 (group presentation): NECESSARY - core of cryptosystem\n- Definition 3.4 (Thue system): NECESSARY - undecidability for security\n- Definition 3.5 (free partially commutative group): NECESSARY - trapdoor construction\n- Definition 3.6 (code): NECESSARY - unique factorization for decryption\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified. Paper acknowledges known attack [12] on the system.\n\n---\n\n## Citation Analysis\n\nTotal references: 23. No self-citations detected. References appropriate for cryptography/formal language theory.\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Homomorphic Encryption background, PKC construction, E-voting application, Conclusion. Acknowledges vulnerability to chosen ciphertext attack. No artifacts provided.\n\n---\n\n## Conclusion\n\nSolid cryptographic construction paper with appropriate formalism for the algebraic complexity involved. The group-theoretic definitions are necessary for the word problem-based trapdoor. Paper honestly acknowledges known attack and suggests future work."
+    },
+    {
+      "paper_id": "paper594",
+      "paper": {
+        "title": "Multihanded and Near Perfect Self Assembling of Tile Assembling Systems",
+        "authors": ["P. Helen Chandra", "S. Thabithal"],
+        "abstract": "Presents multiple handed diamond tile assembly models for discrete Sierpinski triangle. Generalizes two-handed assembly to h-handed assembly. Constructs 6H-DAM achieving near perfect assembly with scale factor 1 using 34 tile types. Also presents 3H-DAM with scale factor 3.",
+        "keywords": ["self assembly", "strict self assembly", "near perfect assembly", "near triangle assembly", "base shape", "combinable shape"],
+        "doi": null,
+        "pages": "219-231"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 30,
+        "intellectual_integrity": 88,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "DNA tile self-assembly theory paper. Formal definitions of tiles, assembly systems, stability, and near-perfect assembly are all necessary for proving the main theorems about Sierpinski triangle construction."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** DNA tile self-assembly for fractal structures\n**Level:** 4 (Self-assembly theory with proofs)\n**Rationale:** Novel multi-handed assembly model with formal proofs of near-perfect assembly properties.\n\n### Formal Elements\n- Definitions: ~8 (tiles, grid, assembly system, stability, producible assemblies, near-perfect assembly, etc.)\n- Theorems: 2 (Theorems 4.3.1 and 4.4.1)\n- Proofs: Detailed proofs for both theorems\n- Equations: Free energy formula, complexity calculations\n\n### Proportionality\nCalculated complexity: ~28\nExpected range (Level 4): 30-80\nRatio: 0.35x upper bound\n\n**Assessment:** Proportionate - appropriate formalism for self-assembly theory.\n\n### Necessity Test\n- Diamond tile definition: NECESSARY - core building block\n- Strength function: NECESSARY - defines assembly stability\n- tau-stable assembly: NECESSARY - defines valid configurations\n- Producible assemblies (DProd): NECESSARY - for language characterization\n- Near-perfect assembly definition: NECESSARY - main contribution\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 8. Appropriate coverage of Winfree, Rothemund, and tile assembly literature.\n\n---\n\n## Structural Analysis\n\nWell-structured: Preliminaries, model definitions, 6H-DAM construction, 3H-DAM construction, conclusions. Clear figures illustrating tile sets and assembly stages.\n\n---\n\n## Conclusion\n\nStrong theoretical contribution to tile self-assembly. Formalism is necessary and proportionate. Proves near-perfect assembly with optimal scale factor 1 for Sierpinski triangle, improving on prior work."
+    },
+    {
+      "paper_id": "paper595",
+      "paper": {
+        "title": "Internally Expandable Pushdown Automata and Their Computational Completeness",
+        "authors": ["Lucie Charvat", "Alexander Meduna"],
+        "abstract": "Defines internally expandable pushdown automata (IEPDA) that expand symbols deeper in pushdown rather than only at top. Proves equivalence with state grammars, therefore computational completeness. Shows IEPDAs with 4 states are computationally complete.",
+        "keywords": ["IEPDA", "pushdown automata", "state grammars", "computational completeness"],
+        "doi": null,
+        "pages": "232-237"
+      },
+      "scores": {
+        "formalism": 90,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 20,
+        "intellectual_integrity": 90,
+        "composite": 72,
+        "final": 72
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Formal language theory paper proving computational completeness of new automaton model. All definitions, lemmas, and proofs are necessary for establishing equivalence with state grammars and Turing completeness."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** New pushdown automaton variant with computational completeness proof\n**Level:** 5 (Theoretical CS, computational universality)\n**Rationale:** Proves equivalence with recursively enumerable languages.\n\n### Formal Elements\n- Definitions: 1 (IEPDA) plus standard preliminaries\n- Theorems: 2 (Theorems 1 and 2)\n- Lemmas: 2 (Lemmas 1 and 2) with detailed proofs\n- Proofs: All formal with induction\n- Corollary: 1 (4-state completeness)\n\n### Proportionality\nCalculated complexity: ~26\nExpected range (Level 5): 60-150\nRatio: 0.17x upper bound\n\n**Assessment:** Proportionate - efficient formalism, actually minimal for the results.\n\n### Necessity Test\n- IEPDA definition: NECESSARY - defines the model\n- Relation notation: NECESSARY - formalizes transitions\n- Lemma 1 (State Grammar to IEPDA): NECESSARY - one direction of equivalence\n- Lemma 2 (IEPDA to State Grammar): NECESSARY - other direction\n- Inductive proofs: NECESSARY - cannot be stated in English\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 7. Appropriate for foundational automata theory paper. Cites Harrison, Meduna for background.\n\n---\n\n## Structural Analysis\n\nConcise and focused. Clear progression from definition to lemmas to main theorems. No extraneous content.\n\n---\n\n## Conclusion\n\nExcellent foundational theory paper. Establishes computational completeness of new automaton model with minimal but necessary formalism. All proofs are rigorous and required for the claims."
+    },
+    {
+      "paper_id": "paper596",
+      "paper": {
+        "title": "Picture Scanning Automata and Group Actions on Pictures",
+        "authors": ["Henning Fernau", "Meenakshi Paramasivan", "D. Gnanaraj Thomas"],
+        "abstract": "Systematically discusses finite automata on rectangular arrays with different scanning strategies. Shows all 32 variants describe only two language classes. Uses dihedral group D4 as proof tool. Studies boustrophedon and returning finite automata.",
+        "keywords": ["Finite automata", "formal picture processing", "symmetries"],
+        "doi": null,
+        "pages": "238-248"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 20,
+        "intellectual_integrity": 86,
+        "composite": 70,
+        "final": 70
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Picture language theory using group actions. The dihedral group D4 composition table and formal automaton definitions are necessary for proving that 32 scanning variants collapse to 2 language families."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Picture automata with symmetry group analysis\n**Level:** 3-4 (Automata theory with group-theoretic methods)\n**Rationale:** Uses D4 group structure to classify scanning strategies.\n\n### Formal Elements\n- Definitions: GBFA (general boustrophedon FA), GRFA (generalized returning FA)\n- Tables: D4 composition table, operator combination table\n- Theorems: 6 (closure, characterization, separation results)\n- Proofs: Reference to prior work and new proofs\n\n### Proportionality\nCalculated complexity: ~24\nExpected range (Level 3-4): 30-80\nRatio: 0.3x upper bound\n\n**Assessment:** Proportionate - group-theoretic machinery enables elegant proofs.\n\n### Necessity Test\n- D4 group table: NECESSARY - central proof tool\n- GBFA definition: NECESSARY - defines 32 scanning variants\n- Operator tables (Table 2): NECESSARY - shows how operators combine\n- Closure theorems: NECESSARY - characterize language families\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 24. Comprehensive coverage of picture language literature.\n\n---\n\n## Structural Analysis\n\nWell-organized with group theory background, automata definitions, main results, and future work. Open problems clearly stated.\n\n---\n\n## Conclusion\n\nElegant use of group theory to simplify picture automata classification. The D4 formalism is precisely the right tool and enables the main result that 32 variants collapse to 2 families."
+    },
+    {
+      "paper_id": "paper597",
+      "paper": {
+        "title": "3D DNA Origami Map Structure Simulation",
+        "authors": ["Corina Itcus", "Alexandru Amarioarei", "Eugen Czeizler", "Ana-Maria Dobre", "Victor Mitrana", "Florentina Negre", "Andrei Paun", "Mihaela Paun", "Manuela Elisabeta Sidoroff", "Romica Trandafir", "Iris Tusa"],
+        "abstract": "Presents simulation of DNA origami construction of Romanian map nanoscale structure using caDNAno and Maya. Follows Rothemund's DNA origami methodology. Proof-of-concept embedding number 100 for Romanian centenary.",
+        "keywords": ["DNA", "origami", "self-assembly", "nanostructure", "Romanian map"],
+        "doi": null,
+        "pages": "249-255"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 75,
+        "artifact_availability": 50,
+        "intellectual_integrity": 82,
+        "composite": 74,
+        "final": 74
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "DNA origami proof-of-concept simulation paper. Minimal formalism - describes software workflow (caDNAno, Maya) for generating Romania map nanostructure. No theorems or proofs; appropriate for simulation/application paper."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** DNA origami simulation for nanoscale map construction\n**Level:** 1-2 (Software application, proof-of-concept)\n**Rationale:** Applies existing DNA origami methodology to new shape using standard tools.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1-2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate - no formalism theater. Paper is simulation-focused.\n\n### Necessity Test\nNo formal elements to test - paper describes simulation workflow and results.\n\n**PASS - appropriate minimal formalism for application paper.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 22. Good coverage of DNA origami literature (Rothemund, Douglas, Dietz).\n\n---\n\n## Structural Analysis\n\nIntroduction, simulation methodology, results, discussion. Figures show caDNAno designs and Maya renderings. Clear proof-of-concept demonstration.\n\n---\n\n## Conclusion\n\nApplications paper with appropriate minimal formalism. Uses established DNA origami tools to create novel structure. Celebrates Romanian centenary with creative scientific demonstration."
+    },
+    {
+      "paper_id": "paper598",
+      "paper": {
+        "title": "On a Special Variant of Rauzy Graphs",
+        "authors": ["K. Mahalingam", "R. Praveen", "R. Rama"],
+        "abstract": "Introduces half range Rauzy graphs (HRR) as variant of Rauzy graphs for word representation. Studies structural properties for infinite words of form x^omega where x is primitive. Proves every component is a cycle and gives conditions for strong connectivity.",
+        "keywords": ["Half range Rauzy graphs", "Primitive words", "Directed graphs", "Strongly connected graphs"],
+        "doi": null,
+        "pages": "256-266"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 20,
+        "intellectual_integrity": 88,
+        "composite": 71,
+        "final": 71
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Combinatorics on words paper introducing new graph variant. All definitions (HRR graphs, primitivity) and theorems (cycle structure, strong connectivity) are necessary for establishing the graph-theoretic properties of word representations."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** New variant of word representation graphs\n**Level:** 3 (Combinatorics on words)\n**Rationale:** Introduces new graph structure and proves structural properties.\n\n### Formal Elements\n- Definitions: 2 (Definition 1: Rauzy graph, Definition 2: HRR graph with 2 types)\n- Lemmas: 2 (Lemmas 1-2 on isomorphism and conjugacy)\n- Propositions: 3 (vertex count, edge count, degrees)\n- Theorems: 2 (Theorems 1-2 on loop conditions and component structure)\n- Proofs: All with detailed arguments\n\n### Proportionality\nCalculated complexity: ~22\nExpected range (Level 3): 10-40\nRatio: 0.55x upper bound\n\n**Assessment:** Proportionate - formalism appropriate for combinatorics.\n\n### Necessity Test\n- Definition 2 (HRR graph): NECESSARY - core contribution\n- Propositions on vertex/edge counts: NECESSARY - characterize graph\n- Theorem 1 (loop conditions): NECESSARY - main structural result\n- Theorem 2 (cycle structure): NECESSARY - main structural result\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 17. Covers Rauzy graph literature and combinatorics on words.\n\n---\n\n## Structural Analysis\n\nClear progression from preliminaries to definition to properties to main theorems. Examples illustrate concepts effectively.\n\n---\n\n## Conclusion\n\nSolid combinatorics paper introducing new graph structure with proper formal treatment. All definitions and theorems necessary for the mathematical contribution."
+    },
+    {
+      "paper_id": "paper599",
+      "paper": {
+        "title": "Palindromic Properties of Two-Dimensional Fibonacci Words",
+        "authors": ["K. Mahalingam", "M. Sivasankar", "K. Krithivasan"],
+        "abstract": "Investigates palindromic occurrences in 2D Fibonacci arrays. Extends 1D Fibonacci word palindrome study to 2D. Counts distinct palindromic subarrays (F(m) x F(n)). Studies palindromes in conjugacy class of Fibonacci arrays.",
+        "keywords": ["Fibonacci arrays", "Palindromes", "Parikh vector", "Conjugacy"],
+        "doi": null,
+        "pages": "267-277"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 20,
+        "intellectual_integrity": 86,
+        "composite": 70,
+        "final": 70
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Combinatorics paper on 2D Fibonacci arrays. All definitions (2D arrays, palindrome types, Fibonacci arrays) and counting theorems are necessary for establishing the palindrome enumeration results."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Palindrome counting in 2D Fibonacci arrays\n**Level:** 3 (Combinatorics)\n**Rationale:** Extends 1D results to 2D with counting arguments.\n\n### Formal Elements\n- Definitions: 6 (array operations, reversal, transpose, palindrome, conjugacy, Fibonacci array)\n- Lemmas: 6 (structural properties)\n- Propositions: 1 (Parikh vector)\n- Theorems: 3 (palindrome count F(m)xF(n), conjugacy palindromes)\n- Proofs: Detailed combinatorial arguments\n\n### Proportionality\nCalculated complexity: ~28\nExpected range (Level 3): 10-40\nRatio: 0.7x upper bound\n\n**Assessment:** Proportionate - formalism required for counting arguments.\n\n### Necessity Test\n- 2D array definitions (Def 1-2): NECESSARY - foundational\n- Fibonacci array definition (Def 3): NECESSARY - core object\n- Parikh vector proposition: NECESSARY - used in proofs\n- Theorem 2 (F(m)xF(n) palindromes): NECESSARY - main result\n- Lemma 3 (1D factorizations): NECESSARY - building block\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 25. Good coverage of Fibonacci words and 2D language theory.\n\n---\n\n## Structural Analysis\n\nLogical progression from 1D to 2D. Clear examples throughout. Conjugacy analysis extends main results.\n\n---\n\n## Conclusion\n\nCareful extension of 1D Fibonacci palindrome results to 2D. All formalism supports the counting theorems and is necessary for the proofs."
+    },
+    {
+      "paper_id": "paper600",
+      "paper": {
+        "title": "On k#$-Rewriting Systems",
+        "authors": ["Jiri Kucera", "Zbynek Krivka", "Alexander Meduna"],
+        "abstract": "Introduces k#$-rewriting systems extending #-rewriting systems with pushdown memory. Demonstrates infinite hierarchy of language families based on rewriting position limits. Proves equivalence with k-limited state grammars.",
+        "keywords": ["k#$-rewriting systems", "pushdown", "#-rewriting systems", "infinite hierarchy", "finite index", "n-limited state grammars"],
+        "doi": null,
+        "pages": "278-287"
+      },
+      "scores": {
+        "formalism": 90,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 20,
+        "intellectual_integrity": 90,
+        "composite": 72,
+        "final": 72
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Formal language theory paper introducing new rewriting system variant. Complex definitions and proofs are necessary for establishing the infinite hierarchy characterization and equivalence with state grammars."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Rewriting systems with pushdown and hierarchy results\n**Level:** 4 (Formal language theory)\n**Rationale:** Establishes infinite hierarchy and grammar equivalences.\n\n### Formal Elements\n- Definitions: 1 (Definition 3.1: k#$-rewriting system, 5 rule types)\n- Lemmas: 2 (Lemmas 4.1 and 4.2)\n- Theorems: 4 (hierarchy results)\n- Corollary: 1 (equivalence with state grammars)\n- Proofs: Detailed constructions\n\n### Proportionality\nCalculated complexity: ~22\nExpected range (Level 4): 30-80\nRatio: 0.28x upper bound\n\n**Assessment:** Proportionate - efficient formalism for hierarchy results.\n\n### Necessity Test\n- Definition 3.1: NECESSARY - defines the model with all rule types\n- Lemma 4.1 (State Grammar to k#$-RS): NECESSARY - equivalence proof\n- Lemma 4.2 (k#$-RS to State Grammar): NECESSARY - reverse direction\n- Theorem 4.4 (proper inclusion): NECESSARY - hierarchy result\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 11. Appropriate for formal language theory paper.\n\n---\n\n## Structural Analysis\n\nClear: Preliminaries, Definition, Example, Results with proofs. Extended example clarifies the model.\n\n---\n\n## Conclusion\n\nStrong formal language theory contribution. All formalism necessary for establishing the infinite hierarchy and grammar equivalences."
+    },
+    {
+      "paper_id": "paper601",
+      "paper": {
+        "title": "The Unique Satisfiability Problem from a Membrane Computing Perspective",
+        "authors": ["David Orellana-Martin", "Luis Valencia-Cabrera", "Agustin Riscos-Nunez", "Mario J. Perez-Jimenez"],
+        "abstract": "Provides uniform polynomial time solution to UNIQUE SAT problem using polarizationless P systems with active membranes and division rules. Uses minimal cooperation and minimal production in object evolution rules. UNIQUE SAT is DP-complete.",
+        "keywords": ["Complexity class DP", "polarizationless P systems with active membranes", "cooperative rules", "UNIQUE SAT problem"],
+        "doi": null,
+        "pages": "288-297"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 30,
+        "intellectual_integrity": 88,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Membrane computing paper solving UNIQUE SAT. The P system definition and stage-by-stage analysis are necessary for proving the polynomial-time solution. Complexity class DP properly introduced."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** P system solution to DP-complete problem\n**Level:** 4 (Computational complexity in membrane computing)\n**Rationale:** Novel P system construction solving UNIQUE SAT.\n\n### Formal Elements\n- Definitions: 1 (Definition 1: P system with 5 rule types)\n- Theorems: 1 (Theorem 1: UNIQUE SAT in PMC_DAM0)\n- P system construction: 19 rules across stages\n- Stage analysis: Generation, production, checking, output\n\n### Proportionality\nCalculated complexity: ~18\nExpected range (Level 4): 30-80\nRatio: 0.23x upper bound\n\n**Assessment:** Proportionate - construction is detailed but necessary.\n\n### Necessity Test\n- Definition 1 (P system): NECESSARY - model specification\n- Rule set R (19 rules): NECESSARY - each stage serves purpose\n- Encoding (cod, s): NECESSARY - reduction from UNIQUE SAT\n- Theorem 1 proof outline: NECESSARY - completeness/soundness\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 16. Good coverage of membrane computing complexity theory.\n\n---\n\n## Structural Analysis\n\nClear progression: Preliminaries, complexity class DP, P system construction, computation analysis, main result. Stages carefully explained.\n\n---\n\n## Conclusion\n\nSolid membrane computing paper with novel complexity result. P system construction is detailed but necessary for the UNIQUE SAT solution."
+    },
+    {
+      "paper_id": "paper602",
+      "paper": {
+        "title": "Accepting H-Array Splicing Systems and Their Properties",
+        "authors": ["D. K. Sheena Christy", "V. Masilamani", "D. G. Thomas", "Atulya K. Nagar", "T. Robinson"],
+        "abstract": "Extends accepting splicing systems to H-array splicing on rectangular arrays. Compares accepting H-array splicing systems with local array systems and (Regular:Regular) array grammars. Studies uniform and non-uniform iterated splicing.",
+        "keywords": ["Two-dimensional language", "H-array splicing system", "Iterated Splicing"],
+        "doi": null,
+        "pages": "298-309"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 20,
+        "intellectual_integrity": 86,
+        "composite": 70,
+        "final": 70
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "2D formal language theory extending splicing to arrays. All definitions (array splicing, domino rules, accepting systems) and comparison theorems are necessary for establishing computational power relationships."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Accepting splicing systems for 2D arrays\n**Level:** 3-4 (Formal language theory)\n**Rationale:** Extends string splicing to arrays with formal power comparisons.\n\n### Formal Elements\n- Definitions: 4 (splicing rules, H-array system, non-uniform variant, accepting system)\n- Theorems: 1 (incomparability with LOC)\n- Examples: 2 (illustrating acceptance/rejection)\n\n### Proportionality\nCalculated complexity: ~16\nExpected range (Level 3-4): 30-80\nRatio: 0.2x upper bound\n\n**Assessment:** Proportionate - formal definitions enable precise comparisons.\n\n### Necessity Test\n- Definition 2.1 (splicing rules): NECESSARY - core operation\n- Definition 2.2 (generating H-array system): NECESSARY - base model\n- Definition 3.1 (non-uniform variant): NECESSARY - alternative semantics\n- Definition 4.1 (accepting AHASS): NECESSARY - main contribution\n- Theorem 4.1 (LOC comparison): NECESSARY - power characterization\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 12. Covers splicing and 2D language literature.\n\n---\n\n## Structural Analysis\n\nClear progression from 1D to 2D, uniform to non-uniform, generating to accepting. Examples illustrate key concepts.\n\n---\n\n## Conclusion\n\nProper extension of accepting splicing to 2D. All formalism necessary for the array language comparisons."
+    },
+    {
+      "paper_id": "paper603",
+      "paper": {
+        "title": "A Quick Survey of Tissue-Like P Systems",
+        "authors": ["Bosheng Song", "Yingxin Hu", "Henry N. Adorna", "Fei Xu"],
+        "abstract": "Survey of tissue-like P systems. Presents definitions and variants including cell division, cell separation, evolutional symport/antiport. Reviews Turing universality and computational efficiency results. Discusses complexity classes and frontiers between efficiency/non-efficiency.",
+        "keywords": ["Bio-inspired computing", "Membrane computing", "Tissue P system", "Universality", "Computational complexity"],
+        "doi": null,
+        "pages": "310-321"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 20,
+        "intellectual_integrity": 86,
+        "composite": 70,
+        "final": 70
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Comprehensive survey of tissue P systems. Formal definitions and theorem statements are necessary for accurately summarizing the field's results on universality and complexity."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Survey of membrane computing complexity\n**Level:** 3-4 (Survey of theoretical results)\n**Rationale:** Summarizes formal results from extensive literature.\n\n### Formal Elements\n- Definitions: 6 (tissue P system variants, recognizer systems)\n- Theorems: 17 (complexity characterizations)\n- No new proofs (survey references prior work)\n\n### Proportionality\nCalculated complexity: ~63\nExpected range (Level 3-4): 30-80\nRatio: 0.8x upper bound\n\n**Assessment:** Proportionate - appropriate for comprehensive survey.\n\n### Necessity Test\n- Definitions 1-6: NECESSARY - define system variants\n- Theorems 1-17: NECESSARY - state complexity results\n- All formal statements cite original sources\n\n**All formal elements pass Necessity Test - survey accurately captures field.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTotal references: 60. Comprehensive coverage of membrane computing literature.\n\n---\n\n## Structural Analysis\n\nWell-organized survey: Basic systems, variants, computation power, complexity theory. Clear presentation of frontiers.\n\n---\n\n## Conclusion\n\nExcellent survey paper. Formalism is necessary for accurately presenting the complexity theory results. Comprehensive coverage with 60 references."
+    }
+  ],
+
+  "batch_notes": "Volume 21 Issue 3 (2018) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** This issue focuses heavily on formal language theory, automata, and membrane computing - all Level 3-5 topics requiring substantial formalism. Papers 593-596, 598-603 are theoretical CS with appropriate formal machinery. Paper 597 (DNA origami simulation) has minimal formalism appropriate for Level 1-2 application. Final: 0 CRITICAL, 0 LIMITED, 11 ADEQUATE, 0 STRONG."
+}

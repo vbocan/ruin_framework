@@ -1,0 +1,187 @@
+{
+  "batch_id": "2021-v24-n4",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 24,
+    "issue": 4,
+    "year": 2021
+  },
+
+  "papers": [
+    {
+      "paper_id": "paper697",
+      "paper": {
+        "title": "Cloud provider selection a complex multicriteria problem",
+        "authors": ["Constanta Zoie Radulescu", "Marius Radulescu", "Florin Gheorghe Filip"],
+        "abstract": "Cloud provider (CP) selection problem is a complex decision-making problem that involves multiple criteria, often in conflict with one another. The purpose of the paper is to present a brief survey on CP selection problem and to formulate a group decision approach and a multi-objective model for CP selection. Starting from this model several single-objective models are derived. The objective functions are cost, evaluation risk and performance. A numerical example for the trade-off model is analyzed. Five scenarios are discussed, and a matrix of CPs ranks for each scenario is computed.",
+        "keywords": ["Cloud computing", "evaluation divergence", "evaluation risk", "group decision", "multi-objective model", "provider selection"],
+        "doi": null,
+        "pages": "337-352"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 30,
+        "intellectual_integrity": 85,
+        "composite": 71,
+        "final": 71
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "MCDM/optimization paper with appropriate mathematical formulation. Multi-objective model and evaluation risk equations are necessary for specifying the decision framework."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Multi-criteria decision making for cloud provider selection\n**Level:** 2-3 (Low-Medium)\n**Rationale:** Applies established MCDM methods (AHP, TOPSIS, SAW) and formulates optimization models. Standard operations research methodology.\n\n### Formal Elements\n- Definitions: Sets and indices (n CPs, m criteria, k evaluators)\n- Equations: Weighted scores, evaluation risk, objective functions\n- Multi-objective optimization model formulation\n- Theorems: 0\n- Proofs: 0\n\n### Proportionality\nCalculated complexity: ~12 (6 main equations x 2)\nExpected range (Level 2-3): 0-40\nRatio: 0.3x upper bound\n\n**Assessment:** Proportionate - equations specify optimization model precisely and are necessary for implementation.\n\n### Necessity Test\n- Evaluation risk formula: Could NOT be stated clearly in English - requires mathematical precision\n- Weighted scoring: Standard OR formulation, necessary for implementation\n- Objective functions: Required for optimization model\n\n### Issues\nNone identified. Survey component provides context; model formulation is the contribution.\n\n---\n\n## Citation Analysis\n\n40 references cited. Literature review covers MCDM methods, cloud computing criteria, and DSS approaches comprehensively. No self-citation concerns identified.\n\n---\n\n## Structural Analysis\n\nWell-structured: Introduction, Literature Review (2.1-2.5), Criteria discussion, Model formulation, Numerical example, Conclusions. Limitations not explicitly discussed but numerical example scope is clear.\n\n---\n\n## Conclusion\n\nSolid applied operations research paper. The multi-objective optimization model and group decision approach are the main contributions. Formalism is appropriate for an MCDM paper - mathematical notation is necessary for model specification. No formalism theater detected."
+    },
+    {
+      "paper_id": "paper698",
+      "paper": {
+        "title": "Evolving Fuzzy Models of Shape Memory Alloy Wire Actuators",
+        "authors": ["Radu-Emil Precup", "Claudia-Adina Bojan-Dragos", "Elena-Lorena Hedrea", "Raul-Cristian Roman", "Emil M. Petriu"],
+        "abstract": "This paper suggests Takagi-Sugeno-Kang (TSK) fuzzy models that characterize the position of Shape Memory Alloy (SMA) wire actuators. The systems dynamics are important because SMA wire actuators are included in control systems in various critical applications. The output of these systems is the position of the SMA wire actuators, and the input is the current signal. Different numbers of additional TSK fuzzy model inputs and outputs obtained from past inputs and/or outputs are considered. The structures and parameters of the fuzzy models are evolved by an incremental online identification algorithm. Two evolving TSK fuzzy models are derived, tested against experimental data and compared.",
+        "keywords": ["evolving fuzzy model", "incremental online identification", "shape memory alloy", "Takagi-Sugeno-Kang fuzzy model"],
+        "doi": null,
+        "pages": "353-365"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 40,
+        "intellectual_integrity": 85,
+        "composite": 74,
+        "final": 74
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Control systems paper with appropriate TSK fuzzy model formalism. All equations define model structure and identification algorithm - necessary for replication."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Evolving TSK fuzzy model identification for SMA actuators\n**Level:** 3 (Medium)\n**Rationale:** Novel application of incremental online identification to nonlinear SMA system modeling. Fuzzy model structure requires precise mathematical specification.\n\n### Formal Elements\n- Definitions: Data point vector (Eq 1), TSK rule structure (Eq 2), parameter vector (Eq 3)\n- Equations: 11 equations covering firing degrees, model output, RLS updates, clustering\n- Algorithm: 7-step incremental identification procedure\n- Theorems: 0\n- Proofs: 0\n\n### Proportionality\nCalculated complexity: ~22 (11 equations x 2)\nExpected range (Level 3): 10-40\nRatio: 0.55x upper bound\n\n**Assessment:** Proportionate - all equations specify the TSK fuzzy model and identification algorithm.\n\n### Necessity Test\n- TSK rule structure (Eq 2): NECESSARY - defines the model being identified\n- Firing degree computation (Eq 5): NECESSARY - core fuzzy inference operation\n- RLS parameter update: NECESSARY - the identification algorithm itself\n- All equations are referenced in experimental results\n\n### Issues\nNone identified. This is a methodology-focused control systems paper where mathematical precision is expected.\n\n---\n\n## Citation Analysis\n\n53 references. Strong self-citation cluster (authors' prior work on evolving fuzzy models [19], [30]-[32]) but these are directly relevant - prior work on the same methodology. Other citations cover SMA actuators, fuzzy control, and system identification.\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Online Identification Algorithm, Evolving TSK Models + Experiments, Conclusions. Experimental validation with training and validation data. Acknowledgments mention funding sources.\n\n---\n\n## Conclusion\n\nWell-executed control systems paper. The TSK fuzzy model equations and identification algorithm are the core contribution - formalism is necessary and appropriate. Experimental results validate the approach on real SMA actuator data."
+    },
+    {
+      "paper_id": "paper699",
+      "paper": {
+        "title": "Pseudo-Reconfigurable Computing",
+        "authors": ["Gheorghe M. Stefan"],
+        "abstract": "The pseudo-reconfigurable computing we propose is an implementation of heterogeneous computing in the form of a compromise between the realization of accelerators as circuits through reconfiguration techniques using FPGAs and the realization of accelerators as parallel computing structures made in ASIC technology. The proposed solution is implementable in FPGA in the form of a programmable structure that is parameterizable and configurable. The programmable accelerator is a cellular parallel engine with a structure and architecture that efficiently covers most of the parallel computing patterns. The structural and architectural aspects of the proposed system are introduced based on Stephen Kleene's Partial Recursive Function Model, and evaluated using Functional Forms introduced by John Backus, dwarfs listed in Berkeley's View of Parallel Landscape, and patterns already imposed in the practice of parallel computing.",
+        "keywords": ["pseudo-reconfigurable computing", "FPGA", "accelerator", "parallel computing", "MapScanReduce"],
+        "doi": null,
+        "pages": "366-383"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 30,
+        "intellectual_integrity": 83,
+        "composite": 70,
+        "final": 70
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Computer architecture paper grounding novel FPGA accelerator design in Kleene's computability theory. Theoretical foundation appropriate for justifying architectural claims."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Novel pseudo-reconfigurable computing architecture (MSRA)\n**Level:** 3-4 (Medium-High)\n**Rationale:** Proposes new computational architecture with theoretical grounding in partial recursive functions. Connects to Backus's functional forms and Berkeley parallel computing patterns.\n\n### Formal Elements\n- Definitions: Composition rule from Kleene's model\n- Functional forms: Apply-to-all, Construction, Insert, Composition, Condition\n- Architecture diagrams (Fig 1: DISTRIBUTE/MAP/SCAN/REDUCE)\n- Pattern analysis: Map, Reduce, Scan, Pipeline, Fork-join, Stencil, etc.\n- Minimal equations - primarily conceptual/architectural\n\n### Proportionality\nCalculated complexity: ~10 (theoretical references + architecture spec)\nExpected range (Level 3-4): 30-80\nRatio: 0.13x upper bound\n\n**Assessment:** Proportionate (lower end) - architecture paper appropriately uses computability theory concepts without excessive formalism.\n\n### Necessity Test\n- Kleene's recursive functions: APPROPRIATE - theoretical foundation for parallel decomposition\n- Backus functional forms: APPROPRIATE - demonstrates programmability of architecture\n- Berkeley dwarfs analysis: APPROPRIATE - validates architecture against known patterns\n- No decorative definitions or set theory for simple operations\n\n### Issues\nNone identified. This is a systems/architecture paper where theoretical grounding supports design choices without formalism theater.\n\n---\n\n## Citation Analysis\n\n22 references. Appropriate theoretical citations (Kleene, Backus, Berkeley View). References to prior MSRA work by the author ([17], [22]) are relevant - building on established research program.\n\n---\n\n## Structural Analysis\n\npRC vs RC comparison, theoretical foundation (Section 3), functional forms mapping (Section 4), parallel patterns evaluation (Section 5), Berkeley dwarfs coverage (Section 6). Well-organized argument for the architecture.\n\n---\n\n## Conclusion\n\nThoughtful architecture paper that uses computability theory appropriately to justify design. The MapScanReduce architecture is evaluated against multiple established frameworks (Backus, Berkeley). Formalism is conceptual rather than mathematical, which is appropriate for the contribution."
+    },
+    {
+      "paper_id": "paper700",
+      "paper": {
+        "title": "In-depth evaluation of Romanian natural language processing pipelines",
+        "authors": ["Vasile Pais", "Radu Ion", "Andrei-Marius Avram", "Maria Mitrofan", "Dan Tufis"],
+        "abstract": "With the increased size of Universal Dependencies tree banks, several basic language processing kits (BLARK) for multiple languages appeared in recent years. Published results are not directly comparable for the Romanian language since different tools use different UD versions and resources. In this paper, we re-train several state-of-the-art tools for processing Romanian language by using a common methodology comprising of training and evaluating on the same version of RoRefTrees corpus and using the same pre-trained word embeddings from CoRoLa. We further test the resulting models on the SiMoNERo corpus. We employ different metrics to assess the performance on tokenization, sentence splitting, lemmatization, part-of-speech tagging and dependency parsing.",
+        "keywords": ["Natural language processing", "BLARK", "performance evaluation", "Romanian text processing"],
+        "doi": null,
+        "pages": "384-401"
+      },
+      "scores": {
+        "formalism": 90,
+        "citation_integrity": 85,
+        "structural_integrity": 90,
+        "artifact_availability": 70,
+        "intellectual_integrity": 88,
+        "composite": 84,
+        "final": 84
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Rigorous empirical NLP evaluation with minimal, appropriate formalism. Standard metrics (P/R/F1, accuracy, UAS/LAS) precisely defined. Valuable comparative analysis."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Comparative evaluation of Romanian NLP tools\n**Level:** 2 (Low)\n**Rationale:** Empirical comparison of existing NLP pipelines (TreeTagger, TTL, UDPipe, NLP-Cube, RNNTagger, Stanza) using standard methodology.\n\n### Formal Elements\n- Definitions: Precision, Recall, F1, Accuracy (standard metrics)\n- UAS/LAS for dependency parsing\n- Equations: 4 simple metric definitions\n- Theorems: 0\n- Proofs: 0\n\n### Proportionality\nCalculated complexity: ~8 (4 equations x 2)\nExpected range (Level 2): 0-15\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate - minimal formalism for standard evaluation metrics.\n\n### Necessity Test\n- P/R/F1 definitions: STANDARD metrics, appropriate to define precisely\n- Accuracy definition: NECESSARY for clear methodology\n- These ARE the metrics used throughout all experiments\n- No decorative formalism\n\n### Issues\nNone identified. Exemplary empirical methodology paper.\n\n---\n\n## Citation Analysis\n\n87 references. Comprehensive coverage of NLP tools, Romanian language resources, Universal Dependencies, and BERT models. Some self-citations to prior RACAI work ([8], [12], [14]) are appropriate given the institute's central role in Romanian NLP.\n\n---\n\n## Structural Analysis\n\nExcellent structure: Methodology (Section 2), Annotation Pipelines (Section 3), Results (Section 4), Conclusions. Tables 2-4 provide clear comparative results. Fair experimental setup using same training data and embeddings for all tools.\n\n---\n\n## Conclusion\n\nHigh-quality empirical evaluation paper. Methodology is rigorous and clearly described. Results provide valuable guidance for Romanian NLP practitioners. Formalism is minimal and appropriate - just the necessary metric definitions. The paper acknowledges limitations (e.g., BERT results are preliminary)."
+    },
+    {
+      "paper_id": "paper701",
+      "paper": {
+        "title": "Invariant sets with arbitrary convex shapes in linear system dynamics",
+        "authors": ["Mihaela Matcovschi", "Marius Apetrii", "Octavian Pastravanu", "Mihail Voicu"],
+        "abstract": "A mathematical framework dedicated to flow-invariance study is proposed for continuous-time linear dynamics, with respect to general-shape contractive sets - defined by the class of proper C-sets (convex and compact sets, including the origin as an interior point), for which a constant-rate exponential decrease is considered. The main result provides a general algebraic characterization of flow-invariance, stated in terms of functions extending the concept of matrix measure by using Minkowski functions. This result is further exploited by set-embedding procedures that yield reformulations as optimization tasks. Two examples are considered to illustrate how the flow-invariance criteria can be obtained as particular cases from our main result.",
+        "keywords": ["continuous-time linear systems", "invariant sets", "Minkowski function", "Lyapunov function"],
+        "doi": null,
+        "pages": "402-417"
+      },
+      "scores": {
+        "formalism": 90,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 20,
+        "intellectual_integrity": 90,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Pure mathematical control theory paper. Heavy formalism is NECESSARY and EXPECTED for Lyapunov stability analysis with Minkowski functions. Theorems and proofs are the contribution."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Flow-invariance framework for continuous-time linear systems using Minkowski functions\n**Level:** 4-5 (High to Very High)\n**Rationale:** Mathematical control theory extending matrix measure concept. Proves equivalence conditions for invariant sets using Lyapunov functions and Minkowski gauges.\n\n### Formal Elements\n- Definitions: Minkowski function (Eq 3), extended matrix functions (Eq 4, 5)\n- Proposition 1: 10 properties of Minkowski functions (a-k)\n- Proposition 2: 6 properties of matrix function (a-f)\n- Proposition 3: Properties of generalized matrix measure (a-d)\n- Theorem 1: Main equivalence result (3 equivalent conditions, formal proof)\n- Theorem 2: Optimization-based characterization\n- Corollary 1: Polyhedral sets specialization\n- Appendix: Formal proofs of propositions\n\n### Proportionality\nCalculated complexity: ~80 (3 propositions x 3 + 2 theorems x 3 + corollary x 3 + proofs x 4)\nExpected range (Level 4-5): 30-150\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate - this IS a mathematical paper where proofs ARE the contribution.\n\n### Necessity Test\n- Minkowski function properties: NECESSARY - foundation for main results\n- Theorem 1 equivalences: NECESSARY - the main contribution of the paper\n- Proofs: NECESSARY - this is a pure mathematics paper\n- Could be stated in English? NO - these are formal mathematical proofs\n- Does it enable proofs? YES - this paper IS the proofs\n\n### Issues\nNone identified. This is exemplary mathematical control theory writing.\n\n---\n\n## Citation Analysis\n\n18 references. Focused on mathematical control theory literature (Blanchini, Miani, foundational papers [1]-[9]). Some self-citations to prior work ([3], [4], [16]) are appropriate as this extends the authors' research program.\n\n---\n\n## Structural Analysis\n\nClassic mathematical paper structure: Introduction/motivation, Prerequisites (Section 2), Main Results (Section 3), Applications/Examples (Section 4), Conclusions. Proofs in Appendix. Remark 2 connects to classical Lyapunov inequality.\n\n---\n\n## Conclusion\n\nExcellent pure mathematics paper in control theory. The formalism IS the contribution - generalizing matrix measures to Minkowski functions for flow-invariance. No formalism theater possible here; every definition and theorem serves the main results. Artifact availability is low (pure theory), but this is expected for mathematical papers."
+    },
+    {
+      "paper_id": "paper702",
+      "paper": {
+        "title": "ROMJIST Mirroring Research Domains in the Section of Information Science and Technology of the Romanian Academy - A brief bibliometric analysis",
+        "authors": ["Horia-Nicolai Teodorescu"],
+        "abstract": "Using solely the tools offered by Google, the research connections between the ROMJIST journal and the Section of Information Science and Technology (S-IST) of the Romanian Academy are analyzed.",
+        "keywords": ["Bibliometric analysis", "information science and technology"],
+        "doi": null,
+        "pages": "418-422"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 75,
+        "artifact_availability": 50,
+        "intellectual_integrity": 83,
+        "composite": 75,
+        "final": 75
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Short bibliometric/editorial piece for journal anniversary. Zero formalism is appropriate - simple data gathering and reporting. Acknowledges Google Scholar limitations."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Bibliometric analysis of ROMJIST journal contributions\n**Level:** 1 (Trivial)\n**Rationale:** Simple Google Scholar searches and counting. Data gathering and reporting for 30th anniversary issue.\n\n### Formal Elements\n- Definitions: 0\n- Equations: 0\n- Theorems: 0\n- Proofs: 0\n- Figure 1: Keyword frequency bar chart\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate - zero formalism is appropriate for a bibliometric editorial piece.\n\n### Necessity Test\nNo formal elements to evaluate. Appropriate for the contribution type.\n\n### Issues\nNone. This is not attempting to be a research paper with novel methodology.\n\n---\n\n## Citation Analysis\n\n7 references. Appropriate for short editorial piece. Citations to ROMJIST itself, Romanian Academy Publishing House, related institutions.\n\n---\n\n## Structural Analysis\n\nBrief piece (5 pages): Introduction, Bibliometric Analysis (Section 2), Conclusions. Acknowledges limitations of Google Scholar methodology. Appropriate scope for anniversary content.\n\n---\n\n## Conclusion\n\nAppropriate editorial/bibliometric piece for special issue celebrating 30 years of IST Section. No pretense of novel research methodology. Honestly reports limitations of GS search approach. Zero formalism is correct for this content type."
+    }
+  ],
+
+  "batch_notes": "Volume 24 Issue 4 (2021) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** All 6 papers demonstrate appropriate formalism for their concept levels: MCDM optimization (Level 2-3), fuzzy control systems (Level 3), computer architecture (Level 3-4), NLP evaluation (Level 2), mathematical control theory (Level 4-5), and bibliometric editorial (Level 1). Notable: paper701 is pure mathematical control theory where heavy formalism IS the contribution; paper700 is exemplary empirical methodology. Final: 0 CRITICAL, 0 LIMITED, 5 ADEQUATE, 1 STRONG."
+}

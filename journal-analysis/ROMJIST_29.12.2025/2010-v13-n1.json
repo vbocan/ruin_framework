@@ -1,0 +1,215 @@
+{
+  "batch_id": "2010-v13-n1",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 13,
+    "issue": 1,
+    "year": 2010
+  },
+
+  "papers": [
+    {
+      "paper_id": "depasquale2010",
+      "paper": {
+        "title": "Nickel MEMS Energy Harvesters for the Self-Powering of Vehicular Sensing Systems",
+        "authors": ["Giorgio De Pasquale", "Mian Wei"],
+        "abstract": "MEMS energy harvesters for self-powering of vehicular sensing systems. Capacitive transduction using electroplated nickel. Modal FEM simulations for dynamic optimization. Resonance frequency tuning and bandwidth amplification strategies. Fabrication using nickel electroplating and SU-8 photoresist.",
+        "keywords": ["MEMS", "energy harvesting", "capacitive transduction", "nickel electroplating", "vehicular sensing"],
+        "doi": null,
+        "pages": "3-21"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 60,
+        "intellectual_integrity": 86,
+        "composite": 80,
+        "final": 80
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Engineering paper on MEMS energy harvesters with appropriate domain-specific formalism. Equations for capacitor properties, resonance frequency, and electromechanical relations are necessary for device design and fabrication."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** MEMS capacitive energy harvester design and fabrication for vehicular applications\n**Level:** 3 (Medium)\n**Rationale:** Novel device design combining electroplating fabrication, FEM modeling, and electromechanical optimization. Requires engineering formalism for capacitance, resonance, and power calculations.\n\n### Formal Elements\n- Definitions: 0 (inline technical definitions only)\n- Theorems: 0\n- Proofs: 0\n- Equations: ~15 (capacitance relations, resonance frequency, power, stiffness)\n\n### Proportionality\nCalculated complexity: ~15\nExpected range (Level 3): 10-40\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate - Equations describe physical relationships (capacitance, resonance frequency, stiffness) necessary for MEMS design. FEM validation supports analytical models.\n\n### Necessity Test Applied\n1. Capacitance equations (Amax, Amin, gap calculations): **Necessary** - Define device electrical characteristics\n2. Resonance frequency equations: **Necessary** - Critical for harvester tuning to vibration source\n3. Modal mass and stiffness relations: **Necessary** - Enable FEM validation\n4. Power harvesting equations: **Necessary** - Define energy conversion efficiency\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nReferences: 34 total. No apparent excessive self-citation. Citations cover MEMS fabrication, energy harvesting theory, and prior art.\n\n---\n\n## Structural Analysis\n\nWell-structured with clear methodology: design, simulation, fabrication, characterization. SEM images validate fabrication. No explicit limitations section but realistic discussion of design trade-offs.\n\n---\n\n## Conclusion\n\nSolid engineering paper with appropriate formalism for MEMS device design. Equations enable device optimization and are validated by FEM simulation and fabrication results. Formalism is proportionate to concept complexity."
+    },
+    {
+      "paper_id": "bozanic2010",
+      "paper": {
+        "title": "Streamlined Design of SiGe Based Power Amplifiers",
+        "authors": ["Mladen Bozanic", "Saurabh Sinha", "Alexandru Muller"],
+        "abstract": "Software routine for integrated power amplifier design in BiCMOS. Class-E and Class-F amplifier passive component calculation. Spiral inductor search algorithm for Q-factor optimization. SPICE netlist and GDS export. Demonstration with 10 dBm 2.4 GHz PA designs.",
+        "keywords": ["BiCMOS process", "spiral inductor", "Class-E amplifier", "Class-F amplifier", "impedance matching", "SPICE netlist"],
+        "doi": null,
+        "pages": "22-32"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 95,
+        "structural_integrity": 85,
+        "artifact_availability": 50,
+        "intellectual_integrity": 88,
+        "composite": 78,
+        "final": 78
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "RF IC design paper with domain-appropriate formalism. Class-E/F amplifier equations and spiral inductor models are standard and necessary for PA design. Software tool approach is practical."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Automated design flow for SiGe power amplifiers\n**Level:** 3 (Medium)\n**Rationale:** Novel software routine applying established Class-E/F theory. Combines PA design equations with inductor optimization.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: ~15 (RL, L2, C1, C2 for Class-E; inductor model equations; Q-factor)\n\n### Proportionality\nCalculated complexity: ~15\nExpected range (Level 3): 10-40\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate - Equations are standard RF/analog IC design formulas. Each equation directly enables component sizing.\n\n### Necessity Test Applied\n1. Class-E equations (1)-(5): **Necessary** - Standard PA design, enable passive component calculation\n2. Class-F equations (6)-(9): **Necessary** - Required for waveform shaping resonators\n3. Spiral inductor equations (10)-(13): **Necessary** - Data-fitted monomial for inductance, Q-factor model\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n9 references. Standard RF IC literature cited (Sokal, Kazimierczuk, Raab). No self-citations detected. Appropriate for applied design paper.\n\n---\n\n## Structural Analysis\n\nClear structure: theory, software routine, results. Simulation results validate design methodology. Efficiency numbers reported (41.3% ideal, 23.5% practical for Class-E). Software tool described but not publicly available.\n\n---\n\n## Conclusion\n\nPractical RF IC design paper with appropriate formalism. Design equations are standard for PA design and necessary for the software routine. Validated through SPICE simulation."
+    },
+    {
+      "paper_id": "spinelli2010",
+      "paper": {
+        "title": "A Simulation Tool for the Evaluation of the Performances of A Nanointerconnect Based on SWCNT",
+        "authors": ["Biagio De Vivo", "Patrizia Lamberti", "Giovanni Spinelli", "Vincenzo Tucci"],
+        "abstract": "PSIM-based simulation for SWCNT nanointerconnect using transmission line model. Per unit length parameters (R, L, C) computed from geometric and physical properties. Kinetic inductance and quantum capacitance included. Time and frequency domain analysis for local to intermediate interconnects.",
+        "keywords": ["nanointerconnect", "Carbon Nano Tubes", "circuital simulation"],
+        "doi": null,
+        "pages": "33-48"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 60,
+        "intellectual_integrity": 84,
+        "composite": 78,
+        "final": 78
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Nanoelectronics modeling paper with appropriate physics-based formalism. Transmission line parameters (R, L, C) incorporating quantum effects are necessary for CNT interconnect simulation."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Transmission line model for SWCNT nanointerconnects\n**Level:** 3 (Medium)\n**Rationale:** Applies established TL theory with quantum corrections (kinetic inductance, quantum capacitance) to model CNT behavior.\n\n### Formal Elements\n- Definitions: 0 (inline only)\n- Theorems: 0\n- Proofs: 0\n- Equations: ~10 (R', L', C' per-unit-length parameters with quantum terms)\n\n### Proportionality\nCalculated complexity: ~10\nExpected range (Level 3): 10-40\nRatio: 0.25x upper bound\n\n**Assessment:** Proportionate - Equations (1)-(3) define physically meaningful TL parameters. Kinetic inductance Lk and quantum capacitance Cq capture CNT-specific physics.\n\n### Necessity Test Applied\n1. Resistance equation (1) with ballistic transport: **Necessary** - Captures mean-free-path dependent resistance\n2. Inductance equation (2) with Lm + Lk/4: **Necessary** - Kinetic inductance dominates in CNT\n3. Capacitance equation (3) with Cq: **Necessary** - Quantum capacitance affects signal propagation\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n16 references covering CNT physics, interconnect modeling, and TL theory. No excessive self-citation. References include foundational CNT modeling papers.\n\n---\n\n## Structural Analysis\n\nClear progression from physics to circuit model to simulation. PSIM implementation demonstrated with Bode plots and time-domain response. Tables provide parametric results for different geometries. EU project acknowledgment (CATHERINE).\n\n---\n\n## Conclusion\n\nWell-structured modeling paper with physics-based formalism. Equations capture quantum effects necessary for accurate CNT interconnect simulation. PSIM implementation is practical contribution."
+    },
+    {
+      "paper_id": "iliescu2010",
+      "paper": {
+        "title": "3D Dielectrophoretic Chips: Trapping and Separation of Cell Populations",
+        "authors": ["Ciprian Iliescu", "Guillaume Tresset", "Liming Yu", "Guolin Xu"],
+        "abstract": "DEP devices with 3D silicon electrodes and asymmetric electrodes for cell manipulation. Fabrication using deep RIE and anodic bonding. Yeast cell trapping demonstrated. Sequential and continuous field-flow separation methods for live/dead cell populations.",
+        "keywords": ["dielectrophoresis", "cell separation", "3D electrodes", "MEMS fabrication"],
+        "doi": null,
+        "pages": "49-64"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 83,
+        "composite": 80,
+        "final": 80
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Biomedical MEMS paper with appropriate DEP physics formalism. Equations for DEP force and Clausius-Mossotti factor are standard and necessary for device design. Experimental validation with yeast cells."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** 3D dielectrophoretic chip design for cell manipulation\n**Level:** 3 (Medium)\n**Rationale:** Novel 3D electrode geometries with DEP physics analysis. Fabrication and biological validation included.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: ~4 (DEP force F, Clausius-Mossotti factor K, complex permittivity, equilibrium condition)\n\n### Proportionality\nCalculated complexity: ~4\nExpected range (Level 3): 10-40\nRatio: 0.1x upper bound\n\n**Assessment:** Proportionate (minimal) - Only essential DEP physics equations included. Focus is on fabrication and experimental results.\n\n### Necessity Test Applied\n1. DEP force equation (1): **Necessary** - Fundamental to understanding particle motion\n2. Clausius-Mossotti factor (2): **Necessary** - Determines positive/negative DEP behavior\n3. Equilibrium condition (4): **Necessary** - Enables particle levitation height prediction\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n34 references with appropriate coverage of DEP theory, microfabrication, and prior cell manipulation work. Some self-citations to prior related work ([15], [16], [31], [32], [33], [34]) but these are topically relevant.\n\nSelf-citation ratio: ~6/34 = 18% - Elevated but within acceptable range. All self-citations are on directly related 3D DEP topics.\n\n---\n\n## Structural Analysis\n\nComprehensive paper covering design, fabrication, and testing. FEA analysis for electric field simulation. SEM images validate fabrication. Multiple separation methods demonstrated. Optical images show cell trapping.\n\n---\n\n## Conclusion\n\nStrong biomedical MEMS paper with appropriate minimal formalism. Emphasis on fabrication and experimental validation rather than theoretical development. Cell separation results are well documented."
+    },
+    {
+      "paper_id": "dragoi2010",
+      "paper": {
+        "title": "Metal Wafer Bonding for MEMS Devices",
+        "authors": ["Viorel Dragoi", "Erkan Cakmak", "Eric Pabo"],
+        "abstract": "Overview of metal wafer bonding processes for MEMS. Eutectic bonding vs thermo-compression bonding compared. Au:Sn, Au:Si, Au:Ge, Cu-Cu, Al-Al systems discussed. Process selection criteria based on materials and applications. SAM imaging for bond quality verification.",
+        "keywords": ["wafer bonding", "MEMS", "metal layers", "eutectic bonding", "thermocompression bonding"],
+        "doi": null,
+        "pages": "65-72"
+      },
+      "scores": {
+        "formalism": 90,
+        "citation_integrity": 95,
+        "structural_integrity": 80,
+        "artifact_availability": 30,
+        "intellectual_integrity": 88,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Review/overview paper on metal wafer bonding with minimal formalism (no equations). Appropriate for technology survey paper. Process comparison tables and SAM images provide practical guidance."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Metal wafer bonding technology for MEMS manufacturing\n**Level:** 2 (Low)\n**Rationale:** Technology survey/review paper. Describes existing bonding processes without proposing new theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate - No equations appropriate for technology overview. Tables and process diagrams convey information effectively.\n\n### Necessity Test\nNo formal elements to evaluate.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n13 references covering wafer bonding fundamentals and applications. No self-citations detected. Citations appropriate for review paper.\n\n---\n\n## Structural Analysis\n\nClear organization: bonding principles, process types, materials criteria, results. Tables compare eutectic vs thermo-compression parameters. SAM images (Figs. 2, 3) demonstrate bond quality. No formal limitations section but discusses process challenges.\n\n---\n\n## Conclusion\n\nPractical technology overview paper with appropriate absence of formalism. Information conveyed through tables, process diagrams, and SAM images. Useful for MEMS process engineers."
+    },
+    {
+      "paper_id": "goras2010",
+      "paper": {
+        "title": "Spatial Filtering Using Analog Parallel Architectures and Their Log-Domain Implementation",
+        "authors": ["Liviu Goras", "Ion Vornicu"],
+        "abstract": "Cellular Neural Network analog parallel architectures for spatial filtering. Decoupling technique using spatial modes. Log-domain CMOS implementation using exponentially controlled current sources. High-pass, low-pass, band-pass, stop-band filters demonstrated. Simulation comparison of ideal vs log-domain implementation.",
+        "keywords": ["Cellular Neural Networks", "spatio-temporal dynamics", "CMOS log-domain implementations"],
+        "doi": null,
+        "pages": "73-83"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 85,
+        "structural_integrity": 80,
+        "artifact_availability": 50,
+        "intellectual_integrity": 81,
+        "composite": 74,
+        "final": 74
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Signal processing paper on CNN spatial filtering with appropriate formalism. Equations for spatial eigenvalues, log-domain transformation, and state equations are necessary for architecture design."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** CNN-based spatial filtering with log-domain CMOS implementation\n**Level:** 3 (Medium)\n**Rationale:** Combines CNN theory, spatial mode analysis, and analog circuit implementation. Novel log-domain approach.\n\n### Formal Elements\n- Definitions: 0 (inline only)\n- Theorems: 0\n- Proofs: 0\n- Equations: ~18 (cell dynamics, spatial eigenvalues KA, KB, state equations, log-domain transformation)\n\n### Proportionality\nCalculated complexity: ~18\nExpected range (Level 3): 10-40\nRatio: 0.45x upper bound\n\n**Assessment:** Proportionate - Equations develop CNN spatial filtering theory and derive log-domain implementation. Mathematical framework enables circuit design.\n\n### Necessity Test Applied\n1. Cell admittance Y(s) and array equations (1)-(2): **Necessary** - Define system dynamics\n2. Spatial eigenvalues KA(m), KB(m) equations (5)-(8): **Necessary** - Enable mode decoupling\n3. Log-domain transformation (14)-(18): **Necessary** - Map linear system to exponential circuit\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n13 references covering CNN theory (Chua), analog implementation, and prior work. Self-citations to prior pattern formation work ([7], [10], [11]) are topically relevant.\n\n---\n\n## Structural Analysis\n\nClear progression: architecture, log-domain equations, transistor implementation, simulation. Fig. 4-5 show cell schematics. Fig. 6-8 compare ideal vs log-domain frequency response and edge detection. PN2-ID 310 grant acknowledged.\n\n---\n\n## Conclusion\n\nSolid signal processing paper with appropriate formalism for CNN spatial filtering. Log-domain implementation is novel contribution. Simulation validates theoretical approach."
+    },
+    {
+      "paper_id": "weststrate2010",
+      "paper": {
+        "title": "Design Trade-offs and Limitations of a LC-Ladder and Capacitive Feedback LNA and its Application at mm-Wave Frequencies",
+        "authors": ["Marnus Weststrate", "Saurabh Sinha", "Dan Neculoiu"],
+        "abstract": "LC-ladder capacitive feedback LNA analysis at 60 GHz. Design limitations quantified including transistor gain, parasitic capacitance, and noise-bandwidth trade-offs. Equations for maximum corner frequency and bandwidth vs noise figure derived. 14.2 dB gain, 5.2 dB NF achieved.",
+        "keywords": ["low noise amplifier", "mm-wave", "LC-ladder filter", "capacitive feedback", "frequency limitations", "performance trade-offs"],
+        "doi": null,
+        "pages": "98-107"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 50,
+        "intellectual_integrity": 86,
+        "composite": 77,
+        "final": 77
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "RF IC design paper analyzing LNA performance limits at mm-wave. Equations for Miller impedance, noise figure, and bandwidth limitations are necessary for high-frequency design understanding."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** LC-ladder LNA design analysis and mm-wave frequency limitations\n**Level:** 3 (Medium)\n**Rationale:** Analysis of existing LNA topology at mm-wave. Derives new equations for performance trade-offs.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: ~14 (Miller impedance, noise factor, bandwidth limits, parasitic capacitance effects)\n\n### Proportionality\nCalculated complexity: ~14\nExpected range (Level 3): 10-40\nRatio: 0.35x upper bound\n\n**Assessment:** Proportionate - Equations analyze transistor limitations, noise-bandwidth trade-offs. Derived equations (13), (14) provide design guidance.\n\n### Necessity Test Applied\n1. Miller impedance equations (1)-(2): **Necessary** - Show frequency-dependent input matching deviation\n2. Noise factor equation (10)-(11): **Necessary** - Quantify NF vs bandwidth trade-off\n3. Maximum frequency equations (13)-(14): **Necessary** - Define design limits\n\n**All formal elements pass Necessity Test.**\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n11 references covering wideband LNA design and mm-wave amplifiers. Appropriate prior art cited. Comparison table (Table 1) benchmarks against other mm-wave LNAs.\n\n---\n\n## Structural Analysis\n\n60 GHz design presented with S-parameter results (Fig. 2). Limitations analyzed systematically. Section 6 validates equation (13) with simulation (Fig. 3). ARMSCOR sponsorship acknowledged.\n\n---\n\n## Conclusion\n\nSolid RF IC analysis paper with appropriate formalism. Contribution is quantifying limitations not addressed in prior work. Equations enable designers to understand mm-wave design boundaries."
+    }
+  ],
+
+  "batch_notes": "Volume 13 Issue 1 (2010) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** All 7 papers have domain-appropriate formalism: MEMS energy harvesting (de Pasquale), SiGe power amplifiers (Bozanic), CNT nanointerconnects (Spinelli), DEP cell manipulation (Iliescu), metal wafer bonding (Dragoi), CNN spatial filtering (Goras), mm-wave LNA design (Weststrate). Papers span MEMS fabrication, RF/analog IC design, nanoelectronics, and signal processing - all with engineering-appropriate formalism. Final: 0 CRITICAL, 0 LIMITED, 5 ADEQUATE, 2 STRONG."
+}

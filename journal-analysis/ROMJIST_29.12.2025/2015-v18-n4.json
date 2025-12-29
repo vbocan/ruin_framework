@@ -1,0 +1,218 @@
+{
+  "batch_id": "2015-v18-n4",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 18,
+    "issue": 4,
+    "year": 2015
+  },
+
+  "papers": [
+    {
+      "paper_id": "radescu2015",
+      "paper": {
+        "title": "On Additional Constrains in Lossless Compression of Text Files",
+        "authors": ["Radu Radescu"],
+        "abstract": "Coding algorithms are generally aimed at minimizing the output code length encoding speed once the code has been designed. This paper examines issues related to coding such as additional constraints imposed on the channel, including alphabetic coding and limited length encoding. Experimental results cover compression rate and time for various file types.",
+        "keywords": ["lossless compression", "alphabetic coding", "limited length encoding", "Huffman algorithm"],
+        "doi": null,
+        "pages": "299-311"
+      },
+      "scores": {
+        "formalism": 30,
+        "citation_integrity": 40,
+        "structural_integrity": 70,
+        "artifact_availability": 30,
+        "intellectual_integrity": 45,
+        "composite": 41,
+        "final": 25
+      },
+      "flags": ["EXCESSIVE_SELF_CITATION", "ELEVATED_SELF_CITATION"],
+      "flag_details": {
+        "EXCESSIVE_SELF_CITATION": "Of 26 references, approximately 15 are self-citations (references 2, 8, 10, 13-26), resulting in SCR > 50%. Many self-citations are to prior work on related but marginally connected topics (e.g., image compression, e-course development).",
+        "ELEVATED_SELF_CITATION": "SCR exceeds 30% threshold significantly."
+      },
+      "verdict": {
+        "classification": "CRITICAL",
+        "disqualified": true,
+        "summary": "Survey-style paper on lossless compression algorithms with minimal novel contribution. Excessive self-citation (>50% SCR) with many references to tangentially related prior work. No formal theorems or proofs - relies on standard algorithms (Huffman, alphabetic coding). Experimental work is straightforward compression benchmarking."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Survey/application of existing lossless compression algorithms (alphabetic coding, limited-length encoding)\n**Level:** 2 (Low)\n**Rationale:** Paper applies well-known Huffman-derived algorithms to standard test corpora. No novel algorithmic contribution - implements existing methods (Hu-Tucker 1971, Turpin-Moffat package merge). Core work is experimental benchmarking.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (standard ripple/current formulas from literature)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate - minimal formalism appropriate for empirical compression study.\n\n### Necessity Test\nNo formal elements requiring Necessity Test.\n\n### Issues\n- **Excessive self-citation:** References 2, 8, 10, 13-26 are self-citations, representing over 50% of the bibliography. Many are only marginally related (image compression, e-courses).\n- No limitations section.\n- Compression tool described but not publicly available.\n\n---\n\n## Citation Analysis\n\n**Self-Citation Ratio:** >50% (15/26 references)\n**Assessment:** EXCESSIVE. Multiple self-references to prior compression papers, some with low topical relevance:\n- Ref [8]: Medical imaging compression - different domain\n- Refs [23-24]: E-course/quality management - unrelated\n- Refs [18-22]: Various compression papers - related but excessive density\n\nThis pattern suggests citation padding rather than genuine intellectual lineage.\n\n---\n\n## Structural Analysis\n\n**Claim-Evidence Ratio:** Adequate - experimental results support compression claims.\n**Limitations:** Not explicitly discussed.\n**Artifacts:** Compression tool mentioned but no public availability.\n\n---\n\n## Conclusion\n\nThis paper describes implementations of established compression algorithms and provides benchmark results. The technical content is sound but incremental. The critical issue is the excessive self-citation ratio (>50%), with many references to tangentially related prior work. This pattern caps the final score at 25 per RUIN framework guidelines for citation integrity violations."
+    },
+    {
+      "paper_id": "frunza2015",
+      "paper": {
+        "title": "Dielectric Properties of LDH-Type Layered Materials Containing Zn or Mg Ions: On the Non Monotonous Temperature Dependence of Relaxation Times",
+        "authors": ["Ligia Frunza", "Stefan Frunza", "Constantin Paul Ganea", "Irina Zgura", "Florentina Neatu", "Vasile I. Parvulescu"],
+        "abstract": "The electrical behavior of layered double hydroxides containing Al or Ga as trivalent ions and Mg or Zn as bivalent ions was evaluated using broadband dielectric spectroscopy. A relaxation peak is assigned to reorientational fluctuations of water molecules. The non-monotonous temperature dependence of relaxation rates was quantitatively described using the Ryabov model assuming two competing processes.",
+        "keywords": ["layered double hydroxides", "dielectric spectroscopy", "water dynamics", "Ryabov model", "relaxation times"],
+        "doi": null,
+        "pages": "312-328"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 40,
+        "intellectual_integrity": 86,
+        "composite": 75,
+        "final": 75
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Solid materials science paper using established dielectric spectroscopy methods to characterize LDH materials. Equations (Havriliak-Negami function, Ryabov model) are standard and necessary for the domain. Appropriate formalism for experimental physics."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Dielectric spectroscopy characterization of layered double hydroxides\n**Level:** 3 (Medium)\n**Rationale:** Applies established theoretical models (Havriliak-Negami, Ryabov) to characterize new materials. Novel aspect is the systematic comparison of different LDH compositions.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 key equations (Eq. 1: Havriliak-Negami function, Eq. 2: Ryabov model)\n\n### Proportionality\nCalculated complexity: ~6 (2 equations x 3)\nExpected range (Level 3): 10-40\nRatio: 0.15x upper bound\n\n**Assessment:** Proportionate - equations are standard spectroscopy models, necessary for describing relaxation phenomena.\n\n### Necessity Test\n- Eq. 1 (Havriliak-Negami): Necessary - standard model for dielectric relaxation, cannot be expressed in plain English for quantitative fitting.\n- Eq. 2 (Ryabov model): Necessary - describes competing processes with specific activation energies.\n\n**Verdict:** All formalism passes Necessity Test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n**Self-Citation Ratio:** Low (<10%)\n**Assessment:** No issues. References appropriately cite prior work in dielectric spectroscopy and LDH materials from multiple research groups.\n\n---\n\n## Structural Analysis\n\n**Claim-Evidence Ratio:** Strong - experimental data (TG curves, dielectric spectra, 3D plots) support all claims.\n**Limitations:** Implicit acknowledgment that absolute dielectric strength values cannot be directly compared between pressed pellet samples.\n**Artifacts:** Samples characterized but not publicly distributed (typical for materials science).\n\n---\n\n## Conclusion\n\nWell-executed experimental materials science paper. The formalism is domain-appropriate: Havriliak-Negami and Ryabov models are standard tools in dielectric spectroscopy. The paper provides systematic characterization with proper experimental methodology and reasonable conclusions about water dynamics in LDH materials."
+    },
+    {
+      "paper_id": "lazar2015",
+      "paper": {
+        "title": "P-Type Doping of 4H-SiC for Integrated Bipolar and Unipolar Devices",
+        "authors": ["M. Lazar", "S. Sejil", "L. Lalouat", "C. Raynaud", "D. Carole", "D. Planson", "G. Ferro", "F. Laariedh", "C. Brylinski", "H. Morel"],
+        "abstract": "P-type 4H-SiC layers formed by ion implantation need high temperature processes which generate surface roughness and incomplete dopant activation. VLS selective epitaxy is presented as an alternative method. Lateral JFET devices are fabricated integrating p-type layers created by Al ion implantation or VLS growth.",
+        "keywords": ["ion implantation", "VLS epitaxial growth", "RIE", "JFET", "SiC"],
+        "doi": null,
+        "pages": "329-342"
+      },
+      "scores": {
+        "formalism": 90,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 60,
+        "intellectual_integrity": 88,
+        "composite": 81,
+        "final": 81
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "High-quality semiconductor fabrication paper comparing ion implantation and VLS epitaxy for SiC doping. No formal definitions or theorems - purely experimental/fabrication methodology. Figures show measured data (SIMS profiles, I-V characteristics, AFM). Appropriate for process engineering."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Semiconductor fabrication - comparing doping methods for SiC power devices\n**Level:** 3 (Medium)\n**Rationale:** Process development comparing established techniques (ion implantation) with novel method (VLS epitaxy). Core contribution is fabrication methodology and device characterization.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (all relationships shown via measurement data)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 3): 10-40\n\n**Assessment:** Proportionate - this is process engineering, appropriately relying on measured data (SIMS profiles, I-V curves, AFM images) rather than theoretical formalism.\n\n### Necessity Test\nNo formal elements to test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n**Self-Citation Ratio:** Moderate (~25%, refs 4, 5, 10, 11, 14-18)\n**Assessment:** Acceptable for research group with sustained work in this area. Self-citations are topically relevant (same material system, same fabrication approaches).\n\n---\n\n## Structural Analysis\n\n**Claim-Evidence Ratio:** Strong - all claims supported by measured data.\n**Limitations:** Acknowledged - VLS junction quality is \"still immature\" and needs improvement.\n**Artifacts:** Fabricated devices characterized; technology transfer typical for semiconductor process development.\n\n---\n\n## Conclusion\n\nSolid semiconductor fabrication paper with clear experimental methodology and honest assessment of both techniques' limitations. The absence of formalism is appropriate for process engineering - the paper communicates through measured data and device characteristics. The VLS approach shows promise for reducing access resistance despite interface quality issues."
+    },
+    {
+      "paper_id": "volmer2015",
+      "paper": {
+        "title": "Detection of Magnetic Nanoparticles for Lab-on-a Chip Applications",
+        "authors": ["Marius Volmer", "Marioara Avram", "Andrei Marius Avram"],
+        "abstract": "Detection of magnetic carriers used as labels for biosensing applications represent key features in lab-on-a-chip devices. This paper presents experimental techniques to characterize magnetic nanoparticles and detect them using Permalloy based planar Hall effect sensors. Sensitivities better than 0.2x10-3 emu/mV can be obtained.",
+        "keywords": ["magnetic nanoparticles", "planar Hall effect sensors", "micromagnetic simulations", "lab-on-chip"],
+        "doi": null,
+        "pages": "343-355"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 50,
+        "intellectual_integrity": 83,
+        "composite": 75,
+        "final": 75
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Experimental physics paper on magnetic nanoparticle detection. Equation 1 (Langevin function for superparamagnetism) is standard and necessary for fitting magnetization curves. Micromagnetic simulations and measurements are well-documented. Appropriate formalism level."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Magnetic nanoparticle detection using planar Hall effect sensors for lab-on-chip applications\n**Level:** 3 (Medium)\n**Rationale:** Combines sensor characterization with nanoparticle detection. Uses established physics (Langevin function, AMR effect) applied to novel detection scheme.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 key equation (Langevin function, Eq. 1)\n\n### Proportionality\nCalculated complexity: ~3 (1 equation)\nExpected range (Level 3): 10-40\nRatio: 0.08x upper bound\n\n**Assessment:** Proportionate - minimal but appropriate formalism.\n\n### Necessity Test\n- Eq. 1 (Langevin function): Necessary - standard physics for superparamagnetic behavior, required for extracting particle diameter from magnetization curves.\n- PHE signal equation (UPHE ~ Isens * M^2 * sin2theta): Standard sensor physics, appropriately stated.\n\n**Verdict:** Formalism passes Necessity Test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n**Self-Citation Ratio:** Low (~15%, refs 11-14)\n**Assessment:** Acceptable. Self-citations are directly relevant (prior micromagnetic simulation work by same group).\n\n---\n\n## Structural Analysis\n\n**Claim-Evidence Ratio:** Strong - extensive measurement data (VSM curves, PHE signals, detection experiments).\n**Limitations:** Acknowledged - sensor dimensions limit detection sensitivity; future work will use micro-scale sensors.\n**Artifacts:** Sensors fabricated and characterized; SimulMag freeware simulator referenced.\n\n---\n\n## Conclusion\n\nWell-structured experimental paper with appropriate minimal formalism. The Langevin function for superparamagnetic fitting and PHE sensor physics are domain-standard. Strong experimental validation with clear future directions for improving sensitivity through sensor miniaturization."
+    },
+    {
+      "paper_id": "amariutei2015",
+      "paper": {
+        "title": "On the Suppression of Output Oscillations in a Software Controlled DC-DC Buck Converter",
+        "authors": ["Roxana-Daniela Amariutei", "Liviu Goras", "Monica Rafaila", "Andi Buzo", "Georg Pelz"],
+        "abstract": "This paper analyzes unwanted output voltage oscillations due to nonlinearities in a software controlled DC-DC Buck converter. Conditions for limit cycle suppression are correlated with PID parameters designed using an algorithm that ensures imposed transient behavior.",
+        "keywords": ["DC-DC Buck converter", "limit cycles", "PID", "describing function", "ripples"],
+        "doi": null,
+        "pages": "356-375"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 50,
+        "intellectual_integrity": 84,
+        "composite": 76,
+        "final": 76
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Control theory paper applying describing function analysis to limit cycle suppression in DC-DC converters. Formalism (Eqs. 1-18) is standard control theory: ripple equations, describing functions, transfer functions. All necessary for quantitative limit cycle prediction."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Limit cycle analysis and suppression in software-controlled DC-DC Buck converters\n**Level:** 3-4 (Medium-High)\n**Rationale:** Applies nonlinear control theory (describing functions) to predict and suppress limit cycles. Novel contribution is the modified PID tuning algorithm incorporating limit cycle constraints.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: ~18 numbered equations\n\n### Proportionality\nCalculated complexity: ~54 (18 equations x 3)\nExpected range (Level 3-4): 10-80\nRatio: 0.68x upper bound (Level 4)\n\n**Assessment:** Proportionate - describing function analysis requires this level of mathematical detail.\n\n### Necessity Test\n- Eqs. 1-2 (ripple/inductor equations): Necessary - standard power electronics.\n- Eqs. 6-10 (describing function): Necessary - core nonlinear analysis method.\n- Eqs. 11-16 (transfer functions): Necessary - closed-loop system analysis.\n- Eq. 17-18 (limit cycle conditions): Necessary - key result for predicting limit cycles.\n\n**Verdict:** All formalism passes Necessity Test. This is control theory requiring mathematical precision.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n**Self-Citation Ratio:** Low (~7%, ref 14)\n**Assessment:** No issues. References appropriately cover prior art in digital control of converters.\n\n---\n\n## Structural Analysis\n\n**Claim-Evidence Ratio:** Strong - simulation results validate theoretical predictions (Tables 4-9, Figs. 3-9).\n**Limitations:** Implicit - method validated via simulation; no experimental hardware results shown.\n**Artifacts:** Matlab/Simulink models described but not publicly available.\n\n---\n\n## Conclusion\n\nSolid control theory paper with appropriate formalism. The describing function approach is a standard nonlinear analysis technique, and the equations are necessary for quantitative prediction of limit cycle occurrence. The modified PID tuning algorithm successfully incorporates limit cycle suppression constraints. Simulation validation is thorough."
+    },
+    {
+      "paper_id": "paun2015",
+      "paper": {
+        "title": "On the Necessary Verification of Fabrication Stages for SOI CMOS Humidity Sensors",
+        "authors": ["Maria-Alexandra Paun", "Claudio Falco", "Florin Udrea"],
+        "abstract": "A humidity sensor based on MWCNTs/MMA composite doped with KOH has been studied. A standard SOI CMOS process with one post-processing step was used. Current-voltage and resistance-voltage characteristics have been investigated for different temperatures. The parabolic dependence of resistance with voltage was proven.",
+        "keywords": ["humidity sensor", "SOI CMOS technology", "MMA", "MWCNTs", "KOH", "resistive", "relative humidity"],
+        "doi": null,
+        "pages": "376-387"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 50,
+        "intellectual_integrity": 81,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Sensor fabrication paper describing humidity sensor development. Equations 1-12 are standard: humidity definitions (AH, RH, SH), Taylor expansion for resistance-temperature relationship. All are necessary for characterizing sensor behavior. Appropriate for device engineering."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fabrication and characterization of SOI CMOS humidity sensor using carbon nanotube composites\n**Level:** 2-3 (Low-Medium)\n**Rationale:** Sensor development using established CMOS technology with novel sensing layer. Core work is fabrication process development and electrical characterization.\n\n### Formal Elements\n- Definitions: Basic humidity definitions (AH, RH, SH) - standard metrology\n- Theorems: 0\n- Proofs: 0\n- Equations: 12 numbered equations\n\n### Proportionality\nCalculated complexity: ~36 (12 equations x 3)\nExpected range (Level 2-3): 0-40\nRatio: 0.9x upper bound\n\n**Assessment:** Proportionate - equations are standard physics (Taylor expansion for R(T), humidity definitions).\n\n### Necessity Test\n- Eqs. 1-3 (humidity definitions): Necessary - standard metrology definitions.\n- Eqs. 4-10 (Taylor expansion for R(T,V)): Standard sensor characterization; necessary for extracting temperature coefficients.\n- Eq. 12 (R(V) dependence): Necessary for describing sensor behavior.\n\n**Verdict:** Formalism passes Necessity Test. Standard sensor physics.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n**Self-Citation Ratio:** Low (~10%, refs 2, 17)\n**Assessment:** No issues. Ref 2 is directly relevant prior work on similar sensor materials.\n\n---\n\n## Structural Analysis\n\n**Claim-Evidence Ratio:** Adequate - I-V and R-V measurements support claims.\n**Limitations:** Acknowledged - \"immediate goal is to perform humidity tests\" indicating incomplete characterization.\n**Artifacts:** Sensor fabricated and characterized; EU project context mentioned.\n\n---\n\n## Conclusion\n\nDevice engineering paper with appropriate formalism. The equations describe standard sensor physics (resistance-temperature-voltage relationships) and humidity definitions. The fabrication process is clearly described. Main limitation is incomplete humidity testing - paper focuses on verification of fabrication stages rather than full sensor characterization."
+    },
+    {
+      "paper_id": "purdila2015",
+      "paper": {
+        "title": "Low-Voltage Controlled Floating Buck Converter with Imbalanced Stacked MOSFETs Switch (ISMS) for High LED Driving Capability",
+        "authors": ["Anca Gabriela Purdila", "Gheorghe Pristavu", "Vlad Anghel", "Gheorghe Brezeanu", "Emilian Ceuca"],
+        "abstract": "This paper presents a cost effective technique for extending LED driving capability of floating buck converters using an imbalanced stacked MOSFETs switch (ISMS). The ISMS comprises a low-voltage transistor and power MOSFET biased at constant voltage. The technique is validated with peak efficiency of 97%.",
+        "keywords": ["stacked MOSFETs", "floating buck LED driver", "low-voltage control", "critical conduction control", "variable OFF time control"],
+        "doi": null,
+        "pages": "388-407"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 85,
+        "structural_integrity": 90,
+        "artifact_availability": 70,
+        "intellectual_integrity": 84,
+        "composite": 81,
+        "final": 81
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Power electronics paper with novel ISMS topology for LED drivers. Equations 1-8 describe switching times (standard MOSFET analysis). Experimental validation with measured efficiency (97% peak) and switching frequency data. Formalism appropriate for circuit design."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Novel stacked MOSFET topology for floating buck LED driver\n**Level:** 3 (Medium)\n**Rationale:** Proposes new switch topology (ISMS) with design equations and experimental validation. Combines circuit design with control methods (CrM, variable OFF time).\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: ~8 numbered equations (switching time analysis)\n\n### Proportionality\nCalculated complexity: ~24 (8 equations x 3)\nExpected range (Level 3): 10-40\nRatio: 0.6x upper bound\n\n**Assessment:** Proportionate - equations describe MOSFET switching dynamics, necessary for design.\n\n### Necessity Test\n- Eq. 1-4 (turn-ON times): Necessary - standard MOSFET switching analysis for design.\n- Eq. 5-8 (turn-OFF times): Necessary - required for predicting switching losses.\n\n**Verdict:** All formalism passes Necessity Test. Standard power electronics.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n**Self-Citation Ratio:** Moderate (~15%, refs 15, 18, 19)\n**Assessment:** Acceptable. Self-citations are to directly relevant prior control architectures by same group.\n\n---\n\n## Structural Analysis\n\n**Claim-Evidence Ratio:** Strong - extensive experimental data (Figs. 8-12, Tables 1-2).\n**Limitations:** Discussed - ISMS has higher ON resistance than alternatives.\n**Artifacts:** Hardware prototypes fabricated and measured; control ICs in 40V and 5V CMOS.\n\n---\n\n## Conclusion\n\nStrong power electronics paper with novel topology contribution. The ISMS enables 8x increase in LED driving capability while maintaining high efficiency (97%). Formalism is standard MOSFET analysis, necessary for design optimization. Comprehensive experimental validation across wide operating range (6-48 LEDs, up to 250V input)."
+    }
+  ],
+
+  "batch_notes": "Volume 18 Issue 4 (2015) analyzed with RUIN Framework v2.0 and Necessity Test. **One paper flagged for citation issues.** Paper 1 (radescu2015) has EXCESSIVE_SELF_CITATION (>50% SCR) with many marginally related self-references - capped at 25. Remaining 6 papers have appropriate domain-standard formalism: dielectric spectroscopy (Havriliak-Negami, Ryabov models), semiconductor fabrication (measurement-based), sensor physics (Langevin function, TCR), control theory (describing functions), and power electronics (MOSFET switching). Final: 1 CRITICAL, 0 CONCERNING, 0 LIMITED, 4 ADEQUATE, 2 STRONG."
+}

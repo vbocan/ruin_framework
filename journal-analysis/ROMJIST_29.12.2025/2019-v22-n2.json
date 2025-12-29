@@ -1,0 +1,187 @@
+{
+  "batch_id": "2019-v22-n2",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 22,
+    "issue": 2,
+    "year": 2019
+  },
+
+  "papers": [
+    {
+      "paper_id": "paper621",
+      "paper": {
+        "title": "Analytical modelling of a lateral dual gate MESFET for integrated circuit in SiC",
+        "authors": ["J.F. Mogniotte", "C. Raynaud", "M. Lazar", "L. Michel"],
+        "abstract": "Static analytical model for lateral dual gate MESFET in SiC. First gate is Schottky barrier, second is bipolar junction. SPICE model developed for design-kit. Model accounts for influence of both gates on channel conductivity. Good agreement with experimental measurements.",
+        "keywords": ["SiC", "analytical model", "MESFET"],
+        "doi": null,
+        "pages": "103-110"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 86,
+        "composite": 82,
+        "final": 82
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Device physics paper with necessary formalism. Equations 1-14 derive from fundamental semiconductor physics (space charge regions, built-in potentials, carrier transport). All formalism enables SPICE model derivation and experimental validation."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Analytical model for dual-gate MESFET in SiC for power electronics\n**Level:** 4 (High)\n**Rationale:** Semiconductor device modeling requiring physics-based equations. Novel topology combining Schottky and bipolar junctions for dual-gate control.\n\n### Formal Elements\n- Definitions: 0 formal definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 (Eq. 1-14)\n\n### Proportionality\nCalculated complexity: 14 equations * 3 = 42\nExpected range (Level 4): 30-80\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate - all equations derive from semiconductor physics fundamentals.\n\n### Necessity Test Applied to Each Formal Element\n\n**Eq. 1 - Space charge region W1(x):** NECESSARY - Poisson equation solution for Schottky junction, enables device physics modeling\n\n**Eq. 2 - Space charge region W2(x):** NECESSARY - Bipolar junction SCR, required for dual-gate operation analysis\n\n**Eq. 3 - Built-in potential Vbi2:** NECESSARY - Standard semiconductor junction formula, cannot be expressed without math\n\n**Eq. 4-8 - Channel current derivation:** NECESSARY - Drift current and channel conductivity equations required for analytical SPICE model\n\n**Eq. 9-14 - Blocking conditions and solutions:** NECESSARY - Determine threshold voltages and operating regions\n\n**Verdict:** All 14 equations pass Necessity Test. Each is required for physics-based device modeling that enables SPICE simulation.\n\n### Issues\nNone identified. Formalism is domain-appropriate for semiconductor device physics.\n\n---\n\n## Citation Analysis\n\n9 references total. Self-citations: 2 (refs [4], [5]) = 22% SCR.\nSelf-citations are topically relevant (prior work on same MESFET technology and SiC circuits).\nNo citation ring indicators.\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Device description, Model derivation, Experimental results, Conclusion.\nExperimental validation against measured data. Model-measurement comparison in Figs. 3-5.\nLimitations acknowledged: floating gate behavior requires further investigation.\nArtifacts: Device manufactured by CNM-IMB Barcelona; model equations provided for VHDL-AMS implementation.\n\n---\n\n## Conclusion\n\nHigh-quality device physics paper with appropriate formalism for Level 4 complexity. All equations derive from first principles and enable practical SPICE modeling. Experimental validation demonstrates model accuracy. Formalism is necessary, not decorative."
+    },
+    {
+      "paper_id": "paper622",
+      "paper": {
+        "title": "Packaging approaches for GaN/Si SAW Band Pass Filters with Operating Frequencies above 5 GHz",
+        "authors": ["A.C. Bunea", "D. Neculoiu", "A.M. Dinescu"],
+        "abstract": "Two packaging approaches for SAW band pass filters on GaN/Si operating above 5 GHz. SMD QFN ceramic package and PMMA quasi-wafer level packaging. QFN adds <1dB loss up to 6 GHz. PMMA quasi-WLP adds <0.1dB loss up to 30 GHz. Both tested with CPW transmission lines and SAW-BPFs.",
+        "keywords": ["band pass filters", "ceramic package", "coplanar waveguide", "gallium nitride", "packaging", "PMMA", "surface acoustic wave", "surface mount device", "wafer level packaging"],
+        "doi": null,
+        "pages": "111-123"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 95,
+        "structural_integrity": 90,
+        "artifact_availability": 80,
+        "intellectual_integrity": 87,
+        "composite": 85,
+        "final": 85
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Applied RF engineering paper with appropriate minimal formalism. S-parameter measurements and EM simulation are standard methodology. Fabricated prototypes with measurement validation. No decorative mathematics."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** RF packaging solutions for >5 GHz SAW filters\n**Level:** 3 (Medium)\n**Rationale:** Applied RF/microwave engineering. Novel quasi-WLP approach but methodology is empirical characterization.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (results presented as S-parameter measurements)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 3): 10-40\nRatio: 0x upper bound\n\n**Assessment:** Under-formalized but appropriate - this is empirical RF characterization, not theoretical derivation.\n\n### Necessity Test\nNo formal elements requiring testing. Paper presents:\n- EM simulations (CST Microwave Studio)\n- S-parameter measurements\n- Comparative tables\n\n**Verdict:** No formalism theater. Empirical approach appropriate for packaging characterization.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n9 references. Self-citations: 2 (refs [5], [6]) = 22% SCR.\nBoth self-citations are directly relevant (prior SAW-BPF work and prior quasi-WLP demonstration).\nNo issues identified.\n\n---\n\n## Structural Analysis\n\nClear structure with two parallel packaging approaches. Each evaluated on CPW-TL test vehicle then applied to actual SAW-BPF. Tables 1-2 summarize key parameters before/after packaging.\nLimitations: Implicitly acknowledged through comparison (ceramic QFN limited to 6 GHz vs PMMA to 30 GHz).\nArtifacts: Fabricated devices, ceramic fixtures, PMMA caps. Commercial components identified (NTK package, EpiGaN wafers).\n\n---\n\n## Conclusion\n\nWell-executed applied RF engineering paper. Empirical characterization approach is appropriate for packaging evaluation. Two packaging solutions compared with clear metrics. PMMA quasi-WLP demonstrated as viable low-cost solution for mmWave SAW devices."
+    },
+    {
+      "paper_id": "paper623",
+      "paper": {
+        "title": "Microfabrication and experimental characterization of an Out-of-Plane MEMS switch",
+        "authors": ["Angela Baracu", "Raluca Muller", "Rodica Voicu", "Catalin Tibeica", "Adrian Dinescu", "Marius Pustan", "Corina Birleanu"],
+        "abstract": "MEMS switch with vertical movement using surface micromachining. Electro-thermal actuator with photoresist sacrificial layer. CoventorWare and Comsol FEM simulations for electro-thermo-mechanical behavior. Two gap dimensions (500nm, 1um) fabricated and characterized.",
+        "keywords": ["MEMS switch", "thermal actuator", "microfabrication", "sacrificial layer"],
+        "doi": null,
+        "pages": "124-134"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 82,
+        "composite": 79,
+        "final": 79
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "MEMS fabrication paper with FEM simulation. Material properties table (Table 1) and simulation results are standard for the domain. No decorative formalism - results presented graphically from commercial FEM tools."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** MEMS electro-thermal switch fabrication and simulation\n**Level:** 2-3 (Low to Medium)\n**Rationale:** Standard surface micromachining process. FEM simulation using commercial tools (CoventorWare, Comsol). Novel contribution is photoresist sacrificial layer approach.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (simulation results from FEM software)\n- Tables: 1 (material properties - standard reference data)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2-3): 0-40\nRatio: Within range\n\n**Assessment:** Appropriate minimal formalism for fabrication-focused paper.\n\n### Necessity Test\nNo formal equations to test. Paper relies on:\n- Commercial FEM simulation (CoventorWare, Comsol)\n- SEM characterization\n- Standard material properties from literature\n\n**Verdict:** No formalism theater. Engineering approach appropriate.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n9 references. Self-citations: 2 (refs [4], [6]) = 22% SCR.\nSelf-citations are relevant (prior chevron actuator work and prior MEMS switch work).\nNo issues identified.\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Design, Fabrication, Simulation, Results, Conclusions.\nSimulation validated by SEM imaging of released structures.\nLimitations: Future work section notes experimental measurements needed.\nArtifacts: Fabricated devices with SEM images. Process parameters documented.\n\n---\n\n## Conclusion\n\nSolid MEMS fabrication paper. Novel use of photoresist as sacrificial layer reduces cost and complexity. FEM simulations predict behavior but experimental electrical characterization deferred to future work. Appropriate formalism level for process-focused paper."
+    },
+    {
+      "paper_id": "paper624",
+      "paper": {
+        "title": "Design and fabrication of tubes-guided structure with electrical stimulation module for neural regeneration and in-vivo testing",
+        "authors": ["C. Moldovan", "A. Barbilian", "G. Stergios", "M. Drignei", "E. Jovenet", "I. Lascar", "A. Berami", "E. Drignei", "L. Dobrescu", "O. Dontu", "D. Dobrescu", "D. Besnea", "B. Fartat", "D. Dragomir", "P.L. Milea", "D. Muraru", "T.P. Neagu", "E.L. Stanciulescu", "R. Scarlet", "F. Sandru", "M.C. Dumitrascu", "C. Draghici"],
+        "abstract": "Novel biointerface for peripheral nerve regeneration. 3D printed tubular structure with gold electrodes for electrical stimulation. Wi-Fi module with programmable oscillator (SiT1534) for 20Hz stimulation. Protocol for Lewis rat sciatic nerve implantation and functional testing.",
+        "keywords": ["Electrical stimulation", "nanoelectrodes", "biointerface", "peripheral nervous fascicles", "tubes-guided"],
+        "doi": null,
+        "pages": "135-143"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 85,
+        "structural_integrity": 80,
+        "artifact_availability": 70,
+        "intellectual_integrity": 81,
+        "composite": 79,
+        "final": 79
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Biomedical engineering device paper. No formal mathematics - describes 3D printing, electrode design, electronic module, and testing protocol. Appropriate for biomedical device development."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Neural regeneration biointerface with electrical stimulation\n**Level:** 1-2 (Trivial to Low)\n**Rationale:** Device fabrication and testing protocol. No algorithmic novelty. Integration of 3D printing, electrodes, and commercial oscillator IC.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1-2): 0-15\nRatio: Within range\n\n**Assessment:** Appropriate - device fabrication paper with no need for formalism.\n\n### Necessity Test\nNo formal elements to test. Paper presents:\n- CATIA CAD design\n- 3D bioprinting process\n- Electronic module block diagram\n- Testing protocol description\n\n**Verdict:** No formalism theater. Descriptive engineering approach is appropriate.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n19 references. Self-citations: 1 (ref [16]) = 5% SCR.\nLow self-citation ratio. References cover medical background and prior neural interface work.\nNo issues identified.\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, Tube design, Electronic module, Testing protocol, Conclusions.\nDetailed fabrication description with figures.\nLimitations: Implicitly future work - functional test results \"expected to show\" regeneration improvement.\nArtifacts: 3D printed structures, electronic module, electrode designs documented.\n\n---\n\n## Conclusion\n\nBiomedical device development paper. Describes complete system from CAD design through implantation protocol. No formalism is appropriate - this is engineering/medical device description. Results are prospective rather than experimental."
+    },
+    {
+      "paper_id": "paper625",
+      "paper": {
+        "title": "Design of Over-Temperature Protection for Switched-Capacitor DC-DC Converter Based on Electro-Thermal Simulations",
+        "authors": ["Cosmin-Sorin Plesa", "Marius Neag", "Cristian Mihai Boianceanu"],
+        "abstract": "Over-temperature protection circuit for SC DC-DC converter. Two-step design methodology: electrical-only simulations then electro-thermal simulations. Die temperature distribution analyzed for critical scenarios. Silicon implementation validated with measurements.",
+        "keywords": ["Over-temperature protection", "switched-capacitor DC-DC converter", "controlled charging current", "thermal shutdown", "electro-thermal simulations"],
+        "doi": null,
+        "pages": "144-157"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 80,
+        "intellectual_integrity": 86,
+        "composite": 84,
+        "final": 84
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Analog IC design paper with appropriate formalism. Single equation (DeltaT) is necessary for thermal coupling analysis. Design methodology validated with silicon measurements. Circuit schematics are standard representation."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Over-temperature protection for SC DC-DC converter\n**Level:** 3 (Medium)\n**Rationale:** Analog IC design with electro-thermal co-simulation methodology. Novel contribution is systematic two-step design approach.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (Eq. 1: DeltaT calculation)\n\n### Proportionality\nCalculated complexity: 1 * 3 = 3\nExpected range (Level 3): 10-40\nRatio: 0.08x upper bound\n\n**Assessment:** Proportionate - minimal but sufficient formalism.\n\n### Necessity Test Applied\n\n**Eq. 1 - DeltaT = T_HOTSPOT - T_OTPSENSOR:** NECESSARY - defines thermal coupling metric essential for OTP design. Cannot be expressed without this relationship.\n\n**Verdict:** Single equation passes Necessity Test. Paper relies on simulation results and measurements rather than analytical derivations.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n13 references. Self-citations: 2 (refs [11], [12]) = 15% SCR.\nSelf-citations are relevant (prior OTP circuit work and prior electro-thermal simulation methodology).\nNormal self-citation ratio.\n\n---\n\n## Structural Analysis\n\nExcellent structure: Problem statement, Design options, Design example with two steps, Measurement validation.\nMonte Carlo simulations for process variation (Fig. 7).\nSilicon measurements validate design (Fig. 13-14).\nLimitations acknowledged: EMI environment affected measurements, low-EMI setup needed.\nArtifacts: Silicon implementation in CMOS process. Measurement setup described.\n\n---\n\n## Conclusion\n\nHigh-quality analog IC design paper. Two-step methodology (electrical then electro-thermal simulation) is the key contribution. Silicon validation demonstrates <1% error on t2OTP. Minimal formalism is appropriate for design methodology paper."
+    },
+    {
+      "paper_id": "paper626",
+      "paper": {
+        "title": "An Improved I/O Pin for Serial Communication Interfaces",
+        "authors": ["Anca Mihaela Dragan", "Andrei Enache", "Alina Negut", "Adrian Macarie Tache", "Gheorghe Brezeanu"],
+        "abstract": "Improved I/O pin with push-pull output buffer for serial interfaces. 0.18um CMOS EEPROM process. Operates 1.6V to 5.6V supply range. Supports I2C UFm at 5 Mbps and SPI at 10 Mbps. Topology improvements reduce propagation delay by 2x at low voltages.",
+        "keywords": ["Serial communication interface", "wide voltage range", "high data rate", "I/O pin", "digital output buffer", "push pull stage"],
+        "doi": null,
+        "pages": "158-180"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 60,
+        "intellectual_integrity": 84,
+        "composite": 78,
+        "final": 78
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Digital IC design paper with no decorative formalism. Circuit schematics, timing diagrams, and parameter tables are standard IC design representation. No set theory or formal definitions - appropriate for circuit design."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** I/O buffer design for serial communication (I2C UFm, SPI)\n**Level:** 2 (Low)\n**Rationale:** Digital circuit design with standard topologies. Contribution is optimized topology for wide voltage range and high speed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n- Tables: 6 (timing parameters - standard IC characterization)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: Within range\n\n**Assessment:** Appropriate minimal formalism for digital IC design.\n\n### Necessity Test\nNo formal equations to test. Paper presents:\n- Circuit schematics (standard representation)\n- HSPICE simulation waveforms\n- Timing parameter tables\n- Comparative analysis (standard vs improved topology)\n\n**Verdict:** No formalism theater. Standard IC design presentation.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n23 references. Self-citations: 0 = 0% SCR.\nNo self-citations. Good coverage of prior I/O buffer and serial interface work.\nNo issues identified.\n\n---\n\n## Structural Analysis\n\nComprehensive structure: System context, Input buffer, Standard output buffer, Improved output buffer, Applications (I2C UFm, SPI).\nExtensive simulation characterization across voltage and temperature ranges.\nComparative analysis clearly shows improvement.\nLimitations: Not explicitly stated, but silicon validation not presented (simulation only).\nArtifacts: Circuit designed in 0.18um CMOS EEPROM process.\n\n---\n\n## Conclusion\n\nThorough digital IC design paper. Improved topology achieves 2x speed improvement at low voltages. Extensive characterization across operating conditions. No decorative formalism - standard IC design methodology with simulation-based validation."
+    }
+  ],
+
+  "batch_notes": "Volume 22 Issue 2 (2019) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** All 6 papers show domain-appropriate formalism: semiconductor device physics (paper621), RF packaging (paper622), MEMS fabrication (paper623), biomedical device (paper624), analog IC design (paper625), digital IC design (paper626). The MESFET paper (621) has heaviest formalism but all 14 equations are necessary for physics-based device modeling. Final: 0 CRITICAL, 0 LIMITED, 4 ADEQUATE, 2 STRONG."
+}

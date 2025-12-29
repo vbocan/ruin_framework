@@ -1,0 +1,271 @@
+{
+  "batch_id": "2021-v24-n2",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 24,
+    "issue": 2,
+    "year": 2021
+  },
+
+  "papers": [
+    {
+      "paper_id": "dumitru2021",
+      "paper": {
+        "title": "Exploring the Effect of Segmentation on a 10-bit DAC",
+        "authors": ["Florin-Silviu Dumitru", "Carmen Raluca Ilie", "Mircea Bodea", "Marius Enachescu"],
+        "abstract": "This paper investigates the impact of segmentation on the DNL and INL of a 10-bit differential output current-steering DAC implemented in 40nm CMOS. All intermediate segmentation degrees between binary and thermometer implementations were characterized. DNL ranged between (-0.467, +0.474) LSB and (-0.024, +0.026) LSB. Theoretical DNL/INL estimation compared with Monte Carlo simulations showing 30% margin of error.",
+        "keywords": ["Microelectronics", "nanotechnology", "DAC", "current-steering", "segmentation", "RMS", "decoder"],
+        "doi": null,
+        "pages": "129-142"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 50,
+        "intellectual_integrity": 88,
+        "composite": 78,
+        "final": 78
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Solid analog IC design paper with appropriate formalism for DAC characterization. Equations (1)-(2) for current calculation and Table 2 formulas for DNL/INL standard deviations are necessary for circuit analysis."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** DAC segmentation analysis with statistical characterization\n**Level:** 3 (Medium)\n**Rationale:** Novel systematic analysis of all segmentation degrees with theoretical-empirical validation.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (current summation, DNL/INL standard deviations)\n\n### Proportionality\nCalculated complexity: 6\nExpected range (Level 3): 10-40\nRatio: 0.15x upper bound\n\n**Assessment:** Proportionate - equations describe standard analog circuit relationships and statistical measures.\n\n### Necessity Test\n- Eq. (1) Iout summation: Necessary for DAC output characterization\n- Eq. (2) Resistance formula: Standard circuit equation\n- Table 2 DNL/INL formulas: Necessary for statistical comparison\n- Could be said in English? NO - precision required\n- Would programmer need this? YES - for circuit design\n- Enables proofs/bounds? YES - enables theoretical-empirical comparison\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n13 references, mostly IEEE transactions and conferences. No excessive self-citation. References are topically relevant to DAC design.\n\n---\n\n## Structural Analysis\n\nClear structure with Introduction, Architectures, Implementation, Simulation Results, Conclusions. Acknowledgements section present. No explicit limitations section but constraints discussed inline (30% margin of error acknowledged).\n\n---\n\n## Conclusion\n\nWell-executed analog IC design paper with systematic exploration of segmentation design space. Formalism is appropriate and necessary for the domain. The 30% theoretical-experimental margin is honestly reported."
+    },
+    {
+      "paper_id": "boncu2021",
+      "paper": {
+        "title": "An algorithm-based method for accurate compensation of bandgap references over temperature",
+        "authors": ["Madalina Boncu", "Catalin Botezatu", "Florin Draghici"],
+        "abstract": "A curvature-compensated bandgap voltage reference circuit with high temperature compensation, designed in 0.18um CMOS. MATLAB-based design method proposed. Circuit provides 1.2V reference for 1.65V-3.6V supply over -40C to 85C. Targeted TC below 10 ppm/C.",
+        "keywords": ["Bandgap Voltage Reference", "Curvature compensation", "Temperature coefficient", "PTAT", "CTAT"],
+        "doi": null,
+        "pages": "143-160"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 40,
+        "intellectual_integrity": 85,
+        "composite": 74,
+        "final": 74
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Analog circuit design paper with MATLAB-based design automation. Equations for VBE, temperature compensation, and curvature correction are standard and necessary. Novel contribution is the algorithmic design method."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Bandgap reference with algorithmic design method\n**Level:** 3 (Medium)\n**Rationale:** Novel algorithm for parameter optimization with empirical validation.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (VBE, INL current, VREF, temperature coefficient)\n\n### Proportionality\nCalculated complexity: 6\nExpected range (Level 3): 10-40\nRatio: 0.15x upper bound\n\n**Assessment:** Proportionate - equations are standard for analog circuit analysis.\n\n### Necessity Test\n- Eq. (1) VBE temperature dependence: Necessary for bandgap design\n- Eq. (2) Nonlinear current: Necessary for curvature compensation\n- Eq. (3)-(4) VREF calculation: Necessary for output characterization\n- Eq. (5) TC definition: Standard metric definition\n- Could be said in English? NO - temperature coefficients require precision\n- Would programmer need this? YES - for circuit implementation\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n8 references including standard textbook (Rincon-Mora). No self-citation concerns. References appropriately cover bandgap design prior art.\n\n---\n\n## Structural Analysis\n\nWell-organized with clear methodology: principle of operation, MATLAB calculation, circuit implementation, simulation results. Figure of merit comparison with state-of-art provided in Table 5.\n\n---\n\n## Conclusion\n\nSolid analog circuit design contribution with novel algorithmic design approach. Formalism is appropriate for the domain. TC of 5.9 ppm/C achieved, meeting design targets."
+    },
+    {
+      "paper_id": "petrasuc2021",
+      "paper": {
+        "title": "A Novel Full-Wave Current Sensor for Automotive Synchronous Buck Converters",
+        "authors": ["Gabriel Petrasuc", "Paul Miresan", "Marius Neag", "Cosmin Chira"],
+        "abstract": "Novel full-wave current sensor based on Vds-sense for automotive DC-DC converters. Designed for 6V-45V input range. Sample&Hold circuit improvements. Common-gate transconductor implementation. Relative error under 1.2%pkpk for currents >200mA, below 7.2%pkpk down to 50mA.",
+        "keywords": ["Full-wave current sensor", "Vds-sense", "sense-FET", "synchronous buck converter", "Sample&Hold", "common-gate amplifier"],
+        "doi": null,
+        "pages": "161-181"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 50,
+        "intellectual_integrity": 88,
+        "composite": 79,
+        "final": 79
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Comprehensive analog IC design paper with thorough circuit analysis. Equations for current sensing, resistance ratios, and timing are necessary for the design methodology. Novel topology improvements well-documented."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Current sensor topology for automotive power management\n**Level:** 3 (Medium)\n**Rationale:** Novel circuit topology with detailed analytical treatment.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 (current sensing, resistance ratios, gain, timing)\n\n### Proportionality\nCalculated complexity: 14\nExpected range (Level 3): 10-40\nRatio: 0.35x upper bound\n\n**Assessment:** Proportionate - equations necessary for analog circuit design and characterization.\n\n### Necessity Test\n- Eq. (1)-(3) Core currents: Necessary for sensor operation analysis\n- Eq. (4)-(10) Resistance sizing: Necessary for matching conditions\n- Eq. (11)-(14) Transconductor specs: Necessary for implementation\n- Could be said in English? NO - circuit relationships require mathematical precision\n- Would programmer need this? YES - for silicon implementation\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n11 references. Paper builds on authors' prior work [1] with clear improvements documented. References cover current sensing and power management prior art.\n\n---\n\n## Structural Analysis\n\nExcellent structure: prior work analysis, topology improvements, circuit implementation, design example. Chronograms in Fig. 7 clearly explain timing. Comparison with prior work in Section IV.\n\n---\n\n## Conclusion\n\nHigh-quality analog IC paper with clear novelty over prior work. Formalism is appropriate and necessary for the automotive power management domain. Well-documented design methodology."
+    },
+    {
+      "paper_id": "veselu2021",
+      "paper": {
+        "title": "New Constant-gm circuit for precision chopper offset-stabilized operational amplifiers",
+        "authors": ["Adrian Constantin Veselu", "Cornel Stanescu", "Gheorghe Brezeanu"],
+        "abstract": "Low-voltage chopper offset-stabilized operational amplifier with new constant-gm technique. 1.8-5.5V supply, 0.25um CMOS. Offset voltage 5uV, CMRR 106dB, PSRR 121dB, 51nV/sqrt(Hz) noise, 550kHz UGBW. Quiescent current 36uA with only 4% gm variation.",
+        "keywords": ["Microelectronics", "chopper offset-stabilized operational amplifier", "constant-gm", "low current", "offset voltage", "noise"],
+        "doi": null,
+        "pages": "182-200"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 50,
+        "intellectual_integrity": 86,
+        "composite": 77,
+        "final": 77
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Novel constant-gm technique for precision op-amps. Equations for transconductance across operating regions are necessary and appropriate. Clear improvement over prior art with 8x lower current consumption."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Constant-gm technique for rail-to-rail operational amplifiers\n**Level:** 3 (Medium)\n**Rationale:** Novel circuit topology with clear performance improvements.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (transconductance for regions I, II, III)\n\n### Proportionality\nCalculated complexity: 3\nExpected range (Level 3): 10-40\nRatio: 0.075x upper bound\n\n**Assessment:** Proportionate - minimal equations, all necessary for circuit operation explanation.\n\n### Necessity Test\n- Eq. (1) gmT,I: Necessary for Region I transconductance\n- Eq. (2) gmT,II: Necessary for Region II (both pairs active)\n- Eq. (3) gmT,III: Necessary for Region III transconductance\n- Could be said in English? NO - weak inversion gm requires Iref/nVth formulation\n- Would programmer need this? YES - for circuit sizing\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n10 references. Builds on standard techniques from Huijsing textbook. Comparison with state-of-art in Table 8 shows competitive performance.\n\n---\n\n## Structural Analysis\n\nClear progression: related art analysis, proposed technique, integration in chopper amplifier, comprehensive simulations. Both with/without constant-gm comparisons provided.\n\n---\n\n## Conclusion\n\nWell-executed analog circuit design with novel constant-gm approach. Key advantage is 8x current reduction vs prior art while maintaining performance. Appropriate formalism level."
+    },
+    {
+      "paper_id": "paun2021",
+      "paper": {
+        "title": "Microheater optimized for the integration with metasurface-based IR sources for gas sensing application",
+        "authors": ["Costel Paun", "Roxana Tomescu", "Catalin Parvulescu", "Octavian Ionescu", "Doina Elena Gavrila", "Dana Cristea"],
+        "abstract": "Design, manufacturing, electrothermal analysis and characterization of Pt microheaters in four geometric configurations for integration with metasurface absorbers. Target temperature 250-300C for CO2 sensing at 4.25um. COMSOL Multiphysics simulation.",
+        "keywords": ["Microheater", "IR emitter", "metasurfaces", "metamaterial absorber", "gas sensor"],
+        "doi": null,
+        "pages": "201-212"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 85,
+        "composite": 81,
+        "final": 81
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "MEMS device design with fabrication and characterization. Heat transfer equations (1)-(9) are standard physics necessary for thermal modeling. Fabricated devices with measured results."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** MEMS microheater for IR gas sensing\n**Level:** 3 (Medium)\n**Rationale:** Novel device integration with thermal simulation and fabrication.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 9 (power dissipation, heat conduction, convection, radiation)\n\n### Proportionality\nCalculated complexity: 9\nExpected range (Level 3): 10-40\nRatio: 0.225x upper bound\n\n**Assessment:** Proportionate - standard thermal physics equations necessary for device modeling.\n\n### Necessity Test\n- Eq. (1)-(3) Power and heat: Standard physics, necessary\n- Eq. (4)-(9) Heat transfer modes: Necessary for thermal design\n- Could be said in English? NO - thermal coefficients require mathematical formulation\n- Would programmer need this? YES - for simulation setup\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n18 references covering metasurfaces, MEMS fabrication, and thermal analysis. No self-citation concerns.\n\n---\n\n## Structural Analysis\n\nComplete design-fabrication-characterization flow. Both simulation (COMSOL) and experimental measurements provided. Good agreement between simulation and experiment demonstrated.\n\n---\n\n## Conclusion\n\nSolid MEMS device paper with complete experimental validation. Formalism is standard thermal physics appropriate for the domain. Novel integration concept with metasurfaces."
+    },
+    {
+      "paper_id": "chiriac2021",
+      "paper": {
+        "title": "Manipulation of particles using dielectrophoresis in a microchannel",
+        "authors": ["Eugen Chiriac", "Marioara Avram", "Corneliu Balan"],
+        "abstract": "Numerical simulation of dielectrophoretic separation of CTCs from RBCs in 3D microchannel. COMSOL Multiphysics used. Interdigitated electrodes at 100kHz. MDA-MB-231 breast cancer cells as CTC line. uPIV validation of fluid mechanics.",
+        "keywords": ["particle manipulation", "dielectrophoresis", "microchannel", "CFD"],
+        "doi": null,
+        "pages": "213-221"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 60,
+        "intellectual_integrity": 83,
+        "composite": 77,
+        "final": 77
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Microfluidics simulation paper with experimental validation. DEP force equations and Clausius-Mossotti factor are standard physics necessary for particle manipulation modeling."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Dielectrophoretic cell separation simulation\n**Level:** 3 (Medium)\n**Rationale:** Applied physics with numerical simulation and experimental validation.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 (DEP force, Clausius-Mossotti, permittivity, Navier-Stokes, Newton's law)\n\n### Proportionality\nCalculated complexity: 14\nExpected range (Level 3): 10-40\nRatio: 0.35x upper bound\n\n**Assessment:** Proportionate - standard physics equations for microfluidics simulation.\n\n### Necessity Test\n- Eq. (1) DEP force: Necessary - core operating principle\n- Eq. (2)-(4) Clausius-Mossotti: Necessary - frequency-dependent behavior\n- Eq. (5)-(6) Reynolds, hydraulic diameter: Standard fluid mechanics\n- Eq. (7)-(14) Governing equations: Necessary for simulation\n- Could be said in English? NO - physics equations required\n- Would programmer need this? YES - for COMSOL setup\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n11 references covering DEP theory, microfluidics, and cell separation. No self-citation concerns.\n\n---\n\n## Structural Analysis\n\nClear structure: methods, device fabrication, numerical methodology, results. uPIV experimental validation provides confidence in simulation accuracy.\n\n---\n\n## Conclusion\n\nSolid simulation paper with experimental validation of fluid mechanics portion. Standard physics formalism appropriate for the domain. Future work to extend to different cell types and frequencies."
+    },
+    {
+      "paper_id": "serbanescu2021",
+      "paper": {
+        "title": "A Standalone System for Resistive Smart Sensors Based on a Wheatstone Quarter-Bridge",
+        "authors": ["Matei Serbanescu", "Vlad-Mihai Placinta", "Florin Nastase", "Gheorghe Pristavu", "Octavian Buiu", "Gheorghe Brezeanu", "Bogdan Serban"],
+        "abstract": "Resistive smart-sensor architecture using Wheatstone quarter-bridge. Signal conditioning converts resistance to duty-cycle. Microcontroller-based system. Maximum 1.8% relative error for 10 Ohm variation. Linearity R2=0.9995, sensitivity 57.71us/Ohm.",
+        "keywords": ["Resistive sensor", "quarter-bridge", "signal-conditioning circuit", "microcontroller", "duty-cycle"],
+        "doi": null,
+        "pages": "222-232"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 83,
+        "composite": 79,
+        "final": 79
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Applied sensor interface design with complete system implementation. Equations for Wheatstone bridge, duty-cycle, and R-squared analysis are standard and necessary."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Resistive sensor interface with microcontroller\n**Level:** 2 (Low)\n**Rationale:** Applied circuit design integrating standard components.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (bridge output, gain, TON/TOFF, sensitivity, R-squared)\n\n### Proportionality\nCalculated complexity: 8\nExpected range (Level 2): 0-15\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate - standard equations for sensor interface design.\n\n### Necessity Test\n- Eq. (1) Bridge output: Standard, necessary\n- Eq. (2)-(4) Gain and timing: Necessary for duty-cycle calculation\n- Eq. (5)-(6) TON as function of sensor: Necessary for sensitivity analysis\n- Eq. (7)-(8) Statistical validation: Standard metrics\n- Could be said in English? NO - duty-cycle relationships require math\n- Would programmer need this? YES - for system design\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n29 references covering sensor interfaces, Wheatstone bridges, and body sensor networks. No self-citation concerns.\n\n---\n\n## Structural Analysis\n\nComplete system description with theory, simulation, and experimental validation. PCB prototype fabricated and tested. Excellent agreement between theory and experiment (Rth2=0.9997).\n\n---\n\n## Conclusion\n\nWell-executed applied sensor system paper. Formalism is appropriate for the engineering design domain. Complete validation from theory through prototype."
+    },
+    {
+      "paper_id": "rebigan2021",
+      "paper": {
+        "title": "Fabrication of Fresnel lenses operating as image correcting optical components for long infrared imaging systems",
+        "authors": ["R. Rebigan", "A. Avram", "R. Tudor", "M. Kusko", "D. Ursu", "G. Sorohan", "C. Kusko"],
+        "abstract": "Silicon Fresnel lenses with 16 discrete depth levels for LWIR imaging. Four photolithographic processes with DRIE etching. Antireflective nanostructured surfaces via MACE. WLI characterization shows good agreement with design. Transmission above 70%.",
+        "keywords": ["Fresnel lens", "long infrared optics", "silicon microfabrication", "photolithographic processes", "reactive ion etching"],
+        "doi": null,
+        "pages": "233-243"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 80,
+        "intellectual_integrity": 87,
+        "composite": 85,
+        "final": 85
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Comprehensive microfabrication paper with complete process flow. Minimal equations for optical design (phase difference, discretization) are appropriate. Fabricated devices with optical characterization."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Silicon Fresnel lens microfabrication for LWIR\n**Level:** 2-3 (Fabrication with design rationale)\n**Rationale:** Process development with optical design constraints.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (height level d = lambda/(n-1), discretization)\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2-3): 0-40\nRatio: 0.05x upper bound\n\n**Assessment:** Proportionate - minimal formalism appropriate for fabrication paper.\n\n### Necessity Test\n- Height level equation: Necessary for Fresnel zone design\n- Discretization principle: Necessary for photomask design\n- Could be said in English? Partially, but precision needed for fabrication\n- Would programmer need this? YES - for mask design\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n20 references covering infrared optics, microfabrication, and etching processes. No self-citation concerns.\n\n---\n\n## Structural Analysis\n\nExcellent fabrication paper structure: design, complete process flow (Table 1-2), characterization (WLI, SEM, FTIR). Multiple fabrication techniques detailed.\n\n---\n\n## Conclusion\n\nHigh-quality microfabrication paper with complete process documentation. Formalism is minimal and appropriate. Fabricated devices meet design specifications with >70% transmission."
+    },
+    {
+      "paper_id": "ravariu2021",
+      "paper": {
+        "title": "Investigations of the Fabricated Nothing On Insulator Nanodevices as Metal-Air-Metal variant - NOI-MAM",
+        "authors": ["Cristian Ravariu", "Elena Manea", "Adrian Dinescu", "Catalin Parvulescu", "Raluca Gavrila", "Bhargav Appasani", "Avireni Srinivasulu", "Munizer Purica"],
+        "abstract": "Investigations of Nothing On Insulator device in Metal-Air-Metal variant. Two metallic nanowires (Cr/Au) as Source and Drain with air gap 19-36nm. EBL lithography and AFM sectioning methods. Measured I-V characteristics and Atlas simulations.",
+        "keywords": ["Nanotechnology", "Metallic nanowires", "electron-beam lithography", "vacuum devices", "SEM", "AFM"],
+        "doi": null,
+        "pages": "244-254"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 85,
+        "structural_integrity": 80,
+        "artifact_availability": 70,
+        "intellectual_integrity": 80,
+        "composite": 78,
+        "final": 78
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Experimental nanodevice paper with fabrication and characterization. Minimal formalism - mostly experimental SEM/AFM/I-V characterization with simulation comparison. Appropriate for device investigation paper."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Novel vacuum nanodevice fabrication and characterization\n**Level:** 3 (Medium)\n**Rationale:** Novel device concept with experimental validation.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (descriptive/experimental paper)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 3): 10-40\nRatio: 0x upper bound\n\n**Assessment:** Proportionate - experimental characterization paper with minimal formalism is appropriate.\n\n### Necessity Test\n- No formal equations in paper\n- Paper relies on SEM/AFM imaging and I-V measurements\n- Simulation results from Atlas/Silvaco referenced\n- Formalism level appropriate for experimental device paper\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n29 references including 8 self-citations to prior NOI work [9-12, 14-18, 20-21]. Self-citation ratio approximately 28%, elevated but justified as this is continuation of prior patented work. Citations are topically relevant.\n\n---\n\n## Structural Analysis\n\nClear structure: technology investigations (SEM, AFM), experimental measurements, simulations. Multiple fabrication approaches compared. Device concept builds on prior patented work.\n\n---\n\n## Conclusion\n\nExperimental nanodevice paper with novel fabrication approaches. Elevated self-citation is justified by being continuation of patented concept. Minimal formalism appropriate for device investigation."
+    }
+  ],
+
+  "batch_notes": "Volume 24 Issue 2 (2021) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** All 9 papers are in microelectronics/nanotechnology domain with appropriate domain-specific formalism: DAC design, bandgap references, current sensors, op-amp design, MEMS microheaters, microfluidics, sensor interfaces, Fresnel lenses, nanodevices. Final: 0 CRITICAL, 0 LIMITED, 7 ADEQUATE, 2 STRONG."
+}

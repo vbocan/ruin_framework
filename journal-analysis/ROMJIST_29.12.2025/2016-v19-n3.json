@@ -1,0 +1,243 @@
+{
+  "batch_id": "2016-v19-n3",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 19,
+    "issue": 3,
+    "year": 2016
+  },
+
+  "papers": [
+    {
+      "paper_id": "chaturvedi2016",
+      "paper": {
+        "title": "Extraction of Transmission Line Parameters and Effect of Conductive Substrates on their Characteristics",
+        "authors": ["Saurabh Chaturvedi", "Mladen Bozanic", "Saurabh Sinha"],
+        "abstract": "Effect of conductive/lossy silicon substrates on frequency-dependent distributed series impedance transmission line parameters R(w) and L(w). EM simulations using Keysight ADS Momentum. S-parameters based equations for microstrip line on GlobalFoundries 0.13um SiGe BiCMOS8HP PDK up to 100 GHz.",
+        "keywords": ["Conductive substrate", "microstrip line", "transmission line model", "S-parameters", "skin effect", "SiGe BiCMOS", "process design kit"],
+        "doi": null,
+        "pages": "199-212"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 50,
+        "intellectual_integrity": 86,
+        "composite": 77,
+        "final": 77
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Solid RF/microwave engineering paper with appropriate formalism. Equations (1-9) are standard transmission line theory required for parameter extraction. No decorative mathematics."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Transmission line parameter extraction using EM simulation for lossy Si substrates\n**Level:** 3 (Medium)\n**Rationale:** Novel methodology combining EM simulation with parameter extraction for specific BiCMOS process. Applies established TL theory to practical IC interconnect characterization.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 9 (standard TL theory)\n\n### Proportionality\nCalculated complexity: 9\nExpected range (Level 3): 0-40\nRatio: 0.23x upper bound\n\n**Assessment:** Proportionate - Equations (1-9) are standard electromagnetic theory: characteristic impedance (Eq. 1-3), propagation constant (Eq. 4-5), RLGC parameters (Eq. 6-9). All necessary for TL characterization.\n\n### Necessity Test Results\n- Eq. 1-2 (Zc, gamma): Standard TL theory - NECESSARY\n- Eq. 3-5 (S-parameter conversions): Standard - NECESSARY\n- Eq. 6-9 (RLGC extraction): Standard - NECESSARY\n- No set theory for list operations\n- No decorative definitions\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n13 references covering relevant prior work on TL modeling, EM simulation, and substrate effects. No self-citations identified. Citations are topically relevant.\n\n---\n\n## Structural Analysis\n\nClear structure: Introduction, theory, simulation setup, results, conclusion. Figures demonstrate simulation results clearly. No explicit limitations section but scope is well-defined.\n\n---\n\n## Conclusion\n\nCompetent RF/microwave engineering paper presenting transmission line parameter extraction methodology. All mathematical formalism is standard and necessary for the domain. The paper contributes practical design guidelines for IC interconnects on lossy substrates."
+    },
+    {
+      "paper_id": "buiculescu2016",
+      "paper": {
+        "title": "Backscattering Modulators for UWB Antenna Measurement",
+        "authors": ["V. Buiculescu", "I. Giangu"],
+        "abstract": "Broadband backscattering modulator solution for UWB antenna measurements using MMIC SPDT switches. Bistatic arrangement for improved accuracy. Low power consumption (11uW from 3V battery) enabling 0.004 dB/day accuracy for long-term antenna characterization.",
+        "keywords": ["Backscattering modulator", "chipless RFID", "radar cross section", "small antennas", "ultra-wideband"],
+        "doi": null,
+        "pages": "213-225"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 86,
+        "composite": 82,
+        "final": 82
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Well-executed antenna/RF engineering paper with fabricated and measured hardware. Equations are standard RF/antenna theory. Novel modulator design validated experimentally."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Broadband backscattering modulator for UWB antenna radiation pattern measurement\n**Level:** 3 (Medium)\n**Rationale:** Novel RF modulator design combining established antenna theory with practical implementation. Hardware fabrication and measurement validation.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (standard RF/antenna theory)\n\n### Proportionality\nCalculated complexity: 6\nExpected range (Level 3): 0-40\nRatio: 0.15x upper bound\n\n**Assessment:** Proportionate - Equations cover PIN diode model (Eq. 1), Friis equation (Eq. 2), RCS definitions (Eq. 3-6). All standard antenna/RF theory.\n\n### Necessity Test Results\n- Eq. 1 (diode resistance): Standard device physics - NECESSARY\n- Eq. 2 (Friis equation): Fundamental antenna equation - NECESSARY\n- Eq. 3-6 (RCS, differential RCS): Standard radar theory - NECESSARY\n- No decorative formalism detected\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n28 references covering antenna measurement, RFID technology, switching circuits. One self-citation [14] - directly relevant prior work on the same modulator topic. SCR < 5%, no concerns.\n\n---\n\n## Structural Analysis\n\nFabricated and measured prototype validates design. Experimental results (Figures 7-11) demonstrate performance. Brief acknowledgment of EC funding. Hardware artifact exists but availability not stated.\n\n---\n\n## Conclusion\n\nStrong engineering contribution with novel modulator design achieving 0.004 dB/day measurement accuracy. Formalism is minimal and appropriate for RF engineering. Experimental validation strengthens the work."
+    },
+    {
+      "paper_id": "bunea2016",
+      "paper": {
+        "title": "W-Band receiver with Zero Bias Diode operated in the 23K - 295K temperature range",
+        "authors": ["A.C. Bunea", "D. Neculoiu", "A.M. Avram", "A. Muller"],
+        "abstract": "Analysis of cryogenic temperature effects on hybrid integrated W-band (75-110 GHz) receiver using zero-bias GaAs diode. On-wafer measurements in 23K-295K range. Diode modeling with exponential law and parameter extraction across temperature range for space applications.",
+        "keywords": ["cryogenic", "GaAs", "i/v characteristic", "receiver", "space applications", "W-band", "zero-bias diode"],
+        "doi": null,
+        "pages": "226-238"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 60,
+        "intellectual_integrity": 86,
+        "composite": 80,
+        "final": 80
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Excellent experimental work on cryogenic characterization of W-band receivers. Minimal formalism (standard diode equation). Novel temperature-dependent parameter extraction with practical space application relevance."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Cryogenic characterization of W-band receiver with zero-bias diode for space applications\n**Level:** 3 (Medium)\n**Rationale:** Novel experimental characterization at extreme temperatures (23K-295K). Parameter extraction methodology for diode modeling.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (diode exponential law)\n\n### Proportionality\nCalculated complexity: 1\nExpected range (Level 3): 0-40\nRatio: 0.025x upper bound\n\n**Assessment:** Proportionate - Minimal formalism. Single equation (1) is standard Shockley diode equation for I-V characteristic modeling.\n\n### Necessity Test Results\n- Eq. 1 (diode equation): Standard semiconductor physics - NECESSARY for device modeling\n- Parameter extraction (Is, N, Rs) - standard methodology\n- No decorative formalism\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n9 references. Self-citations: [4], [7], [8] - all directly relevant prior work on membrane antennas and detection circuits. SCR ~33% but on directly related topics (same research group continuing a research line). No IRRELEVANT_SELF_CITATION flag - all topically relevant.\n\n---\n\n## Structural Analysis\n\nStrong experimental section with cryogenic measurement setup (Figure 12-13). Temperature-dependent I-V characteristics and detected signals measured. Fabricated devices tested. Romanian Space Agency funding acknowledged.\n\n---\n\n## Conclusion\n\nHigh-quality experimental paper demonstrating W-band receiver operation at cryogenic temperatures. Minimal but appropriate formalism. Strong practical relevance for space applications. Self-citations are on directly related prior work."
+    },
+    {
+      "paper_id": "fanoro2016",
+      "paper": {
+        "title": "Investigation of 60 GHz LNA with estimated S11 values based on mathematical model and numerical solution",
+        "authors": ["M. Fanoro", "S.S. Olokede", "S. Sinha"],
+        "abstract": "Design of mm-wave LNA using 0.13um SiGe BiCMOS. Mathematical analysis of input matching network with MATLAB modeling. Two-stage cascode topology with L-input and T-output matching. S11 peaks at 14 dB, S21 > 26 dB, NF = 4.3 dB at 60 GHz.",
+        "keywords": ["optimal current density", "inductive degenerative emitter", "cascode topology", "S-parameters", "LNA", "input matching", "millimeter-wave"],
+        "doi": null,
+        "pages": "239-254"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 40,
+        "intellectual_integrity": 83,
+        "composite": 72,
+        "final": 72
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Solid LNA design paper with systematic methodology. Equations (1-16) are standard RF circuit design formulas. Mathematical model for input matching is appropriate for mm-wave design."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** 60 GHz LNA design with input matching network mathematical analysis\n**Level:** 3 (Medium)\n**Rationale:** Circuit design methodology for mm-wave LNA. Combines established RF design techniques with MATLAB modeling for frequency response prediction.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 16 (RF circuit equations)\n\n### Proportionality\nCalculated complexity: 16\nExpected range (Level 3): 0-40\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate - Equations cover matching conditions (1-3), transfer function (4-5), impedance calculations (6-16). All standard RF circuit design methodology.\n\n### Necessity Test Results\n- Eq. 1-3 (matching conditions): Standard RF design - NECESSARY\n- Eq. 4-5 (transfer function): Standard control theory - NECESSARY\n- Eq. 6-16 (component calculations): Standard circuit design - NECESSARY\n- No decorative formalism\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n26 references covering LNA design, mm-wave circuits, BiCMOS technology. No excessive self-citation pattern identified.\n\n---\n\n## Structural Analysis\n\nSystematic design methodology presented (Section 4). Simulation results shown. Comparison with state-of-the-art (Table 1). No fabrication - simulation only. No explicit limitations section.\n\n---\n\n## Conclusion\n\nCompetent LNA design paper with systematic methodology. Mathematical analysis of input matching network is appropriate for mm-wave design. Would benefit from fabrication validation."
+    },
+    {
+      "paper_id": "gheorghe2016",
+      "paper": {
+        "title": "Advanced Calibration Method, with Thermal Compensation, for 3-Axis MEMS Accelerometers",
+        "authors": ["Marius Gheorghe"],
+        "abstract": "Extension of advanced body reference frame calibration method for 3-axis MEMS accelerometers using total field approach. Solves misalignment between sensor and body reference frames without known stimuli. Polynomial thermal modeling for compensation. Experimental validation with SCA3100-D04 accelerometer.",
+        "keywords": ["3-axis accelerometer", "calibration", "body frame", "error model", "MEMS", "thermal compensation", "total field"],
+        "doi": null,
+        "pages": "255-268"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 60,
+        "intellectual_integrity": 84,
+        "composite": 78,
+        "final": 78
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Well-structured sensor calibration paper. Matrix algebra and error models are necessary for 3D sensor calibration. Novel combination of total field and known stimuli approaches with thermal modeling."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** 3-axis MEMS accelerometer calibration with thermal compensation\n**Level:** 3 (Medium)\n**Rationale:** Novel calibration methodology combining total field approach with body frame alignment. Requires mathematical treatment for sensor error models and coordinate transformations.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 24 (error models, transformations, polynomials)\n\n### Proportionality\nCalculated complexity: 24\nExpected range (Level 3): 0-40\nRatio: 0.6x upper bound\n\n**Assessment:** Proportionate - Equations cover sensor frame error models (1-7), rotation matrices (9-12), Gauss-Newton optimization (14-21), polynomial thermal model (24). All necessary for calibration methodology.\n\n### Necessity Test Results\n- Eq. 1-7 (error models): NECESSARY for sensor calibration\n- Eq. 9-12 (rotation matrices): Standard coordinate transformation - NECESSARY\n- Eq. 14-21 (alignment equations): NECESSARY for body frame calibration\n- Eq. 24 (polynomial model): Standard thermal compensation - NECESSARY\n- No decorative formalism detected\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n15 references. Self-citation [1] is directly on-topic (prior work by same author being extended). SCR ~7%, no concerns.\n\n---\n\n## Structural Analysis\n\nClear methodology (3-step approach explained). Experimental validation with commercial accelerometers (28 IMUs tested). Figures 6-7 show improvement over known stimuli method. Limitations briefly acknowledged.\n\n---\n\n## Conclusion\n\nCompetent calibration paper with novel methodology. Mathematical treatment is necessary and appropriate for sensor error modeling. Experimental validation demonstrates practical utility."
+    },
+    {
+      "paper_id": "voicu2016",
+      "paper": {
+        "title": "SU-8 Microgrippers based on V-shaped Electrothermal Actuators with Implanted Heaters",
+        "authors": ["R-C. Voicu", "C. Tibeica", "R. Muller", "A. Dinescu", "M. Pustan", "C. Birleanu"],
+        "abstract": "Design, simulation, fabrication, and characterization of polymeric microgrippers based on V-shaped electrothermal actuators. SU-8 biocompatible polymer as structural material. FEM simulation for electro-thermo-mechanical behavior. Displacement of 40um at 25mA.",
+        "keywords": ["microgripper", "SU-8", "V-shape actuator", "FEM simulation"],
+        "doi": null,
+        "pages": "269-281"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 80,
+        "intellectual_integrity": 88,
+        "composite": 86,
+        "final": 86
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Excellent MEMS paper with complete design-simulation-fabrication-characterization cycle. Minimal formalism (only material property equations). Strong experimental validation with fabricated devices."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** SU-8 microgripper design with V-shaped electrothermal actuators\n**Level:** 2-3 (Low-Medium)\n**Rationale:** MEMS device design and fabrication. FEM simulation for electro-thermo-mechanical behavior. Standard fabrication and characterization.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (material property equations)\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2-3): 0-15 to 0-40\nRatio: <0.1x upper bound\n\n**Assessment:** Proportionate - Minimal formalism. Equations (1-2) are standard resistivity/conductivity temperature dependence. FEM simulation parameters are standard material properties.\n\n### Necessity Test Results\n- Eq. 1-2 (resistivity vs temperature): Standard material physics - NECESSARY\n- Material property table (Table 1): Standard FEM parameters - NECESSARY\n- No decorative formalism\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n24 references. Self-citations [5], [6], [20]-[23] are on directly related microgripper work. SCR ~25% but all topically relevant (same research group's microgripper research line).\n\n---\n\n## Structural Analysis\n\nComplete cycle: design, simulation, fabrication, characterization. Fabricated devices shown (Figures 7, 9, 10). Experimental measurements compared with FEM simulation (Figure 11). Strong experimental validation.\n\n---\n\n## Conclusion\n\nExcellent MEMS engineering paper with minimal but appropriate formalism. Complete design-to-characterization cycle with fabricated and tested devices. Strong practical contribution to biocompatible microgrippers."
+    },
+    {
+      "paper_id": "istrate2016",
+      "paper": {
+        "title": "Scaling the graphene-silicon heterojunctions: fabrication and characterization",
+        "authors": ["Anca-Ionela Istrate", "Monica Veca", "Florin Nastase", "Angela Baracu", "Raluca Gavrila", "Florin Comanescu", "Vasilica Tucureanu", "Adrian Dinescu", "Titus Sandu"],
+        "abstract": "Fabrication and characterization of graphene-silicon heterojunctions with various contact areas. Electrochemical delamination transfer. FET mobility of 2327 cm2/Vs. Schottky diodes with windows from 6um to 70um. Ideality factor, barrier height, series resistance extracted.",
+        "keywords": ["Graphene", "Electrochemical delamination", "Raman", "AFM", "Diodes", "FET", "Electrical properties"],
+        "doi": null,
+        "pages": "282-294"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 60,
+        "intellectual_integrity": 84,
+        "composite": 78,
+        "final": 78
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Solid device fabrication paper with graphene transfer and Schottky diode characterization. Equations are standard semiconductor device physics. Good experimental work scaling junction areas."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Graphene-silicon Schottky diode fabrication and characterization\n**Level:** 3 (Medium)\n**Rationale:** Novel device fabrication combining graphene transfer with Schottky junction engineering. Multiple characterization techniques employed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 11 (device physics equations)\n\n### Proportionality\nCalculated complexity: 11\nExpected range (Level 3): 0-40\nRatio: 0.28x upper bound\n\n**Assessment:** Proportionate - Equations cover FET mobility (1-4), Schottky diode I-V (5-7), Cheung method for parameter extraction (8-11). All standard semiconductor device analysis.\n\n### Necessity Test Results\n- Eq. 1-4 (mobility extraction): Standard FET analysis - NECESSARY\n- Eq. 5-7 (Schottky diode): Standard device physics - NECESSARY\n- Eq. 8-11 (Cheung method): Standard parameter extraction - NECESSARY\n- No decorative formalism\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n41 references covering graphene synthesis, transfer, device physics. No excessive self-citation. Broad coverage of relevant prior work.\n\n---\n\n## Structural Analysis\n\nComprehensive characterization: FTIR, Raman, AFM, SEM, electrical measurements. Fabricated devices at multiple scales (6-70um). Junction parameters extracted and tabulated (Table 1).\n\n---\n\n## Conclusion\n\nSolid experimental paper on graphene-Si heterojunction fabrication. Formalism is standard device physics, necessary for parameter extraction. Good scaling study across junction sizes."
+    },
+    {
+      "paper_id": "enache2016",
+      "paper": {
+        "title": "High Accuracy Amperometric Sense and Control Circuit for Three-electrode Biosensors",
+        "authors": ["Andrei Enache", "Ion Rusu", "Florin Draghici", "Gheorghe Pristavu", "Gheorghe Brezeanu", "Florin Enache"],
+        "abstract": "Design and implementation of concentration measurement system for electrochemical biosensors. Potentiostat for three-electrode cell biasing and transimpedance amplifier for current processing. Stability analysis with frequency compensation. Comparison with commercial PG580 system.",
+        "keywords": ["biosensor", "potentiostat", "amperometry", "stability", "frequency compensation"],
+        "doi": null,
+        "pages": "295-308"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 70,
+        "intellectual_integrity": 84,
+        "composite": 80,
+        "final": 80
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Well-designed analog circuit paper with thorough stability analysis. Control theory equations are necessary for feedback loop design. Experimental validation against commercial system."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Potentiostat and transimpedance amplifier for amperometric biosensors\n**Level:** 3 (Medium)\n**Rationale:** Analog circuit design with stability analysis. Requires control theory treatment for feedback loop compensation.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 11 (circuit transfer functions, stability analysis)\n\n### Proportionality\nCalculated complexity: 11\nExpected range (Level 3): 0-40\nRatio: 0.28x upper bound\n\n**Assessment:** Proportionate - Equations cover transimpedance gain (1), loop transmission (2-5), transfer functions (6-9), compensation (10-11). All standard analog circuit/control theory.\n\n### Necessity Test Results\n- Eq. 1 (transimpedance): Standard amplifier equation - NECESSARY\n- Eq. 2-5 (loop transmission): Required for stability analysis - NECESSARY\n- Eq. 6-9 (transfer functions): Standard feedback analysis - NECESSARY\n- Eq. 10-11 (current correction): Standard circuit analysis - NECESSARY\n- No decorative formalism\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n16 references covering biosensors, potentiostat design, electrochemistry. One self-citation [10] on prior work. SCR ~6%, no concerns.\n\n---\n\n## Structural Analysis\n\nDetailed stability analysis (Section 3.3) with Bode plots. PCB implementation and experimental measurements. Comparison with commercial PG580 system (Section 5). Research funding acknowledged.\n\n---\n\n## Conclusion\n\nHigh-quality analog circuit paper with thorough design methodology. Stability analysis using control theory is necessary and well-executed. Experimental validation against commercial system demonstrates practical utility."
+    }
+  ],
+
+  "batch_notes": "Volume 19 Issue 3 (2016) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** All 8 papers have domain-appropriate formalism: RF/microwave engineering (3 papers), MEMS devices (2 papers), semiconductor devices (2 papers), analog circuits (1 paper). Papers are predominantly electrical engineering and applied physics with standard technical equations. Final: 0 CRITICAL, 0 LIMITED, 4 ADEQUATE, 4 STRONG."
+}

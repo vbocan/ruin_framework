@@ -1,0 +1,215 @@
+{
+  "batch_id": "2022-v25-n34",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 25,
+    "issue": "3-4",
+    "year": 2022
+  },
+
+  "papers": [
+    {
+      "paper_id": "paper722",
+      "paper": {
+        "title": "A Comparative Lexical Analysis of Three Romanian Works - The Etymological Metalepsis Role and Etymological Indices",
+        "authors": ["Horia Nicolai Teodorescu", "Speranta Cecilia Bolea"],
+        "abstract": "Introduces an etymological perspective in computational linguistics for analysis of literary works. Proposes 'etymological metalepsis' as stylistic device. Analyzes three Romanian works using semi-automated lexicographic analysis and etymology of most frequent words. Stylometric indices suggested in relation with etymological metalepsis.",
+        "keywords": ["Computational linguistic", "etymology", "style", "stylistic device", "stylometric indices", "Zipf law"],
+        "doi": null,
+        "pages": "275-289"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 30,
+        "intellectual_integrity": 83,
+        "composite": 70,
+        "final": 70
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Computational linguistics paper with appropriate formalism. Etymological indices (Eq. 1-5) are necessary for quantitative linguistic analysis. No unnecessary set theory or decorative definitions."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computational linguistics - etymological analysis of literary works\n**Level:** 2-3 (Novel linguistic methodology)\n**Rationale:** Proposes new stylometric indices based on etymology. Novel approach requiring quantitative formalization.\n\n### Formal Elements\n- Definitions: 3 (etymologic index, etymologic vector, entropy index)\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (Eq. 1-5 for etymological indices)\n\n### Proportionality\nCalculated complexity: 6 (3x2 + 0)\nExpected range (Level 2-3): 0-40\nRatio: 0.15x upper bound\n\n**Assessment:** Proportionate - equations define novel metrics necessary for quantitative analysis.\n\n### Necessity Test\n- Eq. 1 (Ie basic etymologic index): Necessary - enables quantitative comparison across works\n- Eq. 2 (word count by etymology): Necessary - operational definition\n- Eq. 3 (word-level index): Necessary - alternative metric\n- Eq. 4 (weighted index): Necessary - normalized metric\n- Eq. 5 (entropy index): Necessary - information-theoretic measure\n\n**Verdict:** All formal elements pass Necessity Test. Equations could NOT be replaced with plain English while maintaining precision.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nReasonable self-citation pattern. References prior work by same authors [1-5] on related segmentation methods. Total 19 references with broad coverage of computational linguistics, literary criticism, and statistics.\n\n---\n\n## Structural Analysis\n\nClear methodology section. Results supported by statistical analysis. Limitations acknowledged implicitly (language-specific applicability). No public artifacts.\n\n---\n\n## Conclusion\n\nSolid computational linguistics paper introducing novel etymological stylometric indices. Formalism is appropriate for the quantitative methodology - indices enable precise comparison across literary works that plain English cannot achieve. Minor limitation is lack of public code/data."
+    },
+    {
+      "paper_id": "paper723",
+      "paper": {
+        "title": "Early Detection of Mortality in COVID-19 Patients Through Laboratory Findings with Factor Analysis and Artificial Neural Networks",
+        "authors": ["Selcuk Ogutcu", "Melih Inal", "Cantekin Celikhasi", "Ugur Yildiz", "Nurettin Ozgur Dogan", "Murat Pekdemir"],
+        "abstract": "Examines biochemical findings of COVID-19 patients. Uses Factor Analysis to identify blood parameters related to severity. Trains ANN with 7 parameters (HB, AST, BUN, LDH, pH, HCO3, LAC). Creates decision-support system for early detection of severe cases.",
+        "keywords": ["Artificial neural networks", "COVID-19", "factor analysis", "triage"],
+        "doi": null,
+        "pages": "290-302"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 90,
+        "artifact_availability": 100,
+        "intellectual_integrity": 86,
+        "composite": 89,
+        "final": 89
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "STRONG",
+        "disqualified": false,
+        "summary": "Applied ML paper with appropriate formalism. FA model (Eq. 5), ANN equations (Eq. 1-4) are standard and necessary. Public code/data on GitHub. No decorative formalism."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Applied ML for COVID-19 mortality prediction\n**Level:** 2 (Standard ML application)\n**Rationale:** Applies existing techniques (Factor Analysis, ANN) to medical domain.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (RSSE, sigmoid, weight update, FA model)\n\n### Proportionality\nCalculated complexity: 5\nExpected range (Level 2): 0-15\nRatio: 0.33x upper bound\n\n**Assessment:** Proportionate - standard ML equations.\n\n### Necessity Test\n- Eq. 1 (RSSE): Necessary - standard error metric\n- Eq. 2 (neuron output): Necessary - defines ANN computation\n- Eq. 3 (sigmoid function): Necessary - activation function\n- Eq. 4 (gradient descent): Necessary - training algorithm\n- Eq. 5 (FA model): Necessary - statistical model specification\n\n**Verdict:** All equations are standard ML/statistics formulations that enable reproducibility.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n25 references covering COVID-19 clinical literature and ML methods. Low self-citation ratio. Appropriate coverage of prior work.\n\n---\n\n## Structural Analysis\n\nClear methodology with algorithm pseudocode. Ethics approval obtained. Results validated with training/test split. **Public repository available at GitHub** - excellent reproducibility.\n\n---\n\n## Conclusion\n\nWell-executed applied ML study with appropriate formalism. All equations are standard and necessary for methodology description. Outstanding artifact availability with public code and dataset."
+    },
+    {
+      "paper_id": "paper724",
+      "paper": {
+        "title": "State Estimation of Permanent Magnet Synchronous Motor Dynamics Using Higher-order Continuous-Discrete Filtering Equations",
+        "authors": ["Ravish H. Hirpara"],
+        "abstract": "Derives filtering equations for PMSM dynamics using higher-order continuous-discrete filter. Process noise in continuous state dynamics coupled with discrete measurement equation. Compares with Extended Kalman Filter.",
+        "keywords": ["Continuous-discrete filtering equations", "non-linear filtering", "PMSM dynamics", "stochastic differential equations", "stochastic systems"],
+        "doi": null,
+        "pages": "303-321"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 0,
+        "intellectual_integrity": 85,
+        "composite": 64,
+        "final": 64
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Control theory paper with extensive but appropriate formalism. Stochastic filtering equations (Eq. 1-52) are necessary for the theoretical contribution. Heavy formalism expected for Level 4 control theory."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Non-linear stochastic filtering for motor control\n**Level:** 4 (High - theoretical control systems)\n**Rationale:** Derives novel higher-order filtering equations for stochastic differential equations. Theoretical contribution requiring formal proofs.\n\n### Formal Elements\n- Definitions: 2 (filtering model, conditional expectation)\n- Theorems: 0 (implicit in derivations)\n- Proofs: Derivations throughout\n- Equations: 52 (state equations, filtering equations, EKF comparison)\n\n### Proportionality\nCalculated complexity: ~60\nExpected range (Level 4): 30-80\nRatio: 0.75x upper bound\n\n**Assessment:** Proportionate - heavy formalism is EXPECTED and NECESSARY for control theory.\n\n### Necessity Test\n- State equations (Eq. 1-2): Necessary - defines the filtering problem\n- Mean/variance evolution (Eq. 3-6): Necessary - core theoretical contribution\n- PMSM equations (Eq. 7-14): Necessary - application of theory\n- Higher-order filtering (Eq. 17-30): Necessary - main contribution\n- EKF equations (Eq. 33-52): Necessary - baseline comparison\n\n**Verdict:** All formalism is mathematically necessary. Removing equations would make the contribution impossible to understand or implement.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n25 references. Appropriate coverage of Kalman filtering, stochastic systems, and PMSM control literature.\n\n---\n\n## Structural Analysis\n\nClear theoretical derivation followed by numerical simulation. Comparisons with EKF establish utility. No public code but simulations are reproducible from equations.\n\n---\n\n## Conclusion\n\nTheoretical control systems paper with appropriate heavy formalism. Level 4 complexity justifies extensive mathematical treatment. All equations are necessary for the filtering derivation and comparison. Main limitation is lack of code artifacts."
+    },
+    {
+      "paper_id": "paper725",
+      "paper": {
+        "title": "UV Effect on the Dielectric Properties of Al2O3/TiO2 Doped PVC",
+        "authors": ["Lakhdar Madani", "Kamel Salim Belkhir", "Abdelkrim Zebar", "Saad Belkhiat"],
+        "abstract": "Studies UV radiation aging effects on Al2O3/TiO2 doped PVC films. Measures dielectric properties using impedance analyzer. FTIR and SEM characterization. Volume resistivity and breakdown voltage analyzed.",
+        "keywords": ["Al2O3/TiO2 doped PVC", "breakdown voltage", "UV ageing", "volume resistivity"],
+        "doi": null,
+        "pages": "322-337"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 0,
+        "intellectual_integrity": 85,
+        "composite": 64,
+        "final": 64
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Materials science paper with minimal, appropriate formalism. Weibull distribution (Eq. 1) and permittivity formula (Eq. 2) are standard for dielectric characterization. Empirical focus with proper experimental methodology."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Materials science - dielectric properties of polymer composites\n**Level:** 2-3 (Empirical materials characterization)\n**Rationale:** Experimental study of material properties. Standard characterization methodology.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (Weibull distribution, permittivity formula)\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2-3): 0-40\nRatio: 0.05x upper bound\n\n**Assessment:** Proportionate - minimal formalism appropriate for empirical study.\n\n### Necessity Test\n- Eq. 1 (Weibull): Necessary - standard for breakdown voltage analysis\n- Eq. 2 (permittivity): Necessary - standard materials science formula\n\n**Verdict:** Both equations are standard materials science formulations.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n46 references. Extensive coverage of polymer nanocomposites, dielectric properties, and UV aging literature. No concerning patterns.\n\n---\n\n## Structural Analysis\n\nClear experimental methodology. Results presented with tables and figures. FTIR and SEM characterization. Limitations acknowledged.\n\n---\n\n## Conclusion\n\nSolid empirical materials science paper. Minimal formalism is appropriate - the contribution is experimental characterization, not theoretical modeling. Standard equations support data analysis."
+    },
+    {
+      "paper_id": "paper726",
+      "paper": {
+        "title": "An RGB-D Descriptor for Object Classification",
+        "authors": ["Erkut Arican", "Tarkan Aydin"],
+        "abstract": "Develops 3D descriptor combining Bag of Visual Words with depth information. SURF feature extraction enhanced with RGB-D depth data. Novel approach for object classification using Kinect-style 3D datasets.",
+        "keywords": ["3D descriptor", "bag of visual words", "computer vision", "depth image", "object detection", "RGB-D"],
+        "doi": null,
+        "pages": "338-349"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 30,
+        "intellectual_integrity": 81,
+        "composite": 68,
+        "final": 68
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Computer vision paper with appropriate minimal formalism. Equations (1-3) describe feature combination method. Algorithm pseudocode provided. Standard applied CV methodology."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computer vision - 3D object detection with RGB-D\n**Level:** 2 (Applied CV methodology)\n**Rationale:** Combines existing techniques (BoVW, SURF) with depth information. Incremental contribution.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (filtering, closeness function, feature vector combination)\n\n### Proportionality\nCalculated complexity: 3\nExpected range (Level 2): 0-15\nRatio: 0.2x upper bound\n\n**Assessment:** Proportionate - minimal equations describe the method.\n\n### Necessity Test\n- Eq. 1 (filtering): Necessary - defines image filtering operation\n- Eq. 2 (closeness function): Necessary - bilateral filter formulation\n- Eq. 3 (NFV combination): Necessary - core contribution defining feature combination\n\n**Verdict:** Equations are necessary to describe the methodology precisely.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n32 references. Good coverage of feature detection (SIFT, SURF, BRISK), BoVW, and RGB-D object recognition literature.\n\n---\n\n## Structural Analysis\n\nClear algorithm description with pseudocode. Experimental evaluation on RGB-D Object Dataset. Comparison with baseline methods. Uses public dataset but no code provided.\n\n---\n\n## Conclusion\n\nApplied computer vision paper with appropriate formalism. The method is clearly described with minimal but necessary equations. Standard experimental methodology with public dataset evaluation."
+    },
+    {
+      "paper_id": "paper727",
+      "paper": {
+        "title": "Test Platform and Graphical User Interface Design for Vertical Take-Off and Landing Drones",
+        "authors": ["Hakan Ucgun", "Irfan Okten", "Ugur Yuzgec", "Metin Kesler"],
+        "abstract": "Presents novel test system for pre-flight control of VTOL drones. Test platform with nested circles for yaw, pitch, roll, elevation tests. GUI for sending test commands and receiving sensor data. Wireless communication modules.",
+        "keywords": ["Drone", "flight control", "GUI", "test system", "unmanned aerial vehicle", "VTOL"],
+        "doi": null,
+        "pages": "350-367"
+      },
+      "scores": {
+        "formalism": 70,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 30,
+        "intellectual_integrity": 80,
+        "composite": 67,
+        "final": 67
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Engineering systems paper describing drone test platform. Minimal formalism - test signal equations (Eq. 1-3) are necessary for reproducibility. Focus is on hardware/software design, not theoretical contribution."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** UAV systems engineering - test platform design\n**Level:** 2 (Engineering system design)\n**Rationale:** Describes hardware test platform and GUI software. Practical engineering contribution.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (test signals x1, x2, x3)\n\n### Proportionality\nCalculated complexity: 3\nExpected range (Level 2): 0-15\nRatio: 0.2x upper bound\n\n**Assessment:** Proportionate - minimal equations define test signals.\n\n### Necessity Test\n- Eq. 1-3 (test signals): Necessary - precisely define experimental conditions for reproducibility\n\n**Verdict:** Equations are necessary to specify test conditions.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n28 references. Covers UAV control, PID tuning, test platforms, and related applications.\n\n---\n\n## Structural Analysis\n\nClear description of hardware platform with CAD drawings. GUI screenshots provided. Experimental results for pitch/roll tests. PID parameter tuning demonstrated.\n\n---\n\n## Conclusion\n\nPractical engineering paper describing drone test system. Formalism is minimal and appropriate - the contribution is the physical platform and software, not mathematical theory. Clear experimental validation."
+    },
+    {
+      "paper_id": "paper728",
+      "paper": {
+        "title": "Improvements in Data Transfer for a MapReduce Accelerator",
+        "authors": ["George-Vladut Popescu"],
+        "abstract": "Presents Data Transfer Engine module for MapReduce Accelerator in heterogeneous computing system. Separates data processing and transfer flows to reduce execution time. Custom linear algebra library for evaluation.",
+        "keywords": ["Data Transfer Engine", "heterogeneous computing", "improved data transfer", "MapReduce Accelerator"],
+        "doi": null,
+        "pages": "368-380"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 85,
+        "structural_integrity": 85,
+        "artifact_availability": 30,
+        "intellectual_integrity": 83,
+        "composite": 70,
+        "final": 70
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Computer architecture paper with appropriate formalism. Matrix operation equations (Eq. 1-2) are necessary for algorithm description. Hardware diagrams and algorithm pseudocode support the contribution."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computer architecture - heterogeneous computing accelerator\n**Level:** 3 (Hardware/software system design)\n**Rationale:** Novel Data Transfer Engine module with custom architecture.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (matrix operations Eq. 1-2)\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 3): 10-40\nRatio: 0.05x upper bound\n\n**Assessment:** Proportionate - minimal equations, focus on architecture description.\n\n### Necessity Test\n- Eq. 1 (element-wise operation): Necessary - defines matrix block operation\n- Eq. 2 (matrix multiplication): Necessary - defines matrix block multiplication\n\n**Verdict:** Equations precisely define the linear algebra operations implemented.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n11 references. Covers heterogeneous computing architectures (MIC, GPU, TPU) and prior work on MapReduce Accelerator.\n\n---\n\n## Structural Analysis\n\nClear architecture diagrams. Signal descriptions for Data Transfer Engine interface. Algorithm pseudocode for library functions. Execution flow comparison (before/after improvement).\n\n---\n\n## Conclusion\n\nComputer architecture paper with appropriate formalism. The contribution is the Data Transfer Engine module, well-described with architecture diagrams and pseudocode. Minimal equations define the target application (matrix operations)."
+    }
+  ],
+
+  "batch_notes": "Volume 25 Issues 3-4 (2022) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** All 7 papers have domain-appropriate formalism: computational linguistics with novel indices (paper722), applied ML with standard equations (paper723), control theory with necessary heavy formalism (paper724), materials science with minimal empirical formalism (paper725), computer vision with method equations (paper726), engineering system design (paper727), and computer architecture with algorithm specifications (paper728). Final: 0 CRITICAL, 0 LIMITED, 6 ADEQUATE, 1 STRONG."
+}

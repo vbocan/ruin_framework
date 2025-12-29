@@ -1,0 +1,135 @@
+{
+  "batch_id": "2021-v24-n3",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 24,
+    "issue": 3,
+    "year": 2021
+  },
+
+  "papers": [
+    {
+      "paper_id": "paper693",
+      "paper": {
+        "title": "Fuzzy Modus Ponens and Tollens based on Moving Distance in SISO Fuzzy System",
+        "authors": ["Chung-Jin Kwak", "Kwang-Chol Ri", "Son-Il Kwak", "Kum-Ju Kim", "Un-Sok Ryu", "O-Chol Kwon", "Nam-Hyok Kim"],
+        "abstract": "Proposes new fuzzy modus ponens (FMP) and fuzzy modus tollens (FMT) based on moving distance operation between antecedent and premise. Presents criterion function for checking reductive property. Compares with CRI, TIP, QIP, AARS methods through MATLAB experiments.",
+        "keywords": ["Fuzzy Reasoning", "Moving Distance", "Fuzzy Modus Ponens", "Fuzzy Modus Tollens", "Normal Fuzzy Set", "Reductive Property", "SISO Fuzzy System"],
+        "doi": null,
+        "pages": "257-283"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 40,
+        "intellectual_integrity": 84,
+        "composite": 73,
+        "final": 73
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Theoretical fuzzy logic paper proposing novel reasoning method. Heavy formalism is justified for Level 4 concept (fuzzy reasoning theory with proofs). Definitions and theorems are used in subsequent proofs. Mathematical notation serves precision requirements."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Novel fuzzy reasoning method based on moving distance for SISO fuzzy systems\n**Level:** 4 (High - Theoretical fuzzy logic with proofs)\n**Rationale:** Paper proposes new fundamental reasoning methods (FMP-MD, FMT-MD) with theoretical foundations, proofs of reductive property, and comparative analysis against established methods (CRI, TIP, QIP, AARS).\n\n### Formal Elements\n- Definitions: 7 (Definition 3.1-3.7)\n- Theorems: 2 (Theorem 3.1, 3.2)\n- Proofs: 2\n- Equations: 15+ (implication operators, criterion functions, distance formulas)\n\n### Necessity Test Applied\n\n**Definition 3.1 (Error functions E(Bl,B) and e(Al,A)):**\n- Could be said in plain English? NO - precise vector operations required\n- Would removing it change implementation? YES - fundamental to algorithm\n- Enables proofs? YES - used in Theorem 3.1\n- **VERDICT: NECESSARY**\n\n**Equations 4-8 (Implication operators: Lukasiewicz, Godel, R0, Gougen):**\n- Could be said in plain English? NO - mathematical precision required for fuzzy logic\n- Would removing it change implementation? YES - defines core operations\n- Enables proofs? YES - establishes theoretical foundation\n- **VERDICT: NECESSARY**\n\n**Equations 10-15 (Reductive Property Criterion Functions):**\n- Could be said in plain English? NO - quantitative evaluation metrics\n- Would removing it change implementation? YES - core contribution\n- Enables proofs? YES - enables comparative evaluation\n- **VERDICT: NECESSARY**\n\n**Theorem 3.1 and 3.2 (FMP-MD and FMT-MD):**\n- Could be said in plain English? NO - formal statements with conditions\n- Would removing it change implementation? YES - main theoretical contribution\n- Enables proofs? YES - proven with Proof 3.1, 3.2\n- **VERDICT: NECESSARY**\n\n### Proportionality\nCalculated complexity: 7*2 + 2*3 + 2*4 = 28\nExpected range (Level 4): 30-80\nRatio: 0.35x upper bound\n\n**Assessment:** Proportionate - formalism is below expected range but appropriate for fuzzy logic theory. All formal elements serve the theoretical development.\n\n### Issues\nNone identified. The heavy use of fuzzy set notation (membership functions, vectors, operations) is standard and necessary for fuzzy logic research.\n\n---\n\n## Citation Analysis\n\nTotal references: 45\nSelf-citations: Estimated 4-6 (refs [14], [15] and possibly others from same research group)\nSCR: ~10-13% - within normal range\n\nCitations appropriately cover: Zadeh's foundational work, Wang's TIP, CRI methods, similarity-based reasoning (AARS), and fuzzy control applications. Citation patterns appear normal.\n\n---\n\n## Structural Analysis\n\nStrong structure with clear progression:\n1. Introduction and background on fuzzy reasoning\n2. Motivation and importance of new method\n3. Definitions and theorems for proposed method\n4. MATLAB experiments comparing 17 individual methods\n5. Conclusion\n\nLimitations acknowledged implicitly (focus on SISO systems only).\nArtifacts: MATLAB code mentioned but not publicly available.\n\n---\n\n## Conclusion\n\nThis is a legitimate theoretical fuzzy logic paper. The heavy formalism is appropriate for Level 4 concept complexity. All definitions are used in subsequent theorems and proofs. The reductive property criterion functions (Equations 10-15) represent genuine contributions evaluated through experiments. No formalism theater detected - the mathematics serves precision requirements of fuzzy logic theory."
+    },
+    {
+      "paper_id": "paper694",
+      "paper": {
+        "title": "A Novel Layer By Layer Energy Efficient Watchman Algorithm for Wireless Sensor and Actor Networks",
+        "authors": ["Umar Draz", "Tariq Ali", "Sana Yasin", "Aamir Hussain", "Sarah Bukhari", "Asif Nawaz", "Amjad Ali", "Muhammad Salman Khan", "Low Tang Jung"],
+        "abstract": "Proposes E2-MBWA algorithm to reduce hotspot issue in WSANs. Introduces watchman nodes with sub-algorithms WNAA and WSNA. Compares with ETLRA on energy consumption, throughput, end-to-end delay, and network lifetime.",
+        "keywords": ["Hotspot", "Throughput", "Energy", "sensor/Actor", "Watchman Algorithm", "ETLRA", "WNAA", "WSNA"],
+        "doi": null,
+        "pages": "284-298"
+      },
+      "scores": {
+        "formalism": 25,
+        "citation_integrity": 85,
+        "structural_integrity": 70,
+        "artifact_availability": 30,
+        "intellectual_integrity": 56,
+        "composite": 50,
+        "final": 25
+      },
+      "flags": ["FORMALISM_THEATER", "UNNECESSARY_SET_THEORY", "DECORATIVE_DEFINITIONS"],
+      "flag_details": {
+        "FORMALISM_THEATER": "Level 2 concept (WSAN algorithm with layer-based deployment) includes unnecessary mathematical formalism. Equations 1-5 use summation notation and subscript notation for simple counting operations that could be expressed as 'divide total nodes by nodes per layer'.",
+        "UNNECESSARY_SET_THEORY": "Equation 3 uses summation notation with indices for what is simply 'add up nodes in all layers'. The notation (ON)_i = sum L_i(ON)_i is decorative - a programmer would write 'total_nodes = layers * nodes_per_layer'.",
+        "DECORATIVE_DEFINITIONS": "Equations 1-5 formally define layer counts and node distribution using mathematical notation when the concept is trivial: 'If you have 500 nodes in 5 layers, each layer has 100 nodes.' No proofs depend on these equations."
+      },
+      "verdict": {
+        "classification": "CRITICAL",
+        "disqualified": true,
+        "summary": "WSAN algorithm paper with unnecessary formal notation. Core concept (layer-based watchman deployment) is Level 2 complexity. Equations 1-5 use summation notation for simple division/counting. Algorithms 1-2 are pseudocode (appropriate) but the mathematical equations add no precision."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Energy-efficient algorithm for hotspot mitigation in WSANs using watchman nodes\n**Level:** 2 (Low - Standard network algorithm with layer-based deployment)\n**Rationale:** Core contribution is a deployment strategy with watchman nodes. No novel algorithmic complexity, distributed protocol proofs, or theoretical bounds. Essentially: 'deploy mobile backup nodes near sinks'.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (Equations 1-5 for node/layer calculations)\n\n### Necessity Test Applied\n\n**Equation 1 (Layer node counts):**\n```\nNo. of 1st layer = L1(ON)1\nNo. of 2nd layer = L2(ON)2\n...\nNo. of nth layer = Ln(ON)n\n```\n- Could be said in plain English? YES - 'Each layer has some number of ordinary nodes'\n- Would removing it change implementation? NO - programmer writes `layer_nodes = [100, 100, 100, 100, 100]`\n- Enables proofs? NO - no proofs in paper\n- **VERDICT: UNNECESSARY**\n\n**Equation 2 (Sum of nodes):**\n```\nNo. of nodes = L1(ON)1 + L2(ON)2 + ... + Ln(ON)n\n```\n- Could be said in plain English? YES - 'Total nodes equals sum of nodes in all layers'\n- Would removing it change implementation? NO - `total = sum(layer_nodes)`\n- Enables proofs? NO\n- **VERDICT: UNNECESSARY**\n\n**Equation 3 (Summation notation):**\n```\nsum(ON)_i = sum L_i(ON)_i\n```\n- Could be said in plain English? YES - same as Equation 2 in summation notation\n- Would removing it change implementation? NO\n- Enables proofs? NO\n- **VERDICT: UNNECESSARY - DECORATIVE**\n\n**Equation 4 (Nodes per layer):**\n```\nNo. of nodes = (TN)_n / (1 - 1-s/(TN)_n)\n```\n- Could be said in plain English? YES - 'Divide total nodes by number of layers'\n- Would removing it change implementation? NO - `nodes_per_layer = total / num_layers`\n- Enables proofs? NO\n- **VERDICT: UNNECESSARY - obfuscates simple division**\n\n**Equation 5 (Number of sinks):**\n```\nNo. of sink(NoS) = n * sqrt((TN)_n) / sum(Ln)_n\n```\n- Could be said in plain English? YES - 'One sink per layer'\n- Would removing it change implementation? NO - `num_sinks = num_layers`\n- Enables proofs? NO\n- **VERDICT: UNNECESSARY**\n\n### Proportionality\nCalculated complexity: 0*2 + 0*3 + 0*4 = 0 (no definitions/theorems/proofs)\nEquations present: 5 decorative\nExpected range (Level 2): 0-15\nFormalism complexity: While numerically low, the equations present FAIL the Necessity Test\n\n**Assessment:** DISPROPORTIONATE - Not by quantity but by necessity. A Level 2 paper should have ZERO unnecessary formalism. These equations dress up `500/5 = 100` in mathematical notation.\n\n### Issues\n\n1. **Equation 3 is academic cosplay:** The summation `sum(ON)_i = sum L_i(ON)_i` adds nothing a programmer couldn't express as `total = 0; for layer in layers: total += layer.nodes`\n\n2. **Equation 4 is obfuscated division:** The formula `(TN)_n / (1 - 1-s/(TN)_n)` for `500/100 = 5 layers` is unnecessarily complex notation.\n\n3. **No proofs or bounds:** The paper provides no theoretical analysis of algorithm correctness, convergence, or optimality bounds that would justify any formalism.\n\n---\n\n## Citation Analysis\n\nTotal references: 30\nSelf-citations: References [19-24] appear to be self-citations to authors' previous work\nSCR: ~20% - elevated\n\nCitations cover WSN/WSAN literature appropriately. No obvious irrelevant self-citations detected.\n\n---\n\n## Structural Analysis\n\n- Algorithms 1-2 (WNAA, WSNA) are pseudocode - appropriate representation\n- Simulation environment described (NS-2, 500 nodes, 1200x600x600m)\n- Comparison with ETLRA algorithm\n- Figures show throughput, delay, energy, network lifetime comparisons\n- Limitations not explicitly discussed\n- Artifacts: NS-2 simulation files not publicly available\n\n---\n\n## Conclusion\n\nThis paper exhibits FORMALISM THEATER. The core contribution - a layer-based watchman node deployment strategy for WSAN hotspot mitigation - is valid applied research. However, Equations 1-5 add mathematical notation to trivial arithmetic (counting nodes, dividing by layers). A competent network engineer would implement this as `watchman_nodes = total_nodes / nodes_per_layer` without needing summation notation. The algorithms (WNAA, WSNA) are appropriately presented as pseudocode. Score capped at 25 due to disqualifying flags."
+    },
+    {
+      "paper_id": "paper695",
+      "paper": {
+        "title": "Debugging FPGA projects using artificial intelligence",
+        "authors": ["Alexandru Dinu", "Stefan Gheorghe", "Gabriel Mihail Danciu", "Petre Lucian Ogrutan"],
+        "abstract": "End-to-end data processing flow for debugging FPGA designs using AI. LFSR-based data generator with majority voting. UART transmission to PC. SVM and deep learning models achieve 97.6% and 99.75% accuracy as reference models for DUT behavior.",
+        "keywords": ["data mining and analysis", "FPGA", "machine learning", "deep learning", "reference model", "neural network configuration"],
+        "doi": null,
+        "pages": "299-320"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 50,
+        "intellectual_integrity": 82,
+        "composite": 74,
+        "final": 74
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Applied ML for FPGA debugging. Formalism is appropriate for Level 2-3 concept. LFSR formula (Eq. 1), loss function (Eq. 3), and neural network architecture descriptions are standard and necessary. No decorative mathematics."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Using ML/DL to create reference models for FPGA debugging\n**Level:** 2-3 (Applied ML with standard algorithms)\n**Rationale:** Applies existing ML techniques (SVM, KNN, deep neural networks) to FPGA debugging domain. Novel application but standard methodology.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (LFSR formula, data normalization, loss function)\n\n### Necessity Test Applied\n\n**Equation 1 (LFSR MSb computation):**\n```\nMSb = x12 xnor x6 xnor x4 xnor x1\n```\n- Could be said in plain English? PARTIALLY - but XOR/XNOR operations are clearer in formal notation\n- Would removing it change implementation? YES - defines LFSR polynomial\n- Enables proofs? N/A (describes hardware implementation)\n- **VERDICT: NECESSARY** - standard notation for LFSR circuits\n\n**Equation 2 (Data normalization):**\n```\ndata = data.rank(pct = True)\n```\n- Could be said in plain English? YES, but code notation is clearer\n- Would removing it change implementation? YES - specific pandas method\n- Enables proofs? NO\n- **VERDICT: APPROPRIATE** - code snippet, not decorative math\n\n**Equation 3 (Cross-entropy loss):**\n- Standard loss function for neural network classification\n- Could be said in plain English? YES but less precise\n- Would removing it change implementation? YES - fundamental to training\n- Enables proofs? NO but standard for ML papers\n- **VERDICT: NECESSARY** - standard ML methodology\n\n### Proportionality\nCalculated complexity: 0*2 + 0*3 + 0*4 = 0\nExpected range (Level 2-3): 0-40\n\n**Assessment:** Proportionate - minimal formalism, all necessary. Neural network architectures described via tables and figures (appropriate).\n\n### Issues\nNone identified. The paper uses formalism appropriately:\n- LFSR polynomial is standard notation\n- ML algorithms described by name (SVM, KNN, etc.) not reinvented\n- Neural network layers shown in diagrams\n- Loss function is standard cross-entropy\n\n---\n\n## Citation Analysis\n\nTotal references: 28\nSelf-citations: 2 (refs [13], [24])\nSCR: ~7% - normal\n\nCitations cover: FPGA debugging methods (ChipScope, ILA), ML libraries (scikit-learn), deep learning (standard references). Appropriate coverage.\n\n---\n\n## Structural Analysis\n\n- Clear pipeline: Data Generation -> Preprocessing -> Analysis -> ML Training -> Debugging\n- Experimental setup well-documented (Spartan 3E, PuTTY, baud rate issues)\n- Multiple classifiers compared (KNN, SVM, Random Forests, Naive Bayes, Logistic Regression)\n- Deep learning with 18 network configurations tested\n- Best results: SVM 97.6%, Neural Network 99.75%\n- Limitations: Implicitly acknowledged (need for data shuffling, transmission errors)\n- Artifacts: Pylon SDK, OpenCV mentioned; code not publicly available\n\n---\n\n## Conclusion\n\nSolid applied ML paper for FPGA debugging. The formalism is minimal and appropriate - LFSR polynomial, loss function, and normalization are standard. The paper's strength is in systematic comparison of ML approaches and practical implementation on real FPGA hardware. No formalism theater detected."
+    },
+    {
+      "paper_id": "paper696",
+      "paper": {
+        "title": "Computer Vision Algorithm for Detecting Resistor Color Codes",
+        "authors": ["Nichita-Maria Serban", "Radu Hobincu"],
+        "abstract": "Computer vision pipeline for detecting resistor color bands. Preprocessing with white balancing and bilateral filtering. K-means clustering for body color detection. Color matching for band identification. 81.8% band segmentation, 91.8% color identification accuracy.",
+        "keywords": ["computer vision", "opencv", "color codes", "automation"],
+        "doi": null,
+        "pages": "321-333"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 40,
+        "intellectual_integrity": 82,
+        "composite": 72,
+        "final": 72
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Applied computer vision paper. Equations 1-3 describe image processing operations (histogram analysis, contrast enhancement) that are necessary for reproducibility. No decorative formalism - all equations describe implemented algorithms."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computer vision pipeline for resistor color code detection\n**Level:** 2 (Applied CV with standard techniques)\n**Rationale:** Applies existing CV techniques (white balancing, k-means, contour detection) to resistor recognition. Standard OpenCV pipeline.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (histogram analysis, contrast transformation, linear transformation)\n\n### Necessity Test Applied\n\n**Equation 1 (Histogram peak finding):**\n```\nHIST = set of (value, size_value)\nPEAK = (value_max, size_value_max)\nH = value_h where value_h = max(value_k) and size_value_h <= 0.5 * size_value_max\n```\n- Could be said in plain English? PARTIALLY - but precise thresholding requires this\n- Would removing it change implementation? YES - defines histogram analysis\n- Enables proofs? NO but enables reproducibility\n- **VERDICT: NECESSARY** - algorithmic specification\n\n**Equation 2 (Minimum threshold):**\n```\nL = value_l where value_l = min(value_k) and size_value_l >= threshold\n```\n- Could be said in plain English? YES but less precise\n- Would removing it change implementation? YES\n- Enables proofs? NO\n- **VERDICT: NECESSARY** - part of algorithm\n\n**Equation 3 (Linear transformation for contrast):**\n```\nB = -L\nC = 255 / (H - L)\nPo = (Pi + B) * C\n```\n- Could be said in plain English? YES but equations are clearer\n- Would removing it change implementation? YES - core processing step\n- Enables proofs? NO\n- **VERDICT: NECESSARY** - image processing formula\n\n### Proportionality\nCalculated complexity: 0*2 + 0*3 + 0*4 = 0\nExpected range (Level 2): 0-15\n\n**Assessment:** Proportionate - equations describe actual algorithm steps, not decorative.\n\n### Issues\nNone identified. The equations serve practical purposes:\n- Histogram analysis for adaptive thresholding\n- Contrast enhancement for varying light conditions\n- All correspond to implemented code (OpenCV functions)\n\n---\n\n## Citation Analysis\n\nTotal references: 15\nSelf-citations: 0\nSCR: 0% - excellent\n\nCitations cover: Vehicle detection, face recognition, defect detection, prior resistor detection work ([8], [9], [10]). Appropriate coverage for applied CV paper.\n\n---\n\n## Structural Analysis\n\n- Pipeline clearly described: Preprocessing -> Segmentation -> Band Detection -> Color Matching\n- Experimental setup documented (Basler camera, 4608x3288 pixels, 70cm height)\n- Table 1: Color codes reference table\n- Table 4: Testing results (100% resistor segmentation, 81.8% band, 91.8% color)\n- Limitations acknowledged: light reflection, hue differences between manufacturers\n- Future work: CNN for band recognition\n- Artifacts: Not publicly available\n\n---\n\n## Conclusion\n\nCompetent applied computer vision paper. Equations 1-3 describe histogram analysis and contrast enhancement algorithms that are directly implemented. The formalism serves reproducibility rather than decoration. Paper appropriately acknowledges limitations (light conditions, manufacturer color variations) and proposes CNN as future improvement. No formalism theater detected."
+    }
+  ],
+
+  "batch_notes": "Volume 24 Issue 3 (2021) analyzed with RUIN Framework v2.0 and Necessity Test. **1 paper flagged for formalism theater:** paper694 (Watchman Algorithm) uses summation notation for simple node counting. **3 papers pass with appropriate formalism:** paper693 (fuzzy logic theory - heavy formalism justified), paper695 (FPGA/ML - minimal appropriate formalism), paper696 (computer vision - algorithmic formalism). Final: 1 CRITICAL, 0 LIMITED, 3 ADEQUATE, 0 STRONG."
+}

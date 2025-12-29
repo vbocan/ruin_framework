@@ -1,0 +1,105 @@
+{
+  "batch_id": "2020-v23-n4",
+  "analysis_timestamp": "2025-12-29T12:00:00Z",
+  "analysis_version": "2.0",
+
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 23,
+    "issue": 4,
+    "year": 2020
+  },
+
+  "papers": [
+    {
+      "paper_id": "braic2020",
+      "paper": {
+        "title": "Ascertaining the root-cause of discrepancies between simulations and measurements for a SC DC-DC converter",
+        "authors": ["Nicolae Adrian Braic", "Cristian Raducan", "Marius Neag", "Marina Topa", "Vlad Ionescu"],
+        "abstract": "Methodology for identifying root causes of simulation-measurement discrepancies in integrated circuits. Uses Verilog-A behavioral models of functional blocks to assess sensitivity to block-level non-idealities, parasitic components, and modeling inaccuracies. Deployed on switched-capacitor DC-DC converter with output voltage ripple discrepancy.",
+        "keywords": ["Microelectronics", "verification methodology", "analog and mixed-signal IC", "root-cause identification", "Verilog-A model", "switched capacitor DC-DC converter", "voltage output ripple"],
+        "doi": null,
+        "pages": "333-353"
+      },
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 85,
+        "artifact_availability": 30,
+        "intellectual_integrity": 86,
+        "composite": 72,
+        "final": 72
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "IC design methodology paper with appropriate formalism. Behavioral model equations (Eq. 1-4) are necessary for Verilog-A implementation and cannot be replaced with English. Level 3 concept with proportionate formalism (0.2x upper bound)."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** IC design methodology for debugging simulation-measurement discrepancies using behavioral models\n**Level:** 3 (Medium)\n**Rationale:** Novel verification methodology involving Verilog-A behavioral modeling, parametric sensitivity analysis, and systematic root-cause identification. Requires understanding of analog IC design and behavioral modeling.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (behavioral model equations)\n\n### Proportionality\nCalculated complexity: 8 (4 equations x 2)\nExpected range (Level 3): 0-40\nRatio: 0.2x upper bound\n\n**Assessment:** Proportionate - equations define exact mathematical relationships for Verilog-A behavioral models. Each equation is implementation-critical.\n\n### Necessity Test Applied\n- **Eq. 1 (OTA output current):** Defines nonlinear saturation behavior. Cannot be English - needed for simulator implementation.\n- **Eq. 2 (Vx function):** Implements smooth saturation transitions. Mathematical precision required for convergence.\n- **Eq. 3 (Power mirror current):** Defines mirror behavior at saturation boundary. Implementation-necessary.\n- **Eq. 4 (Switch resistance):** Continuous ON/OFF transition for convergence. Cannot be approximated in English.\n\n**Verdict:** All formalism is NECESSARY. Equations would be copied directly into Verilog-A code.\n\n### Issues\nNone identified. Well-structured methodology paper with domain-appropriate formalism.\n\n---\n\n## Citation Analysis\n\n15 references. No excessive self-citation detected. References cover relevant prior work in IC verification methodology, behavioral modeling, and DC-DC converter design.\n\n---\n\n## Structural Analysis\n\nClear methodology flow chart (Figure 1). Real-case deployment with detailed results (Figures 3-10). Table 1 provides quantitative simulation time comparison. No explicit limitations section, but discusses practical constraints (simulation time, convergence issues). No public code repository - typical for industry collaboration (Infineon).\n\n---\n\n## Conclusion\n\nStrong methodology paper with genuine contribution to IC verification practice. Formalism serves implementation purposes - equations are not decorative but define behavioral models that would be directly coded in Verilog-A. The 5-58x simulation speedup claim is well-documented. Classification: ADEQUATE."
+    },
+    {
+      "paper_id": "kataria2020",
+      "paper": {
+        "title": "Data Prediction of Electromagnetic Head Tracking using Self Healing Neural Model for Head-Mounted Display",
+        "authors": ["Aman Kataria", "Smarajit Ghosh", "Vinod Karar"],
+        "abstract": "Self-Healing Neural Model (SHNM) applied to predict missing 6-DoF head tracking data from Polhemus magnetic tracker. Missing data caused by ferromagnetic interference in cockpit environment. SHNM achieves >85% accuracy for recovering 10-35% missing data, outperforming BPNN by ~8%.",
+        "keywords": ["Head Tracking", "Neural Network", "Self Healing", "Recovery", "Avionics"],
+        "doi": null,
+        "pages": "354-367"
+      },
+      "scores": {
+        "formalism": 75,
+        "citation_integrity": 90,
+        "structural_integrity": 80,
+        "artifact_availability": 20,
+        "intellectual_integrity": 81,
+        "composite": 66,
+        "final": 66
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Applied ML paper using existing SHNM technique for new domain (head tracking). Minimal formalism - single equation from prior work [25]. Level 2 concept with proportionate formalism (0.13x upper bound)."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Applying existing Self-Healing Neural Model to predict missing magnetic head tracking data\n**Level:** 2 (Low)\n**Rationale:** Applies existing neural network technique (SHNM from [25]) to new application domain. No novel algorithm development. Core contribution is demonstrating SHNM works for 6-DoF data recovery.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (self-healing function from [25])\n\n### Proportionality\nCalculated complexity: 2 (1 equation x 2)\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Proportionate - minimal formalism appropriate for applied ML work. Equation is cited from prior work, not developed in this paper.\n\n### Necessity Test Applied\n- **Eq. 1 (Self-healing function SH):** Directly cited from Sharma et al. [25]. Paper explicitly states: \"The working of internal model of SHNM and further explanation can be obtained from [25].\" This is appropriate attribution, not formalism theater.\n\n**Verdict:** Formalism is MINIMAL and appropriately attributed. No unnecessary formal apparatus.\n\n### Issues\nNone identified. Paper honestly presents itself as application of existing technique.\n\n---\n\n## Citation Analysis\n\n30 references. Self-citations: Reference [25] is the SHNM source paper - appropriate and necessary. SCR ~3%, well within normal range. References cover relevant prior work in head tracking, neural networks, and HMD applications.\n\n---\n\n## Structural Analysis\n\nClear experimental setup (Figure 1). Comparison with BPNN baseline (Table 3). Accuracy graphs for all 6-DoF parameters (Figures 3-8). \"Open Issues\" section acknowledges limitations: untested on optical/inertial tracking, hybrid tracking unknown. Dataset described (5200 samples) but not publicly available.\n\n---\n\n## Conclusion\n\nStraightforward applied ML paper with appropriate minimal formalism. Core contribution is empirical: demonstrating SHNM improves head tracking data recovery by ~8% over BPNN. Honest about limitations and scope. Classification: ADEQUATE."
+    },
+    {
+      "paper_id": "marinescu2020",
+      "paper": {
+        "title": "Electrochemical sensors with interdigitated electrodes for counting T-cells",
+        "authors": ["Maria-Roxana Marinescu", "Marioara Avram", "Corneliu Voitincu", "Mihaela Savin", "Carmen Mihailescu", "Liviu-Daniel Ghiculescu"],
+        "abstract": "Electrochemical sensor with interdigitated gold electrodes for counting T-cells (CD3+, CD4+, CD8+) from blood. Fabricated using photolithography on silicon wafer with Ti/Au electrodes, Ag/AgCl reference. Electrochemical impedance spectroscopy for detection. Antibody functionalization with mixed SAMs, Protein G, and anti-CD antibodies.",
+        "keywords": ["Electrochemical sensors", "interdigitated electrodes", "impedance", "T-cells"],
+        "doi": null,
+        "pages": "368-378"
+      },
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 85,
+        "structural_integrity": 75,
+        "artifact_availability": 40,
+        "intellectual_integrity": 80,
+        "composite": 70,
+        "final": 65
+      },
+      "flags": ["NO_LIMITATIONS"],
+      "flag_details": {
+        "NO_LIMITATIONS": "No explicit limitations section. Paper ends with conclusions about potential applications without acknowledging validation/calibration requirements except brief mention of 'rigorous validation and calibration' as future work."
+      },
+      "verdict": {
+        "classification": "ADEQUATE",
+        "disqualified": false,
+        "summary": "Biosensor fabrication paper with minimal, appropriate formalism. Standard chemistry equation (Eq. 1) and coverage formula are domain-necessary. Level 2 concept with proportionate formalism (0.27x upper bound). Minor penalty for missing limitations section."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fabrication and characterization of electrochemical biosensor for T-cell detection\n**Level:** 2 (Low)\n**Rationale:** Applied sensor fabrication using standard photolithography and electrochemistry techniques. No novel algorithm or theoretical contribution. Core work is device fabrication and impedance characterization.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (chemical reaction, coverage formula)\n\n### Proportionality\nCalculated complexity: 4 (2 equations x 2)\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Proportionate - minimal formalism using standard chemistry and electrochemistry notation.\n\n### Necessity Test Applied\n- **Eq. 1 (Ag + FeCl3 -> AgCl + FeCl2):** Standard chemical reaction equation for silver chlorination. Cannot be expressed in English without losing chemical precision. Necessary for materials science context.\n- **Coverage formula (theta):** Standard electrochemistry ratio for impedance analysis. Necessary for interpreting Nyquist plots. Would be used directly by researchers replicating work.\n\n**Verdict:** Formalism is MINIMAL and NECESSARY. Standard notation for chemistry and electrochemistry.\n\n### Issues\nNone identified for formalism. Paper appropriately uses domain-standard notation.\n\n---\n\n## Citation Analysis\n\n21 references. Potential self-citations: [2], [17], [18] appear to be from IMT-Bucharest group based on author overlap. SCR ~14%, within normal range (<=15%). References cover relevant prior work in electrochemical sensors, impedance spectroscopy, and T-cell detection.\n\n---\n\n## Structural Analysis\n\nClear fabrication process (Figure 2). Optical microscope images of each deposition step (Figures 3-6). Nyquist plots for antibody verification (Figures 7-9). Missing explicit limitations section - conclusions mention 'rigorous validation and calibration' needed but no dedicated discussion. Physical device described but no public dataset or analysis code.\n\n---\n\n## Conclusion\n\nCompetent biosensor fabrication paper with domain-appropriate formalism. Main weakness is lack of explicit limitations section - paper would benefit from discussing detection limits, interference effects, and validation requirements. Classification: ADEQUATE with minor structural penalty."
+    }
+  ],
+
+  "batch_notes": "Volume 23 Issue 4 (2020) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** All 3 papers have domain-appropriate formalism: IC verification methodology (Level 3), applied ML for head tracking (Level 2), biosensor fabrication (Level 2). Formalism in all papers passes Necessity Test - equations serve implementation or domain-standard purposes. Final: 0 CRITICAL, 0 LIMITED, 3 ADEQUATE, 0 STRONG."
+}
