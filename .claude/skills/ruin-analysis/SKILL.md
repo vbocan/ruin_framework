@@ -1,7 +1,7 @@
 ---
 name: ruin-analysis
 description: Analyzes academic papers using the RUIN framework. Evaluates formalism proportionality, citation integrity, structural quality, and artifact availability. Use when reviewing papers, detecting formalism theater, assessing citation manipulation, or generating quality reports.
-allowed-tools: Read, Write, Bash(docker:*), Glob, Grep
+allowed-tools: Read, Write, Bash(docker:*), Bash(pdftotext:*), Glob, Grep
 ---
 
 # RUIN Framework Analysis
@@ -33,6 +33,15 @@ Check for `source.json` in the input folder:
 
 ### Step 2: For Each PDF
 
+**Reading PDFs:**
+- First, attempt to read the PDF using the Read tool
+- If the Read tool fails with "PDF too large", fall back to text extraction:
+  ```bash
+  pdftotext "path/to/file.pdf" -
+  ```
+- Text-only extraction loses images/figures but captures all text content
+
+**Analysis steps:**
 1. **Extract metadata** - title, authors, abstract, keywords, DOI, pages
 2. **Parse structure** - sections, references, formal elements
 3. **Assess formalism** - count definitions, theorems, proofs; classify concept complexity
