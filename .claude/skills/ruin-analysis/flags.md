@@ -1,5 +1,29 @@
 # Flags Reference
 
+## Technical/Processing Flags
+
+These flags indicate processing issues rather than quality assessments.
+
+### PDF_CORRUPTED
+
+**Condition:** PDF file cannot be read or parsed
+
+**Detection:** Technical failure during PDF extraction - file unreadable, encrypted, or malformed.
+
+**Impact:** Paper cannot be analyzed; excluded from scoring.
+
+---
+
+### EDITORIAL
+
+**Condition:** Content is an editorial, not a research paper
+
+**Detection:** Document identified as editorial, letter to editor, foreword, or similar non-research content.
+
+**Impact:** Paper excluded from analysis - RUIN framework is designed for research papers.
+
+---
+
 ## The Necessity Test
 
 **Before evaluating any flag, apply this test to each formal element:**
@@ -142,6 +166,26 @@ CER = evidence_sentences / claim_sentences
 ---
 
 ## Medium Severity Flags (-5 points)
+
+### ELEVATED_FORMALISM
+
+**Condition:** Level 3+ paper with formalism complexity > expected upper bound but ≤ 2× expected upper bound
+
+**Calculation:**
+```
+formalism_score = definitions × 2 + theorems × 3 + proofs × 4
+
+Expected upper bounds by level:
+- Level 3: 40
+- Level 4: 80
+- Level 5: 150
+
+Trigger: upper_bound < formalism_score ≤ 2 × upper_bound
+```
+
+**Note:** Does not apply to Level 1-2 papers. Those are handled by FORMALISM_THEATER which disqualifies on ANY unnecessary formalism.
+
+**Rationale:** Formalism is higher than expected but not severe enough to be disqualifying. Warrants scrutiny but may be justifiable for complex topics.
 
 ### NO_LIMITATIONS
 

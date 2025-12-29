@@ -170,6 +170,13 @@ The new rule is: "Level ≤2 AND (Formalism >15 OR unnecessary_formal_elements >
 
 ## Red Flags
 
+### Technical/Processing (excluded from analysis)
+
+| Flag | Condition |
+|------|-----------|
+| `PDF_CORRUPTED` | PDF file unreadable or malformed |
+| `EDITORIAL` | Content is editorial, not research paper |
+
 ### Disqualifying (cap score at 25)
 
 | Flag | Condition |
@@ -189,6 +196,14 @@ The new rule is: "Level ≤2 AND (Formalism >15 OR unnecessary_formal_elements >
 | `THEOREMLESS_FORMALISM` | Many definitions, zero theorems |
 | `EXCESSIVE_SELF_CITATION` | SCR >30% |
 | `UNSUPPORTED_CLAIMS` | CER <0.33 |
+
+### Medium Severity (-5 points)
+
+| Flag | Condition |
+|------|-----------|
+| `ELEVATED_FORMALISM` | Level 3+ with formalism 1×-2× upper bound |
+| `NO_LIMITATIONS` | No limitations acknowledged |
+| `ELEVATED_SELF_CITATION` | SCR 20-30% |
 
 See [flags.md](flags.md) for complete list.
 
