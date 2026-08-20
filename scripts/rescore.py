@@ -40,12 +40,33 @@ TOLERANCE = 0.01
 
 #: Titles matching this pattern describe non-research content. An assessor that
 #: recognises an editorial in prose but forgets to raise the EDITORIAL flag
-#: leaves it scored as a research paper -- three such records were found in the
+#: leaves it scored as a research paper -- four such records were found in the
 #: published corpus, two of them scored 100 across every component. The check
 #: below catches that omission rather than trusting the flag alone.
+#:
+#: "Special section introduction" and its variants are included because a guest
+#: editor's introduction to a themed section is editorial matter that rarely
+#: carries the word "editorial" in its title.
 NON_RESEARCH_TITLE = re.compile(
-    r"\b(editorial|preface|foreword|in memoriam|obituary|guest editor)", re.I
+    r"\b(editorial|preface|foreword|in memoriam|obituary|guest editor"
+    r"|(?:special\s+(?:section|issue)\s+)?introduction\b)",
+    re.I,
 )
+
+
+def suspiciously_short(paper: dict) -> bool:
+    """True when a record spans two pages or fewer.
+
+    Research papers in this corpus run to at least several pages. A one- or
+    two-page record is usually front matter, and is worth surfacing even when
+    its title looks ordinary.
+    """
+    pages = ((paper.get("paper", {}) or {}).get("pages") or "").strip()
+    m = re.match(r"^\s*(\d+)\s*[-–]\s*(\d+)\s*$", pages)
+    if not m:
+        return False
+    start, end = int(m.group(1)), int(m.group(2))
+    return 0 <= end - start <= 1
 
 
 def suspect_non_research(paper: dict) -> bool:
@@ -164,6 +185,11 @@ def main() -> int:
                 issues.append(
                     "title reads as non-research but the EDITORIAL flag is "
                     "absent; record is being scored as a research paper"
+                )
+            elif rs.is_research(paper.get("flags", []) or []) and suspiciously_short(paper):
+                issues.append(
+                    "record spans two pages or fewer; check whether it is front "
+                    "matter rather than a research paper"
                 )
             if issues:
                 changed_papers += 1
