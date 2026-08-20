@@ -1,5 +1,32 @@
 # Scoring Reference
 
+## Judged Fields and Derived Fields
+
+An assessment produces two kinds of field, and the distinction is load-bearing.
+
+**Judged fields** require reading the paper: the four component scores
+(formalism, citation integrity, structural integrity, artifact availability),
+the flags raised, and the provenance narrative. An assessor — whether a
+language model or a person — supplies these.
+
+**Derived fields** are arithmetic consequences of the judged fields:
+`intellectual_integrity`, `composite`, `final`, the disqualification decision,
+and the classification band. An assessor **must not** author these. They are
+computed by `scripts/ruin_scoring.py`, the sole authority for the rules below.
+
+The separation exists because a language model performs arithmetic unreliably.
+Earlier revisions of this pipeline let the assessor report derived fields
+directly, and the published corpus drifted from this specification: weighted
+sums were mis-added, the disqualification cap was applied to some flagged
+papers but not others, and classification bands were occasionally inconsistent
+with the scores beside them. Computing derived fields in code removes that
+class of error by construction.
+
+Run `python scripts/rescore.py --check` to verify that a corpus obeys this
+specification, and `--write` to re-derive it where it does not.
+
+---
+
 ## Pre-Scoring: The Necessity Test
 
 **Before calculating ANY score, evaluate formalism necessity.**
@@ -12,7 +39,11 @@ For each formal element (definition, theorem, equation):
 | Would removing it change the implementation? | Necessary | Unnecessary |
 | Does it enable proofs/bounds? | Necessary | Unnecessary |
 
-**If ANY unnecessary formal element exists in a Level 1-2 paper → Flag and cap at 25.**
+**If ANY unnecessary formal element exists in a Level 1-2 paper → Flag and cap at 24.**
+
+The cap is 24 rather than 25 so that a disqualified paper lands inside the
+CRITICAL band (0-24). A cap of 25 would place it in CONCERNING, contradicting
+the intent that disqualification and CRITICAL classification coincide.
 
 ---
 
@@ -162,10 +193,27 @@ composite = 0.75 × intellectual_integrity +
 
 # CRITICAL: Apply flags AFTER composite calculation
 if any_disqualifying_flag:
-    final = min(composite, 25)
+    final = min(composite, 24)
 else:
     final = composite - high_severity_penalties - medium_severity_penalties
+
+final = clamp(final, 0, 100)
 ```
+
+Disqualifying flags: `FORMALISM_THEATER`, `UNNECESSARY_SET_THEORY`,
+`DECORATIVE_DEFINITIONS`, `DISPROPORTIONATE_FORMALISM`,
+`IRRELEVANT_SELF_CITATION`, `CITATION_RING_INDICATOR`,
+`EXCESSIVE_SELF_CITATION`.
+
+High severity (-15 each): `ORPHAN_DEFINITIONS`, `THEOREMLESS_FORMALISM`,
+`UNSUPPORTED_CLAIMS`.
+
+Medium severity (-5 each): `ELEVATED_FORMALISM`, `NO_LIMITATIONS`,
+`ELEVATED_SELF_CITATION`.
+
+The classification band is read from the final score at full precision: a
+composite of 79.75 classifies as ADEQUATE, not STRONG. Scores are not rounded
+before banding.
 
 ---
 
@@ -201,7 +249,11 @@ For each paper:
 
 ---
 
-## Example: Paper 708 Re-scored
+## Example: A Level 1 Paper Re-scored
+
+The case below is drawn from a published paper in the validation corpus,
+described structurally and without identifying it. What matters for the
+framework is the pattern, not the paper.
 
 **Concept Level:** 1 (mobile app calling APIs)
 
@@ -220,7 +272,7 @@ For each paper:
 - `FORMALISM_THEATER` (Level 1 + unnecessary formalism)
 - `UNNECESSARY_SET_THEORY` (set ops for arrays)
 
-**Score:** Capped at 25
+**Score:** Capped at 24
 
 **Classification:** CRITICAL
 

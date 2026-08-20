@@ -36,7 +36,10 @@ These flags indicate processing issues rather than quality assessments.
 
 ## Disqualifying Flags
 
-These cap the final score at 25 (CRITICAL classification).
+These cap the final score at 24 (CRITICAL classification). The cap is 24 rather
+than 25 so that a disqualified paper lands inside the CRITICAL band (0-24); a
+cap of 25 would place it in CONCERNING, contradicting the intent that
+disqualification and CRITICAL classification coincide.
 
 ### FORMALISM_THEATER
 
@@ -112,6 +115,18 @@ Trigger: formalism_score > 2 × upper_bound
 
 **Rationale:** Citing your own unrelated work is citation padding.
 
+### EXCESSIVE_SELF_CITATION
+
+**Condition:** Self-Citation Ratio (SCR) > 30%
+
+```
+SCR = self_citations / total_citations
+```
+
+**Rationale:** A self-citation ratio above 30% inflates personal metrics at the
+expense of the paper's intellectual content. Distinguish from
+`ELEVATED_SELF_CITATION` (20-30%), which is a medium-severity warning.
+
 ### CITATION_RING_INDICATOR
 
 **Condition:** Mutual citation pattern on unrelated topics
@@ -144,14 +159,6 @@ DUR = definitions_referenced_later / total_definitions
 **Condition:** Definitions > 5 AND theorems = 0
 
 **Rationale:** Formal apparatus that produces no formal results.
-
-### EXCESSIVE_SELF_CITATION
-
-**Condition:** Self-Citation Ratio (SCR) > 30%
-
-```
-SCR = self_citations / total_citations
-```
 
 ### UNSUPPORTED_CLAIMS
 
@@ -235,9 +242,13 @@ Trigger: upper_bound < formalism_score ≤ 2 × upper_bound
 
 ## Examples
 
-### Paper 708 (LifeTags++) - SHOULD BE FLAGGED
+### A lifelogging system paper - SHOULD BE FLAGGED
 
-**What it is:** Mobile app calling Clarifai API, storing in Firebase, displaying tag clouds
+Drawn from a published paper in the validation corpus, described structurally
+and without identifying it. What matters is the pattern, not the paper.
+
+**What it is:** Mobile app calling a hosted image-recognition API, storing
+results in a hosted datastore, displaying tag clouds
 
 **Concept Level:** 1 (API integration, data display)
 
@@ -255,7 +266,7 @@ Trigger: upper_bound < formalism_score ≤ 2 × upper_bound
 - `FORMALISM_THEATER` - Level 1 with unnecessary formalism
 - `UNNECESSARY_SET_THEORY` - Set ops for list operations
 
-**Correct classification:** CRITICAL (score capped at 25)
+**Correct classification:** CRITICAL (score capped at 24)
 
 ### Paper with legitimate formalism
 
