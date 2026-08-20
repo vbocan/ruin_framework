@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -36,6 +37,23 @@ import ruin_scoring as rs  # noqa: E402
 
 
 TOLERANCE = 0.01
+
+#: Titles matching this pattern describe non-research content. An assessor that
+#: recognises an editorial in prose but forgets to raise the EDITORIAL flag
+#: leaves it scored as a research paper -- three such records were found in the
+#: published corpus, two of them scored 100 across every component. The check
+#: below catches that omission rather than trusting the flag alone.
+NON_RESEARCH_TITLE = re.compile(
+    r"\b(editorial|preface|foreword|in memoriam|obituary|guest editor)", re.I
+)
+
+
+def suspect_non_research(paper: dict) -> bool:
+    """True when a record is typed research but reads as editorial content."""
+    if not rs.is_research(paper.get("flags", []) or []):
+        return False
+    title = (paper.get("paper", {}) or {}).get("title", "") or ""
+    return bool(NON_RESEARCH_TITLE.search(title))
 
 
 def audit_paper(paper: dict) -> tuple[dict, list[str]]:
@@ -142,6 +160,11 @@ def main() -> int:
         for paper in batch.get("papers", []):
             total_papers += 1
             canonical, issues = audit_paper(paper)
+            if suspect_non_research(paper):
+                issues.append(
+                    "title reads as non-research but the EDITORIAL flag is "
+                    "absent; record is being scored as a research paper"
+                )
             if issues:
                 changed_papers += 1
                 pid = paper.get("paper_id", "?")
