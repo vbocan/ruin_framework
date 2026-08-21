@@ -59,6 +59,20 @@ re-deriving the archive under the corrected rules.
   25, omitted `EXCESSIVE_SELF_CITATION`, predated the judged/derived split, and
   linked to two files that no longer exist. It is now a true mirror.
 
+### Documentation
+- `data/README.md` documents `ruin_scores.csv`: every column, which fields are
+  judged and which derived, and the caveat that the `doi` column records only
+  the identifier printed in each PDF. It is populated for 38 rows and empty for
+  the whole 2024 volume, although Crossref holds 27 registered DOIs for that
+  year, so counting blanks gives 368 papers without an identifier where the
+  registration record gives 322. Anyone replicating the manuscript's
+  persistent-identifier figures needs Crossref, not this column.
+- The repository layout in `README.md` had not been updated since the scoring
+  scripts were added; it now lists `data/`, `ruin_scoring.py`, `rescore.py` and
+  `export_scores.py`.
+- The validation-dataset section described the archive as "415 ROMJIST research
+  papers". It is 415 records, of which 406 are research papers.
+
 ## [1.0.0] — 2025-12-29
 
 Initial public release accompanying the PeerJ Computer Science submission.

@@ -29,7 +29,14 @@ RUIN (**R**igor, **U**tility, **I**ntegrity, **N**ecessity) shifts paper assessm
 │   └── ROMJIST_29.12.2025/             # Full validation run: 415 records, of which
 │                                       #   406 research papers; 56 batches, one JSON
 │                                       #   per issue, 2010–2025
+├── data/
+│   ├── ruin_scores.csv                 # One row per research paper (406 rows)
+│   └── README.md                       #   Column dictionary, and what `doi` does not mean
 ├── scripts/
+│   ├── ruin_scoring.py                 # Canonical scoring rules — the sole authority
+│   │                                   #   for every derived field
+│   ├── rescore.py                      # Audits/repairs derived fields in the batch JSONs
+│   ├── export_scores.py                # Flattens the batch JSONs into data/ruin_scores.csv
 │   ├── aggregate.py                    # Reproduces published tables, figures, statistics
 │   └── requirements.txt
 ├── CITATION.cff
@@ -78,7 +85,9 @@ When you want to re-run RUIN against the ROMJIST corpus end-to-end — for examp
 
 ## Validation dataset
 
-`journal-analysis/ROMJIST_29.12.2025/` contains the per-batch JSON files for all 415 ROMJIST research papers published between 2010 and 2025. These files are the primary data behind the manuscript's results. Each JSON contains per-paper metadata, component scores (formalism, citation integrity, structural integrity, artifact availability, intellectual integrity, composite, final), triggered flags with evidence, classification verdict, and a complete provenance record.
+`journal-analysis/ROMJIST_29.12.2025/` contains the per-batch JSON files for all 415 ROMJIST records published between 2010 and 2025, of which 406 are research papers and nine are editorials or unreadable PDFs. These files are the primary data behind the manuscript's results. Each JSON contains per-paper metadata, component scores (formalism, citation integrity, structural integrity, artifact availability, intellectual integrity, composite, final), triggered flags with evidence, classification verdict, and a complete provenance record.
+
+For a flat, one-row-per-paper view of the same run see [`data/ruin_scores.csv`](data/README.md), whose README documents every column — including which are judged and which are derived, and why the `doi` column is not a record of DOI registration.
 
 ## Replication and contestation
 
