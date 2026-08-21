@@ -36,7 +36,19 @@ These flags indicate processing issues rather than quality assessments.
 
 ## Disqualifying Flags
 
-These cap the final score at 25 (CRITICAL classification).
+These cap the final score at 24 (CRITICAL classification). The cap is 24 rather
+than 25 so that a disqualified paper lands inside the CRITICAL band (0-24); a
+cap of 25 would place it in CONCERNING, contradicting the intent that
+disqualification and CRITICAL classification coincide.
+
+**The formalism family carries a level precondition.** `FORMALISM_THEATER`,
+`UNNECESSARY_SET_THEORY`, `DECORATIVE_DEFINITIONS` and
+`DISPROPORTIONATE_FORMALISM` cap the score only at concept Level 1-2. Above
+Level 2 such a flag is still raised and still counted, but it does not
+disqualify: the patterns below describe notation standing in for ordinary
+programming, and that judgment is only unambiguous where the conceptual
+contribution is small. At Level 4 or 5 the same notation is the subject matter.
+The three citation flags carry no such precondition and disqualify at any level.
 
 ### FORMALISM_THEATER
 
@@ -67,7 +79,12 @@ These cap the final score at 25 (CRITICAL classification).
 - `A \ B` for list difference
 - Formal set membership for array lookup
 
-**Trigger:** Automatic disqualification if concept level ≤ 3 and no mathematical proof depends on these operations.
+**Trigger:** Automatic disqualification at concept Level 1-2, and only when no
+mathematical proof depends on these operations. Earlier revisions set this
+threshold at level ≤ 3, out of step with the Level 1-2 condition
+`FORMALISM_THEATER` carries; the family now shares one precondition. No paper in
+the ROMJIST corpus is affected by the harmonisation, since the only family flag
+above Level 2 is a `FORMALISM_THEATER` at Level 3.
 
 **Rationale:** If the operation is `list1 + list2` in code, writing CT₁ ∪ CT₂ is academic cosplay.
 
@@ -112,6 +129,18 @@ Trigger: formalism_score > 2 × upper_bound
 
 **Rationale:** Citing your own unrelated work is citation padding.
 
+### EXCESSIVE_SELF_CITATION
+
+**Condition:** Self-Citation Ratio (SCR) > 30%
+
+```
+SCR = self_citations / total_citations
+```
+
+**Rationale:** A self-citation ratio above 30% inflates personal metrics at the
+expense of the paper's intellectual content. Distinguish from
+`ELEVATED_SELF_CITATION` (20-30%), which is a medium-severity warning.
+
 ### CITATION_RING_INDICATOR
 
 **Condition:** Mutual citation pattern on unrelated topics
@@ -144,14 +173,6 @@ DUR = definitions_referenced_later / total_definitions
 **Condition:** Definitions > 5 AND theorems = 0
 
 **Rationale:** Formal apparatus that produces no formal results.
-
-### EXCESSIVE_SELF_CITATION
-
-**Condition:** Self-Citation Ratio (SCR) > 30%
-
-```
-SCR = self_citations / total_citations
-```
 
 ### UNSUPPORTED_CLAIMS
 
@@ -235,9 +256,13 @@ Trigger: upper_bound < formalism_score ≤ 2 × upper_bound
 
 ## Examples
 
-### Paper 708 (LifeTags++) - SHOULD BE FLAGGED
+### A lifelogging system paper - SHOULD BE FLAGGED
 
-**What it is:** Mobile app calling Clarifai API, storing in Firebase, displaying tag clouds
+Drawn from a published paper in the validation corpus, described structurally
+and without identifying it. What matters is the pattern, not the paper.
+
+**What it is:** Mobile app calling a hosted image-recognition API, storing
+results in a hosted datastore, displaying tag clouds
 
 **Concept Level:** 1 (API integration, data display)
 
@@ -255,7 +280,7 @@ Trigger: upper_bound < formalism_score ≤ 2 × upper_bound
 - `FORMALISM_THEATER` - Level 1 with unnecessary formalism
 - `UNNECESSARY_SET_THEORY` - Set ops for list operations
 
-**Correct classification:** CRITICAL (score capped at 25)
+**Correct classification:** CRITICAL (score capped at 24)
 
 ### Paper with legitimate formalism
 

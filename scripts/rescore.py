@@ -53,6 +53,17 @@ NON_RESEARCH_TITLE = re.compile(
     re.I,
 )
 
+#: The same test applied to an abstract, minus the bare "introduction"
+#: alternative. A title reading simply "Introduction" is editorial matter; an
+#: abstract opening "Introduction of X" is a research paper introducing X. The
+#: looser pattern matched *Gandy-Paun-Rozenberg Machines* -- sixteen pages, two
+#: theorems, concept-complexity Level 5 -- on the first word of its abstract.
+NON_RESEARCH_ABSTRACT = re.compile(
+    r"\b(editorial|preface|foreword|in memoriam|obituary|guest editor"
+    r"|special\s+(?:section|issue)\s+introduction)\b",
+    re.I,
+)
+
 
 def suspiciously_short(paper: dict) -> bool:
     """True when a record spans two pages or fewer.
@@ -70,11 +81,22 @@ def suspiciously_short(paper: dict) -> bool:
 
 
 def suspect_non_research(paper: dict) -> bool:
-    """True when a record is typed research but reads as editorial content."""
+    """True when a record is typed research but reads as editorial content.
+
+    Both the title and the opening of the abstract are searched. Titles alone
+    are not enough: one editorial in the published corpus was called
+    "Perspectives in Fuzzy Logic and Fuzzy Systems", ran to four pages so the
+    short-record check did not reach it, and was scored as research for a year.
+    Its abstract opens "Editorial introducing special issue on fuzzy systems".
+    """
     if not rs.is_research(paper.get("flags", []) or []):
         return False
-    title = (paper.get("paper", {}) or {}).get("title", "") or ""
-    return bool(NON_RESEARCH_TITLE.search(title))
+    meta = paper.get("paper", {}) or {}
+    title = meta.get("title", "") or ""
+    abstract = (meta.get("abstract") or "")[:200]
+    return bool(
+        NON_RESEARCH_TITLE.search(title) or NON_RESEARCH_ABSTRACT.search(abstract)
+    )
 
 
 def audit_paper(paper: dict) -> tuple[dict, list[str]]:
@@ -111,7 +133,7 @@ def audit_paper(paper: dict) -> tuple[dict, list[str]]:
             )
         return canonical, issues
 
-    derived = rs.derive(scores, flags)
+    derived = rs.derive(scores, flags, paper.get("concept_level"))
 
     for field in rs.DERIVED_FIELDS:
         stated = scores.get(field)

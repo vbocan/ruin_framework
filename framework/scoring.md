@@ -192,7 +192,16 @@ composite = 0.75 × intellectual_integrity +
             0.25 × artifact_availability
 
 # CRITICAL: Apply flags AFTER composite calculation
-if any_disqualifying_flag:
+#
+# A formalism flag disqualifies only at concept-complexity Levels 1-2.
+# Above Level 2 it stays on the record as a raised signal and is counted in
+# the flag tables, but the cap does not apply.
+if concept_level in (1, 2):
+    capping_flags = any_disqualifying_flag
+else:
+    capping_flags = any_disqualifying_flag_outside_formalism_family
+
+if capping_flags:
     final = min(composite, 24)
 else:
     final = composite - high_severity_penalties - medium_severity_penalties
@@ -204,6 +213,25 @@ Disqualifying flags: `FORMALISM_THEATER`, `UNNECESSARY_SET_THEORY`,
 `DECORATIVE_DEFINITIONS`, `DISPROPORTIONATE_FORMALISM`,
 `IRRELEVANT_SELF_CITATION`, `CITATION_RING_INDICATOR`,
 `EXCESSIVE_SELF_CITATION`.
+
+The first four constitute the **formalism family** and carry the Level 1-2
+precondition above. The remaining three concern citation conduct and disqualify
+at any level.
+
+The precondition follows from what the formalism patterns are: set notation
+standing in for array operations, tuples for plain records, Greek letters for
+configuration constants. A proportionality violation is unambiguous only where
+the conceptual contribution is demonstrably small. At Level 4 or 5 the same
+notation is the subject matter — set membership is the native language of formal
+language theory, and there is no implementation for it to be disproportionate
+to.
+
+This condition was stated for `FORMALISM_THEATER` from the first release but was
+absent from the pseudocode above and from the implementation, so the cap was
+applied at every level. Two papers in the ROMJIST corpus were capped at 24 in
+consequence: a Level 3 modelling platform, and a Level 5 formal-language-theory
+paper flagged on six instances of the membership operator while scoring 94 on
+formalism, the highest band in the corpus.
 
 High severity (-15 each): `ORPHAN_DEFINITIONS`, `THEOREMLESS_FORMALISM`,
 `UNSUPPORTED_CLAIMS`.

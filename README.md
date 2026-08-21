@@ -1,10 +1,10 @@
 # RUIN Framework
 
-> Reproduces RUIN's evaluation of 415 ROMJIST research papers (2010–2025) — including the 48.3/100 artifact-availability deficit and the 2024 formalism-theater spike — from the open framework specification and per-paper JSON outputs.
+> Reproduces RUIN's evaluation of 406 ROMJIST research papers (2010–2025) — including the 48.3/100 artifact-availability deficit and the 2024 formalism-theater spike — from the open framework specification and per-paper JSON outputs.
 
 Code, data, and specification accompanying:
 
-> Bocan V, Bălaș VE. RUIN: An Automated Framework for Assessing Intellectual Integrity and Reproducibility in Computer Science Publications. *PeerJ Computer Science* (submitted).
+> Bocan V, Bălaș VE. RUIN: An Automated Framework for Assessing Intellectual Integrity and Reproducibility in Computer Science Publications. *Scientometrics* (submitted).
 
 RUIN (**R**igor, **U**tility, **I**ntegrity, **N**ecessity) shifts paper assessment from citation counting to content-level analysis along four dimensions: formalism proportionality, citation integrity, structural soundness, and artifact availability. The framework is encoded as a runtime-agnostic specification that an LLM agent executes against PDF papers to produce structured per-paper assessments.
 
@@ -26,8 +26,9 @@ RUIN (**R**igor, **U**tility, **I**ntegrity, **N**ecessity) shifts paper assessm
 │   ├── input/                          #   ROMJIST 2022 v25 n1 (paper708 = LifeTags++)
 │   └── output/                         #   RUIN analysis result for the same batch
 ├── journal-analysis/
-│   └── ROMJIST_29.12.2025/             # Full validation run: 415 research papers,
-│                                       #   57 batches, one JSON per issue, 2010–2025
+│   └── ROMJIST_29.12.2025/             # Full validation run: 415 records, of which
+│                                       #   406 research papers; 56 batches, one JSON
+│                                       #   per issue, 2010–2025
 ├── scripts/
 │   ├── aggregate.py                    # Reproduces published tables, figures, statistics
 │   └── requirements.txt
@@ -53,7 +54,7 @@ Outputs land in `scripts/output/`:
 | `tables/table3_flags.csv` | Table 3 — flag occurrences |
 | `tables/table4_yearly_scores.csv` | Table 4 — per-year means |
 | `figures/figure4_temporal.png` | Figure 4 — temporal trajectory |
-| `tables/headline_stats.json` | Mean composite (73.4), artifact availability (48.3), CV (4.4%), regression slopes, Fisher's exact OR for 2024 |
+| `tables/headline_stats.json` | Mean final score (73.6), artifact availability (48.3), CV (4.8%), regression slope, Fisher's exact OR for 2024 (12.91) |
 
 This is the path from the open dataset to every number in the Results section.
 
@@ -92,7 +93,7 @@ If you use this framework or dataset, please cite both the paper and this reposi
   title   = {{RUIN}: An Automated Framework for Assessing Intellectual Integrity
              and Reproducibility in Computer Science Publications},
   author  = {Bocan, Valer and Bălaș, Valentina E.},
-  journal = {PeerJ Computer Science},
+  journal = {Scientometrics},
   year    = {2026},
   note    = {Submitted}
 }

@@ -30,7 +30,7 @@ import ruin_scoring as rs  # noqa: E402
 COLUMNS = [
     "paper_id", "year", "volume", "issue", "batch_id",
     "title", "first_author", "n_authors", "pages", "doi",
-    "record_type",
+    "record_type", "concept_level",
     "formalism", "citation_integrity", "structural_integrity",
     "artifact_availability", "intellectual_integrity", "composite", "final",
     "classification", "disqualified", "flags",
@@ -53,6 +53,7 @@ def rows(input_dir: Path, include_non_research: bool):
             verdict = p.get("verdict", {}) or {}
             yield {
                 "paper_id": p.get("paper_id", ""),
+                "concept_level": p.get("concept_level") or "",
                 "year": src.get("year", ""),
                 "volume": src.get("volume", ""),
                 "issue": src.get("issue", ""),

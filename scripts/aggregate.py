@@ -81,7 +81,7 @@ def verify_consistency(papers: list[tuple[int, str, dict]]) -> None:
     """Abort unless every record's derived fields match the scoring rules."""
     bad = []
     for year, bid, p in papers:
-        derived = rs.derive(p["scores"], p.get("flags", []))
+        derived = rs.derive(p["scores"], p.get("flags", []), p.get("concept_level"))
         for field in rs.DERIVED_FIELDS:
             if abs(float(p["scores"][field]) - derived[field]) > 0.01:
                 bad.append(f"{bid}::{p['paper_id']}::{field}")

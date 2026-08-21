@@ -10,6 +10,7 @@ produces only the fields that require judgment:
 
     * the four component scores -- formalism, citation_integrity,
       structural_integrity, artifact_availability
+    * the concept-complexity level, 1-5
     * the set of flags raised
     * the narrative provenance record
 
@@ -64,6 +65,34 @@ DISQUALIFYING_FLAGS = frozenset({
     "CITATION_RING_INDICATOR",
     "EXCESSIVE_SELF_CITATION",
 })
+
+#: The subset of :data:`DISQUALIFYING_FLAGS` recording a proportionality
+#: violation between a paper's formal apparatus and its conceptual contribution.
+FORMALISM_FLAGS = frozenset({
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "DECORATIVE_DEFINITIONS",
+    "DISPROPORTIONATE_FORMALISM",
+})
+
+#: Concept-complexity levels at which a formalism flag disqualifies.
+#:
+#: framework/flags.md defines the patterns behind :data:`FORMALISM_FLAGS` as the
+#: constituents of formalism theater *at low concept-complexity levels*: set
+#: notation standing in for array operations, tuples for plain records, Greek
+#: letters for configuration constants. A proportionality violation is
+#: unambiguous only where the conceptual contribution is demonstrably small. At
+#: Level 4 or 5 the same notation is the subject matter -- set membership is the
+#: native language of formal language theory, and there is no implementation for
+#: it to be disproportionate to.
+#:
+#: Above Level 2 such a flag is therefore retained as a recorded signal but does
+#: not cap the score. Two papers in the published corpus sit in this position: a
+#: Level 3 modelling platform flagged FORMALISM_THEATER, and a Level 5
+#: formal-language-theory paper flagged UNNECESSARY_SET_THEORY on six instances
+#: of the membership operator while scoring 94 on formalism, the highest band in
+#: the corpus. Both were capped at 24 before this precondition was made explicit.
+FORMALISM_ELIGIBLE_LEVELS = frozenset({1, 2})
 
 #: Flags deducting :data:`HIGH_SEVERITY_PENALTY` points each.
 HIGH_SEVERITY_FLAGS = frozenset({
@@ -148,8 +177,27 @@ def is_research(flags: Iterable[str]) -> bool:
     return record_type(flags) == RECORD_RESEARCH
 
 
-def derive(components: Mapping[str, float], flags: Iterable[str]) -> dict:
-    """Derive every scored quantity from component scores and flags.
+def disqualifying(flags: Iterable[str], concept_level: int) -> set:
+    """Return the flags that actually disqualify at this concept level.
+
+    Every flag in :data:`DISQUALIFYING_FLAGS` caps the score, except that a
+    member of :data:`FORMALISM_FLAGS` does so only at a level in
+    :data:`FORMALISM_ELIGIBLE_LEVELS`. Above Level 2 a formalism flag stays on
+    the record as a raised signal and is reported in the flag tables, but the
+    cap does not apply and the paper keeps its composite score.
+    """
+    flagset = set(flags) & DISQUALIFYING_FLAGS
+    if concept_level not in FORMALISM_ELIGIBLE_LEVELS:
+        flagset -= FORMALISM_FLAGS
+    return flagset
+
+
+def derive(
+    components: Mapping[str, float],
+    flags: Iterable[str],
+    concept_level: int,
+) -> dict:
+    """Derive every scored quantity from component scores, flags, and level.
 
     Parameters
     ----------
@@ -158,6 +206,10 @@ def derive(components: Mapping[str, float], flags: Iterable[str]) -> dict:
         :data:`COMPONENT_FIELDS`, each on a 0-100 scale.
     flags:
         The flags raised for this paper.
+    concept_level:
+        The paper's concept-complexity level, 1-5. Required because a formalism
+        flag disqualifies only at the levels in
+        :data:`FORMALISM_ELIGIBLE_LEVELS`; see :func:`disqualifying`.
 
     Returns
     -------
@@ -171,7 +223,8 @@ def derive(components: Mapping[str, float], flags: Iterable[str]) -> dict:
     KeyError
         If a component score is absent.
     ValueError
-        If a component score falls outside [0, 100].
+        If a component score falls outside [0, 100], or the concept level is
+        absent or outside 1-5.
     """
     flagset = set(flags)
 
@@ -184,6 +237,14 @@ def derive(components: Mapping[str, float], flags: Iterable[str]) -> dict:
         if not 0.0 <= value <= 100.0:
             raise ValueError(f"{field} = {value} outside [0, 100]")
 
+    if concept_level is None:
+        raise ValueError(
+            "concept_level is required: a formalism flag disqualifies only at "
+            "Levels 1-2, so the level must be known before the cap is applied"
+        )
+    if int(concept_level) not in (1, 2, 3, 4, 5):
+        raise ValueError(f"concept_level = {concept_level} outside 1-5")
+
     intellectual = (
         FORMALISM_WEIGHT * float(components["formalism"])
         + CITATION_WEIGHT * float(components["citation_integrity"])
@@ -194,7 +255,7 @@ def derive(components: Mapping[str, float], flags: Iterable[str]) -> dict:
         + ARTIFACT_WEIGHT * float(components["artifact_availability"])
     )
 
-    disqualified = bool(flagset & DISQUALIFYING_FLAGS)
+    disqualified = bool(disqualifying(flagset, int(concept_level)))
     if disqualified:
         final = min(composite, DISQUALIFYING_CAP)
     else:

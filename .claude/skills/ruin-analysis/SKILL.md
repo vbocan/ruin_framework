@@ -211,6 +211,12 @@ See [flags.md](flags.md) for complete list.
 
 ## Full Specification
 
-For complete details, see:
-- [RUIN_Framework_Analytical.md](../../../RUIN_Framework_Analytical.md) - operational spec
-- [RUIN_Framework_Narrative.md](../../../RUIN_Framework_Narrative.md) - theoretical foundation
+The four files in this directory are the complete specification:
+
+- [SKILL.md](SKILL.md) - this file, the analysis protocol
+- [flags.md](flags.md) - flag catalogue with conditions and severities
+- [scoring.md](scoring.md) - scoring model and classification bands
+- [output-format.md](output-format.md) - JSON output schema
+
+The theoretical foundation and reporting of the validation study are in the
+accompanying manuscript (see the main repository [README](../../../README.md)).

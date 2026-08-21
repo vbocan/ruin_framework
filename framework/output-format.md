@@ -45,6 +45,7 @@ Examples:
         "doi": "string | null",
         "pages": "string | null"
       },
+      "concept_level": "number (1-5) | null",
       "scores": {
         "formalism": "number (0-100)",
         "citation_integrity": "number (0-100)",
@@ -162,6 +163,7 @@ Ratio: [n]x upper bound
         "doi": null,
         "pages": "399-410"
       },
+      "concept_level": 2,
       "scores": {
         "formalism": 85,
         "citation_integrity": 90,
