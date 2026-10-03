@@ -47,7 +47,8 @@ Examples:
         "abstract": "string",
         "keywords": ["string"],
         "doi": "string | null",
-        "pages": "string | null"
+        "pages": "string | null",
+        "source_file": "string (file name of the analysed PDF)"
       },
       "concept_level": "number (1-5) | null",
       "scores": {
