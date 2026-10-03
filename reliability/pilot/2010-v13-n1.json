@@ -1,0 +1,297 @@
+{
+  "batch_id": "2010-v13-n1",
+  "analysis_timestamp": "2026-10-04T12:00:00Z",
+  "analysis_version": "1.2.0",
+  "models": {
+    "analysis": "claude-opus-5-5"
+  },
+  "source": {
+    "journal_acronym": "ROMJIST",
+    "journal_name": "Romanian Journal of Information Science and Technology",
+    "journal_issn": "1453-8245",
+    "volume": 13,
+    "issue": 1,
+    "year": 2010
+  },
+  "papers": [
+    {
+      "paper_id": "depasquale2010",
+      "paper": {
+        "title": "Nickel MEMS Energy Harvesters for the Self-Powering of Vehicular Sensing Systems",
+        "authors": ["Giorgio De Pasquale", "Mian Wei"],
+        "abstract": "MEMS energy harvesters are attracting researchers' attentions from both academia and industries for the self-powering of sensing systems in vehicular applications. The possibility to convert the power contained in the mechanical vibrations into electrical power offers the possibility to replace traditional wired sensors with wireless devices, to simplify the on-board architecture, increase maintainability and reduce operative and supplying costs. This work describes the design and fabrication of vibrating harvesters using electroplated nickel as the structural material; a modular approach is proposed for the mask definition of compact self-powered sensing systems. The capacitive transduction principle is adopted for ease of fabrication and efficient conversion. In addition, some strategies to improve the dynamic performances in terms of resonance frequency tuning and bandwidth amplification are also presented.",
+        "keywords": [],
+        "doi": null,
+        "pages": "3-21",
+        "source_file": "01_de@20pasquale.pdf"
+      },
+      "concept_level": 2,
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 35,
+        "structural_integrity": 55,
+        "artifact_availability": 0,
+        "intellectual_integrity": null,
+        "composite": null,
+        "final": null
+      },
+      "artifact_assessment": {
+        "category": "none",
+        "relevant": true,
+        "evidence": "no availability statement or link in the text; FEM models built in the commercial tool Ansys 11.0 (third-party)",
+        "assessor": "claude-opus-5-5",
+        "assessed": "2026-10-04",
+        "original_score": null
+      },
+      "flags": ["EXCESSIVE_SELF_CITATION", "NO_LIMITATIONS"],
+      "flag_details": {
+        "EXCESSIVE_SELF_CITATION": "11 of 36 references (SCR = 30.6%) include the first author De Pasquale: [16], [19], [20], [24], [25], [26], [32], [33], [34], [35], [36]. All are topically related MEMS work (none below 0.3 similarity), but the ratio exceeds the 30% threshold, if narrowly.",
+        "NO_LIMITATIONS": "No limitations section and no acknowledgment that the harvesters were never electrically characterised; the conclusion states only that 'Initial results hold great promise'."
+      },
+      "verdict": {
+        "classification": null,
+        "disqualified": null,
+        "summary": "Design-and-fabrication report for nickel capacitive MEMS harvesters with FEM modal results and a modular mask approach; formalism is proportionate, but self-citation narrowly exceeds 30% and no harvested-power measurements or limitations are reported."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design, FEM simulation and electroplated-nickel fabrication of capacitive MEMS vibration energy harvesters (overlap and gap-closing comb designs), a coupled multi-DOF variant for bandwidth widening, diode rectification options, and a modular mask-layout approach for co-integrating harvesters and inertial sensors.\n**Level:** 2 (Low)\n**Rationale:** Established transduction principle, standard FEM modal analysis with a commercial package and standard surface micromachining; the contribution is engineering design and process description, not a new model or algorithm.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 8 inline geometric expressions (number of capacitors, max/min area and gap for designs A and B)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the only formulas are inline geometric relations that a designer needs to dimension the comb drives; they pass the Necessity Test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nEleven of 36 references carry the first author's name (SCR 30.6%), mostly with A. Somà: residual stress at pull-in [16], gas damping [19, 20], gold fatigue specimens and tests [24, 25], resonance tuning [26], diamagnetic levitation [32], energy-scavenging conference papers [33, 34], resonance closed formulas [35], and an Italian patent [36]. Each is on MEMS design or harvesting and is cited at a relevant point, so no irrelevant self-citation is found; the flag rests on the ratio alone, which sits just above the threshold. One self-citation ([24]) is to this journal.\n\n---\n\n## Structural Analysis\n\nThe paper's quantitative evidence is limited to FEM-computed resonances, stiffness and modal masses (Tables 1-2) and SEM images of fabricated devices. The electrical set-up and characterisation bench (Fig. 7) are described but no output voltage or power is reported; the rectification section uses qualitative waveform sketches. The conclusion that a bandwidth-amplification strategy 'was adopted and fully explored' rests only on simulation. No limitations are discussed. Table 1 is poorly typeset in the extracted text, though the values are recoverable. No code, models or data are released.\n\n---\n\n## Conclusion\n\nA competent device-design and fabrication report whose light formalism is fully justified. The weaknesses are the absence of any measured harvesting performance, an unqualified optimistic conclusion with no acknowledged limitations, and a self-citation ratio that, although every self-cite is on topic, crosses the 30% line."
+    },
+    {
+      "paper_id": "bozanic2010",
+      "paper": {
+        "title": "Streamlined Design of SiGe Based Power Amplifiers",
+        "authors": ["Mladen Bozanic", "Saurabh Sinha", "Alexandru Müller"],
+        "abstract": "This paper presents a streamlined design flow for an integrated power amplifier. For a given set of amplifier specifications and BiCMOS process parameters, a software routine computes passive component values for a Class-E or Class-F based power amplifier. The routine includes a matching network for standard impedance loads. Spiral inductor search algorithm is used to generate inductors with Q-factors optimised at a desired frequency. Operation of the software routine is demonstrated by simulations in Austriamicrosystems 0.35 µm single-supply process for the 10 dBm, 2.4 GHz power amplifier design.",
+        "keywords": ["BiCMOS process", "spiral inductor", "Class-E amplifier", "Class-F amplifier", "impedance matching", "SPICE netlist"],
+        "doi": null,
+        "pages": "22-32",
+        "source_file": "02_bozanic.pdf"
+      },
+      "concept_level": 2,
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 90,
+        "structural_integrity": 55,
+        "artifact_availability": 0,
+        "intellectual_integrity": null,
+        "composite": null,
+        "final": null
+      },
+      "artifact_assessment": {
+        "category": "none",
+        "relevant": true,
+        "evidence": "no availability statement or link in the text; the software routine is described ('The method is coined as a software routine') but not released",
+        "assessor": "claude-opus-5-5",
+        "assessed": "2026-10-04",
+        "original_score": null
+      },
+      "flags": ["NO_LIMITATIONS"],
+      "flag_details": {
+        "NO_LIMITATIONS": "No limitations section and no acknowledgment of constraints such as simulation-only validation, the fixed square inductor geometry, or the low practical efficiencies (23.5% and 20%) obtained."
+      },
+      "verdict": {
+        "classification": null,
+        "disqualified": null,
+        "summary": "Software routine encoding textbook Class-E/Class-F and spiral-inductor design equations, demonstrated by simulation; formalism is proportionate and citations clean, but validation is simulation-only, the tool is not released, and no limitations are stated."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A design-automation routine that computes Class-E or Class-F PA passive values from published design equations, adds L/T/π output matching, searches square spiral-inductor geometries for maximum Q using a published monomial inductance model and single-π Q model, and exports SPICE netlists and GDS layouts; demonstrated on a 2.4 GHz, 10 dBm design in AMS S35 BiCMOS.\n**Level:** 2 (Low)\n**Rationale:** The routine implements existing equations from [3]-[8]; the inductor search is a constrained parameter sweep. This is an application of known methods packaged as a tool.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 (all taken from cited sources)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations are exactly what the routine computes; removing them would change the implementation, so they pass the Necessity Test.\n\n### Issues\nNone identified in the formalism. Table 3 is captioned 'Class-E PA' although it lists the Class-F design, and the parameter/unit columns in Tables 2-3 appear misaligned in the extracted text.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 9 references, which are standard sources (Sokal, Raab, Grebennikov, Mohan et al.). The reference list is short and does not survey prior PA design-automation tools, so the novelty of the routine is not positioned against related work.\n\n---\n\n## Structural Analysis\n\nThe claims (the routine produces working PAs) are supported by simulated output waveforms, output power, collector efficiency and S-parameters. Support is adequate but thin: there is no fabrication or measurement, no comparison with a manual or competing design flow, and the efficiency drop from 41.3% to 23.5% (Class-E) and 51% to 20% (Class-F) is explained only briefly as parasitics. No limitations are acknowledged. The software is neither linked nor offered.\n\n---\n\n## Conclusion\n\nA short, clearly scoped tool paper with appropriate and necessary design equations and a clean citation record. Its value as a contribution is limited by simulation-only validation, the absence of any comparison with existing design flows, no stated limitations, and an unreleased tool that is the paper's main deliverable."
+    },
+    {
+      "paper_id": "devivo2010",
+      "paper": {
+        "title": "A Simulation Tool for the Evaluation of the Performances of A Nanointerconnect Based on SWCNT",
+        "authors": ["Biagio De Vivo", "Patrizia Lamberti", "Giovanni Spinelli", "Vincenzo Tucci"],
+        "abstract": "A simple approach based on the commercial package PSIM is used for simulating the behaviour of a principle InterConnect (IC) based on a Single Wall Carbon NanoTube (SWCNT) modelled by an equivalent Transmission Line (TL). The simulator is also employed for computing all the per unit length parameters of the TL in terms of the geometrical, physical and thermal dependencies of the considered structure. An equivalent two port circuit is developed that can be used both for time and frequency domain analysis of the nano-ICs, including also the interesting feature of the evaluation of the performances ranges occurring in presence of characteristic parameter variations.",
+        "keywords": ["nanointerconnect", "Carbon Nano Tubes", "circuital simulation"],
+        "doi": null,
+        "pages": "33-48",
+        "source_file": "03_spinelli.pdf"
+      },
+      "concept_level": 2,
+      "scores": {
+        "formalism": 82,
+        "citation_integrity": 95,
+        "structural_integrity": 60,
+        "artifact_availability": 0,
+        "intellectual_integrity": null,
+        "composite": null,
+        "final": null
+      },
+      "artifact_assessment": {
+        "category": "none",
+        "relevant": true,
+        "evidence": "no availability statement or link in the text; the PSIM sub-circuits are shown as figures only, and PSIM itself is a third-party commercial package ('Simulation package PSIM, trademark of Powersim Inc.')",
+        "assessor": "claude-opus-5-5",
+        "assessed": "2026-10-04",
+        "original_score": null
+      },
+      "flags": [],
+      "flag_details": {},
+      "verdict": {
+        "classification": null,
+        "disqualified": null,
+        "summary": "Implementation of the standard SWCNT transmission-line model in a commercial circuit simulator with a small parameter study; formalism is the necessary model equations, citations are clean, and the idealised structure is acknowledged, but there is no validation against published or measured data."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Building PSIM sub-circuits that evaluate the per-unit-length resistance, kinetic/magnetic inductance and quantum/electrostatic capacitance of a single SWCNT interconnect from geometry and physical parameters, then simulating step response and Bode plots of a driver–line–load circuit for a few parameter values.\n**Level:** 2 (Low)\n**Rationale:** The TL model and its p.u.l. expressions are taken from the literature [8, 11, 12]; the contribution is their implementation in a commercial simulator and a small sensitivity sweep.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 numbered/displayed (R, L, C, simplified Ce) plus inline component expressions\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations are what the sub-circuits compute and pass the Necessity Test.\n\n### Issues\nOne inline expression, 'fi = fi(d, a, lmfp, εr, L) with i ∈ {R', L', C'}', uses set membership simply to say 'for each of R, L and C'. It is a conventional index shorthand rather than set operations standing in for list processing, so it is not treated as theater, but it adds nothing over plain English.\n\n---\n\n## Citation Analysis\n\nOne self-citation among 16 references ([11], De Vivo et al. on range analysis of SWCNT wave propagation), directly related. The remaining references are appropriate CNT interconnect literature (Burke, Maffucci et al., Li et al., Naeemi and Meindl). No issues identified.\n\n---\n\n## Structural Analysis\n\nThe paper acknowledges inline that the single-SWCNT structure is 'someway not viable in real applications' and points to bundles and MWCNTs as future work. Results (Tables 1-3, Figs. 9-12) support the descriptive claims that length dominates and radius, distance and permittivity matter little. There is no comparison with the ad hoc simulators it cites, with published results, or with measurement, so the tool's accuracy is asserted rather than shown. The abstract mentions 'thermal dependencies' that the body does not model. No PSIM files are released.\n\n---\n\n## Conclusion\n\nA modest tool-implementation paper with proportionate, necessary formalism and a clean citation profile. Its main weakness is the lack of any validation of the implemented model against independent results; the stated idealisation is acknowledged."
+    },
+    {
+      "paper_id": "iliescu2010",
+      "paper": {
+        "title": "3D Dielectrophoretic Chips: Trapping and Separation of Cell Populations",
+        "authors": ["Ciprian Iliescu", "Guillaume Tresset", "Liming Yu", "Guolin Xu"],
+        "abstract": "The paper presents original contributions at manipulation of biological samples using electric field (dielectrophoresis). Design considerations, fabrication processes and experimental results of three original three dimensional (3D) dielectrophoretic (DEP) structures: DEP chip with 3D silicon electrodes, DEP chip with asymmetric electrodes. The paper presents also the experimental results of trapping yeast cells and the methods for separation of two cell populations developed in the above mentioned devices.",
+        "keywords": [],
+        "doi": null,
+        "pages": "49-64",
+        "source_file": "04_iliescu.pdf"
+      },
+      "concept_level": 2,
+      "scores": {
+        "formalism": 85,
+        "citation_integrity": 25,
+        "structural_integrity": 55,
+        "artifact_availability": 0,
+        "intellectual_integrity": null,
+        "composite": null,
+        "final": null
+      },
+      "artifact_assessment": {
+        "category": "none",
+        "relevant": true,
+        "evidence": "no availability statement or link in the text; fabrication and simulation (Maxwell FEA, third-party) are described only",
+        "assessor": "claude-opus-5-5",
+        "assessed": "2026-10-04",
+        "original_score": null
+      },
+      "flags": ["EXCESSIVE_SELF_CITATION"],
+      "flag_details": {
+        "EXCESSIVE_SELF_CITATION": "19 of 34 references (SCR = 55.9%) include Iliescu: [8], [15], [16], [18], [20]-[34]. They are on the authors' DEP chips, separation methods and glass wet-etching/bonding processes used in fabrication, so none falls below 0.3 similarity, but the paper is largely a digest of the group's prior publications."
+      },
+      "verdict": {
+        "classification": null,
+        "disqualified": null,
+        "summary": "Review-style summary of the group's own 3D and asymmetric-electrode DEP chips with standard DEP force equations; formalism is proportionate, but more than half the references are self-citations and results are qualitative images without separation metrics."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design, fabrication (anodic bonding, DRIE, HF/HCl glass thinning, via holes) and qualitative testing of dielectrophoretic chips with 3D silicon electrodes and with asymmetric thick/thin electrodes, plus four field-flow separation methods for live/dead yeast cells, each published previously.\n**Level:** 2 (Low)\n**Rationale:** Device engineering using the textbook DEP force model and commercial FEA; the paper consolidates previously reported devices and methods rather than introducing a new model.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (DEP force, Clausius-Mossotti factor with complex permittivity, buoyancy force, levitation equilibrium)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — standard physics needed to reason about electrode layout and levitation; passes the Necessity Test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNineteen of 34 references (55.9%) are by the first author, including three in this journal ([21], [24], [29]). They cover the authors' DEP devices [8, 15, 16, 18, 30-34] and the glass-etching, masking, bonding and photoresist processes used in fabrication [20-29]. All are topically connected to the work described; [20, 21] (accelerometer processes) are cited for the notching effect and are the most marginal. The density reflects that the article is a synthesis of the group's own output: the separation methods in Sections 2.5-2.7 and the asymmetric-chip fabrication are each referred to earlier papers for detail.\n\n---\n\n## Structural Analysis\n\nEvidence consists of an FEA table of field and gradient for six electrode shapes, a simulated vertical-force plot, process parameters, and optical images of trapping and separation. No separation efficiency, purity, throughput or viability figures are given, so the separation claims rest on images. One inline limitation is acknowledged ('the main disadvantage is the collection of the population trapped in the wells'), and fabrication tolerances (misalignment, notching) are discussed. The conclusion's list of advantages (e.g. reduced Joule effect) is supported by reference to earlier papers rather than by data here. Nothing is released.\n\n---\n\n## Conclusion\n\nA readable overview of a productive group's DEP platform with appropriate, necessary formalism. The self-citation ratio is far above the 30% threshold because the paper is essentially a digest of prior self-published work, and the experimental support is qualitative."
+    },
+    {
+      "paper_id": "dragoi2010",
+      "paper": {
+        "title": "Metal Wafer Bonding for MEMS Devices",
+        "authors": ["Viorel Dragoi", "Erkan Cakmak", "Eric Pabo"],
+        "abstract": "Metal films can be used as bonding layers at wafer-level in MEMS manufacturing processes for device assembly as well as just for electrical integration of different components. One has to distinguish between two categories of processes: metal thermo-compression bonding on one side, and bonding with formation of an eutectic alloy layer or an intermetallic compound. The different process principles determine also the applications area for each. From electrical interconnections to wafer-level packaging (with special emphasis on vacuum packaging) metal wafer bonding is a very important technology in MEMS manufacturing processes.",
+        "keywords": ["wafer bonding", "MEMS", "metal layers", "eutectic bonding", "thermo-compression bonding"],
+        "doi": null,
+        "pages": "65-72",
+        "source_file": "05_dragoi.pdf"
+      },
+      "concept_level": 1,
+      "scores": {
+        "formalism": 80,
+        "citation_integrity": 90,
+        "structural_integrity": 45,
+        "artifact_availability": 0,
+        "intellectual_integrity": null,
+        "composite": null,
+        "final": null
+      },
+      "artifact_assessment": {
+        "category": "none",
+        "relevant": true,
+        "evidence": "no availability statement or link in the text",
+        "assessor": "claude-opus-5-5",
+        "assessed": "2026-10-04",
+        "original_score": null
+      },
+      "flags": ["NO_LIMITATIONS"],
+      "flag_details": {
+        "NO_LIMITATIONS": "No limitations of the overview or of the reported observations are acknowledged; process challenges (oxidation, diffusion) are discussed as topic content, not as limits of the paper's evidence."
+      },
+      "verdict": {
+        "classification": null,
+        "disqualified": null,
+        "summary": "Short practitioner overview of eutectic, diffusion-soldering and thermo-compression metal wafer bonding with no formalism; citations are clean, but several experimental statements are unsupported by data and no limitations are given."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** An overview of metal-layer wafer bonding for MEMS (eutectic, transient-liquid-phase/diffusion soldering, and Au/Cu/Al thermo-compression), with process-selection criteria, two SAM images and a table of alignment accuracies.\n**Level:** 1 (Trivial)\n**Rationale:** A survey-style process overview with no model, algorithm or new method.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — no formal apparatus is used or needed.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNo self-citations by name among 13 references. References [9] and [10] include authors from the same equipment company as the authors (EV Group), which is an institutional rather than personal link and is not counted. Reference entries give journal, volume and page but omit titles, which makes them harder to verify. Coverage of the field is thin for an overview.\n\n---\n\n## Structural Analysis\n\nSeveral statements present experimental findings without data or citation: 'Experimental results showed that good quality bonded interfaces are obtained when...', and 'Considerable improvement of bond results was observed if Cu wafers were first heated at 300°C in forming gas'. Evidence offered is two SAM images and alignment-accuracy figures in Table 2, whose source is not stated. Claim-evidence balance is weak (estimated CER around 0.4–0.5) but above the unsupported threshold. Table 1 is jumbled in the extracted text. All authors are employed by a wafer-bonder manufacturer and the paper discusses equipment requirements; no competing-interest statement is given. No limitations are stated, and nothing is released.\n\n---\n\n## Conclusion\n\nA concise industrial overview free of formalism issues and citation problems, useful as orientation. It is weakly evidenced for a journal article: key process claims rest on unreported experiments, and the paper acknowledges no limitations."
+    },
+    {
+      "paper_id": "goras2010",
+      "paper": {
+        "title": "Spatial Filtering Using Analog Parallel Architectures and Their Log-Domain Implementation",
+        "authors": ["Liviu Goraş", "Ion Vornicu"],
+        "abstract": "A class of linear continuous in time and discrete in space homogeneous Cellular Neural Network type analog parallel architectures and log-domain CMOS implementation is discussed. The specific feature of the spatio-temporal dynamics of the architecture is the existence of unstable spatial modes - property that can be used for high speed image processing. The dynamics and spatial frequency response of a 1D array at system level and log-domain transistor level implementation are compared.",
+        "keywords": ["Cellular Neural Networks", "spatio-temporal dynamics", "CMOS log-domain implementations"],
+        "doi": null,
+        "pages": "73-83",
+        "source_file": "06_goras.pdf"
+      },
+      "concept_level": 2,
+      "scores": {
+        "formalism": 88,
+        "citation_integrity": 30,
+        "structural_integrity": 60,
+        "artifact_availability": 0,
+        "intellectual_integrity": null,
+        "composite": null,
+        "final": null
+      },
+      "artifact_assessment": {
+        "category": "none",
+        "relevant": true,
+        "evidence": "no availability statement or link in the text; cell schematics are shown as figures only",
+        "assessor": "claude-opus-5-5",
+        "assessed": "2026-10-04",
+        "original_score": null
+      },
+      "flags": ["EXCESSIVE_SELF_CITATION"],
+      "flag_details": {
+        "EXCESSIVE_SELF_CITATION": "6 of 13 references (SCR = 46.2%) include Goraş: [7], [8], [9], [10], [11], [12]. All concern CNN pattern formation or spatial filtering and are topically related, but the ratio exceeds 30%; [9] and [12] are not cited in the body text."
+      },
+      "verdict": {
+        "classification": null,
+        "disqualified": null,
+        "summary": "Modal-decoupling review of linear CNN-type arrays and a log-domain CMOS mapping compared in simulation; the equations are necessary and proportionate, but nearly half the references are self-citations and validation is simulation-only."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Linear, space-discrete CNN-type arrays whose unstable spatial modes yield time-variable spatial filters (reviewed via the decoupling technique and spatial eigenvalues), and the mapping of the state equations into the log domain with weak-inversion CMOS current sources; system-level and transistor-level 1D, 50-cell simulations for high-, low-, band-pass and stop-band filtering and edge detection.\n**Level:** 2 (Low)\n**Rationale:** The decoupling theory is explicitly reviewed from the authors' earlier work, and the log-domain mapping applies a known exponential change of variables; the new element is the circuit realisation and its comparison in simulation. No new theorem, bound or proof is offered.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 18\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the modal decomposition, dispersion curves and log-domain state equations are what determine the template coefficients and the transistor-level cell; they pass the Necessity Test.\n\n### Issues\nNone in the formalism. Equation (9) repeats KA(m) where KB(m) is presumably intended for the input term, and (16) writes 2A1 + 2A1 for 2A1 + 2A2; both look like typographical errors.\n\n---\n\n## Citation Analysis\n\nSix of 13 references (46.2%) are by the first author: Turing patterns in CNNs with Chua [7, 10, 11], pattern formation [8], 1D pattern dynamics [9], and the preceding ISSCS 2009 spatial-filtering paper [12]. All are on topic. However, [9] and [12] are listed but never cited in the text, and [6] (Arena et al., bio-inspired locomotion control) is cited together with [7] for the two-grid Turing-pattern architecture, an attribution that appears loose. The direct predecessor [12] is not discussed, so the increment over it is unclear.\n\n---\n\n## Structural Analysis\n\nClaims are supported by side-by-side system-level and transistor-level simulation plots (Figs. 6-8) and a parameter table; the statement that the two responses are 'almost identical' is visual. The concluding remarks acknowledge the main disadvantage of log-domain realisation ('high technological dispersion') and the parasitic-capacitance constraint, which counts as inline limitations. Advantages claimed (lower power and area, higher dynamic range) are not quantified here. No fabrication or measurement, and no netlists released.\n\n---\n\n## Conclusion\n\nTechnically coherent analog-circuit work whose mathematics is necessary and proportionate. The citation profile is the main concern: nearly half the references are the first author's own, two of them uncited in the text, and the increment over the authors' immediately preceding paper is not stated."
+    },
+    {
+      "paper_id": "weststrate2010",
+      "paper": {
+        "title": "Design Trade-offs and Limitations of a LC-Ladder and Capacitive Feedback LNA and its Application at mm-Wave Frequencies",
+        "authors": ["Marnus Weststrate", "Saurabh Sinha", "Dan Neculoiu"],
+        "abstract": "Simulation results of a LC-ladder and capacitive feedback low noise amplifier over the 60 GHz unlicensed band is presented. A gain of 14.2 dB was obtained with S11 less than -15 dB and a noise figure of 5.2 dB. These results deviate significantly from theory however and as such possible explanations for these deviations are presented as well as a suggestion for the improvement of the mathematical model. Other design trade-offs present in very wideband designs at lower frequencies are also quantified and equations for the maximum corner frequency and bandwidth as a function of noise figure are derived.",
+        "keywords": ["low noise amplifier", "mm-wave", "LC-ladder filter", "capacitive feedback", "frequency limitations", "performance trade-offs"],
+        "doi": null,
+        "pages": "98-107",
+        "source_file": "08_weststrate.pdf"
+      },
+      "concept_level": 2,
+      "scores": {
+        "formalism": 88,
+        "citation_integrity": 60,
+        "structural_integrity": 78,
+        "artifact_availability": 0,
+        "intellectual_integrity": null,
+        "composite": null,
+        "final": null
+      },
+      "artifact_assessment": {
+        "category": "none",
+        "relevant": true,
+        "evidence": "no availability statement or link in the text; simulations use the third-party IBM 8HP design kit in Spectre",
+        "assessor": "claude-opus-5-5",
+        "assessed": "2026-10-04",
+        "original_score": null
+      },
+      "flags": ["ELEVATED_SELF_CITATION"],
+      "flag_details": {
+        "ELEVATED_SELF_CITATION": "3 of 11 references (SCR = 27.3%) include the first author: [3] (the design process being tested), [4] (mm-wave radio overview, invited paper) and [6] (noise optimisation). All are topically related."
+      },
+      "verdict": {
+        "classification": null,
+        "disqualified": null,
+        "summary": "Circuit-analysis paper that tests the authors' own LNA design method at 60 GHz, explains why it breaks down, and derives a noise-figure versus bandwidth bound checked in simulation; formalism is necessary, limitations are the paper's subject, and self-citation is elevated but on topic."
+      },
+      "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Applying a previously published LC-ladder, capacitive shunt-shunt feedback wideband LNA design procedure at 60 GHz in 0.13 µm SiGe BiCMOS, analysing why simulation diverges from the analytical model (Miller approximation, transistor fT, minimum passive values, base/collector shot-noise correlation), proposing a refined input-impedance expression, and deriving the minimum lower corner frequency for a given maximum noise figure, verified on a 2.5-18 GHz design.\n**Level:** 2 (Low)\n**Rationale:** Small-signal circuit analysis and approximation refinement for a known topology; the derived expressions are design bounds obtained by algebraic manipulation, not proofs of new properties.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 14\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — every equation is a circuit or noise relation a designer would use to size components or predict the bandwidth/NF trade-off; all pass the Necessity Test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThree of 11 references (27.3%) are by the first author with Sinha: the design procedure under examination [3], its noise optimisation [6], and a co-authored mm-wave overview [4]. Each is relevant, and [3] is necessarily cited because the paper evaluates it. The ratio falls in the 20-30% band. The comparison table cites four independent 60 GHz LNAs [7-10], and the noise model comes from Niu [11].\n\n---\n\n## Structural Analysis\n\nThe paper is organised around its own limitations: it reports that the 60 GHz design deviates from theory, states that final component values were obtained iteratively rather than from the design equations, and concludes that a distributed approach is preferable at mm-wave. Claims are supported by simulation results, a comparison table with literature, and a verification of the derived bound (NF below 4 dB across 2.5-18 GHz). The refined impedance model of Section 4 is proposed but not itself checked against simulation, and all results are simulated rather than measured. No design files are released.\n\n---\n\n## Conclusion\n\nAn honest, self-critical analysis paper with necessary and proportionate formalism and well-matched evidence. The self-citation ratio is elevated because the work evaluates the authors' own prior method, which is a justified reason; the main gaps are the unvalidated model refinement and the lack of measurement."
+    }
+  ]
+}
