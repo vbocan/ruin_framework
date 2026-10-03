@@ -1,0 +1,615 @@
+{
+ "batch_id": "2018-v21-n3",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 21,
+  "issue": 3,
+  "year": 2018
+ },
+ "papers": [
+  {
+   "paper_id": "abisha2018",
+   "paper": {
+    "title": "A Homomorphic Property of the Cryptosystems Based on Word Problem",
+    "authors": [
+     "P. Jeyanthi Abisha",
+     "D. Jayaseelan Samuel"
+    ],
+    "abstract": "There are many cryptosystems in the literature based on formal language theory. Some of them are public key cryptosystems and others are symmetric key cryptosystems. Homomorphic encryption is a form of encryption that allows computations to be carried out on ciphertext, thus generating an encrypted result which, when decrypted, matches the result of operations performed on the plaintext. In this paper, we discuss a homomorphic property of public key cryptosystems based on word problem. An encryption scheme is probabilistic if when the same message is encrypted several times, different ciphertexts are obtained. A homomorphic property of public key encryption schemes based on word problems along with probabilistic property are used in this paper for constructing an electronic voting scheme.",
+    "keywords": [
+     "E-voting",
+     "Finitely Presented Partially Commutative Groups",
+     "Homomorphic Encryption",
+     "Public Key Cryptosystems",
+     "Word Problem"
+    ],
+    "doi": null,
+    "pages": "210-218",
+    "source_file": "paper593.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 60,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 64.75,
+    "composite": 48.56,
+    "final": 28.56
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "THEOREMLESS_FORMALISM",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "THEOREMLESS_FORMALISM": "Six numbered definitions (Definitions 3.1-3.6: reduced words, concurrency relation, group presentation, Thue system, free partially commutative group, code) and no theorem, lemma or proof. The central claim, that the modified cryptosystem is homomorphic over catenation, is asserted in one sentence and illustrated only by a worked example.",
+    "ELEVATED_SELF_CITATION": "6 of 23 references (26%) include one of the authors: [1], [2], [13], [14], [15], [19]. All concern cryptosystems based on formal language theory and are topically related."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Variant of a published word-problem public key cryptosystem with a claimed catenation-homomorphic property applied to e-voting; the property is shown by example rather than proved, and the paper concedes the scheme remains open to a known polynomial-time attack.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Modification of an existing public key cryptosystem over finitely presented partially commutative groups, observation that decryption commutes with catenation, and a sketched e-voting protocol built on it.\n**Level:** 3 (Medium)\n**Rationale:** The paper constructs a mathematical cryptographic scheme, which is above an application of an existing method, but it proves no security property and no theorem, so it does not reach Level 4.\n\n### Formal Elements\n- Definitions: 6 (numbered, all recalled from the literature)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 10, mostly the worked encryption/decryption example\n\n### Proportionality\nCalculated complexity: 12\nExpected range (Level 3): 10-40\nRatio: 0.3x upper bound\n\n**Assessment:** Proportionate in volume. The group-theoretic definitions are needed to state the key generation and decryption procedure; they pass the necessity test. The weakness is the absence of any formal result: the homomorphic property is asserted (\"This cryptosystem has the homomorphic property over catenation\") and demonstrated on one example.\n\n### Issues\n- Six definitions and no theorem trigger THEOREMLESS_FORMALISM.\n- Section 4.2 states that \"the word problem for the partially commutative group is unsolvable\" to argue vote indistinguishability, while Section 3.1 itself cites Wrathall's result that this word problem is decidable in linear time; the privacy argument is therefore unsupported.\n- No analysis of the security of the voting protocol beyond this sentence; the trusted centre holds the full decryption key and can read individual votes.\n\n---\n\n## Citation Analysis\n\nSix of 23 references (26%) include an author of this paper, mostly earlier papers by the first author on word-problem and grammar-based cryptosystems. All are on the same topic (similarity well above 0.5). The ratio falls in the 20-30% band (ELEVATED_SELF_CITATION). No citation-ring pattern is visible.\n\n---\n\n## Structural Analysis\n\nClaims about homomorphism and probabilistic encryption are supported by a single worked example; the e-voting tally correctness argument is informal. The conclusion acknowledges that the modified system is vulnerable to the chosen-ciphertext attack of Gonzalez Vasco and Steinwandt, which counts as an inline limitation. The paper is theoretical and has no software or data to release.\n\n---\n\n## Conclusion\n\nA short, derivative paper that recalls standard definitions, modifies a published scheme and illustrates a homomorphic property by example. It contains no proofs and admits the scheme is broken by a known attack, which limits its contribution. Formalism is proportionate but produces no formal results; self-citation is elevated but topical."
+  },
+  {
+   "paper_id": "chandra2018",
+   "paper": {
+    "title": "Multihanded and Near Perfect Self Assembling of Tile Assembling Systems",
+    "authors": [
+     "P. Helen Chandra",
+     "S. Thabithal"
+    ],
+    "abstract": "In this paper we present multiple handed diamond tile assembly models for the assembly of discrete Sierpinsky triangle. It generalizes the two handed assembly model to allow up to h assemblies to combine in a single step. The problem of strict self assembly of infinite fractals within the self assembly is considered. Six handed Diamond Assembly Model is constructed in a near perfect way with scale factor 1. We have further assembled the Sierpinsky triangle within the Three handed Diamond Assembly Model with scale factor 3.",
+    "keywords": [
+     "self assembly",
+     "strict self assembly",
+     "near perfect assembly",
+     "near triangle assembly",
+     "base shape",
+     "combinable shape"
+    ],
+    "doi": null,
+    "pages": "219-231",
+    "source_file": "paper594.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 70,
+    "citation_integrity": 90,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 70.75,
+    "composite": 53.06,
+    "final": 48.06
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints on the constructions or proofs; the conclusion only restates results and names a future question about aDAM systems."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Adaptation of known multi-handed square-tile Sierpinski constructions to diamond tiles, with two existence theorems whose proofs rest largely on figures and informal induction; proportionate formalism but thin evidence.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Strict self-assembly of the discrete Sierpinski triangle with diamond-shaped tiles in a 6-handed (scale 1, 34 tile types) and a 3-handed (scale 3, 954 tile types) assembly model.\n**Level:** 3 (Medium)\n**Rationale:** The paper proposes tile-set constructions and claims existence theorems about them. The constructions follow closely the square-tile h-handed constructions of Chalk et al. [6], transposed to a diamond grid, which keeps it below Level 4.\n\n### Formal Elements\n- Definitions: about 12 (inline: tiles, diamond grid, diamond tile, strength function, configuration, tau-stable assembly, DTAS, produced/terminal assemblies, tau-combinable, aDAM, hH-DAM, near perfect assembly, discrete diamond Sierpinski triangle)\n- Theorems: 2 (4.3.1, 4.4.1)\n- Proofs: 2\n- Equations: few, set definitions of the fractal stages\n\n### Proportionality\nCalculated complexity: 38\nExpected range (Level 3): 10-40\nRatio: 0.95x upper bound\n\n**Assessment:** Proportionate. The model definitions are standard for tile assembly theory and needed to state the results. Some apparatus is not used afterwards: the seeded DTAS of Section 2.4 (haltable, halting, lattice of produced assemblies) and the aDAM of Section 3.1 play no role in either theorem.\n\n### Issues\n- Both proofs rely on figures of the tile set and growth stages that are not reproduced in the text; the 34-tile and 954-tile counts cannot be checked from the paper.\n- The induction in the proof of Theorem 4.3.1 is stated loosely and inconsistently (assemblies \"of size greater than 34\" in one place, \"smaller than 33\" in the next; sizes written as 4 x 3^i - 3 + (1)).\n- The Theorem 4.4.1 argument is a narrative of keystone and filler attachment rather than a proof.\n\n---\n\n## Citation Analysis\n\nEight references, none by the authors. Reference [8] is an M.Phil. dissertation from the authors' college, not by the authors. No self-citation concerns. The reference list is short for a paper that adapts results from [6].\n\n---\n\n## Structural Analysis\n\nThe main claims rest on figure-based constructions and informal induction; claim-evidence balance is weak. No limitations are acknowledged (NO_LIMITATIONS). The work is purely theoretical; nothing to release.\n\n---\n\n## Conclusion\n\nThe paper transposes known multi-handed fractal-assembly constructions to diamond tiles. Formalism is appropriate for the topic, but the evidence for both theorems is largely pictorial and imprecise, and the novelty relative to [6] is not argued."
+  },
+  {
+   "paper_id": "charvat2018",
+   "paper": {
+    "title": "Internally Expandable Pushdown Automata and Their Computational Completeness",
+    "authors": [
+     "Lucie Charvat",
+     "Alexander Meduna"
+    ],
+    "abstract": "The present paper defines the notion of an internally expandable pushdown automaton (IEPDA). In essence, this automaton expands the topmost expandable non-input symbol in its pushdown list. This expanded symbol, however, may not occur on the very top of the pushdown; instead, it may appear deeper in the pushdown. The paper demonstrates that this notion represents an automaton-based counter part to the notion of a state grammar. Indeed, both are equally powerful. Therefore, internally expandable pushdown automata are computationally complete-that is, they are as powerful as Turing machines. In fact there are computationally complete IEPDAs with no more than four states.",
+    "keywords": [],
+    "doi": null,
+    "pages": "232-237",
+    "source_file": "paper595.pdf"
+   },
+   "concept_level": 5,
+   "scores": {
+    "formalism": 70,
+    "citation_integrity": 35,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 51.5,
+    "composite": 38.62,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "4 of 7 references (57%) are by the second author (Meduna): [1], [4], [6], [7]. They are topically relevant (formal language textbooks and the state-grammar result the paper relies on), but the ratio exceeds the 30% threshold.",
+    "NO_LIMITATIONS": "No limitations are acknowledged; the paper ends with one open question about state-limited epsilon-free IEPDAs."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Short automata-theory note proving IEPDAs equivalent to state grammars and hence computationally complete; formalism suits the topic, but the second lemma's proof duplicates the first's text, and four of seven references are self-citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A pushdown automaton that may expand the topmost expandable nonterminal below the top of the pushdown; proof of equivalence with state grammars, giving computational completeness.\n**Level:** 5 (Very High)\n**Rationale:** The main result is a computational-completeness (Turing-equivalence) theorem, the defining case for Level 5 in the specification, though the proof is a short simulation argument.\n\n### Formal Elements\n- Definitions: 4 (state grammar, IEPDA, configurations and move relations, accepted languages)\n- Theorems: 9 (Lemmas 1-2, Claims 1-4, Theorems 1-2, Corollary 1)\n- Proofs: 9\n- Equations: derivation and move relations\n\n### Proportionality\nCalculated complexity: 71\nExpected range (Level 5): 60-150\nRatio: 0.5x upper bound\n\n**Assessment:** Proportionate. The formal apparatus is the subject matter and every element is used in the proofs.\n\n### Issues\n- The proof of Lemma 2 reuses the text of Lemma 1's claims almost verbatim: Claim 3 is identical to Claim 2, Claim 4 is identical to Claim 1, and the induction hypotheses refer to \"Claim 2\" and \"Claim 1\" rather than to the claims being proved. The converse direction is therefore not actually argued.\n- In both constructions, rule 1 of the construction is never used in the claims, and the basis steps cite \"2 in the construction\" for a zero-step derivation.\n- Theorem 2 and Corollary 1 are discharged entirely by citing results in [3] and [4].\n\n---\n\n## Citation Analysis\n\nSeven references, four by Meduna (57%): two textbooks, the Horvat-Meduna state-grammar paper whose Theorem 2 yields Corollary 1, and a monograph. All are relevant (similarity above 0.5), but the ratio is above 30%, which triggers EXCESSIVE_SELF_CITATION. The very short reference list makes the ratio volatile; the mechanical rule still applies.\n\n---\n\n## Structural Analysis\n\nThe paper consists of definitions and proofs; there is no limitations discussion (NO_LIMITATIONS). Because the second lemma's proof is copied from the first, the support for half of the equivalence is weaker than it appears. Pure theory; nothing to release.\n\n---\n\n## Conclusion\n\nThe result is plausible and the formalism suits it, but the paper is careless in its second proof and leans on its own prior work for most of its citations. The citation ratio, not the formalism, determines the outcome."
+  },
+  {
+   "paper_id": "fernau2018",
+   "paper": {
+    "title": "Picture Scanning Automata and Group Actions on Pictures",
+    "authors": [
+     "Henning Fernau",
+     "Meenakshi Paramasivan",
+     "D. Gnanaraj Thomas"
+    ],
+    "abstract": "We are systematically discussing finite automata working on rectangular-shaped arrays (i. e., pictures), reading them with different scanning strategies. We show that all 32 different variants only describe two different classes of array languages. Our main proof tool is using the dihedral group D4.",
+    "keywords": [
+     "Finite automata",
+     "formal picture processing",
+     "symmetries"
+    ],
+    "doi": null,
+    "pages": "238-248",
+    "source_file": "paper596.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 40,
+    "citation_integrity": 60,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 54.5,
+    "composite": 40.88,
+    "final": 35.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "DISPROPORTIONATE_FORMALISM",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "DISPROPORTIONATE_FORMALISM": "Formalism score 93 (8 definitions x2 + 15 theorems/lemmas/corollaries x3 + 8 proofs x4) exceeds twice the Level 3 upper bound of 40. Most results are short corollaries obtained by applying D4 operators to results in [1]. At Level 3 this flag is recorded but does not disqualify.",
+    "ELEVATED_SELF_CITATION": "4 of 17 references (24%) include an author: [1] and [6] (all three authors), [13] and [14] (Fernau). [1] and [6] are the direct precursors; [13] and [14] are cited for future-work directions and are marginally related."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Clean formal-language paper that uses the dihedral group D4 to collapse many scanning modes of picture automata into two language classes; heavy numbered-result apparatus relative to the level and an acknowledged overlap with a prior conference version.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Finite automata reading pictures in boustrophedon and returning scanning modes; classification of the resulting language families via the action of the dihedral group D4.\n**Level:** 3 (Medium)\n**Rationale:** The paper proves classification and closure results for automaton-defined picture language families. Many results transfer from the authors' journal paper [1] by group-theoretic bookkeeping. Defaulting low, it is placed at Level 3 rather than Level 4.\n\n### Formal Elements\n- Definitions: 8 (picture, row/column catenation, D4 operators, GBFA, configurations and transition relation, GBDFA, GRFA, str mapping)\n- Theorems: 15 (Theorems 1, 2, 3, 5, 6, 9, 14, 16; Corollaries 4, 7, 10, 11, 12, 15; Lemma 13)\n- Proofs: 8\n- Equations: composition tables and language-class identities\n\n### Proportionality\nCalculated complexity: 93\nExpected range (Level 3): 10-40\nRatio: 2.3x upper bound\n\n**Assessment:** Disproportionate by count. The definitions are necessary and used; the excess comes from many numbered corollaries with one- or two-line proofs that apply a table lookup in D4 to a result of [1]. The notation is the native language of the subfield, so it is not theater, but the numbered apparatus is heavy for the size of the new contribution.\n\n### Issues\n- Several key results (Theorem 2, Theorem 5, the separations in Theorem 6) are proved by citation to [1].\n- The text acknowledges that results on closure properties and inclusions already appeared in the CompIMAGE 2016 paper [6].\n\n---\n\n## Citation Analysis\n\nFour of 17 references (24%) include an author. [1] and [6] are the direct precursors and essential. [13] (inference of universal automata) and [14] (2D pattern languages) support the future-research discussion and are marginally related (about 0.4). ELEVATED_SELF_CITATION applies; no irrelevant self-citation.\n\n---\n\n## Structural Analysis\n\nClaims are backed by proofs or explicit references to proved results. The conclusion discusses limits of the constructions: state blow-ups of O(q^3) and O(q^6), loss of determinism in the conversions, and NP-hardness of minimisation, which serves as an inline limitations discussion. Pure theory; nothing to release.\n\n---\n\n## Conclusion\n\nA competent and readable classification result. The formalism flag reflects the number of numbered results relative to a Level 3 contribution rather than misuse of notation; it does not disqualify at this level. Overlap with the authors' earlier conference version is disclosed."
+  },
+  {
+   "paper_id": "itcus2018",
+   "paper": {
+    "title": "3D DNA Origami Map Structure Simulation",
+    "authors": [
+     "Corina Itcus",
+     "Alexandru Amarioarei",
+     "Eugen Czeizler",
+     "Ana-Maria Dobre",
+     "Victor Mitrana",
+     "Florentina Negre",
+     "Andrei Paun",
+     "Mihaela Paun",
+     "Manuela Elisabeta Sidoroff",
+     "Romica Trandafir",
+     "Iris Tusa"
+    ],
+    "abstract": "This paper presents the latest trends and approaches used for constructing nanoscale structures of 2D objects through DNA folding based on the DNA origami technology developed by Rothemund. The Rothemund method has been used in the construction of various shapes, such as the development of the nanoscale structure for the United States map. Following the steps of Rothemund's technique, we simulate the construction of the Romanian map nanoscale 2D structure, embedding the number 100 into it.",
+    "keywords": [
+     "DNA",
+     "origami",
+     "self-assembly",
+     "nanostructure",
+     "Romanian map"
+    ],
+    "doi": null,
+    "pages": "249-255",
+    "source_file": "paper597.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 72.25,
+    "composite": 54.19,
+    "final": 49.19
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations of the design or of the simulation are discussed. The only constraints mentioned concern the caDNAno/Maya tooling in general (memory use for large designs), not this work."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Proof-of-concept design of a Romania-shaped DNA origami produced with the existing caDNAno tool and rendered in Maya; mostly a review of Rothemund's method with no quantitative simulation results, no released design files, and no limitations discussed.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Using the existing caDNAno design tool and its Maya plugin to lay out a DNA origami shaped like the map of Romania, with three rendered figures.\n**Level:** 1 (Trivial)\n**Rationale:** The contribution is the use of existing design software to produce one shape; most of the text reviews DNA origami literature and Rothemund's five-step method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. No formalism.\n\n### Issues\nNone identified in formalism.\n\n---\n\n## Citation Analysis\n\n22 references; none include any of the eleven authors. The references are standard DNA-origami literature and software citations. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe section titled \"Simulation Results\" reports no simulation output: no oxDNA relaxation, energies, stability measures or staple counts are given, only caDNAno and Maya renderings (Figures 2-4). The conclusion's statement that \"All the construction details are given\" is not borne out: no staple sequences or design file are provided. The title refers to a 3D structure while the abstract and text describe a flat 2D map. No limitations are stated (NO_LIMITATIONS). Nothing is released, although a caDNAno design file would be a natural artifact (relevant: true).\n\n---\n\n## Conclusion\n\nA short commemorative proof-of-concept that applies existing tooling to a new shape. There is no formalism problem; the weakness is the absence of results or released design data, so the claims cannot be checked."
+  },
+  {
+   "paper_id": "mahalingam2018a",
+   "paper": {
+    "title": "On a Special Variant of Rauzy Graphs",
+    "authors": [
+     "K. Mahalingam",
+     "R. Praveen",
+     "R. Rama"
+    ],
+    "abstract": "Representation of a word by a graph is an important branch of study in combinatorics of words. The vertices and the edges are defined using certain properties of words. Such a representation is useful in solving some problems in graph theory. One such representation is the idea of Rauzy graphs that was used to study Arnoux-Rauzy sequences. In this paper, we define half range Rauzy graphs and study the structural properties of such a variant for some special words.",
+    "keywords": [
+     "Half range Rauzy graphs",
+     "Primitive words",
+     "Directed graphs",
+     "Strongly connected graphs"
+    ],
+    "doi": null,
+    "pages": "256-266",
+    "source_file": "paper598.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 40,
+    "citation_integrity": 90,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 63.75,
+    "composite": 47.81,
+    "final": 47.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "DISPROPORTIONATE_FORMALISM"
+   ],
+   "flag_details": {
+    "DISPROPORTIONATE_FORMALISM": "Formalism score 83 (5 definitions x2 + 11 lemmas/propositions/corollaries/theorems x3 + 10 proofs x4) exceeds twice the Level 3 upper bound of 40. The results are elementary consequences of periodicity of x^omega. At Level 3 this flag is recorded but does not disqualify."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Introduces half range Rauzy graphs and proves elementary structural properties (cycle components, gcd/lcm component counts) for periodic words; correct-looking mathematics with heavy numbered apparatus and many unused textbook preliminaries.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A variant of Rauzy graphs in which edges join factors whose half-length suffix and prefix overlap, studied for periodic infinite words x^omega with x primitive.\n**Level:** 3 (Medium)\n**Rationale:** A new combinatorial object with proved structural properties. The proofs are elementary periodicity and counting arguments, so the paper does not reach Level 4.\n\n### Formal Elements\n- Definitions: 5 (Definitions 1-2 numbered; primitive word, conjugacy class and letter complement used later)\n- Theorems: 11 (Lemmas 1-2, Propositions 1-3, Corollaries 1-4, Theorems 1-2)\n- Proofs: 10\n- Equations: index arithmetic on factors\n\n### Proportionality\nCalculated complexity: 83\nExpected range (Level 3): 10-40\nRatio: 2.1x upper bound\n\n**Assessment:** Disproportionate by count. The notation is appropriate for combinatorics on words, but many numbered results are near-immediate (Lemma 1 is an isomorphism under letter complement; Corollary 4 restates Theorem 2). The preliminaries define walks, trails, complete graphs and graph complements that are never used.\n\n### Issues\n- Section 3 says Adleman solved \"an instance of a Travelling salesman problem\"; the introduction correctly says Hamiltonian path.\n- Several preliminaries are textbook graph notions that the paper never uses afterwards.\n\n---\n\n## Citation Analysis\n\nOne of 17 references (6%) includes an author ([2], Bera and Mahalingam, on word-representable graphs; related). No issues identified.\n\n---\n\n## Structural Analysis\n\nEvery stated result is accompanied by a proof, and examples illustrate the definitions. The conclusion notes that only one family of infinite words is treated and that other sequences remain to be analysed, an inline acknowledgment of scope. Pure theory; nothing to release.\n\n---\n\n## Conclusion\n\nA modest but coherent combinatorics-on-words paper. The formalism flag reflects the volume of numbered results relative to a Level 3 contribution; it does not disqualify at this level."
+  },
+  {
+   "paper_id": "mahalingam2018b",
+   "paper": {
+    "title": "Palindromic Properties of Two-Dimensional Fibonacci Words",
+    "authors": [
+     "K. Mahalingam",
+     "M. Sivasankar",
+     "K. Krithivasan"
+    ],
+    "abstract": "Combinatorial properties of 1D Fibonacci words is a well studied topic in Formal language theory. In the year 2000, Apostolico et.al. extended the concept of one dimensional Fibonacci words to two dimensional Fibonacci arrays and investigated the number of repetitions of some structures (squares, tandems). In this paper, we investigate the number of distinct Palindromic occurrences in any given Fibonacci array. We also investigate the number of palindromes in the conjugacy class of a Fibonacci array.",
+    "keywords": [
+     "Fibonacci arrays",
+     "Palindromes",
+     "Parikh vector",
+     "Conjugacy"
+    ],
+    "doi": null,
+    "pages": "267-277",
+    "source_file": "paper599.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 40,
+    "citation_integrity": 85,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 58.25,
+    "composite": 43.69,
+    "final": 38.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "DISPROPORTIONATE_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "DISPROPORTIONATE_FORMALISM": "Formalism score 86 (7 numbered definitions x2 + 12 lemmas/propositions/corollaries/theorems x3 + 9 proofs x4) exceeds twice the Level 3 upper bound of 40. At Level 3 this flag is recorded but does not disqualify.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints; the conclusion only summarises results and asserts relevance to pattern recognition and crystallography."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Counting results for palindromic subarrays and palindromic conjugates of 2D Fibonacci arrays; the formalism suits the topic but is heavy for the level, some proofs are sketchy, and a worked example contradicts the paper's own Fibonacci indexing.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Palindromic subarrays of two-dimensional Fibonacci arrays and palindromes in their conjugacy class.\n**Level:** 3 (Medium)\n**Rationale:** New counting results on a known combinatorial object, obtained by lifting 1D Fibonacci-word facts row- and column-wise.\n\n### Formal Elements\n- Definitions: 7 (numbered)\n- Theorems: 12 (Lemmas 1-6, Proposition 1, Corollary 1, Theorems 1-4)\n- Proofs: 9\n- Equations: Parikh-vector and count identities\n\n### Proportionality\nCalculated complexity: 86\nExpected range (Level 3): 10-40\nRatio: 2.2x upper bound\n\n**Assessment:** Disproportionate by count. The definitions are used and the notation is standard for the area; the excess comes from many numbered auxiliary results.\n\n### Issues\n- Lemma 1, on which Proposition 1 and Lemma 2 depend, is stated without proof or citation.\n- The Fibonacci recurrence is misprinted as F(n) = F(n-1) + F(n-1).\n- Example 2 writes F(3) x F(5) = 3 x 5 = 15 for f_{3,4}; under the paper's indexing (F(0) = F(1) = 1) F(5) = 8, so the index is misprinted and should be F(4), as Theorem 2 predicts.\n- The construction of f_{m,n} via Fibonacci representations is taken from an unpublished preprint [18] by two of the authors.\n- The proof of Theorem 2 combines horizontal and vertical palindromes by a matching argument (Lemma 6) without showing that distinct pairings give distinct subarrays.\n\n---\n\n## Citation Analysis\n\nThree of 25 references (12%) include an author: [17], [18] (preprint) and [23], all on 2D words and arrays and relevant. The ratio is normal; relying on an unpublished preprint for a construction is a minor weakness.\n\n---\n\n## Structural Analysis\n\nMost results carry proofs, but the foundational Lemma 1 is unproved and the counting proof is informal. No limitations are acknowledged (NO_LIMITATIONS). Pure theory; nothing to release.\n\n---\n\n## Conclusion\n\nThe topic is reasonable and the notation appropriate. The paper is let down by unproved foundations, misprints that affect the checkable example, and a heavy numbered apparatus for the size of the contribution."
+  },
+  {
+   "paper_id": "kucera2018",
+   "paper": {
+    "title": "On k#$-Rewriting Systems",
+    "authors": [
+     "Jiri Kucera",
+     "Zbynek Krivka",
+     "Alexander Meduna"
+    ],
+    "abstract": "This paper introduces k#$-rewriting systems based on earlier defined #-rewriting systems but with additional pushdown memory. It demonstrates that these systems characterize an infinite hierarchy of language families resulting from the limited number of rewriting positions in every configuration during the generation of a sentence.",
+    "keywords": [
+     "k#$-rewriting systems",
+     "pushdown",
+     "#-rewriting systems",
+     "infinite hierarchy",
+     "finite index",
+     "n-limited state grammars"
+    ],
+    "doi": null,
+    "pages": "278-287",
+    "source_file": "paper600.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 70,
+    "citation_integrity": 60,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.25,
+    "composite": 45.19,
+    "final": 35.19
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "3 of 13 references (23%) include an author: [2] (Meduna), [5] (Krivka, Meduna, Schonecker) and [11] (Krivka). All are on related rewriting and automata models.",
+    "NO_LIMITATIONS": "No limitations are acknowledged; the conclusion lists only future research directions, and the omission of the correctness proofs is presented as a matter of space rather than discussed as a limitation."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Defines #-rewriting systems with a pushdown and claims equivalence with k-limited state grammars plus a strict hierarchy over #-rewriting systems; the constructions are given, but both correctness proofs are left to the reader.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A rewriting system that extends #-rewriting systems of finite index with a pushdown, shown equivalent to k-limited state grammars and strictly stronger than #-rewriting systems of the same index.\n**Level:** 3 (Medium)\n**Rationale:** New formal model with simulation constructions and a separation result. The separation uses a standard pumping-lemma argument; defaulting low gives Level 3.\n\n### Formal Elements\n- Definitions: 6 (Definition 3.1; context-free grammar, Dyck language, grammar index, state grammar and #-rewriting system recalled in the preliminaries)\n- Theorems: 4 (Lemmas 4.1, 4.2, Corollary 4.3, Theorem 4.4)\n- Proofs: 4 (two are constructions only)\n- Equations: rule schemata and state constructions\n\n### Proportionality\nCalculated complexity: 40\nExpected range (Level 3): 10-40\nRatio: 1.0x upper bound\n\n**Assessment:** Proportionate. The definitions are needed to state the constructions.\n\n### Issues\n- For both Lemma 4.1 and Lemma 4.2 the authors give only the construction and write that the formal proof \"which is rather technical\" is left \"to the kind reader\" because of lack of space. The paper's main result, Corollary 4.3, therefore rests on unproved lemmas.\n- The construction in Lemma 4.2 introduces a state q_fail but its rules use q_false.\n\n---\n\n## Citation Analysis\n\nThree of 13 references (23%) include an author; all are on the #-rewriting and deep pushdown models this paper extends (similarity above 0.5). ELEVATED_SELF_CITATION applies. No ring pattern.\n\n---\n\n## Structural Analysis\n\nThe separation proof (Theorem 4.4) is given in reasonable detail; the two simulation lemmas are not proved. No limitations are acknowledged (NO_LIMITATIONS). The introduction's claims of applicability to computational linguistics and bioinformatics are made only by citation. Pure theory; nothing to release.\n\n---\n\n## Conclusion\n\nAn incremental model-extension paper with proportionate formalism. Its central equivalence is asserted with constructions but without the correctness proofs, which weakens the claims considerably for a theoretical paper."
+  },
+  {
+   "paper_id": "orellanamartin2018",
+   "paper": {
+    "title": "The Unique Satisfiability Problem from a Membrane Computing Perspective",
+    "authors": [
+     "David Orellana-Martin",
+     "Luis Valencia-Cabrera",
+     "Agustin Riscos-Nunez",
+     "Mario J. Perez-Jimenez"
+    ],
+    "abstract": "Complexity class DP is the class of \"differences\" of any two languages in NP. It verifies that NP U co-NP is contained in DP, which is contained in P^NP, where P^NP is the second level of the polynomial hierarchy, specifically, it is the class of languages decidable by a deterministic polynomial-time Turing machine having access to an NP oracle. The unique satisfiability problem (UNIQUE SAT) is a well known DP problem which has been proved to be co-NP-hard. In this paper, a uniform and polynomial time solution for the UNIQUE SAT problem is given by a family of polarizationless P systems with active membranes and division rules only for elementary membranes, without dissolution rules but using minimal cooperation and minimal production in object evolution rules.",
+    "keywords": [
+     "Complexity class DP",
+     "polarizationless P systems with active membranes",
+     "cooperative rules",
+     "UNIQUE SAT problem"
+    ],
+    "doi": null,
+    "pages": "288-297",
+    "source_file": "paper601.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 60,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 66.75,
+    "composite": 50.06,
+    "final": 40.06
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "4 of 16 references (25%) include an author: [5], [12], [14], [15]. All concern complexity in membrane computing, and [14] and [15] are the SAT and #SAT solutions this paper adapts.",
+    "NO_LIMITATIONS": "No limitations are acknowledged; the conclusion poses open complexity questions only."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Uniform polynomial-time P-system solution to UNIQUE SAT, adapted from the authors' SAT and #SAT designs; proportionate formalism, but soundness and completeness are only \"informally deduced\" and the rule set contains inconsistencies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A family of polarizationless P systems with active membranes, elementary division, minimal cooperation and minimal production that decides UNIQUE SAT in polynomial time.\n**Level:** 4 (High)\n**Rationale:** The paper establishes a computational complexity result: membership of a DP problem in a membrane-computing complexity class.\n\n### Formal Elements\n- Definitions: 5 (multiset operations, decision problems, Cantor pairing, Definition 1 of the P system class, recognizer systems; DP recalled)\n- Theorems: 1\n- Proofs: 1\n- Equations: rule set R.1-R.9 and resource bounds\n\n### Proportionality\nCalculated complexity: 17\nExpected range (Level 4): 30-80\nRatio: 0.2x upper bound\n\n**Assessment:** Proportionate. The rule set is the algorithm; the definitions are needed to place the result in the PMC framework.\n\n### Issues\n- Item (e) of the proof of Theorem 1 states that soundness and completeness \"can be informally deduced from the overview of the computations\"; the main correctness property is therefore not proved.\n- Section 4.1 asserts the system is deterministic, but the negative-answer Case 2 says objects are \"selected non-deterministically\".\n- Rule R.8 carries a stray quantifier \"for 0 <= i <= n-1\" over no index; the reduction in Section 3 is described as a map \"from UNSAT to UNSAT\".\n- The paper has no introduction or related-work section; it opens with preliminaries.\n\n---\n\n## Citation Analysis\n\nFour of 16 references (25%) include an author. All are on membrane computing complexity and directly related; [14] and [15] are the designs adapted here. ELEVATED_SELF_CITATION applies; no irrelevant self-citation.\n\n---\n\n## Structural Analysis\n\nThe design and the stage-by-stage computation overview are detailed, and resource bounds are stated. Correctness is argued informally. No limitations are stated (NO_LIMITATIONS). Pure theory; nothing to release, although the research group distributes simulators elsewhere, none is linked here.\n\n---\n\n## Conclusion\n\nA competent but incremental adaptation of earlier designs to UNIQUE SAT. Formalism is appropriate for a complexity result; the evidential weakness is the informal correctness argument and several internal inconsistencies in the rule description."
+  },
+  {
+   "paper_id": "sheenachristy2018",
+   "paper": {
+    "title": "Accepting H-Array Splicing Systems and Their Properties",
+    "authors": [
+     "D. K. Sheena Christy",
+     "V. Masilamani",
+     "D. G. Thomas",
+     "Atulya K. Nagar",
+     "T. Robinson"
+    ],
+    "abstract": "Mitrana et al. (2010) have introduced accepting splicing systems working in uniform and non-uniform way as a counterpart of the well investigated generating splicing systems. In this paper, we have extended these notions to H-array splicing systems studied by Helen Chandra et al. (2004) using parallel splicing on rectangular arrays. We have compared the accepting H-array splicing systems with existing two dimensional grammars such as local array systems and (Regular : Regular) array grammars in terms of their generative powers.",
+    "keywords": [
+     "Two-dimensional language",
+     "H-array splicing system",
+     "Iterated Splicing"
+    ],
+    "doi": null,
+    "pages": "298-309",
+    "source_file": "paper602.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 80,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.75,
+    "composite": 49.31,
+    "final": 44.31
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "Formalism score 58 (7 definitions x2 + 8 theorems x3 + 5 proofs x4) lies between the Level 3 upper bound of 40 and twice it."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Extends accepting splicing systems from strings to H-array splicing on pictures and compares their power with local and (R:R) array languages; elevated formalism, several proofs are hand-waved, and most results hold only when one rule set is empty.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Accepting variants (uniform and non-uniform iteration) of H-array splicing systems on rectangular pictures, with incomparability results against LOC and (R:R) array languages and pumping-style properties.\n**Level:** 3 (Medium)\n**Rationale:** A new formal model obtained by transferring Mitrana et al.'s accepting splicing from strings to arrays, with comparison theorems.\n\n### Formal Elements\n- Definitions: 7 (Definitions 2.1, 2.2, 2.3, 3.1, 4.1; local languages and (R:R) array grammars recalled)\n- Theorems: 8 (Theorems 4.1-4.8)\n- Proofs: 5\n- Equations: splicing relations and iteration schemes\n\n### Proportionality\nCalculated complexity: 58\nExpected range (Level 3): 10-40\nRatio: 1.45x upper bound\n\n**Assessment:** Elevated. The definitions are needed and used; the volume is high for an incremental transfer of a string concept to arrays.\n\n### Issues\n- Theorem 4.2(i) argues that L0 is not an (R:R) array language only because \"a pattern (subarray) does not appear periodically\", with no proof.\n- Theorem 4.1(ii) and 4.2(ii) are established only for systems with one rule set empty, and Theorems 4.3-4.6 carry the same restriction; the general case is left open.\n- Theorems 4.4-4.6 are stated without proof as \"similar\".\n- Example 4.1 names the accepting set F in the system tuple and P in the text.\n\n---\n\n## Citation Analysis\n\nTwo of 12 references (17%) include an author: [5] (Thomas) introduces H-array splicing and [7] is the authors' preliminary version of this paper, which is disclosed. Both are directly related. The ratio is in the 15-20% band; no flag.\n\n---\n\n## Structural Analysis\n\nClaims are supported by examples and partial proofs; several key separations are asserted. The conclusion acknowledges that the case where both row and column rules are non-empty remains to be analysed, which serves as an inline limitation. Pure theory; nothing to release.\n\n---\n\n## Conclusion\n\nAn incremental extension with elevated but legitimate formalism. Its main weaknesses are informal separation arguments and results restricted to degenerate rule configurations."
+  },
+  {
+   "paper_id": "song2018",
+   "paper": {
+    "title": "A Quick Survey of Tissue-Like P Systems",
+    "authors": [
+     "Bosheng Song",
+     "Yingxin Hu",
+     "Henry N. Adorna",
+     "Fei Xu"
+    ],
+    "abstract": "Membrane computing is a branch of natural computing, which abstracts from the architecture and the functioning of living cells. The models investigated in membrane computing are distributed and parallel computing devices, which are generically called P systems. Three main families have been considered until now: cell-like P systems, tissue-like P systems and neural-like P systems. In this work, we first present the definitions of tissue-like P systems and several variants of these systems, then some results about Turing universality and computational efficiency are recalled. Finally, a computational complexity theory within the framework of tissue-like P systems is introduced, polynomial complexity classes associated with several variants of tissue-like P systems are defined and some relevant results are presented. Different borderlines between efficiency and non-efficiency on the basis of the length of communication rules are presented.",
+    "keywords": [
+     "Bio-inspired computing",
+     "Membrane computing",
+     "Tissue P system",
+     "Universality",
+     "Computational complexity"
+    ],
+    "doi": null,
+    "pages": "310-321",
+    "source_file": "paper603.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 46.5,
+    "composite": 34.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the only URL, http://ppage.psystems.eu, is the third-party P systems web page",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DISPROPORTIONATE_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 survey whose formalism score of 60 exceeds the Level 1-2 threshold of 15. It restates six numbered tuple definitions and sixteen numbered \"Theorems\" taken from other papers, none proved here. The results could be reported in prose or a table with citations without loss.",
+    "DISPROPORTIONATE_FORMALISM": "Formalism score 60 (6 definitions x2 + 16 theorems x3 + 0 proofs) is 12 times the Level 1 upper bound of 5, above the 2x threshold.",
+    "NO_LIMITATIONS": "The survey does not state its scope, selection criteria or coverage limits; the conclusion lists open problems only."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Short survey of tissue-like P systems that recasts other papers' definitions and results as sixteen numbered, unproved theorems; adequately cited, but at survey level the formal apparatus is disproportionate and triggers the formalism flags.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Survey of tissue-like P systems: basic model, variants, universality results, and the PMC complexity classes with known efficiency frontiers.\n**Level:** 1 (Trivial)\n**Rationale:** The specification places surveys and literature reviews at Level 1. The paper contributes no new result; every theorem is attributed to prior work.\n\n### Formal Elements\n- Definitions: 6 (numbered items 1-6: tissue P system, with cell division, with cell separation, two recognizer variants, polynomial-time uniform solvability)\n- Theorems: 16 (Theorems 1-16, all restated from cited papers)\n- Proofs: 0\n- Equations: complexity-class identities\n\n### Proportionality\nCalculated complexity: 60\nExpected range (Level 1): 0-5\nRatio: 12x upper bound\n\n**Assessment:** Disproportionate. The formal definitions are the field's standard vocabulary, but in a survey with no proofs they serve presentation only, and labelling sixteen cited results \"Theorem N\" adds formal apparatus without formal work. Under the zero-tolerance rule for Levels 1-2 (formalism above 15), FORMALISM_THEATER and DISPROPORTIONATE_FORMALISM apply.\n\n### Issues\n- Item 2(1) restates the base tissue P system with an input alphabet Sigma that is absent from the tuple given in item 1.\n- No result is proved or discussed critically; each theorem is a one-line restatement of a cited paper.\n\n---\n\n## Citation Analysis\n\n60 references. Eight (13%) include the first author Song ([33], [36], [37], [52], [53] spelled \"SON B.\", [54], [55], [56]); all concern tissue or related P systems and are relevant. No self-citation by the other authors. No issues beyond normal.\n\n---\n\n## Structural Analysis\n\nAs a survey, almost every factual statement is tied to a citation, so claim-evidence balance is good. The survey states no scope, methodology or coverage limits (NO_LIMITATIONS). There is nothing of the authors' own to release; the P systems web page cited is third-party.\n\n---\n\n## Conclusion\n\nA useful but brief pointer list for tissue P system results. Classified strictly as a Level 1 survey, its presentation of cited results as numbered theorems and tuple definitions exceeds the proportionality bounds, and the formalism flags apply. The citation and evidence base is otherwise sound."
+  }
+ ]
+}

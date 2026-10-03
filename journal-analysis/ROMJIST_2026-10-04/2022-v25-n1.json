@@ -1,0 +1,454 @@
+{
+ "batch_id": "2022-v25-n1",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 25,
+  "issue": 1,
+  "year": 2022
+ },
+ "papers": [
+  {
+   "paper_id": "nejkovic2022",
+   "paper": {
+    "title": "Application of Fuzzy Analytic Hierarchy Process to Inductive Steel Tube Welding",
+    "authors": [
+     "Valentina M. Nejković",
+     "Miroslav S. Milićević",
+     "Goran Janaćković",
+     "Miroljub Grozdanović"
+    ],
+    "abstract": "The paper presents the methods for the measurement and improvement of energy parameters and quality of high-frequency inductive steel tube welding. This improvement is shown through lessened energy and power consumption and increased weld quality. The key welding quality and energy efficiency indicators are obtained by group fuzzy analytic hierarchy process, including five experts in the assessment, based on the three groups of welding process characteristics and eleven indicators. Based on the selected key indicators and the results of the practical analysis, the new impeder with Fluxtrol magneto-dielectric material is designed and developed. The function of the impeder is to transfer and convert electromagnetic energy into heating energy in the best possible way. Practical results prove the quality and efficiency of the proposed solution.",
+    "keywords": [
+     "automation",
+     "fuzzy analytic hierarchy",
+     "fuzzy systems",
+     "hierarchy process",
+     "reasoning",
+     "welding"
+    ],
+    "doi": null,
+    "pages": "3-19",
+    "source_file": "paper703.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 31.0,
+    "composite": 23.25,
+    "final": 23.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 application of standard group fuzzy AHP. Expert attributes and weights are written in set notation (Γ = {γ1, ..., γm}, B = {b1, ..., bm}, C = {c1, ..., cm}) although they are ordered lists of five numbers; the paper itself calls Γ 'the vector (or set)'.",
+    "UNNECESSARY_SET_THEORY": "Set braces used for lists with repeated values: 'B = {2, 1, 1, 1, 2} and C = {2, 2, 1, 1, 1}' and 'Γ = {0.4, 0.1, 0.1, 0.1, 0.2}'. As sets these would collapse; they are arrays indexed by expert.",
+    "ELEVATED_SELF_CITATION": "7 of 27 references (25.9%) include an author of this paper: [7], [8], [10], [11], [12], [13] (Milićević/Nejković) and [25] (Grozdanović/Janaćković). All are on welding or fuzzy-AHP methodology, so topically related."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Applied fuzzy-AHP ranking of welding factors plus an industrial impeder comparison; set notation for expert-weight lists, arithmetic and table-labelling errors, and an unrelated pasted paragraph weaken the paper.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Group fuzzy AHP used to rank eleven factors affecting HF inductive tube welding, followed by an empirical comparison of a Fluxtrol magneto-dielectric impeder against ferrite impeders.\n**Level:** 2 (Low)\n**Rationale:** The fuzzy AHP procedure (expert weighting, geometric aggregation, fuzzy geometric-mean weights, CCI consistency) is taken from the authors' cited prior work [25-27] and applied to a new domain. The impeder part is industrial measurement, not a new model.\n\n### Formal Elements\n- Definitions: 0 numbered\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (expert weight, aggregated fuzzy judgment, fuzzy weights, mean aggregated weight)\n\n### Proportionality\nCalculated complexity: 0 (no definitions/theorems/proofs)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** The four equations restate the standard method and are acceptable in themselves. The expert data, though, are written as sets: B = {2, 1, 1, 1, 2}, C = {2, 2, 1, 1, 1}, Γ = {0.4, 0.1, 0.1, 0.1, 0.2}. These are per-expert arrays with repeated values, the 'set notation for lists' pattern, which triggers the zero-tolerance rule at Level 2.\n\n### Issues\n- Arithmetic: with γk = bk·ck / Σ bk·ck the products are 4, 2, 1, 1, 2 (sum 10), giving Γ = (0.4, 0.2, 0.1, 0.1, 0.2). The paper reports (0.4, 0.1, 0.1, 0.1, 0.2), which sums to 0.9 and contradicts the normalisation constraint the paper states.\n- Table numbering and labelling: the text refers to Table 3 for the criteria matrix, which is printed as Table 2. Table 1 omits c4. The final ranking table (Table 6) repeats the Table 5 caption and mislabels rows (c1 for the tube diameter, a1 twice for production parameters, c3 for production speed).\n- Section 5.2 contains two paragraphs about redesigning acquisition and dispatch functions in an underground coal mine. They have nothing to do with welding and look pasted from another manuscript.\n- Sections 6 and 7 carry the same title, and the inductor-size paragraph in 6.2 repeats garbled sentence fragments.\n\n---\n\n## Citation Analysis\n\n7 of 27 references (25.9%) are self-citations: six by Milićević and/or Nejković on HF welding and impeders, and one by Grozdanović and Janaćković on fuzzy AHP for ergonomic indicators (the source of the method). All are topically related (similarity about 0.5 or higher; the ergonomics paper about 0.4, justified as the method source). The ratio falls in the 20-30% band. References [15]-[17] (fuzzy reasoning, tower-crane modelling, signatures for expert systems) are only loosely connected to the welding topic and are cited briefly in the introduction.\n\n---\n\n## Structural Analysis\n\nThe AHP results are fully tabulated. The impeder claims (savings 'more than 40%', productivity up to 90%) rest on rectifier-power curves from production runs, but the paper does not report repetitions, variability, or measurement uncertainty. 'Total financial savings are huge' is asserted without numbers. Limitations are acknowledged inline only: the too-high weld temperature problem, the shorter impeder lifetime of the medium-frequency magneto-dielectric, and the need for a pyrometer. No code or data is released; the expert matrices are printed only in aggregated form.\n\n---\n\n## Conclusion\n\nA practical industrial study wrapped around a routine fuzzy-AHP ranking. Writing per-expert arrays in set notation trips the formalism-theater rule at Level 2. More substantive problems are the inconsistent expert-weight arithmetic, the mislabelled tables, and an unrelated pasted passage on coal-mine dispatch systems, which point to weak editorial control. The impeder results may be useful to practitioners but are reported without any statistical characterisation."
+  },
+  {
+   "paper_id": "mihalache2022",
+   "paper": {
+    "title": "Lasting emotions – An investigation of short- and long-term affective content remanence in speech",
+    "authors": [
+     "Serban Mihalache",
+     "Dragos Burileanu",
+     "Eduard Franti",
+     "Monica Dascalu",
+     "Costin-Andrei Bratan"
+    ],
+    "abstract": "Speech emotion recognition (SER) is a promising ongoing research area with important applications for forensics and law enforcement operations, among others. One of the challenges presented by these tasks consists of discerning patterns in the temporal evolution of the affective content that would indicate suspicious behavior. The authors hypothesise and test emotional remanence after triggering interactions and increasing affective response as an emotionally charged event approaches, using a dataset of 270 recordings of 18 students before resit exams, labelled by human evaluators for emotion class and arousal-valence. They propose an MLP-based SER system reaching up to 72.7% accuracy in a speaker-independent setting, with results consistent with human evaluation.",
+    "keywords": [
+     "speech emotion remanence",
+     "speech emotion recognition",
+     "machine learning",
+     "multilayer perceptrons",
+     "law enforcement"
+    ],
+    "doi": null,
+    "pages": "20-35",
+    "source_file": "paper704.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.0,
+    "composite": 60.75,
+    "final": 60.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the dataset is described as 'a novel proprietary dataset'",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Small empirical speech-emotion study with proportionate formalism; claims of having 'proved' the hypotheses rest on descriptive trends from 18 speakers without statistical testing.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Temporal persistence (remanence) of negative affect in speech, measured through human annotation of a new 270-utterance dataset, plus MLP classifiers and regressors on ComParE-style features.\n**Level:** 2 (Low)\n**Rationale:** An empirical study with linear trendlines and a standard MLP grid search; no new algorithm or model.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (z-score normalisation, UA, WA, MSE)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations define the evaluation metrics, which is legitimate.\n\n### Issues\nNone in the formalism. The text mentions 'boosting the contribution of the deceptive samples' in class weighting, a phrase apparently carried over from the authors' deception-detection work; the classes here are negative and neutral.\n\n---\n\n## Citation Analysis\n\n4 of 36 references (11%) are self-citations ([17], [21], [32], [33]): affect mapping, the RODeCAR deception corpus, stress detection, and modulation-feature SER. All are directly related. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe hypotheses are stated clearly and the setup is described in useful detail (feature set, architectures, hyperparameters, hardware). The abstract and conclusions say the authors 'prove' both hypotheses and that the affective response is 'significantly higher'. The evidence is descriptive only: average curves and linear trendline slopes over 18 speakers, with no significance tests, confidence intervals, or inter-rater agreement for the five evaluators. The speaker-dependent models are reported honestly as performing poorly. The speaker-independent split is described both as 50/50 and as 10-fold cross-validation, which is ambiguous. There is no dedicated limitations section, but the paper acknowledges inline that the student-exam scenario is only 'a reasonable partial proxy' for real high-stakes settings and that the system struggles for some speakers. The dataset is proprietary and no code is released.\n\n---\n\n## Conclusion\n\nA competent small-scale empirical paper with appropriate formalism and clean citation practice. Its main weakness is overclaiming: trends from 18 students and one exam context are presented as proofs, with no inferential statistics. Reproducibility is limited because neither the dataset nor the code is available."
+  },
+  {
+   "paper_id": "singh2022",
+   "paper": {
+    "title": "Manifold Optimization with MMSE Hybrid Precoder for Mm-Wave Massive MIMO Communication",
+    "authors": [
+     "Divya Singh",
+     "Aasheesh Shukla"
+    ],
+    "abstract": "Hybrid Precoding (HP) major key aspects of millimeter-wave in wireless communication is used to enhance the energy and spectrum efficiency and also to reduce the system complexity, cost, and path losses. The sub-connected structure of HP is used further to minimize hardware complexity and power consumption. In this article, an effective HP algorithm is developed for the maximization of spectral efficiency as well as for the minimization of bit error rate in the Mm-Wave massive MIMO system. This proposed algorithm makes use of Manifold optimization and MMSE criterion to increase spectral and energy efficiency and also to reduce hardware complexity. Simulation results show the achievement of significant efficiency and cost via the use of the proposed algorithm over conventional ones.",
+    "keywords": [
+     "Mm-Wave",
+     "Manifold optimization",
+     "MIMO",
+     "Hybrid precoding",
+     "Minimum mean square error"
+    ],
+    "doi": null,
+    "pages": "36-46",
+    "source_file": "paper705.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 70,
+    "citation_integrity": 70,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 61.25,
+    "composite": 45.94,
+    "final": 40.94
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; 'All simulations are performed on Matlab R2016b for 500 random channel samples.'",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no acknowledgement of constraints. Perfect CSI and perfect synchronisation are stated as simulation assumptions, but their effect on the conclusions is never discussed."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Combination of known manifold-optimization and MMSE hybrid-precoding techniques with necessary matrix formalism, but derivations closely follow prior work, contain notational errors, and the citation list includes several off-topic references.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Hybrid analog/digital precoder design for narrowband mm-wave massive MIMO, minimising MSE with manifold optimisation for the constant-modulus analog precoder and a closed-form (KKT) digital precoder.\n**Level:** 2 (Low)\n**Rationale:** The MMSE formulation, the optimal-combiner expressions and the MO approach are all taken from cited work, chiefly Lin et al. [12] and the MO literature [31, 37]. The contribution is their combination and a simulation comparison against OMP and MO. No convergence or complexity analysis is given.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0 (the text says 'this theorem will be used' after eq. 8b, but no theorem is stated)\n- Proofs: 0\n- Equations: about 15 (channel model, received signal, rate, MSE, optimisation problems, gradients, closed-form AD)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** The matrix equations are necessary: an implementer needs the gradient, the closed-form digital precoder and the constraints. There is no theater pattern. Quality is poor, though. Eq. (4) has its left-hand side missing. The text refers to '4(b)', which does not exist. Eq. (13) is labelled gr(f(ARF)) although it is the MMSE objective. Problem (14) minimises the gradient ∇f instead of f. Algorithm 1 refers to eqs. (12) and (13) for its outputs inconsistently. The notation paragraph defines (X)^H as 'matrix (vector)'.\n\n### Issues\nNotational and labelling errors as listed above; no derivation of eq. (10) beyond 'some mathematical manipulation'.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 39 references ([21], 2.6%), on precoding schemes, which is related. Several references are unrelated to the content they are cited for. [10] (a low-noise amplifier for 1-5 GHz) is cited for low-complexity digital precoder design. [15]-[19] (sliding-mode control, particle-filter/PSO fuzzy servo control, GPS/GSM vehicle routing, Q-learning control, GWO-tuned fuzzy controllers) are cited in a paragraph about energy consumption and vehicle routing. [25] (bit-split string matching) is cited for WMMSE manifold optimisation of partially connected structures. Neither the self-citation rule nor the ring rule applies, since the authors of these works are not the paper's authors and no mutual citation can be shown from this paper alone. The pattern still suggests reference padding and is recorded here.\n\n---\n\n## Structural Analysis\n\nThe claims of superiority rest on simulation curves against OMP and MO, with only the system parameters given. The angular spread is stated as '100' with no unit. Table 1 gives order-of-magnitude values read from the plots. Figures 6-7 are described in a single sentence. No complexity or runtime comparison supports the abstract's claim of reduced hardware complexity and cost. Perfect CSI is assumed. There is no limitations section. No code is released; the simulations use MATLAB.\n\n---\n\n## Conclusion\n\nA derivative signal-processing paper whose formalism is needed but carelessly typeset and only partly derived. Its novelty over [12] and the MO literature is not clearly separated. The off-topic references (control, routing, string matching, LNA design) are the most notable integrity concern, though they do not meet a flag condition."
+  },
+  {
+   "paper_id": "musala2022",
+   "paper": {
+    "title": "Implementation of Semi-Static and Differential Null Convention Logic Gates Using CNTFET Technology",
+    "authors": [
+     "Sarada Musala",
+     "P. Vijaya Lakshmi",
+     "K. Kumar Lokesh",
+     "Avireni Srinivasulu",
+     "Cristian Ravariu"
+    ],
+    "abstract": "This paper aims to implement NULL Convention Logic gates using CNTFET technology. NCL is a clockless technique to solve timing problems, and CNTFET is a low-power technology in comparison to the others. Hence high performance and efficient circuits with low power and low delay can be obtained by combining the two techniques. In terms of power, latency, power delay product, and transistor count, various asynchronous NULL Convention Logic (NCL) gates semi static, and differential have been implemented using CNTFET technology and is compared with the existing CNTFET based NCL static gates, based on the observations gates suitable for adder design is identified. Differential NCL gates have low power and better PDP when compared to both static and semi-static NCL gates. All the simulations are carried out using CNTFET 32nm technology in cadence virtuoso tool.",
+    "keywords": [
+     "NCL Logic",
+     "logic gates",
+     "CNTFET",
+     "low power",
+     "low delay"
+    ],
+    "doi": null,
+    "pages": "47-57",
+    "source_file": "paper706.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 40,
+    "structural_integrity": 30,
+    "artifact_availability": 50,
+    "intellectual_integrity": 53.5,
+    "composite": 52.62,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "'Figs 8-34 show the simulation results of the semi-static and differential mode NCL gates ... All these figures are saved in webpage [24].' [24] https://drive.google.com/file/d/1zBP6Wim-V6PEQIQDIMeHQ0yxnGWcx6Ux/ (simulation output plots; no netlists or design files)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "IRRELEVANT_SELF_CITATION",
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "IRRELEVANT_SELF_CITATION": "[13] SRINIVASULU A., 'Modified optical OR and AND gates' (optoelectronics) is cited to support the claim that 'CNTFETs ... are high-density [13, 14]'. An optical-gate paper says nothing about CNTFETs or NCL; topical similarity is below 0.3.",
+    "ELEVATED_SELF_CITATION": "6 of 24 references (25%) include an author of this paper (Srinivasulu, Sarada/Musala, Vijaya Lakshmi): [13], [14], [15], [16], [21], [22].",
+    "NO_LIMITATIONS": "No limitations section and no acknowledgement of constraints (single technology node, no PVT or Monte-Carlo analysis, schematic-level simulation only)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Re-implementation of known NCL gate styles with a public CNTFET model; reported tables partly contradict the stated conclusions, captions are duplicated, and one self-citation is off-topic.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Schematic-level simulation of the 27 NCL threshold gates in semi-static and differential styles, using the Stanford 32 nm CNTFET model in Cadence, compared with previously published static CNTFET NCL gates.\n**Level:** 2 (Low)\n**Rationale:** Known circuit styles [6-9] are transferred to an existing device model. This is a design-and-compare study with no new circuit theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (Boolean functions of TH12 and THxor0)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The Boolean equations specify the gates. Eqs. (2) and (4) are wrong, though: THxor0 is introduced 'with A, B inputs' while its function uses four inputs A, B, C, D.\n\n### Issues\nFigures 4-7 all carry the caption 'CNTFET based TH12 Semi-Static NCL gate', although the text says they show the semi-static THxor0 and the differential TH12 and THxor0. The PDP plot is captioned Fig. 8 'PDP of NCL gates' while the text calls it Figure 35.\n\n---\n\n## Citation Analysis\n\n6 of 24 references (25%) are self-citations. [14], [15], [16], [21] and [22] cover CNTFET adders, ternary CNTFET gates, XOR circuits and DCVSL, all related to the topic. [13], on modified optical OR/AND gates, is cited for the high density of CNTFETs. It concerns neither CNTFETs nor asynchronous logic, so it is an irrelevant self-citation (similarity below 0.3). Taken together, the self-citations look like padding of the introduction, where [13]-[16] are attached to generic adjectives ('high-density [13, 14], high-performance [15], and low-power circuits [16]').\n\n---\n\n## Structural Analysis\n\nThe central claim is that differential gates are best in delay and power. Table 2 contradicts it for delay: the static column (for example TH12 5 ps, TH22 4 ps, TH14 7.5 ps) is faster than the differential column for most gates, yet the text says the table shows the differential design 'is efficient in terms of delay'. Some entries are anomalous without comment (differential TH34W32 power 1248 pW against about 140 pW for its neighbours; static TH34 power 3703 pW). There is no adder design, although the abstract and conclusions say the gates are suitable for adders. There are no PVT corners, no Monte-Carlo analysis and no layout. No limitations are acknowledged. The simulation plots are deposited on Google Drive (link [24]), which gives a route to the result figures but not to netlists or design files.\n\n---\n\n## Conclusion\n\nA low-novelty circuit-simulation paper with careless presentation (duplicated captions, wrong Boolean equations, a results table that undercuts the delay claim). The irrelevant self-citation and the 25% self-citation ratio are the main integrity signals. The Google Drive deposit of simulation outputs is the only artifact."
+  },
+  {
+   "paper_id": "ramathilagam2022",
+   "paper": {
+    "title": "Modeling and development of fuzzy logic-based intelligent decision support system",
+    "authors": [
+     "Arunagiri Ramathilagam",
+     "Pandian Pitchipoo"
+    ],
+    "abstract": "The concept of fuzzy logic has been used to quantify the qualitative data in real-world decision-making problems. Evaluation and selection of supplier are the main problems where the decision depends on both quantitative and qualitative data. This paper proposes a fuzzy based modelling of an intelligent decision support system for a supplier selection problem. The proposed model is evaluated and validated using a case study in a chemical processing. The proposed system has been implemented in the case study organization to disclose the procedure and to identify the best supplier thorough the discussions.",
+    "keywords": [
+     "Decision Support Systems",
+     "Fuzzy Systems",
+     "Information Systems"
+    ],
+    "doi": null,
+    "pages": "58-79",
+    "source_file": "paper707.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 85,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 68.5,
+    "composite": 51.38,
+    "final": 46.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the raw supplier data and pairwise matrices are printed in Table 1 and the supplementary tables, but no software or deposited files are offered",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section or inline acknowledgement. Validation is described as qualitative feedback 'under research constraints such as cost and time', without discussion of what this limits."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Textbook fuzzy-logic and fuzzy-AHP supplier selection built with MATLAB and Excel; internally inconsistent scores and purely qualitative validation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A decision support system for supplier selection that combines a MATLAB Fuzzy Logic Toolbox Mamdani model and a fuzzy AHP computed in Excel, behind a Visual Basic interface, demonstrated on five suppliers of an electroplating firm.\n**Level:** 2 (Low)\n**Rationale:** 'Fuzzy logic applied to supplier selection' is the framework's own Level 2 example. The DSS architecture description (DBMS, model base, UI) is generic.\n\n### Formal Elements\n- Definitions: 0 numbered (inline textbook definition of a fuzzy set membership function)\n- Theorems: 0\n- Proofs: 0\n- Equations: 12 (membership mapping, triangular MF, AHP matrices, fuzzy reciprocal, centroid weights, CR/CI/λmax, overall priority)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in count. The equations restate textbook AHP and fuzzy formulas, which is verbose but serves to document the computation. They are written carelessly: eq. (9) defines λmax = max(B, n); the text states both 'If CR < 1, then the model can be accepted' and 'If CR < 0.10'. The supplementary table of random indices carries the caption of the normalised matrix. No theater pattern.\n\n### Issues\nThe results are internally inconsistent. In Table 6 the per-criterion contributions for Supplier 1 sum to about 0.148, but its final score is 0.302. For Supplier 3 they sum to about 0.30 against a final 0.147. Supplier 4's final score of 0.238 does not match its components either. The case is called 'chemical processing' in the abstract and conclusion and 'electroplating' in the body. The 243-rule Mamdani base is said to be generated from expert opinion, but only two rules of thumb are given.\n\n---\n\n## Citation Analysis\n\n3 of 41 references (7.3%) are self-citations by Pitchipoo. [27] and [28] are on supplier-selection DSS and fuzzy hybrid models, directly related. [36], on fuzzy optimisation to reduce blind spots in heavy transport vehicles, is cited as the source for 'FAHP approach is the fuzzy extension of AHP'. It shares the fuzzy methodology but not the application, so it is marginal (about 0.3-0.4) rather than irrelevant. The reference list is otherwise topical.\n\n---\n\n## Structural Analysis\n\nThe paper claims the IDSS 'replaces the conventional methods employed by human decision makers with a systematic as well as consistent knowledge-based approach'. The only validation is qualitative feedback from company staff and experts. The two models agree that Supplier 5 is best, but the FAHP aggregation table does not add up. There is no sensitivity analysis and no comparison with the firm's actual bidding outcome. No limitations are discussed. The input data are printed in the paper, but no software or deposited files are offered.\n\n---\n\n## Conclusion\n\nA routine application of fuzzy logic and fuzzy AHP to a five-supplier case. The formalism is not theatrical but is textbook and sloppily presented. The main weaknesses are the arithmetic inconsistencies in the final scoring table and the qualitative-only validation of a system the paper claims improves decisions."
+  },
+  {
+   "paper_id": "aiordachioae2022",
+   "paper": {
+    "title": "LifeTags++: A Multi-User, Multi-Device, and Multi-Perspective System for Recording and Abstracting Visual Life with Tag Clouds",
+    "authors": [
+     "Adrian Aiordăchioae",
+     "Radu-Daniel Vatavu"
+    ],
+    "abstract": "We present LifeTags++, a multi-user multi-perspective lifelogging and life abstraction system designed to automatically record, extract, process, and store visual concepts from a wide range of video camera devices and systems, including personal mobile and wearable devices, video cameras worn on the body, and public IP video cameras from the environment. Other features of LifeTags++ include integration with mobile crowdsensing to accept queries and deliver notifications about specific concepts of interest entered by users. We present technical details regarding the design and engineering of LifeTags++ as a distributed, cloud-based software architecture accommodating mobile and wearable devices and public ambient video cameras. Also, we report the results of an evaluation study with a dataset of 18,780 visual concepts extracted from a number of nearly 1,000 snapshots captured from three video cameras simultaneously recording the life of a user from three different perspectives. Our results show the benefits of employing multi-perspective life abstraction for creating rich lifelogs of visual concepts.",
+    "keywords": [
+     "Mobile",
+     "distributed systems",
+     "cloud computing",
+     "Lifelogging",
+     "Smartglasses",
+     "Camera glasses",
+     "Image processing",
+     "Smart wearables",
+     "Assistive vision"
+    ],
+    "doi": null,
+    "pages": "80-91",
+    "source_file": "paper708.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 50,
+    "artifact_availability": 70,
+    "intellectual_integrity": 33.5,
+    "composite": 42.62,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "'Our implementations in the form of node.js, HTML/JavaScript, and Java for Android applications together with a sample of snapshots are available from http://www.eed.usv.ro/mintviz/projects/MintVizAwardingParticipationH2020.' Only a sample of the snapshots is offered, not the evaluation dataset.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 system (smartphone and wearable cameras, a Clarifai API call, Firebase storage, tag-cloud display) formalised with set-builder notation for a tag list (eq. 1) and set-union and set-difference expressions (eqs. 2-4).",
+    "UNNECESSARY_SET_THEORY": "'CT = {ci = (wi, fi, Ωi) | i = 1..n}' for a list of tags; 'CT1 ∪ CT2 ∪ CT3' for merging tag lists from three cameras; CT− defined by set difference for 'tags seen by camera A but not camera B'. These are list concatenation with frequency summation and a filter. No proof depends on them.",
+    "ELEVATED_SELF_CITATION": "9 of 33 references (27.3%) include Aiordăchioae and/or Vatavu: [2], [3], [4], [5], [21], [22], [28], [29], [30]."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "API-integration lifelogging prototype whose tag-list merging is dressed in set-builder notation; evaluation is a single-volunteer concept count.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Extension of the authors' LifeTags lifelogging app to several cameras (camera glasses, a clip-on back camera, a public IP camera). Snapshots go through an Android app and a node.js server to the Clarifai vision API; concepts are stored in Firebase and shown as word clouds, with crowdsensing notifications.\n**Level:** 1 (Trivial)\n**Rationale:** A system that integrates existing services (Clarifai, Firebase) and displays the results. No new algorithm.\n\n### Formal Elements\n- Definitions: 1 (tag cloud as a set of tuples, eq. 1)\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (tag-cloud definition, multi-perspective union, two set-difference forms)\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 1): 0-5\nRatio: 0.4x upper bound\n\n**Assessment:** Within the numeric range but failing the necessity test throughout. 'CT = {ci = (wi, fi, Ωi) | i = 1..n}' is an array of records. The union in eq. (2) is concatenation with frequencies summed per word. Eqs. (3)-(4) are a filter for 'words in list A not present in list B'. A programmer would write `merged = groupBy(word, tags1 + tags2 + tags3)` and `[t for t in tags1 if t.word not in words3]`. The notation enables no proof or bound.\n\n### Issues\nThe set-union in eq. (2) is also not a set union: frequencies are summed, so it is a multiset aggregation, and the index bound 'i = 1..|∪ CTj|' mixes element counts with tuple identity. Eq. (3) uses '|CT1 − CT3|' as an index bound without defining set difference on tuples.\n\n---\n\n## Citation Analysis\n\n9 of 33 references (27.3%) are self-citations. Most are on lifelogging and smart eyewear: [2], [3], [4], [5], [21], [22], and they are clearly related. [28] (wearables for users with motor impairments), [29] (assistive vision and crisis management, ROMJIST) and [30] (GestuRING, a gesture-design tool for rings, cited for 'smart rings for the control of remote devices') are marginal (about 0.3-0.4) but still about wearables and smart-eyewear research, so they are not counted as irrelevant. The ratio falls in the 20-30% band.\n\n---\n\n## Structural Analysis\n\nThe evaluation has one volunteer walking in one outdoor area, with 939 snapshots and concept counts per camera. It supports the modest claim that more cameras yield more distinct concepts, and nothing beyond it (no user study, no analysis of the value of the extra concepts, no privacy evaluation). Drone and other-person perspectives are listed as part of the system but not evaluated. Limitations are acknowledged inline: the lower-resolution IP camera, and the statement that the extended functionality 'demands revisiting the privacy and security implications'. Code for the server, the web client and the Android app is linked, together with a sample of snapshots.\n\n---\n\n## Conclusion\n\nThis is the canonical pattern the framework targets: a Level 1 API-integration lifelogging system whose list merging and filtering are written in set-builder notation, which triggers FORMALISM_THEATER and UNNECESSARY_SET_THEORY. Against that, the code is released and the evaluation claims are modest and consistent with the data. The self-citation ratio is elevated but topically coherent."
+  },
+  {
+   "paper_id": "mosteanu2022",
+   "paper": {
+    "title": "Machine Learning and Robotic Process Automation Take Higher Education One Step Further",
+    "authors": [
+     "Narcisa Roxana Moşteanu"
+    ],
+    "abstract": "Machine learning and digitization have been around for several years, but their use has become a necessity with the Covid-19 pandemic. This paper shows how artificial intelligence can be used to improve the effectiveness of teaching, research, and study plan, by adapting the new communication technologies and students' needs to achieve the course learning outcomes in a virtual environment. The paper proposes three ways of using artificial intelligence in higher education, namely physical robot at the entrance of the campus to guide the visitors, robotic process automation to assist admission and registration process, and robotic process automation to aid professors in student's evaluation process and improve the academic study plan.",
+    "keywords": [
+     "Machine learning",
+     "robotic process automation",
+     "higher education"
+    ],
+    "doi": null,
+    "pages": "92-99",
+    "source_file": "paper709.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 55,
+    "structural_integrity": 20,
+    "artifact_availability": 0,
+    "intellectual_integrity": 56.25,
+    "composite": 42.19,
+    "final": 22.19
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the paper is a proposal with no implemented system or reported dataset",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "3 of 11 references (27.3%) are by the sole author: [1], [2], [11]. All are on online teaching and digital campus topics, so they are related.",
+    "UNSUPPORTED_CLAIMS": "The paper is almost entirely assertion. Examples: 'Implementing AI within the university will have a positive impact and will not lead to job reduction'; RPA 'will make the process more transparent, will be able to provide a high quality and effectiveness of teaching and learning'; 'This study offered an in-depth exploration'. The interview study of 100 students and professors it builds on is mentioned but no result from it is reported. No evidence sentences support the proposals (CER well below 0.33)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": false,
+    "summary": "Short position-style proposal for campus robots and RPA with a generic roadmap and timeline; no implementation, data, or evidence supports its claims.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A proposal for three AI uses in a university (a reception robot, RPA for admissions, RPA/ML for grading), with a generic implementation roadmap and a six-month timeline.\n**Level:** 1 (Trivial)\n**Rationale:** A descriptive business proposal with no system, algorithm or model.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. No formalism.\n\n### Issues\nNone in the formalism. A section heading is garbled ('Discussions and proposals duction'), and RPA is misspelled 'RAP' in several places.\n\n---\n\n## Citation Analysis\n\n3 of 11 references (27.3%) are self-citations of the sole author, all on online teaching and the digital campus, so they are related. The reference list is very thin for a paper about AI in higher education. [4] (a finance course reform paper) is cited as the source of the interpretative qualitative method, and [8] (Understanding by Design) for the claim that researchers tried to enhance the importance of AI. Both are weak matches.\n\n---\n\n## Structural Analysis\n\nThe paper says it adopts 'the interpretative qualitative research method' and continues an interview study of 100 participants, but it reports no qualitative data, coding or findings. The proposals are not implemented, simulated or evaluated, and benefits such as faster admissions and no job losses are asserted without evidence. A short limitations paragraph exists; it mentions difficulties in collecting data. The section on ML attendance tracking via facial, voice and fingerprint recognition raises obvious privacy issues that are not discussed. No artifact is relevant, since nothing was built.\n\n---\n\n## Conclusion\n\nA position piece with no technical or empirical contribution. Its claims are unsupported, and the self-citation ratio is elevated for a paper with only eleven references. It is closer to an institutional strategy memo than to a research article in an information-technology journal."
+  },
+  {
+   "paper_id": "gerger2022",
+   "paper": {
+    "title": "Diagnosis of Parkinson's Disease Using Spiral Test Based on Pattern Recognition",
+    "authors": [
+     "Mustafa Gerger",
+     "Abdülkadir Gümüşçü"
+    ],
+    "abstract": "Recently, Parkinson's disease has become one of the most serious health problems. Early diagnosis is important in Parkinson's disease. In this study, the spirals drawn in the diagnosis of Parkinson's disease were analyzed by pattern recognition methods. Patient and control group drawings were assumed to be characters. Thus, 123.066 features were obtained for each drawing, producing a high p low n problem. In order to overcome this problem, feature selection process with genetic algorithm was applied as a pre-process. k-nearest neighbor and decision trees were used for the classification process. The results are validated by a leave one out cross validation method. The data set prepared by the Department of Neurology in Cerrahpasa Faculty of Medicine, Istanbul University was used. Accuracy value obtained 1.00 in the decision tree classification by selecting the feature with the genetic algorithm.",
+    "keywords": [
+     "Artificial Intelligence",
+     "Medical Informatics",
+     "Parkinson's diagnosis",
+     "Spiral test",
+     "Pattern recognition",
+     "Classification",
+     "Genetic algorithm"
+    ],
+    "doi": null,
+    "pages": "100-113",
+    "source_file": "paper710.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 75,
+    "structural_integrity": 30,
+    "artifact_availability": 50,
+    "intellectual_integrity": 65.75,
+    "composite": 61.81,
+    "final": 56.81
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "'a new data set was created by using spiral drawing and dynamic spiral drawing data from 62 patients with Parkinson's disease and 15 healthy controls taken from UCI Machine Learning Repository data set [21]' (Isenkul et al., public UCI dataset); no code is released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section or inline acknowledgement. In particular, the small sample (71 subjects, 15 controls), class imbalance, and selection bias from GA wrapper feature selection are not discussed."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Standard GA-wrapper feature selection with k-NN and decision trees on a public 71-subject spiral dataset; the reported perfect accuracy likely reflects selection bias from choosing features on the full LOOCV data.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Rasterising digitised spiral drawings into 450x450 binary grids (about 405k raw features, 123k after removing constant columns), then GA wrapper feature selection with 1-NN and decision-tree classifiers to separate Parkinson's patients from controls.\n**Level:** 2 (Low)\n**Rationale:** Existing classifiers and GA feature selection applied to a public dataset.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (fitness = error rate, Euclidean distance, entropy, information gain, four metrics)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are textbook (Euclidean distance, entropy, sensitivity and so on) and add little, but they are basic equations of the kind expected at Level 2, not a theater pattern. Eq. (1), 'FitnessFunction = ClassificationErrorRate(Feature)', is a sentence written as an equation.\n\n### Issues\nFig. 5 is captioned 'Structure of the final data set' but described as the wrapper-method flow, and Figs. 3 and 4 share one caption. 'Algorithm 1' is referenced but not shown. The conclusions refer to a 'k-EK' classifier.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 27 references ([12], Gümüşçü et al., GA feature selection for vocal Parkinson's diagnosis, 3.7%), directly related. Several non-self references do not fit their citing context. [20] (evolving fuzzy models for prosthetic-hand myoelectric control) is cited for treating spirals as a character-recognition problem. [22] (a unified fuzzy C-means/K-means algorithm) is cited for the claim that many features raise hardware requirements. [27] (predicting students' GPA) is cited for decision trees. [4] and [5] (neural networks in medicine; sleep-EEG SVM, ROMJIST) are generic. No flag condition is met, but the mismatch pattern is recorded.\n\n---\n\n## Structural Analysis\n\nThe headline result is accuracy, sensitivity, specificity and precision of 1.00 on 71 subjects, of whom only 15 are controls. GA wrapper selection optimised directly on the LOOCV error over the whole dataset, with about 61k features retained, invites overfitting. Selection happens outside the validation loop, so the estimate is optimistically biased, and the paper does not address this. The abstract and conclusion still claim the method 'can be used in the diagnosis of Parkinson's disease'. The data source is described inconsistently: the UCI repository in Section 2, and 'the data set created in the Department of Neurology in Cerrahpasa Faculty of Medicine' in the abstract and conclusion. The conclusion also states that 'better results were obtained ... with the Decision Tree without the feature selection process', which contradicts Table 3. The confusion-matrix arithmetic in Table 3 is correct. No limitations are acknowledged. The dataset is public (UCI); no code is released.\n\n---\n\n## Conclusion\n\nA routine machine-learning application with proportionate formalism and acceptable self-citation. Its main weakness is methodological: perfect accuracy from GA feature selection tuned on the same small dataset used for evaluation, presented as clinically usable without any discussion of selection bias or limitations. The citation list contains several unrelated works cited for generic statements."
+  }
+ ]
+}

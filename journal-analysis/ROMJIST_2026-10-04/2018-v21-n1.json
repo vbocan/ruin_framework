@@ -1,0 +1,380 @@
+{
+ "batch_id": "2018-v21-n1",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 21,
+  "issue": 1,
+  "year": 2018
+ },
+ "papers": [
+  {
+   "paper_id": "groza2018",
+   "paper": {
+    "title": "Digitally controlled oscillator for all-digital frequency locked loops",
+    "authors": [
+     "R. Groza",
+     "I. A. Potarniche",
+     "B. S. Kirei",
+     "M. D. Topa"
+    ],
+    "abstract": "A digitally controlled oscillator is presented as a suitable solution for all-digital frequency lock loops. The system consists of a bias circuit, current-voltage converters and a current controlled oscillator, which is implemented using log-domain circuits. In this way, the oscillation frequency can be tuned using the bias currents. The bias circuit consists of a binary decoder and a current division network. The role of the decoder is to control the output current values of the division network via a 10-bit digital control word. Thus, it was possible to obtain 1024 distinct bias current values which yielded 1024 frequency values. The current-voltage converter transforms the output current into a voltage necessary for the next stage. All circuits were implemented using Virtuoso Analog Design Environment from Cadence using a 180nm CMOS technology. The MOS transistors for the log-domain blocks are working in sub-threshold region. Spectre simulations were performed to demonstrate de functionality of the proposed circuit.",
+    "keywords": [
+     "DCO",
+     "ADFLL",
+     "ELIN",
+     "sub-threshold",
+     "log-domain"
+    ],
+    "doi": null,
+    "pages": "3-17",
+    "source_file": "paper577.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 85,
+    "structural_integrity": 58,
+    "artifact_availability": 0,
+    "intellectual_integrity": 77.05,
+    "composite": 57.79,
+    "final": 57.79
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; circuits were designed in Cadence Virtuoso and simulated with Spectre, and no netlists, schematics files or simulation decks are offered",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation-only circuit design of a log-domain ring DCO with a thermometer-decoded current DAC; formalism is standard circuit analysis, but the reference list is mis-numbered against the text and the work is unvalidated in silicon.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A digitally controlled oscillator built from four current-mode log-domain integrators in a ring, biased by a 10-bit decoder driving a 1023-branch current division network, simulated in 180 nm CMOS.\n**Level:** 2 (Low)\n**Rationale:** The building blocks (log-domain integrators, cascode mirrors, binary-to-thermometer decoder, current comparator) are established; the contribution is their combination and sizing for a DCO. No new algorithm or theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (integrator transfer function, Barkhausen condition, log/exp cell equations, CDC output-current sum, transistor W/L ratios)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Every equation is a standard circuit relation that a designer uses directly to size the circuit (oscillation frequency 1/tau, minimum gain sqrt(2), gain set by IE/IL). None is decorative. The summation in Eq. (6) describes the switched current sum and is how the DAC behaves.\n\n### Issues\nNone in the formalism. Minor: the text derives 'A = sqrt(2)' as the minimum gain but later says each gain 'was larger than 1/sqrt(2)'.\n\n---\n\n## Citation Analysis\n\nThree self-citations out of 23 references (~13%): [19] (ADFLL s-domain model), [21] (discrete-domain ADFLL model) and [22] (digitally controlled current-mode quadrature oscillator, the direct precursor). All are topically close. However, references [19]-[23] are never cited in the text, and in-text numbers appear shifted against the list: the log-domain integrators are attributed to [17] (a fast-locking ADPLL paper), the CMOS current comparator to [18] (a DLL technical report) while the comparator paper is [23], and the ADDLL to [13] (a prescaler paper). The bibliography therefore does not reliably support the statements it is attached to; the self-citations sit among the uncited tail. Score reduced modestly for this, not for self-citation.\n\n---\n\n## Structural Analysis\n\nThe claims (1024 frequency steps, 90 kHz-3.7 MHz range, quadrature outputs with 92 degree shift, -88 dBc/Hz at 100 kHz) are backed by Spectre transient, sweep and phase-noise plots. The 105 uW power figure appears in the comparison table and conclusion without a supporting simulation. The comparison table sets a 0.09-3.7 MHz design against GHz LC and ring oscillators, so 'the largest tuning range' is a claim about relative span across very different operating points. Results are simulation only; the only limitation acknowledged is the closing remark that silicon implementation is further work. No process-corner, temperature or mismatch analysis is reported, which matters for a sub-threshold design. No artifacts are offered.\n\n---\n\n## Conclusion\n\nA competent, conventional analog circuit design paper with proportionate, functional equations and no formalism concerns. Its weaknesses are evidential and editorial: simulation-only results without PVT analysis, a thin limitations statement, and a reference list that is misaligned with its in-text citations. Nothing is released for reproduction."
+  },
+  {
+   "paper_id": "datcu2018",
+   "paper": {
+    "title": "Dynamically changing the secret key of an FPGA chaos-based cipher",
+    "authors": [
+     "Octaviana Datcu",
+     "Radu Hobincu",
+     "Lucian Petrică"
+    ],
+    "abstract": "As a continuation of previous work, where a discrete-time Baptista-type chaos-based cipher was implemented in a Xilinx FPGA module, this paper proposes a more complex scheme involving hybrid dynamics. A continuous chaotic evolution is utilized to dynamically and randomly change the secret key of the discrete-time part. This work describes the design of a continuous-time chaotic transmitter meant to embed the secret key as well as a high order sliding mode differentiator also designed such that it is capable of estimating the dynamics of the transmitter, and Baptista's algorithm secret key, conceptualized as its unknown input.",
+    "keywords": [
+     "Baptista type algorithms",
+     "chaos-based cryptography",
+     "high order sliding mode observers",
+     "estimation"
+    ],
+    "doi": null,
+    "pages": "18-33",
+    "source_file": "paper578.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.05,
+    "composite": 58.54,
+    "final": 58.54
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the scheme was run in 'a Matlab Simulink simulation' and the model is not offered",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Combines a chaotic Colpitts transmitter with a known high-order sliding-mode observer to ship a Baptista-cipher key; equations are the system model, but the 'FPGA' work is simulation only, the key is recovered to two decimals, and security is not analysed.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Key exchange for a modified Baptista logistic-map cipher: the key (logistic parameter b) is injected into a chaotic Colpitts oscillator and recovered at the receiver by a high-order sliding-mode observer (HOSMO); keys are validated by the sign of the Lyapunov exponent.\n**Level:** 2 (Low)\n**Rationale:** Each component (Baptista cipher, Colpitts chaos, Levant's HOSMO, inclusion method, Lyapunov exponent) is taken from the literature; the contribution is their assembly and a simulation. No new estimator design theory or proof.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (logistic map, Lyapunov exponent, Colpitts state equations, observer derivation, observer dynamics, correction terms)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The ODEs and observer correction terms are the system that must be implemented; removing them would leave nothing to build. The Lyapunov expression is the key-validation routine.\n\n### Issues\nNone in the formalism. Eq. (2)-(3) mislabels symbols (log |x'[k_i]| and b(1-2k_i) use k for the state), and the text says the observer's correction factors are C1-C4 while five are given.\n\n---\n\n## Citation Analysis\n\nTwo self-citations out of 16 references (12.5%): [1] (the authors' FPGA Baptista implementation, the direct predecessor) and [14] (the modified Baptista cipher used here). Both are directly relevant. Reference [5] (Levant's HOSMO paper) is listed without an author. No issues of concern.\n\n---\n\n## Structural Analysis\n\nThe title and abstract foreground an FPGA cipher, but the authors state that 'the system was only implemented in simulation' (Matlab Simulink); no hardware result for the new scheme is reported. The main quantitative result is that the observer recovers b only to two decimal places (Table 2), which the paper itself says limits the key space, and that the scheme is about 500 times slower than AES-256-CBC. The security of the key exchange is argued informally ('we know of no other ways to predict the evolution'), and cryptanalysis is deferred. The claim that keys validated by a positive Lyapunov exponent are safe is reasonable but untested. Limitations are acknowledged inline and candidly (limited key space, ciphertext expansion, deferred security analysis). No artifacts are offered.\n\n---\n\n## Conclusion\n\nAn engineering proof of concept whose mathematics is the model, not decoration. Its weaknesses are the gap between the FPGA framing and simulation-only evidence, a key recovered to only two decimals, and the absence of any security analysis for a cryptographic proposal. The authors are open about these limits."
+  },
+  {
+   "paper_id": "dragan2018",
+   "paper": {
+    "title": "Charge retention of a Floating gate Transistor for a Reset Controller",
+    "authors": [
+     "Anca Mihaela Dragan",
+     "Alina Negut",
+     "Andrei Enache",
+     "Vlad Anghel",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "An integrated reset controller (voltage supervisor) is designed and implemented. The system generates a reset signal, active while power supply brownout conditions are detected and for 250 ms after the supply voltage has increased to acceptable levels. The circuit is built in a Deep N-Well (DNW) 5V 0.35um CMOS process, which provides good isolation between the on-chip devices and the substrate. The controller is based on a comparator, which uses a programmable voltage reference built with Floating Gate (FG) transistors. The voltage supervisor's operation is demonstrated by simulations and measurements. The charge retention capability of the FG transistors is analyzed, using the Arrhenius model to estimate behavior under normal operating conditions, based on its behavior at high temperatures.",
+    "keywords": [
+     "On-Chip Isolation",
+     "Deep N-Well",
+     "Reset Controller",
+     "Programmable Voltage Reference",
+     "Floating Gate Transistors",
+     "Charge Retention",
+     "Arrhenius Model"
+    ],
+    "doi": null,
+    "pages": "34-48",
+    "source_file": "paper579.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 90,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 80.55,
+    "composite": 60.41,
+    "final": 60.41
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; wafer-level retention measurements and the 13-sample circuit measurements are reported only as tables and figures",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Industrial reset-controller design with measured silicon and a standard Arrhenius bake study of floating-gate retention; formalism is textbook and proportionate, evidence is real but carries some internal inconsistencies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A voltage supervisor in a Deep N-Well 0.35 um CMOS process using a floating-gate programmable reference, plus a high-temperature bake study of FG charge retention extrapolated with the Arrhenius model.\n**Level:** 2 (Low)\n**Rationale:** Circuit design with established topologies and an empirical reliability study using the industry-standard Arrhenius acceleration factor. No new model or method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 9 (use time vs stress time, acceleration factor, Arrhenius rate, threshold-voltage shift, capacitive divider, supply threshold)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The Arrhenius derivation is textbook and is spelled out at more length than needed (Eqs. 3.1-3.7 rederive AF = exp[(Ea/k)(1/Tuse - 1/Tstress)]), but these are working equations used to produce Table 5, not decorative notation.\n\n### Issues\nNone of theater. A labelling error: the constant k is called Boltzmann's constant but given as 8.314e-3 kJ/(mol K), the gas constant, which is the correct value for an activation energy in kJ/mol.\n\n---\n\n## Citation Analysis\n\nTwo self-citations out of 16 references (12.5%): [1] (the authors' conference version of this reset controller) and [15] (a hysteresis-circuit patent with A. Negut as co-inventor, used for the comparator hysteresis). Both are relevant. The reference list relies heavily on patents (7 of 16) and has a duplicate ([4] and [14] are the same patent, US7245536B1). No citation-integrity concern.\n\n---\n\n## Structural Analysis\n\nThe circuit claims are supported by corner simulations and measurements on 13 packaged samples (Tables 1-3), and the retention claims by wafer-level bakes up to 1500 h at 225 C (Table 4, Figs. 9-16). Several statements do not agree with each other: about 1.2% of FG cells fail after programming, yet elsewhere the yield drops by about 3%, and the conclusion says 'all the FG cells resisted'; Table 5's caption and text alternately cite 27 C and 2 C as the use temperature; the 39,945-year extrapolation rests on a single assumed activation energy (77.1 kJ/mol from a vendor bulletin) with no sensitivity analysis. Limitations are acknowledged inline (simulation-model limits and the small sample of 13 circuits). No artifacts are offered.\n\n---\n\n## Conclusion\n\nA solid, industry-flavoured design-and-reliability report with appropriate, if over-explained, formalism and genuine measured data. The main weaknesses are internal inconsistencies in the yield and temperature statements and an extrapolation whose dependence on the assumed activation energy is not examined. No data or design files are released."
+  },
+  {
+   "paper_id": "pachiu2018",
+   "paper": {
+    "title": "Fabrication and characterization of suspended microstructures of ultrananocrystalline diamond",
+    "authors": [
+     "C. Pachiu",
+     "T. Sandu",
+     "C. Tibeica",
+     "A. Avram",
+     "L. M. Veca",
+     "R. Popa",
+     "M. Popescu",
+     "R. Gavrila",
+     "C. Popov",
+     "V. Avramescu"
+    ],
+    "abstract": "The fabrication of various suspended microstructures made from ultrananocrystalline diamond was performed without sacrificial layer. Arrays of bridges and cantilevers of various dimensions were successfully fabricated by a well-controlled process. Mechanical characterizations and finite element calculations allowed us to estimate both the Young's modulus as well as the residual stress built in the ultrananocrystalline diamond film.",
+    "keywords": [
+     "residual stress",
+     "ultrananocrystalline diamond",
+     "MEMS",
+     "suspended microstructures"
+    ],
+    "doi": null,
+    "pages": "49-60",
+    "source_file": "paper580.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 90,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 80.55,
+    "composite": 60.41,
+    "final": 60.41
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; COMSOL models, indentation curves and WLI profiles are shown only as figures and Table 1",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Experimental microfabrication paper releasing UNCD bridges and cantilevers without a sacrificial layer and estimating residual stress by buckling, nanoindentation and FEM; minimal, necessary formalism and reasonable evidence, with a stress figure that differs between results and conclusion.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fabrication of suspended ultrananocrystalline diamond bridges and cantilevers by RIE undercut of the Si substrate (no sacrificial layer), with Young's modulus by nanoindentation and residual stress from buckling amplitudes via an analytical formula and COMSOL FEM.\n**Level:** 2 (Low)\n**Rationale:** An experimental process and characterisation study using standard tools and textbook buckling mechanics.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (residual stress from first-mode buckling amplitude; sinusoidal first-mode profile)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Both equations are standard, cited, and used to compute results.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThree self-citations out of 22 references (~14%): [6] and [7] (Kulisch, Popov et al., UNCD growth, the films used here) and [14] (Pachiu et al., the conference precursor). All are directly relevant. Reference [17] is a university web page for the Al etch recipe. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe fabrication claims are supported by SEM, optical and WLI images; the modulus by ten indentation tests; the stress by buckling amplitudes on eight beams (Table 1) compared with analytical and FEM estimates (Fig. 9). One inconsistency: Section 3.3 gives the FEM stress as 350 MPa (about 20% above the analytical 290 MPa), whereas the conclusion gives 320 MPa. The film thickness varies from 1.1 um at the centre to about 500 nm at the edge, but the stress analysis assumes 1 um throughout without saying where the beams were located. The measured Young's modulus (300-315 GPa) is well below literature values (500-1000 GPa); the authors attribute this to grain-boundary material and note that 'Further tests with various film thicknesses are needed' to exclude substrate effects, an inline limitation. No artifacts are offered.\n\n---\n\n## Conclusion\n\nA straightforward, well-illustrated experimental paper with proportionate formalism and appropriate self-citation. The reported stress value is inconsistent between the results and the conclusion, and the thickness non-uniformity is not carried into the analysis. No data or models are released."
+  },
+  {
+   "paper_id": "moagarpoladian2018",
+   "paper": {
+    "title": "3D Printed acceleration sensor: a case study",
+    "authors": [
+     "G. Moagăr-Poladian",
+     "C. Tibeică",
+     "V. Moagăr-Poladian"
+    ],
+    "abstract": "We present a case study regarding the conversion of a sensor from measuring magnetic field to measuring acceleration, the said conversion being realized by using 3D Printing means. It is a new concept by which the functionality of existing sensors can be extended further, especially for niche application.",
+    "keywords": [
+     "Magnetic sensor",
+     "acceleration sensor",
+     "3D Printing",
+     "sensor conversion"
+    ],
+    "doi": null,
+    "pages": "61-81",
+    "source_file": "paper581.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 92,
+    "structural_integrity": 48,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.2,
+    "composite": 57.15,
+    "final": 57.15
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the CAD model of the 3D-printed part and the COMSOL simulations are not offered",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Prototype description of a commercial Hall sensor in a 3D-printed spring-mass between magnets; no formalism concerns, but accelerometer performance (including noise) is simulated or asserted rather than measured, and is then compared with a commercial datasheet.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** 'Converting' a commercial magnetic field sensor into an accelerometer by mounting it in a 3D-printed (SLS polyamide) seismic mass between two opposed magnets; COMSOL magnetic, thermal and modal simulations, and a bench check of the field gradient.\n**Level:** 1 (Trivial)\n**Rationale:** A prototype that combines an off-the-shelf sensor, magnets and a printed spring-mass. The physics is elementary; the contribution is a design concept and simulations.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (three polynomial fits; three arithmetic steps for a two-sensor gradient compensation)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The three DSP steps (difference, gradient, displacement) are arithmetic written as arithmetic, which is the computation a programmer would implement; they do not use any of the theater patterns (set notation, tuple definitions, Greek-letter configuration). Not flagged.\n\n### Issues\nEq. (3) is written as Delta-x = Delta-B1m/g = Delta-B2m/g, which presumes the per-sensor change is known; the text defines only the absolute readings B1m and B2m, so the procedure as written is incomplete.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 16 references (~6%): [7], the authors' conference version of this case study, directly relevant. References [1] and [16] are the same paper; several references are vendor web pages ([8]-[10], [15]). No integrity concern.\n\n---\n\n## Structural Analysis\n\nThe accelerometer itself is characterised only by simulation. The one experiment (Annex) checks the linearity of the field between magnets, and it uses magnets 18 mm in diameter 9 mm apart, whereas the simulated design uses 15 mm magnets 6.4 mm apart, yet the agreement is described as 'excellent'. Table 3 compares 'our simulated results' with a commercial accelerometer datasheet and lists a noise of 0.06 g for the 3D-printed sensor, with no measurement or derivation shown. Claims such as 'a very performant sensor fit to the application of a client' and compatibility 'with automotive requirements' go beyond the evidence, since no printed sensor is shown to have been tested under acceleration. In its favour, the Discussion and Cross-sensitivity sections openly discuss limitations: polymer creep and ageing, a low first resonance (~180 Hz), magnet temperature drift, and the need for separate calibration. No artifacts are offered.\n\n---\n\n## Conclusion\n\nA concept and simulation paper with no formalism concerns and appropriate self-citation. Its evidential base is thin: the device is never tested as an accelerometer, the experimental check uses a different geometry from the simulated design, and the headline comparison with a commercial sensor mixes simulated and unsupported figures with datasheet values. Limitations are discussed candidly, which partly offsets this. Nothing is released."
+  },
+  {
+   "paper_id": "sandu2018",
+   "paper": {
+    "title": "Modeling issues regarding thermal conductivity of graphene-based nanocomposites",
+    "authors": [
+     "Titus Sandu",
+     "Mihai Gologanu",
+     "Rodica Voicu",
+     "George Boldeiu",
+     "Victor Moagar-Poladian"
+    ],
+    "abstract": "Modeling thermal conductivity of graphene-based nanocomposites is analyzed from an effective medium approximation point of view, where interfacial thermal resistance and arbitrary shape of the fillers are considered. Two approximations, Maxwell-Garnett and coherent potential approximation, are used to show that the usual oblate spheroidal shape approximation of graphene nanodots is not satisfactory to model thermal conductivity in graphene-based composites.",
+    "keywords": [
+     "Composites",
+     "graphene",
+     "graphene-based composites",
+     "thermal conductivity",
+     "thermal interface materials",
+     "Maxwell-Garnett approximation",
+     "coherent potential approximation"
+    ],
+    "doi": null,
+    "pages": "82-92",
+    "source_file": "paper582.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 88,
+    "citation_integrity": 0,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 48.95,
+    "composite": 36.71,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; eigenvalues and weights are computed 'with a method described in [22-25]' and no code is offered",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "IRRELEVANT_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "11 of 34 references (32.4%) include the first author T. Sandu or co-authors: [14], [15], [16], [22], [23], [24], [25], [26], [30], [31], [32].",
+    "IRRELEVANT_SELF_CITATION": "[14] (band anticrossing model for BeSe-Te alloys), [15] (electronic and optical properties of beryllium chalcogenide/silicon heterostructures) and [16] (first-principles and hopping conductivity in doped ZnO) are the first author's semiconductor electronic-structure papers, cited for the generic remark that t-matrix and CPA approximations are used in alloy electronic structure. Their topic is unrelated to the thermal conductivity of graphene composites (estimated similarity below 0.3), and standard references for the analogy ([2], [13], [17]) are already cited alongside them."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Extends Maxwell-Garnett and CPA effective-medium formulas to arbitrary filler shapes via an eigenmode decomposition and finds the oblate-spheroid model overestimates conductivity for graphene nanodots; the formalism is warranted, but a third of the references are self-citations, including three unrelated electronic-structure papers.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Effective-medium modelling of thermal conductivity in graphene/polymer composites, generalising MGA and CPA to arbitrarily shaped fillers through the eigenvalues and weights of a boundary electrostatic operator, with interfacial resistance as a thin shell; applied to flat disks versus oblate spheroids.\n**Level:** 3 (Medium)\n**Rationale:** A substantive extension of an established theoretical framework (shape-factor generalisation of MGA, CPA and the shelled-particle homogenisation) with numerical results. It builds on the authors' earlier dielectric and plasmonic eigenmode method and has no proofs, so it does not reach Level 4.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 15 (boundary-value problem, polarizability, MGA and CPA formulas, shell homogenisation)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 3): 10-40\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the model; each generalised formula (Eqs. 10, 11, 14, 15) is what is solved numerically. There is no decorative notation.\n\n### Issues\nNone in the formalism. Minor notation slips (k vs K for the conductivities in Eqs. 3-4 and 6; the local-field equation is written for an electric field E rather than a temperature gradient).\n\n---\n\n## Citation Analysis\n\nEleven of 34 references (32.4%) are self-citations, above the 30% threshold. Of these, [22]-[25] supply the eigenmode method actually used, [26] is the conference precursor and [30] the depolarisation-factor results, all relevant. [31] (plasmons in graphene nanodisks) and [32] (rod nanoantenna dimers) are cited for the remark that the shape issue 'has been noticed' elsewhere, which is marginal. [14], [15] and [16] are the first author's semiconductor band-structure and transport papers, cited in a sentence about the t-matrix and CPA in alloy electronic structure, where the standard references ([2], [13], [17]) already make the point. They are unrelated to the paper's topic, and they account for most of the excess over the threshold.\n\n---\n\n## Structural Analysis\n\nThe main claim, that the oblate-spheroid model overestimates the enhancement compared with flat disks for nanodots, is supported by the authors' own calculations (Table 1, Figs. 3-4), but there is no comparison with any experimental conductivity data, so 'not satisfactory' is established only relative to another model. The abstract says interfacial thermal resistance is considered, but the results section states that the calculations assume 'no interface thermal resistance', so the shell formula (15) is never exercised. A key result for disks is attributed to 'a recent paper' with no citation. The limitations acknowledged concern MGA's inability to capture percolation, which motivates CPA; limits of the authors' own study are not discussed, and the remaining shape effects are deferred ('it will be discussed elsewhere'). No code for the eigenmode computation is offered.\n\n---\n\n## Conclusion\n\nThe modelling is technically sound and its formalism is proportionate to a Level 3 extension of effective-medium theory. The paper is undermined by its citation practice: a 32% self-citation ratio, inflated by three unrelated electronic-structure papers. It is also weakened by having no experimental validation and by an abstract that promises interfacial-resistance results the paper does not compute."
+  },
+  {
+   "paper_id": "serban2018",
+   "paper": {
+    "title": "Nanostructured semiconducting metal oxides for ethanol gas sensing. A possible HSAB interpretation",
+    "authors": [
+     "B. C. Serban",
+     "O. Buiu",
+     "M. Brezeanu",
+     "O. Ionescu",
+     "C. Cobianu"
+    ],
+    "abstract": "Short communication without an abstract. It proposes Pearson's Hard-Soft Acid-Base (HSAB) concept as a tool to explain the sensitivity of semiconducting metal oxides used as sensing layers for ethanol detection in chemiresistive and FET-based sensors.",
+    "keywords": [],
+    "doi": null,
+    "pages": "93-96",
+    "source_file": "paper583.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 58,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 63.55,
+    "composite": 47.66,
+    "final": 42.66
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; a qualitative literature interpretation with no code or data of its own",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "9 of 38 references (23.7%) are by the first author B. Serban and co-authors: [9], [10], [14]-[20], five of them patents or patent applications."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Four-page qualitative note mapping ethanol (a hard base) to hard-acid metal oxide cations under HSAB, supported by a selective literature list; no formalism, elevated self-citation, and no test against counterexamples.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Proposes that Pearson's HSAB principle explains which semiconducting metal oxides sense ethanol: ethanol is a hard base, so oxides with hard-acid cations should be sensitive; supported by grouping literature examples into three cases.\n**Level:** 1 (Trivial)\n**Rationale:** A qualitative interpretive note over existing literature, with no model, calculation or experiment.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; there is no formalism.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNine of 38 references (23.7%) are the authors' own: [9] (quantum-dot solar cell patent) and [10] (quantum-dot ligand selection), cited as HSAB applications; [14] (HSAB perspective on metal oxide gas sensing, a conference abstract on essentially this topic); [15]-[19] (CO2 sensing layers, papers and patents); and [20] (a chlorophyll acid-sensor patent application). They are all cited to show that HSAB has been used to select sensing materials, so they are topically connected to the paper's thesis, though [9] and [20] are marginal. The ratio falls in the 20-30% band, and the self-citations make up most of the paper's evidence that HSAB has been used for sensor design.\n\n---\n\n## Structural Analysis\n\nThe central claim, that HSAB 'coherently explain[s]' ethanol sensitivity across a 'large number' of oxides, rests on a hand-picked list of positive examples ([23]-[38]). No counterexamples are examined, and the paper's own third case uses ZnO and NiO as host layers, whose cations (Zn2+, Ni2+) its Table 1 classes as borderline, not hard. That these hosts sense ethanol is attributed to a hard-acid promoter rather than tested. Selectivity is asserted ('ensure the selectivity') without evidence. There is no quantitative test (for example, correlating hardness indices with reported sensitivities). The authors hedge inline, writing 'without claiming that this approach will exhaustively discriminate' and noting that more sophisticated HOMO/LUMO and local-hardness calculations are needed, which counts as a limitation statement. Nothing is available to release.\n\n---\n\n## Conclusion\n\nA brief, formalism-free hypothesis note. Its evidence is confirmatory and selective, it does not engage with obvious counterexamples, and nearly a quarter of its references are the authors' own, many of them patents. It is best read as a suggestion for future quantitative work rather than a demonstrated explanation."
+  }
+ ]
+}

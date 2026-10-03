@@ -1,0 +1,310 @@
+{
+ "batch_id": "2011-v14-n1",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 14,
+  "issue": 1,
+  "year": 2011
+ },
+ "papers": [
+  {
+   "paper_id": "zhang2011",
+   "paper": {
+    "title": "A membrane-inspired approximate algorithm for traveling salesman problems",
+    "authors": [
+     "Gexiang Zhang",
+     "Jixiang Cheng",
+     "Marian Gheorghe"
+    ],
+    "abstract": "This paper proposes a membrane-inspired approximate algorithm to solve traveling salesman problems, which is a well-known and extensively studied NP-complete combinatorial optimization problem. The algorithm combines P systems with ant colony optimization, called ACOPS. ACOPS uses the pheromone model and pheromone update rules defined by ant colony optimization algorithms, and the hierarchical membrane structure and transformation/communication rules of P systems. First, the parameter setting of ACOPS is discussed. Second, extensive experiments are conducted and statistical analysis are investigated. It is shown that ACOPS is superior to Nishida's membrane algorithms and its counterpart ant colony optimization algorithms, in terms of the quality of solutions and the number of function evaluations.",
+    "keywords": [],
+    "doi": null,
+    "pages": "3-19",
+    "source_file": "01-mgheorghe.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 70,
+    "artifact_availability": 100,
+    "intellectual_integrity": 38.5,
+    "composite": 53.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"All the TSP benchmarks are available in [5]. The programs for all the experiments can be available in [6].\" [5] http://www.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/tsp/ ; [6] http://staffwww.dcs.shef.ac.uk/people/M.Gheorghe/",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 hybrid metaheuristic (ant colony system run in m independent sub-colonies with periodic exchange of the best ant). The generic cell-like P system construct Pi = (V, T, mu, w1..wm, R1..Rm, i0) with rules a -> v, v in (V x {here,out,in})*, and the membrane structure mu = [0 [1 ]1 ... [m ]m ]0 with multisets w_j = A_{M(j-1)+1} ... A_{Mj}, restate 'split the M ants into m groups and run ACS in each, then in a top-level group' in membrane vocabulary. None of it changes what a programmer would build.",
+    "DECORATIVE_DEFINITIONS": "The formal definition of a cell-like P system (Section 2.2) is never used by the algorithm; ACOPS uses neither the alphabet, the output alphabet, the rule form, nor maximal parallelism. It is background notation that could be replaced by one sentence.",
+    "ELEVATED_SELF_CITATION": "7 of 28 references (25%) include at least one of the authors: [11], [12], [13], [25], [26], [27], [28]. All concern membrane algorithms and are topically relevant."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Sound empirical study of a hybrid ACO / island-model algorithm with statistical tests and released code, but the P-system formal apparatus is decorative for what is a Level 2 metaheuristic, and self-citation is elevated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Hybrid of the ant colony system with a one-level membrane structure (sub-colonies plus a skin colony) for symmetric TSP.\n**Level:** 2 (Low)\n**Rationale:** The contribution is a combination of an existing algorithm (ACS) with an island-style population structure, tuned empirically. There is no complexity analysis, convergence analysis, or proof; the evaluation is benchmark comparison.\n\n### Formal Elements\n- Definitions: 2 (P system construct; ACOPS membrane framework with multisets)\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (standard ACS rules (1)-(5), iteration count (6), gmax formula (7))\n\n### Proportionality\nCalculated complexity: 4\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Within the count range, but fails the necessity test. Equations (1)-(7) are operational and needed. The P-system tuple and the membrane notation are not: the algorithm in Fig. 3 is fully specified by the plain pseudocode, and the transformation/communication rules map to 'run ACS', 'send best ant up', 'update pheromone with the skin's best ant'.\n\n### Issues\n- 'A cell-like P system ... is formally defined as follows: Pi = (V, T, mu, w1, ..., wm, R1, ..., Rm, i0)' is never instantiated beyond renaming ant groups as multisets.\n- In (7) N is described as 'the total number of ants', contradicting earlier use of N as the number of cities.\n\n---\n\n## Citation Analysis\n\nSeven of 28 references share an author with the paper (25%), all on membrane-inspired optimization and directly relevant. Elevated but not padding. Reference [6] is the third author's homepage, used as the code location, and is not counted as a publication.\n\n---\n\n## Structural Analysis\n\nClaims of superiority are backed by Tables 1-6, t-tests, Wilcoxon and Friedman tests over 20 instances; claim-evidence balance is good. Comparison with Nishida uses numbers copied from the original papers with NoFE reconstructed, and the parameter study reports only one instance per experiment. No limitations are acknowledged; the conclusion only lists future application work. The paper states the programs are available at a personal homepage and the benchmarks are TSPLIB, which is public.\n\n---\n\n## Conclusion\n\nA competent applied-metaheuristic paper whose empirical part is better than average for the venue, with released code and public data. Its framing in P-system formalism adds a formal definition that the algorithm never uses, which the framework treats as theater at this concept level."
+  },
+  {
+   "paper_id": "metta2011",
+   "paper": {
+    "title": "Spiking Neural P Systems with Anti-Spikes as Transducers",
+    "authors": [
+     "Venkata Padmavati Metta",
+     "Kamala Krithivasan",
+     "Deepak Garg"
+    ],
+    "abstract": "In this paper, we consider spiking neural P systems with anti-spikes. Because of the use of two types of objects, the system can encode the binary digits in a natural way and hence represent the formal models more efficiently and naturally than the standard SN P systems. This work deals with the computing power of spiking neural P system with anti-spikes. It is demonstrated that, as transducers, spiking neural P systems with anti-spikes can simulate any Boolean circuit and also computing devices such as finite automata and finite transducers. We also investigate how the use of anti-spikes in spiking neural P systems affect the capability to solve the satisfiability problem.",
+    "keywords": [],
+    "doi": null,
+    "pages": "20-30",
+    "source_file": "02-padmavatimetta.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 92,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 80.0,
+    "composite": 60.0,
+    "final": 55.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "The conclusion lists further complexity issues as future work but acknowledges no limitation of the constructions (e.g. Theorem 1 restricted to tree-shaped circuits, the SAT solution being non-deterministic)."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Theoretical membrane-computing paper with proportionate formalism; constructions are sketched rather than proved, one theorem is stated without proof, and the neuron count for the SAT system is inconsistent between sections.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computing power of spiking neural P systems with anti-spikes used as transducers: logic gates, tree-shaped Boolean circuits, finite state transducers, and a non-deterministic SAT construction.\n**Level:** 4 (High)\n**Rationale:** The paper establishes simulation results for a formal computing model, which is the territory of computability and complexity results rather than applied systems. It does not reach universality or hardness results, so Level 5 is not warranted.\n\n### Formal Elements\n- Definitions: 1 (SN PA system, Definition 2.1)\n- Theorems: 5 (Lemmas 1-2, Theorems 1-3; Theorem 2 recalled from [8])\n- Proofs: 2 (Lemmas 1 and 2; Theorem 3 by explicit construction, Theorem 1 without proof)\n- Equations: few; construction of Pi_S given in set-builder form\n\n### Proportionality\nCalculated complexity: 25\nExpected range (Level 4): 30-80\nRatio: 0.31x upper bound\n\n**Assessment:** Proportionate. The formal model is the subject of the paper; set and language notation is native to the field and needed to state the results.\n\n### Issues\n- Theorem 1 ('Every Boolean circuit, whose underlying graph structure is a rooted tree, can be simulated...') is stated as a generalisation of an example with no proof or explicit construction of the synchronising module.\n- The introduction states the SAT system 'only requires 3m + 2 neurons', while Section 6 states 'the number of neurons of the system constructed above is 2m + 3'.\n- Proofs are prose case analyses relying on figures not available in the text extraction.\n\n---\n\n## Citation Analysis\n\nOne of eight references ([8], by the same three authors) is a self-citation (12.5%), and it supplies Theorem 2, directly relevant. The remaining references are the core SN P system literature.\n\n---\n\n## Structural Analysis\n\nClaims are supported by constructions, but rigor is uneven: the circuit theorem is unproven and the efficiency comparison with [1] (steps halved, fewer neurons) is asserted from counts rather than derived. No limitations are discussed. As a pure theory paper there is nothing to release; no artifact is mentioned.\n\n---\n\n## Conclusion\n\nA short, legitimately formal paper whose notation is appropriate to its subject. Its weaknesses are incomplete proofs and an internal inconsistency in the resource bound for the SAT construction, not formalism theater."
+  },
+  {
+   "paper_id": "basci2011",
+   "paper": {
+    "title": "Document Type Definition (DTD) Metrics",
+    "authors": [
+     "Dilek Basci",
+     "Sanjay Misra"
+    ],
+    "abstract": "In this paper, we present two complexity metrics for the assessment of schema quality written in Document Type Definition (DTD) language. Both \"Entropy (E) metric: E(DTD)\" and \"Distinct Structured Element Repetition Scale (DSERS) metric: DSERS(DTD)\" are intended to measure the structural complexity of schemas in DTD language. These metrics exploit a directed graph representation of schema document and consider the complexity of schema due to its similar structured elements and the occurrences of these elements. The empirical and theoretical validations of these metrics prove the robustness of the metrics.",
+    "keywords": [
+     "XML schema",
+     "Document Type Definition",
+     "software metrics"
+    ],
+    "doi": null,
+    "pages": "31-50",
+    "source_file": "03-dtdmetrics.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 92,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 76.7,
+    "composite": 70.02,
+    "final": 65.02
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"For empirical validation of these two metrics, we analyze 50 real DTD files from web.\" Table 2: \"Last column references web addresses of analyzed DTDs\", e.g. http://struts.apache.org/dtds/, http://www.ncbi.nlm.nih.gov/dtd/, http://www.omegahat.org/XML/DTDs/",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitation is acknowledged. The failure of Weyuker properties 4, 7 and 9 is reported as a property of DTDs rather than of the metrics, and the empirical validation is not discussed as limited despite having no external quality criterion."
+   },
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Applies Shannon entropy and a repetition-scale ratio to equivalence classes of DTD elements; formalism is proportionate, but the 'theoretical validation' argues universal properties from single examples and the 'empirical validation' only shows the metrics take different values, so the robustness claim is not supported.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Two size-independent complexity metrics for XML DTDs: entropy over equivalence classes of elements (grouped by fan-in, fan-out, attribute count) and a sum-of-squares repetition ratio adapted from an interface metric.\n**Level:** 2 (Low)\n**Rationale:** The metrics are direct applications of Shannon entropy and an existing interface metric to a new artifact type. Validation uses Weyuker's checklist and descriptive comparison.\n\n### Formal Elements\n- Definitions: 0 numbered (two metric formulas)\n- Theorems: 0\n- Proofs: 0 (Weyuker properties argued informally)\n- Equations: about 12 (entropy, DSERS, fanning, tree impurity, worked calculations)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The metric formulas are what a programmer would implement. Equivalence classes are listed in brace notation, but only to display their members, not as set operations standing in for code. The quantified statements of Weyuker's properties are quoted from the source and immediately restated in English; borderline decorative but standard in this sub-field, not counted as a necessity failure.\n\n### Issues\n- Property 5 is universally quantified but is 'satisfied' by computing a single example; entropy can decrease when a DTD is merged with a large homogeneous one, so the property does not hold in general.\n- DSERS rising on concatenation is presented as satisfying Property 5, although the paper says higher DSERS means lower complexity.\n- Property 2 is argued by assuming an upper bound.\n- Weyuker [42] and Davis and LeBlanc [9] are dated 1998 instead of 1988.\n\n---\n\n## Citation Analysis\n\nThree of 44 references are the authors' own ([3], [4], [5], about 7%), all the direct precursors of this work. No concerning patterns.\n\n---\n\n## Structural Analysis\n\nThe abstract's claim that validations 'prove the robustness of the metrics' and the conclusion that the metrics are 'more realistic' are not supported: the empirical study shows only that E and DSERS differ where size, fanning and TI coincide, with no comparison to comprehension effort, maintenance cost or any external criterion. The 'psychological complexity' interpretation is asserted. The 50 DTDs are public and referenced by URL; no tool or code is provided.\n\n---\n\n## Conclusion\n\nA modest metrics proposal with appropriate, light formalism. Its main weakness is structural: both validations are far weaker than the claims built on them, and no limitations are stated."
+  },
+  {
+   "paper_id": "ionita2011",
+   "paper": {
+    "title": "Automatic Transformations for Integrating Instrument Models across Technological Spaces",
+    "authors": [
+     "Anca Daniela Ionita",
+     "Adriana Olteanu",
+     "Traian Ionescu",
+     "Liliana Dobrica"
+    ],
+    "abstract": "The paper presents a model driven approach for managing non-homogenous information coming from various sources: sensors, scientific equipment, or databases. Experimental data are considered together with their measurement context, which is modeled, presented and processed based on several technological / modeling spaces, giving more insight for multiple actors: metrologists, instrument evaluators, students, educators. Automatic model transformations have been introduced in order to integrate their work, based on different tools and models.",
+    "keywords": [],
+    "doi": null,
+    "pages": "51-66",
+    "source_file": "04-tionescu.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.25,
+    "composite": 54.94,
+    "final": 54.94
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; Appendix 1 prints a PHP fragment of the T2 transformation, which is description, not availability",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Descriptive systems-integration paper on XML/GME/EquiLAB model transformations with no formalism and no evaluation; the transformations are illustrated on one multimeter example and positioned within existing taxonomies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Model-to-model and model-to-text transformations between a web metamodel for measurement instruments (EquiLAB), an XML schema, and a GME paradigm, implemented in PHP via a MySQL database.\n**Level:** 1 (Trivial)\n**Rationale:** The work integrates existing tools (GME import/export, XML schema validation, a relational database) through element mappings; no algorithmic contribution.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; the paper uses prose, tables and figures throughout.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nFive of 33 references include an author ([8], [14], [15], [16], [26]; about 15%). [8], [14], [15] and [16] concern the authors' metamodel and data-integration work and are relevant; [26] (open-source e-learning with Web 2.0) is cited for the educational use of the laboratory and is only marginally related. No reference falls below the relevance threshold.\n\n---\n\n## Structural Analysis\n\nThe paper makes efficiency and quality claims ('automatic transformations between these models are essential for getting efficiency and increasing portability and quality') supported only by citation; there is no evaluation of the transformations (correctness, coverage, information loss, effort saved). Section 4 is a self-classification against existing taxonomies. An unresolved cross-reference ('presented for our application in ??') and a missing subsection 3.2 suggest limited editing. The conclusion acknowledges an open issue with co-evolution of transformations and metamodels, an inline limitation. Nothing is released.\n\n---\n\n## Conclusion\n\nAn honest but thin engineering description with appropriate (absent) formalism. Its weakness is the lack of any evidence that the transformations work beyond a single illustrative instrument."
+  },
+  {
+   "paper_id": "hadjkhalifa2011",
+   "paper": {
+    "title": "Transportation Process of Containers BPMN-Modeling and Transformation into ACTIF Model",
+    "authors": [
+     "Ismahène Hadj Khalifa",
+     "Abdelkader El Kamel",
+     "Pascal Yim"
+    ],
+    "abstract": "In this paper, we propose to model the transportation process of containers in the Nord-Pas de Calais Region (France). Based on the BPMN (Business Process Modeling Notation) approach, it allows deriving a comprehensive vision of the process and a friendly-user interface of the logistics chain for the analysis and the decision making. Furthermore, ACTIF (Aide à la Conception de systèmes de Transports Interopérables en France), a modeling approach proposed by the French Transportation Ministry, appears to be an interesting alternative approach since it assures the interoperability between the transport systems in France. Hence, we propose a model transformation procedure of the BPMN-model into an ACTIF model.",
+    "keywords": [
+     "Model Driven Architecture",
+     "BPMN model",
+     "ACTIF model",
+     "Model Transformation"
+    ],
+    "doi": null,
+    "pages": "67-80",
+    "source_file": "05-hadjkhalifa.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 77.25,
+    "composite": 57.94,
+    "final": 57.94
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only links are to third-party tools (TOPCASED, ATL transformation zoo), which do not count as the authors' code",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Case-study paper modelling a container trucking process in BPMN and proposing an element mapping to the ACTIF metamodel; no formalism, no self-citation, but the transformation is described as a procedure and its result is never shown or evaluated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** BPMN model of container post-transport at a French multimodal platform, plus a proposed BPMN-to-ACTIF metamodel mapping to be executed in ATL within TOPCASED.\n**Level:** 1 (Trivial)\n**Rationale:** Process modelling with an existing notation and tool, and a table of element correspondences; no algorithmic or theoretical contribution.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 23 references. References are mostly OMG specifications, tool documentation and textbooks; acceptable for a case study.\n\n---\n\n## Structural Analysis\n\nAbout half the paper surveys MDA, GRAI-GIM, UML, ACTIF and BPMN. The five-step transformation procedure lists 'Step 5: Result' but no result is reported: no ATL rules, no generated ACTIF model, no check of the output. The method choice rests on assertions ('the BPMN notation is an OMG standard which produces clear diagrams and assures task synchronization'). The paper does acknowledge, inline, that Data Stores and Standards have no BPMN counterpart and information is lost. Nothing is released.\n\n---\n\n## Conclusion\n\nNo integrity concerns with formalism or citation, but the contribution is a process diagram and a mapping table without demonstrated execution; structural integrity is weak."
+  },
+  {
+   "paper_id": "darabant2011",
+   "paper": {
+    "title": "Clustering methods in data fragmentation",
+    "authors": [
+     "Adrian Sergiu Darabant",
+     "Laura Darabant"
+    ],
+    "abstract": "This paper proposes an enhanced version for three clustering algorithms: hierarchical, k-means and fuzzy c-means applied in horizontal object oriented data fragmentation. The main application is focusing in distributed object oriented database (OODB) fragmentation, but the method applicability is not limited to this research area. The proposed algorithms produce fragments for an OODB database based on the analysis of inter-class relationships and user queries (applications) running on the system. Each class extension is clustered and the quality of resulting fragments is then evaluated and compared between the proposed algorithms and with results obtained from other object-oriented fragmentation techniques. Numerical experiments on different databases show an average improvement in query processing time of 17-30%. The test scenarios take in account different database sizes. The methods are applied to a small, medium and large database in order to verify their scalability.",
+    "keywords": [
+     "data clustering",
+     "object-oriented databases",
+     "fragmentation",
+     "distributed database"
+    ],
+    "doi": null,
+    "pages": "81-97",
+    "source_file": "06-adriandarabant.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 40,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 58.5,
+    "composite": 43.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the experimental databases are not identified",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "5 of 16 references (31%) are by the first author: [12], [13], [14], [15], [16]. All are on OODB fragmentation and topically relevant, but the ratio exceeds 30%."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Applies hierarchical, k-means and fuzzy c-means clustering to vector encodings of OODB objects for horizontal fragmentation; formalism is operational, but self-citation exceeds 30% and the evaluation is too thinly described to support the 17-30% improvement claim.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Encoding objects of an OODB as vectors of query-predicate satisfaction and attribute/method links to already-fragmented classes, then clustering them with modified hierarchical, k-means and fuzzy c-means algorithms to obtain horizontal fragments.\n**Level:** 2 (Low)\n**Rationale:** Standard clustering algorithms applied to a new domain with heuristic modifications (centroid initialisation, tie-breaking, merging of degenerate clusters); no convergence or complexity analysis.\n\n### Formal Elements\n- Definitions: 0 numbered (inline set-builder definitions of Pred(C), Agg, MetComplex, SetCRef, SetORef)\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 (vector components (1)-(5), significance factor (6), similarities (7)-(9), compactness (10), FCM objective (11), cost model (12)-(14))\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The notation is dense, but nearly all of it defines quantities that are computed: the vector components, the significance filter, and the fragmentation cost with replica handling. Fragments are genuinely sets of objects, and union/difference over them in (13)-(14) carry the replica semantics. Some set-builder phrasing (e.g. MetComplex(C) = {mi | mi complex method of C}) is verbose but supports later formulas, so it is not counted as a necessity failure.\n\n### Issues\n- Equation (1) for CVM is typographically garbled; (5) divides by Inst(C) rather than |Inst(C)|.\n- The introduction promises 'a scalability proof/experiment'; only an experiment is given.\n\n---\n\n## Citation Analysis\n\nFive of 16 references (31%) are the first author's own work on clustering-based and ordered OODB fragmentation. They are relevant, but the ratio crosses the 30% threshold, and [12] and [15] are the direct predecessors of the methods presented here.\n\n---\n\n## Structural Analysis\n\nThe abstract reports 'an average improvement in query processing time of 17-30%', but the evaluation measures a computed cost (FPE), not query time, and the results appear only as two figures. The experimental databases, queries, number of runs and sizes are described only by order of magnitude. Inline limitations are present: update costs are ignored for replicas, and the fuzzy method's repeated runs carry a hidden cost. No code or data is released.\n\n---\n\n## Conclusion\n\nThe formal apparatus is justified by the computation it specifies, but the paper relies heavily on the authors' prior work and its empirical claims are under-documented. The self-citation ratio triggers a disqualifying flag."
+  }
+ ]
+}

@@ -1,0 +1,483 @@
+{
+ "batch_id": "2024-v27-n34",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 27,
+  "issue": "3-4",
+  "year": 2024
+ },
+ "papers": [
+  {
+   "paper_id": "lu2024",
+   "paper": {
+    "title": "Dimension-Reduced Modeling for Local Volatility Surface via Unsupervised Learning",
+    "authors": [
+     "Zheng-Liang Lu",
+     "U Hou Lok"
+    ],
+    "abstract": "(Paraphrased) Applies PCA and multilinear PCA to the daily dynamics of local volatility surfaces built from Taiwan index options, showing that a few orthogonal factors capture most variance and that reconstructed surfaces stay within 10% maximum absolute relative difference for over 80% of observations; MPCA adds interpretability by preserving the tensor structure.",
+    "keywords": [
+     "dimension reduction",
+     "implied volatilities",
+     "local volatility surfaces",
+     "multilinear principal component analysis",
+     "unsupervised learning"
+    ],
+    "doi": null,
+    "pages": "255-266",
+    "source_file": "paper777.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 85,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.75,
+    "composite": 57.56,
+    "final": 52.56
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "Data sourced from the commercial TEJ database ('Our dataset is sourced from Taiwan Economic Journal'); the only author link ([28], https://reurl.cc/ezaez7) is supplementary material holding a figure, not code or data.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints: the single-year (2021) single-market sample, the choice of three components, and the dependence on the Andreasen-Huge interpolation are not discussed as limitations."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Competent application of PCA and MPCA to local volatility surfaces with proportionate, standard financial mathematics; evaluation is thin and limitations are not acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Dimension reduction of local volatility surface dynamics using PCA and multilinear PCA on Taiwan index option data.\n**Level:** 2 (Low)\n**Rationale:** Existing unsupervised methods (PCA, MPCA via the standard alternating algorithm) applied to a new object (local rather than implied volatility surfaces). No new algorithm or proof.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 (Black-Scholes SDE and pricing formulas, Gaussian kernel smoother, Dupire equation, PCA projection/reconstruction, MPCA objective), plus Algorithm 1\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the standard machinery the method is built from (implied-volatility inversion, Dupire calibration, MPCA objective and iteration) and a programmer would need them to reproduce the pipeline. The matrix-collection notation for the surfaces is ordinary linear-algebra description, not set theory standing in for list operations.\n\n### Issues\nMinor: Algorithm 1 cites [28] for HOSVD initialisation while [28] is the supplementary material (the intended reference appears to be [26]); Fig. 3, central to the headline MARD claim, is only available in the external supplement.\n\n---\n\n## Citation Analysis\n\nThree of 28 references involve the authors: [22] and [23] (Lok, trinomial trees for local-volatility models; related, similarity about 0.6) and [28] (the paper's own supplement). SCR about 11%. Separately, the introduction cites three works from one control-engineering group ([3] Kalman filter for a strip winding system, [4] tower crane modelling, [6] biomonitoring data) as methods for implied-volatility dynamics. These are topically unrelated to option pricing; the pattern does not meet the self-citation or mutual-citation conditions for a flag but lowers the citation-integrity score.\n\n---\n\n## Structural Analysis\n\nClaims are supported by variance tables and an in-sample/out-of-sample MARD comparison, but there is no baseline beyond PCA vs MPCA, no hedging or pricing experiment to back the claim that the method 'can be applied to improve option pricing', and the key error histogram is relegated to a supplement. The novelty claim ('may be the first research') is asserted without a systematic search. No limitations are discussed. No code is released and the data is commercial.\n\n---\n\n## Conclusion\n\nA modest applied study whose mathematics is proportionate to the task. Its weaknesses are evidential rather than formal: a single year of one market, no downstream validation, and no acknowledged limitations. Off-topic citations to an unrelated control-engineering group are noted."
+  },
+  {
+   "paper_id": "ulmamei2024",
+   "paper": {
+    "title": "An Approach for Implementing Electronic Image Stabilization Using an FPGA System",
+    "authors": [
+     "Andrei-Alexandru Ulmămei",
+     "Călin Bîră"
+    ],
+    "abstract": "(Paraphrased) Implements digital image stabilization on a Zynq UltraScale+ ZU7EV SoC by combining Harris corner detection, pyramidal iterative optical flow, Kalman filtering and an affine transform in FPGA logic under a custom Linux; reports 4K-UHD stabilization at 30 FPS and claims more than 2.5x the throughput of prior work.",
+    "keywords": [
+     "electronic image stabilization",
+     "field programmable gate array",
+     "system on chip"
+    ],
+    "doi": null,
+    "pages": "267-280",
+    "source_file": "paper778.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 85,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 75.5,
+    "composite": 69.12,
+    "final": 69.12
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "Test frames come from a public dataset: 'using [16] images', with the reference list giving 'Optical Flow Dataset, [Online] Available https://vision.middlebury.edu/flow/data'. No HDL or software of the authors is linked.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Engineering port of known stabilization algorithms to an FPGA with necessary, implementation-level equations; weak quality evaluation and several citation-numbering errors.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Hardware implementation of a frame-to-frame electronic image stabilization pipeline (Harris corners, Lucas-Kanade optical flow, Kalman filter, affine warp) on a Zynq SoC.\n**Level:** 2 (Low)\n**Rationale:** The contribution is the combination and hardware porting of established algorithms; no new algorithm or analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 15 (affine transform and its solution from three point pairs, Kalman predict/update, rotation-matrix reconstruction)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The affine and Kalman equations are exactly what the hardware blocks compute; a programmer implementing the core would need them.\n\n### Issues\nEquation (6) contains copy errors (the Y rows reuse a00, a01 instead of a10, a11), and the statement that matrices F, H, Q, R were initialised 'with null values' would make the Kalman filter degenerate. These are correctness slips, not theater.\n\n---\n\n## Citation Analysis\n\nNo self-citations (0/24). The reference list is relevant but misnumbered: Table 4 attributes Shirole to [18] (which is the MS-SSIM paper), Li to [19], and so on, shifted by one; the image source is cited as [16] (PYNQ) instead of [17] (Middlebury). Lucas-Kanade is cited to Horn-Schunck [11]. These errors reduce traceability.\n\n---\n\n## Structural Analysis\n\nThroughput, resource and power figures are reported in tables, which supports the performance claim. Stabilization quality, however, is measured only by PSNR/SSIM between stabilized and original frames, which does not quantify stabilization; no standard stability metric or comparison with a software baseline on the same video is given. The '2.5x state of the art' claim relies on a Mpix/s comparison across very different devices. Constraints are acknowledged inline (border effects on SSIM; LUTs as the limiting factor for 8K). Test images are from the public Middlebury dataset; no code or HDL is released.\n\n---\n\n## Conclusion\n\nA reasonable systems-integration paper with appropriate formalism. Its evaluation of stabilization quality is weak and the reference numbering is unreliable, but nothing in the formal content is decorative."
+  },
+  {
+   "paper_id": "gemikonakli2024",
+   "paper": {
+    "title": "A Queuing Model to Evaluate the Network Performance Considering the Heterogeneity and Mobility of Relay Nodes in Disaster Area",
+    "authors": [
+     "Eser Gemikonakli"
+    ],
+    "abstract": "(Paraphrased) Proposes a two-dimensional Markov queueing model with a single shared finite buffer for prioritised H2H and M2M traffic, with relay-node mobility entering through cell dwell time; numerical threshold analysis suggests a single buffer suffices without reservation policies, and results are validated by discrete-event simulation within 5%.",
+    "keywords": [
+     "disaster network",
+     "H2H and M2M communication",
+     "mobility aspects",
+     "buffer management",
+     "performance analysis"
+    ],
+    "doi": null,
+    "pages": "281-294",
+    "source_file": "paper779.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 70,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 69.0,
+    "composite": 51.75,
+    "final": 46.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "Only a supplementary document is linked ([39], drive.google.com/file/d/1Oar-kZM8X2Fmy4H1YIYNylxHrGEKiLGb), described as holding algorithms, appendix and parameter calculations; no solver or simulation code is linked or claimed.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment: Poisson arrivals, exponential service and dwell times, and the fixed eight-channel configuration are stated as assumptions but never discussed as constraints on the conclusions."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Standard CTMC queueing model applied to a disaster-network scenario with proportionate formalism; key validation material is outsourced to a supplement and off-topic citations pad the introduction.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Two-dimensional birth-death Markov model of a multi-channel system with a shared finite buffer for prioritised H2H and M2M packets, with mobility represented as an extra departure rate.\n**Level:** 2 (Low)\n**Rationale:** An M/M/C/L-type model with a priority threshold, solved numerically. Standard queueing machinery applied to a new scenario; no new solution technique or proof.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (cell dwell time, mobility rate, departure rates, blocking due to M2M)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The rate expressions are what one needs to build the transition matrix.\n\n### Issues\nEquation (4) defines a single symbol for two different departure rates in a piecewise form, and the text swaps H2H/M2M labels in places ('H2M packets'). The algorithm, balance equations and simulation are all deferred to the external supplement [39], so the model cannot be reproduced from the paper alone.\n\n---\n\n## Citation Analysis\n\nThe only self-citation is the supplement [39] (1/39). However, five references from one control-engineering group are cited in the introduction on topics unrelated to queueing in disaster networks: [7] tower crane modelling, [9] observation processes in cognition, [10] teaching optimisation, [11] fuzzy controllers for a clutch, [13] COVID-19 statistics. They are attached to generic statements about optimisation. This does not meet the self-citation or demonstrated mutual-citation conditions, but it is citation padding and lowers the score.\n\n---\n\n## Structural Analysis\n\nNumerical results are presented in figures (some heavily garbled in the text layer) and simulation agreement is asserted, with the discrepancy figures placed in the supplement. Conclusions such as the sufficiency of L = 150 and Lh2h = 46 follow from the model but are specific to the chosen parameters. Comparison with the reservation-based alternatives criticised in Section 2 is argued, not computed. No limitations are discussed. No code is released.\n\n---\n\n## Conclusion\n\nA conventional analytical performance model whose formalism is appropriate. The paper's weaknesses are reproducibility (all solution details off-paper), the absence of a quantitative comparison with reservation schemes, and padded, off-topic citations."
+  },
+  {
+   "paper_id": "essiz2024",
+   "paper": {
+    "title": "Deep Learning-Based Prediction Models for the Detection of Vitamin D Deficiency and 25-Hydroxyvitamin D Levels Using Complete Blood Count Tests",
+    "authors": [
+     "Uğur Engin Eşsiz",
+     "Çiğdem İnan Acı",
+     "Esra Saraç",
+     "Mehmet Acı"
+    ],
+    "abstract": "(Paraphrased) Uses blood test records of 907 patients from a Turkish public health laboratory to build CNN, RNN, LSTM, GRU and autoencoder models predicting vitamin D status, deficiency severity and 25(OH)D level, after MICE imputation, SMOTE balancing and selection of 25 features; CNN models perform best.",
+    "keywords": [
+     "25(OH)D level",
+     "classification",
+     "deep learning",
+     "feature selection",
+     "prediction",
+     "vitamin D deficiency"
+    ],
+    "doi": null,
+    "pages": "295-309",
+    "source_file": "paper780.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 75,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 36.25,
+    "composite": 27.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "The dataset is original and unreleased ('An original dataset consisting of complete blood count (CBC) tests from 907 patients'); the linked supplement [22] holds figures, pseudocode and parameter tables, not code or data.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 application of off-the-shelf TensorFlow/scikit-learn models, yet Section 2.3 reproduces generic textbook equations for back-propagation, convolution, pooling, RNN, GRU and autoencoders (Eqs. 1-15) that describe library internals the authors did not implement and that play no role in the results. Eq. (2) introduces Greek constants for learning rate and momentum ('η and α are constant') in an incorrect update rule, and Eq. (9) reuses the reset-gate weights for the update gate. Removing these equations would not change what a programmer builds.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment: single-laboratory retrospective data, small sample, SMOTE applied before cross-validation, and the absence of external validation are not discussed."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Standard deep-learning application on a private clinical dataset, padded with decorative textbook equations; the evaluation pipeline risks leakage and the very high scores are not independently validated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Prediction of vitamin D status, deficiency severity and serum level from routine blood tests using standard deep-learning architectures.\n**Level:** 2 (Low)\n**Rationale:** Straightforward ML application: existing models trained on a new dataset and accuracy reported.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 22 (15 generic architecture/training equations, 7 standard metrics)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Within the count bound but failing the Necessity Test. The architecture equations are textbook material for models instantiated from libraries ('developed using the Python Scikit Learn library [37] and TensorFlow [38]'); they neither specify the authors' configurations (which are in the supplement) nor support any analysis.\n\n### Issues\nEq. (2) labels the momentum update as w(n) rather than a weight change and introduces Greek constants without values; Eq. (9) uses W_r for the update gate; Eq. (15) has a malformed summation limit. These errors confirm that the equations are decorative rather than load-bearing.\n\n---\n\n## Citation Analysis\n\nSelf-citations: [21] (Eşsiz et al., VDD prediction in diabetics; highly related), [22] (the supplement), [30] (Acı et al., abusive Instagram comment detection with CNNs; cited for CNN performance on classification, marginal similarity about 0.35). SCR about 7%. The introduction also cites four works of one control-engineering group with no bearing on vitamin D prediction ([3] observation processes in cognition, [4] k-means post-processing, [6] reinforcement learning for servo control, [11] COVID statistics), presented as examples of 'high-precision prediction models'. This padding lowers the score though it does not meet a flag condition.\n\n---\n\n## Structural Analysis\n\nThe preprocessing order (imputation, SMOTE oversampling, feature selection, then 5-fold cross-validation) applies SMOTE and feature selection to the full dataset before splitting, which can leak information into test folds and inflate results; an R-squared of 0.978 for serum vitamin D from blood counts is implausibly high and would need external validation. The claim of surpassing the literature compares against studies on different datasets. Table 1 shows anomalies (e.g. calcium mean 41.38 with SD 544.22) not discussed. No limitations section. The dataset and code are not released.\n\n---\n\n## Conclusion\n\nA routine Level 2 application whose methods section is inflated with generic, partly incorrect deep-learning equations, triggering the formalism-theater flag. Independently of the flag, the evaluation design is vulnerable to leakage and limitations are not acknowledged."
+  },
+  {
+   "paper_id": "travin2024",
+   "paper": {
+    "title": "Statistical Computational Model of Fission Products Composition of Irradiated Nuclear Fuel and Their Contribution to Gas-aerosol Emissions of Nuclear Power Plants",
+    "authors": [
+     "Sergey Travin",
+     "Oleg B. Gromov",
+     "Gheorghe Duca",
+     "Radu-Emil Precup"
+    ],
+    "abstract": "(Paraphrased) Assuming NPP gas-aerosol emissions reflect fuel composition, analyses handbook data on VVER-440 spent fuel and argues that radionuclide activity, not mass yield, follows the double-humped fission-fragment distribution, that mass yield has no functional relation to atomic mass, and that a Zipf-Mandelbrot rank-size distribution could support modelling.",
+    "keywords": [
+     "dose load",
+     "isotope",
+     "nuclear fuel",
+     "nuclear power plant gas-aerosol emission",
+     "radionuclide",
+     "uranium fission fragments"
+    ],
+    "doi": null,
+    "pages": "310-322",
+    "source_file": "paper781.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 0,
+    "structural_integrity": 40,
+    "artifact_availability": 50,
+    "intellectual_integrity": 40.0,
+    "composite": 42.5,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "All results rest on a published handbook: 'this paper starts with the handbook [11]' (Kolobashkin et al., Radiation Characteristics of Irradiated Nuclear Fuel, Energoatomizdat, 1983). No code or processed data released.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "IRRELEVANT_SELF_CITATION"
+   ],
+   "flag_details": {
+    "IRRELEVANT_SELF_CITATION": "Four self-citations of the corresponding author are unrelated to fission-product statistics (similarity well below 0.3): [23] slime-mould tuning of type-2 fuzzy controllers for servo systems, [28] fuzzy control for telesurgery, [32] observation-process modelling in cognition, [33] semi-supervised fuzzy systems for data streams. They are attached to a digression on metaheuristics and a list of unrelated 'future applications' (well-being, telesurgery, multi-agent path planning)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Descriptive re-plotting of handbook fission-product data with a two-Gaussian fit, presented as a 'model' and as proofs; its central Zipf-Mandelbrot claim is deferred, and unrelated self-citations disqualify it.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Statistical description of radionuclide activity in VVER-440 spent fuel by mass number and rank, as a basis for predicting NPP emission composition.\n**Level:** 2 (Low)\n**Rationale:** Re-analysis of tabulated data with elementary relations (decay law, a two-Gaussian envelope fitted by least squares, rank-size plotting). No new model is actually specified or fitted for the rank distribution.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (emission proportionality, decay law, atoms from activity, Gaussian)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are elementary and used for the recalculation. Eq. (1) is a qualitative proportionality written as a product with inconsistent unit labels, which slightly lowers the score, but it is not set-theoretic or definitional theater.\n\n### Issues\nThe abstract and conclusions state that the paper 'proves' proportionality of decay rate to fragment probability; no proof is given, only a visual Gaussian fit. The Zipf-Mandelbrot claim is explicitly left to 'another paper'. Figure and reference pointers are inconsistent (Fig. 2 attributes data to [9], a regulatory order; Ponomarev-Stepnoi is cited as [10] but listed as [20]; a paragraph on the number of controlled radionuclides appears twice with different citations).\n\n---\n\n## Citation Analysis\n\nSelf-citations: [5] (Travin and Gromov, radiocarbon dilution; related, about 0.6), and [23], [28], [32], [33] (Precup; control, fuzzy systems, cognition; unrelated). SCR = 5/33 (about 15%). The four unrelated self-citations trigger the disqualifying flag. Beyond self-citation, a block of further unrelated references ([21]-[22], [24]-[27], [29]-[31]: bin packing with quantum annealers, casting optimisation, hybrid vehicles, string-theory metaheuristics, well-being, evolving systems, traffic cloud computing, isogeometric shells, CPU provisioning) is inserted with no function in the argument. Citation score: base 80 minus 4 x 20, floored at 0.\n\n---\n\n## Structural Analysis\n\nThe evidence is a series of plots of one handbook dataset. Strong claims ('it is proven', the model 'will also be valid for VVER-1000 and RBMK-1000') are not supported by analysis. Induced radioactivity is explicitly set aside, an inline acknowledgment of scope. The data source is a published handbook; nothing of the authors' own is released.\n\n---\n\n## Conclusion\n\nThe paper is a descriptive reading of reference data rather than a computational model, with overstated claims and a deferred central result. Its citation practice, four unrelated self-citations plus a cluster of off-topic references in the future-work paragraph, is the decisive problem."
+  },
+  {
+   "paper_id": "cascaval2024",
+   "paper": {
+    "title": "Near-optimal March Tests for Three-Cell and Four-Cell Coupling Fault Models in Random-Access Memories",
+    "authors": [
+     "Petru Caşcaval",
+     "Doina Caşcaval"
+    ],
+    "abstract": "(Paraphrased) Proposes multirun march tests of length 37n and 73n for extended unlinked static three-cell (corner) and four-cell (square) coupling fault models in n x 1 RAMs, proving that each test covers the full state graph of every neighbouring cell group with each arc traversed once, so that only background changes add overhead.",
+    "keywords": [
+     "Eulerian graph",
+     "four-cell coupling",
+     "multirun march tests",
+     "near-optimal tests",
+     "RAM testing",
+     "three-cell coupling"
+    ],
+    "doi": null,
+    "pages": "323-335",
+    "source_file": "paper782.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 60,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 71.25,
+    "composite": 53.44,
+    "final": 48.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "Simulation programs are mentioned ('Dedicated simulation programs were required') but not linked; the Drive folder [19] holds supporting figures and FP tables, not code.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "6 of 25 references (24%) include the first author: [3], [4], [13], [14], [19], [21]. All are on RAM march testing and topically related, so no relevance flag applies."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Novel march test algorithms with correctness theorems whose formalism is necessary and proportionate; proofs lean on external figures and self-citation is elevated but on-topic.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design of multirun march tests for three- and four-cell neighbourhood coupling fault models in RAMs, with coverage proofs based on state-graph traversal.\n**Level:** 3 (Medium)\n**Rationale:** New test algorithms with lengths 37n and 73n and proofs that they sensitize and observe all faults of the model. This is a novel algorithm with a correctness argument, though not a deep complexity result.\n\n### Formal Elements\n- Definitions: 0 (notation table only)\n- Theorems: 2\n- Proofs: 2\n- Equations: 3 (test-length counts)\n\n### Proportionality\nCalculated complexity: 14\nExpected range (Level 3): 10-40\nRatio: 0.35x upper bound\n\n**Assessment:** Proportionate. The theorems carry the paper's claim (full coverage of the fault model) and cannot be replaced by prose; set notation G = {i, j, k} names a cell group in a proof, which is legitimate.\n\n### Issues\nThe proofs are partly delegated to figures in the external Drive folder [19] (state-graph traversals, all-cases tables), so they cannot be checked from the paper alone. 'Near-optimal' is argued informally (Eulerian traversal plus background-change overhead) without a lower bound.\n\n---\n\n## Citation Analysis\n\nSix self-citations out of 25 (24%), all on march tests and coupling-fault models and directly built upon (prior 66n and 54n tests, earlier 3-coupling and 4-coupling tests, the supporting document). Relevant but elevated. Remaining references cover the standard memory-testing literature.\n\n---\n\n## Structural Analysis\n\nClaims are supported by proofs and a comparison with earlier test lengths. Assumptions (known scramble map, disjoint coupled groups, physically adjacent cells) are stated explicitly, which serves as an inline acknowledgment of scope. Simulation verification is mentioned in one sentence with no reported results. No code or simulator is released.\n\n---\n\n## Conclusion\n\nA technically sound incremental contribution in RAM testing with formalism that earns its place. The main weaknesses are that proof detail lives outside the paper and that a quarter of the reference list is self-citation, albeit relevant."
+  },
+  {
+   "paper_id": "yalda2024",
+   "paper": {
+    "title": "Network Traffic Prediction Performance Using LSTM",
+    "authors": [
+     "Khirota Yalda",
+     "Diyar Jamal Hamad",
+     "Nicolae Tapus",
+     "Ibrahim Taner Okumus"
+    ],
+    "abstract": "(Paraphrased) Evaluates an LSTM forecaster for ISP network traffic under nine combinations of activation function (ReLU, tanh, sigmoid) and optimizer (Adam, AdaGrad, SGD), reporting MAE, MAPE, MSE, RMSE and R-squared; ReLU with Adam performs best.",
+    "keywords": [
+     "activation function",
+     "LSTM",
+     "optimization algorithms",
+     "traffic prediction"
+    ],
+    "doi": null,
+    "pages": "336-347",
+    "source_file": "paper783.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 85,
+    "structural_integrity": 45,
+    "artifact_availability": 50,
+    "intellectual_integrity": 41.0,
+    "composite": 43.25,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "Public dataset linked: 'https://www.kaggle.com/datasets/yjimmy/network-traffic-dataset/'. No code released.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 parameter-tuning study using Keras defaults ('Calling functions such as Adam(), AdaGrad(), and SGD() without specifying parameters'), yet it reproduces the LSTM gate equations, sigmoid, tanh and ReLU formulas, and the Adam, AdaGrad and SGD update rules (Eqs. 1-7) with Greek letters for configuration constants ('α stands for the learning rate', β1, β2). None of these equations is used in any analysis; they restate library documentation."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A small configuration sweep of a library LSTM on one public dataset, padded with textbook equations; results are reported without baselines or variance and contain inconsistencies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Effect of activation function and optimizer choice on LSTM forecasting of aggregated ISP traffic.\n**Level:** 2 (Low)\n**Rationale:** A configuration or parameter study of an existing model on an existing dataset.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 (LSTM gates, three activations, three optimizers, six metrics)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Within the count bound but failing the Necessity Test: every equation restates standard definitions of components invoked through default library calls. Metric definitions are borderline acceptable; the architecture and optimizer equations are not.\n\n### Issues\nThe Greek-letter hyperparameters are introduced formally and then described as untouched defaults. Section 5 states the optimizers 'aimed to minimize loss functions such as MAE, MAPE, MSE, RMSE, and R-squared', conflating evaluation metrics with loss.\n\n---\n\n## Citation Analysis\n\nNo self-citations (0/21). References are generally on topic, though some are low-quality venues (an SGD review in 'PalArch's Journal of Archaeology of Egypt') and a stock-market LSTM paper is used as the LSTM reference.\n\n---\n\n## Structural Analysis\n\nOne dataset, one 80/20 split, no naive or ARIMA baseline, and no variance across runs despite stating that sigmoid-AdaGrad was unstable. Table 1 carries a wrong caption ('The SPR and external angle for various parameters'), and the conclusion's MAPE for ReLU-Adam (6.443) differs from the table (6.95164). R-squared near 0.99 on normalised one-step traffic is not interpreted against a persistence baseline. Limitations are acknowledged inline (forecasts indicate general accuracy only; lack of public datasets). Data is public via Kaggle; no code.\n\n---\n\n## Conclusion\n\nA minimal empirical sweep whose formal content is decorative, triggering the formalism-theater flag. The absence of baselines and the internal inconsistencies further limit the evidential value."
+  },
+  {
+   "paper_id": "wen2024",
+   "paper": {
+    "title": "Stable Levitation of Single-point Levitation Systems for Maglev Trains by Improved Cascade Control",
+    "authors": [
+     "Jie Wen",
+     "Fangling Wang"
+    ],
+    "abstract": "(Paraphrased) Splits a single-point EMS maglev levitation system into motion and electromagnetic subsystems and builds cascade controllers from Lyapunov, sliding-mode and PID controllers, recommending sliding mode plus a switched PID/Lyapunov inner loop; Simulink simulations show convergence and robustness to mass and set-point changes.",
+    "keywords": [
+     "single-point levitation systems",
+     "maglev train",
+     "sliding mode control",
+     "Lyapunov control",
+     "cascade control"
+    ],
+    "doi": null,
+    "pages": "348-361",
+    "source_file": "paper784.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 85,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.5,
+    "composite": 55.12,
+    "final": 55.12
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "The Simulink model is shown only as a figure ('we built the simulation model in Simulink'); no model, code or data is linked or claimed.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Combination of standard nonlinear controllers for a textbook maglev model; derivations are necessary for the controllers but contain a questionable Lyapunov argument, and validation is simulation-only.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Cascade control of a single-point electromagnetic levitation system using Lyapunov, sliding-mode and PID controllers.\n**Level:** 2 (Low)\n**Rationale:** The paper explicitly aims to combine 'common control methods' rather than design new ones; the Lyapunov and sliding-mode designs follow textbook recipes on a standard model.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0 (Lyapunov stability theorem and LaSalle principle invoked, not stated as results)\n- Proofs: 0 (inline derivations)\n- Equations: 11\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The derivations produce the control laws that are implemented; they pass the Necessity Test.\n\n### Issues\nThe Lyapunov design for the motion system chooses the off-diagonal elements of P with a sign depending on the state (Eq. 9), so P is not a constant matrix and the derivative computed in Eq. (6) does not hold as written; the stability argument is therefore not sound as presented. The claim that zero steady-state error 'can be guaranteed theoretically' is not backed by a stability proof for the switched inner loop.\n\n---\n\n## Citation Analysis\n\nSelf-citations [13] (earlier cascade levitation controller; directly related) and [14] (logarithmic Lyapunov functions; related). SCR 2/22 (9%). Four references to one control-engineering group ([15], [19], [20], [22]) are within control but only loosely connected (tower cranes, servo fuzzy tuning); acceptable.\n\n---\n\n## Structural Analysis\n\nEvidence is entirely from simulation with parameters taken from [16]; there is no hardware experiment, disturbance or track-irregularity test, or quantitative performance table. The comparison with the authors' earlier SMC + fuzzy PID is fair but narrow. Limitations are acknowledged inline (continuous-time design, discretisation not studied, robustness only in simulation, listed as future work). Nothing is released.\n\n---\n\n## Conclusion\n\nA modest control-engineering paper with necessary formalism. The main concerns are the flawed Lyapunov construction and validation by simulation only."
+  },
+  {
+   "paper_id": "milea2024",
+   "paper": {
+    "title": "Design and Implementation of an Automated Instrument for Battery Charging Experiments",
+    "authors": [
+     "Petru-Lucian Milea",
+     "Grigore Ţiplea"
+    ],
+    "abstract": "(Paraphrased) Describes the design, construction and preliminary testing of a microcontroller-based instrument that runs automated battery charge-discharge cycles, adds exponential current pulses from an unfiltered boost stage during constant-current charging, and logs average voltages, currents and energies; a seven-cycle test on a VRLA battery is reported.",
+    "keywords": [
+     "automated instrument",
+     "average values determination",
+     "efficiency",
+     "exponential pulses",
+     "charging batteries",
+     "charge-discharge cycles",
+     "energy monitoring"
+    ],
+    "doi": null,
+    "pages": "362-378",
+    "source_file": "paper785.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.5,
+    "composite": 58.88,
+    "final": 58.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "Schematics and a flowchart are printed but no firmware, design files or logged data are linked or claimed ('The data saved on the card were processed in MATLAB').",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Instrument-design paper whose circuit equations are genuine design calculations; evidence is preliminary, from one battery, with minor reporting inconsistencies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Hardware and firmware of a bench instrument for automated battery cycling with exponential current pulses.\n**Level:** 1 (Trivial)\n**Rationale:** A prototype built from existing modules (boost stage, INA226 monitors, ATmega328P, relays, SD card); the contribution is engineering design and measurement.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (RL current rise and decay, RC filter sizing, feedback divider, timer formulas)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Each equation is used to choose component values or timer settings (R4, R6/R7, pulse width limits), so they pass the Necessity Test; none is set notation, tuple definition or decorative Greek.\n\n### Issues\nNone in the formalism. Minor slips: the duty-cycle formula is inverted (FF2 = 256/OCR2B), and Fig. 13 is cited where Fig. 14 is meant.\n\n---\n\n## Citation Analysis\n\nSelf-citations [9] and [10] (Milea's introductory electronics textbooks, used for the RL transient formula; related). SCR 2/14 (about 14%). The list is short but relevant.\n\n---\n\n## Structural Analysis\n\nMeasurement accuracy is checked by a three-way comparison (instrument, oscilloscope, simulation) and repeatability by seven cycles on one battery. The conclusion that mode 1 is 'more stable' than mode 2 rests on one battery and small ranges. Table 2's maximum M1+M2 charging time (14:50:29) does not match any listed cycle (14:47:34 is the largest). Limitations are acknowledged inline (no reference instrument for pulsed averages, research at an early stage, causes of drift not studied). No design files or firmware are released.\n\n---\n\n## Conclusion\n\nAn honest, preliminary instrument description with necessary engineering mathematics. Its evidential base is narrow and nothing is shared for replication."
+  }
+ ]
+}

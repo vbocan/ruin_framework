@@ -1,0 +1,593 @@
+{
+ "batch_id": "2023-v26-n34",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 26,
+  "issue": "3-4",
+  "year": 2023
+ },
+ "papers": [
+  {
+   "paper_id": "teodorescu2023a",
+   "paper": {
+    "title": "Papers dedicated to Florin Gheorghe Filip, Fellow of the Romanian Academy (Editorial)",
+    "authors": [
+     "Horia-Nicolai L. Teodorescu"
+    ],
+    "abstract": "Editorial introducing the five papers of the issue dedicated to Acad. Florin Gheorghe Filip at his 75th anniversary.",
+    "keywords": [],
+    "doi": null,
+    "pages": "249-250",
+    "source_file": "paper747.pdf"
+   },
+   "concept_level": null,
+   "scores": {
+    "formalism": null,
+    "citation_integrity": null,
+    "structural_integrity": null,
+    "artifact_availability": null,
+    "intellectual_integrity": null,
+    "composite": null,
+    "final": null
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EDITORIAL"
+   ],
+   "flag_details": {
+    "EDITORIAL": "Two-page editorial dedicating part of the issue to Acad. F. G. Filip and briefly introducing five of its papers; no research content."
+   },
+   "verdict": {
+    "classification": "NOT_APPLICABLE",
+    "disqualified": false,
+    "record_type": "editorial"
+   },
+   "provenance": "## Formalism Analysis\n\nNot applicable: the document is an editorial introducing the papers dedicated to Acad. F. G. Filip (Paun et al., Duca et al., Stefan, Tapus [Cozma and Tapus], Teodorescu and Pirnau). It contains no research contribution, formal elements, or references.\n\n---\n\n## Conclusion\n\nFlagged `EDITORIAL` and excluded from scoring."
+  },
+  {
+   "paper_id": "paun2023",
+   "paper": {
+    "title": "Infinite Spike Trains in Spiking Neural P Systems",
+    "authors": [
+     "Gheorghe Păun",
+     "Mario J. Pérez-Jiménez",
+     "Grzegorz Rozenberg"
+    ],
+    "abstract": "We initiate the study of spiking neural P systems associated with infinite sequences, by considering them as computability devices which generate infinite sequences of bits (1 indicates a step when a spike exits the system, and 0 indicates a step when the system does not send a spike to the environment), and as devices which process infinite sequence of bits (for instance, computing Boolean operations or other operations on two input sequences). For both the generating and the transduction case we introduce some basic notions illustrated by numerous examples, establish some basic properties, and formulate a number of research topics.",
+    "keywords": [
+     "Membrane Computing",
+     "Spiking Neural P Systems",
+     "Spike Trains",
+     "Formal Languages"
+    ],
+    "doi": null,
+    "pages": "251-275",
+    "source_file": "paper748.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 66.75,
+    "composite": 50.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text (pure theory: constructions and proofs)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 5/14 = 35.7%: [4] Ionescu, Păun, Yokomori; [8] Păun; [9] Păun, Pérez-Jiménez, Rozenberg; [11] and [12] Rozenberg, Salomaa. All five are topically central (the paper is a direct continuation of [4] and [9]; [11], [12] are standard handbooks), so the ratio reflects a small reference list in the authors' own field rather than padding, but it exceeds the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Sound theoretical paper on SN P systems as generators and transducers of infinite bit sequences, with proportionate formalism and genuine results (Theorems 1-3); the only problem is a self-citation ratio above 30% in a short, topically central reference list.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Spiking neural P systems as generators and transducers of infinite binary sequences; Boolean functions, a tool-kit of sequence operations, impossibility of computing non-length-preserving morphisms, constructive computation of 2-block morphisms.\n**Level:** 4 (High)\n**Rationale:** Formal-language and computability results: a constructive universality-style theorem for Boolean functions (Theorem 1), an impossibility result proved by a configuration-counting argument and the defect theorem (Theorem 2), and a constructive theorem for 2-block morphisms (Theorem 3). This is computability theory, not an application; it stops short of Level 5 because no universality or undecidability result is proved here.\n\n### Formal Elements\n- Definitions: 6 (regular expressions and their languages, right derivative, the SN P system construct, binary spike train, SN P transducer, k-block morphism)\n- Theorems: 3\n- Proofs: 3\n- Equations: many system specifications and rule sets\n\n### Proportionality\nCalculated complexity: 6x2 + 3x3 + 3x4 = 33\nExpected range (Level 4): 30-80\nRatio: 0.41x upper bound\n\n**Assessment:** Proportionate. Set notation, regular expressions and the formal system tuple are the subject matter; every definition is used in the constructions or proofs.\n\n### Issues\nMinor: the equality bst(Pi4) = f_omega is asserted to be \"easily proved\" without proof; the proof of Theorem 2 writes m(d - 1)(rk + s) where the preceding sentence defines the bound as m(o - 1) per step (a typographical slip that does not affect the polynomial bound); the guided crossing-over transducer of Fig. 10 is presented without a correctness argument.\n\n---\n\n## Citation Analysis\n\nFourteen references, five of which include an author of this paper (35.7%). All are directly relevant: [4] and [9] are the papers this one continues, [8] is the standard monograph on membrane computing, and [11], [12] are the standard L-systems and formal-languages handbooks. No irrelevant self-citation. Reference [4] lacks a year.\n\n---\n\n## Structural Analysis\n\nClaims are backed by explicit constructions and proofs. Constraints are acknowledged inline (the anticipatory output idea is not implemented, length-increasing morphisms cannot be computed) and several open research topics are formulated. No artifact; none is expected for a theoretical paper.\n\n---\n\n## Conclusion\n\nA competent theoretical contribution with formalism that is necessary and proportionate. The only flag is mechanical: five of fourteen references are the authors' own, which crosses the 30% threshold even though each is topically justified."
+  },
+  {
+   "paper_id": "duca2023",
+   "paper": {
+    "title": "Approach to Evaluate the Data of Moss Biomonitoring Studies: Preprocessing and Preliminary Ranking",
+    "authors": [
+     "Gheorghe Duca",
+     "Sergey Travin",
+     "Inga Zinicovscaia",
+     "Radu-Emil Precup"
+    ],
+    "abstract": "Suggests an approach to describe the data obtained in biomonitoring studies using mosses, on the example of the Republic of Moldova. 33 moss samples were analysed by neutron activation analysis and atomic absorption spectrometry; correlation analysis with ranking by decreasing total correlation reduced the elements to two factors; iron was chosen as the ranking element; data were smoothed with a discrete cosine transform ported to Excel-VBA; and an algorithm was developed for determining the number of linearly independent basis vectors, identifying two principal roots.",
+    "keywords": [
+     "Algorithm",
+     "correlation analysis",
+     "data preprocessing",
+     "moss biomonitoring"
+    ],
+    "doi": null,
+    "pages": "276-288",
+    "source_file": "paper749.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 20,
+    "structural_integrity": 45,
+    "artifact_availability": 50,
+    "intellectual_integrity": 18.25,
+    "composite": 26.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The content of determined elements in moss samples is presented in Table 1 given in [15]\"; [15] = http://www.aut.upt.ro/~rprecup/Supplementary material ROMJIST2.doc. No code is released (the Excel-VBA port is not linked).",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "IRRELEVANT_SELF_CITATION",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 data-preprocessing study whose formal content is reproduced textbook material not used by the analysis: the ICA formulation X = AS^T + E, the unmixing matrix W and the identity S^T = WAS^T = S^T (Eqs. 11-13) are introduced but ICA is never applied; the 2-D DCT/IDCT formulas (Eqs. 6-7, with inconsistent N/n, M/m indices) and the Frobenius form and characteristic polynomial of Danilevsky's method (Eqs. 14-15) restate standard methods that were used through existing code. \"We used Garcia's DCT-based penalized smoothing and Danilevsky's method\" conveys the same implementation.",
+    "IRRELEVANT_SELF_CITATION": "Two self-citations by R.-E. Precup are unrelated to moss biomonitoring: [23] tuning of interval type-2 fuzzy controllers for nonlinear servo systems with a slime mould algorithm, and [28] fuzzy control for telesurgical applications (cited as a future application of the approach). Topical similarity is well below 0.3.",
+    "ELEVATED_SELF_CITATION": "SCR = 8/28 = 28.6%: [6], [7], [8], [13], [14], [15], [23], [28] include an author of this paper (Zinicovscaia, Duca, Precup, Travin)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Exploratory preprocessing of a 33-site moss dataset whose results are almost entirely deferred to an external supplementary file; disqualified for self-citations to the authors' unrelated control-engineering work and for reproduced formalism (ICA, DCT, Danilevsky) that the analysis does not use.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Correlation ranking, log-transformation, DCT-based smoothing and eigenvalue counting applied to element concentrations in moss samples from Moldova.\n**Level:** 2 (Low)\n**Rationale:** Existing statistical and numerical methods (correlation matrices, penalized least-squares smoothing [18], Danilevsky's method [19], a third-party root finder [20]) applied to a new environmental dataset. No new algorithm is specified beyond porting existing code to Excel-VBA.\n\n### Formal Elements\n- Definitions: 0 numbered\n- Theorems: 0\n- Proofs: 0\n- Equations: 15\n\n### Proportionality\nCalculated complexity: 0 (no definitions, theorems or proofs)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Within the count bound, but the Necessity Test fails for several elements (see Issues).\n\n### Issues\nEqs. (11)-(13) set out the ICA mixing model and the trivial identity S^T = WAS^T = S^T although ICA is never used. Eqs. (6)-(7) give the 2-D DCT/IDCT with mismatched index limits for a 1-D smoothing task. Eqs. (14)-(15) reproduce the Frobenius matrix and characteristic polynomial from a textbook the paper says it \"will not dwell on\". None of these changes what was implemented.\n\n---\n\n## Citation Analysis\n\nEight of 28 references (28.6%) include an author. Six concern moss biomonitoring in Moldova or neighbouring regions and are relevant ([6], [7], [8], [13], [14], [15]). Two are not: [23] (fuzzy servo control tuned by slime mould algorithm) appears in a sentence listing metaheuristics after the paper states it used least squares, and [28] (telesurgical fuzzy control) is offered as a future application domain. A dedication citation to Filip [26] is also present. Box and Wilson [17] is cited as 1992 in the text and 1951 in the list.\n\n---\n\n## Structural Analysis\n\nNearly every result (Tables 1-3, Figs. 1-6) is \"given in [15]\", an external .doc on a personal web page; the article itself contains no data table or figure. The two-factor conclusion rests on visual inspection of colour-formatted correlation tables. The claim that the root finder showed no \"single program failure\" over years of use is anecdotal. The element lists are inconsistent (\"Seven elements\" followed by eight names). Rotational ambiguity is acknowledged inline. Data are available through the supplementary file; the VBA code is not.\n\n---\n\n## Conclusion\n\nAn exploratory, largely descriptive preprocessing study. It is disqualified on two grounds: self-citations to the corresponding author's unrelated control-engineering work, and formal material (ICA, DCT, Danilevsky) that restates textbooks without bearing on the analysis. Moving the actual results into the paper and releasing the VBA code would improve it substantially."
+  },
+  {
+   "paper_id": "stefan2023",
+   "paper": {
+    "title": "Meaning in Action: a Qualitative Approach of Information",
+    "authors": [
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "There are many approaches to the concept of information in terms of quantity, but there is a lack of consensus on what information is. We measure it in many ways, but we don't consistently state what information is. We will try in this text to offer a qualitative image for the concept of information. On this occasion, perhaps we will better understand the role of information at different levels in existence by defining information as a symbolic structure that acts through the meaning it has in a given context.",
+    "keywords": [],
+    "doi": null,
+    "pages": "289-300",
+    "source_file": "paper750.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 45.25,
+    "composite": 33.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text (conceptual essay)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "DISPROPORTIONATE_FORMALISM"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 conceptual essay and review that wraps plain-English ideas in formal notation: tuple definitions such as N = <S, M>, N1 = <S, S>, N2 = <S, sigma>, and the paper's own contribution, Definition 13, N = <S, C M> (\"M is the meaning of S which is used to act on the context C\"). The tuples are never manipulated; they label prose.",
+    "DECORATIVE_DEFINITIONS": "Definitions 6-13 (generalized, syntactic, semantic, reference, context, phenomenological, pure phenomenological information, and the proposed generalized information) are \"Definition N:\" blocks of the form \"X is a tuple <a, b>\" that are not used in any derivation and could be stated in a sentence each.",
+    "DISPROPORTIONATE_FORMALISM": "Formalism score = 13 definitions x 2 + 3 theorems x 3 = 35, against a Level 1 upper bound of 5 (7x, above the 2x threshold of 10). The theorems are recalled from algorithmic information theory without proof."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Philosophical essay reviewing quantitative and qualitative notions of information and proposing that information is meaning acting in context; the proposal is dressed in decorative tuple definitions that add nothing to the prose.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A review of Shannon, Kolmogorov-Chaitin-Solomonoff, Tononi, Drăgănescu, Wheeler and Floridi on information, followed by a qualitative proposal that information is a symbolic structure acting through its meaning in a context, illustrated with a RISC instruction, Lisp EVAL and a neural network layer.\n**Level:** 1 (Trivial)\n**Rationale:** A survey plus a conceptual definition; there is no algorithm, model, or result to formalize. Surveys and conceptual essays sit at Level 1 by the classification guide.\n\n### Formal Elements\n- Definitions: 13 (5 recalled from algorithmic information theory, 7 recalled from Drăgănescu, 1 proposed)\n- Theorems: 3 (recalled, unproved)\n- Proofs: 0\n- Equations: about 6\n\n### Proportionality\nCalculated complexity: 35\nExpected range (Level 1): 0-5\nRatio: 7x upper bound\n\n**Assessment:** Disproportionate. The recalled AIT definitions are at least accurate summaries of the literature, but the Drăgănescu-style tuples and the new Definition 13 fail every part of the Necessity Test: they could be said in English, removing them changes nothing, and they enable no proof.\n\n### Issues\nDefinition 13 writes the contribution as N = <S, C M> with no operation defined on C or M. Example 1 adds a BNF-like instruction format to make a point about programs versus data. Theorem 3 is quoted with nested quotation marks and no source page.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 23 references. Reference hygiene is poor: [8] is given as a local file path (file:///C:/Users/GheorgheMStefan/Downloads/...), author names are misspelt (Losse for Losee, Wheller for Wheeler), and Tukey [20] and Floridi [9] are listed but not cited in the text.\n\n---\n\n## Structural Analysis\n\nAn essay rather than an empirical paper; claims are interpretive and are mostly attributed to cited authors. The speculative status of the later sections is acknowledged inline (\"we have reached the realm of speculation\", \"we are not yet prepared to give answers\"). No artifact is relevant.\n\n---\n\n## Conclusion\n\nAn honest and readable reflection on what information is, but the formal apparatus is decorative: thirteen definitions and three unproved theorems in a conceptual essay, with the author's own proposal reduced to an uninterpreted tuple. The disqualification follows from the zero-tolerance rule at Level 1."
+  },
+  {
+   "paper_id": "cozma2023",
+   "paper": {
+    "title": "AHB Interconnect - Functional Verification",
+    "authors": [
+     "Andrei Cozma",
+     "Nicolae Ţăpuş"
+    ],
+    "abstract": "This paper offers an in-depth exploration of the verification procedure pertaining to the integration of an Advanced High-performance Bus (AHB) Interconnect module. The functional verification paradigm, centered around simulation-based testing, instantiates the module in a controlled verification environment that orchestrates input stimuli, captures outputs, and flags deviations from anticipated behaviour as errors, to guarantee that the module aligns with its intended operations.",
+    "keywords": [
+     "AHB",
+     "Interconnect",
+     "Functional verification",
+     "Protocol compliance",
+     "Concurrency",
+     "Arbitration",
+     "Master devices",
+     "Slave devices",
+     "Stimuli and responses",
+     "Simulation"
+    ],
+    "doi": null,
+    "pages": "301-311",
+    "source_file": "paper751.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 85,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.25,
+    "composite": 57.19,
+    "final": 57.19
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the UVM environment and the DUT are not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Descriptive account of a standard UVM verification environment for an AHB interconnect; no formalism problems, but the evidence is limited to a statement that all 105 regression tests passed and unquantified coverage screenshots.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A UVM testbench (master/slave agents, monitors, scoreboard, coverage collectors) for functional verification of an AHB interconnect.\n**Level:** 1 (Trivial)\n**Rationale:** Application of an established industrial methodology (UVM) and protocol specification (AMBA AHB) to one module; an engineering practice report combining existing components.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; the paper is entirely in prose and diagrams.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNo author self-citations among 8 references. Reference [2] is a blog post of the first author's employer (Tremend), an institutional rather than personal self-reference. The list is thin and dominated by web pages; only [8] is a comparable research paper, and it is not discussed.\n\n---\n\n## Structural Analysis\n\nThe conclusion that the implementation \"is deemed accurate\" rests on all regression tests passing and on coverage screenshots (Figs. 5-7) whose percentages are not reported in the text; no bug found, no mutation or fault-injection check, and no comparison with other environments is given. Constraints are acknowledged inline (BUSY coverage capped at 50% by a DUT limitation; 105 tests is the memory limit of the simulation machine). The running header of several pages carries the title of a different paper in the issue. No artifact is released.\n\n---\n\n## Conclusion\n\nA clear tutorial-style description of a conventional verification environment with no formalism theater. Its weakness is evidential: the paper shows that the environment was built, not how effective it is at finding defects."
+  },
+  {
+   "paper_id": "teodorescu2023b",
+   "paper": {
+    "title": "Twitter's Mirroring of the 2022 Energy Crisis: What It Teaches Decision-Makers - A Preliminary Study",
+    "authors": [
+     "Horia-Nicolai L. Teodorescu",
+     "Mironela Pirnau"
+    ],
+    "abstract": "The paper pertains to opinion mining on social networks in view of decision-making. It determines the effect of the energy crisis on socio-ethical and ethical concerns and concerns about the role of ICT, as reflected on Twitter, together with the correlations between these categories and the distributions of the corresponding words. Lexical, topical and semantic tools, with emphasis on coherence indices, were applied to tweets collected at the start of the 2022 energy crisis. Such concerns are associated with energy crises, but the association probability is low, indicating at least a partial success of the mitigation decisions of the authorities.",
+    "keywords": [
+     "Correlations of concerns",
+     "decision-making",
+     "energy crises",
+     "ethics",
+     "natural language processing (NLP)",
+     "opinion extraction",
+     "social networks",
+     "Twitter",
+     "worries"
+    ],
+    "doi": null,
+    "pages": "312-322",
+    "source_file": "paper752.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 85,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 74.25,
+    "composite": 55.69,
+    "final": 55.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the 308,926 tweets, the word lists and the PHP/Node.js collection code are not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Preliminary bag-of-words co-occurrence study of about 309,000 tweets on the 2022 energy crisis; the measures are reasonable, but the conclusion that low concern frequencies show public approval of government policy goes well beyond the data.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Frequencies, Zipf exponents, co-occurrence probabilities and PMI/coherence-style indices for hand-built word lists (ethics, socio-economic, ICT) in tweets about the energy crisis.\n**Level:** 2 (Low)\n**Rationale:** An empirical study using basic statistics and existing coherence measures (Mimno et al., UCI/PMI), with a modest adaptation of coherence to pairs of topics (\"adherence\").\n\n### Formal Elements\n- Definitions: 0 numbered (the adherence measures are defined by equations)\n- Theorems: 0\n- Proofs: 0\n- Equations: 4\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Eq. (1) recalls Mimno coherence; Eqs. (2)-(4) define the quantities actually computed in Tables 7 and the text, so they pass the Necessity Test.\n\n### Issues\nNotation is inconsistent: Eqs. (3) and (4) divide D(v_m, u_l) by D(u_m)D(u_l), mixing the two lists, and Eq. (4) is labelled PMI(V1, V2) with indices that do not appear on the left. The reported PMI values are therefore hard to reproduce.\n\n---\n\n## Citation Analysis\n\nNo self-citations by either author among 30 references. Four references ([7], [27], [28], [30]) are co-authored by M. Teodorescu, credited in the acknowledgement for the idea of the study; [27] is a personal communication used as the source of the UCI-type adhesion measure. A citation to F. G. Filip [29] matches the dedication. Otherwise the opinion-mining and coherence literature is relevant.\n\n---\n\n## Structural Analysis\n\nDescriptive results (frequency tables, PMI table) support the narrow claims about word co-occurrence. The headline inference, that low frequencies of ethical and socio-economic words mean the tweeting population \"regarded the governments' policies as fair\", is not supported by any measure of attitude toward policy. The Zipf fits are reported only as exponents without fit quality. Section 3.2 duplicates the heading of 3.1. Limitations are acknowledged inline (preliminary study, \"It is unclear if that is due to the specific circumstances\", relatively few actors). No data or code is released.\n\n---\n\n## Conclusion\n\nA reasonable exploratory study with proportionate formalism, held back by imprecise notation, unreleased data and word lists, and a policy conclusion that the co-occurrence statistics cannot carry."
+  },
+  {
+   "paper_id": "protic2023",
+   "paper": {
+    "title": "XOR-Based Detector of Different Decisions on Anomalies in the Computer Network Traffic",
+    "authors": [
+     "Danijela Protic",
+     "Miomir Stankovic"
+    ],
+    "abstract": "Anomaly-based intrusion detection systems scan network traffic for abnormal behaviour. The article presents a hyperbolic tangent feature scaling approach based on linearization of the tanh function and the damping strategy of the Levenberg-Marquardt algorithm. Experiments on the Kyoto 2006+ dataset with weighted k-NN, decision tree, feedforward neural network and SVM classifiers show that hyperbolic tangent scaling reduces processing time by more than twofold. An XOR-based detector is proposed to determine conflicting decisions of the FNN and wk-NN models; the percentage of opposite decisions varies and is not affected by dataset size.",
+    "keywords": [
+     "Anomaly-based intrusion detection",
+     "binary classification",
+     "machine learning"
+    ],
+    "doi": null,
+    "pages": "323-338",
+    "source_file": "paper753.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 75,
+    "structural_integrity": 40,
+    "artifact_availability": 50,
+    "intellectual_integrity": 36.25,
+    "composite": 39.69,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"we used the Kyoto 2006+ dataset as it was developed for evaluating of the network-based IDSs\" (named public dataset, ref. [35]); classifiers trained in the MATLAB Classification Learner, no code released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 applied-ML paper that reproduces the gradient, Hessian and Jacobian matrices and the Levenberg-Marquardt update (Eqs. 3-6 and pseudo-code) although the method neither implements nor modifies LM: the FNN is trained by MATLAB defaults and the proposed scaling is tanh applied to centred min-max values (Eq. 2). Removing Eqs. (3)-(6) would not change what is built. The XOR detector is likewise justified by CPU accumulator-register properties (\"shorter instructions\", \"less memory storage\") that have no bearing on a count of disagreements."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Applies tanh feature scaling and a count of disagreements between two classifiers to the Kyoto 2006+ dataset; disqualified because textbook Levenberg-Marquardt matrices are reproduced without being used, and the claim that disagreement is independent of dataset size is tested on three records of nearly identical size.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Feature selection and tanh/min-max scaling for four off-the-shelf MATLAB classifiers on Kyoto 2006+, plus counting XOR disagreements between FNN and wk-NN outputs.\n**Level:** 2 (Low)\n**Rationale:** Standard classifiers applied to a public IDS dataset with a simple preprocessing variant; the \"XOR detector\" is a disagreement count.\n\n### Formal Elements\n- Definitions: 0 numbered\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 plus a pseudo-code block\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Within the count bound, but Eqs. (3)-(6) fail the Necessity Test.\n\n### Issues\nThe LM exposition (gradient vector, n x m Hessian, Jacobian, damped update) is described as \"the main goal\" of the scaling, yet the scaling formula (Eq. 2) contains no damping term and the FNN is trained with MATLAB defaults. The Hessian is labelled n x m and defined as J(grad f)^T. Eqs. (7)-(10) are standard metrics and are fine.\n\n---\n\n## Citation Analysis\n\nSix of 50 references are the authors' own (12%): [13], [14], [15], [21], [26], [43], all on the same line of work. Several third-party citations are irrelevant to intrusion detection: [27] (moss biomonitoring data modelling), [7] (actor-critic servo control), [28] (observation-process modelling in cognition), [48] (fuzzy models of shape-memory-alloy actuators, cited for the purpose of a validation split) and [3] (T-cell counting sensors). Others are misattributed: [34] (LeCun, Efficient BackProp) is cited for the Kyoto honeypot description and [32] (MIT News on neural networks) for the Bro IDS. These cannot be classified as a ring without evidence of reciprocity, but they lower the citation-integrity score.\n\n---\n\n## Structural Analysis\n\nResults are single runs with no variance or significance testing. The abstract and conclusions state that the percentage of conflicting decisions \"is not affected by dataset size\", but Table 6 uses three records of 57,300, 57,300 and 58,300 instances, so size was not varied. The text says DT accuracy \"dropped to ~0.001\" when it means a drop of about 0.001. The twofold speed-up is supported by Table 5 for FNN and wk-NN. The constraint that the detector \"cannot predict the likelihood of a particular event\" is acknowledged inline. Kyoto 2006+ is public; no code is released.\n\n---\n\n## Conclusion\n\nAn incremental applied study whose measurable claim (faster training under tanh scaling) is plausibly supported, but whose formal exposition of LM is decorative and whose size-independence claim is untested. Disqualified under the Level 1-2 zero-tolerance rule."
+  },
+  {
+   "paper_id": "mirnalinee2023",
+   "paper": {
+    "title": "A Data Hiding Approach for Secured Data Communication",
+    "authors": [
+     "T. T. Mirnalinee",
+     "J. Bhuvana",
+     "SB. Vinodhinisri"
+    ],
+    "abstract": "Proposes a Prime Number Based Embedding (PNBE) approach for data hiding in images without visual distortion, with a scheme for identifying the embedding location and algorithms for encoding and decoding messages. Demonstrated on benchmark images, with hiding capacity ranging from 6,327 to 12,448 bytes depending on image size and quality measured by PSNR; the approach is reported to outperform existing ones in embedding capacity and image quality.",
+    "keywords": [
+     "Embedding",
+     "encoding",
+     "data hiding",
+     "decoding",
+     "steganography"
+    ],
+    "doi": null,
+    "pages": "339-350",
+    "source_file": "paper754.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 75,
+    "structural_integrity": 30,
+    "artifact_availability": 0,
+    "intellectual_integrity": 33.75,
+    "composite": 25.31,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; test images (Dog, House, Moon, Taj Mahal, Pepper, Baboon, Bridge, Boat, Couple) are named but neither cited nor linked, and no code is released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 embedding scheme (adjust each pixel so that its divisibility by a small prime encodes one bit) presented with set-builder and membership notation in the pseudo-code and a capacity formula that does not match the reported results.",
+    "UNNECESSARY_SET_THEORY": "Algorithm 1 writes the pixel adjustment as \"Increment or decrement G s.t {G % E = 0} {G | G % E = 0}\" and the loops as \"for G in [G1 to G9] not-in G5\"; these are a modulo test and a loop over eight blocks, which set-builder notation does not clarify.",
+    "NO_LIMITATIONS": "No limitation of PNBE is acknowledged: robustness to compression or noise, resistance to steganalysis, and the security of storing the embedding key in the image centre are not discussed. The only forward-looking remark is extension to colour images."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simple divisibility-based image steganography scheme with internally inconsistent capacity figures, no security or steganalysis evaluation, and decorative set notation; disqualified at Level 2.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Embedding message bits by nudging grey-level pixel values so they are or are not divisible by a prime stored in the 3x3 block around the image centre.\n**Level:** 2 (Low)\n**Rationale:** A straightforward variant of spatial-domain (LSB-like) embedding with a simple key; the evaluation is PSNR and capacity on a handful of images.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 plus two pseudo-code algorithms\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Within the count bound, but set notation in the pseudo-code fails the Necessity Test.\n\n### Issues\nEq. (1), EC = M x N x NU / 8 with NU = 16 \"unused bits\", gives 131,072 for a 256 x 256 image, while Table 1 reports 8,190 bits and Fig. 4 reports 65,520 bits for the same House image. Eq. (2) omits the averaging in the MSE. The pseudo-code uses set-builder and membership notation for a modulo condition and a loop.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 23 references. Three third-party references are unrelated to data hiding and are inserted in a sentence on \"data modeling\": [21] fuzzy models of shape-memory-alloy actuators, [22] k-means post-processing, [23] observation-process modelling in cognition (all co-authored by R.-E. Precup). Two references carry wrong years (Celik et al. [1] given as 2022 for a 2002 paper; [10] \"IH 2022\" for a 2003 LNCS volume) [5] and [16] are never cited in the text, and the VQ scheme of [9] is cited as [20].\n\n---\n\n## Structural Analysis\n\nCapacity is variously reported in bits and bytes (the abstract says 6,327-12,448 bytes; Table 1 says bits), as \"262128 bits per pixel\" for a 512 x 512 image (actually about 1 bit per pixel), and PSNR improvements are given as percentages of dB values. Baseline figures in Table 2 are not stated to be reproduced or copied, and the claims of secure communication and \"without any distortion\" are not tested against any steganalysis or attack. No limitations are acknowledged. The page header numbering (2-12) does not match the journal pagination.\n\n---\n\n## Conclusion\n\nThe scheme may work as a basic embedding method, but the paper's numbers contradict one another and its security claims are untested. The decorative set notation triggers disqualification at Level 2; the structural problems would warrant a low score regardless."
+  },
+  {
+   "paper_id": "kilic2023",
+   "paper": {
+    "title": "Binary Anarchic Society Optimization for Feature Selection",
+    "authors": [
+     "Umit Kilic",
+     "Esra Sarac Essiz",
+     "Mumine Kaya Keles"
+    ],
+    "abstract": "Introduces the implementation of the Anarchic Society Optimization algorithm, a human-inspired algorithm, as a feature selector; this is the first study that uses the binary version of the algorithm for feature selection. The proposed Binary Anarchic Society Algorithm is evaluated on nine datasets and compared to Binary Genetic Algorithm, Binary Particle Swarm Optimization and Binary Gray Wolf Optimization, and to Info Gain, Gain Ratio, Chi-square and ReliefF. The experiments highlight the competitive nature of the proposed method.",
+    "keywords": [
+     "artificial intelligence",
+     "anarchic society optimization",
+     "feature selection",
+     "meta-heuristic",
+     "swarm intelligence algorithms"
+    ],
+    "doi": null,
+    "pages": "351-364",
+    "source_file": "paper755.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 80,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 71.75,
+    "composite": 66.31,
+    "final": 66.31
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The performance of BASO is evaluated on several UCI (http://archive.ics.uci.edu/ml) datasets\"; the linked GitHub item (https://github.com/ukilic-edu/ROMJIST/blob/main/Supplementary-material-ROMJIST.pdf) is a supplementary PDF of figures and tables, not code",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Binary adaptation of Anarchic Society Optimization as a wrapper feature selector on nine UCI datasets; competently described, but the claimed superiority rests on differences of 0.001-0.03 in F-measure over ten runs with no variance or significance testing.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Binary version of ASO (single-point crossover replacing continuous moves, thresholds set to the mean of the indices) used as a KNN-wrapper feature selector.\n**Level:** 2 (Low)\n**Rationale:** An existing metaheuristic adapted to a standard problem in the usual way and compared with other binary metaheuristics; no convergence or complexity analysis.\n\n### Formal Elements\n- Definitions: 0 numbered\n- Theorems: 0\n- Proofs: 0\n- Equations: 13\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The fickleness, external and internal irregularity indices and the movement-policy cases are what a programmer needs to implement BASO, so they pass the Necessity Test.\n\n### Issues\nEqs. (1)-(3) and (8)-(10) define the same indices twice with different notation, and Eqs. (4)-(6) and (11)-(13) are case tables written as equations; redundant but not decorative. The beta thresholds are algorithm parameters, not configuration constants dressed in Greek.\n\n---\n\n## Citation Analysis\n\nSeven of 56 references (12.5%) are the authors' own ([36]-[40], [43], [56]), all on metaheuristic feature selection or the supplementary file. The opening sentence cites six unrelated works, all either ROMJIST papers or papers co-authored by R.-E. Precup (verification [1], clustering [2], modelling [3], control systems [4], neural networks [5], health [6]), as examples of \"studies across various fields\"; this is padding. Reference [15] is a retracted conference paper cited without comment (\"Notice of retraction: cockroach swarm optimization\").\n\n---\n\n## Structural Analysis\n\nTable 3 supports the narrow statement that BASO is competitive, but the margins are tiny (often 0.001-0.003), runs are averaged over ten with no standard deviation, and no statistical test is applied, so \"outperforms\" and \"superiority\" are overstated. The explanation that BASO exploits the past better on larger datasets rests on a few datasets. Most figures and Tables 4-5 are in the external supplementary PDF. A weakness is acknowledged inline (poorer performance when samples grow without features). Data are public UCI datasets; the MATLAB implementation is not released.\n\n---\n\n## Conclusion\n\nA clean, conventional metaheuristic adaptation with appropriate formalism. Its claims of superiority need variance and significance testing, and the opening citation padding detracts from an otherwise relevant reference list."
+  },
+  {
+   "paper_id": "bratan2023",
+   "paper": {
+    "title": "Using Swear Words Increases the Irritability - a Study Using AI Algorithms",
+    "authors": [
+     "Costin Andrei Bratan",
+     "Ana Voichita Tebeanu",
+     "Gabriela Bobes",
+     "Ionut Popescu",
+     "Gabriela Iorgulescu",
+     "Liliana Neagu",
+     "Adriana Apostol",
+     "Razvan Goian",
+     "Monica Dascalu",
+     "Eduard Franti",
+     "Ana Maria Oproiu"
+    ],
+    "abstract": "Analyses the effects of frequent swearing on irritability using two psychological questionnaires completed before and after the inducement of negative emotions and automatic emotion recognition by a CNN applied to the speech of two volunteer groups. The CNN uses MFCCs, has 87,944 trainable parameters and outputs 8 emotion classes, and also gives the negative emotion and irritability level. For the volunteers who swore, negative emotion intensity was 14% higher and irritability 21% higher than for those who did not.",
+    "keywords": [
+     "Convolutional Neural Networks",
+     "Emotion Recognition",
+     "Irritability Level",
+     "Speech Recognition",
+     "Swearing"
+    ],
+    "doi": null,
+    "pages": "365-374",
+    "source_file": "paper756.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 80,
+    "structural_integrity": 20,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.0,
+    "composite": 48.75,
+    "final": 28.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the CNN was trained on the public RAVDESS and TESS datasets, but the results rest on unreleased recordings of 28 volunteers",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "The causal conclusion that swearing increases irritability (and that irritability \"doubled\" in swearers) rests on two self-selected, non-randomized groups (habitual swearers vs. non-swearers, n = 28 in total), mean values and histograms from Figs. 1-4 with no statistical test, no reported questionnaire scores, and no reported accuracy for the CNN that produces the \"irritability level\". CER is well below 0.33.",
+    "NO_LIMITATIONS": "No limitation is acknowledged: not the small sample, the self-selection into groups, the confound between trait swearing and trait irritability, the transfer of an acted-speech classifier to spontaneous Romanian speech, or the ethics of the provocation protocol."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Small, non-randomized study of 28 volunteers that infers a causal effect of swearing on irritability from CNN outputs of unreported accuracy and no statistical testing; claims far exceed the evidence and no limitations are acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** An actor-staged provocation recorded for two groups of volunteers; an MFCC-based CNN (from prior work [30]) estimates emotion class and irritability level from the audio.\n**Level:** 2 (Low)\n**Rationale:** An existing CNN emotion classifier applied to new recordings, plus a descriptive comparison of group means.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; no formalism.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 30 references. Several sources are popular-press items (lifehack.org [3], Psychology Today [4]) or a student project report [26]; [17] carries a wrong year (2001 for 2011) and [28]-[29] are given garbled author names. The SF-12 is a general health survey and the STAI is an anxiety inventory, but the paper calls the latter \"The State-Trait Irritability Inventory\".\n\n---\n\n## Structural Analysis\n\nGroup assignment is by habit, not randomization, so the comparison cannot separate the effect of swearing from pre-existing differences. The CNN classes include \"Irritability\", which the training datasets (RAVDESS, TESS) label as anger; its test F1 is mentioned as the evaluation metric but no value is reported. The questionnaire results, said to show irritability doubling, are not reported at all. Fig. 6 is referenced but does not exist. No ethics approval is mentioned for a protocol that deliberately provokes and curses at volunteers. No limitations are acknowledged and no data are released.\n\n---\n\n## Conclusion\n\nThe question is legitimate, but the design and reporting do not support the title's causal claim. Without randomization, statistical tests, classifier validation or the questionnaire data, the paper amounts to an anecdotal pilot."
+  },
+  {
+   "paper_id": "mihalache2023",
+   "paper": {
+    "title": "Speech Emotion Recognition Using Deep Neural Networks, Transfer Learning, and Ensemble Classification Techniques",
+    "authors": [
+     "Serban Mihalache",
+     "Dragos Burileanu"
+    ],
+    "abstract": "Systems based on deep neural networks spanning five levels of complexity are proposed, developed and tested for speech emotion recognition, including transfer learning from top image recognition models and ensemble classification techniques. The systems were tested on EMODB, CREMAD and IEMOCAP for classification (full emotion class sets and negative emotion subsets relevant for forensic applications) and regression in the arousal-valence space, achieving state-of-the-art results for EMODB (up to 83% accuracy) and comparable performance for CREMAD and IEMOCAP (up to 55% and 62%).",
+    "keywords": [
+     "Convolutional neural networks",
+     "deep learning",
+     "deep neural networks",
+     "machine learning",
+     "speech emotion recognition",
+     "transfer learning"
+    ],
+    "doi": null,
+    "pages": "375-387",
+    "source_file": "paper757.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 70,
+    "artifact_availability": 50,
+    "intellectual_integrity": 84.75,
+    "composite": 76.06,
+    "final": 76.06
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The systems were tested on the most relevant SER datasets: EMODB, CREMAD, and IEMOCAP\" (named public datasets, refs. [27]-[29]); no code is released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Systematic comparison of FCNN, one-vs-one/one-vs-rest ensembles and transfer-learned image CNNs for speech emotion recognition on three public corpora; proportionate and well reported, with a transposition error in Table 3 and no variance estimates.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Feed-forward DNNs on a 2,258-dimensional acoustic feature set, OvO/OvR ensembles of such networks, and fine-tuned ImageNet CNNs on spectrograms, evaluated on EMODB, CREMA-D and IEMOCAP including negative-emotion subsets.\n**Level:** 2 (Low)\n**Rationale:** Standard deep-learning models and ensemble strategies applied to an established task; the contribution is the empirical comparison and the forensic-oriented class subsets.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 inline (K(K-1)/2 classifiers)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo of 32 references (6%) are the authors' own ([1], [26]); both are relevant earlier SER work, [26] supplying the feature set. The comparison literature in Table 3 is pertinent.\n\n---\n\n## Structural Analysis\n\nClaims are tied to Tables 2-3 and to explicit relative gains in the text, and a failed approach (heterogeneous fusion, UA 52.9%) is reported honestly. Table 3 transposes the CREMAD-4 and CREMAD-5N rows relative to the text (65.8/70.3 belongs to CREMAD-5N), and no standard deviations across the ten folds are given, so the small margins over prior work are hard to judge; comparisons with literature results obtained under different protocols are presented as like-for-like. The limitation that acted datasets may not generalize is acknowledged inline. Datasets are public; code is not released.\n\n---\n\n## Conclusion\n\nA solid, conventionally reported empirical paper with appropriate formalism and clean citation practice. Releasing code and reporting fold variance would make the state-of-the-art claims verifiable."
+  }
+ ]
+}

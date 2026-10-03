@@ -1,0 +1,458 @@
+{
+ "batch_id": "2016-v19-n3",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 19,
+  "issue": 3,
+  "year": 2016
+ },
+ "papers": [
+  {
+   "paper_id": "chaturvedi2016",
+   "paper": {
+    "title": "Extraction of Transmission Line Parameters and Effect of Conductive Substrates on their Characteristics",
+    "authors": [
+     "Saurabh Chaturvedi",
+     "Mladen Božanić",
+     "Saurabh Sinha"
+    ],
+    "abstract": "The paper presents the effect of conductive or lossy silicon (Si) substrates on the frequency-dependent distributed series impedance transmission line (TL) parameters, R(ω) and L(ω). The frequency variations of these parameters of the microstrip line for four different conductivities of Si substrate are observed and compared. Keysight Technologies (formerly Agilent's Electronic Measurement Group) Advanced Design System is used for the electromagnetic simulations of the microstrip line structures. Scattering parameters based equations are used to plot the variations of series impedance parameters as a function of frequency. Furthermore, this paper explains a complete method to extract various parameters related to a TL. The work extracts the parameters of a microstrip TL model provided with the GlobalFoundries 0.13 µm SiGe BiCMOS8HP process design kit up to 100 GHz.",
+    "keywords": [
+     "Conductive substrate",
+     "microstrip line",
+     "transmission line (TL) model",
+     "S-parameters",
+     "skin effect",
+     "SiGe BiCMOS",
+     "process design kit (PDK)"
+    ],
+    "doi": null,
+    "pages": "199-212",
+    "source_file": "saurabh.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.75,
+    "composite": 59.81,
+    "final": 54.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the extraction equations (Fig. 5) are taken from a Keysight application note [13] and the simulations use the commercial ADS/Momentum tool and a GlobalFoundries PDK under NDA",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints: results rest entirely on EM simulation with no measurement or closed-form cross-check, and this is not discussed. The NDA remark explains omitted process data but is not a limitation of the findings."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation-only application of textbook S-parameter-based RLGC extraction in a commercial EM tool; proportionate formalism, low self-citation, but thin analysis and no validation or limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** EM simulation (ADS Momentum) of a microstrip line on Si substrates of four conductivities, and extraction of RLGC, Zc, propagation constant and Q of a PDK microstrip model up to 100 GHz.\n**Level:** 2 (Low)\n**Rationale:** Applies an established extraction method (Eisenstadt and Eo [10]; Keysight equations [13]) with a commercial simulator to a parameter sweep. No new method or model is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 9 (telegrapher relations for Zc and γ, their S-parameter forms, and R, L, G, C from γ and Zc)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations are exactly what an implementer would type into the ADS data display; none fails the necessity test.\n\n### Issues\nNone identified in the formalism. The text describes the method as \"complete\" although it is a restatement of a vendor application note.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 13 references ([11], the authors' CAS 2016 conference paper on the same lossy-substrate study, of which Section 2 is evidently an extension). Topically identical; no concerns. The reference list relies on established interconnect-modelling literature (Weisshaar, Tripathi, Eisenstadt).\n\n---\n\n## Structural Analysis\n\nThe results section is predominantly a sequence of figure captions with one paragraph of qualitative interpretation (substrate skin effect raises R and lowers L as conductivity increases), which is the expected textbook behaviour and is supported by the plots. Section 4.2 presents extracted Zc, γ, G, C and Q curves with no discussion at all. There is no comparison with measurement, with the closed-form expressions of [3], [4], or with the PDK model's own reported values, so the extraction is not validated. No limitations are stated. Nothing is released: the extraction equations come from a vendor note and the PDK is under NDA.\n\n---\n\n## Conclusion\n\nA modest, simulation-only study that applies a standard extraction procedure. Formalism is appropriate and citation practice clean. The structural weakness is the absence of any validation or critical discussion of the extracted parameters, and the absence of limitations."
+  },
+  {
+   "paper_id": "buiculescu2016",
+   "paper": {
+    "title": "Backscattering Modulators for UWB Antenna Measurement",
+    "authors": [
+     "V. Buiculescu",
+     "I. Giangu"
+    ],
+    "abstract": "Signal backscattering (BS) methods are normally used for gain and radiation pattern measurements of small antennas, mainly due to reduced disturbance from RF feeding cables. Most chipless RFIDs are based on passive structures with broadband, multiple resonances, therefore UWB antennas are best suited for these RFID applications. However, bandwidth of small antennas used in most RFID applications is inherently narrow, hence regular BS modulators used for their characterization work within limited bandwidths. A broadband BS modulator solution is proposed in this paper for covering non-standard and ultra wideband (UWB) antenna measurements. The basic component of this BS modulator can be any monolithic integrated single-pole double through (SPDT) switch with low current consumption and control voltages; both CMOS and pHEMT devices are suitable for this application. A bistatic arrangement provides improved measurement accuracy due to constant coupling factor between transmitting and receiving antennas placed in stationary positions. About 11 µW power consumption from a single 3 V battery was measured for the complete UWB BS modulator, therefore long term antenna characterization with 0.004 dB/day accuracy was possible.",
+    "keywords": [
+     "Backscattering modulator",
+     "chipless RFID",
+     "radar cross section (RCS)",
+     "small antennas",
+     "ultra-wideband (UWB)"
+    ],
+    "doi": null,
+    "pages": "213-225",
+    "source_file": "buiculescu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 58,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.75,
+    "composite": 61.31,
+    "final": 61.31
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the URLs printed are third-party datasheets and application notes ([15], [20]-[22], [27], [28])",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Hardware design-and-measurement paper on a battery-powered SPDT-switch backscattering modulator for UWB antenna pattern measurement; standard RF equations, clean citation practice, but accuracy claims outrun the single-frequency validation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A backscattering modulator built from a commercial MMIC SPDT switch, CMOS inverter and quartz oscillator, used in a bistatic setup to measure the radiation pattern of a small UWB antenna; long-term battery and reflection-coefficient stability is measured.\n**Level:** 2 (Low)\n**Rationale:** Applies known backscattering and differential-RCS theory (Nikitin and Rao [24], [25]) to a new combination of commercial components. No new theory or algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (PIN diode resistance, Friis link budget, scalar RCS, differential RCS, reflection coefficients, normalised differential RCS)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — every equation is a standard RF relation used to choose load impedances or compute Table 3. None fails the necessity test.\n\n### Issues\nNo formalism theater. Minor errors: Eq. (2) has d² inside the parenthesis of (4πd²) rather than (4πd)²; Eq. (4) prefactor is garbled (π²G²/4π rather than λ²G²/4π); \"180° C relative phase difference\" confuses degrees Celsius with angle; Table numbering is inconsistent with the text (Table 2/Table 3 referenced for Table 1/Table 2); Fig. 6 repeats the caption of Fig. 5; the conclusion swaps ρ1 and ρ2.\n\n---\n\n## Citation Analysis\n\nTwo self-citations of 28 references (7%): [8], a SAW resonator sensor paper co-authored by both authors and cited as a motivating 5 GHz application of the antenna, and [14], the authors' CAS 2016 paper introducing the bistatic setup that this paper extends. Both are topically related. Several references are bare vendor URLs.\n\n---\n\n## Structural Analysis\n\nMeasured quantities (battery drift 20.7 mV/day, 3.5 µA current, switch insertion loss and isolation at three control voltages, reflection coefficients in Table 3) support the stability claim. The headline \"0.004 dB/day accuracy\" is derived from the reflection-coefficient drift, not from repeated pattern measurements, and the radiation-pattern comparison (Fig. 11, one frequency, 5.5 GHz) shows differences up to 8 dB that are attributed to environmental conditions without further investigation. \"Excellent accuracy\" of the bistatic setup is asserted on the basis of geometry rather than demonstrated. The 8 dB discrepancy and the switch's operation beyond its 4 GHz specification are acknowledged inline, which counts as a weak inline limitation. No designs, measurement files or code are released.\n\n---\n\n## Conclusion\n\nA competent applied hardware report with proportionate formalism and low, relevant self-citation. Its weaknesses are editorial errors in equations and numbering and an accuracy claim that rests on component stability rather than on a validated pattern measurement."
+  },
+  {
+   "paper_id": "bunea2016",
+   "paper": {
+    "title": "W-Band receiver with Zero Bias Diode operated in the 23K - 295 K temperature range",
+    "authors": [
+     "A.C. Bunea",
+     "D. Neculoiu",
+     "A.M. Avram",
+     "A. Muller"
+    ],
+    "abstract": "In this paper we analyze the influence of extremely low temperatures on the operation performances of a hybrid integrated W-band (75 – 110 GHz) receiver based on a zero-bias GaAs diode. First, the zero-bias diode is investigated and modeled in the temperature range of operation. Then, a direct detection receiver consisting of a membrane supported folded slot antenna and a detection circuit based on a zero-bias diode is fabricated and characterized. The detection circuit is inserted in a cryogenic system and on-wafer measurements are performed in the temperature range 23 K – 295 K, in advanced vacuum conditions. The detection circuit is fed with a 1 kHz amplitude modulated W-band signal and both detected signal and i/v characteristic are compared for different temperatures. It is demonstrated that the receiver is capable of operating even at 23 K (−250.15°C), when the diode is biased at +0.25 V.",
+    "keywords": [
+     "cryogenic",
+     "GaAs",
+     "i/v characteristic",
+     "receiver",
+     "space applications",
+     "W-band",
+     "zero-bias diode"
+    ],
+    "doi": null,
+    "pages": "226-238",
+    "source_file": "bunea.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 58.75,
+    "composite": 44.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Five of nine references ([4], [6], [7], [8], [9]) are by the authors (SCR 56%). All are on related millimetre-wave receivers and antennas, so none is irrelevant, but the reference list is dominated by the group's own conference papers, and [9] is the CAS 2016 paper reporting the same cryogenic experiment.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment. The paper does not note that only the detection circuit, not the antenna-plus-detector receiver, was measured cryogenically, that only one carrier frequency (94 GHz) was tested at 23 K, or that the diode model is purely empirical."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Experimental cryogenic characterisation of a zero-bias diode detector with appropriate minimal formalism, but a reference list dominated by self-citation (5/9) and claims about the full receiver that rest on measurements of the detection circuit alone.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Temperature-dependent (23-295 K) i/v characterisation and exponential-law parameter extraction for a commercial zero-bias GaAs diode, and cryogenic on-wafer measurement of a W-band detection circuit built with it.\n**Level:** 2 (Low)\n**Rationale:** Empirical measurement study using the standard Shockley diode equation and least-squares extraction. No new model or method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (diode exponential law)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — a single, necessary device equation.\n\n### Issues\nNone in the formalism. D2's room-temperature ideality factor of 14.9 (rising to 118 at 23 K) is reported without physical discussion of what such values mean for an exponential-law model.\n\n---\n\n## Citation Analysis\n\nFive of nine references are self-citations (SCR 56%): [4] W-band micromachined receiver, [6] the membrane folded-slot antenna used here, [7] a Doppler sensor, [8] a 77 GHz LTCC antenna, and [9] the CAS 2016 conference version of this cryogenic experiment. All are within the authors' millimetre-wave receiver line (similarity ≥0.5 for [4], [6], [9]; marginal for [7], [8]). None is unrelated, so IRRELEVANT_SELF_CITATION does not apply, but the ratio is far above 30%. The external literature on cryogenic Schottky or zero-bias detectors is essentially uncited, which also leaves the claim that \"no physical based model is reported in the literature for low temperature range\" unsupported.\n\n---\n\n## Structural Analysis\n\nThe measurements (Figs. 6-8, 11, 14) support the narrow claims about diode parameter trends and that the detector still produces a signal at 23 K with +0.25 V bias. The abstract's statement that \"the receiver is capable of operating even at 23 K\" overreaches: the cryogenic test fed the CPW detection circuit through probes, without the membrane antenna. Only one carrier frequency is reported at 23 K. No limitations are stated. No data or models are released.\n\n---\n\n## Conclusion\n\nA useful experimental data point on zero-bias diode behaviour at cryogenic temperature, with proportionate formalism. Integrity concerns are on the citation side: the bibliography is mostly the group's own work. Structurally, the receiver-level claim is broader than the circuit-level evidence and no limitations are acknowledged."
+  },
+  {
+   "paper_id": "fanoro2016",
+   "paper": {
+    "title": "Investigation of 60 GHz LNA with estimated S11 values based on mathematical model and numerical solution",
+    "authors": [
+     "M. Fanoro",
+     "S.S. Olokede",
+     "S. Sinha"
+    ],
+    "abstract": "This paper presents the design of a millimeter-wave low noise amplifier (LNA) realized using a 0.13 µm silicon germanium bipolar complementary metal oxide semiconductor process technology. The effect of input matching on an LNA is investigated. A small-signal equivalent circuit, which depicts the resistor-inductor-capacitor relationship of the input impedance network, is explored to determine its input impedance. A MATLAB code was written to understand the frequency response of the input matching network. The responses obtained are expected to be applied to the LNA to determine the input reflection coefficient (|S11|). The equivalent circuit model (ECN) is verified numerically using 2D Advanced Design System (ADS) software. Thereafter, a step-by-step methodology that can be applied in realizing a 60 GHz LNA at the V-band is formulated. The amplifier is designed using lumped elements in a two-stage cascode topology based on a novel matching network. The matched network consists of an L-input and a T-output matching network as well as inductive emitter degeneration. The output network is designed to enhance maximum power transfer, whereas inter-stage matching is designed to optimize for high gain while minimizing the noise of the local area network. The transistor configuration is implemented by varying the length of the transistor to observe the minimal noise figure and the maximum gain, while keeping the voltage across the collector, emitter and the base constant. By utilizing the cascode topology and series peaking inductor, (|S11|) of the LNA peaks at 14 dB, whereas the output reflection coefficient (|S22|) achieved is 25 dB. The estimated value of S11 using the ECN was about 12 dB. The noise factor is 4.3 dB minimum at 60 GHz, whereas the forward gain (|S21|) of the LNA is well above 26 dB.",
+    "keywords": [
+     "optimal current density",
+     "inductive degenerative emitter",
+     "cascode topology",
+     "S-parameters",
+     "LNA",
+     "input matching",
+     "parasitic capacitance",
+     "common-emitter",
+     "millimeter-wave",
+     "input reflection coefficient"
+    ],
+    "doi": null,
+    "pages": "239-254",
+    "source_file": "fanoro.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 72,
+    "citation_integrity": 90,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 70.3,
+    "composite": 52.72,
+    "final": 47.72
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "\"A MATLAB code was written to understand the frequency response of the input matching network.\" No link and no statement that the code or design files are available.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment: the design is simulation-only (no fabrication or measurement), layout parasitics and EM effects of the lumped inductors at 60 GHz are not modelled, and the 2 dB gap between the 'mathematical' and simulated S11 is not discussed as a limitation."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation-only 60 GHz SiGe LNA design applying textbook matching equations; formalism is standard but partly inconsistent, and claims of novelty and best-in-class gain are weakly supported and unqualified by any limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design and ADS simulation of a two-stage cascode 60 GHz LNA in 130 nm SiGe BiCMOS, with a MATLAB estimate of input return loss from a small-signal equivalent circuit of the input matching network.\n**Level:** 2 (Low)\n**Rationale:** Follows established inductive-degeneration and noise/impedance co-matching methodology (Voinigescu [11], [15], [17], [20]). The 'novel matching network' is a combination of standard L, T and interstage networks.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 18 (matching conditions, transfer-function forms, Le/Lb/Cbe/Cpad design formulas, Rsopt, FOM)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in count. The design equations are standard and would be used by an implementer, so they pass the necessity test as a class; no theater pattern (set notation, tuple definitions, decorative Definition blocks) is present.\n\n### Issues\nQuality of the formalism is poor rather than decorative. Eq. (4), H(s) ≈ b0/s², is described as a 'second order approximation' by Taylor series without derivation and is not a usable model of a resonant network. Eq. (5) is the generic rational transfer function with no specific content. Eqs. (9) and (10) give two different expressions for Lb with no reconciliation; Eq. (7) and Eq. (15) give two different expressions for Le. Eq. (13) states that the gain equals Lc/Le, which is not a standard result and is unsupported. Eq. (17), ΓL = ΓOL, is a tautological restatement. These reduce the formalism score but do not constitute formalism theater.\n\n---\n\n## Citation Analysis\n\nThree self-citations of 24 references (12.5%), all involving S. Sinha: [3] the authors' CAS 2016 paper on the same input-matching investigation, [13] SiGe HBT LNA parameters, [14] a wideband LNA. All topically related. Reference [22] is listed but not cited in the text. No concerns.\n\n---\n\n## Structural Analysis\n\nAll results are simulations; nothing was fabricated or measured. The claim that the LNA 'achieves the highest gain at the desired frequency range' depends on Table 1, whose content is absent from the extracted text. The abstract reports S22 of 25 dB, the results section 20 dB (and 'lower than 50 dB' not shown). The '3 dB gain spread is across 58 – 62 dB' is a unit error. The 'mathematical approach' yields S11 about 2 dB different from simulation, presented as confirmation rather than discrepancy. No limitations are acknowledged. The MATLAB code mentioned is not released.\n\n---\n\n## Conclusion\n\nA design report whose formalism is in proportion but internally inconsistent in places, and whose evidence is simulation only. Citation practice is clean. The structural weaknesses (unsupported superiority claim, inconsistent figures between abstract and results, no limitations) are the main concern."
+  },
+  {
+   "paper_id": "gheorghe2016",
+   "paper": {
+    "title": "Advanced Calibration Method, with Thermal Compensation, for 3-Axis MEMS Accelerometers",
+    "authors": [
+     "Marius Gheorghe"
+    ],
+    "abstract": "This paper presents an extension of [1], by the same author, on an advanced body reference frame calibration method for 3-axis MEMS accelerometers using the total field approach. The extension consists in improving the calibration method by removing restrictions imposed on the positioning apparatus, providing a detailed comparison between several sensor frame error models, and providing additional details on the suggested thermal model with a study of its performance in the thermal compensation of MEMS accelerometers. As mentioned in [1], the proposed method solves the misalignment between the sensor reference frame and body reference frame without known stimuli, unlike prior work by other authors. Thermally compensated body reference frame calibrations are an absolute must in demanding applications such as inertial navigation and directional drilling.",
+    "keywords": [
+     "3-axis accelerometer",
+     "calibration",
+     "body frame",
+     "error model",
+     "MEMS",
+     "microsensors",
+     "sensor frame",
+     "thermal compensation",
+     "thermal modeling",
+     "total field"
+    ],
+    "doi": null,
+    "pages": "255-268",
+    "source_file": "gheorghe.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 88,
+    "citation_integrity": 92,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 82.9,
+    "composite": 62.18,
+    "final": 62.18
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "\"The described calibration method was prototyped in SciLab\" — no link and no availability statement for the code or the calibration data",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Practical three-step accelerometer calibration (total-field Gauss-Newton fit plus two alignment rotations) with polynomial thermal compensation; the matrix and cost-function formalism is exactly what an implementer needs, but experimental evidence is thin and partly unreported.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Body-frame calibration of 3-axis MEMS accelerometers: total-field sensor-frame calibration, then Z and X/Y alignment rotations, all solved with Gauss-Newton, plus cubic-polynomial thermal compensation.\n**Level:** 2 (Low)\n**Rationale:** Combines standard nonlinear least squares (Gauss-Newton), rotation matrices and polynomial fitting into a calibration procedure. Methodologically useful, but no new algorithm with complexity or convergence analysis; default to the lower level.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0 (an informal QR-decomposition argument for the equivalence of error models)\n- Equations: 24 (error models, rotation matrices, cost functions, body-frame correction, thermal polynomial)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the error models, rotation matrices and cost functions are the implementation; a programmer could not write the calibration without them. The comparison of alternate error models (Section 2) and the QR argument serve a real purpose (showing that the models differ only by a rotation).\n\n### Issues\nNone identified. Minor: the cost function in Eq. (15) squares G inconsistently with Eq. (14) in the extracted layout; the Table I footnotes are garbled in extraction.\n\n---\n\n## Citation Analysis\n\nTwo self-citations of 15 references (13%): [1], the CAS 2016 paper this work explicitly extends, and [15], an accepted paper extending the method to magnetometers. Both directly related. The extension relationship to [1] is declared openly in the abstract. Reference [8] is listed but not cited in the text.\n\n---\n\n## Structural Analysis\n\nThe comparison of the new method against a known-stimuli method and a sensor-frame-only method (Figs. 6-7) supports the claimed advantage, but it uses one accelerometer with an intentionally introduced 0.1° levelling error, and no numerical error statistics are given in the text. Section 6.3 asserts that residual errors for 28 IMUs are 'fairly small' with 'It can be seen' but the extracted text contains no table or figure for those residuals. Robustness in SciLab simulation is asserted ('was proven to be robust') without results. Inline acknowledgment of constraints is present (overfitting risk of 4th-order polynomials; need for denser temperature studies). The author is employed by the manufacturer of the positioning table; this is visible but not discussed. No code or data released.\n\n---\n\n## Conclusion\n\nA well-motivated, implementation-oriented calibration method whose formalism is necessary and proportionate, with appropriate self-citation for an extension paper. The evidence base is narrow: a single-device comparison and residual-error claims not shown in the text."
+  },
+  {
+   "paper_id": "voicu2016",
+   "paper": {
+    "title": "SU-8 Microgrippers based on V-shaped Electrothermal Actuators with Implanted Heaters",
+    "authors": [
+     "R-C. Voicu",
+     "C. Tibeica",
+     "R. Müller",
+     "A. Dinescu",
+     "M. Pustan",
+     "C. Birleanu"
+    ],
+    "abstract": "This paper presents the design, simulation, fabrication, and characterisation of polymeric microgrippers based on V-shaped electrothermal actuators with two normally operation modes (open and closed) for bio-micromanipulation and micro assembly applications. The microgrippers were simulated using FEM in order to determine the electro-thermo-mechanical behaviour. The microgrippers were fabricated using the SU-8 biocompatible polymer as structural material. The metallic microheaters were embedded in the polymeric structural layers of the microgrippers to improve thermal efficiency and to reduce the undesirable out-of-plane displacement of the gripper. Electro-mechanical testing and characterisation have been performed to determine the openings of the microgripper tips as function of electrical current. For the evaluation of the microgripper displacement, a measurement based on an optical image approach was used. A displacement of 40 µm can be obtained for an electrical current of around 25 mA. Over 26 mA the heaters are still working but a softening and a damaging status in the polymer were observed. A comparison between the simulation results and the displacement measurements is presented.",
+    "keywords": [
+     "microgripper",
+     "SU-8",
+     "V-shape actuator",
+     "FEM simulation"
+    ],
+    "doi": null,
+    "pages": "269-281",
+    "source_file": "voicu.tex.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 60,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 70.5,
+    "composite": 52.88,
+    "final": 47.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; simulations use the commercial CoventorWare 2014 tool",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "Seven of 24 references ([5], [6], [20], [21], [22], [23], [24]) include the first author (SCR 29%). All concern the authors' electrothermal microgripper work and are topically related; [6] is the CAS 2016 conference version of this paper."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Design, FEM simulation, fabrication and optical characterisation of SU-8 V-shaped electrothermal microgrippers; minimal and appropriate formalism, measured-versus-simulated comparison with error bars, but a high share of self-citation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Two SU-8 microgripper designs (normally open, normally closed) with Cr/Au/Cr heaters embedded between equal SU-8 layers; CoventorWare electro-thermo-mechanical FEM, three-mask fabrication, and optical displacement measurement versus current.\n**Level:** 2 (Low)\n**Rationale:** Applies a well-known V-shaped electrothermal actuator principle and commercial FEM to a new geometry and layer stack. No new theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (linear TCR resistivity model and conductivity as its reciprocal)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the two equations specify the temperature-dependent material model entered into the FEM solver.\n\n### Issues\nNone identified. Minor unit and typographic errors in Table 1 ('Gap' for GPa; thermal conductivity given as 2 × 10^5 pW/µmK in the text and 0.2 × 10^6 in the table).\n\n---\n\n## Citation Analysis\n\nSeven of 24 references include the first author (29%), within the ELEVATED band (20-30%). All are on the group's electrothermal microgripper line ([5], [6], [20]-[24]), including the CAS 2016 conference version [6], and are topically related (similarity ≥0.5). The citation pattern [1]-[24] in the introduction cites the whole reference list as a block, which obscures which works support which claims.\n\n---\n\n## Structural Analysis\n\nClaims are mostly descriptive and supported by FEM figures and optical images. Measured displacement is compared with simulation (Fig. 11) with ±3 µm error bars. The out-of-plane displacement claim rests on simulation and on non-observation in tests, without a measurement method capable of resolving 0.11 µm. Lifetime ('life-cyclic') testing is mentioned but no results are given. Operating constraints are acknowledged inline (softening and damage above 25-26 mA), which counts as an inline limitation. No designs, masks or simulation files are released.\n\n---\n\n## Conclusion\n\nA competent, incremental MEMS device paper with proportionate formalism and adequate evidence for its modest claims. The main integrity note is the elevated self-citation share, all of it topically relevant."
+  },
+  {
+   "paper_id": "istrate2016",
+   "paper": {
+    "title": "Scaling the graphene-silicon heterojunctions: fabrication and characterization",
+    "authors": [
+     "Anca-Ionela Istrate",
+     "Monica Veca",
+     "Florin Nastase",
+     "Angela Baracu",
+     "Raluca Gavrila",
+     "Florin Comanescu",
+     "Vasilica Tucureanu",
+     "Adrian Dinescu",
+     "Titus Sandu"
+    ],
+    "abstract": "The current work presents the fabrication and characterization of graphene-silicon heterojunctions with various contact areas. First, we transferred the graphene from copper to Si and SiO2 substrates using Electrochemical Delamination and then we processed and characterized the transferred graphene. Second, we manufactured graphene-Si heterojunctions with several contact areas made by opening windows of various sizes in Si. Microscopy and spectroscopy analysis confirms the successful graphene transfer which is also revealed by a relative high carrier mobility of 2327 cm2/V·s measured in a field effect transistor configuration. We test the quality of graphene-Si Schottky contacts by measuring the I-V characteristics of heterojunctions established within Si windows with linear sizes ranging from up to 70 µm to down to 6 µm. All our structures exhibit rectifying I-V curves behavior from which we were able to extract junction parameters like the ideality factor, the barrier height and the series resistance. This work provides a route to engineer graphene-based devices like Schottky diodes and field effect transistors (FETs) by relatively simple procedures.",
+    "keywords": [
+     "Graphene",
+     "Carbon materials",
+     "Electrochemical delamination",
+     "Raman",
+     "Atomic force microscopy",
+     "Diodes",
+     "Field-effect transistor",
+     "Electrical properties"
+    ],
+    "doi": null,
+    "pages": "282-294",
+    "source_file": "istrate.tex.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 75,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.25,
+    "composite": 56.44,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "IRRELEVANT_SELF_CITATION"
+   ],
+   "flag_details": {
+    "IRRELEVANT_SELF_CITATION": "Reference [22] (R. Plugaru, T. Sandu, N. Plugaru, first-principles study and variable-range-hopping conductivity in Al/Ti/Mn-doped ZnO, Results in Physics 2012) is co-authored by the corresponding author T. Sandu. It is cited for the statement 'Similar to wide bandgap semiconductors [22], p-doping occurs naturally for graphene'. The cited work is a DFT and hopping-transport study of transition-metal-doped ZnO, a different material system and method from CVD graphene transfer and graphene/Si Schottky junctions (estimated topical similarity about 0.2). ZnO is moreover a material in which p-type doping is notoriously difficult, so the citation does not evidently support the claim it is attached to."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Experimental graphene transfer and graphene/Si Schottky diode study with standard, necessary device equations; one co-author self-citation on doped ZnO is attached to an unrelated claim about graphene doping.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Electrochemical-delamination transfer of CVD graphene onto Si and SiO2/Si, FTIR/Raman/AFM/SEM characterisation, a back-gated GFET mobility measurement, and graphene/n-Si Schottky diodes in windows of 6-70 µm with extraction of ideality factor, barrier height and series resistance.\n**Level:** 2 (Low)\n**Rationale:** Experimental fabrication and characterisation using standard methods (Cheung and Cheung extraction, transconductance mobility). No new model or theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 (mobility, transconductance, oxide capacitance, thermionic diode law, Cheung functions)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — each equation is used to compute a reported parameter.\n\n### Issues\nNone in the formalism. Table 1 labels the ideality factor 'µ'. The text infers poor contact 'for the windows below 6 × 6 mm' where µm is meant.\n\n---\n\n## Citation Analysis\n\nTwo self-citations of 41 references (5%). [19] is the authors' CAS 2016 paper on the same transfer process, directly related. [22] (Plugaru, Sandu, Plugaru) concerns first-principles calculations and variable-range-hopping conductivity in doped ZnO; it is attached to a claim about natural p-doping of graphene, which it does not address, and is judged unrelated (similarity about 0.2), raising IRRELEVANT_SELF_CITATION. Other bibliography issues: [31] is truncated, [36] is listed but never cited, [14] has no title.\n\n---\n\n## Structural Analysis\n\nThe transfer and diode results are supported by spectra, micrographs and I-V data. The mobility comparison is uneven: 2327 cm²/V·s is said to exceed 'other reported values', partly by comparison with a low-end silicon MOSFET figure. Mobility is extracted using a channel width of 1 µm for a device with a 60 µm channel, with no discussion. FTIR peaks attributed to graphene on copper (C-H methylene modes) are not critically examined for PMMA or substrate contributions. Constraints are acknowledged inline: temperature-dependent I-V measurements would be needed for full characterisation, and polymer residues and incomplete conformal contact are discussed as causes of parameter degradation. No data are released.\n\n---\n\n## Conclusion\n\nA routine but reasonably documented experimental study with proportionate formalism. The integrity concern is a single self-citation by the corresponding author to unrelated work on doped ZnO, used to support a claim it does not address."
+  },
+  {
+   "paper_id": "enache2016",
+   "paper": {
+    "title": "High Accuracy Amperometric Sense and Control Circuit for Three-electrode Biosensors",
+    "authors": [
+     "Andrei Enache",
+     "Ion Rusu",
+     "Florin Drăghici",
+     "Gheorghe Pristavu",
+     "Gheorghe Brezeanu",
+     "Florin Enache"
+    ],
+    "abstract": "A system used for measuring the concentration of chemical compounds in fluids/solutions is designed, implemented and tested. The system comprises a Sense and Control Circuit formed with a potentiostat for three-electrode electrochemical cell (biosensor) biasing and a transimpedance amplifier for cell current processing. The stability of the potentiostat and the linearity of the transimpedance amplifier are theoretically and experimentally investigated. The high accuracy of the system is demonstrated by simulations and measurements. A comparison with a commercially available system is carried out.",
+    "keywords": [
+     "biosensor",
+     "potentiostat",
+     "amperometry",
+     "stability",
+     "frequency compensation"
+    ],
+    "doi": null,
+    "pages": "295-308",
+    "source_file": "enache.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 77.0,
+    "composite": 57.75,
+    "final": 57.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Analog potentiostat and transimpedance front-end with an analytical loop-stability study; the transfer-function analysis is necessary and proportionate, but validation uses resistor networks rather than biosensors and 'high accuracy' is asserted more than quantified.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A potentiostat (three op-amps, 5th-order LTC1062 low-pass filter, RC compensation branch) and instrumentation-amplifier transimpedance stage for three-electrode amperometric biosensors; analytical loop-transmission stability analysis, SPICE simulation, PCB measurement, and comparison with a commercial PG580 potentiostat.\n**Level:** 2 (Low)\n**Rationale:** Standard analog circuit design with classical loop-gain stability analysis applied to a known two-block potentiostat topology. No new circuit theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 11 (output relation, loop transmission, filter transfer functions, β(ω) and F(ω) expressions, calibration and correction relations)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the β(ω) and T(ω) expressions directly determine the compensation component values (CC = 5 µF, RC = 50 kΩ); they pass the necessity test.\n\n### Issues\nNone in the formalism. The claim that substituting ideal-load values into Eq. (7) and recovering H(ω) means 'the validity of the stability analysis is demonstrated' is a consistency check, not a validation. Fig. 12's caption duplicates Fig. 11's.\n\n---\n\n## Citation Analysis\n\nThree of 16 references are the authors' own (19%): [10] the CAS 2016 conference version of this system, [15] the first author's bachelor thesis on the same circuit, and [16] the research report of the funding project, used to support the ethanol-concentration range. All are topically related; SCR falls in the 15-20% band, below the ELEVATED_SELF_CITATION threshold. Reliance on a non-public project report [16] for the only link between current range and analyte concentration is a weakness.\n\n---\n\n## Structural Analysis\n\nStability is supported by analysis over a range of Randles-model values and by a start-up transient. Linearity (50 nA-2 µA) is supported by simulated and measured transfer characteristics. However, every experiment uses resistor networks or the Randles equivalent; no real biosensor or solution is measured, so the title's 'High Accuracy... for Three-electrode Biosensors' rests on an equivalent circuit. Accuracy against PG580 is described as 'good agreement' without an error metric, and the PG580 current is itself corrected (Eq. 11) before comparison. Constraints are acknowledged only inline and briefly (cell-voltage variations below the measuring instrument's sensitivity; initial oscillation tendency). No schematics files, firmware or data are released.\n\n---\n\n## Conclusion\n\nA sound analog design paper whose analytical formalism earns its place. The evidence supports stability and linearity on equivalent loads, but the accuracy claim for biosensors is not quantified and not tested with an actual electrochemical cell."
+  }
+ ]
+}

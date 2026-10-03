@@ -1,0 +1,350 @@
+{
+ "batch_id": "2011-v14-n2",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 14,
+  "issue": 2,
+  "year": 2011
+ },
+ "papers": [
+  {
+   "paper_id": "goosen2011",
+   "paper": {
+    "title": "A Low Switching Time BiCMOS CML Transmitter for High Speed Adaptive Pre-Emphasis Serial Links",
+    "authors": [
+     "Marius Goosen",
+     "Saurabh Sinha",
+     "Alexandru Müller"
+    ],
+    "abstract": "Due to the advances in multimedia applications in recent years, the requirement for high user end bandwidth has increased significantly. The increase in data rates cause jitter requirements to become even more stringent. An adaptive finite impulse response (FIR) filter is proposed to compensate for the non-ideal channel causing data dependant jitter (DDJ), hence improving signal integrity. This paper proposes a current mode logic (CML) based transmitter which incorporates BiCMOS logic, to reduce the rise/fall times of the high speed transmitter. Simulation results of the BiCMOS CML transmitter is presented showing a 30 % improvement in rise/fall times under high current and high output load conditions.",
+    "keywords": [
+     "FIR filter",
+     "High speed serial link",
+     "CML",
+     "BiCMOS",
+     "Adaptive pre-emphasis"
+    ],
+    "doi": null,
+    "pages": "101-111",
+    "source_file": "01-mgoosen.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 92,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 80.5,
+    "composite": 60.38,
+    "final": 60.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Simulation-only circuit design study replacing MOS current-steering devices with SiGe HBTs in a CML transmitter; textbook equations used proportionately, results supported by a small simulation table, no released netlists.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A CML serial-link transmitter whose MOS current-steering transistors are replaced by SiGe HBTs driven by CMOS inverters (BiCMOS), evaluated by simulation in the IBM 8HP process.\n**Level:** 2 (Low)\n**Rationale:** The contribution is the application of a known BiCMOS driving technique to a known CML pre-emphasis transmitter, with simulated rise/fall times. No new algorithm or model is proposed; the propagation-delay expression (2) is taken from standard transistor models and the authors describe it as suitable for pencil-and-paper design.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (static power, BCML propagation delay, MOS gm, MOS fT, BJT fT)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Every equation is a standard device or circuit relation used to explain a design trade-off or a trend in Table 1 and Table 2. Each passes the necessity test: a circuit designer uses them for first-pass sizing.\n\n### Issues\nNone in the formalism. The abstract states that an adaptive FIR filter is proposed, but the paper designs only the output driver; the adaptive pre-emphasis scheme is the authors' earlier work [3], and the eye diagram in Fig. 2 is shown without saying how it was produced.\n\n---\n\n## Citation Analysis\n\nOne self-citation in 11 references ([3], Goosen and Sinha, adaptive FIR pre-emphasis), about 9%. It is directly relevant: the adaptive scheme in Fig. 1 is taken from it. The rest of the list is standard serial-link and device literature. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe headline claim of a 30% improvement matches Table 1 (CL = 70 fF, ISS = 5 mA: optimal C3MOS 18.1 ps vs optimal BCML 12.7 ps). That is one operating point out of four. At 2 mA the optimal C3MOS driver is faster than the optimal BCML, which the conclusion does not mention. The evidence is simulation only, with no layout parasitics or measurement. Static power, which the paper names as the cost of bipolar steering, is never quantified, and neither is the chip-area saving the introduction uses to motivate the design. Limitations appear inline: the authors say equation (2) overestimates delay by about 50% because the basic transistor model does not hold for high-fT devices. No artifact is released; the schematics and process settings are described but cannot be obtained.\n\n---\n\n## Conclusion\n\nA short, modest circuit paper whose formalism is proportionate. The reported improvement is real but selective: it holds at high current and load and reverses at low current. The power and area trade-offs the paper itself raises are left unquantified. Reproducibility depends on access to a commercial PDK and on unreleased netlists."
+  },
+  {
+   "paper_id": "cojan2011",
+   "paper": {
+    "title": "A Matching Network Free Approach in Designing Inductorless Low Noise Amplifiers with Programmable Gain for FM-Radio Receivers",
+    "authors": [
+     "Radu Adrian Cojan",
+     "Cristian Murtaza"
+    ],
+    "abstract": "In this paper an approach in designing Low Noise Amplifiers suitable for usage in FM-Radio receivers without a matching network is presented. The LNA presented in this paper is implemented in a standard 60 nm RF process. The matching network-free approach is meant to minimize the overall PCB cost of the FM Radio Receiver. In order to eliminate the matching network the input impedance of the LNA is designed to be in accordance with the antenna impedance. The presented LNA has a total gain of 27 dB, programmable in 1 dB-step, in the FM-Radio bandwidth. The noise figure of the LNA is 2 dB, its P1dB is -27 dBm and the current consumption is 3mA.",
+    "keywords": [],
+    "doi": null,
+    "pages": "112-122",
+    "source_file": "02-rcojan.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 82,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.2,
+    "composite": 56.4,
+    "final": 56.4
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Industrial LNA design note that adds a Miller capacitor to a cascode input stage to set input impedance near 200 ohms; almost no formalism, very thin and incomplete bibliography, mostly simulated results with two measured parameters, and figures in the abstract that do not match the measurements.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A two-stage, resistive-load, programmable-gain LNA for FM radio. A Miller capacitor across a cascode input stage lowers its input impedance to about 200 ohms, so that it matches a headphone-wire antenna without an external matching network.\n**Level:** 2 (Low)\n**Rationale:** The paper adapts an existing inductorless PGLNA topology ([2], Hu et al.) and adds a standard Miller-capacitance technique at the input. This is applied circuit engineering, verified by simulation and limited measurement.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (G = gm1 * RB)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The single gain relation is standard and needed.\n\n### Issues\nNone in the formalism. The Miller-capacitor impedance adjustment, the paper's central idea, is given no analytical expression, so a reader cannot see how C2 was sized.\n\n---\n\n## Citation Analysis\n\nNo self-citations. The bibliography has three entries, one of which ([3]) is truncated with no year or pages. The gain stage is taken almost entirely from [2], and the paper is not compared with other matching-free or inductorless FM LNAs. There is no sign of manipulation, but the bibliography is too thin to place the contribution, and the score is reduced from the self-citation baseline for that reason.\n\n---\n\n## Structural Analysis\n\nMost results are SpectreRF simulations (gain, gain steps, noise figure, P1dB, IIP3). Only P1dB and IIP3 are measured, because the chip has one test pin. The measured P1dB (-30 dBm) differs from the simulated value (-26.64 dBm), yet the abstract and conclusion report -27 dBm and call it very good. The text also reports a 2.7 dB noise figure at 3.1 mA from an earlier simulation, beside the 2 dB headline figure. The central claim, that the input stays matched to an antenna whose impedance varies between 30 and 300 ohms, is never tested: there is no S11 or noise figure across source impedance, only a fixed 200-ohm target. The measurement setup is justified circularly: IIP3 lies about 10 dB above P1dB, so the setup must be correct. Limitations appear inline: the pseudo-differential output asymmetry and the one-pin measurement constraint are acknowledged. The section numbering repeats (two Section 3s). No artifact.\n\n---\n\n## Conclusion\n\nProportionate formalism and an honest acknowledgment of the output asymmetry. However, the evidence for the paper's selling point, robust matching to a variable antenna, is missing, the abstract mixes simulated and measured figures, and the three-item bibliography does not place the work in the literature. The design calls itself innovative but rests heavily on [2]."
+  },
+  {
+   "paper_id": "sharma2011",
+   "paper": {
+    "title": "Radiation Performance of an Elliptical Patch Antenna with Three Orthogonal Sector Slots",
+    "authors": [
+     "Vijay Sharma",
+     "V. K. Saxena",
+     "K. B. Sharma",
+     "Deepak Bhatnagar"
+    ],
+    "abstract": "The paper presents design and radiation performance of an elliptical patch antenna with three orthogonal sector slots and its performance is compared with that of a conventional elliptical microstrip patch antenna (EMPA) operating under similar test conditions. The proposed elliptical microstrip patch antenna has two sector slots along the major axes aligned opposite to each other and a sector slot orthogonal to these two slots and aligned along the minor axis. The location and dimensions of these sector slots are optimized to obtain improved bandwidth close to 10.96% which is nearly four times higher than that of a conventional EMPA tested under identical test conditions. The gain of antenna is marginally improved still it needs further improvement. The measured E and H plane co and cross polar patterns of modified antenna are also present for better understanding. The modified antenna meets the bandwidth requirements for the IEEE 802.11 a5 wireless local area network (WLAN) applications.",
+    "keywords": [
+     "elliptical patch antenna",
+     "bandwidth",
+     "sector slot",
+     "wireless local area network"
+    ],
+    "doi": null,
+    "pages": "123-130",
+    "source_file": "03-dbhatnagar.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.75,
+    "composite": 56.81,
+    "final": 56.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Empirical antenna paper adding three sector slots to an elliptical patch, with simulation and measurement; no formalism, self-citation in the elevated-but-acceptable range, and an abstract claim of IEEE 802.11a compliance that the measured band does not support.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Bandwidth enhancement of an elliptical microstrip patch on FR-4 by cutting three sector slots, tuned in IE3D (method of moments) and verified on a fabricated prototype.\n**Level:** 2 (Low)\n**Rationale:** The paper applies a known bandwidth-enhancement technique (slot loading) to a known geometry and optimises the slot parameters with a commercial simulator. There is no model or algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; the paper is purely empirical.\n\n### Issues\nNone in the formalism. The slot dimensions are said to be optimised, but the procedure (parameter sweep, ranges, criterion) is not described.\n\n---\n\n## Citation Analysis\n\nTwo of 11 references include the authors: [5] (Sharma, Saxena, Saini, Bhatnagar, Sharma et al., a triangular microstrip antenna) and [7] (Bhatnagar as co-author, a compact slotted broadband antenna). SCR is about 18%, in the elevated 15-20% band but below the 20% flag threshold. Both works are on broadband microstrip antennas and are topically relevant. Another ROMJIST antenna paper [9] is cited appropriately. The software reference [11] is a tool citation.\n\n---\n\n## Structural Analysis\n\nThe bandwidth claims match the reported numbers: measured 560 MHz (10.96%) against 2.26% for the plain patch. However, the abstract says the antenna meets the IEEE 802.11a bandwidth requirement. The measured band centred at 5.11 GHz spans roughly 4.83-5.39 GHz, while the conclusion names 5.15-5.85 GHz as the target and concedes the antenna needs \"little more improvement\" to be useful there. Abstract and conclusion therefore disagree. The resonance frequencies in Table 1 (4.94 GHz, 5.238 GHz) differ from those in the text (5.012 GHz, 5.236 GHz). Radiation efficiencies of 22-36% are reported without comment, although they are low. The cross-polar level, only about 6 dB below co-polar, is stated without discussion. Limitations appear inline in the conclusion: gain needs further improvement, and simulation-measurement deviations are attributed to software limits, fabrication tolerances and misalignment. No artifact; the geometry is described but no design files are released.\n\n---\n\n## Conclusion\n\nA routine experimental antenna paper with no formalism problems and acceptable citation behaviour. Its main weakness is overclaiming in the abstract: WLAN compliance is asserted although the paper's own data and conclusion show the band falls short of 5.15-5.85 GHz. There are also small internal inconsistencies in the reported frequencies."
+  },
+  {
+   "paper_id": "ilie2011",
+   "paper": {
+    "title": "Circular Interpolation for Morphing 3D Facial Animations",
+    "authors": [
+     "Mihai Daniel Ilie",
+     "Cristian Negrescu",
+     "Dumitru Stanomir"
+    ],
+    "abstract": "In this paper, we present a novel shape interpolation method that gives very good results for mesh morphing 3D facial animations. Our method interpolates vertices using circle arcs, thus generating, in a preprocessing algorithm, a specific circle center in 3D cartesian space for each pair of vertices. The arc is more or less accentuated, depending on the coordinates which the algorithm chooses for the circle center. These are calculated depending on the relation between the two vertex normals that correspond to the initial vertex and target vertex, and thereby a novel vertex normal weighting method is presented. The efficiency of our algorithm was tested on several facial animation examples with most dissimilar geometries and with very different features, and the results verify the fact that our method gives undoubtedly better results than linear interpolation does, avoiding the undesired and unnatural shrinkage problem which occurs in the latter case. Moreover, our method strikes significantly better computational costs as compared to other non-linear shape interpolation methods developed so far, which is a major advantage.",
+    "keywords": [
+     "Circular Interpolation",
+     "Vertex Normals",
+     "3D Facial Animations",
+     "Morphing",
+     "Blend Shapes"
+    ],
+    "doi": null,
+    "pages": "131-148",
+    "source_file": "04-mdilie.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 72,
+    "citation_integrity": 95,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.3,
+    "composite": 54.97,
+    "final": 54.97
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Heuristic mesh-morphing method moving each vertex along a circular arc derived from weighted vertex normals; the geometric equations are needed to implement it but are written sloppily, and claims of 'undoubtedly better' quality and lower cost rest on visual examples and cross-paper timing comparisons.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Shape interpolation for blend-shape morphing in which each vertex follows a circular arc. The arc's centre comes from a new area- and angle-change-weighted vertex normal, and a transformation plane is chosen so that the mid-morph volume is closest to the mean of the start and end volumes.\n**Level:** 2 (Low)\n**Rationale:** The method is new but heuristic: it combines standard vector geometry (signed volume, triangle and vertex normals, line intersection, circle through two points with a given chord angle) with an empirically tuned weighting. The paper gives no complexity analysis, no proof of properties such as volume preservation, and no convergence argument, so it does not reach the Level 3 criterion of a novel algorithm with analysis. Following the default-low rule, Level 2 is assigned.\n\n### Formal Elements\n- Definitions: 0 (no formal Definition blocks)\n- Theorems: 0\n- Proofs: 0\n- Equations: 21\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in kind. Equations (1)-(13) and (17)-(21) are the computations an implementer needs: signed mesh volume, normals, the new weighting (5)-(6), the intersection and centre construction, the arc point, and the plane selection. Each passes the necessity test, because removing it would leave the method unimplementable.\n\n### Issues\nThe writing of the formalism is careless rather than theatrical. Equations (14)-(16) define linear interpolation with a case split whose two branches are algebraically identical (x_P + t(x_P' - x_P) in both). The redundancy is harmless but signals a lack of care. I judged it not a necessity failure, because the expression is the interpolant the next step uses, not decoration of a plain concept. Equation (17) is typographically garbled (the squares are misplaced). Equation (11) restates the angle condition already implied by (12). The angle-threshold notation for 'directory vertices' (alpha_i <= pi/180) is just a 1-degree threshold. None of this changes the level judgment, but it lowers the quality component of the formalism score.\n\n---\n\n## Citation Analysis\n\nOne self-citation in 22 references ([4], the authors' masked-morphing paper), about 4.5%, on the same topic. The related-work section covers the main mesh-morphing literature (Sederberg, Alexa, Xu et al. Poisson interpolation, strain-field interpolation). No issues identified.\n\n---\n\n## Structural Analysis\n\nThe evaluation is mostly qualitative: four example morphs (elephant, horse-to-giraffe, twisting rod, tongue) shown beside linear interpolation, and one volume-over-time plot. Three of the four are not facial animations, although the title says the method is for facial animation. There is no quantitative distortion or error measure and no comparison of output quality against the non-linear methods [16]-[18]. The claim of significantly better computational cost compares the authors' timings with figures quoted from other papers on different models and hardware. Table 1, which should hold the preprocessing times, has no content in the text. The claim that the method gives undoubtedly better results is stronger than four visual examples support. Limitations are acknowledged only weakly, as future work on reducing complexity and improving visual results, and the authors note that dividing the mesh into parts for non-facial cases raises computation time. No code or meshes are released, although the method is plainly software.\n\n---\n\n## Conclusion\n\nA plausible, implementable heuristic whose equations are mostly necessary, so there is no formalism flag. They are presented with avoidable redundancy and typographical errors. The weaker side is evidence: superiority over linear interpolation is shown only visually, superiority over non-linear methods is argued from timings in other papers, and the paper releases nothing that would let a reader reproduce the comparisons."
+  },
+  {
+   "paper_id": "radescu2011",
+   "paper": {
+    "title": "LIPT-Derived Transform Methods Used in Lossless Compression of Text Files",
+    "authors": [
+     "Radu Rădescu"
+    ],
+    "abstract": "The present paper refers to the benefits provided in the lossless compression by using preprocessing methods in order to exploit better the redundancy of the source file. The following contributions represent a sequel of the work entitled \"Transformed Methods Used in Lossless Compression of Text Files\" [20], focusing on the Length-Index Preserving Transform (LIPT). The procedures are derived from LIPT and are known as ILPT, NIT and LIT. These transforms are applied to text files. The algorithms are briefly presented before emphasizing their positive effects on a set of test files chosen from the classical text corpora. Experimental results were performed and some interesting conclusions were driven on their basis.",
+    "keywords": [],
+    "doi": null,
+    "pages": "149-158",
+    "source_file": "05-rradescu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 55,
+    "structural_integrity": 35,
+    "artifact_availability": 50,
+    "intellectual_integrity": 62.0,
+    "composite": 59.0,
+    "final": 49.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The Calgary Corpus can be found at: ftp://ftp.cpsc.ucalgary.ca/pub/projects/text.compression.corpus/\" (ref. [17]); two of the six test files (book1, book2) are from this named public corpus. The Romanian test files are not deposited, and no code is linked.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "7 of 29 references are the author's own works ([11]-[16], [20]), SCR about 24%. All concern lossless compression and are topically related, but [20] is the direct predecessor and the paper adds little beyond it. Several of the non-self references are bare URLs to programming resources (MFC tab controls, C++ ostream, a UML class-diagram page, archiver home pages), so against scholarly references alone the self-citation share is higher still.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment. The conclusion lists optimisation suggestions but no constraints on the experiments (six files, one archiver, no baseline LIPT or BWT/PPM comparison, dictionary handling)."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Short empirical report applying three existing LIPT-derived dictionary transforms (ILPT, NIT, LIT) before WinRar on six text files; no formalism issues, but thin evaluation, mislabeled tables, a conclusion contradicted by its own data, elevated self-citation, and no limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Preprocessing text with the dictionary-based reversible transforms ILPT, NIT and LIT (variants of LIPT from Mukherjee's group) before compressing with WinRar, measured on six files.\n**Level:** 2 (Low)\n**Rationale:** The transforms are existing methods from the literature ([10] and related work). The paper describes them in prose and reports file sizes. It is an empirical comparison of existing techniques.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; there is no formal apparatus.\n\n### Issues\nNone in the formalism.\n\n---\n\n## Citation Analysis\n\nSeven of 29 references are the author's own: a 2003 textbook, BWT, table look-up, LIPT, medical-imaging compression, a dictionary archiver, and the 2009 ROMJIST predecessor [20]. SCR is about 24%. All are on lossless compression and related to the topic. The medical-imaging tool [15] is the most marginal, but it is still compression. The concern is less relevance than padding. The list also contains bare URLs to MFC and C++ library documentation ([18], [19], [25]), a UML class-diagram page ([21]), archiver home pages ([26]-[29]) and a duplicate of [1] ([22]). The text cites some of these as support for \"Software compression [18]-[20]\". They add references without adding scholarship.\n\n---\n\n## Structural Analysis\n\nThe experiments cover six files (two from the Calgary Corpus, a few Romanian texts, an unexplained 'Yserver' file) and a single archiver (WinRar). There is no baseline LIPT, no bzip2 or PPM, and no reporting of dictionary size in the net result. Tables I-III have an unlabelled double column under 'WinRar Compression'. Tables V and VI are headed 'ILPT' although they report NIT and LIT. The text says the dictionary is English (59,951 words), yet the conclusion says the study focuses on Romanian text files, and the paper never explains how Romanian words were handled. The conclusion says that 'there is not a distinction to be seen between transforms'. Its own Table VI shows LIT beating ILPT and NIT on most files, and NIT making book1 worse with WinRar than ILPT. The figures repeat the tables. The percentages are consistent with the raw sizes, so the claims that the transforms shrink files are supported. Claims of 'important results' are not. No limitations are stated. The data category rests on the Calgary Corpus link; the Romanian files and the transform implementation are not available.\n\n---\n\n## Conclusion\n\nA thin sequel to the author's earlier paper. It reapplies existing transforms on a handful of files with one archiver and has editorial errors in the tables. The conclusion contradicts its own data. Formalism is not an issue; the weaknesses are evaluation depth, elevated self-citation with URL padding, and the absence of any acknowledged limitation."
+  },
+  {
+   "paper_id": "niculescu2011",
+   "paper": {
+    "title": "PARES - A Model for Parallel Recursive Programs",
+    "authors": [
+     "Virginia Niculescu"
+    ],
+    "abstract": "PowerList, ParList, and PList theories and their multidimensional extensions PowerArray, ParArray, and PArray are well suited to express recursive, data-parallel algorithms. Their abstractness is very high and assures simple and correct design of parallel programs. Base on these theories we define a model of parallel computation with a very high level of abstraction - PARES (Parallel Recursive Structures). A model of parallel computation, to be useful must address the following set of requirements: abstractness, software development methodology, architecture independence, cost measures, no preferred scale of granularity, efficiently implementable. We show in this paper that all these requirements are fulfilled for the proposed model.",
+    "keywords": [
+     "parallel programming",
+     "model",
+     "data-structures",
+     "divide&conquer",
+     "recursion"
+    ],
+    "doi": null,
+    "pages": "159-182",
+    "source_file": "06-vniculescu.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 62,
+    "structural_integrity": 52,
+    "artifact_availability": 0,
+    "intellectual_integrity": 66.7,
+    "composite": 50.03,
+    "final": 45.03
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "5 of 20 references are the author's own ([13]-[17]), SCR 25%. All are directly relevant (FFT in PowerList/PList, data distributions, bounded parallelism, polynomial interpolation), and several key theorems are proved only in them, so the paper depends on them heavily."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Synthesis paper assembling Misra's and Kornerup's PowerList/ParList/PList theories and the author's own data-distribution results into a named model, PARES, and arguing informally that it meets Skillicorn and Talia's six requirements; the notation is the subject matter and is proportionate, but most theorems are proved elsewhere and 'efficient implementability' rests on citation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A model of parallel computation, PARES, built from the PowerList, ParList and PList algebras and their array extensions, plus data-distribution functions and cost formulas. It is illustrated with prefix sum, FFT, numerical integration, Lagrange interpolation, pipelines and Jacobi iteration.\n**Level:** 3 (Medium)\n**Rationale:** The paper works inside an algebraic, structural-induction framework for parallel programs and states theorems about transforming functions so that they accept distributions. It extends existing theoretical frameworks, mainly by collecting the author's earlier extensions. It does not reach Level 4, because the safety or soundness results are not proved here; Theorems 2-4 are stated with their proofs deferred to [15] and [17] or given in one sentence.\n\n### Formal Elements\n- Definitions: 1 numbered (Definition 1, commutativity property), plus many typed function definitions that are the programs themselves\n- Theorems: 4 (Theorem 1 cited to Wilf; Theorem 2 proved in [15]; Theorem 3; Theorem 4 with a one-line proof sketch)\n- Proofs: 1 (the calculational derivation of FFT in Section 3)\n- Equations: about 40 numbered displays\n\n### Proportionality\nCalculated complexity: 1x2 + 4x3 + 1x4 = 18\nExpected range (Level 3): 10-40\nRatio: 0.45x upper bound\n\n**Assessment:** Proportionate. In this paper the notation is the subject matter: PowerList operators, type signatures and inductive function definitions are the programming language being proposed. Set-builder and membership notation (e.g. [|i : i in n : p.i]) is the established quantification syntax of PList algebra, not a stand-in for arrays.\n\n### Issues\nNo formalism theater. There are presentation defects: unresolved cross-references (\"Section ??\" twice); example numbering skips Example 4; equation (25) uses 'distl' where the text defines 'distrl'; the reduce base case returns [a] rather than a; and the Jacobi PARES specification is garbled. The central claim, 'We will prove that all these requirements are fulfilled', is argued in prose rather than proved.\n\n---\n\n## Citation Analysis\n\nFive of 20 references are self-citations ([13]-[17]), SCR 25%. Every one is on PowerList-family theories, distributions or parallel algorithms in them, so relevance is high. The issue is dependence: Theorems 2 and 3, the ParList distribution counting, and the Lagrange example are all deferred to these works, so the present paper is largely a survey of the author's own programme. The external literature (Misra, Kornerup, Bird, Cole, Gorlatch, Skillicorn and Talia, Jay) is appropriate and on topic.\n\n---\n\n## Structural Analysis\n\nThe paper is a position-and-synthesis piece with no implementation and no experiments. The cost-measure section gives symbolic time-complexity formulas. The exponent alpha in equations (34)-(38) is never defined, and the formulas are not validated against any execution. The requirement of efficient implementability is met by citing hypercube mappings by Misra and Kornerup and the transformation rules of Achatz and Schulte; PARES programs themselves are never mapped or run. Limitations are acknowledged inline: the commutativity constraint on transformable ParList functions, the unrealistic assumption of one hypercube node per element, and the remark that the Jacobi encoding is 'not very elegant'. No artifact is relevant, since the contribution is a formal model with no implementation.\n\n---\n\n## Conclusion\n\nA coherent consolidation of an existing line of work into a named model, with formal notation appropriate to its subject. Its novelty is limited: the theorems that carry the argument are proved in the author's earlier papers, and the six requirements are argued rather than demonstrated. Self-citation is elevated but entirely on topic."
+  },
+  {
+   "paper_id": "dinca2011",
+   "paper": {
+    "title": "Computing Partial Recursive Functions by Deterministic Symport/Antiport P-Systems",
+    "authors": [
+     "Ionuţ Dincă"
+    ],
+    "abstract": "In this paper, we prove that deterministic 1-membrane systems with symport/antiport rules are Turing-complete. Our proof is based on the notion of numerical partial recursive function computed by numerical programs of a language with simple instructions, defined by Martin Davis and Elaine Weyuker [10]. We reduced the task from partial recursive functions to numerical programs and then to symport/antiport P systems.",
+    "keywords": [],
+    "doi": null,
+    "pages": "183-199",
+    "source_file": "07-idinca.pdf"
+   },
+   "concept_level": 5,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 92,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.75,
+    "composite": 59.06,
+    "final": 54.06
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section or inline acknowledgment. The paper does not discuss that universality of symport/antiport systems with one membrane via register-machine simulation is already established (the author notes only that the rule idea 'was already used many times'), nor any cost of the construction (alphabet size, number of steps)."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Computability paper proving Turing completeness of deterministic 1-membrane symport/antiport P systems by simulating Davis-Weyuker numerical programs; formal apparatus proportionate to a universality proof, a correct-looking inductive simulation proof, but limited novelty over known register-machine simulations and some sloppiness in definitions and macros.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A universality proof for deterministic one-membrane symport/antiport P systems with an input membrane. Partial recursive functions are reduced to Davis-Weyuker numerical programs (increment, decrement, conditional jump), and each program is compiled into symport/antiport rules by the algorithm ConstructRules.\n**Level:** 5 (Very High)\n**Rationale:** The paper proves computational universality (Turing completeness), which the classification rules place at Level 5.\n\n### Formal Elements\n- Definitions: 10 numbered (3.1-3.3, 4.1-4.7), plus unnumbered definitions of multisets, programs, snapshots and macros\n- Theorems: 1 (Theorem 5.1)\n- Proofs: 1 (induction over snapshot sequences)\n- Equations: several set and multiset definitions, macro expansions, rule sets\n\n### Proportionality\nCalculated complexity: 10x2 + 1x3 + 1x4 = 27\nExpected range (Level 5): 60-150\nRatio: 0.18x upper bound\n\n**Assessment:** Proportionate; if anything, the formalism is light for a universality result. The definitions of P system, configuration, computation, valid computing system and computed function are all used in stating and proving Theorem 5.1. Set and multiset notation is the native language of the area.\n\n### Issues\nNo formalism theater. Some apparatus is unused: strict multiset inclusion and multiset difference are defined but never used; Section 3's programs for composition, primitive recursion and minimisation reproduce textbook material from [10] that the proof of Theorem 5.1 does not need, since the theorem simulates arbitrary programs directly. There are errors: Definition 4.6 reads Output(C1) = Output(C1); the minimisation program jumps from label L_{n'+3} to L_{n'+5}, skipping L_{n'+4}; the successor program is given length 7 but uses 8 labels. The proof treats only one step in detail and handles the induction step with 'similar as for the basis case'. I traced the decrement and jump gadgets and found them consistent, including the V = 0 branch.\n\n---\n\n## Citation Analysis\n\nNo self-citations (0/11). The references are appropriate for membrane computing (Păun, Romero-Jiménez and Pérez-Jiménez, Atanasiu). However, the paper does not cite the existing results it overlaps: universality of symport/antiport P systems with very few membranes via register-machine simulation is standard in the literature it draws on, and the author acknowledges reusing that rule idea without naming the sources. This weakens the claim of novelty but is not a manipulation pattern.\n\n---\n\n## Structural Analysis\n\nThe main claim, Theorem 5.1, is supported by a constructive proof whose rule gadgets can be checked by hand. The novelty claim rests on the framing (numerical programs being 'more natural' for computer scientists), and the paper does not separate it clearly from known results. The related-work section discusses transition P systems, active membranes and numerical P systems, but not the symport/antiport universality results that matter most. The construction has no cost discussion (alphabet size grows by five label symbols per instruction; simulation takes up to three steps per instruction). No limitations are stated. Nothing to release, since this is a proof paper.\n\n---\n\n## Conclusion\n\nA formally adequate universality proof with proportionate notation and clean citation behaviour. Its weaknesses are limited novelty, because the core gadget is a known register-machine simulation; an uncited overlap with prior symport/antiport universality results; a sketchy induction step; and several typographical errors in the definitions and macro listings."
+  }
+ ]
+}

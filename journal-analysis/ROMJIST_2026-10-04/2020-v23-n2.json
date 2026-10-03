@@ -1,0 +1,392 @@
+{
+ "batch_id": "2020-v23-n2",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 23,
+  "issue": 2,
+  "year": 2020
+ },
+ "papers": [
+  {
+   "paper_id": "malita2020",
+   "paper": {
+    "title": "Architectural Features for Artificial Intelligence & Blockchain in the Nano-Era",
+    "authors": [
+     "Mihaela Maliţa",
+     "Răzvan Mihai",
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "Artificial Intelligence and Blockchain are among the most computationally demanding domains. They request tremendously powerful computation engines capable to deliver fast, cheap and energy aware solutions. Here we present the functional aspects and the structural and architectural requirements best suited for implementing the technological environment which allows an emerging safe & intelligent world. Finally, we assert the improvements required from the emerging nano-technologies, focused mainly on the interconnection problems raised by the current implementations of big cellular one-chip systems.",
+    "keywords": [],
+    "doi": null,
+    "pages": "115-126",
+    "source_file": "paper642.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 55,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 63.75,
+    "composite": 47.81,
+    "final": 42.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "7 of 24 references (29%) are to the authors' own work ([14], [15], [18], [19], [20], [21], [22]); all concern the Connex/Map-Scan-Reduce architecture or the authors' consensus work and are topically related."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Position-style architecture paper re-presenting the authors' Map-Scan-Reduce accelerator for AI and blockchain; notation is register-transfer semantics rather than theater, but evaluation is thin and self-citation is elevated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Architectural requirements for AI and blockchain workloads, answered by the authors' previously published Map-Scan-Reduce many-cell accelerator (Connex lineage), with requests to nano-technology.\n**Level:** 2 (Low)\n**Rationale:** The proposed structure is described as \"already described in few versions in [14] [15] [20] [21]\"; the paper motivates and re-describes an existing architecture rather than contributing a new algorithm or proof. Asymptotic statements (O(log n) loop latency, O(n) size) are asserted, not derived.\n\n### Formal Elements\n- Definitions: 0 (no numbered definitions)\n- Theorems: 0\n- Proofs: 0\n- Equations: ~15 predicated vector/instruction semantics (e.g. `WHERE(cond): bi <= bi & condi ? 1 : 0`, `REDADD: acc <= sum(bi ? acci : 0)`), plus vector notations Vi, B, IX, ACC.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the conditional-assignment expressions specify instruction semantics of the accelerator in the register-transfer style hardware architects use; a programmer or hardware designer implementing the instruction set would need exactly this. Borderline items are the bracket notations for vectors (`IX = [1 2 ... n]`, `S =< s1 s1 ... sn >`, the latter with a typo), which are plain-English-expressible but are notational shorthand rather than set-theoretic decoration. No necessity-test failure recorded.\n\n### Issues\nThe sequence `S =< s1 s1 . . . sn >` repeats s1 (typo). The DELETE semantics refer to an undefined index `p`.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 7/24 (29%): [14] Maliţa, Popescu, Ştefan; [15] Maliţa, Ştefan, Thiébaut; [18] Ştefan, Maliţa; [19] Ştefan; [20] Ştefan, Maliţa; [21] Ştefan et al.; [22] Ştefan, Mihai. [16] (Mîţu and Mîţu) is not by the authors. All self-citations concern the Connex/Map-Scan-Reduce line or (for [22]) consensus via IT, which the paper links to blockchain voting; relevance is acceptable (>= 0.5 for most, [22] marginal). Many references are web pages, vendor material and a YouTube talk ([21]).\n\n---\n\n## Structural Analysis\n\nThe evaluation section is brief: \"validated by three versions implemented in silicon\" without data, a 28 nm estimate (2048 cells, 12 W), and a single SHA256 figure (46.8 MH/s/W, \"3.37x\" an Nvidia chip) compared against a consumer GPU review page [23]. State-of-the-art utilization figures are cited. Much of Section 2 is quotation from [17]. The claim-evidence balance is weak. Limitations are acknowledged inline in Section 6 (von Neumann bottleneck, latency trade-offs, algorithms whose scan/reduce latency cannot be hidden). No code, RTL, or data is released or linked.\n\n---\n\n## Conclusion\n\nA perspective paper restating the authors' accelerator architecture against AI and blockchain workloads. The notation is functional rather than decorative, so no formalism flag is raised. Weaknesses are the thin, largely unsubstantiated evaluation, heavy quotation, web-heavy references, and a 29% self-citation ratio."
+  },
+  {
+   "paper_id": "ravariu2020",
+   "paper": {
+    "title": "New steps for advancing the Nothing On Insulator Triode 3nm gap and preliminary expanded technology",
+    "authors": [
+     "Cristian Ravariu",
+     "Dan E. Mihaiescu",
+     "Alina Morosan",
+     "Vlad Placinta"
+    ],
+    "abstract": "This paper presents new steps of the Nothing On Insulator (NOI) device advancing. From the simulations point of view, a better swing is accomplished by shorter vacuum gap and the transistor replacement by triode. The actual simulated NOI-Triode with 3nm gap possesses lower swing versus the previous NOI-Triode of 14nm gap. Functional simulations prove the current density vectors from Source to Drain with substantial Gate leakage current. Comparisons with similar vacuum nanotransistors of other authors reveal similar ID-VDS and ID-VGS curves, with superior currents for the actual NOI-Triode 3nm gap. A preliminary technology, based on laser ablation by MALDI technique, produced a gap of 10µm in ABS-conductor micro-wires deposited on glass substrate. An accurate NOI architecture was accomplished, but at expanded sizes, defined by the laser spot resolution.",
+    "keywords": [
+     "Microelectronics",
+     "Electronic Packaging",
+     "Nanotechnology",
+     "Simulations"
+    ],
+    "doi": null,
+    "pages": "127-139",
+    "source_file": "paper643.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 62.5,
+    "composite": 46.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "10 of 23 references (43%) are by the authors, nine of them with C. Ravariu: [6], [7], [8], [9], [13], [14], [19], [21], [22], [23]. Most are on NOI devices; [22] and [23] (organic nanocomposites, Fe3O4/PABA organic TFT) are only marginally related, supporting the gate-insulator and MALDI process steps."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Incremental TCAD simulation study of a 3 nm-gap NOI vacuum triode plus a 10 µm laser-ablation prototype; formalism is minimal and appropriate, but self-citation is excessive (43%).",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Silvaco Atlas simulation of a scaled-down (3 nm gap) Nothing-On-Insulator vacuum triode, comparison with digitized literature curves, and a preliminary macroscale fabrication test by MALDI laser ablation.\n**Level:** 2 (Low)\n**Rationale:** Applies a commercial device simulator to a geometry variant of the authors' own device family; no new model or algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (threshold voltage convention VT at 10% of ID,max; standard subthreshold swing; VD-ON convention), plus inline gm = dID/dVG.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations fix extraction conventions needed to compare devices.\n\n### Issues\nNone identified in formalism. Text-level inconsistencies: the conclusion reports ID/IG = 10 at drive-on while Section 4 reports 20; the simulated technology statement cites [12] (a tunnel-FET paper) where a planar-NOI reference appears intended.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 10/23 (43%), exceeding the 30% threshold. The NOI self-citations ([6]-[9], [13], [14], [19], [21]) are directly on topic. [22] (nanocomposites for electron transfer) and [23] (green organic TFT) are marginal (~0.3-0.5) but serve as process references for the expanded technology, so no irrelevant-self-citation flag is raised. The external literature (Han, Meyyappan, Nirantar et al.) is relevant.\n\n---\n\n## Structural Analysis\n\nClaims are supported by simulation figures and comparison against experimental points cropped from the literature; the comparison between a simulated 3 nm device and fabricated devices of different geometry is qualitatively favourable but not like-for-like. Limitations are acknowledged inline: substantial gate leakage, \"in the real technology it is still impossible to reaches so tiny gap\", and the fabricated 10 µm gap yields null drain current. No simulation decks or data are released.\n\n---\n\n## Conclusion\n\nCompetent incremental device-simulation work with appropriate, minimal formalism. The principal concern is citation conduct: 43% of references are to the authors' own work, which triggers the disqualifying excessive self-citation flag."
+  },
+  {
+   "paper_id": "bunea2020",
+   "paper": {
+    "title": "Wideband Sub-terahertz Coplanar Waveguide-Fed Spiral Antenna",
+    "authors": [
+     "Alina-Cristina Bunea",
+     "Dan Neculoiu",
+     "Marius Andrei Avram",
+     "Mihai Iovea"
+    ],
+    "abstract": "This paper presents the design, simulation and characterization results of a wideband sub-terahertz membrane supported coplanar waveguide fed Archimedean spiral antenna. A fully parameterized 3D electromagnetic model was developed and a parametric study up to 350 GHz is performed. A 2 turns antenna placed over a metalized plate is optimized and the simulated results show |S11| < -10 dB between 60 - 150 GHz, a directivity of 7-10 dBi and a simulated efficiency larger than 60% between 70 - 150 GHz. The measured results showed good matching from 75 - 110 GHz, in good agreement with simulations, a measured antenna gain of 10.6 dBi at 94 GHz and a broadside axial ratio smaller than 3 dB between 77 - 97 GHz. With an compact membrane area of 5.3x5.3mm2 the performances of the proposed antenna are beyond the previously reported CPW fed spiral antennas.",
+    "keywords": [
+     "Microelectronics and Electronic Packaging",
+     "Nanotechnology",
+     "Antennas",
+     "Sub-terahertz",
+     "circular polarization"
+    ],
+    "doi": null,
+    "pages": "140-156",
+    "source_file": "paper644.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 84.75,
+    "composite": 63.56,
+    "final": 58.56
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section or substantive inline acknowledgment; the only caveat is that the frequency-bound formulas are \"only a first order approximation\". The gain derived from measured 3 dB beamwidth and the measurement band restricted to W-band are not discussed as limitations."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Solid design-simulate-fabricate-measure antenna paper with textbook equations used appropriately and low self-citation; lacks a discussion of limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design in CST Microwave Studio, micromachined fabrication and W-band measurement of a membrane-supported CPW-fed Archimedean spiral antenna.\n**Level:** 2 (Low)\n**Rationale:** Standard antenna engineering: a known antenna type in a new feed/membrane configuration, optimized with commercial EM software.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 9 (spiral geometries r = a·phi and r = r0·e^(a·Phi), sinuous curve, Babinet/Deschamps input impedance, frequency bounds)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — textbook design equations that determine geometry and initial impedance/frequency estimates.\n\n### Issues\nNone identified. Sections 2-3 are tutorial background (polarization, spiral types) occupying a sizeable fraction of the paper.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 2/24 (8%): [8] (preliminary CAS 2019 version) and [24] (membrane fabrication). Both directly relevant. No issues identified.\n\n---\n\n## Structural Analysis\n\nClaims are well supported by simulation figures and measurements (S11 vs simulation, 2D radiation patterns, axial ratio with a dual-polarized OMT horn). The comparative claim that performance is \"beyond the previously reported CPW fed spiral antennas\" is supported by a narrative literature comparison, though those works operate at much lower frequencies. Gain is computed from the measured 3 dB beamwidth rather than measured directly; this and the W-band-only measurement versus a 60-150 GHz simulated band are not presented as limitations. No design files or measurement data are released.\n\n---\n\n## Conclusion\n\nCompetent applied RF work with appropriate formalism and clean citation practice. The main structural weakness is the absence of any limitations discussion."
+  },
+  {
+   "paper_id": "ilie2020",
+   "paper": {
+    "title": "Low cost approaches for High Resolution Digitally Programmable Potentiometers",
+    "authors": [
+     "Giorgiana-Catalina Ilie (Chiranu)",
+     "Cristian Tudoran",
+     "Otilia Neagoe",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "This paper aims to find adequate solutions for implementing a high resolution digitally programmable potentiometer by taking into consideration the production cost and also the performance indicators such as the linearity characteristics, wiper resistance and total resistance variations. All described solutions were implemented in a 5V 0.18µm CMOS process and their performances were verified by simulations.",
+    "keywords": [
+     "Digitally programmable potentiometer",
+     "high resolution",
+     "production cost",
+     "linearity characteristics",
+     "wiper resistance",
+     "total resistance variations"
+    ],
+    "doi": null,
+    "pages": "157-175",
+    "source_file": "paper645.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 65,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.0,
+    "composite": 54.75,
+    "final": 49.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "2 of 9 references (22%) are by the authors: [1] (Iacob, Neagoe, Manolescu) and [4] (the authors' CAS 2019 conference version). Both are on-topic; the ratio is driven by a very short reference list."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation-based comparison of twelve 8-bit digital potentiometer architectures in 0.18 µm CMOS; appropriate standard metrics, useful trade-off tables, but a thin reference list and simulation-only evidence.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Comparison by circuit simulation of single-stage, bulk-resistor multistage and binary-weighted multistage DPP architectures for area, INL/DNL, ZSE/FSE, RHL variation, TCR and wiper resistance.\n**Level:** 2 (Low)\n**Rationale:** Empirical comparison of existing architectures adapted to 8 bits.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (INL, DNL, ZSE, FSE, VLSB, TCR, wiper resistance)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — standard converter/potentiometer metric definitions used to compute the reported results.\n\n### Issues\nNone in formalism. FSE (eq. 4) uses VWreal(225) where code 255 is meant. The text says \"Eleven most representative DPP architectures\" while the conclusion counts twelve (SS plus B0-B3 and BW1-BW7); the TCR text mentions \"B0-B4\" though only B0-B3 exist.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 2/9 (22%). [1] and [4] are directly on topic. The reference list is very short and leans on application notes, a datasheet and web tutorials ([2], [6]-[9]); a Master's thesis is cited for binary-weighted decoding. No irrelevant self-citations.\n\n---\n\n## Structural Analysis\n\nEach comparative claim is backed by a simulation figure or by Tables 1-2, giving an adequate claim-evidence balance. Area figures are estimates from device counts. Limitations are acknowledged inline: switch and resistor mismatch and process/voltage/temperature variations \"were not considered in the simulations\", and real devices are affected by matching and parasitics. No silicon measurements; no netlists or data released.\n\n---\n\n## Conclusion\n\nA useful engineering trade-off study with appropriate metrics. Weaknesses are simulation-only evidence, several numerical/textual slips, and a sparse reference base that pushes the self-citation ratio into the elevated band."
+  },
+  {
+   "paper_id": "marinca2020",
+   "paper": {
+    "title": "New Extraction Method of the Bipolar Transistor Model Parameters Used in Bandgap Voltage References",
+    "authors": [
+     "Stefan Marinca",
+     "Mircea Bodea",
+     "Angelica Stiglet",
+     "Bogdan Baron"
+    ],
+    "abstract": "A new extraction method of the critical model parameters affecting temperature variation of the bandgap type voltage reference is presented. According to the new method, the two model parameters describing the linear and non-linear temperature dependence of the bandgap type voltage references are extracted from the raw data of the reference voltage vs. temperature and not from direct measurements of the bipolar transistor.",
+    "keywords": [
+     "bipolar transistor",
+     "base-emitter voltage",
+     "model parameters",
+     "bandgap voltage reference",
+     "temperature variation",
+     "silicon based temperature sensor"
+    ],
+    "doi": null,
+    "pages": "176-187",
+    "source_file": "paper646.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 35,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 59.25,
+    "composite": 44.44,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "5 of 14 reference entries (36%) are by the authors: [9], [10], [12], [13], [14], all S. Marinca patents or a paper with M. Bodea. [9] and [10] are identical entries (the same two US patents listed twice), inflating the count. All are on the bandgap/PTAT topic."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Analytical two-temperature method for extracting VG0 and XTI from bandgap reference output, with derivations that are necessary and an error section; claimed accuracy gains rest on sensitivity arithmetic rather than validated measurements, and self-citation is excessive.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Extracting bipolar transistor parameters VG0 and XTI from a first-order-compensated bandgap reference's output at two temperatures, instead of from three-temperature Vbe measurements.\n**Level:** 2 (Low)\n**Rationale:** The method is a short algebraic manipulation of the classical Vbe(T) expression; it is a simple refinement of existing extraction methods, without a new model or proof.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 30 (Vbe(T) model, three-point solutions, error expressions, bandgap balance, extraction formulas)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — every equation is a working step of the derivation or extraction procedure that an engineer would implement. Many equations, but none decorative.\n\n### Issues\nEquation (20) writes the logarithm term as ln(kT/q), dimensionally inconsistent with the T/T0 form used elsewhere, suggesting a transcription error. Equation (11) writes \"Vb e\" and the section 6.3 heading reads \"narrowingn\".\n\n---\n\n## Citation Analysis\n\nSelf-citations: 5/14 (36%). [9] and [10] are the same pair of Marinca patents listed twice. [13] and [14] are further Marinca patents; [12] is a Marinca/Bodea conference paper. All are topically related, so no irrelevant-self-citation flag, but the ratio exceeds 30% and the duplicate entry is a citation-hygiene concern. Reference [4] lacks venue and year.\n\n---\n\n## Structural Analysis\n\nThe central claim, errors \"smaller with more than one order of magnitude\" than existing methods, is supported only by evaluating the authors' sensitivity expression (29) for a 0.1 °C error, not by comparison with independently measured parameters. Silicon results (16 LDO samples, Figs. 9-10) show distributions of extracted VG0 and XTI without a ground truth. A dedicated \"Errors\" section discusses PTAT nonlinearity, collector-current temperature dependence and bandgap narrowing, and defers \"a more detailed error analysis\" to future work. No data released.\n\n---\n\n## Conclusion\n\nA practical, engineer-oriented extraction method with formalism that is entirely functional. Evidence for the claimed accuracy improvement is analytic rather than experimental, and 36% self-citation (with a duplicated self-cited entry) triggers the excessive self-citation flag."
+  },
+  {
+   "paper_id": "iordache2020",
+   "paper": {
+    "title": "Analysis and design of a high efficiency current mode buck converter with I2C controlled output voltage",
+    "authors": [
+     "Cosmin Alexandru Iordache",
+     "Mircea Bodea"
+    ],
+    "abstract": "This paper presents the analysis and design of a two-version current mode buck converter whose output voltage is set by a digital potentiometer programmed through an inter-integrated-circuit interface (I2C). The first version of this converter is an asynchronous rectifier variant (arv) while the second version uses synchronous rectification (srv). First version can handle up to 300W output power, having an input voltage of 48V and the output voltage ranging from 1.5V up to 40V with a maximum output current of 7.5A while the second version can handle up to 360W with a maximum output current of 15A. This converter uses a high voltage, high efficiency, fixed frequency controller with programmable soft start, undervoltage lockout, current limit unaffected by duty cycle and internal high voltage regulator for its gate driver. This current mode control (CMC) buck converter was designed to be integrated in a computer-controlled unit for electronic devices characterization (CCUEDC) as an upgrade of the internal hysteretic buck converter. It can be also integrated in a highly efficient and versatile lab power supply or to be used to power LEDs devices.",
+    "keywords": [
+     "Microelectronics",
+     "dc-dc converter",
+     "I2C",
+     "buck",
+     "current mode",
+     "wide output voltage",
+     "high efficiency",
+     "synchronous rectifier"
+    ],
+    "doi": null,
+    "pages": "188-203",
+    "source_file": "paper647.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 65,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 68.0,
+    "composite": 51.0,
+    "final": 41.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "3 of 13 references (23%) are by the authors: [4] (CCUEDC), [12] (I2C monitor), [13] (CAS 2019 version of this work). All related to the system being upgraded.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints; the conclusion asserts performance certified \"over the entire output voltage range\"."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Prototype design note for two buck converters built from Analog Devices controllers per datasheet equations; formalism appropriate, but headline efficiency and ripple claims are not backed by presented measurements and limitations are absent.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Component selection, LTspice simulation and bench prototyping of asynchronous (LT3724) and synchronous (LT3800) current-mode buck converters with I2C digital-potentiometer feedback.\n**Level:** 1 (Trivial)\n**Rationale:** Integration of commercial controllers following their datasheet design procedures; no novel method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (inductor sizing, conduction/transition losses, input capacitance, feedback divider)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — datasheet sizing equations that directly determine component values; they pass the necessity test.\n\n### Issues\nNone in formalism. The MOSFET is chosen for \"low CRSS = 10.5mΩ\" (a resistance value given for a capacitance). Section 2 consists almost entirely of a long verbatim quotation from a Unitrode application note [3], and Section 3 quotes datasheets [5], [6].\n\n---\n\n## Citation Analysis\n\nSelf-citations: 3/13 (23%), all relevant to the CCUEDC system and this design's conference version. The rest of the reference list is predominantly datasheets and an application note; academic literature on CMC is limited to [1], [2]. No irrelevant self-citations.\n\n---\n\n## Structural Analysis\n\nShort-circuit, DCM/CCM transition and Bode measurements are shown and compared with simulation. However, the efficiency figures in the title and conclusion (94%, 95-96%) and the \"10 times lower output ripple\" are stated in the conclusion without any efficiency or ripple measurement presented in the body. The novelty claim (\"common compensation network ... is a part of the novelty\") is asserted rather than argued. The claim-evidence balance is weak. No limitations are acknowledged. Schematics are shown as figures, but no design files are released.\n\n---\n\n## Conclusion\n\nAn engineering build report with appropriate datasheet-level formalism. The paper's main claims (high efficiency, reduced ripple) lack supporting data, much of the background is quoted text, and there is no limitations discussion."
+  },
+  {
+   "paper_id": "bonteanu2020",
+   "paper": {
+    "title": "A comparison between the Gm based implementations of voltage mode and current mode capacitance multipliers",
+    "authors": [
+     "Gabriel Bonteanu",
+     "Arcadie Cracan",
+     "Ioan Alexandru Nica",
+     "Stefan Viorel Savinescu"
+    ],
+    "abstract": "A comparison between two Gm based implementations of capacitance multipliers, one following a voltage mode perspective and another one following a current mode perspective is performed. The transconductor based circuit solution for voltage mode capacitance multiplication employs the Miller effect around a voltage amplifier implemented as a transconductance amplifier paired with another transconductor acting as a load. The current mode multiplier used as reference in the comparison uses the same components and is built around a typical current mirror by substituting the MOS transistors with transconductance amplifiers. For both structures the ratio of the two transconductances defines the multiplication factor. Due to the transconductance tunability, the multiplication factor is adjustable in a wide range. The results show an important advantage of the voltage mode multiplier with regards to the low frequency behavior in comparison to a current mode Gm-based implementation, recommending the voltage mode circuit for frequency compensation applications. A first order low-pass filter is implemented as an application of the two described architectures using discrete Gm integrated circuits.",
+    "keywords": [
+     "MOS capacitor",
+     "capacitance multiplier",
+     "adjustable capacitor",
+     "transconductance amplifier"
+    ],
+    "doi": null,
+    "pages": "204-220",
+    "source_file": "paper648.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 62.5,
+    "composite": 46.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "2 of 5 references (40%) are by the authors: [3] (Bonteanu, Cracan, Goras, CAS 2019, the voltage-mode multiplier) and [4] (Bonteanu, Cracan, Bozomitu, SIITME 2018, the current-mode study). Both are directly relevant; the ratio reflects an extremely short reference list."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Small-signal analysis, CMOS simulation and discrete-OTA measurement comparing voltage-mode and current-mode Gm capacitance multipliers; formalism is necessary circuit analysis, but the five-item reference list yields 40% self-citation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Deriving and comparing input-impedance models of Gm-based voltage-mode (Miller) and current-mode capacitance multipliers, with 0.18 µm simulation and LM13700 board measurements via a first-order LPF.\n**Level:** 2 (Low)\n**Rationale:** Standard small-signal analysis of known topologies and an empirical comparison.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 57 (nodal equations, impedance derivations, equivalent-circuit parameters, LPF measurement model)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations are the circuit analysis that yields the equivalent models (Ceq, Req, parasitic branches) on which the comparison rests; none fail the necessity test, though the ideal and non-ideal derivations partly duplicate each other.\n\n### Issues\nNone in formalism. Editorial defects: Fig. 4's caption (\"Linear polarization: (a) vertical (V) and horizontal (H); (b) slant (S) polarization\") belongs to an antenna paper; Section 3 ends mid-sentence (\"to implement the \\\"G\\\"\"); a paragraph in Section 6 is duplicated verbatim; Section 5's text says the current-mode multiplication factor denominator is smaller than the voltage-mode one written as gm2 + go1 + go2, inconsistent with the earlier go = go1 // go2 notation.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 2/5 (40%). Both self-citations are the direct precursors of the two circuits compared, so topical relevance is high, but with only five references the paper engages minimally with the capacitance-multiplier literature and the self-citation ratio exceeds 30%.\n\n---\n\n## Structural Analysis\n\nClaims are backed by analysis, simulation (Figs. 12-13) and measurements (Figs. 17-24); the stated agreement between theory and measurement is plausible. The measured low-frequency gain difference cited (-6.03 dB vs -6.05 dB) is small, and Figs. 23-24 show a selected subset of points (the authors disclose this selection). Limitations are acknowledged inline: poorer dynamic range and limited voltage swing of the voltage-mode multiplier. No design files or measurement data are released.\n\n---\n\n## Conclusion\n\nTechnically sound comparative circuit study with necessary formalism and real measurements. Editing errors (a caption from another paper, a truncated sentence, a duplicated paragraph) and a five-reference bibliography with 40% self-citation are the main concerns; the latter triggers the excessive self-citation flag."
+  }
+ ]
+}

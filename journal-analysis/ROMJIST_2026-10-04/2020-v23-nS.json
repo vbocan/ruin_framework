@@ -1,0 +1,515 @@
+{
+ "batch_id": "2020-v23-nS",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 23,
+  "issue": "S",
+  "year": 2020
+ },
+ "papers": [
+  {
+   "paper_id": "teodorescu2020",
+   "paper": {
+    "title": "Editorial",
+    "authors": [
+     "Horia-Nicolai Teodorescu"
+    ],
+    "abstract": "Guest editorial introducing the special issue on information science and technology in crises (COVID-19 pandemic and other disasters), summarising the papers included and the reviewing process.",
+    "keywords": [],
+    "doi": null,
+    "pages": "S1-S2",
+    "source_file": "paper649.pdf"
+   },
+   "concept_level": null,
+   "scores": {
+    "formalism": null,
+    "citation_integrity": null,
+    "structural_integrity": null,
+    "artifact_availability": null,
+    "intellectual_integrity": null,
+    "composite": null,
+    "final": null
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text (editorial; nothing to release)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EDITORIAL"
+   ],
+   "flag_details": {
+    "EDITORIAL": "Guest editorial of the special issue: introduces the papers, describes the reviewing process and thanks contributors. Not a research paper."
+   },
+   "verdict": {
+    "classification": "NOT_APPLICABLE",
+    "disqualified": false,
+    "record_type": "editorial"
+   },
+   "provenance": "## Formalism Analysis\n\nNot applicable. The document is the guest editor's two-page editorial introducing the special issue: it groups the papers into models, communication and tools, notes that only one paper relates to code on GitHub, and describes a \"triple blind\" review of 30 submissions completed in under two months.\n\n---\n\n## Citation Analysis\n\nNot applicable (no reference list).\n\n---\n\n## Structural Analysis\n\nNot applicable.\n\n---\n\n## Conclusion\n\nFlagged EDITORIAL and excluded from analysis. The editor's description of how fast the reviewing was done is useful background for reading the issue's research papers."
+  },
+  {
+   "paper_id": "biliaiev2020",
+   "paper": {
+    "title": "Numerical simulation of toxic chemical transport after accidental release at chemical plant",
+    "authors": [
+     "Mykola Biliaiev",
+     "Viktoriia Biliaieva",
+     "Vitalii Kozachyna",
+     "Oleksandr Berlov",
+     "Ivan Kalashnikov"
+    ],
+    "abstract": "Toxic chemical release may occur at different plants and impact directly on the people in the working areas. It is very important to predict atmosphere pollution and make risk assessment for accidental releases. CFD modeling is a powerful tool to solve these problems. This work is concerning on development of quick computing numerical model to predict air pollution in case of accidental solid propellant burning at the chemical plant. The model is based on transport equation for the products of propellant burning. Air flow on the industrial site is computed on the basis of potential flow model. To solve governing equations implicit finite difference schemes of splitting have been used. The results of numerical experiments are presented.",
+    "keywords": [
+     "atmosphere pollution",
+     "accidental release",
+     "risk assessment",
+     "numerical model",
+     "missile solid propellant"
+    ],
+    "doi": null,
+    "pages": "S3-S13",
+    "source_file": "paper650.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.0,
+    "composite": 57.0,
+    "final": 57.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the paper describes its FORTRAN program \"Air2D\" (\"We programed all finite difference equations and developed computer program “Air2D”\") but gives no route to obtain it",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Application of standard splitting finite-difference schemes to a pollutant-dispersion and risk-mapping problem; formalism is the method itself, but validation is asserted rather than shown and no artifact is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A 2-D numerical model (potential-flow wind field, advection-diffusion transport, simplified NO/NO2/O3 chemistry, probability-weighted risk map) for an accidental propellant fire at a chemical plant, implemented in FORTRAN.\n**Level:** 2 (Low)\n**Rationale:** Every component is a standard method taken from the authors' school and from textbooks (Marchuk, Samarskii, refs [10,11,14]): conditional-approximation and change-triangle splitting schemes, Euler integration, porosity markers. The contribution is applying and assembling them for a specific site, not a new numerical method or analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 18 numbered (transport equation, reaction kinetics, Laplace equation for velocity potential, splitting steps, risk formula)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations pass the Necessity Test: they are the discretisation a programmer would implement, and the paper says it programmed them directly.\n\n### Issues\nEq. (6) gives d[NO2]/dt = -k1[NO][O3] - J[NO2], while reaction (3) produces NO2 from NO + O3, so the sign of the first term appears wrong. Eq. (8) for O3 also duplicates the right-hand side of eq. (7). These look like transcription errors. They are not formalism theater, but they make the published chemistry model unreliable as written.\n\n---\n\n## Citation Analysis\n\nTwo of 15 references include the first author (Biliaiev [9], and the Zgurovskiy et al. monograph [11] that Biliaiev co-wrote): SCR about 13%. Both are on numerical modelling of pollutant dispersion and are directly relevant; [11] is the source of the schemes used. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe paper states that \"Because of lack of experimental data, validation of numerical model was performed by comparing numerical results ... with analytical solutions\", but shows none of that comparison: no error figures, no grid-convergence results. That sentence is the only acknowledgement of a limitation, and it is given inline. The results are figures of concentration and risk maps for one scenario on a 40x40 grid, with no sensitivity analysis. The conclusion that a fire \"will result in quick and very dangerous air contamination\" rests on one simulated case. The 5 s computation time supports the speed claim.\n\nArtifact: the program \"Air2D\" is described subprogram by subprogram, but no code, data or link is provided. Category none.\n\n---\n\n## Conclusion\n\nA competent, practically motivated application of established CFD splitting schemes, with formalism that is genuinely needed. Its weaknesses are evidential: validation is claimed but not shown, there is no comparison with field data or with standard tools (ALOHA, etc.) that the introduction itself discusses, and there are apparent sign errors in the chemistry equations. Recommendation: acceptable applied modelling with limited verifiability."
+  },
+  {
+   "paper_id": "dascalu2020",
+   "paper": {
+    "title": "Enhanced Cellular Automata with Autonomous Agents for Covid-19 Pandemic Modeling",
+    "authors": [
+     "Monica Dascălu",
+     "Mihaela Maliţa",
+     "Adrian Barbilian",
+     "Eduard Franţi",
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "The paper presents several experiments realized with an original model, the enhanced cellular automata with autonomous agents, in order to simulate the evolution of disease spreading. The simulations presented in the paper contain specific details of the actual Covid-19 infection: the atypicality of evolution of cases, the proximity required for infection, the long gestation time. The simulations show that the combination of cellular automata with autonomous agents can be used to model the evolution of a disease, due to its sensitivity to parameters associated to processes of infection and healing. The ability of the modeling system to find critical situations is also discussed. The details of the model include the topography of the space (contextual cellular automata), the timer associated with each autonomous agent to model the change of state (and the testing strategies), a FIFO memory that models the treatment facilities and the global control loop that introduces the central control of the system associated to the law enforcement and authorities.",
+    "keywords": [],
+    "doi": null,
+    "pages": "S15-S27",
+    "source_file": "paper651.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.25,
+    "composite": 59.44,
+    "final": 59.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; \"All programs are written in Processing\" with no route to obtain them",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Agent-based cellular-automaton epidemic simulator with four extensions, shown only on toy scenarios; formalism is minimal, but the claims about finding critical situations go beyond sensitivity experiments that are not calibrated to any data.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A grid cellular automaton populated by directional agents (healthy, infected, immune), extended with walls (a \"contextual\" CA), per-agent infection timers, a FIFO queue standing in for a hospital, and a global feedback loop that changes a parameter when a threshold is reached. Simulated in Processing on a 60-agent floor plan.\n**Level:** 2 (Low)\n**Rationale:** Agent-based CA epidemic models are well established (refs [5-8,17]). The extensions are simulation features (obstacles, timers, a queue, a threshold rule), not new algorithms with analysis. This is a simulation study with parameter sweeps.\n\n### Formal Elements\n- Definitions: 0 formal (the \"Contextual Cellular Automaton\" is introduced in prose)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 3 (movement-probability constraint, R in (0,1), H << N)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Parameters are named with simple symbols and explained in English. No set-theoretic or definitional apparatus.\n\n### Issues\nNone identified in the formalism. The mobility condition is written as p_f + p_l + p_r + p_b <= 1 with a separate stay probability p_s, and the tables give p_s values that make the five sum to 1. This is a minor inconsistency.\n\n---\n\n## Citation Analysis\n\nThree of 27 references include an author of this paper: [18] Dascălu, Ştefan, Zafiu on artificial-society simulation; [26] Ştefan; [27] Maliţa and Ştefan on global control loops in self-organising systems. SCR about 11%. All three are directly relevant: [27] is the source of the global-loop extension. Four further references ([19], [22]-[24]) are to the guest editor of the special issue, on cellular automata. They are topically related, so no flag applies, but the concentration is worth noting.\n\n---\n\n## Structural Analysis\n\nThe text says that \"Each of the 20 experiments are repeated until the mean square deviation becomes stable\", but reports no variance or spread. Simulations 2-4 report averages with no indication of the number of runs. The paper is candid that \"The simulations we have done have only the role to prove the sensitivity of our enhanced model\", and it names the missing healing mechanism as \"The main limitation of the previous model\": these are inline limitations. The introduction nonetheless claims that \"The ability of the modeling system to find critical situations is proved\", and the conclusions draw policy lessons (\"High testing rate and well-equipped hospitals it the key solution\"). These claims are not calibrated against any Covid-19 data, and model time is in abstract cycles. CER is adequate for the sensitivity claims and weak for the applied claims.\n\nArtifact: programs written in Processing; no code or link. Category none.\n\n---\n\n## Conclusion\n\nA clearly described exploratory simulator that does what it says: it shows qualitative sensitivity to mobility, density, detection delay and hospital capacity. Its formalism is appropriately light. Its weaknesses are the absence of calibration, of variance reporting and of released code, and conclusions phrased more strongly than toy-scale simulations support."
+  },
+  {
+   "paper_id": "vatavu2020",
+   "paper": {
+    "title": "Connecting Research from Assistive Vision and Smart Eyewear Computing with Crisis Management and Mitigation Systems: A Position Paper",
+    "authors": [
+     "Radu-Daniel Vatavu"
+    ],
+    "abstract": "This article presents an overview of several results obtained in the framework of the \"Senses++\" initiative and research project with the goal to design and engineer interactive wearable prototypes to enhance visual perception for people with visual impairments by means of assistive vision techniques implemented on smart eyewear devices. Three scientific contributions are described in the specific context of lifelogging, video streaming, and Augmented Reality research: (1) life abstraction as a new concept for privacy-preserving lifelogging systems, (2) broadcasting of video content to remote audiences, and (3) assistive, mediated and augmented vision for see-through head-mounted displays. Several opportunities are discussed for transferring these results from the area of assistive vision to the application domain of Information Technology systems designed to support crisis management and mitigation. Each application opportunity is evaluated from the perspective of fulfilling six criteria representing distinct objectives for crisis management systems. This article takes the form of a position paper in order to draw attention to the possibility of reusing, adopting, and adapting research results and developments achieved in other fields for the purpose of crises management and mitigation.",
+    "keywords": [
+     "Assistive vision",
+     "Sensory augmentation",
+     "Augmented vision",
+     "Mediated vision",
+     "Human-Computer Interaction",
+     "Smart devices",
+     "Smart wearables",
+     "Wearable computing",
+     "Applications",
+     "Information Technology in crisis management"
+    ],
+    "doi": null,
+    "pages": "S29-S39",
+    "source_file": "paper652.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 85,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 77.5,
+    "composite": 58.12,
+    "final": 58.12
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link to code or data; the only project link is a project web page, \"http://www.eed.usv.ro/mintviz/projects/Senses++/index.php\" [31], which is not an artifact",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Position paper mapping three of the author's assistive-vision prototypes onto six crisis-management objectives; no formalism and no evaluation, with a relevant but author-centred reference list.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A position paper that summarises three results of the author's Senses++ project (Life-Tags tag-cloud lifelogging, a broadcast/time design space for video sharing, and mediated vision on HoloLens) and argues that each could serve crisis-management systems. A table maps them to six objectives taken from Kienzle et al. [13].\n**Level:** 1 (Trivial)\n**Rationale:** This is a descriptive overview and an argument. It contains no algorithm, model or experiment.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. There is no formal notation.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nFive of 41 references have the author as co-author ([1], [24], [25], [26], [32]), and [31] is the web page of the author's own project: about 15% self-referencing in total. [2] is a single-author paper by the author's collaborator and is not counted. [1], [26] and [31] are the work being summarised and are highly relevant. [24] and [25] (AR television) and [32] (digital content \"in thin air\") are marginal to crisis management but sit within the author's AR/HCI programme that the paper reviews (similarity roughly 0.4), so they are not irrelevant. The rest of the bibliography is a broad, appropriate survey of AR, lifelogging and crisis-response HCI.\n\n---\n\n## Structural Analysis\n\nAs a position paper it makes proposals, not empirical claims. The mapping of contributions to objectives O1-O6 (Table 1) is asserted by the author, with no evaluation or criteria for \"fulfilment\". The limits are acknowledged inline: \"Future work will address in-depth investigations of these connections, including implementations ... and evaluations of technical performance\". The technical evaluation of Life-Tags is deferred to [1].\n\nArtifact: none; as a position paper it has nothing new to release (relevant: false).\n\n---\n\n## Conclusion\n\nA clearly written, honest position paper that is upfront about its genre. Its RUIN profile is clean on formalism and acceptable on citations. Its contribution is a set of plausible transfer ideas, none of them tested, so the structural score reflects argument rather than evidence."
+  },
+  {
+   "paper_id": "pirnau2020",
+   "paper": {
+    "title": "The Social Networks information noise in crisis situations",
+    "authors": [
+     "Mironela Pirnau"
+    ],
+    "abstract": "In the last few years, Social Networks (SNs) have been spreading information and messages with a dynamics that has been changing continuously. The present research highlights the fact that it is very important to know the dynamics of information in SNs, especially in crisis situations. The data used in the present research have been collected from Twitter in January 2020. These data show the fact that it is extremely useful to spread the information referring to the present and future critical and catastrophic events as soon as possible. The results of the data collected from SNs, which have been analysed as soon as possible, can lead to making more efficient the specific activities of the intervention teams. At the same time, they can lead to increasing the awareness of people in reference with future dangers. The data analysis patterns within SNs are quite varied, containing specific words of the analysed field, using both neural networks and AI systems. Irrespective of the analysis method, the informational noise remains significant and must be traced and identified in each specific case. The present study focuses on the contexts above.",
+    "keywords": [
+     "information noise",
+     "social networks",
+     "logical conditions"
+    ],
+    "doi": null,
+    "pages": "S41-S52",
+    "source_file": "paper653.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 65,
+    "citation_integrity": 85,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.75,
+    "composite": 49.31,
+    "final": 49.31
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link for the collected tweets or the author's tool; the only software link is to a third-party tool, \"AIDR (Artificial Intelligence for Disaster Response http://aidr.qcri.org/)\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Keyword-rule filtering of one day of earthquake/coronavirus tweets with descriptive counts; the entropy measures are misdefined and misinterpreted, and the general conclusions outrun a single-day, single-event dataset.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Collect about 300k tweets on one day (29 January 2020) using keyword lists. Define Boolean keyword rules R1-R8 (\"earthquake and magnitude\" ... \"earthquake and not (R1 or ... R7)\" as noise). Count matches, compute character-level Shannon entropy per rule, and compute Levenshtein-type similarity between 48 tweets with an Excel add-in.\n**Level:** 2 (Low)\n**Rationale:** An empirical, descriptive study using keyword filters and basic statistics, plus third-party tools (AIDR, Fuzzy Lookup).\n\n### Formal Elements\n- Definitions: 0 formal\n- Theorems: 0\n- Proofs: 0\n- Equations: about 6 (empirical probability, the information-source scheme, entropy, maximum entropy, efficiency, redundancy)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** The formalism is proportionate in volume. Shannon entropy is actually computed (Listing 1, Table 4), so it is not decorative. The \"probabilistic area {S, s, p(s)}\" scheme is textbook presentation rather than theater. No flag is raised. The formalism score is reduced because the mathematics is used incorrectly, not because there is too much of it.\n\n### Issues\n- Source efficiency is defined as H(s)max / H(s) in the text but computed as H/Hmax in Listing 1. Table 4 reports the latter.\n- Listing 1 takes `$tweet` as its argument but operates on an undefined `$string`.\n- The entropy is over characters (`count_chars`), which measures letter diversity in the text, yet the paper concludes that values \"over 90% for all the identified rules ... points to their precision\". Character entropy says nothing about the precision of a keyword rule, so this inference is unsupported.\n\n---\n\n## Citation Analysis\n\nThree of 37 references are the author's own ([9] co-authored, [20], [34]): SCR about 8%. All are on social-network monitoring in disasters and are relevant. Separately, seven references ([7], [8], [9], [19], [21], [25], [26]) are to the guest editor of the special issue, who is also thanked \"for his ideas on the manner of analyzing the data in this paper, as well as for the resources he made available\". These citations are on topic, so no citation flag is triggered. The concentration on the handling editor's work is still notable and is reflected in the citation score.\n\n---\n\n## Structural Analysis\n\nThe descriptive counts (Tables 2, 3, 6) support statements about this one dataset. The conclusions generalise beyond it: \"This present paper demonstrates that the posts in the social networks during crisis periods produce a lot of information noise, regardless the situations that generate the crisis\". That rests on one day and one earthquake, plus a 508-second AIDR sample. \"Noise\" is defined operationally as tweets matching none of the author's chosen co-keywords, so the 44% and 75% noise rates are artefacts of the rule choice. The paper does not validate them against manual labels. Constraints are acknowledged only inline (\"sometimes the logical conditions for the filtering process become too complex to be implemented\"). CER is moderate; it is weak for the entropy and generalisation claims.\n\nArtifact: no data or code released; AIDR and the Excel add-in are third-party tools. Category none.\n\n---\n\n## Conclusion\n\nA small descriptive study of keyword-based noise filtering, with useful raw counts but a misapplied information-theoretic layer and conclusions stated far more generally than one day of data allows. Formalism is not theater, but it is wrong in detail. The reference list leans heavily on the guest editor's work."
+  },
+  {
+   "paper_id": "dobrea2020",
+   "paper": {
+    "title": "An autonomous UAV system for video monitoring of the quarantine zones",
+    "authors": [
+     "Dan-Marius Dobrea",
+     "Monica-Claudia Dobrea"
+    ],
+    "abstract": "In this paper, a comparative study between two classification approaches was done, namely, between a Support Vector Machine (SVM) neural network - as a classical machine learning approach -, and four different deep learning classification systems, considered today to be the state-of-the-art systems in computer vision. Two embedded companion computers, a Raspberry Pi and a Jetson Nano, placed on a HoverGames quadcopter support the classification systems that were developed and deployed to identify humans. The ultimate goal of this research consists in developing a quadcopter system endowed with the capabilities of following a pre-programmed flight route and simultaneously detecting humans as well as of warning the system operator to reinforce the quarantine zones. The obtained results demonstrated the superior performances provided by the deep learning approach: more than six times faster than the classical approach, and with a correct classification performance higher than 90% on a direct stream of video data.",
+    "keywords": [
+     "UAV",
+     "HoverGames",
+     "PX4",
+     "QGroundControl",
+     "deep learning",
+     "HOG",
+     "SVM"
+    ],
+    "doi": null,
+    "pages": "S53-S66",
+    "source_file": "paper654.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 82.25,
+    "composite": 61.69,
+    "final": 61.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the paper uses third-party OpenCV HOG+SVM and PyTorch pre-trained models, and its own 600-image training set is described (\"a new training database was created, consisting of 600 images\") but not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Systems-integration paper comparing OpenCV HOG+SVM with four transfer-learned CNNs for onboard human detection on a quadcopter; appropriate formalism and honest metrics, but a small, correlated test set and no released artifact.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Build a quadcopter from the NXP HoverGames kit with PX4/QGroundControl waypoint missions. Run human detection onboard: OpenCV's pre-trained HOG+linear SVM on a Raspberry Pi, and AlexNet, SqueezeNet and ResNet-18/34 with only the last layer retrained (PyTorch) on a Jetson Nano. Compare accuracy and latency.\n**Level:** 2 (Low)\n**Rationale:** Existing components and transfer learning applied to a new deployment setting; an empirical comparison of existing algorithms.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (standard accuracy, TPR, TNR, PPV, NPV)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Only standard evaluation metrics, each explained in prose.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNo self-citations (0/24). [19] (Franţi, Dascălu et al.) is by authors of another paper in this issue, cited for TensorFlow applications; it is relevant enough and not a self-citation. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe metrics are internally consistent: the HOG+SVM confusion matrix (601/239/53/417) reproduces the reported 77.71% accuracy, 91.89% sensitivity and 63.57% specificity. Table 2 prints 77.1%, a typo. There are evidential weaknesses:\n- The HOG+SVM matrix is said to be \"extracted from the cross-validation matrix computed on the training set\", yet the OpenCV model is pre-trained and the matrix totals match the 1,310-frame test set. The evaluation protocol is unclear.\n- The test set is frames from six short videos (20 fps), so samples are highly correlated, and the effective sample size is far smaller than 1,310.\n- Best-of-twenty training runs are reported (\"best classifier architectures obtained after at least twenty different training sessions\"), which selects on test performance.\nThe paper acknowledges inline that a larger database and \"well-known statistical tests\" are needed, so it has an inline limitation. The comparison with [23] and [24] is cross-dataset and is framed cautiously.\n\nArtifact: nothing linked or claimed in the text. (The special-issue editorial mentions a GitHub relation for this paper, but no link appears in the paper itself, and availability is assessed on the paper as published.) Category none.\n\n---\n\n## Conclusion\n\nA solid engineering integration with honest, checkable metrics and appropriately minimal formalism. The headline numbers rest on a small, temporally correlated test set with selection over training runs, and nothing is released for reproduction."
+  },
+  {
+   "paper_id": "barbu2020",
+   "paper": {
+    "title": "A Nonlinear Second-order Hyperbolic PDE-based Photon-limited Medical Microscopy Image Restoration Technique",
+    "authors": [
+     "Tudor Barbu"
+    ],
+    "abstract": "A novel partial differential equation (PDE) - based denoising framework for photon-limited medical microscopy images is proposed in this article. Such a microscopy image processing approach could be further applied in the analysis of the medical images of viruses and bacteria, thus being useful in the context of the current coronavirus pandemic. The considered technique is based on a nonlinear hyperbolic second-order PDE model. The differential model is then solved numerically by applying a consistent and fast converging finite difference-based iterative approximation algorithm to it. The numerical approximation scheme provided here removes successfully the Poisson noise from the microscopy images representing viruses like COVID-19, while enhancing their essential details and thus facilitating their analysis. Quantum denoising experiments and method comparison results are also described.",
+    "keywords": [
+     "Medical informatics for epidemics",
+     "photon-limited microscopy image",
+     "quantum noise",
+     "nonlinear hyperbolic second-order PDE model",
+     "finite difference-based method",
+     "numerical approximation algorithm"
+    ],
+    "doi": null,
+    "pages": "S67-S76",
+    "source_file": "paper655.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 65,
+    "citation_integrity": 90,
+    "structural_integrity": 45,
+    "artifact_availability": 50,
+    "intellectual_integrity": 68.75,
+    "composite": 64.06,
+    "final": 64.06
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"That PHIL database, which contains several thousands of images, is available at https://phil.cdc.gov ... We have used 75 microscope COVID-19 images and also 65 electron microscopy images of EM Imagery collection\"; the MATLAB implementation is not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "New hyperbolic PDE denoising model with an explicit finite-difference scheme; the formalism is the method, but well-posedness, stability and convergence are asserted without proof, and the evaluation tunes parameters on the test images.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A non-variational nonlinear second-order hyperbolic PDE for Poisson-noise removal in microscopy images. It combines a diffusion term along edges, a speed-control function, a damping term and a Poisson-motivated fidelity term, discretised with an explicit central-difference scheme. The author's earlier work [15]-[17] treats closely related models.\n**Level:** 3 (Medium)\n**Rationale:** It proposes a new mathematical model with a new numerical scheme. This is the low end of Level 3, because the model is a variant of the author's prior hyperbolic and anisotropic-diffusion models, and none of the analysis that would anchor the level (existence, uniqueness, stability) is supplied.\n\n### Formal Elements\n- Definitions: 0 formal (the two diffusivity and speed functions are introduced with their domains)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 7 (PDE system with boundary conditions, two auxiliary functions, rewritten PDE, two discretisation steps, final explicit scheme)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 3): 10-40\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in volume, and the equations are necessary: the PDE and its discretisation are the algorithm. The problem is the opposite of theater. The paper claims properties that need proof but gives none: \"it is well-posed, admitting a unique variational (weak) solution\", and the scheme \"is consistent to the PDE model (1) and converges fast to its weak solution\" and \"is stable\". None of these is proved or referenced to a specific result for this model. That drives the formalism score down.\n\n### Issues\nUnproved mathematical claims (well-posedness, consistency, stability, convergence). The PDF-to-text conversion garbled the Greek symbols, but the structure of the model is recoverable.\n\n---\n\n## Citation Analysis\n\nThree of 20 references are the author's ([15] alone, [16] with Favini, [17] alone): SCR 15%. All three are on PDE-based image restoration and are the direct precursors of this model, so they are relevant. Reference [18], cited as the source of the microscopy images, is in fact a CDC clinical-guidance page, not the PHIL library: a citation error, not a citation-integrity issue.\n\n---\n\n## Structural Analysis\n\n- The text says the method \"has been successfully tested on hundreds of photon-limited medical images\", but the experiments use 140.\n- Model parameters were \"determined empirically, by using the trial and error method, as those providing the best average PSNR, SNR and MSE values\" on the same 140 images used for reporting, so the comparison is tuned on the test set. Parameters for the competing filters are not given.\n- The illustrated images are described as \"MERS-CoV viral particles\" yet presented as \"COVID-19 - related\", and the abstract speaks of \"viruses like COVID-19\" (COVID-19 is the disease).\n- The noise levels added are unspecified (\"various levels\").\nThe only limitation acknowledged, inline, is that execution time \"depend[s] much on the dimension of the photon-limited image and the amount of the shot noise\". CER is weak to adequate.\n\nArtifact: the image source is a named public database with a URL (PHIL, https://phil.cdc.gov), though the 140 images used are not identified. The MATLAB code is not released. Category data.\n\n---\n\n## Conclusion\n\nA legitimate Level 3 modelling contribution, with formalism that belongs there, undermined by asserting rather than proving the model's mathematical properties and by an evaluation tuned on its own test images. The Covid framing is loosely attached to MERS-CoV micrographs."
+  },
+  {
+   "paper_id": "pop2020",
+   "paper": {
+    "title": "Cough Sound Recognition in Respiratory Disease Epidemics",
+    "authors": [
+     "Gheorghe Pop",
+     "Horia Cucu",
+     "Dragoş Burileanu",
+     "Corneliu Burileanu"
+    ],
+    "abstract": "The new coronavirus epidemic, which outbroke in 2019, has now grown into a full-blown pandemic, raising global concerns by its high infection speed and mortality rate. People developing the disease fill emergency hospitals, while the problem may deepen if worried general population cluster emergency rooms just for diagnosis. To control such respiratory disease epidemic, governments and medical staff usually decide to reduce virus transmission by enforcing social distance and placing in quarantine all persons suspected of carrying the virus. With the medical staff shortage forced by such an epidemic, it would be very useful to have a diagnosis system capable of checking people for symptoms. As the direct contact of patients with objects used in common may raise virus transmission concerns, non-contact devices are accepted for use in evaluating a person's health condition. Under these limitations, we present a cough sound recognition method, which, as new relevant data become available, can be extended to work more as a respiratory disease diagnostic tool.",
+    "keywords": [
+     "neural computing",
+     "respiratory disease epidemics",
+     "cough sound recognition"
+    ],
+    "doi": null,
+    "pages": "S77-S88",
+    "source_file": "paper656.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 45,
+    "artifact_availability": 50,
+    "intellectual_integrity": 78.5,
+    "composite": 71.38,
+    "final": 71.38
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"ESC-50 v2.0 Dataset [21]\" and \"ICBHI'17 Respiratory Sound (IRS17) Database [22]\" are named public datasets; the third corpus (Sweet Home Cough) is the authors' own and is not released, and no code is linked",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Cough/non-cough classification by concatenating off-the-shelf SoundNet and auDeep features into an MLP; no formalism, but the evaluation lets feature extractors see test data, and one test corpus contains no coughs at all.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fine-tune two existing audio feature extractors (SoundNet, auDeep) on various corpora, concatenate their features, and train a two-hidden-layer MLP for sound and cough classification on ESC-50, ICBHI'17 and an in-house cough corpus.\n**Level:** 2 (Low)\n**Rationale:** A straightforward ML application: existing extractors, a standard MLP, accuracy tables.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper is entirely prose and tables.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nOne of 27 references includes authors of this paper ([23] Dogariu, Cucu, Buzo, Burileanu D.): SCR about 4%. It documents the cough corpus used, so it is relevant. The literature review of cough detection is substantive. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe evaluation design undermines the headline numbers:\n- Feature extractors are trained \"on the whole ESC-50 corpus\" or \"on the entire SHC corpus\", and classifiers are then trained on half and tested on the other half of the same corpus. The features have therefore seen the test files. The 95.5% SHC result is called \"at the state-of-the-art level\", although the authors themselves suspect it \"may be a circumstantial one\".\n- In Table 4, IRS17 has \"6,818 (0/6,818)\" cough/non-cough examples, so the 86.6% \"cough recognition accuracy\" there is purely a non-cough specificity.\n- The final claim that the method \"demonstrates a 91.6% accuracy, which qualifies as state-of-the-art performance\" is made while also stating that \"No comparison was made to other systems\".\n- Splits are random halves, with no speaker independence, and no variance over repeats is reported.\nThe limitations are acknowledged inline: corpus-contributor repeatability, validation problems in the literature, and deferral of validation to medical data after deployment. CER is adequate for the descriptive tables and weak for the state-of-the-art claims.\n\nArtifact: two of the three corpora are named public datasets; the SHC corpus and the code are not released. Category data.\n\n---\n\n## Conclusion\n\nA reasonable exploratory study with a good literature review and no formalism concerns. The proposed method's reported accuracy is inflated by feature-extractor exposure to test data and by a test corpus with no positive class, and the state-of-the-art claim is unsupported by any comparison."
+  },
+  {
+   "paper_id": "singh2020",
+   "paper": {
+    "title": "Diagnosis of Coronavirus Disease (COVID-19) from Chest X-Ray images using modified XceptionNet",
+    "authors": [
+     "Krishna Kant Singh",
+     "Manu Siddhartha",
+     "Akansha Singh"
+    ],
+    "abstract": "A beta coronavirus named Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2) was identified recently. This virus caused pneumonia of unknown etiology and is named as Coronavirus Disease 2019 (COVID-19). The disease is novel and hence no medicine to cure the infected patients is available. The only way to control the pandemic is by breaking the chain of the virus. The chain can be broken by massive diagnosis and social distancing. Radiological examinations, included computed tomography is identified as an effective way for disease diagnosis. CT and Chest X-ray images are considered to be an effective way for making clinical decisions. The X-ray facility is available even in the remotest parts and thus X-ray images can be easily acquired for patients. These images can help in prevention of infection, diagnosis and control. In this paper, an initial investigation report on the various aspects of COVID-19 is presented. An automated method for diagnosis of COVID-19 from X-ray images is proposed. The proposed model is based on XceptionNet that uses depth wise separable convolutions. The results obtained from the proposed model have high accuracy. The proposed method is compared with four other state of the art methods. The comparative study reveals that the proposed method performs better than the existing methods. Thus the method can be effectively used for diagnosis of the novel coronavirus.",
+    "keywords": [
+     "Computer Vision and Pattern Recognition",
+     "Artificial Intelligence",
+     "Medical Informatics",
+     "coronavirus",
+     "COVID-19",
+     "deep learning",
+     "convolution neural network",
+     "X-ray images"
+    ],
+    "doi": null,
+    "pages": "S91-S115",
+    "source_file": "paper657.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 85,
+    "structural_integrity": 30,
+    "artifact_availability": 50,
+    "intellectual_integrity": 71.25,
+    "composite": 65.94,
+    "final": 60.94
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "images taken from public sources: \"COVID-19 Image Data Collection ... Available online at: https://github.com/ieee8023/covid-chestxray-dataset\" [13] and \"Mendeley Data ... https://data.mendeley.com/datasets/rscbjbr9sj/2\" [14]; no code is released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no acknowledgement of constraints. The only related remark is that performance could be enhanced \"by including more COVID cases and lateral view of chest X-ray images\", framed as future improvement, while the paper claims radiologist-level performance on 26 COVID-19 test images."
+   },
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Xception-style CNN for three-class chest X-ray classification on a small scraped dataset; no formalism concerns, but internally inconsistent reporting, cross-dataset comparisons and unsupported clinical claims.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A custom CNN with 6 regular and 12 depthwise-separable convolution layers, trained to classify chest X-rays as normal, viral pneumonia or COVID-19 (1,419 images, 132 COVID-19), with Grad-CAM visualisation.\n**Level:** 2 (Low)\n**Rationale:** A standard ML application: an existing architecture family, lightly modified, trained and reported on accuracy metrics.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (ReLU)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. There is essentially no formal notation.\n\n### Issues\nNone identified in the formalism.\n\n---\n\n## Citation Analysis\n\nOne of 21 references includes the first author ([12] Jangra, Dhull, Singh K.K., ECG arrhythmia classification with a modified VGGNet). It is cited for general CNN properties. It is marginally related (CNN-based medical signal classification, similarity about 0.4), so no flag applies. SCR about 5%. Some references are wrong: Chollet's Xception is dated 2012, and [9] (SIRM) is cited both as the ChestX-ray14 source and as the source of the pneumonia and healthy images.\n\n---\n\n## Structural Analysis\n\nThe reporting is internally inconsistent in several places:\n- The text says \"there are no false positives and false negatives in case of COVID\". Table 5 shows one COVID-19 case misclassified and two non-COVID cases predicted as COVID-19.\n- Section 5.1 says \"The input size was reduced to 100 × 100\", but Table 3 lists a 224×224×3 input. Table 3 also lists 4 filters for a layer with 16 output channels.\n- Section 3 says a k-fold cross-validation is averaged, while Section 4 describes 5-fold CV only for tuning, with a single 80/20 test.\n- Table 6 compares against numbers reported by other papers on different datasets and splits, and concludes that \"the proposed method performs better than the existing methods\".\n- The conclusion claims performance \"at a level comparable with experienced radiologists\" with no radiologist comparison, and claims it \"is able to successfully identify all the test images of COVID cases\", contradicted by Table 5.\nThe COVID-19 test class has 26 images. No limitations are acknowledged (see flag). The abstract also contains an \"initial investigation report on the various aspects of COVID-19\" that the paper does not deliver.\n\nArtifact: training data come from identified public datasets with URLs. Code is not released. Category data.\n\n---\n\n## Conclusion\n\nThe formalism profile is clean, but the paper's evidence does not support its claims. Results contradict the text, comparisons are cross-dataset, and clinical-grade conclusions are drawn from 26 positive test images."
+  },
+  {
+   "paper_id": "benbrahim2020",
+   "paper": {
+    "title": "Deep Transfer Learning with Apache Spark to Detect COVID-19 in Chest X-ray Images",
+    "authors": [
+     "Houssam Benbrahim",
+     "Hanaâ Hachimi",
+     "Aouatif Amine"
+    ],
+    "abstract": "A chest X-ray test is one of the most important and recurrent medical imaging examinations. It is the first imaging technique that represents a significant role in the diagnosis of SARS-CoV-2 disease. Automatic classification of 2019-nCoV using X-ray images is a major request that can help doctors to make the best decisions. In this paper, we adopted, developed, and validated a Deep Transfer Learning (DTL) method using Convolutional Neural Network (CNN) based models InceptionV3 and ResNet50 with Apache Spark framework for the classification of COVID-19 in chest X-ray images collected from Kaggle repository. High accuracy was obtained by our model in the detection of COVID-19 X-ray images 99.01% by the pre-trained InceptionV3 model and 98.03% for the ResNet50 model.",
+    "keywords": [
+     "COVID-19",
+     "SARS-CoV-2",
+     "2019-nCoV",
+     "chest X-ray images",
+     "deep transfer learning",
+     "convolutional neural network",
+     "CNN",
+     "apache spark",
+     "InceptionV3",
+     "ResNet50"
+    ],
+    "doi": null,
+    "pages": "S117-S129",
+    "source_file": "paper658.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 30,
+    "artifact_availability": 50,
+    "intellectual_integrity": 74.75,
+    "composite": 68.56,
+    "final": 63.56
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "images from two named public Kaggle datasets: \"https://www.kaggle.com/bachrr/covid-chest-xray\" [36] and \"https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia\" [37]; program extracts are shown only as figures (Figs. 7-8), with no code link",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgement of constraints (320 images, a 30% test split of about 96 images, a single split, no confusion matrix, possible duplicate or same-patient images across Kaggle sources). The discussion and conclusion contain only positive claims."
+   },
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Databricks DeepImageFeaturizer plus logistic regression on 320 Kaggle X-rays; no formalism, but the Spark contribution is never measured, accuracy plots are labelled as training accuracy, and no limitations are acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Load 160 COVID-19 and 160 normal chest X-rays from two Kaggle datasets into Databricks. Extract features with the Deep Learning Pipelines DeepImageFeaturizer (pre-trained InceptionV3 or ResNet50 with the top removed), fit logistic regression, and report accuracy, F1, and weighted precision and recall.\n**Level:** 2 (Low)\n**Rationale:** A straightforward ML application built almost entirely from a library pipeline. Much of the paper is background on big data, Spark and CNNs.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. There is no formal notation.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNo self-citations (0/42). The reference list is broad, but several entries are generic web or definitional sources (SAS marketing page, a \"10 Vs of big data\" blog) used for the background sections. No citation-integrity issues identified.\n\n---\n\n## Structural Analysis\n\n- The paper's distinctive claim is that Spark adds value: \"Apache Spark proved an advanced performance in image classification techniques\" and \"The combination ... has shown great performance, efficient analysis\". It is never tested. There is no timing, scaling or comparison against a non-Spark pipeline, and the cluster is a single 2-core driver.\n- Figs. 9 and 10 are captioned \"Training accuracy for InceptionV3\" and \"Training accuracy for ResNet50\", so it is unclear whether the headline 99.01% and 98.03% are training or test results. No confusion matrix is given, and the test set is about 96 images from a single 70/30 split.\n- The discussion compares raw accuracies against studies with different datasets and class structures (binary here, often multi-class there).\n- The conclusion claims the model \"will simplify, speed up, and reduce the costs of coronavirus detection\" without evidence.\nNo limitations are acknowledged (see flag). CER is weak: the accuracy numbers are reported, but most evaluative claims lack support.\n\nArtifact: data are named public Kaggle datasets with URLs. Code appears only as figure extracts. Category data.\n\n---\n\n## Conclusion\n\nA tutorial-style application of a library transfer-learning pipeline. It has no formalism concerns, but its central claim about Spark is untested, the accuracy figures are ambiguously labelled, and limitations are absent. The editorial's remark that it \"describes in full detail the method of programing\" holds only for screenshots of code, not a released artifact."
+  }
+ ]
+}

@@ -1,0 +1,398 @@
+{
+ "batch_id": "2019-v22-n1",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 22,
+  "issue": 1,
+  "year": 2019
+ },
+ "papers": [
+  {
+   "paper_id": "sandu2019",
+   "paper": {
+    "title": "Modal Approach to the Theory of Energy Transfer Mediated by a Metallic Nanosphere",
+    "authors": [
+     "Titus Sandu",
+     "Catalin Tibeica",
+     "Oana T. Nedelcu",
+     "Mihai Gologanu"
+    ],
+    "abstract": "Theoretically, the presence of a metallic nanoparticle enhances the intermolecular energy transfer. We calculate this enhancement factor with a modal approach pertaining analytical results in the case of a nanosphere. We calculate the Green's function of the system relaying on the spectral properties of the electrostatic operator, fully known for spherical geometry. In contrast to other treatments, the present calculations are straightforward for any molecular orientation giving modal information about the response of the system. Numerical calculations and further discussions are also provided.",
+    "keywords": [
+     "Plasmonics",
+     "boundary integral equation method",
+     "electrostatic operator",
+     "finite element method",
+     "Förster resonance energy transfer"
+    ],
+    "doi": null,
+    "pages": "3-13",
+    "source_file": "paper614.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 55,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 67.0,
+    "composite": 50.25,
+    "final": 40.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "9 of 32 references (28%) include the first author (refs 13-15, 23-26, 28, 29). Refs 13-15 (two-level systems coupled to quantum oscillators) are only marginally related to plasmon-enhanced FRET; the rest concern the same boundary-operator method.",
+    "NO_LIMITATIONS": "The paper lists limitations of Förster theory in general but not of its own model: the electrostatic (nonretarded) approximation and point-dipole treatment are stated as assumptions, never discussed as constraints. The comparison with the fully retarded results of ref. 30 is qualitative only."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Analytical physics paper deriving a boundary Green's function for plasmon-enhanced FRET near a nanosphere. The formalism is the substance of the paper and is proportionate. Self-citation is elevated, own limitations are not discussed, and the numerical code is not released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Analytical derivation of the plasmonic enhancement factor of Förster resonance energy transfer near a metallic nanosphere, using the spectral decomposition of the surface electrostatic operator to build a boundary Green's function.\n**Level:** 3 (Medium)\n**Rationale:** It builds a new analytical model (Eq. 24, claimed new in the literature) by applying the authors' established operator method to a new problem. The paper has no proofs or protocol guarantees, so it does not reach Level 4.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: ~26 (Green's functions, eigenfunction expansions, interaction energy, enhancement factors)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 3): 10-40\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Each equation is needed for the derivation. The enhancement factors (Eqs. 25-26) cannot be computed without the spherical-harmonic expansion, so it passes the necessity test. There is no decorative notation.\n\n### Issues\nNone identified in the formalism. Eq. (9) is labelled Φfree where Φbound is meant, a typographical slip.\n\n---\n\n## Citation Analysis\n\n9 of 32 references include the first author (28%). Refs 23-26, 28 and 29 cover the boundary-integral eigenmode method used here, or a conference version of this work, and are relevant. Refs 13-15 (dynamic squeezing and strongly coupled two-level systems/oscillators) back a generic remark that strong fields cause strong light-matter coupling. They are only marginally related (similarity about 0.35), which is not low enough for the irrelevant-citation flag. Refs 11 and 12 are the same paper listed twice.\n\n---\n\n## Structural Analysis\n\nThe claims follow from the derivation. The numerical results for a Drude silver sphere are said to be \"consistent\" with ref. 30, but no quantitative comparison is given. The authors do not acknowledge the limits of their own model (nonretarded approximation, point dipoles, Drude parameters). One phenomenon (the common dip) is left for later work. No code or data for the numerical results is offered.\n\n---\n\n## Conclusion\n\nThis is a sound, compact theoretical paper whose mathematics matches its subject. Its weaknesses are a self-citation share near the 30% threshold, padded with marginally related quantum-optics work, no discussion of the model's own limits, and only qualitative validation against other calculations."
+  },
+  {
+   "paper_id": "banu2019",
+   "paper": {
+    "title": "Electro-Optical Method for Surface Recombination Evaluation in Silicon Carbide Bipolar Junction Transistors",
+    "authors": [
+     "Viorel Banu",
+     "Josep Montserrat",
+     "Xavier Jorda",
+     "Philippe Godignon"
+    ],
+    "abstract": "This paper reports two original methods aimed for the surface recombination studies of bipolar junction transistors made on silicon carbide subject to a significant surface recombination around the emitter-base junction. The first novel method targets the measurement of very short minority carrier lifetime in semiconductor junctions by combining the current switch lifetime measurement approach with electro-optical excitation. The second method is elaborated to evaluate individually the surface recombination velocity for each transistor using the combined electro-optical measurement of very short lifetime in base-emitter junctions. Previous to its use for silicon carbide BJTs, the first presented method was tested and calibrated on silicon bipolar transistors using combined electro-optical measurements.",
+    "keywords": [
+     "Minority carrier lifetime",
+     "surface recombination",
+     "bipolar junction transistor",
+     "silicon carbide",
+     "optical excitation"
+    ],
+    "doi": null,
+    "pages": "14-29",
+    "source_file": "paper615.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 95,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.0,
+    "composite": 59.25,
+    "final": 59.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Experimental measurement-method paper combining current-switch lifetime measurement with optical excitation to estimate base-emitter lifetime and surface recombination velocity in SiC BJTs. Its formalism is standard device physics. It has internal inconsistencies, a duplicated paragraph, and limited statistical support.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** An electro-optical measurement procedure: the ratio of photocurrent slopes of the BC and BE junctions, calibrated against the electrically measured BC lifetime, gives the effective BE lifetime and from it the surface recombination velocity.\n**Level:** 2 (Low)\n**Rationale:** It applies textbook p-n junction photocurrent and lifetime relations to a new measurement setup, with empirical calibration. No new theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 19 (storage-time relation, photocurrent, diffusion length, Einstein relation, slope ratios, lifetime and surface-recombination relations)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations carry the derivation of the measurement principle (Eqs. 12-13, 17, 19), so they pass the necessity test. The symbols are physical quantities, not decorated configuration parameters.\n\n### Issues\nNone in the formalism. The collapse of mobility and lifetime ratios into a single factor B (Eq. 6-7) is an unexamined simplifying assumption.\n\n---\n\n## Citation Analysis\n\n1 of 11 references is a self-citation (ref. 1, the conference version of this work), about 9%. It is relevant. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe Si calibration gives a mean slope ratio with standard deviations and a stated 10% accuracy, which is reasonable evidence. The SiC results rest on a few transistor versions, and there is no uncertainty analysis for the derived recombination velocities. The text has internal inconsistencies. Section 3.4 calls the mean S \"6 x larger\" than a literature value printed as 5×10^5 cm/s (which would make it smaller), while the conclusion gives that value as 5×10^4 cm/s. One whole paragraph is printed twice. Inline limitations appear: the authors admit they cannot explain the decreasing S versus P/A trend, and they note that BC lifetime is assumed equal to bulk lifetime. No data or analysis files are offered.\n\n---\n\n## Conclusion\n\nThis is a practical measurement contribution with appropriate, necessary equations and clean citation practice. Its weaknesses are presentation errors, a contradictory comparison with the literature, and thin statistical support for the SiC results."
+  },
+  {
+   "paper_id": "comanescu2019",
+   "paper": {
+    "title": "Assessing by Raman spectroscopy the quality of CVD graphene transferred on oxidized silicon and quartz substrates",
+    "authors": [
+     "Florin Comanescu",
+     "Anca Istrate",
+     "Munizer Purica"
+    ],
+    "abstract": "We present the results of a study regarding CVD graphene transfer from copper foil to other substrates - oxidized silicon and quartz by means of electrochemical delamination. Transfer results were examined by means of Raman spectroscopy using a laser at 633 nm and confocal optical microscopy to identify graphene in good optical contrast conditions. Characteristic Raman bands of graphene - D, G and 2D are certifying if a transfer process has been performed successfully. The quality of the transferred graphene are evidenced by the modifications in the main graphene Raman bands D, G, 2D from which quality (I2D/IG) and defect (ID/IG) ratio's were extracted. We are also highlighting critical steps in the transfer process. The final step of Polymethyl methacrylate (PMMA) removal is the most critical one due to the partially folding of graphene. After transfer defects are induced in graphene which is confirmed by the increase of the ratio of the intensity of the D band to the G (ID/IG).",
+    "keywords": [
+     "Raman spectroscopy",
+     "CVD graphene",
+     "graphene transfer by electrochemical delamination",
+     "transferred graphene quality"
+    ],
+    "doi": null,
+    "pages": "30-40",
+    "source_file": "paper616.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.25,
+    "composite": 54.94,
+    "final": 49.94
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints: the number of spectra per sample, the sampling strategy, single-laser measurement and the qualitative coverage estimates are never discussed as limits."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Descriptive Raman characterization of CVD graphene through each step of electrochemical delamination transfer. There is no formalism and self-citation is moderate. Interpretive claims go beyond the sparse data, and no limitations are acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Experimental characterization (Raman spectroscopy, optical microscopy) of CVD graphene transferred from copper to SiO2/Si and quartz by electrochemical delamination, tracking D, G and 2D band parameters at each process step.\n**Level:** 2 (Low)\n**Rationale:** An empirical characterization study with averages and standard deviations, using a standard technique and standard quality metrics.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (only intensity ratios ID/IG and I2D/IG)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. No formal apparatus is used.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n4 of 23 references (refs 12, 13, 19, 20) include an author of this paper, about 17%. All concern graphene devices or graphene processing by the same group, so they are related. They are mostly cited as background on earlier group work rather than to support specific claims. Elevated but acceptable.\n\n---\n\n## Structural Analysis\n\nThe results are given as tables of averages and standard deviations, but the number of spectra behind each table is rarely stated (10 spectra are mentioned once). Several interpretive claims rest only on assertion. High PMMA band intensities are put down to SERS, and the smaller spread on quartz to substrate crystallinity, which the authors say they reach \"intuitively\". Coverage (\"close to 90%\") is estimated by eye from optical images. The identification of PMMA removal as the critical step is qualitative. Raw spectra are not offered, and no limitations are discussed.\n\n---\n\n## Conclusion\n\nThis is a straightforward characterization report with no formalism problems and related, if somewhat frequent, self-citations. Its main weakness is structural: thin quantitative support for its interpretive claims and no acknowledgment of the study's limits."
+  },
+  {
+   "paper_id": "cobianu2019",
+   "paper": {
+    "title": "Effect of Silicon Surface Cleaning on Electrical Properties of As-Deposited Atomically Layer-Deposited (ALD) HfO2 Films Obtained From Tetrakis(dimethylamino)Hafnium (TDMAH) and Water",
+    "authors": [
+     "Cornel Cobianu",
+     "Florin Nastase",
+     "Niculae Dumbravescu",
+     "Octavian Buiu",
+     "Bogdan Serban",
+     "Mihai Danila",
+     "Raluca Gavrila",
+     "Octavian Ionescu",
+     "Cosmin Romanitan"
+    ],
+    "abstract": "The paper presents the results of an experimental study of the electrical properties of ultrathin as-deposited HfO2 films prepared at 200°C by atomic layer deposition (ALD) from the reaction between tetrakis(dimethylamino)hafnium (TDMAH) and water as function of silicon surface terminations. The comparison of high frequency C-V plots recorded on Al-HfO2-Si MOS capacitors prepared on Si-OH and Si-H terminated silicon and thermally annealed in nitrogen at 250°C have indicated a two-fold smaller oxide trapped charge, and a 5% higher effective dielectric constant (9.95) for capacitors prepared Si-OH with respect the same capacitors processed on Si-H terminated silicon. Weibull plots of the HfO2 breakdown events at constant current injection through the dielectric as a function of charge to breakdown have revealed an increased reliability of the HfO2 films deposited on Si-OH terminated silicon substrate, in terms of a much smaller number of early breakdown events and higher capability of carrying electrical charges, before failure. The results are explained in terms of reaction mechanism between TDMAH and silicon termination and its role on interface and bulk HfO2 film properties.",
+    "keywords": [
+     "Atomic layer deposition",
+     "as-deposited HfO2 films",
+     "hydrogenated and hydroxylated Si surface",
+     "breakdown field",
+     "C-V measurement",
+     "Weibull plots"
+    ],
+    "doi": null,
+    "pages": "41-56",
+    "source_file": "paper617.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.2,
+    "composite": 60.9,
+    "final": 60.9
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Experimental comparison of ALD HfO2 MOS capacitors on Si-H and Si-OH terminated silicon, using XRR, AFM, C-V and charge-to-breakdown Weibull analysis. Formalism is minimal and standard. Much of the data is reused from the authors' two 2018 conference papers, and the mechanistic explanations are partly speculative.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Effect of silicon surface termination (from the cleaning sequence) on the interface, dielectric and reliability properties of as-deposited ALD HfO2 films.\n**Level:** 2 (Low)\n**Rationale:** An empirical materials and device characterization study with standard extraction formulas and basic statistics.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (Mott-Schottky, parallel-plate capacitance, fixed charge, oxide-trapped charge), plus chemical reaction schemes\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the standard parameter-extraction relations actually used to fill Tables 2-3.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n2 of 18 references (refs 12 and 13, the group's 2018 WOCSDICE abstract and CAS paper) are self-citations, about 11%, and are directly related. Most figures (AFM, C-V, Mott-Schottky, Weibull) and Tables 2-3 are marked as taken from these two references. This paper therefore largely consolidates results already published, which is disclosed but limits its novelty.\n\n---\n\n## Structural Analysis\n\nThe evidence is reasonable for an experimental note: five capacitors per condition for C-V, 30 breakdown events per condition for Weibull. There are no significance tests, and the scatter in Nf is acknowledged. Mechanistic explanations (Si-O-Hf vs Si-Hf-O interface bonds, nucleation kinetics) are argued from a DFT study of a different precursor (TEMAH) and are labelled as probable or speculative. Limitations are acknowledged inline: k_eff underestimation under 10%, the capacitor area possibly too large to reach intrinsic breakdown, and the need for further annealing studies. There are errors: the Table 3 caption repeats \"Si-H\" where Si-OH is meant, and the Fig. 11 caption repeats the Si-H/10.61 nm description. No data files are offered.\n\n---\n\n## Conclusion\n\nThis is a competent, modest experimental paper with appropriate formalism and clean citation practice. Its value is limited by heavy reuse of data from earlier conference papers, small samples, and partly speculative interpretation."
+  },
+  {
+   "paper_id": "ravariu2019",
+   "paper": {
+    "title": "Technological aspects and simulation results for the Nothing On Insulator device developed into a planar technology",
+    "authors": [
+     "Cristian Ravariu",
+     "Elena Manea",
+     "Catalin Parvulescu",
+     "Florin Babarada",
+     "Alina Popescu",
+     "Dan E. Mihaiescu",
+     "Daniela Istrati"
+    ],
+    "abstract": "This paper presents the simulations results of a planar variant of Nothing On Insulator device starting from Si-surface preparation till the fine oxide configuration of few nanometers. A dry oxidation at lower temperature is a better process to a higher temperature in a time under 1min. But the final experimental technological tests find the best solution - relatively high temperature, acceptable time of 5-8 min, but dilution of the O2 fluids in the furnace adding N2 in a suitable ratio. The functionality of the planar variant p-NOI was tested by Atlas simulations in two cases: (i) a p-NOI structure with 10nm SiO2 when it is compared to a standard simulated MOSFET from Atlas and (ii) a p-NOI structure with SiO2/HfO2 stack when it is compared with an insulator stack with similar composition of one of the lasts generation fabricated MOSFET. The conduction mechanism obeys to the Fowler-Nordheim's law. The current flow from source to drain occurs in absence of an inversion channel. A similar investigated device by other authors is a fabricated MIM (Metal-Insulator-Metal) structure, which is compared with the actual p-NOI simulation. The simulations fit over the experimental picked points from different resources.",
+    "keywords": [
+     "Tunneling device",
+     "nanoelectronics",
+     "simulations",
+     "technological steps"
+    ],
+    "doi": null,
+    "pages": "57-68",
+    "source_file": "paper618.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 56.25,
+    "composite": 42.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "7 of 18 references (refs 4, 7, 8, 9, 10, 13, 16) are by the first author, SCR = 38.9%, above the 30% threshold. All are on NOI devices and so topically related, but the ratio exceeds the limit."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Process simulation (Athena) and device simulation (Atlas) of a planar Nothing-On-Insulator tunnelling device, with partial fabrication of thin oxides. No formalism. Self-citation is excessive (39%), and the functional claims rest on simulations compared with digitized literature points, not on measurements of the fabricated device.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A planar variant of the authors' Nothing-On-Insulator tunnelling device: TCAD process simulation, a proposed fabrication flow, Atlas I-V simulations with the Fowler-Nordheim model, and oxide-growth characterization.\n**Level:** 2 (Low)\n**Rationale:** Standard commercial TCAD tools are applied to a device variant, with no new models or algorithms.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. No formal apparatus.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n7 of 18 references are by C. Ravariu (refs 4, 7, 8, 9, 10, 13, 16), giving SCR = 38.9%. All concern the NOI device family, so none is topically irrelevant, but the ratio is above the 30% excessive threshold. The external literature on tunnelling devices and field emission is thin. The comparison baseline (ref. 15) is a Silvaco example web page.\n\n---\n\n## Structural Analysis\n\nThe conclusion that the Fowler-Nordheim mechanism \"was firmly demonstrated\" rests only on simulations in which the FN model was switched on, which makes the argument close to circular. The fabricated wafers were characterized only for oxide thickness (ellipsometry) and roughness (AFM). No electrical measurement of a p-NOI device is reported. The agreement with experiment is with points digitized from other authors' MOSFET and MIM papers. The paragraph describing the E/4 wafer is printed twice (in Sections 5 and 6). One inline limitation appears: making a 1.39 nm SiO2 p-NOI is said to be \"challenging for the actual technology\". The simulation decks are not offered.\n\n---\n\n## Conclusion\n\nThe paper reports work in progress on a device concept with no formalism problems. Its evidential support is weak because simulation stands in for measurement of the fabricated device, and its citation profile is dominated by the first author's own earlier NOI papers, triggering the excessive self-citation flag."
+  },
+  {
+   "paper_id": "hurez2019",
+   "paper": {
+    "title": "Galvanically Isolated IGBT Gate Driver with Advanced Protections and A Fault Detection and Reporting Method",
+    "authors": [
+     "Ines Hurez",
+     "Ted Chen",
+     "Florin Vlădoianu",
+     "Vlad Anghel",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "This paper presents a method for detecting and reporting fault signals that can occur in the normal functionality of galvanically isolated Insulated Gate Bipolar Transistor (IGBT) gate drivers with advanced protection circuits. The method provides robust transmission of Under Voltage Lock Out (UVLO) and Desaturation (DESAT) events, while the protection methods, such as soft shutdown and Active Miller Clamp (AMC), prevent improper functionality that can damage the IGBT. The technique introduces a block that prioritizes and encodes the error signals in a manner that allows area and cost minimization, as well as reducing the power consumption of the gate driver. The proposed circuit was verified by means of simulations, and implemented in a standard 0.25µm CMOS BCD technology, as part of a galvanically isolated IGBT gate driver. Experimental results highlight proper reporting of UVLO/DESAT faults and validate the functionality of the protection functions.",
+    "keywords": [
+     "Active Miller Clamp",
+     "desaturation",
+     "galvanic isolation",
+     "gate driver",
+     "IGBT",
+     "soft shutdown",
+     "Under Voltage Lock Out"
+    ],
+    "doi": null,
+    "pages": "69-84",
+    "source_file": "paper619.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.0,
+    "composite": 60.75,
+    "final": 60.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Industrial circuit-design paper describing a single-path fault encoding scheme for UVLO/DESAT reporting in a galvanically isolated IGBT gate driver, with standard protections, simulated and validated on silicon. Formalism is minimal and appropriate. Validation is qualitative, and the claimed area, cost and power savings are not quantified.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Architecture of a galvanically isolated IGBT gate driver in which UVLO2 and DESAT faults share one feedback path through an ENCODE/DECODE scheme (a periodic heartbeat for UVLO, with priority encoding for DESAT), plus soft shutdown and Active Miller Clamp protections.\n**Level:** 2 (Low)\n**Rationale:** It combines established protection techniques with a modest signalling idea in a circuit design. No new theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (conduction loss, DESAT voltage, blanking time, capacitor sizing, Miller current, gate spike)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are basic circuit relations used for component sizing (e.g. Eq. 4 for C_BL).\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n1 of 22 references (ref. 6, the authors' CAS 2018 paper on the same method) is a self-citation, about 5%, and is relevant. Refs 19-20 are datasheets from the authors' employer (ON Semiconductor). They are company documents, not author self-citations, and are relevant. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe functionality claims are backed by simulation waveforms and oscilloscope captures for each fault case, which is adequate evidence that the circuit works. The headline benefits (area and cost minimization, lower power consumption than a three-path solution) are argued qualitatively. No silicon area, power figures, latency, or comparison with other drivers is reported. A limitation is acknowledged inline: the simulation models do not include power devices, and the IGBT and DESAT behaviour were emulated with ideal sources. The circuit is proprietary, and no design files are offered.\n\n---\n\n## Conclusion\n\nThis is a clear industrial design report with appropriate light formalism and clean citations. It would be stronger with quantitative evidence for its efficiency claims and a comparison with existing gate-driver ICs."
+  },
+  {
+   "paper_id": "bancioiu2019",
+   "paper": {
+    "title": "Efficiency Optimizations for Koller and Sahami's Feature Selection Algorithm",
+    "authors": [
+     "Camil Băncioiu",
+     "Maria Vințan",
+     "Lucian Vințan"
+    ],
+    "abstract": "This article describes and evaluates four optimizations for Koller and Sahami's Feature Selection algorithm, significantly reducing the time it requires to complete. The optimizations exploit the Information Theory concepts used by the algorithm, its inherent data parallelism and the fact that much of the calculations it performs are redundant. Each proposed optimization was carefully evaluated, showing significant efficiency gains. In particular, a decomposition of conditional mutual information is shown to reduce the time required to calculate its primary heuristic and can be potentially applied to other algorithms which calculate conditional mutual information.",
+    "keywords": [
+     "Feature Selection",
+     "Koller and Sahami's Algorithm",
+     "Markov Blankets",
+     "Conditional Mutual Information",
+     "Data Parallelism",
+     "Caching Techniques",
+     "Computation Reuse"
+    ],
+    "doi": null,
+    "pages": "85-99",
+    "source_file": "paper620.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 65,
+    "artifact_availability": 100,
+    "intellectual_integrity": 47.75,
+    "composite": 60.81,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"This implementation has been published online [16] under the GPL 3 license.\" Ref. 16: https://github.com/camilbancioiu/MBFF; data: \"The documents in the dataset and their assignments to classes were extracted from the Reuters Corpus Volume 1 [15].\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (engineering optimizations of an existing algorithm: caching, multiprocessing, an entropy rewrite) containing formal elements that fail the necessity test: the set-builder definition of aMB (Eq. 4), the recursive set-difference definition of KS (Eq. 6), and the tuple 'definition' of a worker subprocess (Eq. 19). The paper itself restates Eq. 4 in plain English as 'the best subset of K features Fj from G, when sorted by the γ heuristic'.",
+    "UNNECESSARY_SET_THEORY": "Eq. 4 uses nested set-builder notation with card({...}) < K to express 'take the top K features by γ' (a sort and slice). Eq. 6 uses G_r = G_{r-1} − {F_i | argmin δ} to express 'remove the feature with the lowest δ from the list'. No proof depends on either."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Engineering paper that speeds up Koller and Sahami's feature-selection algorithm through an entropy decomposition of its γ heuristic, a results database, multiprocessing, and an iteration cache. The useful entropy algebra is offset by set-builder notation for sort-and-slice and list-removal operations, which triggers the formalism-theater flags at Level 2. Code is public on GitHub and the data come from RCV1.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Four implementation-level optimizations of the 1996 Koller-Sahami Markov-blanket feature filter: rewriting γ (conditional mutual information) as a sum of joint entropies so terms can be cached and shared, a persistent database of removed features, process-level parallelism within iterations, and an iteration cache of approximate Markov blankets. Evaluated by wall-clock time on an RCV1 subset.\n**Level:** 2 (Low)\n**Rationale:** These are simple optimizations of an existing method: memoization, caching and SPMD parallelism, plus an entropy identity drawn from ref. 18 and standard information theory. There is no complexity analysis or proof.\n\n### Formal Elements\n- Definitions: 0 numbered; inline formal definitions of γ, D_KL, aMB, δ, KS and subprocess\n- Theorems: 0\n- Proofs: 0\n- Equations: 19\n\n### Proportionality\nCalculated complexity: 0 (no numbered definitions, theorems or proofs)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** The count is within range, but the paper fails the necessity test. Eqs. 1-3, 5, 7-18 (KL divergence, entropies, and the γ decomposition) are needed: the decomposition in Eq. 18 is the actual Gamma Decomposition optimization, and English would not convey it. Three elements fail:\n- Eq. 4 defines the approximate Markov blanket with nested set-builder notation and a cardinality condition. In code this is `sorted(G - {Fi}, key=gamma)[:K]`, and the paper restates it in English immediately afterwards.\n- Eq. 6 defines the algorithm recursively as G_r = G_{r-1} − {F_i | argmin δ}, a list removal inside a loop.\n- Eq. 19 writes a worker process's return value as a formal tuple, which is just a function returning three values.\n\n### Issues\nSet notation stands in for sorting, slicing and list removal (Eqs. 4, 6), and a tuple notation describes a multiprocessing worker (Eq. 19). Under the Level 1-2 zero-tolerance rule these trigger FORMALISM_THEATER and UNNECESSARY_SET_THEORY.\n\n---\n\n## Citation Analysis\n\nThere are 2 self-references out of 18: ref. 2 (Băncioiu and Vințan, an earlier comparison using this same implementation) and ref. 16 (the authors' own GitHub repository). That is about 11%, and both are directly relevant. Refs 5 and 11 are the same paper listed twice. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe efficiency claims are backed by per-class timing tables (Tables 1-3) and cache hit rates (Table 4). Each configuration was run once per class on a single machine, so run-to-run variance is not reported. The tests use a single dataset of 628 documents and 2645 words, and K=5 is fixed throughout. The headline 4.36% combined figure has no table of its own. Limitations are acknowledged inline: floating-point differences change the γ ordering, the iteration cache will be less effective on datasets with strongly correlated weak features, and the OS-level process mapping may be imperfect. The quality of the selected features is deliberately left to earlier work. The code is public (GPL, GitHub), and the data are a subset of the public RCV1 corpus, although the exact subset selection is not described.\n\n---\n\n## Conclusion\n\nThis is a useful, reproducible engineering contribution with released code and a public corpus. Its central mathematical step, the entropy decomposition of γ, is legitimate. However, the paper also writes ordinary programming operations (top-K selection, list removal, a function's return tuple) in set-theoretic notation. At concept Level 2 this is formalism theater under the framework's zero-tolerance rule, and it disqualifies the paper despite its otherwise sound evidence and strong artifact availability."
+  }
+ ]
+}

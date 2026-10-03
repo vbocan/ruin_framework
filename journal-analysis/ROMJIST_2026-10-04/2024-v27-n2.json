@@ -1,0 +1,595 @@
+{
+ "batch_id": "2024-v27-n2",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 27,
+  "issue": 2,
+  "year": 2024
+ },
+ "papers": [
+  {
+   "paper_id": "antonescu2024a",
+   "paper": {
+    "title": "FFT on a Heterogeneous System with a General-Purpose Map-Scan Accelerator",
+    "authors": [
+     "Mihai Antonescu",
+     "Mihaela Maliţa"
+    ],
+    "abstract": "This paper presents a use-case and evaluation for a custom general-purpose Map-Scan Accelerator using multiple Fast Fourier Transform (FFT) implementations. FFT computing is part of the \"Spectral Methods\" class of problems and qualifies to be accelerated because it is computationally intensive, of average complexity and widely used as one of the backbone algorithms in modern computing. In order to achieve the desired throughput or latency, different parameters are used for testing, regarding both the accelerator hardware and the FFT. Evaluation is done in simulation, targeting FPGA implementation. FFT is shown to work efficiently on our architecture, either latency or throughput (and in some circumstances, both by a smaller amount) can be improved linearly or even supralinearly compared to a single-core solution. Accelerations obtained vary between ~0.5 x p and ~1.5 x p where p is the number of accelerator cores.",
+    "keywords": [
+     "FFT",
+     "general-purpose accelerator",
+     "heterogenous computing",
+     "map-scan accelerator",
+     "parallelism"
+    ],
+    "doi": null,
+    "pages": "123-136",
+    "source_file": "paper766.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 40,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 62.25,
+    "composite": 46.69,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "No code or data released. The only link is to supplementary tables: \"[27] M. ANTONESCU and M. MALIŢA, Supplementary material ... [Online] https://drive.google.com/file/d/1ECA9tcI8YBevY-2wAvjW7lCTfOtOQQ8G/view?usp=sharing\", described in the text as a literature summary table and additional estimations; the assembly kernels and simulator are not released.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "9 of 27 references (33%) include an author of this paper: [2], [4], [5], [6], [7], [14], [22], [23] (Maliţa or Antonescu) and [27] (the authors' own supplementary material). Excluding [27], the ratio is 8/26 (31%), still above the 30% threshold. The self-citations are topically related (the authors' accelerator lineage), so no IRRELEVANT_SELF_CITATION is raised."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simulation study mapping FFT variants onto the authors' Map-Scan accelerator; light, appropriate formalism and informative tables, but a self-citation ratio above 30% and no released code or simulator.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Mapping several data organisations of the FFT (horizontal, vertical, square and rectangular matrix) onto a custom SIMD Map-Scan accelerator and reporting cycle counts from simulation.\n**Level:** 2 (Low)\n**Rationale:** The FFT and the transpose-based four-step decomposition are well known; the contribution is an engineering adaptation and empirical evaluation on the authors' own architecture. The asymptotic remarks (O(p/log p), O(p)) are informal and not proved.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 numbered; two pseudocode listings (transpose, square-matrix FFT) and informal big-O statements\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The pseudocode is the natural way to describe the data movement and passes the necessity test.\n\n### Issues\nNone identified in the formalism. Some claims are loose: the abstract reports accelerations between ~0.5p and ~1.5p, while Section 5 states latency improvement ranges from ~1.5 to just under 96, and the discussion lists speed-ups (\"Horizontal setup: sqrt(n) ... Square setup ... n\") whose derivation is not shown.\n\n---\n\n## Citation Analysis\n\nNine of 27 references involve the authors (Maliţa in [2], [4], [6], [7], [14], [22], [23]; Antonescu in [5]; both in [27], the supplementary material). All concern the same accelerator family or its applications and are relevant, but the ratio (33%, or 31% excluding the supplement) exceeds 30%. Several other references are to the same research group (Ştefan, Popescu, Dragomir), which further concentrates the citation base, though these are not counted as self-citations.\n\n---\n\n## Structural Analysis\n\nResults are presented in five tables from a 64-cell simulation; comparison against CPU (FFTW), GPU (cuFFT benchmark) and a Xilinx FFT IP is frequency-scaled and acknowledged as fixed-point versus floating-point, which is a fair caveat. Hardware claims (\"completely scalable\", \"much more energy efficient\" than the GPU) are asserted without measurement. A limitation is acknowledged inline: \"this study is limited by the lack of a proper SDK and toolchain with which complete hardware evaluations can be done.\" No accelerator code, assembly kernels or simulator is released; the Google Drive link holds supplementary tables only.\n\n---\n\n## Conclusion\n\nA reasonable engineering evaluation with proportionate presentation and an honest note on fixed-point arithmetic and the missing toolchain. The citation profile is the main concern: one third of the references are the authors' own, which triggers the disqualifying self-citation flag despite their topical relevance. Reproducibility is limited because nothing executable is released."
+  },
+  {
+   "paper_id": "serban2024",
+   "paper": {
+    "title": "Some Considerations about the Sensing Mechanisms and Electrical Response of Carbon Nanohorns-based Gas Sensors",
+    "authors": [
+     "Bogdan-Catalin Serban",
+     "Octavian Buiu",
+     "Niculae Dumbravescu",
+     "Mihai Brezeanu",
+     "Cornel Cobianu",
+     "Marius Bumbac",
+     "Mihaela Nicolescu"
+    ],
+    "abstract": "This paper aims to analyze the sensing mechanisms involved in the resistive detection of relative humidity, ethanol vapors, oxygen, ozone, ammonia, hydrogen sulfide, and hydrogen using carbon nanohorns (pristine and functionalized) and their nanocomposites/nanohybrids as sensing layers. Different alternative mechanisms are considered and discussed: decreasing holes in the carbonaceous component at the interaction with moisture, protonic conduction (Grotthuss mechanism), and swelling. The hard-soft acid-base (HSAB) theory's role is also highlighted as a valuable tool for understanding the essential interaction of nanocarbon materials with water molecules. The role of each constituent of the sensing layer is interpreted based on their chemical and physical properties and mutual interactions. For each tandem sensing layer - gas detected, the dominant sensing mechanism is associated with the electrical response of the sensor.",
+    "keywords": [
+     "Carbon nanohorns (CNHs)",
+     "gas sensor",
+     "Hard Soft Acid Base (HSAB) theory"
+    ],
+    "doi": null,
+    "pages": "137-150",
+    "source_file": "paper767.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 56.25,
+    "composite": 42.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "20 of 48 references (42%) include at least one author of this paper: [3], [11], [20]-[29], [31]-[35], [42]-[44]. The paper is in effect a review of the authors' own CNH sensor publications.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment that the mechanism assignments are qualitative interpretations rather than tested hypotheses."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Qualitative review of sensing mechanisms in carbon-nanohorn resistive sensors, built largely on the authors' own prior papers; no formalism issues, but a 42% self-citation ratio, reference-list errors and no stated limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Narrative review and interpretation of sensing mechanisms (hole depletion, Grotthuss conduction, polymer swelling, HSAB interactions, p-n heterojunctions) for CNH-based resistive humidity and gas sensors.\n**Level:** 1 (Trivial)\n**Rationale:** A review/survey of previously published experimental results with qualitative mechanistic discussion; no new model, algorithm or experiment.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 chemical reaction equations (oxygen ionosorption and ethanol oxidation), plus a sensitivity ratio in Table 1\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The reaction schemes are standard chemistry notation and carry content English would express less precisely.\n\n### Issues\nNone identified in the formalism.\n\n---\n\n## Citation Analysis\n\nTwenty of 48 references (42%) are by one or more of the authors (Serban, Buiu, Dumbravescu, Brezeanu, Cobianu, Bumbac, Nicolescu). Most describe the very sensors being reviewed and are topically relevant. Some are marginal for the point they support: [3] (ZnO-graphene nanohybrid synthesis) is cited for graphene in general, and [32] (a general overview of SAW devices) is cited, with [31] and [33], as a source for Pearson's HSAB classification. These are judged marginal (similarity ~0.3-0.5) rather than unrelated, so IRRELEVANT_SELF_CITATION is not raised.\n\nThe reference apparatus has integrity problems: the text cites [48, 49] for PVP swelling, [51] and [54], but the list ends at [48]; [54] is attributed to the In2O3-CNH sensor, which appears as [39]; Fig. 2 is attributed to [22] while the text attributes the data to [20]; and Watts et al. is cited as [1] for hydrogen bonding but [1] is also used as the generic carbon-nanotube reference. Several listed references ([34]-[37], [39]) are never cited correctly in the text.\n\n---\n\n## Structural Analysis\n\nThe discussion is plausibility reasoning; several mechanisms are proposed and then dismissed as inconsistent with the measured response direction, which is a sensible use of evidence, but the dominant-mechanism assignments in Table 1 are asserted rather than tested. Claims are supported mainly by citation to the authors' prior work. No limitations are acknowledged. There is nothing to release (review), so artifact relevance is marked false.\n\n---\n\n## Conclusion\n\nA readable but self-referential review. Formalism is appropriate, but the self-citation ratio is far above the 30% threshold and the reference list contains several mismatches and dangling citations, which together undermine the citation integrity of the paper."
+  },
+  {
+   "paper_id": "taskin2024",
+   "paper": {
+    "title": "Real-Time Low Energy Indoor Positioning System to Efficient Use of Operating Theaters with Medical Asset and Staff Tracking",
+    "authors": [
+     "Deniz Taşkın",
+     "Cem Taşkın",
+     "Selçuk Yazar",
+     "Alkin Çolak"
+    ],
+    "abstract": "Efficient use of operating theaters would benefit hospitals financially as well as reducing the waiting time required for surgery. The aim of this study is to determine the frequency of use of the operating theatres and the amount of waste time in the use of those rooms for the different surgical branches. For this study, \"intelligent transmitters with low energy consumption\" will be placed on the operating tables, the patient's stretcher and on the all working staff. Intelligent transmitters with low energy consumption will communicate over ISM (Industrial Scientific Medical) band. By analyzing the data obtained after 6 months period; the workload of the operation theatres will be determined for the different surgical branches. With the system developed in this study, operating theater efficiency and personnel performance were examined by calculating \"insufficient time\" (planned time - busy time) or \"overused time\" (participated time - planned time). The results obtained with the approach in this study showed that 23.7% of the time was saved. Since the average two-year number of surgeries at Trakya University Research Hospital is around 15,000, this improvement could boost clinical quality improvement initiatives by increasing the more efficient use of operating rooms.",
+    "keywords": [
+     "Bluetooth low energy",
+     "indoor positioning",
+     "management service organizations",
+     "medical Internet of Things",
+     "operating theater information systems"
+    ],
+    "doi": null,
+    "pages": "151-165",
+    "source_file": "paper768.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 80,
+    "structural_integrity": 35,
+    "artifact_availability": 30,
+    "intellectual_integrity": 36.75,
+    "composite": 35.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "claimed",
+    "relevant": true,
+    "evidence": "\"Open source BLE gateway platform and tailor-made portable BLE beacons with a service life of more than two years.\" No repository or download link is given; the only link is to a supplementary .docx of figures and tables ([28], https://personel.klu.edu.tr/.../supplement material romjist.docx).",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 system description (BLE beacons, gateways, database, web reports) with equations (1)-(2) that fail the necessity test: TM = median(PT) - (sum BST_n + sum PWBT_m) and T = COV(UTSDepth, TM)(UTSDepth, TM). The covariance expression is not well defined (a covariance of two quantities multiplied by a repeated argument list), the notation mixes a median with sums over undefined index ranges, and the text never shows how T yields the reported overused or insufficient times. A plain statement of 'planned minus busy time per department' is what the analysis actually needs."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Hospital BLE asset- and staff-tracking deployment described at system level, decorated with ill-defined equations; the headline 23.7% saving is weakly supported and the claimed open-source platform is not linked.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Deployment of commercial and custom BLE beacons (TI CC2541), Linux gateways and an ASP.NET/Flutter management system to log stretcher and staff presence in operating theatres over six months.\n**Level:** 1 (Trivial)\n**Rationale:** System integration of existing components with data logging and descriptive reporting; the gateway pseudocode is a scan-and-upsert loop.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (time median and a covariance expression), plus the listing of gateway pseudocode\n\n### Proportionality\nCalculated complexity: 0 by the definitions/theorems/proofs count\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Within the count, but the zero-tolerance rule applies: both equations fail the necessity test.\n\n### Issues\nEquation (1) writes a median of planned time minus sums of beacon and wristband times with indices running from 1 to n and 1 to m but subscripted by n and m; equation (2) is written as T = COV(UTSDepth, TM)(UTSDepth, TM), which is not a meaningful expression. The paper then says insufficient time is obtained by rearranging variables in (1) and computing the covariance, without showing the procedure. The notation adds an appearance of rigour without specifying the computation.\n\n---\n\n## Citation Analysis\n\nTwo of 34 references involve the authors: [26] (their BLE greenhouse sensor node, cited for battery life; related) and [28] (supplementary material). Self-citation is low.\n\nA separate concern: two introductory paragraphs on 'advanced techniques' for BLE localisation cite [13]-[18], which concern an extended Kalman filter for a strip-winding system, biomonitoring data in Moldova, Parkinson's diagnosis from spiral tests, cognition-process modelling, tower-crane tensor-product modelling and fuzzy AHP for equity financing. None is about indoor positioning or used later, one in-text citation is rendered as \"[?]\", and refs [16]-[18] are not cited by number. These read as padding with off-topic citations; they are not self-citations and no mutual-citation evidence is available, so no citation flag is raised, but citation integrity is reduced.\n\n---\n\n## Structural Analysis\n\nMuch of the text is promotional (\"expected to revolutionize OR management practices\", \"sets the stage for a transformative shift\"), and the security section lists generic best practices (AES, HTTPS, pseudonymisation) without stating what was implemented. Core results (descriptive statistics and Figs. 2-7) are moved to a supplementary document. The 23.7% saving is attributed to management restrictions imposed after the data were seen, in two departments, without a control period or statistical test, so the causal claim is weak. The abstract says data over six months, the text says a three-month period in one place. Inline mention of signal interference and multipath issues, stated as overcome by adding gateways, counts as a limited acknowledgment. The 'open source BLE gateway platform' is claimed as a contribution but no link is given.\n\n---\n\n## Conclusion\n\nA practical hospital deployment that would be adequately reported as a systems case study, but the equations are decorative and ill-formed, which triggers FORMALISM_THEATER at Level 1. The evidence for the efficiency gain is thin, the off-topic citation block is a concern, and the claimed open-source release is not obtainable from the paper."
+  },
+  {
+   "paper_id": "muller2024",
+   "paper": {
+    "title": "Editorial: Special Issue on Electronics, Microtechnologies and Materials Science",
+    "authors": [
+     "Raluca Müller",
+     "Miron Adrian Dinescu"
+    ],
+    "abstract": "Guest editorial introducing a special issue of seven extended papers from the International Semiconductor Conference CAS 2023, with a description of the conference and short summaries of each paper.",
+    "keywords": [],
+    "doi": null,
+    "pages": "166-171",
+    "source_file": "paper769.pdf"
+   },
+   "concept_level": null,
+   "scores": {
+    "formalism": null,
+    "citation_integrity": null,
+    "structural_integrity": null,
+    "artifact_availability": null,
+    "intellectual_integrity": null,
+    "composite": null,
+    "final": null
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EDITORIAL"
+   ],
+   "flag_details": {
+    "EDITORIAL": "Guest editors' introduction to the CAS 2023 special issue: conference statistics and summaries of the seven selected papers. Not a research paper."
+   },
+   "verdict": {
+    "classification": "NOT_APPLICABLE",
+    "disqualified": false,
+    "record_type": "editorial"
+   },
+   "provenance": "## Editorial\n\nThe document is a guest editorial by the CAS 2023 special-issue editors. It describes the conference (participants, sessions, satellite events) and summarises the seven extended papers that follow in this issue (papers 770-776). It contains no research contribution and no references, so the RUIN framework is not applied."
+  },
+  {
+   "paper_id": "bunea2024",
+   "paper": {
+    "title": "Passive Radio Frequency Identification Tag with Frequency Doubler and Energy Harvesting",
+    "authors": [
+     "Alina-Cristina Bunea",
+     "Ovidiu George Profirescu",
+     "Dan Neculoiu"
+    ],
+    "abstract": "The paper presents the simulation and experimental results obtained for a passive RFID tag based on the integration of microstrip patch antennas and a frequency doubler circuit on the same low-cost FR-4 substrate. The fundamental frequency used for the interrogation signal is f0 = 2.5 GHz, with the second order harmonic 2f0 = 5 GHz generated by the doubler used to send back the information from the tag. Nonlinear simulations based on the NSR201MXT5G diode parameters showed that an input power of only 400 mW at 2.5 GHz is enough to generate a DC current of 2.3 mA and a DC voltage of 4.6 V across a 2 kOhm load resistance, and provide an output power of 7.8 mW at 5 GHz. Measurement results demonstrating the energy harvesting feature of the RFID tag show a detected DC current of 0.226 mA at 2.6 GHz for a 300 mm distance between reader and tag antennas for a power of ~30 mW (15 dBm) at the reader antenna input. The results show an increase of the readout distance compared to previous work, with a demonstrated RFID link at 100 cm showing a clear rectangular demodulated signal.",
+    "keywords": [
+     "Energy harvesting",
+     "frequency doubler",
+     "microstrip patch antenna",
+     "RFID",
+     "Schottky diode"
+    ],
+    "doi": null,
+    "pages": "172-182",
+    "source_file": "paper770.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.5,
+    "composite": 59.62,
+    "final": 59.62
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Hardware integration of a harmonic RFID tag on FR-4 with simulation-measurement comparison; proportionate formalism and modest, related self-citation; no design files or measurement data released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design, fabrication and measurement of a passive harmonic RFID transponder integrating 2.5 GHz and 5 GHz patch antennas with a Schottky-diode frequency doubler on one FR-4 board.\n**Level:** 2 (Low)\n**Rationale:** Standard microwave design practice (patch antenna design rules, S-parameter-based doubler design, harmonic-balance simulation) applied to integrate components the authors had previously demonstrated separately.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (Friis transmission equation for gain extraction)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; the Friis equation is used directly to extract antenna gain.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThree of 19 references (16%) are the authors' own ([6], [7], [8]); all are directly related (polarisation-diversity RFID tags and the CAS 2023 predecessor of this paper). Slightly elevated but within the 15-20% band; no flag.\n\n---\n\n## Structural Analysis\n\nClaims are backed by measurement-simulation comparisons (S11, gain, DC current, output power) and a proof-of-concept link at 100 cm. The 13 dB improvement is computed against an extrapolation of the earlier 10 cm result using free-space loss, which is reasonable but not a direct measurement of the old setup at 100 cm. Discrepancies are attributed inline to \"the limited nonlinear model accuracy\" and to modelling-parameter accuracy, which counts as an inline limitation. Typo: the antenna separation is given as \"300 nm\" in one place (300 mm intended). No layouts, simulation files or measurement data are released.\n\n---\n\n## Conclusion\n\nA competent, incremental hardware paper with appropriate formalism and evidence proportionate to its claims. Reproducibility relies on the textual description; no artifacts are provided."
+  },
+  {
+   "paper_id": "grosu2024",
+   "paper": {
+    "title": "On the Modelling Possibilities of Integrated Circuits Behavior Using Active Learning Principles",
+    "authors": [
+     "Vasile Grosu",
+     "Emilian David",
+     "Liviu Goras",
+     "Georg Pelz"
+    ],
+    "abstract": "There are many situations in applications like circuit design, optimization or verification where the simulation time and licensing costs of simulator can become very prohibitive. Therefore, developing metamodels that would mimic circuit behavior for these applications might be highly desired since they can be used at least as a fast preliminary design tool by the engineers to speed up the development process. Efficient sampling strategies can be further employed for further reducing the simulation related costs for designing such metamodels. In this paper we propose two Active Learning sampling schemes that can be used to minimize the number of samples needed for creating reliable metamodels. We validate and compare the approaches with classical fixed sampling schemes on a set of synthetic functions, a simulated circuit and a power device.",
+    "keywords": [
+     "Active learning",
+     "adaptive sampling",
+     "integrated circuit design",
+     "Gaussian process regression",
+     "metamodels",
+     "neural networks regression"
+    ],
+    "doi": null,
+    "pages": "183-195",
+    "source_file": "paper771.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 95,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 77.75,
+    "composite": 58.31,
+    "final": 53.31
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the LDO design is stated to be proprietary: \"The real design architecture we have used is Infineon Proprietary which we cannot disclose.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints (single runs without variance across seeds, proprietary test cases, the 10n initial-sample choice, scaling of the ensemble approach). The only caveat is non-monotone error curves, explained as stochasticity."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Variance-driven active-learning sampling with GPR and a 10-network ensemble applied to circuit metamodelling; standard, appropriately stated equations, but evidence is single-run error curves and no limitations are acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Uncertainty-based active-learning sampling for surrogate models of circuits, using GPR variance or the variance of a 10-fold neural-network ensemble, compared with random and Latin hypercube sampling.\n**Level:** 2 (Low)\n**Rationale:** Maximum-variance sampling with GPR and ensemble variance with neural networks are established techniques; the paper applies them to IC metamodelling.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 (GPR posterior mean and variance, kernel, argmax acquisition, UCB, MLP form, ensemble mean/variance, rRMSE)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are textbook GPR and ensemble statistics that define what is implemented; they pass the necessity test, though they are expository rather than novel.\n\n### Issues\nMinor notational slips: the noise term is written sigma_n rather than sigma_n^2 in (3)-(4), the UCB in (8) uses variance rather than standard deviation, and (10) writes y = f(s) with garbled vectors. The introduction's organisation paragraph is duplicated verbatim.\n\n---\n\n## Citation Analysis\n\nOne of 20 references (5%) is the authors' own ([11], the CAS 2023 predecessor), and it is directly relevant. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe claims that the AL schemes are \"more accurate given any number of variable samples\" and that the advantage \"was experimentally proven\" rest on single error-trend curves per case (Figs. 6, 7, 9) without repeated runs, confidence intervals or sample-count savings quantified. The training-time table supports the scaling argument. The circuit cases are proprietary, and the synthetic benchmark (F21 from Plevris and Solorzano) is public but no code or sampled data is released. No limitations are stated.\n\n---\n\n## Conclusion\n\nA clear, modest application paper with proportionate formalism and clean citations. The empirical evidence is thin relative to the strength of the conclusions, and the absence of any acknowledged limitation is a structural weakness."
+  },
+  {
+   "paper_id": "pristavu2024",
+   "paper": {
+    "title": "Accurate Numerical Methods for Modeling Forward Characteristics of High Temperature Capable Schottky Diodes",
+    "authors": [
+     "Gheorghe Pristavu",
+     "Dan-Theodor Oneaţă",
+     "Răzvan Pascu",
+     "Alina Elena Marcu",
+     "Matei-Constantin Şerbănescu",
+     "Andrei Enache",
+     "Florin Drăghici",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "The paper discusses two algorithms for accurately determining solutions to the transcendental thermionic emission equation, which is the cornerstone of forward electrical behavior in Schottky diodes. The numerical techniques are developed based on the Newton-Raphson and Halley methods. Both approaches use distinct forms for the thermionic emission expression, emphasizing robustness against numerical overflows. Parameter initialization, complexity and applicability are discussed for each technique. A comparison is carried out between forward characteristics simulated with the two methods, which are then also used for characterizing real SiC-Schottky diodes. Results evince complete compatibility and highly accurate approximations of experimental measurements (R2 ~ 99.9%) on devices with different contact compositions.",
+    "keywords": [
+     "Forward characteristics",
+     "numerical methods",
+     "Schottky diode",
+     "thermionic emission equation"
+    ],
+    "doi": null,
+    "pages": "196-206",
+    "source_file": "paper772.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 60,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 70.0,
+    "composite": 52.5,
+    "final": 47.5
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (implementations in C++ and Python are described but not released)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "6 of 22 references (27%) include an author of this paper: [5], [9], [10], [11], [12], [14]. All are on SiC Schottky diode modelling and are relevant; [14] is the CAS 2023 version of this work and is cited for most figures and tables."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Overflow-robust Newton-Raphson and Halley solvers for the thermionic emission equation, validated against SiC diode measurements; necessary, well-used equations, with an elevated but relevant self-citation ratio and no released code.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Reformulating the implicit thermionic-emission I-V equation (with series resistance) so that Newton-Raphson and Halley iterations are robust to numerical overflow, and using them to fit measured SiC Schottky characteristics.\n**Level:** 2 (Low)\n**Rationale:** Both root-finding methods are standard; the contribution is a careful reformulation (log form for NR; the x + e^x = a form, akin to the Lambert-W approach, for Halley) and initialisation, applied to a known device model. No convergence proofs or new algorithms.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 19 (TE equation, NR and Halley updates, the algebraic reformulations, initial estimates)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Each equation is a step of the implemented computation; removing them would change what a programmer builds. They pass the necessity test.\n\n### Issues\nMinor: the text says \"equation (7) was normalized\" where (17) is meant, and convergence speed claims (quadratic vs cubic) are standard properties rather than shown empirically (no iteration counts or timings are reported).\n\n---\n\n## Citation Analysis\n\nSix of 22 references (27%) are by the authors' group: [5], [9], [10], [11], [12], [14]. All are on SiC Schottky diode characterisation and inhomogeneity modelling, and relevant. The ratio falls in the 20-30% band. Much of the evidence (Fig. 1, Fig. 2, Table 1) is credited to [14], the authors' conference version.\n\n---\n\n## Structural Analysis\n\nThe agreement claims (R^2 > 99.99% between methods, ~99.9% versus measurement) are supported by figures and parameter tables over 25-400 C and three contact metals, including a two-diode inhomogeneity fit at 406 C. The method drawbacks are acknowledged inline (NR requires sequential initialisation; Halley needs second derivatives), which counts as an inline limitation, although no limitations of the fits themselves (parameter uniqueness, fixed n = 1.03) are discussed. No code is released despite two implementations being described.\n\n---\n\n## Conclusion\n\nA sound, focused numerical-methods paper whose formalism is exactly what the implementation requires. The self-citation ratio is elevated but topically justified; releasing the solvers would have been straightforward and would markedly improve reproducibility."
+  },
+  {
+   "paper_id": "bulzan2024",
+   "paper": {
+    "title": "Theoretical Studies of Intensity and Phase Based Surface Plasmon Resonance Sensors",
+    "authors": [
+     "George Andrei Bulzan",
+     "Roxana Tomescu",
+     "Mihai Kusko"
+    ],
+    "abstract": "In this work are presented the numerical results of reflectvity and phase dependence on the incidence angle for SPR configurations based on fused silica and BK7 substrate for various wavelengths from visible range. We have also determined the external angle of incidence on a right angle prism for optimal SPR sensitivity both for intensity and phase measurements.",
+    "keywords": [
+     "Abeles matrices method",
+     "sensing",
+     "surface plasmon resonance"
+    ],
+    "doi": null,
+    "pages": "207-216",
+    "source_file": "paper773.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 65,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 69.25,
+    "composite": 64.44,
+    "final": 59.44
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The exact refractive index values corresponding to the wavelengths of the two materials are given in [3]\", with [3] = https://refractiveindex.info/, and metal optical constants from published sources [4], [5]. The C++ Abeles-matrix code is not released.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "2 of 8 references (25%) are by the authors: [7] (the CAS 2023 intensity-only version of this work) and [8] (Kusko 2012, prism angle relation). Both are relevant; the short reference list inflates the ratio."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Transfer-matrix simulation of Kretschmann SPR responses to choose external incidence angles for BK7 and fused-silica prisms; no formalism issues, public input data, but thin analysis without experimental validation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Numerical computation (Abeles transfer-matrix method) of reflected intensity and phase versus internal angle for Cr/Au SPR sensors on BK7 and fused silica at 635, 670 and 780 nm, and conversion of optimal internal angles to external prism incidence angles.\n**Level:** 2 (Low)\n**Rationale:** Applies a standard multilayer optics method to a parameter sweep; no new model or algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (the angle relation is taken from [8] and Snell's law without being reproduced)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; if anything under-specified, since neither the transfer-matrix formulation nor the angle relation is written out.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo of eight references (25%) are the authors' own; both are directly related. The ratio is driven by the very short reference list. No unrelated self-citations.\n\n---\n\n## Structural Analysis\n\nThe paper reports angles of steepest response read from plotted curves; sensitivity is not quantified (no slope values, figures of merit or comparison between intensity and phase sensitivity), and \"promising\"/\"good\" results are asserted qualitatively. No experiment validates the simulations; the introduction defers experiments to future work. The scope statement \"This analysis is valid when the refractive index of the analyte has values between 1.33 and 1.36\" counts as an inline limitation. Input optical constants come from public sources (refractiveindex.info and cited papers), so the data the results rest on is public, but the simulation code is not released.\n\n---\n\n## Conclusion\n\nA short design-support simulation study with no formalism concerns. Its evidential content is limited to plotted curves and a lookup table, and the self-citation ratio is elevated mainly because the reference list is so short."
+  },
+  {
+   "paper_id": "calinescu2024",
+   "paper": {
+    "title": "8-bit Dynamic Element Matching based Feedback Controller Applied to an Instrumentation Amplifier",
+    "authors": [
+     "Alex Calinescu",
+     "Marius Enachescu",
+     "Alexandru Antonescu",
+     "Sorin Cotofana"
+    ],
+    "abstract": "The instrumentation amplifier, which incorporates Dynamic Element Matching (DEM) and a resistive network, utilizes a digital controller to reduce gain error by means of averaging. This paper assesses the feasibility of combining, within a general-purpose microcontroller, the appealing DEM, i.e., very accurate resistive ratios ranging between 1 and 15, with the associated versatile and scalable interrupt-aware digital controller. Given a mixed-signal system, a hybrid evaluation environment has been developed to perform relevant test-benches for assessing the systems performance, i.e., DEM controller, muxes, OpAmps, with respect to relevant metrics for integrated digital and mixed-signal circuits, i.e., energy, delay, footprint, precision. When implementing our design in a commercial 180nm technology, the gain precision of a typical amplifier is improved by more than 1800 times, with the error converging to as low as 10s of ppm, for Gaussian mismatch distribution between -1% and 1% with the cost of DEM digital circuitry which adds about 30000 um2 of chip area and will consume 194 uA.",
+    "keywords": [
+     "Dynamic Element Matching",
+     "digital controller",
+     "gain error",
+     "instrumentation amplifier",
+     "mismatch"
+    ],
+    "doi": null,
+    "pages": "217-228",
+    "source_file": "paper774.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.7,
+    "composite": 59.02,
+    "final": 54.02
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section. The paper is simulation-only (Matlab statistics plus Cadence), but this, the 16x oversampling cost, and the switch-induced voltage spikes are not presented as limitations; the spikes are described as filtered by sampling timing."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Programmable-gain DEM controller for a microcontroller-integrated instrumentation amplifier, evaluated in simulation; minimal, borrowed equations and clean citations, but no limitations and some inconsistently stated precision figures.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A register-programmable digital controller that rotates 16 resistors through switch banks (rotational DEM) to average out mismatch in a two-op-amp instrumentation amplifier, with gain settings 1-15, assessed via Matlab Monte Carlo and Cadence simulation.\n**Level:** 2 (Low)\n**Rationale:** DEM for gain accuracy is established ([3], [4]); the contribution is a configurable peripheral-style controller and its synthesis/simulation figures.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (resistor mismatch model and gain-error expression, both from [3])\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The gain-error expression explains why averaging cancels first-order mismatch.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nOne of eight references (12.5%) is the authors' own ([8], the CAS 2023 predecessor), and it is relevant. The reference list is short (two of eight are datasheets) and omits most of the DEM literature beyond de Jong and Meijer. No self-citation issues.\n\n---\n\n## Structural Analysis\n\nResults are synthesis power/area figures and Monte Carlo histograms. The precision claims are stated inconsistently: the abstract and conclusions say error converges to \"10s of ppm\", Section 4.3 says \"as low as a few tenths of ppm\", and the 1800x improvement is derived from a single random run (5 uV absolute error). The comparison with non-DEM amplifiers is asserted rather than tabulated. All evaluation is in simulation, with no silicon or test-chip measurement, and this is not acknowledged as a limitation. Nothing (RTL, Matlab model) is released.\n\n---\n\n## Conclusion\n\nA reasonable student-level design paper with proportionate formalism and modest, relevant self-citation. Its weaknesses are structural: simulation-only evidence presented without caveats and precision figures that do not agree across sections."
+  },
+  {
+   "paper_id": "romanitan2024",
+   "paper": {
+    "title": "Microstructure of VO2 Thin Films Synthesized by Pulsed Laser Deposition",
+    "authors": [
+     "Cosmin Romanitan",
+     "José Manuel Caicedo",
+     "Razvan Pascu",
+     "Iuliana Mihalache",
+     "Raluca Gavrila",
+     "Marius Stoian",
+     "Nikolay Djourelov",
+     "Jessica Padilla-Pantoja"
+    ],
+    "abstract": "In this paper, pulsed laser deposition (PLD) at low partial oxygen pressure (~10 mTorr) was used to obtain VO2 thin films. During the PLD, the deposition temperature and number of pulses were varied in order to obtain a good sample crystallinity. It was showed by atomic force microscopy (AFM) micrographs that the mean grain size increased from ~40 nm to ~90 nm at a variation of the deposition temperature from 400 C to 500 C. Further, by increasing of both substrate temperature and number of pulses, the mean grain size increases to 220 nm. According to the Rietveld refinement of the experimental X-ray diffraction (XRD) pattern, within the grain size increasing, the mean crystallite size increased from 14 nm to 22 nm, as well as a decreasing of the lattice strain from 0.29% to 0.20%. These dependencies further imply a decreasing of the dislocation density of 2.3 to 0.9 x 10^12 cm-2. At the same time, the optical band gap decreased from 0.72 eV (400 C) to 0.66 eV (500 C), reaching 0.60 eV (600 C). Further investigations performed by X-ray photoelectron spectroscopy (XPS) showed the vanadium oxide presence, by the spin-orbit splitting of approximately 7.5 eV between V 2p3/2 and V 2p1/2 orbitals. Finally, the electrical measurements done in the range of 250-370 K reveal a close relationship between the dislocation density and the observed resistance-temperature dependence.",
+    "keywords": [
+     "Pulsed laser deposition",
+     "resistance-temperature curves",
+     "Rietveld refinement",
+     "vanadium oxide",
+     "X-ray diffraction"
+    ],
+    "doi": null,
+    "pages": "229-240",
+    "source_file": "paper775.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.75,
+    "composite": 59.81,
+    "final": 59.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (ImageJ and CasaXPS are third-party tools)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Experimental PLD growth and multi-technique characterisation of three VO2 films; standard analysis equations and clean citations, but a confounded third sample, inconsistent reported values and no released data.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Growth of VO2 films by PLD at three substrate temperatures (and, for the third sample, more pulses), characterised by AFM, XRR, GI-XRD with Rietveld refinement, diffuse reflectance (Tauc), XPS and R-T measurements.\n**Level:** 2 (Low)\n**Rationale:** Empirical materials study applying standard characterisation methods; no model or algorithm is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (Kiessig thickness, Williamson-Smallman dislocation density, Tauc relation)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; each equation is used to compute a reported quantity.\n\n### Issues\nNone in the formalism.\n\n---\n\n## Citation Analysis\n\nTwo of 33 references (6%) involve the authors: [7] (Caicedo, Padilla) on strain gradients at the MIT in VO2 films, and [21] (the CAS 2023 predecessor). Both relevant. Some citations are loosely matched (e.g. [9] is about titanium oxide annealing, cited for VO2 CVD; [26] on cellulose crystallinity cited for Rietveld fitting), but these are not self-citations.\n\n---\n\n## Structural Analysis\n\nThe study has three samples, and the third changes both temperature (600 C) and pulse count (8500), so effects of temperature and thickness are confounded; this is not acknowledged. Reported values disagree across the paper: dislocation density is 2.3-0.9 x 10^12 cm^-2 in the abstract but x 10^11 in the table and text; the introduction's summary of prior work states a band gap fall from 0.9 to 0.6 eV at 3 to 0.9 x 10^11 cm^-2, while the results report 0.72 to 0.60 eV; the 600 C grain size is ~220 nm (abstract), \"above 300 nm\" (Section 2.4) and 230 nm (later). The correlation between dislocation density and R-T behaviour rests on three points with no repeats. The conclusions describe the work as \"preliminary investigations\", a minimal inline acknowledgment. No data are deposited.\n\n---\n\n## Conclusion\n\nA conventional experimental characterisation paper with proportionate formalism and clean citation practice. Its structural weaknesses are the very small, confounded sample set and several internal numerical inconsistencies that weaken the strength of the stated relationships."
+  },
+  {
+   "paper_id": "brezeanu2024",
+   "paper": {
+    "title": "Improved Serial Peripheral Interface Controller Based on Scan Architecture",
+    "authors": [
+     "Ionelia-Bianca Brezeanu",
+     "Silviu Isari",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "A high performance, digital serial controller having a self-test-based architecture is presented. A standard architecture able to achieve the targeted functionality was modified in order to contain the test mode circuitry for testability improvements. After the importance of creating digital architectures adapted for testability is underlined, we present the high frequency serial controller for analog switches. This block was adjusted for test reasons and implemented into a 3 V CMOS technology. The block is integrated together with input-output pad structures forming an entire chip structure for which the layout was implemented. Based on schematic design simulations, timing checks and defects analysis, the proposed architecture is confirmed.",
+    "keywords": [
+     "Coverage",
+     "design for testability",
+     "digital controller",
+     "scan insertion",
+     "test mode"
+    ],
+    "doi": null,
+    "pages": "241-251",
+    "source_file": "paper776.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.7,
+    "composite": 59.02,
+    "final": 59.02
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Standard scan-chain insertion into the authors' SPI switch controller, re-implemented in 65 nm with 98.54% fault coverage; no formalism and modest self-citation, but a weak like-for-like comparison.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Redesigning a previously published SPI controller for analog switches with a test controller and full-scan insertion, laying out the chip with pads in 65 nm CMOS, and reporting ATPG fault coverage.\n**Level:** 1 (Trivial)\n**Rationale:** A design description applying standard DFT practice (scan flip-flops, test-mode entry, ATPG with a commercial tool) to an existing block; no new method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; no formal elements.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo of 19 references (10.5%) are the authors' own ([6], [7]), both directly related (the predecessor controller). Several references are datasheets, lecture slides and a tool manual. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe comparison in Table 1 sets a 180 nm non-scan design (defects counted by an \"indirect method\") against a 65 nm scan design (defects counted by a DFT tool), so the 2218 vs 2334 figures and the 811 vs 4333 gate counts are not like-for-like. Table 3 compares coverage with two unrelated circuits, which is weak evidence of superiority. Validation is by simulation, timing analysis and ATPG only; no silicon. Inline acknowledgments are present: the area cost of scan insertion and the reason coverage stops short of 100% (\"the design' small dimensions ... user mode functionality which had to be preserved\"). Minor inconsistencies: the abstract says 3 V technology, the text 3.3 V; the temperature range is printed once as 40 C instead of -40 C. Nothing is released.\n\n---\n\n## Conclusion\n\nA straightforward industrial design note with no formalism and appropriate citations. Its evidential weakness is comparative rather than formal: the benefits of the scan version are reported against baselines that differ in technology node and measurement method."
+  }
+ ]
+}

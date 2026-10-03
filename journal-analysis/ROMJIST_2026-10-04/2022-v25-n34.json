@@ -1,0 +1,390 @@
+{
+ "batch_id": "2022-v25-n34",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 25,
+  "issue": "3-4",
+  "year": 2022
+ },
+ "papers": [
+  {
+   "paper_id": "teodorescu2022",
+   "paper": {
+    "title": "A Comparative Lexical Analysis of Three Romanian Works – The Etymological Metalepsis Role and Etymological Indices",
+    "authors": [
+     "Horia Nicolai Teodorescu",
+     "Speranta Cecilia Bolea"
+    ],
+    "abstract": "We introduce an etymological perspective in computational linguistic and apply it for the analysis of literary works with self-biographic content. Our hypothesis is that etymological mixtures used by an author may be a powerful stylistic device. We propose and investigate in the frame of computational linguistics the notion of 'etymological metalepsis'; we argue that this device is used by some writers for conveying a sense of the historical frame that their works depict, the specificities of the local context, and even of the sentiments assumed and conveyed by the writer. Three works are analyzed and contrasted from the standpoint of the proposed stylistic device reflecting the etymological mixture used by the author, based on a semi-automated lexicographic analysis and the etymology of the most frequent words. Stylometric indices are suggested in relation with the etymological metalepsis. We also use tools of computational linguistics to elucidate and validate literary critical elements previously published on these oeuvres.",
+    "keywords": [
+     "computational linguistic",
+     "etymology",
+     "style",
+     "stylistic device",
+     "stylometric indices",
+     "Zipf law"
+    ],
+    "doi": null,
+    "pages": "275-289",
+    "source_file": "paper722.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 33.5,
+    "composite": 25.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (the authors' contributions note says one author 'wrote the code for part of the analysis related to parsing', but no code, word lists or etymology annotations are linked; the TTL parser is a third-party tool)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 descriptive stylometric study whose 'etymologic indices' (Eqs. 1-4) are simple proportions of loanwords among the N most frequent words; they are stated in summation and set notation that adds nothing to the plain-English description and is internally inconsistent (L is defined as a set of language indices but then intersected with a text in Eq. 2). The Zipf/harmonic-number argument in Section 6 is informal and does not yield a result the paper relies on.",
+    "UNNECESSARY_SET_THEORY": "Eq. (2), 'n_h,T = count(w), w ∈ L ∩ T, rank(w) ≤ N', uses set intersection for what is a filtered count of the top-N word list by etymology label.",
+    "ELEVATED_SELF_CITATION": "5 of 19 references ([1]-[5]) are by the two authors (SCR ≈ 26%); all are on stylometric segmentation of texts and topically related."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Exploratory stylometric comparison of three Romanian works using loanword proportions; interesting idea but rests on counts from three texts with no statistical testing, and the proportions are dressed in unnecessary and inconsistent set notation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Proposes 'etymological metalepsis' as a stylistic device and measures the share of non-Latin loanwords among the 200-300 most frequent words of three Romanian interwar works.\n**Level:** 2 (Low)\n**Rationale:** An empirical, descriptive corpus study with counts, ratios and an entropy; no new algorithm or model with validated properties.\n\n### Formal Elements\n- Definitions: 0 numbered (5 inline index definitions, Eqs. 1-6)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 8 (indices, entropy, Zipf and harmonic-number sketches)\n\n### Proportionality\nCalculated complexity: 0 (no numbered definitions, theorems or proofs)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Disproportionate in kind, not count. The indices are proportions ('loanwords from language h among the top N words, divided by N') that any reader could compute from a one-sentence description. Eq. (2) writes the filter as a set intersection `w ∈ L ∩ T` even though L was defined as a set of language indices, not words. Eq. (6) is garbled in its index structure. The Zipf discussion in Section 6 mixes a harmonic-number argument with an integral of r^-u and ends with 'there is some model different from' uniform mixing, which is not a formal result.\n\n### Issues\n- Set notation for a filtered word count (Eq. 2).\n- Tables 1 and 4 contain the same counts, the second just written as fractions (e.g. '7/250').\n- The claim that the use of loanwords is 'reflected in and proved by the statistics' rests on three texts and on a linear fit (R² 0.79-0.94) over a handful of points, with no significance testing or baseline corpus.\n\n---\n\n## Citation Analysis\n\nFive of 19 references are by the authors ([1]-[5], prior work on stylometric text segmentation). They are relevant to the present study but put the SCR at about 26%. Reference [18] is by M. Teodorescu, who is thanked in the acknowledgement but is not an author, so it is not counted as a self-citation. Reference [19] (Montemurro, arXiv cond-mat/0104066) carries the title of [18] ('Machine learning methods for strategy research'), which is a bibliographic error.\n\n---\n\n## Structural Analysis\n\nThe paper is mostly descriptive and interpretive. Its main claims, that etymological mixture works as a deliberate stylistic device and that the indices confirm critics' opinions, are argued from counts in three works. The authors note some limits inline: the adverb stop-word choice and the exclusion of French/Italian loans are called 'disputable', the device is hard to translate, and analysing 500+ words is left to future work. There is no dedicated limitations section. No code, word lists or etymology annotations are released.\n\n---\n\n## Conclusion\n\nA novel humanities-computing idea presented with thin evidence. The quantitative apparatus is simple proportions and an entropy, written in notation that is unnecessary and sometimes inconsistent; under the framework's zero-tolerance rule for Level 2 papers this triggers the formalism-theater flags. Self-citation is elevated but topical."
+  },
+  {
+   "paper_id": "ogutcu2022",
+   "paper": {
+    "title": "Early Detection of Mortality in COVID-19 Patients Through Laboratory Findings with Factor Analysis and Artificial Neural Networks",
+    "authors": [
+     "Selçuk Öğütcü",
+     "Melih İnal",
+     "Cantekin Çelikhasi",
+     "Uğur Yıldız",
+     "Nurettin Özgür Doğan",
+     "Murat Pekdemir"
+    ],
+    "abstract": "In this paper, some biochemical findings of patients who applied to Kocaeli University Faculty of Medicine Emergency Service with suspicion of COVID-19 are examined. The common characteristics of the cases regarding mortality status are analyzed via factor analysis (FA). Following the FA, blood parameters related to the severity of the cases are determined. Finally, a multi-layered artificial neural network (ANN) is trained with these parameters. This paper proposes a method that helps early detection of severe cases and determination of non-risk group vaccination priority. Thus, the main contribution is the creation of a decision-support system to start advanced medical support as soon as possible. The data set consists of 105 patients with 19 different input parameters. After FA, 7 parameters are found relevant to one-month mortality. These are HB, AST, BUN, LDH, pH, HCO3 and LAC. The chi-square value was 1252.9552, the p value for the significance level of 0.05 was close to zero (7.3696x10^-156). An ANN is accurately trained based on this subset of the data. The most successful model of ANN's training and testing errors as a root sum squared estimate of error (RSSE) are 0.1958 and 0.2402, respectively. This ANN model can be queried for patient data with determined parameters. This paper shows that the early detection of patients who can have the severe or fatal disease can be determined regarding COVID-19. The proposed method can be used to determine vaccination priority, for early intervention to expected severe course of treatment, and medical analysis and analytics of unknown diseases via their outcomes, enriched with numerical laboratory test results.",
+    "keywords": [
+     "artificial neural networks",
+     "COVID-19",
+     "factor analysis",
+     "triage"
+    ],
+    "doi": null,
+    "pages": "290-302",
+    "source_file": "paper723.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 80,
+    "structural_integrity": 30,
+    "artifact_availability": 100,
+    "intellectual_integrity": 65.5,
+    "composite": 74.12,
+    "final": 69.12
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"The python code and the dataset of the algorithm can be accessed via the following link: https://github.com/selcukogutcu/COVID-19.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "There is no limitations section, and the strong clinical claims (triage, vaccination priority) come with no acknowledgement of the small single-centre sample (105 patients, about 10 deaths), the absence of a validation set, or the repeated train/test reshuffling until the test error falls below a threshold."
+   },
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Standard factor analysis plus a small MLP on 105 patients; code and data are released, but the evaluation repeatedly reshuffles the test split until the error falls below a threshold, which cannot support the clinical decision-support claims.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Selecting seven blood biomarkers by factor analysis and training a three-hidden-layer MLP to predict one-month mortality in 105 COVID-19 emergency patients.\n**Level:** 2 (Low)\n**Rationale:** A straightforward ML application of existing methods (FA with varimax, gradient-descent MLP) to a new clinical dataset.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (RSSE, neuron sum, log-sigmoid, momentum update, FA model)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are textbook material, but the training steps refer to them, so they are not decorative. Eq. (4) omits the minus sign of gradient descent, and the FA model's set-membership symbols are lost in the text.\n\n### Issues\nNone at the level of theater patterns.\n\n---\n\n## Citation Analysis\n\nTwo of 28 references involve authors of this paper: [26] (Öğütcü, the same FA+ANN method applied to student grades; related) and [27] (Karaağa, İnal and Deniz, ANN for rubber cure time; cited only for a generic ANN description, marginal relevance of about 0.3-0.4, not counted as unrelated). SCR is about 7%. Section 1.3 contains a paragraph promoting 'the Process Control group of the Politehnica University Timisoara' with references [20], [21], [24] (prosthetic hand fuzzy control, fuzzy C-means), which have little bearing on COVID-19 mortality prediction. This looks like reference padding, but the paper gives no evidence of mutual citation, so no ring flag is raised.\n\n---\n\n## Structural Analysis\n\nThe methodology does not support the claims. The text says 150 patients, 105 usable and 47 excluded, which do not add up. It says 19 parameters but lists 18. With a mortality mean of 0.095 there are about 10 deaths, so a 20% test split holds about two positives. The training loop reshuffles the train/test split and retrains until train error plus test error falls below 0.5, keeping the best model. This is selection on the test set. The authors also say 'ANN could not provide enough good performance in the data reserved for validation' and then dropped validation. No sensitivity, specificity, AUC or calibration is reported. The 'Dynamic Threshold Value' is fitted after the fact to the outputs. Claims about triage and vaccination priority go well beyond this evidence. On the positive side, code and data are publicly linked on GitHub.\n\n---\n\n## Conclusion\n\nFormalism is proportionate and artifacts are exemplary for the corpus. The structural integrity is poor, however: the reported error is optimistically biased by the test-set reshuffling loop, the sample is very small, and no limitations are acknowledged."
+  },
+  {
+   "paper_id": "hirpara2022",
+   "paper": {
+    "title": "State Estimation of Permanent Magnet Synchronous Motor Dynamics Using Higher-order Continuous-Discrete Filtering Equations",
+    "authors": [
+     "Ravish H. Hirpara"
+    ],
+    "abstract": "In electrical machine theory the permanent magnet synchronous motor (PMSM) dynamics has been studied extensively. In this paper we have derived filtering equations of PMSM dynamics using higher-order continuous-discrete filter and simulated these equations with two sets of initial values. In this paper process noise is involved with continuous state dynamics of the PMSM and that is coupled with discrete measurement equation, which is involved with discrete measurement noise. Notably, the filtering equations of this paper explicit contribution of the predicted estimate and the observation noise to filtered estimate. The filtering theory presented in this paper will be useful to applied mathematicians, control engineers for better understanding of the continuous-discrete filtering equation of the non-linear dynamics, especially for stochastic problems arising from intelligent industrial systems.",
+    "keywords": [
+     "continuous-discrete filtering equations",
+     "non-linear filtering",
+     "PMSM dynamics",
+     "stochastic differential equations",
+     "stochastic systems"
+    ],
+    "doi": null,
+    "pages": "303-321",
+    "source_file": "paper724.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 75,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 67.0,
+    "composite": 50.25,
+    "final": 45.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (simulation parameters are listed, but no code is released)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "There is no limitations section and no inline acknowledgement: computational cost, the Gaussian closure assumption, and the fact that the second-order measurement terms vanish for the linear observation model are not discussed as constraints."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Applies an existing second-order continuous-discrete filter to the textbook two-phase PMSM model; the derivation is legitimate, but the superiority claim over the EKF rests on visual inspection of simulated variance plots, with no quantitative error metrics.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Writing out second-order continuous-discrete nonlinear filter equations (from earlier work [7], [24]) for a standard stochastic two-phase PMSM model and comparing them with the EKF in simulation.\n**Level:** 2 (Low)\n**Rationale:** An existing filtering method applied to a known model. The 'derived the first time' equations are a mechanical instantiation of general formulas with the PMSM drift and Jacobians. No new estimator, convergence or stability analysis is given.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 52 (general filter, PMSM SDEs, mean/covariance evolutions, EKF counterparts)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the implementation itself: a programmer would need the drift, the Hessian correction terms and the covariance ODEs to code the filter. They are long but not decorative. The volume is inflated by duplication: covariance equations (41)-(50) of the EKF are identical to (21)-(30), and update equations (51)-(52) are identical to (31)-(32). The paper concedes that the extra measurement terms vanish because the observation is linear and the process noise is state-independent.\n\n### Issues\nNone at the level of theater patterns. Because the covariance equations are identical in form, any difference between the two filters comes only through the mean-correction terms. This undercuts the paper's explanation that 'the reduced variances are attributed to additional correction terms' in the variance evolutions.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 25 ([3], Fokker-Planck equation for an SMIB system; related stochastic power-system work). SCR is 4%. The introduction strings together references with no bearing on PMSM filtering: [18], [19], [21], [23] (Precup and co-authors on fuzzy control, cognition and tower cranes), [20] (buck converter) and [22] (LSTM for a conical tank). They are introduced as 'other relevant approaches for various applications'. This looks like padding, but it is not self-citation and there is no evidence of mutual citation.\n\n---\n\n## Structural Analysis\n\nThe evaluation is two simulation runs (η = 0.5 and η = 5) shown as trajectory and variance plots. No RMSE, NEES, Monte Carlo averaging or run-time comparison is reported, so 'superiority' over the EKF is asserted from figures. Lower conditional variance is not the same as lower estimation error. The language is repetitive and the conclusion overstates usefulness. No code is provided.\n\n---\n\n## Conclusion\n\nThe mathematics is needed and proportionate, but the contribution is an instantiation of known equations. The empirical support for the advantage claimed over the EKF is weak and only qualitative, and limitations are absent."
+  },
+  {
+   "paper_id": "madani2022",
+   "paper": {
+    "title": "UV Effect on the Dielectric Properties of Al2O3/TiO2 Doped PVC",
+    "authors": [
+     "Lakhdar Madani",
+     "Kamel Salim Belkhir",
+     "Abdelkrim Zebar",
+     "Saad Belkhiat"
+    ],
+    "abstract": "Poly-vinylchlorid (PVC) is a material strongly used as cable insulation sheaths. Its dielectric properties are susceptible to be deteriorated under the Ultraviolet (UV) radiation effect. In this paper, films of PVC have been doping with alumina and titanium dioxide. The influence of Al2O3 and TiO2, on the dielectric properties of PVC before and after being exposed to 300 h of UV irradiation were studied. FTIR spectroscopy and scanning electron microscopy were used as characterization techniques. Dielectric characteristics were measured using an impedance analyzer. Volume resistivity and average breakdown voltage have been analyzed. Experimental results showed well that Al2O3/TiO2 as nano-fillers improved the dielectric properties of PVC and reduced ageing due to UV irradiation. Volume resistivity decreased and breakdown voltage increased with ceramic content.",
+    "keywords": [
+     "Al2O3/TiO2 doped PVC",
+     "breakdown voltage",
+     "UV ageing",
+     "volume resistivity"
+    ],
+    "doi": null,
+    "pages": "322-337",
+    "source_file": "paper725.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 25,
+    "artifact_availability": 0,
+    "intellectual_integrity": 37.75,
+    "composite": 28.31,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 experimental materials study. Eq. (2), a mixing-rule expression '(ε1 − εc)/(ε1 − εb) (εb/εc)^(1/µ) = 1 − P Par', is introduced as the law the data are 'consistent with', but its symbols are never defined and it is never fitted or evaluated against the measurements. It serves only as decoration; the sentence 'permittivity rises with filler content' says everything the paper uses it for.",
+    "NO_LIMITATIONS": "There is no limitations section and no inline acknowledgement. Constraints such as the uncontrolled-humidity wooden UV chamber, one filler concentration per oxide, unreported particle sizes for the claimed 'nano-fillers', and unreported Weibull parameters are not discussed."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Experimental study of UV ageing of PVC doped with alumina and titania; the measurements are reported with numerous internal inconsistencies, and an undefined, unused mixing-law equation is presented as theoretical support.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Measuring permittivity, loss index, FTIR spectra, volume resistivity and breakdown voltage of PVC films with 10 wt% Al2O3 and/or TiO2, before and after 300 h of UV exposure.\n**Level:** 2 (Low)\n**Rationale:** An empirical characterization study with descriptive comparisons; there is no model development.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (Weibull CDF, an unexplained mixing-rule relation)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** The Weibull equation is standard and appropriate, although its fitted scale and shape parameters are never reported. Eq. (2) fails the necessity test. It is quoted from the authors' earlier work [1] with undefined symbols (ε1, εb, εc, µ, P, Par) and is never applied to the data.\n\n### Issues\n- Eq. (2) is decorative: no parameter is defined or estimated.\n\n---\n\n## Citation Analysis\n\nTwo of 46 references are self-citations ([1] Madani, Belkhiat et al.; [28] Berrag, Belkhiat, Madani), both on dielectric behaviour of ceramic-polymer composites and relevant. SCR is about 4%. Reference [22] is cited for breakdown testing but is IEC 60240-1 (infra-red emitters for industrial heating), an apparent mis-citation. Reference [7] is described in the text as concerning XLPE although it studies PVC, PTFE and HDPE.\n\n---\n\n## Structural Analysis\n\nThe paper contains many internal inconsistencies:\n- The text cites values 'for samples 1, 2, 3 and 5' when only four samples exist.\n- It refers to '250 h' and elsewhere to 300 h of ageing.\n- Table 4 values (2.6 to 5.8) are described as a 230% increase, when the change is about 123%.\n- The abstract states that breakdown voltage 'increased with ceramic content', but Table 3 shows unaged samples 3 and 4 below pure PVC.\n- The resistivity unit is given as 'Ωm²/m'.\n- The conclusion 'Lower is volume resistivity, and higher is the breakdown voltage' contradicts the claim of improved dielectric properties.\n\nOnly one filler loading per oxide is tested, the ageing chamber controls neither humidity nor irradiance, and no uncertainty is reported beyond a nominal ±0.05% instrument error. Interpretations are largely cited from the literature rather than shown. No data are released.\n\n---\n\n## Conclusion\n\nA routine materials-characterization study whose conclusions are weakly and inconsistently supported by its own tables. The undefined mixing-law equation is presented as theory without being used, which triggers the zero-tolerance formalism flag for a Level 2 paper."
+  },
+  {
+   "paper_id": "arican2022",
+   "paper": {
+    "title": "An RGB-D Descriptor for Object Classification",
+    "authors": [
+     "Erkut Arican",
+     "Tarkan Aydin"
+    ],
+    "abstract": "One of the main and active research areas in computer vision is the object detection which has various applications including image retrieval, video surveillance, robotics, etc. The main problem of object detection is, detecting instances of semantic objects of predefined classes (such as pedestrians, faces, or cars) in 2D images and videos. As 2D images of the objects include information about object appearance, most of the methods rely on pattern detection algorithms using appearance-based or feature-based techniques. Although the availability of 3D image data by using inexpensive depth cameras has made the problem more tractable, many researchers still tend to use similar concepts applied to the 2D instance problem. In this paper, we aim to develop a 3D descriptor that exploits the information in 3D data to address the many difficulties associated with object detection. This method adds depth information to Bag of Visual Words' feature extraction part which is a novel approach in the literature. The proposed 3D descriptor eliminates the disadvantages of brightness-based problems and improves the structure with depth information. This improvement gives better accuracy results compared to the original method providing a rational and useful method for 3D object detection.",
+    "keywords": [
+     "3D descriptor",
+     "bag of visual words",
+     "computer vision",
+     "depth image",
+     "object detection",
+     "RGB-D"
+    ],
+    "doi": null,
+    "pages": "338-349",
+    "source_file": "paper726.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 45,
+    "artifact_availability": 50,
+    "intellectual_integrity": 42.75,
+    "composite": 44.56,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"RGB-D Object Dataset [31] is used in this paper. It is a Kinect Style dataset and it has 300 common household objects which are categorized into 51 categories.\" (public dataset; no code released)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (SURF features on RGB and depth combined element-wise, then BoVW and SVM). Eq. (1) 'Ĩ = ω ∗ I' and Eq. (2), the bilateral-filter closeness kernel with Greek-letter points η, ρ, are presented as giving 'an insight' but are never used. The method applies a plain Gaussian filter with σ = 8, and neither equation affects what a programmer would build."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Incremental BoVW variant that multiplies RGB and depth SURF descriptors element-wise; it beats only the authors' own BoVW baseline, trails the published RGB-D results it tabulates, and decorates the method with unused filtering equations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Extracting SURF descriptors at the same keypoints in an RGB image and a Gaussian-smoothed, normalized depth image, combining them element-wise into one descriptor, and classifying with BoVW, K-means (K = 20) and a polynomial SVM on the Washington RGB-D Object Dataset.\n**Level:** 2 (Low)\n**Rationale:** A pipeline of existing components with a simple feature-combination tweak, evaluated by accuracy.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Eqs. (1) and (2) are background on generalized and bilateral filtering. The method never uses them, so they fail the necessity test. Eq. (3), NFV = SFV ⊙ e(DFV), is the actual operation, but e(·) is never defined, and that is the one element a re-implementer would need.\n\n### Issues\n- Unused filtering equations (1)-(2) with Greek-letter notation.\n- Eq. (3) leaves the function e(·) undefined.\n\n---\n\n## Citation Analysis\n\nThree of 32 references ([10]-[12]) are the authors' own earlier conference and journal versions of the same descriptor. They are directly related; SCR is about 9%. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe evaluation compares only against the authors' own BoVW runs (5 random class subsets, means only, no variance). With 30 classes the method reaches 66%. Table 3 shows that published RGB-D methods reach 81.9-87.5% category accuracy on the full 51 classes, yet the paper still calls the approach 'a novel contribution' that 'eliminates the disadvantages of BoVW'. Per-class tables show the method losing to the baseline in many categories (camera, comb, food jar, soda can). The text calls Table 1 the per-class table when it is Table 2, and mentions bold numbers that are absent in the text version. A brief inline note attributes poor results on similar categories to object and depth similarity; there is no limitations section. The dataset is public; no code is released.\n\n---\n\n## Conclusion\n\nA modest, reproducible-in-principle experiment, oversold in its claims, and presenting background equations that play no role in the method. Under the zero-tolerance rule for Level 2 papers, the unused formal elements trigger the formalism-theater flag."
+  },
+  {
+   "paper_id": "ucgun2022",
+   "paper": {
+    "title": "Test Platform and Graphical User Interface Design for Vertical Take-Off and Landing Drones",
+    "authors": [
+     "Hakan Ucgun",
+     "Irfan Okten",
+     "Ugur Yuzgec",
+     "Metin Kesler"
+    ],
+    "abstract": "We present a novel test system for pre-flight control and test of Vertical Take-Off and Landing (VTOL) drones. This system includes a test platform consisting of nested circles in three different dimensions, a graphical user interface, and wireless communication modules. Thanks to this proposed test platform, basic axis tests (yaw, pitch, roll, elevation) can be done before the flight of a VTOL multi rotor drone, thus the problem or crash will be obstructed in the flight of a VTOL multi rotor drone. In addition to this test platform, we present a graphical user interface (GUI) for sending the test commands and receiving values from all sensors on the VTOL multi rotor drone board. The graphical analysis of all data, such as motor rpm value, velocity, angular value, etc., can be observed by the proposed test GUI. Also, the desired flight control parameters can be sent via a graphical interface to the VTOL multi rotor drone's board on the test platform. The wireless communication modules have been used between the VTOL multi rotor drone board and the computer consisting of the test GUI. In this study, the test system designed for VTOL multi rotor drone is given in detail. To show the performance of the UAV test system, some pre-flight tests are represented for the VTOL multi rotor drones with six rotors.",
+    "keywords": [
+     "drone",
+     "flight control",
+     "GUI",
+     "test system",
+     "unmanned aerial vehicle",
+     "VTOL"
+    ],
+    "doi": null,
+    "pages": "350-367",
+    "source_file": "paper727.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 72.0,
+    "composite": 54.0,
+    "final": 54.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (the AeroQuad flight board is described as 'open source', but that is third-party firmware; the authors' MATLAB GUI and platform drawings are not released)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Prototype description of a gimbal-style drone test rig with a MATLAB GUI; formalism is minimal and appropriate, but the evaluation is a few qualitative pitch/roll step-response plots and the 'novel, unrestricted' claims are not compared against alternatives.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A three-ring gimbal test stand with a counterweight for altitude, plus a MATLAB GUI talking over XBee to an AeroQuad flight board, used to hand-tune pitch and roll PID gains of a hexacopter.\n**Level:** 1 (Trivial)\n**Rationale:** A system and prototype description combining existing hardware and a GUI; there is no algorithmic contribution.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (step, two-level and sinusoidal set-point signals)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The three equations specify the test signals concisely and are used. The pseudocode is a simple case dispatch.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo of 28 references are self-citations ([10], [11]: the authors' earlier test-platform and GUI papers, which supply several figures). They are directly related; SCR is about 7%. References [23]-[28] (fuzzy control by Precup and Preitl, PI-fuzzy controllers, DFIG sliding mode, WSN power control) are attached to one generic sentence about controllers and are unrelated to drone test platforms. This looks like padding, but it is not self-citation.\n\n---\n\n## Structural Analysis\n\nThe paper claims that the platform 'has no motion restriction along all axes' and enables yaw, altitude, pitch and roll tests. Only pitch and roll results are shown, as qualitative plots with no overshoot, settling-time or error figures. There is no comparison with free flight or with other stands, and no discussion of how the rings' inertia and friction change the vehicle dynamics. PID gains were tuned by trial and error. An inline limitation is noted: altitude travel is restricted to 60 cm. Nothing is released.\n\n---\n\n## Conclusion\n\nAn engineering-practice prototype report with honest, minimal formalism. Its weakness is structural: the claims of novelty and advantage go beyond the qualitative evidence presented."
+  },
+  {
+   "paper_id": "popescu2022",
+   "paper": {
+    "title": "Improvements in Data Transfer for a MapReduce Accelerator",
+    "authors": [
+     "George-Vlăduț Popescu"
+    ],
+    "abstract": "This paper presents a way to improve data transfer for a MapReduce Accelerator designed for parallel data processing and integrated into a heterogeneous computing system. The proposed solution is a new module called the Data Transfer Engine, integrated into the structure of the Accelerator. This module takes over the tasks related to data transfer, separating the data processing and data transfer flows, thus reducing the total execution time of a program. Two algorithms for processing large matrices were proposed to evaluate the improvement in the total execution time brought by the Data Transfer Engine. These algorithms are based on a custom linear algebra library used to run basic matrix operations on the target Accelerator.",
+    "keywords": [
+     "Data Transfer Engine",
+     "heterogeneous computing",
+     "improved data transfer",
+     "MapReduce Accelerator"
+    ],
+    "doi": null,
+    "pages": "368-380",
+    "source_file": "paper728.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.5,
+    "composite": 45.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (no HDL, library or simulation environment is released)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "4 of 11 references ([8]-[11]) include the author (SCR ≈ 36%). All are on the same MapReduce accelerator and are topically relevant, but the ratio exceeds the 30% threshold, partly because the reference list is short."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Clear engineering description of a DMA-style data transfer engine that overlaps transfer and compute in an FPGA MapReduce accelerator; a sensible but standard double-buffering design, evaluated only by simulated cycle counts, with a self-citation ratio above threshold.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Adding a Data Transfer Engine with a command FIFO and arbitration to a cell-array MapReduce accelerator so that I/O-register shifting and memory writes overlap with computation. Evaluated with tiled large-matrix add and multiply.\n**Level:** 2 (Low)\n**Rationale:** Applies the standard pattern of overlapping transfer and compute (double buffering) to a specific accelerator, with an empirical cycle-count comparison.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (block-matrix element-wise operation and block multiplication)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The block-matrix equations directly specify the tiling that the algorithms in Figs. 7-8 implement. Pseudocode and signal-level descriptions are the main content.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nFour of 11 references are the author's own group's prior work on the same accelerator and its programming framework ([8]-[11]). All are relevant, but the SCR is about 36%. The remaining references are vendor whitepapers and one TPU paper. Related work on DMA engines, double buffering and FPGA accelerator data movement is not cited.\n\n---\n\n## Structural Analysis\n\nThe claims are modest and match the evidence: 'good preliminary results', with up to 35% fewer cycles for ADD and up to 22% for MULT in simulation, for N = 16-64 cells. The author calls the characterization 'preliminary' inline, but there is no limitations section. Missing evidence includes FPGA resource and frequency cost of the new module, results on the PYNQ-Z2 hardware, and comparison with alternative transfer schemes. Nothing is released.\n\n---\n\n## Conclusion\n\nA well-written, proportionate engineering paper with modest but supported claims. Its main framework-level issue is the self-citation ratio above 30%, which is disqualifying under the specification even though the self-citations are on topic."
+  }
+ ]
+}

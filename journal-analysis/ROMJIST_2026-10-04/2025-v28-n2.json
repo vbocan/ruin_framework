@@ -1,0 +1,600 @@
+{
+ "batch_id": "2025-v28-n2",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 2,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "muller2025",
+   "paper": {
+    "title": "Editorial: Special Issue on Topics in Semiconductors, Integrated Circuits, Sensors",
+    "authors": [
+     "Raluca Müller",
+     "Miron Adrian Dinescu"
+    ],
+    "abstract": "",
+    "keywords": [],
+    "doi": null,
+    "pages": "119-124",
+    "source_file": "paper795.pdf"
+   },
+   "concept_level": null,
+   "scores": {
+    "formalism": null,
+    "citation_integrity": null,
+    "structural_integrity": null,
+    "artifact_availability": null,
+    "intellectual_integrity": null,
+    "composite": null,
+    "final": null
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EDITORIAL"
+   ],
+   "flag_details": {
+    "EDITORIAL": "Guest editors' preface to the CAS 2024 special issue: describes the conference and summarises the ten papers that follow. Not a research paper."
+   },
+   "verdict": {
+    "classification": "NOT_APPLICABLE",
+    "disqualified": false,
+    "record_type": "editorial"
+   },
+   "provenance": "## Formalism Analysis\n\nNot applicable. The document is the guest editors' preface to the special issue: conference statistics (participants, sessions, awards) followed by one-paragraph summaries of the ten selected papers. It contains no research contribution, no formal elements and no reference list.\n\n---\n\n## Conclusion\n\nExcluded from scoring under the `EDITORIAL` flag."
+  },
+  {
+   "paper_id": "bunea2025",
+   "paper": {
+    "title": "Measurement of Electromagnetic Feedthrough in Spin Wave Based Microwave Multiport Devices",
+    "authors": [
+     "Alina-Cristina Bunea",
+     "Florin Ciubotaru",
+     "Fanfan Meng",
+     "Christoph Adelmann",
+     "Ovidiu-George Profirescu",
+     "Dan Neculoiu"
+    ],
+    "abstract": "Multiport radio-frequency (RF) input devices are designed to handle multiple signals simultaneously. These devices typically consist of multiple input ports that can receive different RF signals and combine them into a single output or distribute them to multiple outputs. For example, in wave computing, majority gates use an odd number of inputs and one output. This paper investigates the electromagnetic feedthrough of a 3-input/1-output majority gate layout based on spin waves (SWMGs) and U-shaped microwave spin-wave transducers. The paper addresses the challenges of electromagnetic feedthrough by exploring shielding techniques to understand and improve the performance of the SWMG. As a tradeoff in complexity and performance, the unshielded layout is optimized and fabricated on a 500 nm Yttrium Iron Garnet (YIG) film. Measurements of scattering (S-) parameters demonstrate spin wave propagation at 8 GHz for a 200 mT magnetic bias field, with reduced electromagnetic coupling. Furthermore, the study includes an analysis of the effective permittivity and loss tangent of Gadolinium Gallium Garnet (GGG) substrate, critical for accurate electromagnetic modeling of the device.",
+    "keywords": [
+     "GGG",
+     "majority gate",
+     "S-parameters",
+     "spin wave",
+     "YIG"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.01",
+    "pages": "125-137",
+    "source_file": "paper796.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 66.75,
+    "composite": 50.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "10 of 26 references (38%) include at least one of the authors, mostly Ciubotaru and Adelmann: [5], [7], [8], [9], [10], [11], [12], [21], [23], [24]. All are on spin-wave devices and topically relevant; the flag is raised on the ratio alone. Excluding the 100-author roadmap [7] still leaves 9/26 (35%)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Competent experimental microwave characterisation of feedthrough in a spin-wave majority gate layout, with proportionate formalism; the self-citation ratio exceeds 30%, although every self-citation is on topic.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design, EM simulation and on-wafer S-parameter measurement of direct electromagnetic feedthrough in a 3-input spin-wave majority gate layout with U-shaped transducers; extraction of GGG substrate permittivity.\n**Level:** 2 (Low)\n**Rationale:** An experimental device-characterisation study using an established extraction method (two-line propagation constant) and commercial EM solvers (CST). No new algorithm or theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (standard two-line extraction of the propagation constant and effective permittivity)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Equations (1)-(5) are the computational procedure actually used to obtain ε_eff from measured S-parameters; they pass the necessity test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTen of 26 references share an author with the paper, chiefly the IMEC co-authors (Ciubotaru, Adelmann, Meng) and the authors' own CAS 2024 conference version [21]. Every self-citation concerns spin-wave computing, majority gates or transducers, so relevance is high (similarity well above 0.5). The ratio, not the relevance, triggers `EXCESSIVE_SELF_CITATION`; this reflects a small, specialised field in which the co-authors are prominent contributors.\n\n---\n\n## Structural Analysis\n\nClaims are backed by measured S-parameter plots, microscope images and EM simulations. Quantitative statements (feedthrough -54 to -26 dB, transmission -31/-21/-20 dB, 500 MHz band at 8.35 GHz) are tied to figures. Limitations are acknowledged inline (the GGG model 'needs improvements for higher frequencies'; shielding trade-offs and parasitic spin-wave risk). No code, layout files or measurement data are released.\n\n---\n\n## Conclusion\n\nA sound experimental contribution with proportionate formalism and adequate evidence. The only formal concern is a self-citation ratio above 30%, which is disqualifying under the framework even though every self-citation is on topic."
+  },
+  {
+   "paper_id": "bonev2025",
+   "paper": {
+    "title": "Inclusion of Mechanical Stress Effects in a Compact MOSFET Model",
+    "authors": [
+     "Nikolay Bonev",
+     "Dirk Michael Nuernbergk",
+     "Christian Lang"
+    ],
+    "abstract": "The analog performance of integrated circuits relies on stable parameters of its transistors. Mechanical stress changes the electronic properties of silicon and therefore, also the device parameters. For circuit design a good model of these effects is needed for a predictable and reliable function of the circuits. This article extracts the changes of various MOSFET parameters under effect of mechanical stress. A compact description of the stress effects is derived by applying tensors of piezo coefficients. The deviations are included in the physically based compact EKV model. A comparison with measured data shows that the stress effects are modelled correctly within a 10 % error margin.",
+    "keywords": [
+     "EKV model",
+     "electron mobility",
+     "mechanical stress",
+     "MOSFET",
+     "parameter extraction",
+     "stress tensor",
+     "threshold voltage"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.02",
+    "pages": "138-149",
+    "source_file": "paper797.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 78,
+    "artifact_availability": 0,
+    "intellectual_integrity": 85.7,
+    "composite": 64.27,
+    "final": 64.27
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Careful four-point-bending measurement study that extracts piezo coefficients for EKV mobility and threshold voltage; formalism is the physics actually used, citations are clean, evidence is good.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Extraction of stress sensitivities of MOSFET mobility and threshold voltage on a four-point bending bridge, fitted to piezo-coefficient tensors and inserted into the EKV compact model.\n**Level:** 2 (Low)\n**Rationale:** Applies established piezoresistance tensor theory and the published EKV extraction procedure to measured data; the contribution is experimental parameter extraction, not new theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 17 (beam mechanics, simplified EKV equations, piezo tensor relations, stress rotation)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The tensor notation in Eqs. (10)-(16) is the standard form of the piezo model; it is what yields the eight linear constraints solved by least squares for three coefficients, so it is necessary for the result.\n\n### Issues\nThe text states a linear dependence 'up to the maximum applied stress of 60 GPa', while Figs. 6-7 are in MPa; this is a unit inconsistency.\n\n---\n\n## Citation Analysis\n\nTwo of 15 references are self-citations ([1] on packaging stress in a bandgap reference, [14] the CAS 2024 conference version). Both are directly relevant. SCR 13%.\n\n---\n\n## Structural Analysis\n\nEach claim is tied to measurement: hysteresis sweeps, Table 1 sensitivities, the least-squares fit with a reported error (0.5% mobility, 10% threshold), and model-versus-measurement comparison in Fig. 8. Limitations are acknowledged inline (long-channel n-MOSFETs only, larger threshold uncertainty, future short-channel and p-channel work). No data or model files are released.\n\n---\n\n## Conclusion\n\nA solid applied measurement paper with formalism that serves the extraction. The unit slip (GPa vs MPa) is the main presentational defect."
+  },
+  {
+   "paper_id": "moise2025",
+   "paper": {
+    "title": "Circuit Techniques for Enhancing Output Current Accuracy in Floating Gate Drivers",
+    "authors": [
+     "Vlad Moise",
+     "Razvan Puscasu",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "This paper introduces two innovative circuit techniques developed to dynamically compensate output current variations in high-voltage floating gate drivers. They can be efficiently used during both charge and discharge phases, significantly reducing the sensitivity of the output current to supply voltage fluctuations. A summary of prior art is presented, reviewing a conventional gate driver architecture and its associated challenges, particularly the limitations arising from supply voltage variations that cause output current inaccuracies. These shortcomings are highlighted as key motivations for the proposed advancements. In addition to introducing the compensated architectures, the paper provides a comparative analysis of the conventional and improved designs. This analysis highlights enhancements in driving accuracy while maintaining area efficiency. One of the proposed techniques has been successfully implemented in the design of a gate driver for motor control using a standard high-voltage 0.18µm BCD technology. The proposed solutions improve performance significantly, reducing output current deviation from 25% in uncompensated designs to below 2% across the full output range (1mA – 150mA). Experimental results confirm the accuracy of the simulations, validating the effectiveness of the proposed approach.",
+    "keywords": [
+     "Automotive",
+     "BCD technology",
+     "channel length modulation",
+     "current compensation",
+     "dynamic performance optimization",
+     "high-voltage floating gate drivers",
+     "motor control"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.03",
+    "pages": "150-160",
+    "source_file": "paper798.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 78,
+    "artifact_availability": 0,
+    "intellectual_integrity": 85.0,
+    "composite": 63.75,
+    "final": 63.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Industrial circuit-technique paper with minimal, necessary equations, simulation plus silicon and 300-unit statistical measurements; citations clean.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Two compensation circuits (Iref and Ivgs compensation) that cancel channel-length-modulation error in the charge current of high-side floating gate drivers.\n**Level:** 2 (Low)\n**Rationale:** Application of a standard sense-and-subtract compensation idea to a specific driver architecture; analog design, no new theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (square-law VGS, CLM error, corrected currents)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. λ and α are the standard channel-length-modulation parameter and the resulting error factor, not decorative Greek letters; the equations state the mechanism the circuits correct.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo of 14 references are the authors' own: the CAS 2024 conference version [8] and the patent application [14]. Both are directly relevant. SCR 14%. Six references are vendor application notes, which suits an industrial paper.\n\n---\n\n## Structural Analysis\n\nThe claimed error reduction (25% to below 2%) is supported by simulation (Fig. 8), bench measurement of the implemented Iref variant, and a 300-unit distribution (Fig. 10). Trade-offs are stated inline: the Iref method's static current, regimes where each method is preferable, and response time declared out of scope. The phrase 'spread ... within 35% of the nominal specification' alongside cpk 2.0 is loosely worded. No artifacts are released (proprietary product design).\n\n---\n\n## Conclusion\n\nA concise, well-evidenced engineering contribution with appropriate formalism and clean citation practice."
+  },
+  {
+   "paper_id": "sdrulla2025",
+   "paper": {
+    "title": "The Force Extraction Concept with Application to Power IGBTs",
+    "authors": [
+     "Dumitru Sdrulla",
+     "Gheorghe Brezeanu",
+     "Gheorghe Pristavu",
+     "Florin Drăghici",
+     "Răzvan Pascu",
+     "Traian Antonovici",
+     "Amaury Gendron",
+     "Nathaniel Barr"
+    ],
+    "abstract": "A practical approach to speed up the turn-OFF of a power semiconductor which employs conductivity modulation of the drift region is presented. The concept proposed, named Forced Extraction, involves accessing the region where the injection of the minority carriers takes place via an Extraction Plug. This path is connected to an Extraction Device that will remove excess carriers during switch turn-OFF. Validation of the Forced Extraction concept is performed for IGBTs, whose long turn-OFF tail limits their high-frequency functionality. SPICE, TCAD and mixed-mode simulations in the case of a very small in size Extraction Device (lateral pMOS) show reductions of turn-OFF energy by up to 40%. Furthermore, efficiencies of over 98% at 25 kHz are achieved in three-phase inverters using IGBTs with these Forced Extraction mechanisms.",
+    "keywords": [
+     "Extraction device",
+     "extraction plug",
+     "IGBT",
+     "switching behavior",
+     "turn-OFF energy"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.04",
+    "pages": "161-172",
+    "source_file": "paper799.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 60,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 68.0,
+    "composite": 51.0,
+    "final": 41.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "6 of 24 references (25%) are by the authors: [16], [17], [18], [19] (Sdrulla et al., incl. two patents), [22], [23] (Brezeanu/Pristavu/Pascu on SiC Schottky diodes). [22]-[23] and the RF SiC MOSFET patent [18] are only marginally related to forced carrier extraction in IGBTs.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgement that the results are simulation-only (no fabricated FE-IGBT), or of the assumptions behind the SPICE model adaptation. The conclusion instead asserts the solution 'will revive the IGBT marked for the foreseeable future'."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation-only proposal of forced carrier extraction for IGBTs with no formal overreach, but elevated self-citation, promotional conclusions and no acknowledged limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Adding an extraction plug and a small pMOS extraction device to an IGBT (or its freewheeling diode) to remove stored minority carriers at turn-off, evaluated by SPICE, TCAD and mixed-mode simulation plus a three-phase inverter simulation.\n**Level:** 2 (Low)\n**Rationale:** Extends a 1990 concept (Boisvert and Plummer) to high-voltage IGBTs, evaluated with standard simulators and an off-the-shelf SPICE IGBT model; no new theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper is descriptive and contains no formal apparatus.\n\n### Issues\nNone identified on formalism.\n\n---\n\n## Citation Analysis\n\nSix of 24 references (25%) are self-citations. Four ([16]-[19]) concern the forced-extraction concept and are relevant. [22] and [23] are the co-authors' SiC Schottky-diode characterisation papers, cited only to say the FWD-extraction tandem 'was implemented on silicon carbide'; [18] is an RF SiC MOSFET patent cited as the source of the generic FE circuit. These three are marginal (similarity roughly 0.3-0.5) but not unrelated, so `IRRELEVANT_SELF_CITATION` is not raised.\n\n---\n\n## Structural Analysis\n\nQuantitative claims (up to 40% turn-off energy reduction, ~98% inverter efficiency at 25 kHz) are backed by simulation figures, but no device was fabricated and no measurement is reported. The conclusion's language ('spectacular efficiencies', 'will revive the IGBT market') exceeds what simulation can support. No limitations are acknowledged. No models, netlists or TCAD decks are released.\n\n---\n\n## Conclusion\n\nAn interesting simulation-level concept paper with no formalism problems. It is weakened by a 25% self-citation ratio, promotional conclusions and the absence of any statement of limitations."
+  },
+  {
+   "paper_id": "bulzan2025",
+   "paper": {
+    "title": "Separation of Different Orbital Angular Momentum Photon States with Log-pol Transformation",
+    "authors": [
+     "George Andrei Bulzan",
+     "Roxana Rebigan",
+     "Mihai Kusko",
+     "Rebeca Tudor",
+     "Cristian Kusko"
+    ],
+    "abstract": "An optical vortex undergoing a logarithmic – polar transformation is unwrapped from a ring – like shape to a straight line segment whose tilt is determined by the order of the vortex. Due to this property, components with continuous optical surface performing logarithmic – polar transformation are employed for the optical vortices sorting as a function of their orders. In this work we show that a logarithmic – polar component with its optical surface approximated by four discrete levels performs with a good approximation the same transformation of the optical vortices.",
+    "keywords": [
+     "Fourier terms",
+     "log-pol transformation"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.05",
+    "pages": "173-184",
+    "source_file": "paper800.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 92,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.7,
+    "composite": 59.77,
+    "final": 59.77
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Optics paper showing that a 4-level log-pol element approximates a continuous one; the Fourier-expansion derivation is genuine, but numerical and experimental comparisons are purely visual.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fourier-series analysis of a log-polar optical transformation element whose phase surface is quantised to four levels, with Fresnel-integral simulations and SLM experiments on Laguerre-Gaussian optical vortices.\n**Level:** 2 (Low)\n**Rationale:** Applies a known transformation (Ruffato and Kobayashi) and a standard multilevel Fourier expansion to a discretised component. The derivation is non-trivial optics but not a new theory; default low.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0 (an informal squeeze-theorem limit argument)\n- Equations: 20\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the diffraction integrals and the Fourier expansion on which the paper's central argument rests (leading term equals the continuous phase function); they pass the necessity test.\n\n### Issues\nNone on formalism. The claim that a SPP 'can be proven to go to 0 ... by using the squeeze theorem' is asserted rather than shown.\n\n---\n\n## Citation Analysis\n\nTwo of 16 references include the authors ([6] on OAM quantum networks, [16] the CAS 2024 conference version, from which Figs. 5-7 are reused with attribution). Both are relevant. SCR 12.5%.\n\n---\n\n## Structural Analysis\n\nThe conclusion that higher-order Fourier contributions are 'negligeable' is supported only by side-by-side images; no quantitative metric (correlation, efficiency, crosstalk between OAM orders) is reported. The text itself notes the 4-level surface 'brings a lot of background noise', which sits uneasily with the 'negligible' claim. This counts as an inline limitation, but the claim-evidence balance is weak. No simulation code or data are released.\n\n---\n\n## Conclusion\n\nProportionate, purposeful formalism and clean citations. The evidential base is thin: the key claim rests on visual similarity without quantitative comparison."
+  },
+  {
+   "paper_id": "alabdullah2025",
+   "paper": {
+    "title": "Impact of Scaling and Interface Roughness on Drain Current in Nanosheet and Nanowire FETs: A 3D Monte Carlo Analysis",
+    "authors": [
+     "Murad Alabdullah",
+     "Natalia Seoane",
+     "Antonio García-Loureiro",
+     "Karol Kalna"
+    ],
+    "abstract": "A 3D finite-element Monte Carlo simulation toolbox, incorporating Schrödinger equation-based quantum corrections, is employed to analyze the performance of nanosheet (NS) and nanowire (NW) field-effect transistors (FETs), which emerged as promising candidates for sub-3 nm CMOS technology. The study investigates the impact of scaling gate length and oxide thickness, increase in source/drain doping concentration, and interface roughness on these architectures. Results indicate that NS-FETs achieve higher ON currents than NW FETs. However, scaling the gate length below 12 nm reduces the drain current in both devices with a ⟨110⟩ channel orientation—by 9.4% in NS and 7.7% in NW. To understand this decline, valley population and average electron velocity are examined. Scaling dielectric thickness has a smaller effect on NW-FETs with 12 nm and 10 nm gate lengths compared to NS-FETs. In contrast, changes in maximum doping concentration have a greater impact on NW than NS, due to better electrostatic control and increased carrier injection resulting from reduced source/drain resistance. A back-scattering effect is observed in the 12 nm and 10 nm gate length devices, particularly NWs, but it can be mitigated by increasing doping concentration. Interface roughness significantly degrades drain current (IDD), with a more pronounced impact on NWs. Their smaller surface-to-volume ratio and stronger quantum confinement increase sensitivity to roughness variations, as most carriers are closer to the surface, leading to more scattering events. On the contrary, NSs, despite interface roughness, benefit from a larger conductive cross-section, maintaining higher effective mobility in the device channel.",
+    "keywords": [
+     "Gate-All-Around",
+     "Monte Carlo",
+     "nanosheet",
+     "nanowire",
+     "scaling"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.06",
+    "pages": "185-196",
+    "source_file": "paper801.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 40,
+    "structural_integrity": 76,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.0,
+    "composite": 48.75,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the simulator is described as 'in-house developed' and is not linked",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "10 of 23 references (43%) include one or more of the authors (Kalna, Seoane, García-Loureiro, Alabdullah): [6], [8], [11], [13], [14], [15], [16], [17], [18], [20]. All concern the in-house Monte Carlo toolbox or GAA transistor simulation and are on topic; the flag is raised on the ratio alone."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Systematic 3D Monte Carlo parameter study of nanosheet vs nanowire FETs, validated against IBM data and free of formalism problems, but with a 43% self-citation ratio.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Simulation study of gate-length scaling, EOT, source/drain doping and interface roughness in NS- and NW-FETs using an in-house 3D finite-element ensemble Monte Carlo simulator with Schrödinger quantum corrections.\n**Level:** 2 (Low)\n**Rationale:** Parameter sweep with an existing, previously published simulator; the contribution is empirical device-physics insight, not a new method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. No formal apparatus.\n\n### Issues\nNone on formalism.\n\n---\n\n## Citation Analysis\n\nTen of 23 references are by the author group, largely the toolbox's development and validation papers and the CAS 2024 conference version [18]. They are relevant (the toolbox is the method), but the ratio of 43% exceeds the 30% threshold and the validation claim 'validated in many previous studies' rests entirely on the group's own work.\n\n---\n\n## Structural Analysis\n\nThe simulator is calibrated against IBM experimental ID-VG data (Fig. 2), and each result is reported numerically against figures. Trade-offs are noted inline (high MDC is a 'significant technological challenge'; lower VT, higher leakage). There is an internal inconsistency: the abstract attributes NW roughness sensitivity to a 'smaller surface-to-volume ratio', the conclusion to a 'higher surface-to-volume ratio'. The simulator is not released.\n\n---\n\n## Conclusion\n\nA careful, quantitative simulation study with no formalism issues. It is disqualified under the framework by its self-citation ratio, although the self-citations are topically justified."
+  },
+  {
+   "paper_id": "dumitru2025",
+   "paper": {
+    "title": "Design Space Exploration of Current-Starved Ring Oscillators Based on Graphene Nanoribbons",
+    "authors": [
+     "Florin-Silviu Dumitru",
+     "Nicoleta Cucu-Laurenciu",
+     "Alexandru Mihai Antonescu",
+     "Sorin Cotofana",
+     "Marius Enachescu"
+    ],
+    "abstract": "Graphene is well-suited for ultra-low-power (ULP) nano-electronics due to its exceptional characteristics like ballistic transport and its ability to engineer structures featuring a geometry-induced bandgap. Identifying the conditions necessary for achieving the maximum level of performance and of power-efficiency frequently requires a design space exploration (DSE). By means of calibration and external regulation of the supply voltage, the ULP graphene-nanoribbon (GNR) ring oscillator presented in this paper is capable of exceeding the performance of its 7 nm FinFET counterpart both in terms of maximum frequency and of power-efficiency. Under nominal supply voltage conditions we achieve a 1.89× higher output frequency while simultaneously reducing the power consumption by 553.8× and achieving a 812× higher power efficiency. After performing a DSE and leveraging both externally-applied supply voltage modulation and output frequency calibration we achieved a 4.81× higher maximum output frequency operation mode and a 242× higher maximum power-efficiency operation mode when configuring both blocks for peak performance for each mode.",
+    "keywords": [
+     "Current-starved",
+     "design space exploration",
+     "GNR",
+     "graphene",
+     "ring oscillator"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.07",
+    "pages": "197-209",
+    "source_file": "paper802.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 60,
+    "structural_integrity": 72,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.0,
+    "composite": 54.75,
+    "final": 49.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only linked code is third-party (Datta's NEGF MATLAB codes on nanoHUB, ref. [31])",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "8 of 32 references (25%) include the authors: [3], [6], [7], [8], [9], [10], [12], [30]. All are on GNR-based circuits; the synapse and spiking-neuron papers [6], [8], [9] are cited only as examples in the introduction."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation-based GNR ring-oscillator design with a 2D supply/code exploration against 7 nm FinFET; standard equations, quantified results, 25% self-citation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design and co-simulation (Spectre plus MATLAB NEGF) of an 8-stage current-starved ring oscillator built from GNR devices, with a 2D design-space exploration over supply voltage and DAC code, compared with a 7 nm FinFET version.\n**Level:** 2 (Low)\n**Rationale:** Reuses the authors' earlier GNR devices and DAC in a standard oscillator topology; the DSE is a parameter sweep.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (Landauer conductance, quantum capacitance, textbook ring-oscillator frequency, power and delay)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are standard and are used to explain the observed frequency behaviour.\n\n### Issues\nNone on formalism. Minor errors: the quantum capacitance is labelled C_ins in one place, and permittivity is written μ_eq.\n\n---\n\n## Citation Analysis\n\nEight of 32 references share authors (Cotofana, Cucu-Laurenciu, Dumitru, Enachescu). Five are direct building blocks ([3], [7], [10], [12], [30]); three ([6], [8], [9]) are introductory examples of GNR neuromorphic devices, related to the technology (similarity ~0.5). SCR 25%.\n\n---\n\n## Structural Analysis\n\nHeadline ratios match the tables (e.g., 225.54/46.90 ≈ 4.81; 288.8/1.191 ≈ 242). All results are simulation-only with atomistic models; no fabricated device. Disadvantages are stated inline (quiescent DAC current, non-linear frequency tuning, high-side-only starving), but there is no limitations discussion of model idealisation or fabrication feasibility. No code or netlists are released.\n\n---\n\n## Conclusion\n\nA competent simulation design study with appropriate formalism. Self-citation is elevated, and the evidence is entirely simulated."
+  },
+  {
+   "paper_id": "calinescu2025",
+   "paper": {
+    "title": "An Area-Optimized Digitally-Assisted DAC Employing a Matrix-Based DEM Scheme",
+    "authors": [
+     "Alex Calinescu",
+     "Traian Antonovici",
+     "Marius Enachescu"
+    ],
+    "abstract": "The Dynamic Element Matching (DEM) technique's role is to mitigate mismatch issues in complex, matrix-based systems. Previous work employing a matrix-based random DEM scheme demonstrated enhanced linearity and spectral characteristics in the Digital to Analog Converter's (DAC) thermometric decoded section. This paper presents the design of an area-optimized, DEM-assisted 9-bit segmented DAC. The optimal segmentation level for area-performance is initially established. Subsequently, to mitigate area constraints from the integral nonlinearity (INL) requirement and improve spectral performance, we utilize the matrix-based DEM engine from prior research. The proposed 9-bit DAC, implemented in a commercial 180 nm CMOS process, achieves a total harmonic distortion (THD) of -79 dB and a spurious-free dynamic range (SFDR) of 79 dB, resulting in 8× and 16× improvements in SFDR and THD, respectively, over its non-DEM counterpart.",
+    "keywords": [
+     "DAC",
+     "DEM",
+     "digital controller",
+     "DNL",
+     "INL",
+     "mismatch",
+     "THD",
+     "SFDR"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.08",
+    "pages": "210-222",
+    "source_file": "paper803.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 62,
+    "structural_integrity": 76,
+    "artifact_availability": 0,
+    "intellectual_integrity": 74.7,
+    "composite": 56.03,
+    "final": 51.03
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; MATLAB models and SystemVerilog RTL are described but not linked",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "3 of 13 references (23%) are by the authors: [1] (Dumitru, Ilie, Enachescu on DAC segmentation), [5] and [6] (Calinescu et al. on DEM controllers). All are directly relevant."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Segmented DAC area-optimisation and DEM controller design with textbook mismatch equations used as design tools; well quantified, though results are post-layout or Monte Carlo simulations rather than silicon measurement.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Selecting the segmentation level of a 9-bit current-steering DAC to minimise area under DNL/INL constraints, and adding the authors' matrix-based random DEM shuffler (LFSR row/column shifting) to relax INL and improve SFDR/THD.\n**Level:** 2 (Low)\n**Rationale:** Applies established segmentation analysis (Lin and Bult), Pelgrom's law and an existing DEM scheme from the authors' prior work.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 17 (DAC output sums, area and DNL/INL variance expressions, mismatch model)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The summations and variance formulas are the area-linearity model used to choose B_t = 5 (Fig. 5); they change the design outcome and pass the necessity test. ε_ij is a mismatch variable, not a configuration constant.\n\n### Issues\nNone on formalism. Some cross-references are broken ('as shown in 2.1.3.', 'According to ()').\n\n---\n\n## Citation Analysis\n\nThree of 13 references (23%) are the authors' own conference papers, all on DAC segmentation or DEM and directly relevant.\n\n---\n\n## Structural Analysis\n\nTheory is checked against MATLAB Monte Carlo (σ_DNL 0.4 vs 0.45; 0.13 vs 0.11), and the DEM benefit is quantified in Table 1. The '8× and 16×' figures are power ratios of the 9 dB and 12 dB improvements; consistent but presented in a flattering way. 'Implemented in a commercial 180 nm process' refers to design and simulation (30 Monte Carlo runs, 10-DAC PSD); no measured silicon is reported. Inline limitations: shuffling caps conversion rate at 1.56 MHz, large passive area. No RTL or models are released.\n\n---\n\n## Conclusion\n\nA methodical design paper with purposeful equations and adequate evidence. Self-citation is somewhat elevated, and 'implemented' overstates what simulation-only results show."
+  },
+  {
+   "paper_id": "popescu2025",
+   "paper": {
+    "title": "First and Second Order Digital Circuits with Neuronal Models under Pulses Train Stimulus",
+    "authors": [
+     "Mihai Popescu",
+     "Cristian Ravariu",
+     "Zoltan Hascsi"
+    ],
+    "abstract": "One or more neurons can be perceived as an analog circuit in terms of their voltage-time characteristics, but at the block level, they can rather fulfill a logic function. This later approach is imposed by the neuron membrane behavior that always works between two voltage levels – the resting potential and the acting potential, easily associated to two binary states. These levels change when an appropriate combination of pulses trains appears on the neuron's exciting and inhibiting input synapses. Being difficult to describe in all details the neuronal processes inside the human brain, this paper proposes some digital models able to mimic these biological processes. The first original element of this paper is the extension of the neuronal models, previously presented, from 0-order logic circuits to 1-order logic and 2-order logic circuits. The envelope signal shelters the pulses train that stimulate any neuron, and this envelope signal signature as the digital function represents an element of originality.",
+    "keywords": [
+     "Circuits",
+     "flip-flop",
+     "logic block",
+     "neurons",
+     "pulses train"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.09",
+    "pages": "223-232",
+    "source_file": "paper804.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 78,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.05,
+    "composite": 54.79,
+    "final": 54.79
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; LTSpice schematics are shown as figures only",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "LTSpice simulation of RS, JK, D and T latches assembled from the authors' earlier neuron-block gates; minimal, necessary equations, but qualitative evidence and biological claims that go beyond what was shown.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Composing previously published comparator-based 'neuron' NOR/AND/NOT blocks into textbook latch and flip-flop topologies, simulated in LTSpice with pulse-train envelopes as logic levels; plus an α-motoneuron pair example.\n**Level:** 1 (Trivial)\n**Rationale:** Standard sequential-logic topologies built from existing components and checked by waveform inspection; a prototype description that combines existing blocks.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (comparator threshold voltages and RC time constants)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Eqs. (1)-(3) are the voltage-divider thresholds and time constants that set the block's switching and pulse frequency; τ denotes time constants, not decorative configuration parameters. No theater pattern.\n\n### Issues\nNone on formalism.\n\n---\n\n## Citation Analysis\n\nTwo of 13 references are self-citations ([5], [8], earlier neuron-block papers), both relevant; SCR 15.4%, at the edge of the elevated band. References [11]-[13] are never cited in the text. [13] (speech emotion recognition with deep networks, in this journal) is unrelated to the topic. It is not an author self-citation, so no flag applies, but it looks like reference-list padding. The text concedes that some listed papers are 'Even not mentioned'.\n\n---\n\n## Structural Analysis\n\nEvidence consists of simulated waveforms showing the expected latch behaviour; there is no quantitative comparison with biological recordings, although component values are said to be tuned to match [10]. Conclusions such as presenting 'an alternative for the information storage within the central nervous system' are not supported by the simulations. Inline limitations: 5 V supply to be lowered in future, linearity limits over 0-100 pulses/s. No schematics or netlists are released as files.\n\n---\n\n## Conclusion\n\nNo formalism theater and acceptable self-citation. The weaknesses are evidential: qualitative simulations, biological claims beyond the evidence, and uncited, off-topic references."
+  },
+  {
+   "paper_id": "medinceanu2025",
+   "paper": {
+    "title": "GaN Bootstrapped Logic Gates Analytical Modeling and Design Insights",
+    "authors": [
+     "Paul-Catalin Medinceanu",
+     "Marius Enachescu"
+    ],
+    "abstract": "Following recent advancements, Gallium Nitride (GaN) technology continues to garner interest as a promising solution for future power electronics applications. Due to the variety of devices available in a monolithic GaN process, the development of digital circuits requires different topologies compared to CMOS technologies. This paper presents the analysis and design of logic gates from the bootstrapped family. Analytical equations for the static and dynamic parameters of an inverter are introduced. When compared to simulation results, these equations achieve a maximum error of 23.9% for static parameters and 33.3% for dynamic parameters. Additionally, different implementation details, such as developing other logic functions or enhancing the circuit behavior at system level, are proposed.",
+    "keywords": [
+     "Bootstrapped",
+     "DCFL",
+     "digital",
+     "GaN",
+     "gallium",
+     "gates",
+     "HEMT",
+     "inverter",
+     "logic",
+     "LSI",
+     "MSI",
+     "nitride",
+     "RTL",
+     "VLSI"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.10",
+    "pages": "233-244",
+    "source_file": "paper805.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 80,
+    "artifact_availability": 0,
+    "intellectual_integrity": 87.25,
+    "composite": 65.44,
+    "final": 65.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Hand-analysis design equations for GaN bootstrapped inverters, validated against SPICE over 12 sizings with honestly reported errors; proportionate formalism and minimal self-citation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Deriving first-order analytical expressions for the static (VIL, VIH, VOL, noise margins, power) and dynamic (tR, tF, tPLH, tPHL, fmin) parameters of a GaN HEMT bootstrapped inverter, checked against Cadence SPICE simulations.\n**Level:** 2 (Low)\n**Rationale:** Standard hand-analysis methodology (linear current approximation per Hodges et al.) applied to a known logic family.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 15\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the deliverable, design formulas that a circuit designer would use for sizing, and they are evaluated quantitatively.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nOne self-citation of 24 references ([13], the CAS 2024 static-parameter paper this work extends). SCR 4%. Reference list mixes journals, patents, datasheets and press releases, which suits the topic.\n\n---\n\n## Structural Analysis\n\nTable 2 compares theory and simulation for 12 inverter sizings and reports the maximum error per parameter, including unfavourable cases (tF up to 33%). The authors discuss why large relative error in VOL is small in absolute terms. Limitations are acknowledged inline (approximation trades accuracy for simplicity; the static-current-reduction variant slows tR). Validation is against simulation only, not silicon. No models are released.\n\n---\n\n## Conclusion\n\nA modest but honest analytical design paper with fitting formalism, transparent error reporting and clean citations."
+  }
+ ]
+}

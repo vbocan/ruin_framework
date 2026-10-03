@@ -1,0 +1,338 @@
+{
+ "batch_id": "2021-v24-n4",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 24,
+  "issue": 4,
+  "year": 2021
+ },
+ "papers": [
+  {
+   "paper_id": "radulescu2021",
+   "paper": {
+    "title": "Cloud provider selection a complex multicriteria problem",
+    "authors": [
+     "Constanta Zoie Radulescu",
+     "Marius Radulescu",
+     "Florin Gheorghe Filip"
+    ],
+    "abstract": "Cloud provider (CP) selection problem is a complex decision-making problem that involves multiple criteria, often in conflict with one another. The purpose of the paper is to present a brief survey on CP selection problem and to formulate a group decision approach and a multi-objective model for CP selection. Starting from this model several single-objective models are derived. The objective functions are cost, evaluation risk and performance. A numerical example for the trade-off model is analyzed. Five scenarios are discussed, and a matrix of CPs ranks for each scenario is computed.",
+    "keywords": [
+     "Cloud computing",
+     "evaluation divergence",
+     "evaluation risk",
+     "group decision",
+     "multi-objective model",
+     "provider selection"
+    ],
+    "doi": null,
+    "pages": "337-352",
+    "source_file": "paper697.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 32.25,
+    "composite": 24.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the numerical example's input data (Tables 1-2) are printed without stating their origin, and no code or data is linked",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 contribution (weighted-sum scoring of providers by expert ratings, plus a variance-style 'evaluation risk') dressed as a family of 0-1 integer programmes. Every model carries the constraint sum x_i = 1 with x_i in {0,1}, i.e. 'pick one provider'; the paper itself admits 'The solution of the trade-off is simple': compute b_i = a1 c_i + a2 v_i - a3 p_i and sort. The min-cost and min-risk 'models' are a filter followed by an argmin. None of the programming notation changes what would be implemented.",
+    "UNNECESSARY_SET_THEORY": "Set notation for plain lists: 'Criteria set: C = {C1, C2, ..., Cm}', 'CPs set: A = {A1, A1, ..., An}' (sic), 'The set of evaluators E = {E1, E2, ..., Ek}'. These are arrays of criteria, providers and experts; the sets are never operated on.",
+    "ELEVATED_SELF_CITATION": "11 of 43 references (25.6%) include an author of this paper: C.Z. Radulescu [8, 9, 11, 12, 16, 17, 20, 21] (M. Radulescu co-authors 16, 17, 20) and F.G. Filip [2, 33, 34]. Topically related or marginal (Filip's DSS and IS-design works), none judged unrelated.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints of the model (e.g. independence of criteria, choice of weights, provenance of the example data, single-provider assumption). The conclusion lists only a future extension."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Survey of cloud-provider selection methods followed by a simple weighted-scoring model presented as multi-objective 0-1 programming; the 'trade-off model' reduces to sorting a linear score, the numerical example uses data of unstated origin, and self-citation is elevated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Literature review of cloud-provider (CP) selection plus a group-decision scoring model: experts rate providers on criteria, a weighted mean gives a score p_i, a weighted variance gives an 'evaluation risk' v_i, and cost c_i is given; providers are ranked by a linear combination.\n**Level:** 2 (Low)\n**Rationale:** Roughly half the paper is a survey (Level 1). The modelling contribution is a standard weighted-sum MADM ranking with one additional dispersion indicator. No algorithm, no analysis of the optimisation models, no proofs.\n\n### Formal Elements\n- Definitions: 0 numbered; ~16 enumerated notation items (sets, indices, weights, score, risk)\n- Theorems: 0\n- Proofs: 0\n- Equations: ~6 model formulations (multi-objective, min-cost, min-risk, trade-off) plus the score and risk formulas\n\n### Proportionality\nCalculated complexity: 0 (no numbered definitions, theorems or proofs)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Within count, but fails the Necessity Test. The integer-programming formulations all select exactly one item from a list (sum x_i = 1, x_i binary), which is an argmin over n values; the authors note the trade-off solution 'is simple' and compute it by sorting b_i. The set notation for criteria, providers and experts is never used as sets.\n\n### Issues\n- 'Criteria set: C = {C1, C2, ..., Cm}', 'CPs set: A = {A1, A1, ..., An}' (typo duplicates A1), 'E = {E1, ..., Ek}' - set notation for arrays.\n- min/max over sum c_i x_i subject to sum x_i = 1, x_i in {0,1} - programming notation for choosing the cheapest/least risky provider.\n- Internal inconsistency: v_i is defined as sum_j w2_j sigma_ij with w2_j = 1/m in the example, but Table 2's v values equal the unweighted row sums of Table 1 (e.g. A1: sum of the seven sigma values = 5.841E-04 = 0.000584), i.e. 7x the stated weighted mean.\n- Factual error in the introduction: 'The term was coined by Amazon in 1960s.'\n\n---\n\n## Citation Analysis\n\n43 references; 11 involve an author (25.6%): eight by C.Z. Radulescu on CP ranking with TOPSIS, SAW, rough and fuzzy methods, Matter Element and group-decision supplier selection, and three by F.G. Filip (IS design decision-making [2], collaborative decision-making [33], DSS [34]). The Radulescu works are on the same problem; the Filip works are marginally related background for the DSS paragraph. Ratio falls in the 20-30% band. Several non-self citations ([39], [41], [42], [43]) are attached to generic statements about security, ML and sky computing.\n\n---\n\n## Structural Analysis\n\nThe survey sections are supported by citations. The proposed model is not validated: the numerical example uses ten unnamed providers, seven unnamed criteria and five unnamed experts with no indication of where the ratings, costs or normalisation come from, and the result discussion is a two-sentence reading of Table 4. Introductory claims about market growth rely on a market-research web page. No limitations are discussed. No code or data is provided.\n\n---\n\n## Conclusion\n\nA review-plus-model paper whose modelling contribution is a weighted scoring rule with a dispersion term, written up as multi-objective 0-1 programming that collapses to sorting. The illustrative example has no stated data source and contains an inconsistency in the risk aggregation. Under the zero-tolerance rule for Level 1-2 papers the decorative programming and set notation trigger the formalism flags; self-citation is elevated but topically related."
+  },
+  {
+   "paper_id": "precup2021",
+   "paper": {
+    "title": "Evolving Fuzzy Models of Shape Memory Alloy Wire Actuators",
+    "authors": [
+     "Radu-Emil Precup",
+     "Claudia-Adina Bojan-Dragos",
+     "Elena-Lorena Hedrea",
+     "Raul-Cristian Roman",
+     "Emil M. Petriu"
+    ],
+    "abstract": "This paper suggests Takagi-Sugeno-Kang (TSK) fuzzy models that characterize the position of Shape Memory Alloy (SMA) wire actuators. The systems dynamics are important because, since SMA wire actuators are included in control systems in various critical applications, the position control systems have to ensure very good performance indices. The output of these systems, viewed as controlled processes, is the position of the SMA wire actuators, and the input is the current signal which supplies the actuator, i.e., it flows through the wire. Starting with these two input and output signals directly related to the process, different numbers of additional TSK fuzzy model inputs and outputs obtained from past inputs and/or outputs are considered. The structures and parameters of the fuzzy models are evolved by an incremental online identification algorithm. Two evolving TSK fuzzy models are derived, they are next tested against the experimental data and compared. The experimental results indicate that the proposed fuzzy models are consistent with training and validation data.",
+    "keywords": [],
+    "doi": null,
+    "pages": "353-365",
+    "source_file": "paper698.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 70,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 35.75,
+    "composite": 26.81,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the data are 'the input-output data given in [6]' and 'the data reported in [6], which was collected manually', and the identification was run 'with the aid of the eFS Lab software developed by Dourado and his team' (third-party tool)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 application of an existing algorithm (Angelov-Filev evolving TSK identification, run in the third-party eFS Lab) to SMA actuator data taken from [6]. Alongside the legitimate TSK model equations, the paper uses set-builder notation that fails the Necessity Test: the training data is written as 'the input-output data set {pk | k = 1...D} subset of R^(n+1)' three times, where 'the D samples' suffices.",
+    "UNNECESSARY_SET_THEORY": "'{pk | k = 1...D} subset of R^(n+1)' denotes an indexed array of data samples read sequentially; no set operation or proof depends on it."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Application of an existing evolving-fuzzy identification algorithm, via third-party software, to published SMA actuator data; results are assessed only visually with no numerical performance index, and model selection used the validation set.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Identification of two NARX-type evolving Takagi-Sugeno-Kang fuzzy models of SMA wire actuator position from current input, using the Angelov-Filev eTS algorithm implemented in eFS Lab, on data from a previously published paper [6].\n**Level:** 2 (Low)\n**Rationale:** Existing algorithm and existing software applied to a new process with existing data; the only design choices are two input-vector structures.\n\n### Formal Elements\n- Definitions: 0 numbered\n- Theorems: 0\n- Proofs: 0\n- Equations: 12 (TSK rule base, output, firing degree, initialisation, Gaussian membership, regressor form, NARX map, two input vectors)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Count is proportionate and the TSK rule/inference equations are a legitimate model description (restated from the authors' earlier paper [19] and [33]). The set-builder notation for the data set is decorative and, under the zero-tolerance rule for Level 1-2, triggers the formalism flags.\n\n### Issues\n- 'this point and also vector belongs to the input-output data set {pk |k = 1...D} subset of R^(n+1)' (repeated in Steps 2 and 7).\n- Steps 3-5 of the algorithm defer to 'the formulae given in [19] and [33]'; the equations shown are not sufficient to reproduce the algorithm but are also not the paper's contribution.\n\n---\n\n## Citation Analysis\n\n53 references; 9 involve an author (17%): [1] (Bojan-Dragos project web page), [19], [30], [31], [32], [36], [37] (evolving fuzzy and tensor-product modelling, related), [39] (grey wolf optimiser path planning for mobile robots) and [46] (fuzzy ADRC for tower cranes). The last two appear in a closing list of 'representative processes' [38]-[53] that also cites works on fetal heart rate, FPGA genetic-algorithm IP cores, community detection and drilling control; this list is loosely related padding, and the two self-citations in it are marginal (fuzzy control, different processes) rather than unrelated. No mutual-citation pattern can be established from the text.\n\n---\n\n## Structural Analysis\n\nThe central claim ('the proposed fuzzy models are consistent with training and validation data') rests solely on four time plots; the authors state 'since no numerical performance comparison is carried out, the visual comparison shows that the first model exhibits overall better performance'. The claim that RLS outperforms wRLS is made without any shown result. Limitations are acknowledged inline: models were selected on the validation data and 'should be ideally checked in new unseen test data', and conclusions 'cannot be generalized to other processes'. Data are third-party and not deposited; no code is released (eFS Lab is third-party).\n\n---\n\n## Conclusion\n\nA short application paper reusing the authors' established evolving-fuzzy workflow on borrowed data. Evidence is qualitative only and the validation protocol is acknowledged to be weak. Formalism is modest and mostly standard, but the decorative set-builder notation for the sample array triggers the Level 1-2 zero-tolerance flags. Self-citation is within the normal-to-elevated boundary."
+  },
+  {
+   "paper_id": "stefan2021",
+   "paper": {
+    "title": "Pseudo-Reconfigurable Computing",
+    "authors": [
+     "Gheorghe M. Stefan"
+    ],
+    "abstract": "The pseudo-reconfigurable computing we propose is an implementation of heterogeneous computing in the form of a compromise between the realization of accelerators as circuits through reconfiguration techniques using FPGAs and the realization of accelerators as parallel computing structures made in ASIC technology. The proposed solution is implementable in FPGA in the form of a programmable structure that is parameterizable and configurable. The programmable accelerator is a cellular parallel engine with a structure and architecture that efficiently covers most of the parallel computing patterns. The structural and architectural aspects of the proposed system are introduced based on Stephen Kleene's Partial Recursive Function Model, and evaluated using: (1) Functional Forms introduced by John Backus, (2) 'dwarfs' listed in the Berkeley's View of Parallel Landscape, and last but not least (3) patterns already imposed in the practice of parallel computing.",
+    "keywords": [],
+    "doi": null,
+    "pages": "366-383",
+    "source_file": "paper699.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 30,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 19.25,
+    "composite": 14.44,
+    "final": 14.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link to code or designs; the paper describes itself as 'only a theoretical introduction to the concept of pRC'. Links given are to a project page (http://users.dcae.pub.ro/~gstefan/2ndLevel/connex.html) and a technical PDF, not to an artifact of this work",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DISPROPORTIONATE_FORMALISM",
+    "DECORATIVE_DEFINITIONS",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "The contribution is an architectural concept (a configurable map-scan-reduce cell array instantiated once per program in an FPGA) evaluated only by qualitative mapping to Backus forms, parallel patterns and Berkeley dwarfs. The appendix's Kleene partial-recursive-function apparatus (9 definitions, 2 theorems with proof sketches, a corollary, a conjecture) is not needed to design, implement or evaluate the accelerator; the paper's own claims about it are hedged ('The following conjecture has a big chance to become a theorem').",
+    "DISPROPORTIONATE_FORMALISM": "Formalism complexity = 9 definitions x 2 + 3 theorem-level results (Theorems 1-2, Corollary 1) x 3 + 2 proofs x 4 = 35, above 2 x 15 = 30 for Level 2.",
+    "DECORATIVE_DEFINITIONS": "Several numbered definitions restate ordinary operations: Definition 4 defines 'redOR(X) = x0|x1|...|xn-1' (an OR-reduction); Definition 5 defines element-wise composition of two maps; Definition 8 defines an OR prefix scan; Definition 1 restates Kleene's textbook definition. Each is expressible in a sentence.",
+    "EXCESSIVE_SELF_CITATION": "11 of 24 references (45.8%) are by the author: [1], [2], [8], [9], [10], [16], [17], [18], [21], [22], [23]. They are topically related (the author's Connex/map-reduce accelerator line), but nearly all quantitative performance claims in Section 6 rest on them."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Position paper proposing an FPGA-instantiated programmable map-scan-reduce accelerator, justified by a computability-theory appendix and qualitative pattern mapping, with no implementation or measurement and nearly half the references self-citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** 'Pseudo-reconfigurable computing': instead of synthesising per-kernel circuits, instantiate a parameterised programmable cellular accelerator (MAP array, SCAN and REDUCE networks, controller) in an FPGA once per program; argue its generality from Kleene's composition rule, Backus's functional forms, McCool et al.'s parallel patterns and the Berkeley dwarfs.\n**Level:** 2 (Low)\n**Rationale:** The paper states it 'is only a theoretical introduction to the concept of pRC'. The architecture is a known map-reduce-scan SIMD design from the author's prior work; the evaluation is a qualitative checklist. No new algorithm, no complexity proof with rigour, no measurement. Defaulted to the lower level.\n\n### Formal Elements\n- Definitions: 9 (Definitions 1-9)\n- Theorems: 2 theorems + 1 corollary (+ 1 conjecture, not counted)\n- Proofs: 2 (informal, figure-based)\n- Equations: ~15 (Backus forms, composition, scan layers)\n\n### Proportionality\nCalculated complexity: 35\nExpected range (Level 2): 0-15\nRatio: 2.3x upper bound\n\n**Assessment:** Disproportionate and largely unnecessary. The theorems show that primitive recursion and minimisation can be unrolled into compositions (a well-known observation), presented with figures and prose rather than rigorous proofs; the conjecture is then referred to as 'the previous theorem'. None of this informs the accelerator's parameters (p, m, n, arithmetic type) listed in Section 6.\n\n### Issues\n- 'Conjecture 1 ... The following conjecture has a big chance to become a theorem', later invoked as 'the previous theorem applies'.\n- Definition 4 'redOR(X) = x0|x1|...|xn-1' and Definition 8 (OR prefix) as numbered formal definitions.\n- Historical inaccuracy in the appendix: the 1936 papers of Church, Kleene, Post and Turing are described as each publishing 'their mathematical version for Gödel's incompleteness theorem'.\n- Header reads 'Volume 4' for volume 24.\n\n---\n\n## Citation Analysis\n\n24 references, 11 by the author (45.8%), all on the author's own accelerator line (Connex, map-scan accelerator, FFT, molecular dynamics, SpMV, APSP, HMM, deep learning). They are topically relevant, so no irrelevance flag, but the ratio exceeds 30% and the performance figures quoted for the dwarfs (16x power efficiency, 118x speed-up, 3.7x less energy for SHA256) all come from these self-citations, two of which ([2], [23]) are unreviewed web documents. The remaining references are classical (Kleene, Turing, Church, Post, Gödel, Hilbert, Backus) and the Berkeley reports.\n\n---\n\n## Structural Analysis\n\nThe proposal is never implemented or measured in this paper. Example 1 (Vivado HLS used '20x more resources' for a 5x5 matrix product) gives no details. The general claim 'The acceleration offered by our solution is usually in O(p), but always at least in O(p/log p)' is asserted without derivation. Inline acknowledgments exist ('the performance of pRC systems is sometimes lower than those obtained in the RC approach'; 'only a theoretical introduction'). Nothing to release for a concept paper; no artifact provided.\n\n---\n\n## Conclusion\n\nAn essay-style proposal whose engineering idea (a fixed programmable accelerator instead of per-kernel FPGA synthesis) needs no computability formalism, yet carries a nine-definition appendix with a conjecture treated as a theorem. Evidence is qualitative and quantitative claims are sourced almost entirely from the author's own work, with a self-citation ratio near 46%. Both the formalism-family flags (at Level 2) and the excessive self-citation flag apply."
+  },
+  {
+   "paper_id": "pais2021",
+   "paper": {
+    "title": "In-depth evaluation of Romanian natural language processing pipelines",
+    "authors": [
+     "Vasile Păiș",
+     "Radu Ion",
+     "Andrei-Marius Avram",
+     "Maria Mitrofan",
+     "Dan Tufiș"
+    ],
+    "abstract": "With the increased size of Universal Dependencies tree banks, several basic language processing kits (BLARK) for multiple languages appeared in recent years, indicating improved performances on different languages. Nevertheless, published results are not directly comparable for the Romanian language since different tools make use of different Universal Dependencies versions and different additional resources, such as pre-trained word embeddings. In this paper, we re-train several state-of-the-art tools for processing Romanian language by using a common methodology comprising of training and evaluating on the same version of RoRefTrees corpus and using the same pre-trained word embeddings from the representative corpus of contemporary Romanian language (CoRoLa). Furthermore, we also explore the capabilities of the trained models when faced with unseen text from a different domain. For this purpose, we further test the resulting model on the SiMoNERo corpus. We employ different metrics to assess the performance on operations like tokenization, sentence splitting, lemmatization, part-of-speech tagging and dependency parsing.",
+    "keywords": [
+     "Natural language processing",
+     "BLARK",
+     "performance evaluation",
+     "Romanian text processing"
+    ],
+    "doi": null,
+    "pages": "384-401",
+    "source_file": "paper700.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 5,
+    "structural_integrity": 72,
+    "artifact_availability": 100,
+    "intellectual_integrity": 53.75,
+    "composite": 65.31,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "'Scripts and resources resulting from this work are available in a dedicated GitHub repository' (https://github.com/racai-ai/RoBLARK_evaluation); 'pre-trained models for all the evaluated tools ... are available in the RELATE platform' (https://relate.racai.ro/go/pretrainedlm); data are the public UD 2.7 RRT and SiMoNERo treebanks (https://github.com/UniversalDependencies/UD_Romanian-RRT)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "IRRELEVANT_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "54 of 87 references (62%) include at least one of the five authors (Păiș, Ion, Avram, Mitrofan, Tufiș), e.g. [3], [8], [9], [12], [14], [15], [22], [23], [26]-[38], [39]-[43], [45], [46], [50]-[59], [62], [64], [65], [67]-[72], [74]-[78], [81], [82], [85]. Most are concentrated in an institutional-history introduction.",
+    "IRRELEVANT_SELF_CITATION": "Many self-citations are unrelated (similarity < 0.3) to an evaluation of tokenisers, taggers, lemmatisers and parsers: a 1985 question-answering system IURES [26], unification-grammar environments and a head-driven generator [28]-[31], the MACPAIL cooperation newsletter [29], fifteen Romanian WordNet and word-sense-disambiguation papers cited together as 'largely publicised [39-54]', JRC-Acquis word alignment and parallel corpora [64]-[67], speech corpora [76]-[78], and the MARCELL commemorative chapter [69]. None informs the methodology or results."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Useful, reproducible re-training and comparison of six Romanian NLP pipelines on common UD data with released scripts and models, but the reference list is dominated by self-citations (62%), many unrelated institutional-history citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Controlled benchmark of six existing Romanian annotation pipelines (TreeTagger, TTL, UDPipe, NLP-Cube, RNNTagger, Stanza), re-trained on UD 2.7 RRT with shared CoRoLa embeddings, evaluated in-domain and cross-domain (SiMoNERo), plus timing and model size; preliminary BERT tagging results.\n**Level:** 2 (Low)\n**Rationale:** Empirical comparison of existing tools with standard metrics.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (precision, recall, F1, accuracy)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Precision and recall are written with set intersection over boundary sets (|B_relevant ∩ B_retrieved|), which is the conventional definition of the metrics and is immediately glossed in English; these are the basic equations expected at Level 2 and were not treated as theater.\n\n### Issues\nNone identified in the formalism.\n\n---\n\n## Citation Analysis\n\n87 references; 54 (62%) include an author. The introduction is an institutional history of RACAI's tools and resources (IURES, MACPAIL, EGLU, QTAG, TTL, WordNet, CoRoLa, speech corpora, LLOD, MARCELL) with dense self-citation blocks such as 'Romanian WordNet ... was largely publicised [39-54]'. Citations to the tools under test, RRT, SiMoNERo, CoRoLa embeddings and TTL are relevant, but a large share are unrelated to evaluating annotation pipelines. Works by institute colleagues who are not authors of this paper (e.g. [5], [44], [47]-[49], [60], [61]) are not counted.\n\n---\n\n## Structural Analysis\n\nResults are well supported by Tables 2-7 and the textual claims about best tools match the tables (RNNTagger best POS; Stanza best lemmatisation and parsing; Stanza's 12.75 sentence F1 on SiMoNERo explained by end-of-sentence tokenisation differences). Weaknesses: single runs with default settings and no variance or significance testing; the statement that 'the relative order of the tools with respect to tokenization and annotation speed remains the same' is contradicted by Table 6 (e.g. Stanza vs NLP-Cube tokenisation, RNNTagger vs TTL vs Stanza run speed), and speed did not rise on SiMoNERo for TTL or Stanza. Limitations are acknowledged inline (default parameters, single CPU server, preliminary BERT results). Scripts and trained models are released, on public treebanks.\n\n---\n\n## Conclusion\n\nThe technical content is a sound, reproducible benchmark with appropriate minimal formalism and full artifact availability. The paper is nevertheless pulled down by citation conduct: almost two-thirds of the references are the authors' own, many describing unrelated legacy systems and resources, which triggers both the excessive and the irrelevant self-citation flags."
+  },
+  {
+   "paper_id": "matcovschi2021",
+   "paper": {
+    "title": "Invariant sets with arbitrary convex shapes in linear system dynamics",
+    "authors": [
+     "Mihaela Matcovschi",
+     "Marius Apetrii",
+     "Octavian Pastravanu",
+     "Mihail Voicu"
+    ],
+    "abstract": "A mathematical framework dedicated to flow-invariance study is proposed for continuous-time linear dynamics, with respect to general-shape contractive sets - defined by the class of proper C-sets (convex and compact sets, including the origin as an interior point), for which a constant-rate exponential decrease is considered. The main result provides a general algebraic characterization of flow-invariance, stated in terms of functions extending the concept of matrix measure (by using Minkowski functions, instead of vector norms, in the set description). A unifying point of view is created - able to connect several approaches to flow-invariance, separately reported in literature. This result is further exploited by set-embedding procedures that yield reformulations as optimization task - more reliable from the numerical perspective. Two examples are considered to illustrate how the flow-invariance criteria known for non-symmetrical polyhedrons, and symmetrical sets defined by weighted p-vector-norms, respectively, can be obtained as particular cases from our main result.",
+    "keywords": [
+     "continuous-time linear systems",
+     "invariant sets",
+     "Minkowski function",
+     "Lyapunov function"
+    ],
+    "doi": null,
+    "pages": "402-417",
+    "source_file": "paper701.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 80,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 67.0,
+    "composite": 50.25,
+    "final": 40.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the paper is purely theoretical (propositions, theorems and proofs) with no computation to release",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "Formalism complexity approx. 5 definitions x 2 + 8 theorem-level results (Propositions 1-3, Theorems 1-2, Corollaries 1-2, Lemma 1) x 3 + 6 proofs x 4 = 58, between the Level 3 upper bound (40) and twice it (80). The formalism is the substance of the contribution and passes the Necessity Test; the flag reflects quantity only.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment: the conclusion does not discuss computational tractability of the optimisation reformulations, the restriction to linear time-invariant continuous-time dynamics, or the cases where Corollary 2 gives only a sufficient condition."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Rigorous theoretical paper unifying flow-invariance criteria for linear systems via Minkowski-function-based matrix measures; formalism is necessary though voluminous, self-citation is modest, but limitations are not discussed and several internal cross-references are wrong.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Characterisation of exponentially contractive invariant sets of arbitrary convex shape (proper C-sets) for x' = Ax, via a matrix 'measure' eta_C built from the Minkowski gauge; recovery of known polyhedral (Blanchini) and weighted p-norm (Kiendl et al.) criteria as corollaries through set embedding.\n**Level:** 3 (Medium)\n**Rationale:** Proves non-trivial properties and extends a theoretical framework substantively (Level 3 by the guide). It is mathematical control theory rather than protocol safety or complexity theory, so Level 4 was not assigned.\n\n### Formal Elements\n- Definitions: ~5 (gauge nu_C, phi_C, eta_C, embedded set C and subspace, dual values psi / psi-bar); appendix notation (directional derivative, subdifferential, sublevel sets) is standard\n- Theorems: 8 (Propositions 1-3, Theorems 1-2, Corollaries 1-2, Lemma 1 from Rockafellar)\n- Proofs: 6 (Propositions 2-3, Theorems 1-2, Corollaries 1-2), plus the derivation in Remark 1\n- Equations: ~70 numbered\n\n### Proportionality\nCalculated complexity: ~58\nExpected range (Level 3): 10-40\nRatio: ~1.45x upper bound\n\n**Assessment:** Elevated in volume but necessary: each element is used in the main theorem or its corollaries, and the results cannot be stated without it. No theater pattern; the set notation is the native language of convex analysis.\n\n### Issues\nNo unnecessary formalism. Several cross-reference and typographical errors weaken the presentation: the proof of Theorem 1 invokes 'Proposition 3.(e)' and Theorem 2's proof 'Proposition 3(f)' although Proposition 3 lists only items a)-d) (the appendix proves a)-g)); Corollary 2(b) refers to 'Theorem 4.1' and Remark 4 to 'Corollary 5.3', neither of which exists; '(21) is proved' should refer to (A-25); (A-8) ends with eta_C where phi_C is meant; (A-11) has M for Q.\n\n---\n\n## Citation Analysis\n\n21 references; 4 involve an author (19%): Voicu's 1984 componentwise asymptotic stability paper [2] (historical origin of the line), Pastravanu and Matcovschi on interval and switching systems [10], [11], and the companion discrete-time paper [16]. All are directly relevant. The remaining references are the standard literature (Blanchini, Miani, Kiendl, Raković, Vidyasagar, Rockafellar).\n\n---\n\n## Structural Analysis\n\nClaims are supported by proofs. The abstract's statement that the embedding reformulations are 'more reliable from the numerical perspective' is not demonstrated: there are no numerical examples, and the 'two examples' are analytical particularisations (Corollaries 1 and 2). No limitations are discussed. As pure theory, there is nothing to release.\n\n---\n\n## Conclusion\n\nA competent theoretical contribution whose formal apparatus is proportionate to its aims in kind, if heavy in quantity for Level 3. Citation practice is sound. The main weaknesses are the absence of any limitations discussion, an unsupported numerical-reliability claim, and a number of incorrect internal references that a careful reader must repair."
+  },
+  {
+   "paper_id": "teodorescu2021",
+   "paper": {
+    "title": "ROMJIST Mirroring Research Domains in the Section of Information Science and Technology of the Romanian Academy - A brief bibliometric analysis",
+    "authors": [
+     "Horia-Nicolai Teodorescu"
+    ],
+    "abstract": "Using solely the tools offered by Google, the research connections between the ROMJIST journal and the Section of Information Science and Technology (S-IST) of the Romanian Academy are analyzed.",
+    "keywords": [
+     "Bibliometric analysis",
+     "information science and technology"
+    ],
+    "doi": null,
+    "pages": "418-422",
+    "source_file": "paper702.pdf"
+   },
+   "concept_level": null,
+   "scores": {
+    "formalism": null,
+    "citation_integrity": null,
+    "structural_integrity": null,
+    "artifact_availability": null,
+    "intellectual_integrity": null,
+    "composite": null,
+    "final": null
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; editorial anniversary note based on manual Google Scholar searches",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EDITORIAL"
+   ],
+   "flag_details": {
+    "EDITORIAL": "Anniversary note for the 30th year of the Romanian Academy's Section of Information Science and Technology, introducing 'this special issue' and 'this anniversary issue', summarising the issue's papers, and paying tribute to the journal's late founder and late section members. Its 'bibliometric analysis' is a handful of Google Scholar hit counts per section member, which the author repeatedly describes as unreliable. Not a research paper; excluded from scoring."
+   },
+   "verdict": {
+    "classification": "NOT_APPLICABLE",
+    "disqualified": false,
+    "record_type": "editorial"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Anniversary piece counting Google Scholar hits for 'romjist' together with the surnames of IST Section members, plus a keyword figure, and introducing the special issue.\n**Level:** not assigned (editorial content)\n**Rationale:** The piece functions as the issue's editorial: it states that 'All the papers in this special issue are authored by the members of the S-IST', lists them by group, and closes with tributes. RUIN is not applied to editorial content.\n\n### Formal Elements\nNone.\n\n---\n\n## Citation Analysis\n\nSeven references: publisher, institute and journal web pages, a personal communication, and two of the author's own ROMJIST editorials/special-issue items. Not assessed, as the item is editorial.\n\n---\n\n## Structural Analysis\n\nThe author repeatedly notes that Google Scholar searches miss known papers and that 'some GS errors surely remain in this article'. No data or scripts are provided. Reference [4] is dated 'October 20, 2021' while the searches are said to be from 'October 1, 2021 and the following few days'.\n\n---\n\n## Conclusion\n\nEditorial material for a special anniversary issue; flagged EDITORIAL and excluded from scoring."
+  }
+ ]
+}

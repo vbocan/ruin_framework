@@ -1,0 +1,327 @@
+{
+ "batch_id": "2012-v15-n2",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 15,
+  "issue": 2,
+  "year": 2012
+ },
+ "papers": [
+  {
+   "paper_id": "alexandru2012",
+   "paper": {
+    "title": "Nominal Event Structures",
+    "authors": [
+     "Andrei Alexandru",
+     "Gabriel Ciobanu"
+    ],
+    "abstract": "We present the concept of \"event structures\" in the nominal framework of the Fraenkel-Mostowski model of set theory. Using specific techniques of nominal logic, we introduce and study the nominal event structures, providing some properties. The analogy between the results obtained by using the Fraenkel-Mostowski axioms and those obtained by using the Zermelo-Fraenkel axioms is discussed.",
+    "keywords": [],
+    "doi": null,
+    "pages": "79-90",
+    "source_file": "01-gciobanu2012.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 92,
+    "structural_integrity": 78,
+    "artifact_availability": 0,
+    "intellectual_integrity": 84.5,
+    "composite": 63.38,
+    "final": 63.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the paper is pure theory (definitions, propositions and proofs in FM set theory) with nothing to release",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Foundational set-theoretic paper transferring elementary event structures and a Tarski-style fixed-point result into the Fraenkel-Mostowski nominal framework; formalism is the subject matter and is proportionate, though the results are routine adaptations and proofs are somewhat repetitive.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Reformulation of elementary event structures, event structures and causality-preserving functions in the Fraenkel-Mostowski (nominal) model of set theory, with finite-support versions of a glb-existence result and a Tarski-like fixed-point theorem.\n**Level:** 4 (High)\n**Rationale:** The contribution is entirely in the foundations of semantics: proofs about finitely supported objects under permutation actions. This is comparable to establishing formal properties of a semantic framework rather than an implementable system. It is not Level 5 because no universality, undecidability or hardness result is proved, and the theorems adapt known ZF results (Nielsen-Plotkin-Winskel event structures, Tarski's fixed point) rather than establishing new deep results.\n\n### Formal Elements\n- Definitions: 12 (Definitions 2.1-2.8, 3.1-3.4)\n- Theorems: 8 (Theorems 2.1, 3.1, 3.2, 3.3; Corollary 2.1; Propositions 2.1, 2.2, 2.3)\n- Proofs: 7\n- Equations: numerous inline formal statements; the ZFA axiom list (Definition 2.2) is reproduced background\n\n### Proportionality\nCalculated complexity: 12x2 + 8x3 + 7x4 = 76\nExpected range (Level 4): 30-80\nRatio: 0.95x upper bound\n\n**Assessment:** Proportionate. The set-membership and permutation-action notation is the native language of nominal set theory; every definition introduced in Section 2 (support, FM-set, finitely supported subset and function, equivariance) is used in the proofs of Section 3. Definition 3.4 (FM-event structure with conflict) is introduced at the end without any result attached to it, which is a minor loose end rather than an orphan pattern.\n\n### Issues\n- The proofs of Theorems 3.1, 3.2 and 3.3 repeat the same support argument almost verbatim (including offering 'two methods' each time), which could have been factored into a lemma.\n- Theorem 2.1 restates a standard result of Gabbay and Pitts with proof; Corollary 2.1 is the same statement for FM-sets.\n- Several notational glitches from extraction or typesetting (strict-subset symbol rendered as '(') make the contradiction argument harder to follow.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 8 references (12.5%): [1] Alexandru and Ciobanu on a nominal semantics of the piI-calculus, which applies the same nominal techniques and is directly relevant. The remaining references are the canonical sources (Gabbay-Pitts, Pitts, Nielsen-Plotkin-Winskel, Tarski, Rubin-Rubin). No issues identified.\n\n---\n\n## Structural Analysis\n\nClaims are mathematical statements, each backed by a proof, so the claim-evidence balance is good. The authors acknowledge the scope inline: the aim 'was not to provide a complete study of event structures', and Remark 3.1 explains why equivariance of f is needed and that a full analogue of the ZF result cannot be proved without it. No motivation is given for why nominal event structures are useful beyond showing that the transfer is possible. Nothing to release as an artifact.\n\n---\n\n## Conclusion\n\nA short, competent exercise in nominal set theory. Its formal apparatus is exactly what the subject requires and is used throughout. The contribution is modest: known ZF results are shown to survive in FM with a finite-support argument repeated three times. No integrity concerns were identified."
+  },
+  {
+   "paper_id": "franti2012",
+   "paper": {
+    "title": "Methods of Acquisition and Signal Processing for Myoelectric Control of Artificial Arms",
+    "authors": [
+     "Eduard Franţi",
+     "Lucian Milea",
+     "Verona Buţu",
+     "Suzana Cismaş",
+     "Mihai Lungu",
+     "Paul Şchiopu",
+     "Adrian Barbilian",
+     "Anca Plăviţu"
+    ],
+    "abstract": "Myoelectric control of intelligent artificial arms, serving to replace amputated arms with prostheses, involves a lot of issues that have to be solved for achieving good results. It starts from the detection of electrical activity of muscles on the stump, which though does not develop a useful muscular exertion it can be used to control at will some predefined motions of artificial hand. An essential problem to be solved in this approach is the acquisition of the most useful controlling biosignals for the prosthesis, but the more important issue is to extract the control information from the raw myosignals. This approach is even more difficult as the amputation is older and those muscles are greatly atrophied, leading to weaker signals acquisition and more difficult signal processing. In this paper we present a simple method to separate the useful signal from noise and it's processing in order to get clear myoelectrical signals. This method is first presented using the software tools of the electromyograph used and then it is applied distinctly for separate processing of the signal generated by an amputated arm and extracting useful information.",
+    "keywords": [
+     "EMG",
+     "Myoelectric signals",
+     "Signal acquisition",
+     "Artificial arms control",
+     "Intelligent prostheses",
+     "Signal processing"
+    ],
+    "doi": null,
+    "pages": "91-105",
+    "source_file": "02-franti.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 80,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 68.75,
+    "composite": 51.56,
+    "final": 46.56
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; processing was done in the commercial AcqKnowledge software and with 'proper experimental software', which is not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment; the paper does not mention that results come from a single amputee subject and a single muscle pair, nor that no classification accuracy or quantitative detection rate is reported."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Largely descriptive overview of myoelectric prostheses with a single-subject demonstration of standard envelope detection, low-pass filtering and thresholding in commercial EMG software; no formalism, weak evidence, and a 41-item reference list of which only two items are cited in the text.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Acquisition of surface EMG from an amputee's stump and extraction of on/off control pulses by envelope detection, low-pass filtering and thresholding.\n**Level:** 1 (Trivial)\n**Rationale:** Most of the paper is a tutorial description of myoelectrodes, electrode chemistry and prosthesis block diagrams. The processing is a standard chain applied using the facilities of a commercial electromyograph package (AcqKnowledge); no new algorithm is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. No formal apparatus.\n\n### Issues\nNone identified in formalism.\n\n---\n\n## Citation Analysis\n\nNo self-citations by the eight authors were identified among the 41 references. However, only [1] (introduction) and [34] (for the 300 ms effective-command delay) are cited in the body text; the other 39 references are never referenced. [34] is a paper on an ultralight anthropomorphic hand, an odd source for a control-delay threshold. The reference list is largely ornamental, which reduces the citation-integrity score even though SCR is 0%.\n\n---\n\n## Structural Analysis\n\nThe experimental part consists of figures from one transmetacarpal amputee, comparing amplitude of the flexor carpi radialis on the healthy and amputated sides (150-450 vs 50-80 microvolts peak-to-peak against about 30 microvolts of noise) and showing extracted square pulses. The conclusion that 'the method was able to extract a reliable command signal' rests on visual inspection of a few traces; no detection rate, false-trigger rate, number of trials or latency measurement is given beyond 'gaps up to 1-2 ms'. The conclusions list largely restates what was presented. Claim-evidence ratio is estimated at about 0.4 (weak). No limitations are acknowledged. No code or data released.\n\n---\n\n## Conclusion\n\nA low-complexity, mostly descriptive paper with no formalism concerns. Its weaknesses are evidential: a single-subject qualitative demonstration of a textbook processing chain, no quantitative evaluation, no limitations, and a long reference list that the text does not use."
+  },
+  {
+   "paper_id": "crawford2012",
+   "paper": {
+    "title": "Dynamic Selection of Enumeration Strategies for Solving Constraint Satisfaction Problems",
+    "authors": [
+     "Broderick Crawford",
+     "Carlos Castro",
+     "Eric Monfroy",
+     "Ricardo Soto",
+     "Wenceslao Palma",
+     "Fernando Paredes"
+    ],
+    "abstract": "The main goal concerning Constraint Satisfaction Problems is to determine a value assignment for variables satisfying a set of constraints, or otherwise, to conclude that such an assignment does not exist (the set of constraints is unsatisfiable). In the Constraint Programming resolution process, it is known that the order in which the variables are assigned have a significant impact in terms of computational cost. In this paper we propose a new framework for guiding the classical Constraint Programming resolution process. Such a framework is able to measure the resolution process, using some indicators, in order to perform on-the-fly replacements of variable/value ordering heuristics exhibiting poor performances. The replacement is performed depending on a quality rank, which is computed by means of a choice function-based Hyperheuristic, where its parameters are fine-tuned by a Genetic Algorithm which trains the choice function carrying out a sampling phase. The experimental results show the effectiveness of our approach where our combination of strategies outperforms the use of individual strategies.",
+    "keywords": [],
+    "doi": null,
+    "pages": "106-128",
+    "source_file": "03-crawford.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 62,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 70.75,
+    "composite": 53.06,
+    "final": 48.06
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link to the authors' solver; the only URL is to the third-party JGAP library ('http://jgap.sourceforge.net/'), and the benchmarks (N-queens, magic square, Latin square, Sudoku, knight tour) are standard puzzles without released instances",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "5 of 23 references (21.7%) include the authors: [7] Castro, Monfroy et al.; [9] Crawford, Castro, Monfroy; [10] Crawford, Soto, Castro, Monfroy; [11] Hamadi, Monfroy, Saubion; [16] Monfroy, Castro, Crawford. All are topically relevant (adaptive enumeration and autonomous search)."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Empirical hyperheuristic study combining a weighted-sum choice function over search indicators with GA-tuned weights to switch CSP enumeration strategies; formalism is minimal and appropriate, results over 30 runs are reported in detail but without significance testing, and self-citation is elevated though relevant.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Dynamic switching among eight variable/value-ordering strategies in a backtracking CP solver (ECLiPSe), driven by a choice function that is a weighted sum of exponentially smoothed search indicators, with weights tuned offline by a genetic algorithm.\n**Level:** 2 (Low)\n**Rationale:** The components (choice-function hyperheuristic, exponential smoothing, Pearson correlation for indicator pruning, GA parameter tuning) are all existing techniques combined and evaluated empirically. No complexity or convergence analysis is offered.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (Pearson correlation, weighted-sum choice function, exponential smoothing recursion and expansion)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are basic and each corresponds to something implemented: the choice function and smoothing define what the solver computes. The Greek letters (alpha weights, beta smoothing factor) denote quantities the GA actually tunes or that control smoothing, not decorated constants. Pseudocode (Procedures 1 and 2) is used appropriately.\n\n### Issues\nNone identified in formalism. Minor: Equation 5 mislabels the expanded sum as the same quantity as the recursion without noting the first-term boundary.\n\n---\n\n## Citation Analysis\n\nFive of 23 references include one or more authors (21.7%), giving ELEVATED_SELF_CITATION. Each is on adaptive enumeration strategies, autonomous search or the ECLiPSe framework the solver is built on, so all are relevant (similarity well above 0.5). The rest of the list covers standard CSP heuristic literature (Bessiere, Beck, Boussemart, van Beek, Wallace). No ring pattern observed.\n\n---\n\n## Structural Analysis\n\nExperiments cover seven problem families, 24 choice functions, eight fixed strategies and a random baseline, each over 30 runs, reporting min/avg/sd/max and completion percentage. The data are presented in full, which is a strength. However, the claims are stated more strongly than the tables support: on N-queens and small Latin squares the best single strategies (S3/S7) match or beat most choice functions, and no statistical test separates the CFs from Random or from each other. 'At least in top-3 ranking' is asserted without a ranking table. The GA tuning cost (sampling runs) is not reported, so the comparison against fixed strategies omits the overhead. The authors acknowledge inline that indicators do not capture all features, that weight tuning is problem-dependent and difficult, and that a non-linear combination is future work. Claim-evidence ratio is adequate (about 0.6-0.8). No code released; JGAP and ECLiPSe are third-party.\n\n---\n\n## Conclusion\n\nA reasonable empirical contribution with appropriately light formalism and thorough raw results. The main weaknesses are the absence of statistical comparison, the unreported tuning cost, and somewhat overstated conclusions. Self-citation is elevated but every self-cited work is directly relevant."
+  },
+  {
+   "paper_id": "khan2012",
+   "paper": {
+    "title": "Optimized Dynamic Task Allocation and Priority Assignments in an Immunized Autonomous Multi-Robot Search and Rescue Operation",
+    "authors": [
+     "M. Tahir Khan",
+     "Bessie Chan",
+     "Afzal Khan",
+     "Zia Haq",
+     "Javaid Iqbal"
+    ],
+    "abstract": "This paper discusses the optimization of the cost function for task allocation and conflict resolution in robots in immune-based cooperative multi-robot search and rescue missions. In this research, robots respond to an emergency situation such as a bomb blast or an earthquake, approach the site, and assemble a structure out of parts collected from the debris in order to evacuate the injured people. A genetic algorithm is used to optimize the cost function that determines the most suitable robot that can transport or help another robot to transport the part to an assembly location in order to build a structure. Further, a priority assignment method is suggested for different parts based on their order dependencies. Decision conflicts among the robots are also discussed and solutions to resolve them are provided. The developed scheme is verified through simulation of immune-based multi-robot cooperation.",
+    "keywords": [
+     "Artificial immune system",
+     "cooperative transport",
+     "cost optimization",
+     "multi-robot systems"
+    ],
+    "doi": null,
+    "pages": "129-145",
+    "source_file": "04-tahir@20khan.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 35,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 23.5,
+    "composite": 17.62,
+    "final": 17.62
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the simulator is described only as 'the java code with conflict resolution', and the fifty scenario configuration files are not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "5 of 13 references (38.5%) are by the first author: [1], [2], [3], [5] Khan and de Silva, and [4] Siriwardana, Khan and de Silva. All concern the authors' immune-based multi-robot cooperation project and are topically relevant, but the ratio exceeds the 30% threshold.",
+    "FORMALISM_THEATER": "Level 2 paper (GA tuning of a seven-term weighted-sum cost in a simulation) that introduces set notation for plain lists: 'Let R be the set of robots ... R = {r1, r2, ....rn}' and 'O = {o1, o2, ....on}', and writes the other robots as '{R - r1}'. None of this is used in any derivation; the decision routine is ordinary if/then logic.",
+    "UNNECESSARY_SET_THEORY": "Set difference '{R - r1}' stands for 'the other robots' and set-builder lists R and O stand for arrays of robots and parts; the min over '{cost'rk(o2)...cost'rn(o2)}' is a loop over a list. No proof depends on these operations."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simulation study tuning seven cost-function weights for multi-robot part transport with a GA; set notation for lists of robots and parts triggers the Level 2 formalism flags, self-citation is excessive at 38.5%, and the results are reported loosely with internal inconsistencies and no statistical testing.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Selecting which robot transports which debris part in a simulated search-and-rescue assembly task, using a weighted-sum cost over distance, speed, angle, effort, priority, operating cost and obstacles, with the weights found by a genetic algorithm; plus a heuristic priority-propagation rule over a part-dependency graph.\n**Level:** 2 (Low)\n**Rationale:** A standard GA applied to tune linear weights in the authors' own simulator. The 'artificial immune system' framing is a metaphor for broadcast-and-compare bidding; no new algorithm with analysis is proposed.\n\n### Formal Elements\n- Definitions: 0 numbered (2 inline set definitions)\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (priority update, cost with and without priority, total score)\n\n### Proportionality\nCalculated complexity: 0 by the counting formula\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in volume, but it fails the Necessity Test. The weighted-sum cost (Equations 2-3) and the total score (Equation 4) are legitimate basic equations. The set notation is not.\n\n### Issues\n- 'Let R be the set of robots in an unexplored environment where R = {r1, r2, ....rn} has n robots. Let O be defined as the set of parts ... O = {o1, o2, ....on}': arrays written as sets, with the same n used for both robots and parts.\n- 'r1 proceeds to compete with other robots in {R - r1}': set difference for 'all other robots'.\n- Equation 1 is malformed: it writes the update of a neighbour's priority as a sum over k of (pp + Pp/N), which, read literally, multiplies the neighbour's priority by N; the text says the new priority is the old one plus Pp/N. The notation obscures a one-line rule.\n- In Equation 3 the obstacle term is also set to zero without explanation, although the text says only priority is zeroed.\n\nAt Level 2 any unnecessary formal element triggers FORMALISM_THEATER; the set operations also trigger UNNECESSARY_SET_THEORY.\n\n---\n\n## Citation Analysis\n\nFive of thirteen references (38.5%) are the first author's earlier papers on immune-based multi-robot cooperation ([1]-[5]), introduced as 'a larger project ... [1]-[5]' and as 'the technique developed by us in [1-5]'. They are relevant, so no IRRELEVANT_SELF_CITATION, but the ratio is above 30% and the paper cites almost no prior work on market-based or auction task allocation, the obvious comparison class for this problem. EXCESSIVE_SELF_CITATION applies.\n\n---\n\n## Structural Analysis\n\nThe GA was run fifteen times and simulations repeated over 1000 trials, but results are reported only as plots and a single best weight set, with no statistical test of the conflict-resolution versus no-conflict-resolution difference. Several inconsistencies weaken the evidence: the text says scores for conflict resolution 'in Fig. 3' do not exceed 20,000 although Fig. 3 is captioned as the no-conflict-resolution case; Table 3 reports a median best score of about 90,600 time steps while the text speaks of scores 'not exceeding 20 000' and 'no score over 120000'; the failure penalty is given as 50,000 time steps, while the text also says that robots 'did not complete the task within 50 000 time steps'. The GA weights for the two conditions (Table 4) differ in sign on almost every parameter, and the paper concedes that priority, cost and effort show no consistent tendency, which undercuts the interpretive discussion. Limitations are acknowledged inline (communication range, robot count, need for further analysis of parameter interactions). Claim-evidence ratio is weak, about 0.4. No code or scenario files released.\n\n---\n\n## Conclusion\n\nAn applied simulation paper whose substance is GA weight tuning. It is disqualified on two independent grounds: decorative set notation for robot and part lists at Level 2, and a self-citation ratio of 38.5%. Independently of the flags, the reporting is loose and internally inconsistent, and there is no statistical support for the claimed benefit of conflict resolution."
+  },
+  {
+   "paper_id": "ahmad2012",
+   "paper": {
+    "title": "Congestion Control in Multi Channel 802.11b and 802.11g Wireless Networks",
+    "authors": [
+     "Mudassar Ahmad",
+     "Junaid Ahsenali Chaudhry",
+     "Md. Asri Ngadi"
+    ],
+    "abstract": "Wireless Networks are being deployed everywhere as an alternative to Wired Networks. Most of people configured wireless networks using default configurations, as a result they may not achieve maximum network performance. Selection of frequency channel-pattern and physically placement of Access Points are main reasons for poor network performance. In this research we experimentally analyzed the performance of wireless networks consisting of IEEE 802.11b/g devices by using both overlapping and non-overlapping frequency channels patterns. We concluded that better throughput can be achieved by using non-overlapping frequency channels-patterns.",
+    "keywords": [],
+    "doi": null,
+    "pages": "146-154",
+    "source_file": "05-jchaudhry.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 78,
+    "structural_integrity": 30,
+    "artifact_availability": 0,
+    "intellectual_integrity": 66.8,
+    "composite": 50.1,
+    "final": 45.1
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; iperf command lines are listed and measurements were managed in Excel and SPSS, but no data are released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment; the conclusion lists only future experiments with 802.11n/802.11a and does not mention the two-AP, two-laptop testbed, five repetitions, or the absence of any congestion-control mechanism despite the title."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Small testbed measurement showing that non-overlapping 802.11b/g channels give higher iperf throughput than co-channel operation, a well-known result; no formalism, but the title promises congestion control that is never addressed, the setup is described inconsistently, results are qualitative, and the reference list is poorly formed.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Throughput and response-time measurements with iperf for two 802.11b/g access points configured on overlapping (same) versus non-overlapping channels, varying antenna separation, transmit power, TCP window and UDP buffer size.\n**Level:** 2 (Low)\n**Rationale:** An empirical comparison with basic descriptive statistics; no model or algorithm is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. No formal apparatus.\n\n### Issues\nNone identified in formalism.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 7 references. The list itself is weak: [2] and [3] are given with '(n.d.)' and venue fields 'Science' and 'Evaluation'; [6] is listed as Chebrolu 'Performance Measurements and Experience, Media', while the text attributes the long-distance 802.11b study to 'Murray et al. [6]' and Murray is actually [7]; '(2010) [7]' appears with no author. The related-work section paraphrases sources closely (the sentence on 'Tremendous growth and wide usage of IEEE 802.11' appears both in the introduction and as a statement attributed to [1]). Citation integrity is reduced for these attribution errors, not for self-citation.\n\n---\n\n## Structural Analysis\n\nThe central claim, that non-overlapping channels yield better throughput, is supported only by bar charts with no numbers, variance, or test, from five repetitions on a single two-AP testbed. The setup is reported inconsistently: laptops are placed '7 feet from the access point' in Section 3 and '7 meters' in Section 5; the non-overlapping scheme is '1-6-11-1' in Table 1 and '(6-1-11-6)' in Section 5.1; and an interfering AP on channel 6 is mentioned only in passing. The title and the conclusion's claim to have 'achieved the maximum available throughput' are not supported: no congestion-control mechanism is designed or evaluated, and no maximum is identified. The medical case study (Section 6) describes a funded project and does not connect to the measurements. Claim-evidence ratio is weak, around 0.35-0.4. No limitations acknowledged. No data released.\n\n---\n\n## Conclusion\n\nA low-complexity measurement note restating a textbook fact about 2.4 GHz channel planning. Formalism is not a concern. The paper's problems are the mismatch between title and content, thin and inconsistently described experiments, qualitative reporting, and a reference list with attribution errors."
+  },
+  {
+   "paper_id": "akashe2012",
+   "paper": {
+    "title": "High Density and Low Leakage Current Based 5T SRAM Cell Using 45 nm Technology",
+    "authors": [
+     "Shyam Akashe",
+     "Sushil Bhushan",
+     "Sanjay Sharma"
+    ],
+    "abstract": "This paper is based on the observation of a CMOS five-transistor SRAM cell (5T SRAM cell) for very high density and low power applications. This cell retains its data with leakage current and positive feedback without refresh cycle. This 5T SRAM cell uses one word-line and one bit-line and extra read-line control. The new cell size is 21.66% smaller than a conventional six-transistor SRAM cell using same design rules with no performance degradation. Simulation and analytical results show purposed cell has correct operation during read/write and also the delay of new cell is 70.15% smaller than a six-transistor SRAM cell. The new 5T SRAM cell contains 72.10% less leakage current with respect to the 6T SRAM memory cell using cadence 45 nm technology.",
+    "keywords": [
+     "5T SRAM Cell",
+     "Cell delay",
+     "Cell leakage",
+     "Cell area",
+     "Power consumption"
+    ],
+    "doi": null,
+    "pages": "155-168",
+    "source_file": "06-sakashe.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 70,
+    "citation_integrity": 85,
+    "structural_integrity": 20,
+    "artifact_availability": 0,
+    "intellectual_integrity": 62.75,
+    "composite": 47.06,
+    "final": 32.06
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link to netlists, layouts or simulation decks; the only URL is the third-party Predictive Technology Model site ('http://www.eas.asu.edu/~ptm'), and simulations used commercial Cadence Virtuoso",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "The headline figures are not supported by, and in places contradict, the paper's own tables. The abstract claims a delay '70.15% smaller' while the conclusion claims '28.57% speed improvement', and Table 2 shows the 5T cell slower at the ST node (2.453 ns vs 0.839 ns). The '72.10% less leakage current' cannot be derived from Table 1, where the 5T cell is worse in one of four cases and signs are mixed. Table 3 shows 5T power of 9.8-85 nW against 0.003-30 pW for 6T, i.e. three to seven orders of magnitude worse, contradicting the abstract's 'low power' and 'no performance degradation'. The read-SNM-free property stated as the objective is never measured. Estimated CER below 0.33."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Simulation of a 5T SRAM cell in 45 nm against a 6T baseline; formalism consists of textbook device equations that are not used in the results, and the headline area, delay, leakage and power claims are inconsistent with or contradicted by the paper's own tables.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A five-transistor SRAM cell with single bit-line, word-line and a read-line-controlled feedback-cutting transistor, retaining a stored '0' through the access transistor's sub-threshold leakage, simulated in Cadence Virtuoso with a 45 nm predictive model and compared with a 6T cell on area, leakage, delay and power.\n**Level:** 2 (Low)\n**Rationale:** The cell follows an existing loop-cutting strategy (Takeda et al. [4]) and exploits the known zero bias of memory contents ([7], [8]). The work is a circuit variant evaluated by standard simulation, with no new analytical model.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (retention condition, sub-threshold leakage, diffusion leakage and its prefactor, V50%, average propagation delay, average power)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in volume and type: all are basic textbook equations rather than notation substituting for programming constructs, so no formalism-family flag is raised. They are, however, decorative in function: every reported number comes from Cadence simulation ('Cell delay will be calculated directly by using the cadence virtuoso tools'), and none of Equations 2-7 is evaluated. The score is reduced accordingly.\n\n### Issues\n- Section 6.1 on diffusion leakage describes process optimisation ('the diffusion leakage was minimized by optimizing the source/drain energy ... reduction of the deep retrograde implant dose for the ULP technology') that the authors, who only simulated, did not perform; it reads as text imported from a process-technology source.\n- Equation 4 (A2 = T^(3/2) x V^(1/2)) is presented without units or context.\n- The V50% definition is garbled ('V150s level').\n\n---\n\n## Citation Analysis\n\nNo self-citations by the three authors among 14 references. The references are mostly appropriate primary sources (Takeda, Chang, Azizi, Moshovos, Kang-Leblebici, Rabaey). [13] has no title, and the leakage equation is attributed to a PhD dissertation [14]. No concerning patterns beyond these formatting defects.\n\n---\n\n## Structural Analysis\n\nThe evidence does not support the claims. (1) Area: 2.69 vs 3.438 square micrometres is a 21.8% reduction, not 21.66%, and the layouts are in scalable rules without sharing. (2) Delay: Table 2 shows the 5T cell faster at STB (14.24 ps vs 47.72 ps) but about three times slower at ST (2.453 ns vs 0.839 ns); the abstract's 70.15% and the conclusion's 28.57% are mutually inconsistent and neither is derived. (3) Leakage: Section 6.2 repeatedly labels every case 'leakage at M3 transistor' regardless of which transistor is named as off, Table 1 mixes signed currents, and the 35 C column is exactly twice the 25 C column in every cell, which suggests a rule of thumb rather than simulation. (4) Power: Table 3 shows the 5T cell consuming nanowatts against picowatts or femtowatts for 6T, yet the abstract claims low power and no degradation; the conclusion's 'the proposed cell is cell power consumption penalty' is the only, garbled, acknowledgment. (5) The read-SNM-free design goal is never evaluated, nor are retention robustness, process variation or the sense amplifier. The garbled power-penalty sentence is counted as a weak inline limitation, so NO_LIMITATIONS is not raised. Estimated CER is below 0.33. No artifacts released.\n\n---\n\n## Conclusion\n\nA routine circuit-variant paper with harmless but unused textbook equations. Its serious problem is structural: the abstract's quantitative claims are inconsistent with each other and with the paper's own tables, which show the proposed cell slower on one node, leakier in one case, and orders of magnitude more power-hungry than the baseline. The UNSUPPORTED_CLAIMS flag reflects that."
+  }
+ ]
+}

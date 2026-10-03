@@ -1,0 +1,217 @@
+{
+ "batch_id": "2010-v13-n3",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 13,
+  "issue": 3,
+  "year": 2010
+ },
+ "papers": [
+  {
+   "paper_id": "giurgiu2010",
+   "paper": {
+    "title": "An implementation of the backtracking algorithm for multicore systems",
+    "authors": [
+     "Claudiu-Florin Giurgiu"
+    ],
+    "abstract": "The emergence of inexpensive parallel computers powered by multicore chips combined with high clock rates raises new challenges for software engineering. Since the performance improvements will not come from increased clock rates, high performance applications will need to be parallelized. In addition to operating system support, adjustments to existing software are required to maximize utilization of the computing resources provided by multicore processors. The ability of multicore processors to increase application performance depends on the use of multiple threads within applications. We will describe an algorithm that allows backtracking problems to be solved by means of such multicore systems. A multicore algorithm meant for backtracking problems and able to meet certain constraints is made of multiple search threads with concurrent operation and distinct processing parts of the solution space. The proposed algorithm is scalable.",
+    "keywords": [],
+    "doi": null,
+    "pages": "241-254",
+    "source_file": "cgiurgiu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.7,
+    "composite": 33.52,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the paper only states \"The multicore backtracking algorithm is implemented using C and Pthreads[18][19].\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (static partitioning of a textbook backtracking search across threads at a fixed depth t) that presents the search through set-valued 'used-out' sets C_k, set union and difference, and two-row configuration matrices with four transition rules. The paper itself states that each C_k can be represented only by the value v_k, i.e. the formalism reduces to a per-level counter; none of the notation supports a proof or bound.",
+    "UNNECESSARY_SET_THEORY": "Set operations stand in for elementary array/counter operations: 'Ck = Ck ∪ {vk}' marks a value as tried, 'choose a value vk from Vk − Ck' picks the next untried value, 'Ck ⊂ Vk' and 'Ck = ϕ' reset the counter. In code this is v[k]++ and v[k]=0, as the paper concedes when it replaces the sets by numbers."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Straightforward depth-threshold parallelisation of sequential backtracking, illustrated on n-queens, wrapped in set-theoretic configuration notation that the paper itself reduces to counters; evaluation is limited to timing plots without baselines or code.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Parallelising exhaustive backtracking on multicore machines by letting a main thread enumerate the first t components of the solution vector and spawning one Pthreads worker per valid prefix to search the remaining components; evaluated on the n-queens problem (n = 15-18) on two AMD Opteron systems.\n**Level:** 2 (Low)\n**Rationale:** The contribution is a well-known static work-splitting scheme (fixed-depth prefix partitioning) applied to standard backtracking. There is no complexity analysis, no load-balancing strategy, no correctness or termination proof beyond restating the sequential argument, and no comparison with existing parallel backtracking implementations. It is a simple adaptation of an existing method, which is Level 2.\n\n### Formal Elements\n- Definitions: 0 numbered (inline: solution space as Cartesian product V1 × ... × Vn, used-out sets Ck, configuration matrices)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 15 displayed configuration/transition matrices plus one efficiency formula; three pseudocode listings using set operations\n\n### Proportionality\nCalculated complexity: 0 (no numbered definitions, theorems or proofs)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate by count, but the Necessity Test fails. The set notation (Ck ∪ {vk}, Vk − Ck, Ck ⊂ Vk, Ck = ϕ) and the two-row configuration matrices describe nothing more than a per-level counter and an index k moving up and down. The paper states this directly: \"each set of used out values Ck has the form 1, 2, ..., vk and as a consequence, it can be represented only by value vk\". The four transition rules restate the pseudocode in matrix form and are not used for any argument; the termination claim is given in prose.\n\n### Issues\n- Pseudocode line \"Ck = Ck ∪ {vk}\" for marking a value as tried, i.e. an increment.\n- Configuration matrices duplicated for the multicore case without adding information beyond the pseudocode.\n- Figure 2 is said to show the problem \"given in example 3\"; there is only an Example 1.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 19 references (about 5%): [16], the author's distributed-systems version of the same backtracking algorithm, directly relevant (similarity high). Several references are vendor web pages ([1], [2], [17]) and Pthreads tutorials ([18], [19]) supporting background statements. The related-work references on distributed constraint satisfaction (ABT, WCS, DIBT, AAS) are topically adjacent but are not compared against experimentally. No concerning patterns.\n\n---\n\n## Structural Analysis\n\nThe main empirical claims (scalability, roughly halving time when doubling cores, 32 h to 8 h for n = 18 on four cores) rest on timing figures for one benchmark on two machines; values appear only in figures, with no repetitions, variance or baseline other than the sequential run. The comparison with agent-based approaches (\"the number of messages for n = 8 is of figures of thousands\") is asserted without measurement or citation, and the fault-recovery advantage is argued but not implemented or tested. Claim-evidence balance is roughly adequate for the scaling claims and weak for the comparative ones (CER estimated around 0.5). Limitations are acknowledged inline: overhead dominates for t > 2 and n ≤ 16, and efficiency is low for small jobs. No code or data are released.\n\n---\n\n## Conclusion\n\nThe paper describes a simple, sound idea (fixed-depth prefix partitioning) that is standard in parallel search, with modest timing evidence on n-queens. Its formal presentation uses set-theoretic notation and configuration matrices for what the paper itself reduces to counters, which under the framework's zero-tolerance rule for Level 1-2 papers triggers FORMALISM_THEATER and UNNECESSARY_SET_THEORY. Beyond the formalism, the evaluation lacks baselines against other parallel backtracking schemes, and the comparative claims about agent-based methods and fault tolerance are unsupported."
+  },
+  {
+   "paper_id": "burileanu2010",
+   "paper": {
+    "title": "Multi-Access Network-Based TTS Architectures",
+    "authors": [
+     "Dragos Burileanu",
+     "Mihai Surmei",
+     "Cristian Negrescu",
+     "Catalin Ungurean",
+     "Aurelian Dervis"
+    ],
+    "abstract": "There are many areas were text-to-speech (TTS) synthesis could enhance the end-user experience or even change the behavior of using existing network services starting from simple notification applications to complex presence enabled instant messaging convergent services. For this to happen we may need to bring TTS service in the multi-access area of Internet Multimedia Subsystem (IMS) networks and implement network-based TTS architectures. This paper proposes a pre-IMS network architecture leveraging a Romanian TTS system and a reference framework for developing future convergent network services around TTS technology.",
+    "keywords": [
+     "Multi-access",
+     "network-based speech processing",
+     "IMS network",
+     "MRCP",
+     "presence",
+     "instant messaging"
+    ],
+    "doi": null,
+    "pages": "310-320",
+    "source_file": "dburileanu.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 60,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.0,
+    "composite": 48.75,
+    "final": 43.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the paper names third-party components only: \"The technology used is open source: Unimrcp for the MRCP stack and FreeSwitch for the soft switch.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "3 of 10 references (30%) are by the authors ([1] Burileanu, [2] Burileanu, Negrescu, Surmei, [8] Surmei, Burileanu, Negrescu, Pirvu, Ungurean, Dervis). All three are topically relevant (embedded speech interfaces, the authors' Romanian TTS engine, TTS as a telecom service enabler), so no irrelevance flag applies, but the ratio sits at the top of the 20-30% band."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Descriptive system-integration paper that wires an existing Romanian TTS engine into a SIP/MRCP soft switch for e-mail and RSS reading and sketches an IMS service; no formalism, but also no evaluation, and a high (relevant) self-citation share.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A network architecture that exposes the authors' Romanian TTS engine through an MRCPv2 server behind a SIP soft switch (FreeSwitch, Unimrcp), used for phone-based e-mail and RSS reading over an SSL VPN from Windows Mobile handsets, plus a proposed IMS-based IM-Presence-TTS convergent service.\n**Level:** 1 (Trivial)\n**Rationale:** The contribution is a system architecture that combines existing components and standard protocols (SIP, RTP, MRCP, IMAP/POP3, HTTP); the IMS service is described as a call flow, not implemented. No new algorithm or model.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper uses no mathematical notation; architecture is conveyed by figures and numbered procedural steps, which is appropriate.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThree of ten references are self-citations (30%): [1] a book chapter by the first author on spoken language interfaces for embedded applications, [2] the authors' paper on their Romanian TTS system, and [8] the authors' earlier paper on TTS engines as telecom service enablers. All are closely related to the present work (similarity high), so no IRRELEVANT_SELF_CITATION flag applies. The ratio is exactly at the 30% boundary; since the excessive threshold is strictly above 30%, the paper falls in the 20-30% band and receives ELEVATED_SELF_CITATION. The reference list is short (10 items) and mostly consists of protocol RFCs and a few related systems; it does not survey competing network-based TTS deployments.\n\n---\n\n## Structural Analysis\n\nThe paper reports no measurements of any kind: the statements that the platform \"permits concurrent client accesses\" and that certain settings (UDP tunnel, ciphering off, disabled uplink RTP, G.711 recoding) \"had an impact of the quality of the voice\" are not backed by latency, quality or load figures. Normative claims about IMS being \"the most suited network\", proprietary interfaces causing lock-in, and the approach leading to \"a canonical way of building innovative telecom services\" are either unsupported or supported only by the authors' own prior work and a vendor white paper. The estimated claim-evidence ratio is weak (about 0.4). Limitations are acknowledged inline: the pre-IMS platform is described as monolithic and unable to \"properly mix the needed service capabilities\", the networked approach incurs voice-channel costs, and the IMS service is stated as future target rather than achievement. No code, configuration or data are made available; the open-source stacks used are third-party.\n\n---\n\n## Conclusion\n\nA short engineering report describing how existing open-source telecom components and the authors' TTS engine were combined into a working e-mail/RSS reading service, with a design sketch for an IMS convergent service. Formalism is absent and appropriate for the level. The main weaknesses are the complete lack of empirical evaluation and the reliance on the authors' own prior work for a third of a small reference list."
+  },
+  {
+   "paper_id": "lazar2010",
+   "paper": {
+    "title": "On Eco-Foraging Systems",
+    "authors": [
+     "Katalin Anna Lázár",
+     "Erzsébet Csuhaj-Varjú",
+     "András Lőrincz"
+    ],
+    "abstract": "In this paper we present a formal language theoretic approach to Internet crawlers seeking novel information on the World Wide Web, based on a modified version of eco-grammar systems, called eco-foraging systems. In our model, the grammars correspond to very simple autonomous agents and the generated language to the behaviour of the system. In fact, the agents are represented by regulated rewriting devices, which impose some constraint on the search strategy of the agent. The letters of the generated strings symbolize the web pages. We prove that if we ignore the aging of the web environment in the model, then through the simulation of certain normal form grammars, the eco-foraging systems determine the class of recursively enumerable languages. If the web pages may become obsolete, then the language family generated by unordered scattered context grammars of finite index can be obtained. The ignorance of lifetime implies that the crawlers communicating only through the environment are able to identify any computable set of the environmental states. The lifetime constraint, however, considerably decreases the efficiency of the cooperation of the agents.",
+    "keywords": [
+     "crawlers",
+     "information harvest on the World Wide Web",
+     "eco-foraging systems",
+     "unordered scattered context grammar of finite index",
+     "recursively enumerable languages"
+    ],
+    "doi": null,
+    "pages": "279-309",
+    "source_file": "klazar.pdf"
+   },
+   "concept_level": 5,
+   "scores": {
+    "formalism": 88,
+    "citation_integrity": 70,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 77.2,
+    "composite": 57.9,
+    "final": 52.9
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the paper is purely theoretical (\"the experimental evaluation (see [12]) of the theoretical aspects lies beyond the scope of this work\")",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "5 of 25 references (20%) involve the authors: [4], [5], [6] (Csuhaj-Varjú, eco-grammar and grammar systems foundations), [11] (Lázár, the model being modified) and [12] (Lőrincz, Lázár, Palotai, crawler experiments). All are directly relevant; the ratio sits on the lower boundary of the 20-30% band, read inclusively."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Genuine formal-language-theory paper proving that eco-foraging systems (programmed-grammar agents in an eco-grammar environment) characterise RE, and with page lifetimes characterise finite-index unordered scattered context languages; heavy formalism is the subject matter, though proofs are partly sketched and the link to real crawlers is metaphorical.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A variant of eco-grammar systems, eco-foraging systems, in which agents are restricted programmed grammar schemes with appearance checking acting in parallel with a T0L-style environment; the paper characterises their generative power with and without a lifetime (aging) mechanism on environment symbols, motivated as a model of web crawlers.\n**Level:** 5 (Very High)\n**Rationale:** Theorem 1 shows L(RE) = L(FEGP_Rac), i.e. computational universality of the model, via simulation of matrix grammars in 2-normal form; Theorem 2 shows equality with L_fin(USC) for the timed variant via a two-way simulation. Proving universality and exact language-family characterisations is Level 5 work.\n\n### Formal Elements\n- Definitions: 10 numbered (web environment, FEGP_Rac system, configuration, derivation step, generated language, and their timed counterparts), plus about 7 inline prerequisite definitions (programmed, matrix, 2-normal form, 0L, T0L, index, unordered scattered context grammars)\n- Theorems: 2\n- Proofs: 2\n- Equations: dozens of rule sets and environmental tables inside the constructions; 2 worked examples\n\n### Proportionality\nCalculated complexity: 10 × 2 + 2 × 3 + 2 × 4 = 34 (48 if the inline prerequisite definitions are counted)\nExpected range (Level 5): 60-150\nRatio: about 0.23-0.32x upper bound\n\n**Assessment:** Proportionate. Every numbered definition is used in the statements or constructions of Theorems 1 and 2 (DUR close to 1). Set notation, alphabets, and rewriting rules are the native language of the result, and the constructions cannot be stated in plain English with the precision needed for the inclusion proofs. Necessity Test passes for all elements.\n\n### Issues\nNo formalism theater. Quality concerns are about rigor rather than excess: the reverse inclusion of Theorem 1 is dismissed as shown \"by using standard techniques\"; correctness of the constructions is repeatedly left to the reader (\"the reader can easily verify\"); the converse of Theorem 2 rests on an informal finiteness argument about nonterminal cuts. The text also has notational slips (e.g. Example 2's PE2 maps B^(2)(t) to B(3)B^(1)(t-1) rather than B^(2), and Example 1 refers to L where L1 is meant). The abstract's claim that the lifetime constraint \"considerably decreases the efficiency of the cooperation\" is an interpretation of a generative-power result, not an efficiency measurement.\n\n---\n\n## Citation Analysis\n\nFive of 25 references involve an author: three by Csuhaj-Varjú on eco-grammar and grammar systems ([4], [5], [6]), which are the foundational sources of the model; Lázár's earlier workshop paper [11], which this paper explicitly modifies; and the Lőrincz-Lázár-Palotai crawler study [12], which supplies the experimental side the paper defers to. All are highly relevant (similarity well above 0.5). The 20% ratio sits on the boundary between the 15-20% and 20-30% bands; read inclusively it triggers ELEVATED_SELF_CITATION, which is the conservative reading recorded here. The remaining references cover crawling literature and standard formal-language texts appropriately.\n\n---\n\n## Structural Analysis\n\nThe paper's claims are mathematical and are supported by constructive proofs, which gives a high claim-evidence ratio for the theorems, tempered by the omitted reverse inclusion and the reliance on reader verification. The interpretive claims about crawlers (e.g. foragers \"able to identify any computable set of the environmental states\") are restatements of the formal results; the modelling link to real crawler behaviour is not validated. A limitation is acknowledged inline: experimental evaluation is declared out of scope and deferred to [12]. There is nothing to release as an artifact (pure theory), recorded as relevant: false.\n\n---\n\n## Conclusion\n\nThis is a substantive formal-language-theory contribution whose heavy formalism is the subject matter and is used throughout the two characterisation proofs; it passes the Necessity Test and is well within the expected range for Level 5. Weaknesses are the partial proofs (one inclusion omitted, verification left to the reader), some notational errors in the examples, and a crawler motivation that remains metaphorical. Self-citation is relevant and at the boundary of the elevated band."
+  },
+  {
+   "paper_id": "marton2010",
+   "paper": {
+    "title": "Randomness in Digital Cryptography: A Survey",
+    "authors": [
+     "Kinga Marton",
+     "Alin Suciu",
+     "Iosif Ignat"
+    ],
+    "abstract": "Digital cryptography relies greatly on randomness in providing the security requirements imposed by various information systems. Just as different requirements call for specific cryptographic techniques, randomness takes upon a variety of roles in order to ensure the proper strength of these cryptographic primitives. The purpose of the survey is to emphasize the importance of randomness in digital cryptography by identifying and highlighting the many roles random number sequences play and to carry forth the significance of choosing and integrating suitable random number generators as security flaws in the generator can easily compromise the security of the whole system.",
+    "keywords": [],
+    "doi": null,
+    "pages": "219-240",
+    "source_file": "kmarton.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 95,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.5,
+    "composite": 61.12,
+    "final": 61.12
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the paper is a literature survey with no code or data of its own",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Broad, well-referenced descriptive survey of the roles randomness plays in cryptography (keys, IVs, salts, padding, nonces, blinding) with real-world RNG failure cases; minimal, standard notation, but no survey methodology and some editorial defects.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Survey of where and why random sequences are needed in digital cryptography: generator classes (TRNG, URNG, PRNG), symmetric and asymmetric keys, initialization vectors, salts, padding, nonces and challenges, blinding factors, and documented RNG failures (Netscape SSL, Debian OpenSSL, MS Office RC4 IV reuse, Java session IDs, Windows RNG).\n**Level:** 1 (Trivial)\n**Rationale:** Surveys and literature reviews are Level 1 by the classification guide. The paper proposes no new method, model or result.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (block/stream cipher composition E_K(M), HMAC construction (1), password-based KDF (2), RSA multiplicative property)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations reproduce standard constructions from the cited standards (FIPS 198a for HMAC, the PBKDF formula from [92]) and conventional cipher notation. They state the constructions precisely and are what an implementer would consult; they are not instances of the theater patterns (no set notation for lists, no tuple definitions, no decorative Greek parameters, no Definition blocks). The E_K(M) composition line is purely illustrative but is basic notation rather than decorative formalism.\n\n### Issues\nNone identified in the formalism. Editorial defects: two unresolved cross-references (\"see section ??\"), and occasional naming slips (\"Achterbachn\", \"MICKEY-12\").\n\n---\n\n## Citation Analysis\n\nOne self-citation among 96 references (about 1%): [91] Suciu, Marton, Antal, \"Data Flow Entropy Collector\", cited once as an example of an unpredictable random number generator alongside Linux /dev/random and HAVEGE; relevant. The reference list is extensive and appropriate for the topic, combining primary cryptographic literature, NIST and RFC standards and vendor/project pages. No concerning patterns.\n\n---\n\n## Structural Analysis\n\nAs a survey, nearly every substantive statement is attributed to a cited source, and the real-world failure cases are each referenced, giving a well-supported claim-evidence balance (CER estimated at or above 1). The survey has no stated methodology: no search strategy, inclusion criteria, or comparative synthesis (e.g. tables comparing generators or requirements per role), so it is descriptive rather than analytical. There is no limitations section; the only acknowledgment of a constraint is the scope statement that the survey covers digital cryptography only and leaves quantum cryptography for future work, which is counted as a minimal inline acknowledgment. There is nothing to release as an artifact (literature survey), recorded as relevant: false.\n\n---\n\n## Conclusion\n\nA competent, broad and well-cited tutorial-style survey with formalism limited to a few standard constructions quoted from the literature. Its main weaknesses are the absence of a survey methodology or critical synthesis and minor editorial errors, not integrity concerns."
+  }
+ ]
+}

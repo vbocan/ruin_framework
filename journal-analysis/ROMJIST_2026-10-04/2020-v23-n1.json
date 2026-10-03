@@ -1,0 +1,385 @@
+{
+ "batch_id": "2020-v23-n1",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 23,
+  "issue": 1,
+  "year": 2020
+ },
+ "papers": [
+  {
+   "paper_id": "borangiu2020",
+   "paper": {
+    "title": "Digital transformation of manufacturing. Industry of the Future with Cyber-Physical Production Systems",
+    "authors": [
+     "Theodor Borangiu",
+     "Octavian Morariu",
+     "Silviu Răileanu",
+     "Damien Trentesaux",
+     "Paulo Leitão",
+     "Jose Barata"
+    ],
+    "abstract": "This paper analyses the main research direction for the digital transformation of manufacturing and its important drivers: cloud services and resource virtualization that have led to the new Cloud Manufacturing (CMfg) model. The model is adopted for the higher layer of the Manufacturing Execution System, while its lower layers distribute intelligence through agent- and service orientation in the holonic paradigm. Intelligent Manufacturing Systems are assimilated to Cyber-Physical Production Systems with digital twins of products, orders and resources; the Industrial Internet of Things framework provides connectivity and interoperability. The paper describes the scientific issues related to big data processing, analytics and intelligent decision making through machine learning in predictive resource maintenance, optimized production planning and control, lists solutions and proposes new research directions.",
+    "keywords": [
+     "Digital manufacturing",
+     "Cloud services",
+     "Resource virtualization",
+     "Cloud manufacturing",
+     "Holonic manufacturing control",
+     "Multi-Agent System",
+     "Real-time data analysis",
+     "Machine learning",
+     "Digital twin",
+     "Cyber Physical Production System",
+     "Industrial Internet of Things"
+    ],
+    "doi": null,
+    "pages": "3-37",
+    "source_file": "paper635.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 60,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 67.5,
+    "composite": 50.62,
+    "final": 40.62
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "22 of 95 references (23%) include at least one of the six authors (e.g. [1], [3], [19], [24], [32], [33], [49], [57], [77] for Borangiu/Morariu/Răileanu; [6], [8], [41], [42], [73], [79], [80] for Trentesaux; [26], [29], [47], [53], [54] for Leitão; [34], [54] for Barata). All are topically related to holonic and cloud manufacturing.",
+    "NO_LIMITATIONS": "The survey has no limitations section and no inline acknowledgment of its own scope, selection of literature, or of open weaknesses in the architectures it advocates."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Long position/survey paper on cloud manufacturing, digital twins, holonic control and CPPS, with no formalism and no evaluation; heavily anchored in the authors' own research line, with a self-citation ratio in the elevated band.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Survey and research-agenda paper on the digital transformation of manufacturing: cloud manufacturing, MES virtualization, digital twins, holonic/multi-agent control, IIoT and CPPS architectures, big data and machine learning.\n**Level:** 1 (Trivial)\n**Rationale:** The paper is a literature review and architectural overview. It proposes no algorithm, model or proof; layered architectures (4-layer IIoT, 6-layer digital twin, ARTI cube) are described in prose and figures.\n\n### Formal Elements\n- Definitions: 0 formal (prose definitions of digital twin types only)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. No mathematical notation is used.\n\n### Issues\nNone identified in formalism.\n\n---\n\n## Citation Analysis\n\n95 references. 22 include one or more of the authors (23%), placing the paper in the elevated band. The self-citations are concentrated on the CIMR Bucharest group's vMES, cloud MES, security-policy and big-data streaming work ([19], [24], [32], [33], [49], [57], [77]) and on Trentesaux's and Leitão's holonic/CPPS papers. All are on-topic for a survey of this field, so no irrelevant self-citation is flagged. Several reference-list defects: [14] and [46] are the same BCG report, [59] and [85] are the same Oracle white paper; references [60]-[75] appear in the list but are not cited in the body text that was read. Several figures are adapted from other works (Fig. 2 Redelinghuys et al., Fig. 7 Kliesing & Colombo, Fig. 12 Trentesaux et al.).\n\n---\n\n## Structural Analysis\n\nThe paper is descriptive; claims are mostly attributed to cited works rather than supported by new evidence. Normative statements (e.g. that semi-heterarchical control \"reduces the myopia of the system\" or that a policy-based security approach is advantageous) rest on the authors' prior papers. No limitations of the surveyed approaches or of the review's coverage are acknowledged. The text also contains apparent editing artefacts (the radiopharmaceutical CPPS example appears without introduction). No artifacts; as a survey, there is nothing to release.\n\n---\n\n## Conclusion\n\nA broad, competent-sounding review of Industry 4.0 manufacturing control concepts with no formalism theater. Its weaknesses are structural: it is largely a synthesis of the authors' own research line (23% self-citation), it offers no critical assessment or limitations, and it contains reference-list duplications and uncited entries."
+  },
+  {
+   "paper_id": "priya2020",
+   "paper": {
+    "title": "Adaptive Power Control and Duty Cycle based Medium Access Control Protocol for Cluster based Wireless Sensor Network",
+    "authors": [
+     "B. Priya",
+     "S. Solai Manohar"
+    ],
+    "abstract": "Energy management has always been a research concern in the domain of wireless sensor networks. In order to save energy of nodes in clustered networks, an adaptive duty cycle medium access control (AD-MAC) protocol is introduced. It is designed to achieve low duty cycle for a cluster and less number of collisions in a network. Sensor nodes in AD-MAC have a very short listening time; collisions are minimized by a hybrid TDMA/FDMA channel access method, and adaptive power control is introduced to extend node lifetime. Simulation results show that the proposed algorithm reduces energy consumption by 18% compared to ML-MAC.",
+    "keywords": [
+     "Adaptive power control",
+     "Energy consumption",
+     "Medium Access Protocol",
+     "Lifetime",
+     "Throughput",
+     "Wireless Sensor Networks (WSN)"
+    ],
+    "doi": null,
+    "pages": "38-54",
+    "source_file": "paper636.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.25,
+    "composite": 56.44,
+    "final": 56.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Incremental clustered WSN MAC protocol evaluated only in an unnamed simulation; equations are standard first-order radio energy and throughput expressions, some asserted rather than derived; no code or simulator released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A cluster-based duty-cycled MAC protocol for WSNs (AD-MAC) combining phase scheduling from ML-MAC with TDMA/FDMA channel access and a two-level transmit power rule.\n**Level:** 2 (Low)\n**Rationale:** The protocol recombines existing mechanisms (S-MAC/ML-MAC phase scheduling, LEACH-style first-order radio model, TDMA/FDMA) and is evaluated by simulation. No new algorithmic theory or proof.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 30 (timing constraints, first-order radio energy model, cluster energy, optimum number of clusters, throughput)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in kind. The equations are the standard radio energy model and basic timing/throughput arithmetic, the kind of basic equations Level 2 allows; none of the theater patterns (set notation for lists, tuple definitions, decorative Greek parameters) appears.\n\n### Issues\nQuality rather than theater: Eq. (16), the claim that energy saved is N/K times that of ML-MAC, is asserted without derivation; Eq. (1) for frequency allocation is garbled and its relation to the stated constraint (frequencies >= nodes per cluster) is unclear; the text says \"equation (6) can be simplified\" when it means Eq. (11); Eqs. (29)-(30) (optimal level +/- 1 dB) are trivial. The throughput comparison (26)-(28) is definitional and is then presented as proving superiority.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 16 references. Reference numbering is inconsistent with the text (SIFT is cited as [8] and ML-MAC as both [8] and [9]); [14] is a web page on traffic models. No integrity concerns.\n\n---\n\n## Structural Analysis\n\nThe evaluation is a simulation whose tool is not named, with strong idealizing assumptions (unlimited buffers, no bandwidth constraint, perfect time synchronization). Reported gains (70-74% vs S-MAC, 15-18% vs ML-MAC, throughput 5x and 2x) come from figures without variance or repetition counts. The abstract's 18% figure is consistent with the results section. Limitations are acknowledged only inline: the assumptions are listed and the conclusion states the intent to implement on a test bed \"to validate the simulation results\". No code or simulation scripts are released.\n\n---\n\n## Conclusion\n\nA typical applied networking paper with proportionate, if loosely presented, equations. The main weaknesses are an under-specified simulation, analytical claims asserted rather than derived, and no released artifacts."
+  },
+  {
+   "paper_id": "mahule2020",
+   "paper": {
+    "title": "Towards Knowledge Discovery in interlinked heterogeneous datasets of LOD cloud",
+    "authors": [
+     "Rajesh Mahule",
+     "Ranjana Vyas",
+     "Om Prakash Vyas"
+    ],
+    "abstract": "A huge volume of data was published on the web as Linked Open Data (LOD). Consuming this interlinked collection of heterogeneous data in classical data mining methods requires input in propositional Feature Vector Table (FVT) form. This paper proposes a framework inspired by the Link Traversal Based Query Execution (LTBQE) paradigm to dynamically extract relevant features and build an FVT from a set of interlinked RDF datasets in a local environment. A content-based similarity measure is introduced to evaluate the generated FVT, and two representative data mining tasks are performed to evaluate the framework empirically.",
+    "keywords": [
+     "Linked Open Data",
+     "Semantic Web",
+     "Data mining",
+     "Knowledge discovery",
+     "Feature vector generation"
+    ],
+    "doi": null,
+    "pages": "55-68",
+    "source_file": "paper637.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 76.0,
+    "composite": 69.5,
+    "final": 69.5
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "Evaluation uses named public LOD datasets with links: \"Sider8, Diseasome9, Dailymed10 and Drugbank11 are downloaded as RDF dumps\" (footnotes https://datahub.io/dataset/bio2rdf-sider, https://datahub.io/dataset/fu-berlin-diseasome, https://datahub.io/dataset/fu-berlin-dailymed, https://datahub.io/dataset/bio2rdf-drugbank), plus LMDB, World-FactBook, DBpedia and Geonames; no link to the authors' implementation.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "SPARQL-based feature extraction pipeline from interlinked LOD datasets into a flat table; light, proportionate notation, but a thin evaluation (a single exact-match comparison and two anecdotal case studies) and overstated conclusions.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A framework that issues dynamic SPARQL queries, follows owl:sameAs links across locally loaded RDF dumps, and flattens the extracted triples into a CSV feature table for data mining.\n**Level:** 1 (Trivial)\n**Rationale:** The contribution is a data extraction and transformation pipeline built from existing components (SPARQL, Virtuoso, LTBQE, CBD); the algorithms are traversal and table-building procedures without complexity analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (nested averages defining the content similarity measure)\n- Algorithms: 3 (pseudocode)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The three equations define an evaluation metric (the fraction of exactly matching cells, averaged over rows) in ordinary summation form; they are basic arithmetic definitions of a metric rather than notation standing in for program logic, and the pseudocode is plain procedural description.\n\n### Issues\nThe metric is presented in the conclusion as \"a significant contribution\", which overstates a cell-wise mismatch rate. The pseudocode is loosely written (goto steps, a counter DL initialised as 0 and used inconsistently), but this is clarity, not theater.\n\n---\n\n## Citation Analysis\n\n3 of 37 references are self-citations (8%): [14] (Vyas), [26] and [32] (Mahule, Vyas). All are directly related prior work on LOD feature extraction and set-valued distance measures. No concerns.\n\n---\n\n## Structural Analysis\n\nThe evaluation is weak. The content similarity check against two human annotators returns exactly 1, but the size of the comparison is not reported and \"a few feature attributes were dropped for inconsistent data values\". Case study 1 derives two association rules with confidence 1 from an unspecified segmentation and claims they are \"proved to be very accurate\" and that this \"proves the utility\" of the framework. Case study 2 compares distance measures on 1350 movies with single micro-precision values and no variance. There is no comparison with the related tools the paper reviews (the authors argue no benchmark exists). Limitations are acknowledged inline: dimensionality grows exponentially with traversal depth, features from cross-domain datasets are noisy, and online endpoints are not reproducible. The datasets are public and linked; the implementation is not.\n\n---\n\n## Conclusion\n\nA modest engineering contribution with proportionate presentation and no citation problems. Its conclusions run ahead of an evaluation that is largely anecdotal."
+  },
+  {
+   "paper_id": "kavya2020",
+   "paper": {
+    "title": "Fall Detection System for Elderly People using Vision-Based Analysis",
+    "authors": [
+     "Thathupara Subramanyan Kavya",
+     "Young-Min Jang",
+     "Erdenetuya Tsogtbaatar",
+     "Sang-Bock Cho"
+    ],
+    "abstract": "Fall is one of the major causes of death for older people. This paper presents a real-time vision-based fall detection system that analyses the rate of change of motion with respect to the ground point. The method combines ground point estimation based on texture segmentation using a Gabor filter with the rate of change of angle; a person's movement is tracked with a Kalman filter and the angle between the tracked points and a ground point is calculated. Two public datasets are used for the experimental analysis.",
+    "keywords": [
+     "Fall detection",
+     "Kalman Filter",
+     "Gabor Filter Segmentation",
+     "Image Processing"
+    ],
+    "doi": null,
+    "pages": "69-83",
+    "source_file": "paper638.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 90,
+    "structural_integrity": 45,
+    "artifact_availability": 50,
+    "intellectual_integrity": 72.75,
+    "composite": 67.06,
+    "final": 67.06
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"We have validated our algorithm using two public data sets. The UR Fall Dataset (URFD) (http://fenix.univ.rzeszow.pl/mkepski/ds/uf.html) and the Fall Detection Dataset (FDD) (http://le2i.cnrs.fr/Fall-detection-Dataset?lang=fr)\"; the MATLAB implementation is not released.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Standard pipeline (background subtraction, Gabor texture segmentation, Kalman tracking, angle-rate threshold) on public datasets; textbook equations are reproduced while the actual decision threshold is never given, and the reported sensitivity does not match the paper's own confusion table.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Vision-based fall detection combining background subtraction, Gabor-filter floor segmentation, Kalman-filter centroid tracking and a threshold on the rate of change of the centroid-to-ground angle.\n**Level:** 2 (Low)\n**Rationale:** Existing image-processing components applied to a known problem and evaluated on public datasets; no new algorithm or theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 11 (Gabor kernel, five Kalman filter equations, sensitivity/specificity/accuracy)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in amount. The equations are textbook Gabor and Kalman forms and standard metrics; they do not match any theater pattern, but they are padding rather than contribution: the paper reproduces the generic Kalman update while never specifying the state model, the angle computation, or the threshold that decides a fall, which are the parts a programmer would actually need.\n\n### Issues\nThe decision rule (\"the change of angle below certain threshold can be considered as a fall\", later contradicted by the description of falls as peaks above a threshold) is never quantified.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 31 references. References are on-topic (wearable, ambient and vision-based fall detection). No concerns.\n\n---\n\n## Structural Analysis\n\nTable 1 gives TP = 62 and FN = 8 over 70 fall videos, which yields a sensitivity of 88.6%, not the 91.17% reported in Table 2 and the conclusion; specificity (24/25 = 96%) and accuracy (86/95 = 90.53%) are consistent. Only 25 non-fall videos are used, and all 40 FDD videos are falls, so specificity rests on URFD alone. The comparison with [13] in Table 2 does not state that the baseline was run on the same videos. Claims of real-time suitability and cost-effectiveness are not measured (no timing results). Limitations are acknowledged inline: single-person datasets and false detections from ground-plane segmentation. The data are public and linked; the code is not released.\n\n---\n\n## Conclusion\n\nAn applied computer vision paper with proportionate formalism and clean citations. It is weakened by an unreported decision threshold, a sensitivity figure inconsistent with its own counts, a small and unbalanced negative set, and an unverified comparison with the state of the art."
+  },
+  {
+   "paper_id": "zhang2020",
+   "paper": {
+    "title": "A Software Tool for Spiking Neural P Systems",
+    "authors": [
+     "Taosheng Zhang",
+     "Fei Xu",
+     "Tingfang Wu"
+    ],
+    "abstract": "Software simulators for spiking neural P systems (SN P systems) are the main tool to experimentally explore the computational properties of these systems. Gutiérrez-Naranjo et al. developed a software tool for generating the transition diagram of an SN P system automatically, which can assist in formal verification, but it accepts only seven syntactically different types of rules. In this work, a software tool that automatically generates the transition diagram of an SN P system is developed in Python, and it can accept any form of rules.",
+    "keywords": [
+     "Membrane computing",
+     "Spiking neural P systems",
+     "Simulator",
+     "Transition diagram"
+    ],
+    "doi": null,
+    "pages": "84-92",
+    "source_file": "paper639.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 70,
+    "intellectual_integrity": 76.0,
+    "composite": 74.5,
+    "final": 74.5
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"Availability: The source code is available at: https://github.com/pizts/A-Simulator-Tool-for-Spiking-Neural-P-Systems.git.\" The only input used is the small example printed in Fig. 4; no deposited test set.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Short tool paper describing a Python simulator that draws transition diagrams of SN P systems; the recalled formal definition is the model the tool implements, the code is public, but the generality claim is demonstrated on a single three-neuron example with no validation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A Python script that parses a text description of a spiking neural P system, simulates it, and renders the transition diagram with graphviz.\n**Level:** 1 (Trivial)\n**Rationale:** A software tool/prototype description. The underlying model (SN P systems) is established; the paper contributes an implementation and an input syntax, with no new theory or algorithmic analysis.\n\n### Formal Elements\n- Definitions: 2 (recalled tuple definition of an SN P system; definition of a configuration)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (rule-syntax mappings to regular expressions over {a})\n\n### Proportionality\nCalculated complexity: 4\nExpected range (Level 1): 0-5\nRatio: 0.8x upper bound\n\n**Assessment:** Proportionate. The tuple definition and the regular-expression notation are the standard definition of the computational model being simulated; they specify the semantics the program must reproduce (firing conditions, delays, closed neurons), so removing them would change what is built. This is the subject matter, not notation standing in for a data structure, and the UML diagram maps one-to-one onto it.\n\n### Issues\nNone identified in formalism.\n\n---\n\n## Citation Analysis\n\n4 of 33 references (12%) include the corresponding author T. Wu ([13], [17], [22], [31]), all on SN P system variants or simulators and directly relevant. No concerns.\n\n---\n\n## Structural Analysis\n\nThe central claim, that the simulator \"can accept any form of rules\", is supported only by listing the accepted syntax, which is itself a finite family (unions of a^s and (a^y)*a^x); it is broader than the seven forms of [33] but not arbitrary regular expressions. Correctness is not validated against the earlier tool, and the only demonstration is one three-neuron system run for five steps (about 5 ms). Limitations are acknowledged inline: the tool is script-based and not user-friendly, and simulation time grows for large systems. Source code is linked on GitHub.\n\n---\n\n## Conclusion\n\nA small, honest tool paper with appropriate formalism and released code. Its claims of generality and usefulness for verification are under-tested."
+  },
+  {
+   "paper_id": "serban2020",
+   "paper": {
+    "title": "Optimization of Sensing Layers Selection Process for Relative Humidity Sensors",
+    "authors": [
+     "Bogdan Catalin Serban",
+     "Octavian Buiu",
+     "Nicolae Dumbravescu",
+     "Cornel Cobianu",
+     "Viorel Avramescu",
+     "Mihai Brezeanu",
+     "Marius Bumbac",
+     "Cristina Mihaela Nicolescu"
+    ],
+    "abstract": "The paper introduces the Hard-Soft Acid Base (HSAB) concept as an investigative tool to explain, to a certain extent, the increased sensitivity and selectivity to relative humidity experimentally demonstrated by metal oxides (MOX) and their nanocomposites. Based on literature data, six case-studies of RH detection by MOX sensing layers are investigated in terms of HSAB theory, and the argument rests on three reasons: strong RH detection by MOX layers classified as hard acids, strong ethanol, ammonia and trimethylamine detection by hard-acid MOX layers, and the role of hard-acid dopants in MOX-based RH sensing layers.",
+    "keywords": [
+     "Humidity Sensor",
+     "Metal Oxide",
+     "Hard Soft Acid Base"
+    ],
+    "doi": null,
+    "pages": "93-104",
+    "source_file": "paper640.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 30,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 54.5,
+    "composite": 40.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "31 of 97 references (32%) are authored by members of the author team, mostly B. C. Serban with Buiu, Cobianu, Brezeanu, Avramescu, Bumbac and Nicolescu: [7]-[12], [14]-[18], [32]-[34] and [37]-[53]. Most are patents and conference papers; [10] and [12] cite the same patent EP 3217167B1."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Qualitative literature argument that Pearson's HSAB principle explains MOX humidity sensing, built from selectively chosen confirming examples; no formalism, but a third of the reference list is the authors' own patents and papers.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A qualitative perspective proposing Pearson's hard-soft acid-base (HSAB) principle as a selection criterion for metal-oxide relative-humidity sensing layers, argued from literature case studies.\n**Level:** 1 (Trivial)\n**Rationale:** A literature-based review/position paper with no new model, measurement, computation or algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. No formal notation is used.\n\n### Issues\nNone identified in formalism.\n\n---\n\n## Citation Analysis\n\n31 of 97 references (32%) are the authors' own work, above the 30% threshold. The cluster [37]-[53] (17 consecutive references) consists entirely of the first author's patents and papers, cited as evidence that HSAB has been used in sensing; [7]-[12] and [14]-[18] are the team's humidity and gas-sensor patents, cited for RH measurement principles and polymer/nanocarbon sensing layers. Topical relevance is generally adequate (gas and humidity sensing, HSAB-guided layer design); [32]-[34] (quantum-dot ligand selection and TiO2 functionalization patents) are only marginally related, but they concern HSAB-guided functionalization and are not judged unrelated (<0.3). [10] and [12] duplicate the same patent. A large share of the self-cited items are patents, which inflates the count without adding peer-reviewed support.\n\n---\n\n## Structural Analysis\n\nThe argument is confirmatory: examples of hard-acid oxides that sense humidity are collected, but no counter-examples are examined (for instance borderline-acid oxides such as ZnO, listed as borderline via Zn2+ in Table 1, which are also widely used RH sensors and appear in Section E), and no quantitative test of the HSAB criterion is attempted. Strong conclusions (\"decisively influences the sensor performance\", \"triggers all types of sensing processes\", \"can be essential when choosing and designing a gas sensing layer\") outrun the anecdotal evidence. Section headings D and E are identical although E describes mixed hard/non-hard oxides, which suggests careless editing. Limitations are acknowledged inline in the conclusion: other factors (grain size, porosity, temperature, etc.) influence sensing and further HOMO/LUMO and hardness calculations are needed. As a literature argument, there is nothing to release.\n\n---\n\n## Conclusion\n\nA qualitative perspective with no formalism concerns but serious citation-integrity concerns: the self-citation ratio exceeds 30%, driven by a long run of the first author's patents. The scientific argument is plausible but rests on selected supporting cases and is stated more strongly than the evidence allows."
+  },
+  {
+   "paper_id": "saravanan2020",
+   "paper": {
+    "title": "Synthesis of SiO2 Nanoparticles by Sol-Gel Method and Their Optical and Structural Properties",
+    "authors": [
+     "S. Saravanan",
+     "R. S. Dubey"
+    ],
+    "abstract": "This paper focuses on the sol-gel synthesis of SiO2 nanoparticles for solar cells. The prepared samples were characterized by FTIR spectroscopy, dynamic light scattering, fluorescence spectroscopy and scanning electron microscopy. FTIR revealed Si-O-Si stretching vibration bonding at 1093, 798 and 459 cm-1. SEM showed nearly irregular SiO2 nanoparticles. The average particle diameter was 192 nm by DLS. The FL spectrum shows an emission band at 644.8 nm and two broad excitation peaks at 359 and 718 nm.",
+    "keywords": [
+     "Sol-gel",
+     "SiO2 nanoparticles",
+     "scattering",
+     "fluorescence",
+     "morphology"
+    ],
+    "doi": null,
+    "pages": "105-112",
+    "source_file": "paper641.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 85,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 70.5,
+    "composite": 52.88,
+    "final": 47.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment: the paper does not address the large DLS size (192 nm) and PDI of 0.405, the absence of any solar-cell test despite the stated aim, or the provisional nature of the spectral assignments."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Routine sol-gel synthesis and characterization of SiO2 particles with no formalism; the interpretation of the spectra and particle-size data is weak and partly inconsistent, the solar-cell motivation is never tested, and no limitations are stated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Sol-gel synthesis of SiO2 particles from TEOS, acetic acid and methanol, characterized by UV-Vis, DLS, fluorescence, FTIR and SEM.\n**Level:** 2 (Low)\n**Rationale:** An empirical characterization study using a standard synthesis route and standard instruments; no model or algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (two chemical reaction equations)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. No mathematical formalism is used.\n\n### Issues\nNone in formalism. The second reaction equation (C3H6O2 + Si(OC2H5)4 -> SiO2 + C11H26O4) is not balanced or chemically explained.\n\n---\n\n## Citation Analysis\n\n2 of 34 references are self-citations (6%, [3] and [4], Dubey), both on SiO2-based optical multilayers for solar cells and relevant. [2] and [18] are the same paper listed twice. Some citations are loosely attached: [24]-[27] on mechanical properties of silica-filled polymers are cited for the claim that fluorescence increases with particle size.\n\n---\n\n## Structural Analysis\n\nSeveral interpretations are weak or inconsistent. A PDI of 0.405 is described as indicating a small size distribution, whereas it indicates a fairly broad distribution, and a mean diameter of 192 nm is reported as nanoparticles without comment. The fluorescence section reports excitation peaks at 359.6 nm and 718.8 nm with emission at 644.8 nm; an excitation band at a longer wavelength than the emission, at almost exactly twice the first peak, is characteristic of a second-order grating artifact and is not discussed. The 1649 cm-1 band is called both bending and \"O-H stretching\". The abstract describes SEM particles as \"nearly irregular\" while the conclusion says \"little agglomeration\"; the SEM image is not discussed in the text. The Rayleigh scattering explanation is confused. The motivation is solar cells, yet no device or optical-coating test is performed. Single samples, no repeat syntheses, no XRD. No limitations are acknowledged, and no data are deposited.\n\n---\n\n## Conclusion\n\nA basic materials characterization note with no formalism concerns and clean citation practice, but low structural quality: questionable spectral interpretation, unaddressed inconsistencies, an untested application claim, and no acknowledged limitations."
+  }
+ ]
+}

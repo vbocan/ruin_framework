@@ -1,0 +1,384 @@
+{
+ "batch_id": "2020-v23-n3",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 23,
+  "issue": 3,
+  "year": 2020
+ },
+ "papers": [
+  {
+   "paper_id": "bejinariu2020",
+   "paper": {
+    "title": "Recovery of old dialectal materials and maps through image processing",
+    "authors": [
+     "Silviu-Ioan Bejinariu",
+     "Nicolae Saramandu",
+     "Manuela Nevaci",
+     "Vasile Apopei",
+     "Horia-Nicolai Teodorescu"
+    ],
+    "abstract": "The preservation of the language and linguistic heritage requires the recovery of older linguistic materials and linguistic maps and their re-publication on hardcopies and in electronic formats. Because of poor technical means used to produce linguistic maps with technologies more than half a century old and because of the less than ideal storage conditions, many of these materials need restoration using digital techniques. We present an analysis of the minimal restoration methods needed and of the restoration and post-processing results, including map layers superposition. 228 original drawings from The New Romanian Linguistic Atlas by Regions - Muntenia and Dobrogea (NALRR-MD) representing layers of linguistic maps have been processed. A discussion of envisaged further processing methods ends the paper.",
+    "keywords": [
+     "Databases and Information Systems",
+     "Image restoration",
+     "Linguistic atlases",
+     "Geographic Information System"
+    ],
+    "doi": null,
+    "pages": "223-237",
+    "source_file": "paper659.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 60,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 68.0,
+    "composite": 51.0,
+    "final": 46.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "\"The image restoration method described in the previous section was implemented as a processing function in the ImagePro application developed by authors.\" No link or availability statement for the tool, the Python template generator, or the scanned maps.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "4 of 17 references (23.5%) are by the authors: [4] Apopei, Rotaru, Bejinariu; [11] Bejinariu, Olariu; [16] Teodorescu; [17] Teodorescu, Hagan. [4] and [11] are on electronic linguistic atlases and [16] on nonlinear adaptive filters, all related. [17] (accelerometer modules with signal processing) is only marginally related."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Applied restoration of scanned linguistic-atlas drawings with standard 3x3 median and average filters, plus a short probabilistic argument for the window size. Formalism is light and to the point. The evaluation is mostly visual, self-citation is elevated, and the authors' tool and data are not released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Noise removal in binary scans of hand-drawn linguistic maps using median and average filters, followed by superposition on a QGIS template.\n**Level:** 2 (Low)\n**Rationale:** The paper takes standard filters (OpenCV median/mean) and tunes their window size for a new kind of document. Its contribution is the choice of parameters and the workflow, not a new algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: about 3 (a binomial-tail estimate of the chance that a 3x3 median breaks a trace, a rough ratio for 5x5 windows, and filter pseudocode in loop notation)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The probability estimate in Section 3.2 backs a concrete design decision (3x3 over 5x5), so it passes the Necessity Test. The order-dependence of recursive median filtering is stated in loop pseudocode, which is fine.\n\n### Issues\nThe estimate is loose: the probability that 'at least 5 black pixels' gives a black pixel is approximated by its first term, while the argument needs the probability of breaking the trace. The '400 times higher' figure is stated without a derivation. The two paragraphs that give the estimate are printed twice in Section 3.2, an editing defect. None of this is formalism theater.\n\n---\n\n## Citation Analysis\n\n4 of 17 references are self-citations (23.5%). Three are clearly on topic (electronic atlases [4], [11]; adaptive nonlinear filters [16]). [17], on acceleration-measuring modules, is cited as background for the filter theory and is only marginally related, with similarity about 0.35. That puts it in the warning range, not below the 0.3 threshold. Several references are web resources for atlases, which suits the heritage topic.\n\n---\n\n## Structural Analysis\n\nThe filter comparison is supported by figures and one table (lost black pixels for three samples) and a histogram analysis, but the quality judgment is visual ('best visual aspect', 'our subjective opinion'). No quantitative restoration metric and no reader study are reported. Limitations are acknowledged inline: connected symbols and heavily broken lines were not corrected, morphological operators failed globally, and further filtering work is needed. The ImagePro tool and Python template generator are the authors' own but are not linked. The maps belong to Romanian Academy collections and are not deposited.\n\n---\n\n## Conclusion\n\nThis is a modest, honest applied paper on digitising linguistic heritage. Its formal content is minimal and justified. It is limited by qualitative evaluation, elevated self-citation, and the absence of any released artifact."
+  },
+  {
+   "paper_id": "alangari2020",
+   "paper": {
+    "title": "Predicting Students Final GPA using 15 Classification Algorithms",
+    "authors": [
+     "Njoud Alangari",
+     "Raad Alturki"
+    ],
+    "abstract": "Predicting students' performance is one of the important tasks in Educational Data Mining (EDM). Early prediction can help the university to take actions that help students to graduate on time and have the best learning outcomes. It also helps the universities to save billions of dollars spent on students who fail, change major or dropout. In this paper, we report our work in student performance prediction using 15 classification algorithms. The experimental results show that we were able to predict students' final GPA with 91% accuracy for two models Naive Bayes and Hoeffding tree which significantly outperform competitive models across different datasets. The average accuracy for all the 15 classifiers was around 71%. We also analyzed the rules generated by tree-based and rule-based classifiers and found that some courses at early levels can have a major effect on the final GPA. In comparison to other works in the field, we were able to have more comprehensive analysis that produced better accuracy with higher variation of class values. These results show the potential for data mining to improve students' success rate by informing who are at risk in order for Instructors and administrators to provide the necessary support at the right time.",
+    "keywords": [
+     "Data Mining",
+     "Machine Learning",
+     "Classification",
+     "Prediction",
+     "Educational Data Mining"
+    ],
+    "doi": null,
+    "pages": "238-249",
+    "source_file": "paper660.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 95,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.5,
+    "composite": 57.38,
+    "final": 52.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the dataset is the college's internal student records (\"students' transactional data of computer and information college over 7 years\") and the preprocessing code is described only as \"we programmed a code to engineer the raw dataset\".",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "There is no limitations section and no inline acknowledgment of constraints such as a single institution, possible leakage from course grades that make up the CGPA, class imbalance, or the absence of significance testing. The only caveat is that not all preprocessing steps could be described 'because of the small space'."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "A standard comparison of 15 Weka classifiers for predicting a 4-class CGPA from course grades of 530 students, with no formalism. The claims run ahead of the evidence: 'significantly outperform ... across different datasets' rests on one dataset and no significance test. The results text has internal inconsistencies, limitations are not acknowledged, and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Educational data mining: predicting final CGPA class from per-course grades, using 15 off-the-shelf classifiers in default settings with 10-fold cross-validation.\n**Level:** 2 (Low)\n**Rationale:** Existing algorithms applied to a new local dataset, with accuracy reported. This is the canonical Level 2 case.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (one grading table)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. There is no formal notation.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNo self-citations among the 24 references. The references are on-topic EDM and classifier sources. Ref. [22] is reported as 88.48% accuracy in Section 2 but as 84% in the comparison in Section 4, an internal inconsistency in how prior work is cited.\n\n---\n\n## Structural Analysis\n\nThe abstract says Naive Bayes and Hoeffding Tree 'significantly outperform competitive models across different datasets'. Only one dataset is used and no statistical test is reported. The results text says Random Tree achieved 96% while placing it among the below-average classifiers, presumably a typo. The tree-based range is then given as 48% to 86%, although Hoeffding Tree, a tree classifier, reached 91%. The predictors are grades in courses that make up the CGPA, so the 'early prediction' framing is not supported: the features include final-year courses (e.g. CS492). Only accuracy is reported, with no per-class metrics for a 4-class, likely imbalanced target. No limitations are acknowledged. The data are institutional and not shared, and no code is provided.\n\n---\n\n## Conclusion\n\nA routine applied comparison with appropriate (absent) formalism. Its weaknesses are structural: overstated claims, internal inconsistencies, possible target leakage, and no acknowledged limitations or artifacts."
+  },
+  {
+   "paper_id": "bindra2020",
+   "paper": {
+    "title": "Evaluating the Impact of Feature Selection Methods on the Performance of the Machine Learning Models in Detecting DDoS Attacks",
+    "authors": [
+     "Naveen Bindra",
+     "Manu Sood"
+    ],
+    "abstract": "Heaps of Data lie in network equipment of the organizations. To break down this information and reach some significant inferences is inconceivable for the present day IDS (Intrusion Detection System). Moreover, their signature-based defense mechanisms are ineffective in tackling emerging threats like DDoS attacks. The central premise of building Machine Learning Classifiers is to detect DDoS attacks efficiently and effectively. However, their accomplishment of machine learning models to distinguish DDoS attacks relies upon how one picks the 'relevant' and 'minimal' attributes in the network streams. The questions: \"Does features choice influence the classification precision, to what extent and what is the best feature selection for boosting the performance of Machine Learning Classifiers in detecting DDoS attacks\" motivate this investigation. This paper presents how to apply ML techniques in detecting DDoS attacks. There are three feature selection categories and our work demonstrates the application of the feature selection methods, one each from the three categories. In addition, five machine learning models have been utilized in our work. Random Forest classifier with Lasso-RFE, a feature selection strategy beat others. The other significance of this research paper, we believe, is a first of its kind scenario, where a real-life multidimensional dataset having diverse network traffic and recent DDoS attacks have been used unlike in most of the studies carried out to date.",
+    "keywords": [
+     "DDoS detection",
+     "DDoS attack",
+     "machine learning",
+     "feature selection",
+     "SciKit-Learn",
+     "network traffic classification"
+    ],
+    "doi": null,
+    "pages": "250-261",
+    "source_file": "paper661.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 76.0,
+    "composite": 69.5,
+    "final": 69.5
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"we picked CIC IDS 2017 dataset [13]\"; [14] \"Description of the CICIDS2017 dataset, available online, 2017, https://www.unb.ca/cic/datasets/ids-2017.html\". The code is described only as \"The software application was written by the authors in Python programming language using Scikit-learn Library\" with pseudocode in Fig. 2 and no link.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Applies scikit-learn feature selection (RFE, SelectFromModel, SelectPercentile, PCA) with five classifiers to the public CICIDS2017 Friday DDoS subset. Formalism is minimal and appropriate and the dataset is public. Novelty claims are overstated, the text repeats paragraphs, and the evidence is accuracy only, with no code released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Comparison of off-the-shelf feature-selection methods combined with five standard classifiers for DDoS flow classification on CICIDS2017.\n**Level:** 2 (Low)\n**Rationale:** Existing library methods applied to a public dataset, with accuracy reported. There is no new algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (accuracy as a ratio; PCA projection Y = x·w, garbled)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The two expressions are standard and brief.\n\n### Issues\nNone in the formal content. The PCA sentence is muddled ('there exists map x(i) from X to orthogonal vector Y(i)') but is not decorative notation.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 23 references. A large share of the references are Wikipedia, blog posts (towardsdatascience, machinelearningmastery, analyticsvidhya) and scikit-learn documentation pages, which are weak support for methodological statements but not a citation-integrity violation. Ref. [12] (Indian music classification) is cited as related work on feature selection, which is tangential.\n\n---\n\n## Structural Analysis\n\nThe claim that 'this study is the first one where this contemporary dataset has been put to use' is unsupported and implausible for a dataset published in 2018 and widely used. The paper also says that removing 82% of features is 'well below the works considered here', which is unclear. Several paragraphs are printed twice (the 85-to-12/15 reduction and the PCA paragraph). Tables are cross-referenced inconsistently (Table I/II/III/IV versus Tables 1-3), and the data statement points to 'table III', which lists selected feature indices, not data. Reported SDs (e.g. .268 against a mean of 83.33 for an accuracy percentage) are hard to interpret. A short dedicated limitations subsection acknowledges that accuracy alone was used. The dataset is a named public dataset with a URL. The authors' Python code is not linked.\n\n---\n\n## Conclusion\n\nA routine applied ML comparison with appropriate formalism and a public dataset, so results are partly reproducible. Its weaknesses are overstated novelty, editorial duplication, and thin evaluation metrics."
+  },
+  {
+   "paper_id": "dragomir2020",
+   "paper": {
+    "title": "Sparse Matrix-Vector Multiplication on a Map-Reduce Many-Core Accelerator",
+    "authors": [
+     "Voichiţa Dragomir",
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "Our proposal for accelerating the computation of Sparse Matrix Vector Multiplication is a Map-Reduce Accelerator as part of a heterogenous computer. We prove that both, structured and unstructured sparse matrices are efficiently multiplied with a dense vector approach using a parallel accelerator structured as a linear array of cells loop connected, through a log-depth reduction network, with a controller. The specific algorithms are presented and their implementation is compared with the of-the-shelf solutions. The main advantages of our architectural proposal, compared with the GeForce GTX 280 GPU which is implemented in the same technological node, are: (1) it provides the means to use 5 ÷ 12x more computation out of the peak computational power, (2) it performs the computation with 2.5x less energy.",
+    "keywords": [
+     "sparse matrix",
+     "matrix-vector multiplication",
+     "unstructured sparse matrix",
+     "structured sparse matrix",
+     "heterogenous computing"
+    ],
+    "doi": null,
+    "pages": "262-273",
+    "source_file": "paper662.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 35,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 55.5,
+    "composite": 41.62,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "Assembly listings are printed in the paper, but no code, simulator, or data is linked. The only author-hosted link is documentation: [3] \"Simulation Manual for Configurable MapReduce Accelerator, Available at: http://users.dcae.pub.ro/~gstefan/2ndLevel/teachingMaterials/ypoSpec1.pdf\".",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "3 of 7 references (42.9%) are by the second author: [3] simulation manual, [4] CA1024 Hot Chips talk, [7] Connex project page. All are topically related (they describe the same accelerator lineage), but the ratio exceeds the 30% threshold. The very short reference list contains no related work on SpMV accelerators beyond one 2008 NVIDIA report."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Maps COO and band-matrix SpMV onto the authors' map-reduce accelerator and derives cycle-count formulas. The formalism (instruction semantics, execution-time expressions) is functional. The efficiency comparison sets analytical cycle counts against a 2008 GPU measurement taken from the literature. The 'we prove' claim has no proof behind it. Self-citation is 3 of 7 references and there is no related-work section.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Kernel algorithms and assembly programs for sparse matrix-vector multiplication (COO, SIMD-like and SPMD-like; band matrices) on a linear-array map-reduce accelerator, with execution-time formulas and a peak-utilisation comparison against a GTX 280.\n**Level:** 2 (Low)\n**Rationale:** The algorithms are the standard COO and diagonal-storage SpMV schemes, adapted to the authors' existing architecture. The analysis counts cycles and does not prove complexity bounds. This is an optimisation and mapping of known methods, so the strict default applies.\n\n### Formal Elements\n- Definitions: 0 (the utilisation coefficient alpha_ARCH is a named ratio, not a formal definition)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 10 (alpha ratio, reduction operators, T_SpMV cycle-count formulas, O(.) statements)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Register and instruction semantics written as vector assignments are a hardware programming specification, and the cycle-count formulas are what a programmer of this machine would need. Naming the efficiency ratio with a Greek letter is a convenience and does not dress up a configuration parameter.\n\n### Issues\nThe abstract says 'We prove that both, structured and unstructured sparse matrices are efficiently multiplied', but the paper contains no proof, only algorithm listings and cycle counts.\n\n---\n\n## Citation Analysis\n\nThere are only 7 references. Three are the second author's own (manual, conference talk, project web page), giving SCR = 42.9%. All three are topically relevant, since they document the accelerator being used, so no IRRELEVANT_SELF_CITATION. The ratio nevertheless exceeds 30%. The literature on SpMV formats and accelerators (CSR/ELL/HYB, FPGA SpMV, later GPUs) is not engaged. The other references are a GPU review site, a spec database, and an NVIDIA seminar.\n\n---\n\n## Structural Analysis\n\nThe MRA figures (alpha_MRA = 32%, 20-50%) appear to be derived from the analytical cycle counts, not from measured runs on real matrices. They are compared with measured GPU numbers from a 2008 report, so the comparison is not like for like. The headline figures are inconsistent: the abstract says '5 ÷ 12x', the SIMD section says 50x, the band section says 5.12-19.23x, and the energy advantage is 2.5x in the abstract and body but 2.4x in the conclusion. The authors acknowledge inline that the SPMD variant lacks 'meaningful data yet' and that the acceleration 'is meaningful only if there are much more than one nonzero element for each line/column'. No artifacts are provided beyond the printed assembly listings.\n\n---\n\n## Conclusion\n\nA compact architecture-mapping paper whose formal content serves the implementation. Its weaknesses are evidential: analytical estimates are presented as a head-to-head comparison, headline ratios are inconsistent, and the 'proof' claim is unsupported. The excessive self-citation ratio, inflated by the very short reference list, is a disqualifying flag under the specification."
+  },
+  {
+   "paper_id": "elamrani2020",
+   "paper": {
+    "title": "Specific Absorption Rate Calculation Model in Case of Exposure to Microwaves Sources",
+    "authors": [
+     "L. El Amrani",
+     "T. Mazri",
+     "N. Hmina"
+    ],
+    "abstract": "Technology is a revolution that allows humans to use several apparatus. The radiations emitted by these apparatus have a negative effect on human health, but until now these effects remains suspected only. The determination of the level of the radiation exposure remains important by elaborating the specific absorption rate models that may determine the level of exposure to several sources because all studies are focused on one source of radiation. This model will allow to verify if the level of exposure is under the requirement in case of several radiations sources, mainly with significant apparatus that surround the human even if each radiation of the apparatus is required under strict norms. The goal of this paper is to develop the specific absorption rate calculation model according to the number of radiation sources that can co-exist in a geographical area, this model will be validated by the comparison between the simulated values of this model and the measurements achieved et Ibn Tofail by EM radiation meters.",
+    "keywords": [
+     "Specific Absorption Rate (SAR)",
+     "Electrical Field",
+     "Biological Effects",
+     "Path Losses",
+     "Base station",
+     "Smartphone",
+     "Frequency band",
+     "Power density",
+     "Electromagnetic radiations"
+    ],
+    "doi": null,
+    "pages": "274-291",
+    "source_file": "paper663.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 95,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.25,
+    "composite": 56.44,
+    "final": 56.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the model is described as simulated \"using Matlab software\" and the 20-day field measurements are reported only as weighted values and figures.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Chains textbook SAR, free-space, two-ray, and indoor path-loss formulas into a Matlab calculator for several sources, then checks it against EM-meter readings at three campus points. The equations are standard and necessary. The validation is weak and internally inconsistent: there is no error analysis, the in-phase summation is assumed, and adding a phone lowers the measured field. The health claims in the introduction are overstated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A calculation procedure for SAR at a point exposed to several base stations and smartphones, built from published SAR, near-field, two-ray, indoor path-loss and far-field power-density formulas, compared with field measurements interpolated by a triangular fuzzy membership.\n**Level:** 2 (Low)\n**Rationale:** Established physical models are combined and applied to a new site. Each component is from the literature, and the novelty lies in summing contributions from multiple sources.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 16 (SAR = sigma|E|^2/rho, exponential depth decay and its integral, peak-SAR scaling, near-field E, two-ray received power, power density, field sum, uplink field, indoor path loss, link budget, far-field PD with antenna pattern, Poynting vector, transmitted field, fuzzy membership, weighted average)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the computation itself. Each one feeds the calculator and passes the Necessity Test. Some (Eq. 13 Poynting vector, Eq. 14) are stated but not visibly used, which is untidy but not theater.\n\n### Issues\nNone in terms of decorative formalism. Several equations are garbled or dimensionally inconsistent as printed, e.g. Eq. 9 gives a dB quantity in [V/m] and Eq. 11 gives a dB sum in [W].\n\n---\n\n## Citation Analysis\n\nTwo of 30 references are by the authors ([10], [11], SAR and fuzzy interpolation of field measurements), 6.7%, both directly relevant. Several references are bare titles with page counts and no venue ([3], [4], [12], [13]), and [18] is a textbook cited only as \"p. 427\". The introduction attributes strong health effects to RF exposure ('they may destroy the human biological organism', DNA change, miscarriage) on the basis of overview conference papers, while the abstract says the effects 'remain suspected only'.\n\n---\n\n## Structural Analysis\n\nThe 'validation' compares a handful of simulated field values with fuzzy-weighted measured values ('they are converged') without an error metric, uncertainty, or meter specification. The fields are summed with zero phase by assumption. The results are inconsistent: at the professors' office the measured field with base stations only is 5.259 V/m, but with a smartphone added it falls to 4.01 V/m. The number of phones at the faculty garden varies between 6, 7 and 'more than 8' in the text and tables. The paper acknowledges inline that climate and time of day affected the measurements, which counts as a weak inline limitation. Nothing is released.\n\n---\n\n## Conclusion\n\nThe formalism is appropriate for an engineering calculation built from standard models. The paper's problems are its weak, internally inconsistent empirical validation, its overstated health framing, and the absence of artifacts."
+  },
+  {
+   "paper_id": "upadhyay2020",
+   "paper": {
+    "title": "Wavelet Based Performance Analysis of SVM and RBF Kernel for Classifying Stress Conditions of Sleep EEG",
+    "authors": [
+     "Prabhat Kumar Upadhyay",
+     "Chetna Nagpal"
+    ],
+    "abstract": "The aim of this study is to detect the changes in frequency and power through wavelet transform and assess the effects of externally induced heat stress in the classification of sleep EEG states - Awake, Slow Wave Sleep (SWS), and Rapid Eye Movement (REM). Radial Basis Function Neural Network (RBFNN) and Support Vector Machine (SVM) algorithms have been successfully applied to classify sleep stages under acute and chronic stress conditions with respect to their controlled Polymosograph. Performance analysis on test data set consists of performance metrics specificity, sensitivity and accuracy. The detection rate of SVM for sleep stage classification has been achieved with an average accuracy of 96.4% under chronic stress and 94.1% for acute stress, whereas an overall accuracy of 87% is achieved using RBFNN in classification of sleep-wake states. The results were also obtained for the identification of types of thermal stress i.e. acute and chronic using SVM approach with 84.4% detection rate. These results demonstrate that RBFNN and SVM models may be successfully employed in clinical studies as a decision support tools to confirm the presence of stress level.",
+    "keywords": [
+     "Wavelet transform",
+     "Heat stress",
+     "RBF",
+     "SVM",
+     "Sleep EEG"
+    ],
+    "doi": null,
+    "pages": "292-310",
+    "source_file": "paper664.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 95,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.25,
+    "composite": 54.94,
+    "final": 54.94
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "\"Feature extraction and classification codes have been written in Matlab R2014b.\" No link or availability statement for the code or for the rat EEG recordings.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Uses CWT band-power features from rat EEG/EOG/EMG with off-the-shelf RBFNN and SVM classifiers to separate sleep stages and acute versus chronic heat stress. The equations are textbook background, some of them unused. The reporting has inconsistencies in sample counts and accuracy figures, the comparison with the prior MLPNN uses different sample sizes, and the conclusion extrapolates to human diagnosis. No data or code is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Wavelet band-power features from rat polysomnography under heat stress, classified with RBF networks and RBF-kernel SVMs.\n**Level:** 2 (Low)\n**Rationale:** Standard feature extraction and standard classifiers applied to an existing animal-model dataset, with accuracy reported.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 12 (CWT, scalogram, total and scale-dependent energy, inverse CWT, Fourier-domain CWT, Gaussian, linear SVM decision function, RBF kernel, specificity/sensitivity/accuracy)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in count. The equations are expository textbook statements of the methods used, not notation dressing up simple operations, so they are not treated as theater. Several are never used by the method (Eq. 3 total energy via the admissibility constant, Eq. 5 inverse transform, Eq. 6 Fourier-domain form). They are background padding, which justifies a small deduction.\n\n### Issues\nEq. 7 is labelled a Gaussian similarity function but printed with the 1/sqrt(2pi) normalisation and without sigma in the prefactor. Eq. 8 is garbled ('y =< w.x > +b; b; phi = sign(y)'). These are presentation errors, not decorative formalism.\n\n---\n\n## Citation Analysis\n\nOne self-citation among 52 references ([28], Nagpal and Upadhyay, ANFIS on the same animal model), 1.9%, directly relevant. Repeated citation of Sinha ([9], [27], [48]), the source of the dataset and the MLPNN baseline, is appropriate and not by the present authors. Several references are incomplete ([12], [15], [18] give only 'Cluster Comput' and a DOI).\n\n---\n\n## Structural Analysis\n\nThe sample accounting conflicts. The text says 225 training and 100 test samples per class, and also '675 samples ... used for training where 300 samples ... for validation'. Table 2 lists 450/200 per binary task, and the 'nearly 70 percent' split matches none of these exactly. Table 4 contains corrupted entries ('68', '98\\98') and its 'incorrectly + correctly identified' counts do not add up to 200 in one row (14 + 188). The stress-classification SVM accuracy is 84.4% in the abstract but 84.2% in Table 8. Both halves of Table 9 are headed 'chronic stress'. The comparison with MLPNN uses 200 test samples against 50, with no statistical test. The conclusion claims the results ensure 'the development of medical diagnosis tool for automated detection of stress level of human being' from rat data. That overreach is partly offset by an inline acknowledgment that testing on human subjects and further physiological variables is needed. Nothing is released.\n\n---\n\n## Conclusion\n\nA standard applied biomedical-classification study with proportionate if padded background equations. The main weaknesses are reporting errors, inconsistent sample counts, a non-like-for-like baseline comparison, and extrapolation beyond the animal model."
+  },
+  {
+   "paper_id": "amarioarei2020",
+   "paper": {
+    "title": "Probabilistic modeling of the self-assembly of the 1-dimensional DNA structures",
+    "authors": [
+     "Alex Amarioarei",
+     "Gefry Barad",
+     "Eugen Czeizler",
+     "Andrei Paun",
+     "Romica Trandafir"
+    ],
+    "abstract": "In a recent paper, using one of the algorithmic assembly formalisms of DNA nanotechnology, we proved that one tile can self-assemble length n structures and n x n squares, which are basic shapes in the study of DNA origami. This new result within a classic Tile Assembly Model (TAM) would not have been possible without the following programming topics: how can we simulate one-dimensional staged self-assembly using the signal-passing TAM, and how can we program staged self-assembly using the available software? We provide probabilistic approaches for investigating the assembly of tile-based one-dimensional structures. We obtain a probabilistic proof of Han's hook length formula in Enumerative Combinatorics. We identify algebraic and combinatorial structures underlying these algorithmic and information theory results.",
+    "keywords": [
+     "natural computing",
+     "self-assembly",
+     "signal and staged TAM",
+     "probabilistic models",
+     "hook length formulas",
+     "operads and Hopf Algebras"
+    ],
+    "doi": null,
+    "pages": "311-329",
+    "source_file": "paper665.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 45,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 62.0,
+    "composite": 46.5,
+    "final": 41.5
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the paper is mainly mathematical, and its one computational element (\"We simulated this model in Mathematica\") is shown only as screenshots with parameters.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM",
+    "DECORATIVE_DEFINITIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "About 6 definitions (TAS triple, d_ij disassembly model, bottom-up p(k; l) model, graph G_n, Definition 4.2, Definition 4.3), 8 stated results (Propositions 1-4, Lemma 4.1, Corollaries a-c) and 7 proofs or proof sketches (Han formula, Prop. 1, Lemma 4.1, Prop. 3, Corollaries a-c). Complexity = 6x2 + 8x3 + 7x4 = 64, between 1x and 2x the Level 3 upper bound of 40.",
+    "DECORATIVE_DEFINITIONS": "Definition 4.3 (non-Sigma operad) and the operad maps beta are introduced, and the multiplicative relations are said to be 'formalized' by them, but no stated result or proof uses the operad structure. The closing involution P(g) on two distributive group structures is likewise unconnected to any result. At Level 3 this flag is recorded but does not disqualify."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Defines top-down (disassembly) and bottom-up probabilistic models over planar binary trees for 1-D hierarchical tile assembly. It proves their equivalence and solvability conditions and gives a probabilistic proof of Han's hook-length formula. The core formalism is genuine, but the volume is elevated for the level, some algebraic apparatus (operads, an involution) is decorative, proofs are sketchy, and the exposition is hard to follow.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Probability distributions over the assembly or disassembly trees (planar binary trees) of a length-n bar in the 1-D hierarchical Tile Assembly Model. It covers a recursive top-down model d(i,j), a bottom-up model on the Boolean lattice with edge weights p(k; l), conditions for their equivalence, and a probabilistic derivation of Han's hook-length inversion formula.\n**Level:** 3 (Medium)\n**Rationale:** The paper develops new mathematical models and proves non-trivial combinatorial properties (Propositions 1-4, a new proof of a known identity). It does not establish complexity, safety or universality results, so it does not reach Level 4.\n\n### Formal Elements\n- Definitions: about 6 (2 numbered: 4.2, 4.3)\n- Theorems: 8 (Propositions 1-4, Lemma 4.1, Corollaries a-c), plus cited results (Theorem 3 of [8], Han's formula, Knuth's formula)\n- Proofs: 7 (several are sketches, e.g. Corollary c 'it is not hard to see')\n- Equations: many (recursions for P(T), hook-length series, path-weight sums)\n\n### Proportionality\nCalculated complexity: 64\nExpected range (Level 3): 10-40\nRatio: 1.6x upper bound\n\n**Assessment:** Elevated. The tree-probability recursions, Propositions 1-4 and the Han-formula argument are necessary: they are the results, and plain English cannot state them. The operad definition (Def. 4.3), the beta maps, and the final involution on 'two distributive group structures' carry no result. The authors say the relations 'can be formalized' with operads but never use them.\n\n### Issues\nProofs are compressed to the point of being hard to verify: Proposition 2 is stated and then deferred to Corollary c, whose key step is 'it is not hard to see'. The claim that P(T) < 1/2 whenever some alpha_k > 1 is attributed to 'the Hölder mean inequality' without derivation. The 'Remark' characterising trees reachable with probability above 1 - epsilon is given without proof. Fig. 5's caption duplicates Fig. 4's. The text has numerous typographical errors that affect readability of formulas.\n\n---\n\n## Citation Analysis\n\nThree of 25 references involve the authors ([8] Barad et al., [22] Mohammed, Czeizler, Czeizler; [23] Amarioarei et al.), 12%. All are on 1-D or kinetic tile-assembly modelling and directly relevant. Several listed references are never cited in the text ([21], [24], [25]), a minor bibliographic-hygiene issue. The cited combinatorics sources (Han, Loday-Ronco, Hivert-Novelli-Thibon, Foissy-Unterberger) are appropriate.\n\n---\n\n## Structural Analysis\n\nThe abstract opens with a result from a previous paper ('we proved that one tile can self-assemble length n structures and n x n squares'), yet the conclusion lists n x n assembly pathways as an open problem. Readers may be unsure what is new here. The claims are mathematical and are backed by proofs of uneven completeness. The Mathematica Markov-chain example is illustrative. Limitations are acknowledged inline through an explicit conjecture, an open problem, and the statement that the multiplicative relations 'are not sufficient to determine d(i,j)'. No code is released, and the Mathematica simulation is shown only as screenshots. As a largely theoretical paper it has little to release (relevant: false).\n\n---\n\n## Conclusion\n\nA genuine, if loosely written, piece of combinatorial modelling. The central models and the probabilistic hook-length argument justify their formalism. The surrounding operad and Hopf-algebra apparatus is ornamental and the proofs are sketchy, so the formal volume is elevated for a Level 3 contribution."
+  }
+ ]
+}

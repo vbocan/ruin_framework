@@ -1,0 +1,468 @@
+{
+ "batch_id": "2011-v14-n4",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 14,
+  "issue": 4,
+  "year": 2011
+ },
+ "papers": [
+  {
+   "paper_id": "sirbu2011",
+   "paper": {
+    "title": "Nanostructured Film of Indium Phosphide as Biosensor in 1D Array Electrowetting System",
+    "authors": [
+     "L. Sirbu",
+     "I. Voda",
+     "D. Esinenco",
+     "S. Gangan",
+     "R. Muller",
+     "R. Voicu",
+     "M. Danila",
+     "L. Ghimpu",
+     "I. M. Tiginyanu",
+     "V. Ursaki"
+    ],
+    "abstract": "We demonstrated the fabrication of complex nanostructured InP membranes with porous compact packed structure that have been cut during electrochemical etching in the same anodic process. The membranes were filled with optically transparent compounds. The compounds deposition in the porous structure was carried out in diverse conditions: temperature, light, bake. The monomer was incorporated into the porous layer from a [Zn(C3N2(C6H5)2NO2)2(CH3OH)2] and [Ni(C3N2(C6H5)2NO2)2(CH3OH)2] solution. We considered the covering of the nanoporous film and filling the pores with coordination compounds imprinted with nano metallic particles in order to stabilize and adjust the sensor characteristics for specific biological samples. Also we designed and fabricated lab-on-a-chip devices based on Si which can be used for transporting bio-samples to the detector by means of electrowetting method. The experimental study and simulations based on Finite Element Model (FEM) and Finite-difference time-domain Model (FDTD) show also that the obtained materials are promising for nonlinear optical applications, in particular for the development of electrowetting systems for MEMS, MOEMS, etc.",
+    "keywords": [],
+    "doi": null,
+    "pages": "299-308",
+    "source_file": "01-sirbu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 35,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 54.25,
+    "composite": 40.69,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "10 of 26 references (refs. 15, 16, 17, 18, 20, 21, 22, 23, 25, 26) include at least one author of this paper (Sirbu, Tiginyanu, Voda, Esinenco, Ursaki, Ghimpu, Voicu, Muller), SCR = 38%. The cited works are topically related (porous semiconductors, electrowetting, plasmonics), so no irrelevance flag is raised, but several are bare conference identifiers with no title (refs. 21, 23, 25, 26)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Experimental fabrication report on porous InP membranes and an electrowetting chip with minimal, necessary formalism, but a 38% self-citation ratio and thinly supported simulation and sensing claims.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Electrochemical fabrication of porous InP films filled with coordination compounds and Ag nanodots, a Si electrowetting microchannel chip, and FDTD/FEM field simulations of cone-shaped pores.\n**Level:** 2 (Low)\n**Rationale:** Experimental materials and device work applying established etching, deposition and simulation techniques; no new algorithm or model is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (Lippmann-Young relation)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the single equation is the standard electrowetting relation, used to motivate a thin high-permittivity dielectric.\n\n### Issues\nThe equation is misprinted as \"cos θV = θ0 + ...\" (the left-hand cosine is not matched on the right). Section numbering jumps from 2.1 to 3.2.\n\n---\n\n## Citation Analysis\n\nTen of 26 references share authors with this paper (SCR 38%). All are on related topics (porous III-V templates, metal nanoparticle deposition, electrowetting), so relevance is not the problem; the volume is. Several self-references (21, 23, 25, 26) give only a conference and page, with no title, and key results (Fig. 5 particle formation, morphology of monomer nanowires, X-ray structure) are delegated to the authors' own conference papers rather than shown here.\n\n---\n\n## Structural Analysis\n\nThe paper reports procedures but little quantitative evidence for its claims. The abstract says simulations and experiments show the materials are promising for nonlinear optics, and the text states that \"The results of calculations are in a good correlation with experimental results\" without presenting the comparison. No sensing measurement on a biological sample is reported, although the title presents the film as a biosensor. The conclusion acknowledges that only \"preliminary tests\" were done and that further work is needed, which counts as a weak inline limitation. No code, data, or simulation files are offered.\n\n---\n\n## Conclusion\n\nA descriptive fabrication report whose formalism is appropriate but whose evidential base is thin: the biosensing claim in the title is not tested, the simulation-experiment agreement is asserted rather than shown, and much of the support is outsourced to the authors' own conference papers, giving an excessive self-citation ratio that disqualifies under the framework."
+  },
+  {
+   "paper_id": "nedelcu2011",
+   "paper": {
+    "title": "A Thermal Study on Joule-Heating Induced Effects in Dielectrophoretic Microfilters",
+    "authors": [
+     "Oana Tatiana Nedelcu"
+    ],
+    "abstract": "Dielectrophoretic filters are used for separation and detection of cells or microorganisms suspended in liquid media and are based on particles migration in non-uniform electric field provided by microfabricated electrodes. In this paper, thermal effects induced by Joule heating on flow profile and particles distribution by mean of parameter variation with temperature are investigated. The equation system with boundary condition for solving physical quantities such as electric field is described by taking into account the temperature gradient. The models are applied to a microfilter with planar castellated electrodes placed on a channel separation, and numerically solved with simulation software packages. The analyses were made for various set of parameters (as applied voltage and particles size). The results are discussed and compared in terms of temperature influence on electric field, dielectroforetic force, flow profile and spatial concentration distribution of particles inside the separation microchannel.",
+    "keywords": [
+     "microfilters",
+     "dielectrophoresis",
+     "thermal effects"
+    ],
+    "doi": null,
+    "pages": "309-323",
+    "source_file": "02-nedelcu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.95,
+    "composite": 59.96,
+    "final": 54.96
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; simulations run in the commercial package Comsol Multiphysics",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment; in particular the simulation results are not validated against any measurement, and the conclusions claim the models predict particle distribution \"with higher accuracy\" without stating this as a limitation."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Competent multiphysics simulation study with necessary physical equations and normal citation practice, but no experimental validation and no acknowledged limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Comsol simulation of a castellated-electrode dielectrophoretic microfilter, adding temperature-dependent material properties and a particle-to-fluid reaction body force to the standard DEP, Navier-Stokes and convection-diffusion models.\n**Level:** 2 (Low)\n**Rationale:** Extends standard textbook models with known temperature coefficients and a straightforward Newton's-third-law body force, then solves them in a commercial package. It is model refinement, not a new mathematical model with validation or proofs.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 (DEP force, Clausius-Mossotti factor, complex permittivity, DEP mobility, reaction force density, linear temperature coefficient, Stokes-Einstein diffusion)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — every equation is a physical relation that enters the simulation; none could be replaced by prose without losing what is computed.\n\n### Issues\nNone identified in the formalism. Minor: the introduction repeats a sentence on particle size and media conductivity almost verbatim, and Fig. 15 caption labels two panels \"b)\".\n\n---\n\n## Citation Analysis\n\nTwo of 15 references are by the author (refs. 11, 12, SCR 13%), both directly on dielectrophoretic microfilter simulation and so related. The remainder are standard DEP literature and software manuals. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe numerical results are reported with specific values (fields, temperatures, mobilities) and figures, so claims about simulated behaviour are supported. The interpretive claims in the conclusion—that the results \"could explain some experimental observations\" and allow prediction \"with higher accuracy\"—rest only on a qualitative similarity of field magnitude to ref. 8; no measurement is compared. No limitation is stated. No model files or data are provided; Comsol is third-party software.\n\n---\n\n## Conclusion\n\nA well-structured simulation study whose formalism is exactly what the physics requires. Its weakness is structural: absent experimental validation and an unacknowledged gap between simulated trends and the accuracy claims made for them."
+  },
+  {
+   "paper_id": "kosa2011",
+   "paper": {
+    "title": "Longitudinal Elastic Waves in Deformed Carbon Nanotubes",
+    "authors": [
+     "Gergely Kosa",
+     "Mircea Bercu",
+     "Voicu Grecu"
+    ],
+    "abstract": "This study investigates the exciting of the elastic waves in single walled carbon nanotubes (SWCNT) during their deformations according to the conditions of mechanical treatments. The assumed procedures for longitudinal deformation are related to a short time extension at different velocities and to a harmonic oscillation impose to the atoms placed at one end of the nanotube. We analyse the responses of SWCNT to the external mechanical actions by using a large atomistic model of 2200 atoms simulating a carbon nanotubes of 27.3 nm in the conditions of rigid couplings at its both ends using modified Morse inter-atomic potentials. The simulation models provides details about reversible and irreversible disruption of SWCNT manifested by local transitions to carbon nanowire and self healing processes, being related to the conditions of the mechanical treatments.",
+    "keywords": [
+     "Single-wall carbon nanotubes",
+     "elastic wave propagation",
+     "molecular dynamics"
+    ],
+    "doi": null,
+    "pages": "324-333",
+    "source_file": "03-gkosa.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 83.5,
+    "composite": 62.62,
+    "final": 62.62
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Molecular dynamics study of a (5,5) SWCNT under three loading regimes, with necessary minimal formalism, no self-citation, and an honest statement that results are semi-quantitative.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Molecular dynamics simulation of elastic wave propagation, strain redistribution and fracture in a bridged armchair (5,5) SWCNT using a published modified Morse potential.\n**Level:** 2 (Low)\n**Rationale:** Applies an established simulation method and potential (Belytschko et al.) to new loading scenarios; the contribution is observational, not a new method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (stretching and bending energy of the modified Morse potential, secant modulus)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the potential's functional form and parameters are what a reader needs to reproduce the simulation.\n\n### Issues\nNone in the formalism. Inconsistencies in the text: the model is described as 2220 atoms in Section 2 and 2200 in the abstract and conclusions; Fig. 2 caption gives 3.0 Å/ps whereas the text gives 2.0 Å/ps; the parameters are attributed to Belytschko \"[5]\" whereas ref. 5 is Brenner; a band is described at \"3 GHz\" where the spectra discussed are around 3 THz.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 12 references. The references are standard works on carbon-nanotube mechanics and interatomic potentials. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe computed Young's modulus and failure stress are compared with published values (1.19 vs 1.16 and 1.07 TPa; 86 vs 93.5 GPa), which grounds the model. Observations on wave reflection, redshift, nanowire formation and self-healing are tied to specific figures. The conclusion states that the results \"should be taken with care, as semi-quantitative ones, due to the approximation of the rigid coupling\", an explicit inline limitation, and Section 4 notes that a more realistic model must include elastic coupling. No simulation code or trajectories are released.\n\n---\n\n## Conclusion\n\nA modest but internally coherent simulation paper with proportionate formalism, clean citation practice and an acknowledged modelling limitation. Several numerical and referencing slips reduce its precision but do not undermine the findings."
+  },
+  {
+   "paper_id": "stefanescu2011",
+   "paper": {
+    "title": "Analysis of GaN Based SAW Resonators including FEM Modeling",
+    "authors": [
+     "A. Ştefănescu",
+     "D. Neculoiu",
+     "A. Müller",
+     "A. Dinescu",
+     "G. Konstantinidis",
+     "A. Stavrinidis"
+    ],
+    "abstract": "This paper proposes an analysis of two types of Surface Acoustic Wave (SAW) resonators composed of interdigital transducers (IDT) of 200 nm wide on GaN/Si devoted for GHz applications. Two finite element (FEM) models for basic periodic cells are given to demonstrate de characteristics of the resonators at different resonance frequencies. E-beam lithographical techniques have been used for the IDT fingers. Experimental measurements of the S parameters have shown a good agreement with the simulation results regarding the resonance frequency.",
+    "keywords": [
+     "surface acoustic wave resonator (SAW)",
+     "finite element simulation (FEM)",
+     "e-beam lithography"
+    ],
+    "doi": null,
+    "pages": "334-345",
+    "source_file": "04-astefanescu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.95,
+    "composite": 59.96,
+    "final": 59.96
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; COMSOL (www.comsol.com) and the Ioffe GaN material-parameter page are third-party resources",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Unit-cell FEM modelling and fabrication of GaN/Si SAW resonators with standard, necessary equations; the claimed simulation-measurement agreement is overstated for one structure.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Periodic unit-cell COMSOL piezoelectric simulations of single-electrode and split-electrode SAW resonators on GaN/Si, with e-beam fabrication and S-parameter measurement.\n**Level:** 2 (Low)\n**Rationale:** Applies a standard FEM approach with periodic boundary conditions to a new material stack and geometry; no new method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (wavelength from pitch, velocity-frequency relation, piezoelectric constitutive equations, admittance)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — all equations are the standard relations the model uses.\n\n### Issues\nNone in the formalism.\n\n---\n\n## Citation Analysis\n\nTwo of 21 references include authors of this paper (refs. 9 and 13, SCR 9.5%), both on GaN SAW devices and directly related; ref. 13 is the conference version of this work. No issues identified.\n\n---\n\n## Structural Analysis\n\nSimulation set-up, material constants and computational cost are reported in detail. The abstract and Section 4 state that measured resonance frequencies are \"in agreement with the simulations\", but the reported numbers are 5.472 GHz simulated vs about 5.69 GHz measured for structure A (about 4%) and 2.79 GHz vs 2.21 GHz for structure B (about 26%), which the paper does not discuss. The measured velocity is printed as \"3.740 m/s\". Figure references are confused (Fig. 4 cited for the structure B field plot, Fig. 5 inset for the pads). The conclusion acknowledges that 3D modelling of resonator length would be needed for better prediction and that the devices are test vehicles, an inline limitation. No model files or measurement data are released.\n\n---\n\n## Conclusion\n\nA conventional device-modelling and fabrication paper with appropriate formalism and normal citation practice. The main weakness is that a sizeable simulation-measurement discrepancy for the split-electrode structure is presented as agreement."
+  },
+  {
+   "paper_id": "vasile2011",
+   "paper": {
+    "title": "Study of Microstructure and Elemental Micro-Composition of ZnO:Al Thin Films by Scanning and High Resolution Transmission Electron Microscopy and Energy Dispersive X-Ray Spectroscopy",
+    "authors": [
+     "E. Vasile",
+     "R. Plugaru",
+     "S. Mihaiu",
+     "A. Toader"
+    ],
+    "abstract": "The microstructure and micro-composition of ZnO thin films doped with Al, deposited on Si/SiO2 substrates by sol-gel method were investigated by scanning and high resolution transmission electron microscopy and related energy dispersive X-ray analyses (SEM-EDX, STEM-HRTEM/EDX). Thin films of ZnO were prepared by deposition of 1-10 successive layers with 0.5 at.% and 5 at.% Al concentrations. The evolution of the elemental composition, especially the Al concentration and distribution in the films with various number of layers were determined from energy dispersive X-ray spectra (EDS). The qualitative composition of the structures observed in the films have been evidenced in the elemental EDS maps.",
+    "keywords": [
+     "Al-doped ZnO films",
+     "sol-gel",
+     "nanostructures",
+     "SEM-EDX",
+     "HRTEM-EDX",
+     "STEM-EDX",
+     "elemental composition",
+     "elemental mapping"
+    ],
+    "doi": null,
+    "pages": "346-355",
+    "source_file": "05-evasile.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 85,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.0,
+    "composite": 54.75,
+    "final": 54.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Electron-microscopy characterisation of sol-gel ZnO:Al films with no formalism and normal self-citation, weakened by internal inconsistencies between results, tables and conclusions.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** SEM-EDX, STEM/HRTEM-EDX and EDS mapping of Al-doped ZnO sol-gel films with 1-10 layers at 0.5 and 5 at.% Al.\n**Level:** 2 (Low)\n**Rationale:** Empirical materials characterisation with standard instruments; no model or algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — no formal apparatus.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo of 14 references include authors of this paper (refs. 11 and 12, SCR 14%), both reporting the deposition and earlier characterisation of the same films, so directly relevant. The reference list duplicates two works (refs. 6 and 9 are identical; refs. 7 and 14 are identical), so the true number of distinct references is 12 and the self-citation share about 17%.\n\n---\n\n## Structural Analysis\n\nThe micrographs and EDX tables support the basic observations, but the paper is internally inconsistent. The rosette diameter is given as about 10 µm in the Fig. 4 caption and about 30 µm in the text. The results attribute the inhomogeneity to Zn (\"increased concentration of Zn atoms\"), while the conclusion states \"An increased Al concentration in randomly distributed areas\". The conclusion places uniform Zn in films with \"5 to 10 layers\" whereas the results say inhomogeneities persist up to 5 layers. In Table 2 the weight percentages sum to about 89.6% and the atomic percentages to about 92%. Limitations are acknowledged inline: SEM-EDX \"did not provided edifying results on the Al distribution due to the substrate influence\", and oxygen quantification is noted as difficult. No raw spectra or images are released.\n\n---\n\n## Conclusion\n\nA routine characterisation paper with no formalism concerns and acceptable citation practice. The contradictions between captions, text, tables and conclusions mean the headline finding—which element is inhomogeneous—is not reliably reported."
+  },
+  {
+   "paper_id": "dragoi2011",
+   "paper": {
+    "title": "Aligned Fusion Wafer Bonding for CMOS-MEMS and 3D Wafer-Level Integration Applications",
+    "authors": [
+     "V. Drăgoi",
+     "G. Mittendorfer",
+     "C. Flötgen",
+     "D. Dussault",
+     "T. Wagenleitner"
+    ],
+    "abstract": "Wafer bonding proved to be a valuable MEMS manufacturing technology during past years, when bonding-based applications moved to high volume production. Due to its ability to allow for building 3D architectures wafer bonding became very attractive also for applications using wafer-level 3D integration. However, most of the bonding processes are not compatible with CMOS technology in terms of process temperature and contamination levels. A low temperature fusion bonding process is presented as an example of how the wafer bonding issues were successfully solved and applied to manufacturing processes.",
+    "keywords": [
+     "plasma activated wafer bonding",
+     "single wafer cleaning",
+     "optical alignment",
+     "CMOS image sensor",
+     "back-side illumination",
+     "3D integration"
+    ],
+    "doi": null,
+    "pages": "356-364",
+    "source_file": "06-dragoi.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 30,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 51.25,
+    "composite": 38.44,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "4 of 8 references (refs. 3, 4, 6, 8) are co-authored by Drăgoi and/or Dussault, SCR = 50%. They are on wafer bonding and therefore topically related, but they carry the key evidence (plasma activation conditions, bond strength, cleaning evaluation) that is not shown in this paper. Ref. 2 is a patent and ref. 5 is by colleagues at the same equipment vendor.",
+    "NO_LIMITATIONS": "No limitations are acknowledged; the processes are presented as solved and in production use, with no discussion of failure modes, yield, or conditions under which the bonding or alignment results would not hold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Equipment-vendor process overview with no formalism, half its references to the authors' own work, and several performance claims asserted without data.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Overview of a low-temperature plasma-activated fusion wafer bonding flow for CMOS wafers: megasonic single-wafer cleaning, PECVD oxide/CMP planarisation, optical wafer-to-wafer alignment and bonding, using the authors' company's equipment.\n**Level:** 1 (Trivial)\n**Rationale:** A process and equipment description combining existing steps; no model, algorithm or analysis is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — no formal apparatus.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nHalf of the eight references are the authors' own papers. They are relevant to wafer bonding, but the paper relies on them for its central evidence: the plasma activation and bond-strength optimisation is referred to ref. 3, the cleaning evaluation (Fig. 5) to ref. 8. The remaining references are a textbook, a handbook, a patent for the cleaning transducer, and a paper by colleagues at the same company. The citation base is narrow and self-referential.\n\n---\n\n## Structural Analysis\n\nThe only quantitative results shown are the 400-run alignment marathon (Fig. 6), a particle size distribution before and after cleaning (Fig. 5, reproduced from ref. 8) and one acoustic microscope image of a bonded pair. Bond strength \"in the same range with silicon bulk fracture strength\" is claimed without a value. The conclusion asserts \"Partical neutrality\" was demonstrated, which no figure shows, and states alignment \"of less than 200 nm\" whereas the results section says \"within 150 nm\" for most runs. The statement that the processes are in production use is unverifiable from the text. Registered trade names (MegPie, SmartView NT) recur throughout, giving the paper a product-description character. No limitations are given and nothing is released; as an industrial process paper there is little software or data to release, so availability is marked not relevant.\n\n---\n\n## Conclusion\n\nAn industrial overview rather than a research paper in the full sense. Formalism is not an issue, but the claims are largely asserted or delegated to the authors' own earlier papers, giving a 50% self-citation ratio that disqualifies under the framework, and no limitation is acknowledged."
+  },
+  {
+   "paper_id": "ionascu2011",
+   "paper": {
+    "title": "Unknown (text extraction empty)",
+    "authors": [],
+    "abstract": "",
+    "keywords": [],
+    "doi": null,
+    "pages": null,
+    "source_file": "07-ionascu.pdf"
+   },
+   "concept_level": null,
+   "scores": {
+    "formalism": null,
+    "citation_integrity": null,
+    "structural_integrity": null,
+    "artifact_availability": null,
+    "intellectual_integrity": null,
+    "composite": null,
+    "final": null
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "not assessable: the text file for this PDF is empty (0 bytes)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "PDF_CORRUPTED"
+   ],
+   "flag_details": {
+    "PDF_CORRUPTED": "The pdftotext output 07-ionascu.txt is empty (0 bytes), so no text could be analysed. The PDF was not opened, per the run instructions. The paper likely occupies pages 365-379 (between the preceding paper ending at 364 and the following one starting at 380), but this is inferred, not read."
+   },
+   "verdict": {
+    "classification": "NOT_APPLICABLE",
+    "disqualified": false,
+    "record_type": "unreadable"
+   },
+   "provenance": "## Processing Note\n\nThe text file produced from `07-ionascu.pdf` is empty, which usually indicates a scanned or image-only PDF or an extraction failure. Under the run instructions the PDF was not opened or re-converted, so the paper is recorded with the `PDF_CORRUPTED` flag and excluded from scoring. The `paper_id` is derived from the file name; title, authors and abstract are unknown."
+  },
+  {
+   "paper_id": "kim2011",
+   "paper": {
+    "title": "A Clock Generating System for USB 2.0 with a High-PSR Bandgap Reference Generator",
+    "authors": [
+     "Seok Kim",
+     "Seung-Taek Yoo",
+     "Kee-Won Kwon",
+     "Young-Hyun Jun",
+     "Jung-Hoon Chun"
+    ],
+    "abstract": "A 48-MHz clock generating system for USB 2.0 with an improved bandgap reference generator is proposed to replace an external crystal oscillator. In order to comply with clock frequency and long term jitter specifications under severe supply noise, the power supply of the DCO is regulated by a low drop-out (LDO) regulator. The reference voltage for the LDO is generated by the bandgap reference generator with two bandgap cores to improve supply rejection. The proposed clock generating system implemented in a 130 nm CMOS process shows ±2.5 ns jitter under ±400 mV supply noise.",
+    "keywords": [],
+    "doi": null,
+    "pages": "380-391",
+    "source_file": "08-skim.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 80,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 72.5,
+    "composite": 54.38,
+    "final": 49.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "Trade-offs of the intermediate BGR2 topology are discussed, but no limitation of the implemented system or of the evaluation is acknowledged (e.g. PSR is shown only in simulation, a single chip and a single noise frequency are measured, and power/area overhead versus a crystal is not discussed)."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Circuit design paper with a clearly argued bandgap topology and measured jitter results, no formalism, a short reference list and no acknowledged limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A 48 MHz crystal-less USB 2.0 clock generator in 130 nm CMOS (LDO-regulated DCO with SAR frequency control) using a supply-regulated bandgap reference with an auxiliary core and a start-up multiplexer to improve PSR.\n**Level:** 2 (Low)\n**Rationale:** A circuit-level refinement of known supply-regulated bandgap topologies; an engineering design contribution without new theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the design is explained through schematics and simulations.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nOne of six references is by the authors (ref. 6, the CAS 2011 conference version of the same work), SCR 17%. It is directly relevant. Refs. 4, 5 and 6 are not cited in the text. The reference list is very short for a circuit design paper and does not compare against other crystal-less USB clock generators. No disqualifying issue.\n\n---\n\n## Structural Analysis\n\nThe design argument proceeds clearly from the start-up problem of the conventional regulated BGR to the proposed fix, supported by simulated start-up, corner and PSR plots. Measured evidence is limited to DCO frequency range and long-term jitter under injected 12 MHz VSS noise (±2.0, ±2.1, ±2.5 ns), which meet the ±4 ns specification. The measured chip is described as the \"supply regulated BGR circuit with 2 cascaded cores\" (the BGR2 topology of Fig. 5), whereas the abstract and Fig. 10 present the multiplexed BGR3 as the proposal, leaving it unclear which variant was fabricated. Bandgap PSR is never measured, so the high-PSR claim in the title rests on simulation. There is no comparison table with prior work and no limitations. No design files are released.\n\n---\n\n## Conclusion\n\nA sound, readable circuit paper with appropriate absence of formalism and normal citation practice. Its claims outrun its measurements—PSR only simulated, the fabricated variant ambiguous, no comparison with prior work—and it acknowledges no limitations."
+  },
+  {
+   "paper_id": "tulbure2011",
+   "paper": {
+    "title": "Testability Optimizations for A Time Multiplexed CPLD Implemented on Structured ASIC Technology",
+    "authors": [
+     "Traian Tulbure",
+     "Radu Găvruş"
+    ],
+    "abstract": "Multi-context dynamic reconfigurable architectures can use of both spatial and temporal aspects of logic capacity. Gaining logic capacity by reusing hardware with time multiplexing techniques requires controlling logic using small distributed memories. This can create testability problems for dynamic reconfigurable architectures. In this paper we are analysing the test coverage loss and proposing a test extension for a CPLD like dynamic reconfigurable architecture. The proposed solution is implemented in structured ASIC technology and helps in regaining the test coverage with no area and timing penalty.",
+    "keywords": [
+     "reconfigurable computing",
+     "CPLD",
+     "structured ASIC",
+     "test coverage",
+     "ATPG"
+    ],
+    "doi": null,
+    "pages": "392-398",
+    "source_file": "09-ttulbure.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 88,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.3,
+    "composite": 56.47,
+    "final": 56.47
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Short DFT paper adding loop-breaking multiplexers to a time-multiplexed CPLD, with no formalism and normal citations, but with comparison figures that do not match the tables.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Adding test-mode multiplexers and a flip-flop per product-term output to break combinational loops in a memory-configured, time-multiplexed CPLD on eASIC structured ASIC, raising ATPG coverage above 98%.\n**Level:** 2 (Low)\n**Rationale:** Applies a standard design-for-test technique (breaking combinational loops in scan mode) to the authors' architecture.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — no formal apparatus.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nOne of seven references is by an author (ref. 5, Tulbure, ARC 2011, on the same CPLD architecture), SCR 14%, relevant. Ref. 5 is never cited in the text; the sentence introducing the architecture cites [4], a Xilinx time-multiplexed FPGA paper, apparently in place of [5]. Two references are vendor web pages. No disqualifying issue.\n\n---\n\n## Structural Analysis\n\nTables 1-3 give test coverage, pattern count, area and timing for two variants with and without the extension, which supports the coverage claim (93.27% to 98.25% and 98.23% to 99.30%). Other claims are not borne out by the tables: the abstract and conclusion state \"no degradation in area and timing\", yet the intra-ePLD timing of v2 worsens from 3.023 to 3.232 ns; the comparison with ref. 6 reports \"81% better timing\" for 4.120 vs 8.027 ns, which is about 49%. The paper does note inline that area and timing differences may reflect placement-seed variation and that wide distributed memories are a structured-ASIC limitation, which counts as acknowledgment of constraints. No RTL or scripts are released.\n\n---\n\n## Conclusion\n\nA brief, focused engineering paper with appropriate formalism and clean citation practice. The coverage result is supported, but the performance comparisons are misstated, and a measured timing regression is described as no degradation."
+  }
+ ]
+}

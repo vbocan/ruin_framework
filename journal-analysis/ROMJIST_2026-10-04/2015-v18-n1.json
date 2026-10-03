@@ -1,0 +1,314 @@
+{
+ "batch_id": "2015-v18-n1",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 18,
+  "issue": 1,
+  "year": 2015
+ },
+ "papers": [
+  {
+   "paper_id": "popescu2015",
+   "paper": {
+    "title": "Networks of Polarized Evolutionary Picture Processors",
+    "authors": [
+     "Ştefan Popescu"
+    ],
+    "abstract": "We define a new bio-inspired computational model for deciding 2-dimensional languages similar to those presented in [2] and [3]. The novel factor being the communication protocol, which is based on the polarity associated with the symbols on the picture frame. This model can be viewed as a 2-dimensional extension of the one presented in [1]. We compare the class of languages accepted by these networks to other classes of 2-dimensional languages, namely the classes of Local Languages and Tiling Recognizable Languages [12]. We show that these networks can accept the complement of any local picture language and some picture languages that are not recognizable by tiling systems. We also show that these networks can recognize any input that contains a given sub-picture, provided that the sub-picture is made up of at most 3 rows or 3 columns.",
+    "keywords": [
+     "rectangular picture",
+     "picture processor",
+     "network of evolutionary picture processors",
+     "local picture language",
+     "recognizable picture language",
+     "bio-inspired computation"
+    ],
+    "doi": null,
+    "pages": "3-17",
+    "source_file": "01-spopescu.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.2,
+    "composite": 60.9,
+    "final": 55.9
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the paper states 'We stress that this model is purely a theoretical concept, inspired by biological phenomena.'",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints of the results; the conclusion lists only open questions (size of the class, closure properties). Proposition 2 is asserted 'by using the same principle' without a proof."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Formal-language-theory paper introducing polarized networks of evolutionary picture processors and proving class-separation results by explicit network constructions; formalism is the subject matter and proportionate, though proofs are informal walkthroughs and one proposition is unproven.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A new accepting-network model (ANPEPP) for two-dimensional picture languages, with polarity-based communication filters, and its comparison with LOC and REC.\n**Level:** 4 (High)\n**Rationale:** The contribution is a set of expressiveness results about language classes (L(ANPEPP) intersects REC\\LOC, contains a non-REC language, contains the complement of every local language, and accepts sub-picture containment for pictures of width 3). These are computability/complexity-style results proved by construction. It does not reach Level 5 (no universality or undecidability result).\n\n### Formal Elements\n- Definitions: 6 (valence, picture polarity, evolutionary rules and their actions, polarized processor, ANPEPP, configuration/computation)\n- Theorems: 5 (Theorems 1-3, Propositions 1-2)\n- Proofs: 4 (Proposition 2 has none)\n- Equations: ~8 (polarity function, configuration-change rules, language definitions)\n\n### Proportionality\nCalculated complexity: 6x2 + 5x3 + 4x4 = 43\nExpected range (Level 4): 30-80\nRatio: 0.54x upper bound\n\n**Assessment:** Proportionate. Set notation and tuples define the computational model whose language class is the object of study; the theorems depend on them. The Necessity Test is passed: the separation results cannot be stated or proved without these definitions.\n\n### Issues\nProofs are constructive narratives of how each network behaves rather than rigorous inductive arguments; correctness of the constructions is argued informally. The definition of L in Theorem 2 contains a typographical error (pi(n,i) = pi(n+1) missing an index). Proposition 2 is stated without proof.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 12 references (8.3%): [1] Arroyo, Canaval, Mitrana, Popescu on networks of polarized evolutionary processors, the direct string-language predecessor of this model. Highly relevant. Remaining references are the standard literature on picture languages and evolutionary processor networks. No issues identified.\n\n---\n\n## Structural Analysis\n\nClaims are the theorems, each backed by a construction except Proposition 2. There is no limitations discussion; the conclusion lists open questions only. Pure theory: no artifact is expected, recorded as relevant: false.\n\n---\n\n## Conclusion\n\nA short theoretical paper whose formal apparatus is necessary and proportionate to its Level 4 content. Its weaknesses are rigor of exposition (informal proofs, an unproven proposition, typos in definitions) rather than formalism theater or citation conduct."
+  },
+  {
+   "paper_id": "sys2015",
+   "paper": {
+    "title": "On the Interpretation of Results from the NIST Statistical Test Suite",
+    "authors": [
+     "Marek Sýs",
+     "Zdeněk Říha",
+     "Vashek Matyáš",
+     "Kinga Márton",
+     "Alin Suciu"
+    ],
+    "abstract": "NIST Statistical Test Suite is an important testing suite for randomness analysis often used for formal certifications or approvals. Documentation of the NIST STS gives some guidance on how to interpret results of the NIST STS but interpretation is not clear enough or it uses just approximated values. Moreover NIST considers data to be random if all tests are passed yet even truly random data shows a high probability (80%) of failing at least one NIST STS test. If data fail some tests the NIST STS recommends the analysis of different samples. We analysed 819200 sequences (100 GB of data) produced by a physical source of randomness (quantum random number generator) in order to interpret results computed without analysing any additional samples. The results indicate that data can be still considered random for the significance level alpha = 0.01 if they fail less than 7 NIST STS tests, 7 tests of uniformity of p-values (100 sequences) or 10 tests of proportion of passing sequences. We have also defined a more accurate interval of acceptable proportions computed with a new constant (2.6 instead of 3) for which 1000 sequences can be considered random if they fail less than 7 tests of proportion.",
+    "keywords": [
+     "NIST STS",
+     "statistical randomness testing",
+     "hypothesis testing"
+    ],
+    "doi": null,
+    "pages": "18-32",
+    "source_file": "02-msys.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 72,
+    "artifact_availability": 50,
+    "intellectual_integrity": 84.2,
+    "composite": 75.65,
+    "final": 75.65
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "'We have analysed 100 GB of data (downloaded from [8]) produced by a physical source of randomness.' [8]: 'QRNG Service. https://qrng.physik.hu-berlin.de'. The optimised NIST STS implementation [5] is the authors' own but is only cited, not linked.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Empirical study deriving reference failure-count probabilities for the NIST STS from 100 GB of QRNG output and proposing a corrected proportion interval; formalism limited to standard binomial and normal-approximation formulas, data source public.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Interpretation of NIST STS results: empirical distribution of the number of failed tests on truly random data, and a corrected constant for the acceptable-proportion interval.\n**Level:** 2 (Low)\n**Rationale:** An empirical study with basic statistics (binomial probabilities, normal approximation). The constant 2.6 replacing 3 is a straightforward recalibration to a target Type I error, not a new model.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0 (three Remarks restate known facts)\n- Proofs: 0\n- Equations: ~5 (interval formula, corrected interval, binomial probability, cumulative sum)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Every equation is a quantity the tester actually computes; none fails the Necessity Test.\n\n### Issues\nNone identified. Minor inconsistency: the abstract and Section 5 say n = 100000 bits per sequence while the conclusion says 1000000 bits.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 11 references (9.1%): [5] Sýs and Říha on a faster NIST STS implementation, which is the tool used for the experiments. Directly relevant. No issues identified.\n\n---\n\n## Structural Analysis\n\nClaims are backed by Tables 3-5 computed over 819200 sequences and by explicit binomial calculations for the corrected interval. Limitations are acknowledged inline (formula accuracy for small k, the need to examine additional samples, the manual check required for the new interval); the reliance on a single physical generator is not discussed. The data source is a public QRNG service; the specific sample is not deposited and the authors' optimised test code is not linked.\n\n---\n\n## Conclusion\n\nA useful, well-supported practitioner study with appropriate minimal formalism. Reproducibility rests on a public data source but no released code or deposited sample."
+  },
+  {
+   "paper_id": "cucu2015",
+   "paper": {
+    "title": "The SpeeD Grammar-based ASR System for the Romanian Language",
+    "authors": [
+     "Horia Cucu",
+     "Andi Buzo",
+     "Corneliu Burileanu"
+    ],
+    "abstract": "This paper describes the grammar-based automatic speech recognition system for the Romanian language developed by the Speech and Dialogue Research Group. The paper links to previous work for the issues related to large vocabulary speech recognition and focuses on the specific optimization work done for several closed-vocabulary, grammar-based speech recognition tasks. Among the specific problems approached, of particular interest is the informal pronunciation modelling of Romanian two-digit numbers. The paper proposes solutions for within-word and cross-word pronunciation modelling of numbers and reports significant relative improvements of the speech recognition word error rates.",
+    "keywords": [],
+    "doi": null,
+    "pages": "33-53",
+    "source_file": "03-hcucu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 68,
+    "artifact_availability": 70,
+    "intellectual_integrity": 65.0,
+    "composite": 66.25,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "'The proof-of-concept system presented in this paper is available online' with footnote 'SpeeD grammar-based ASR system: http://speed.pub.ro/speech-to-text'. This is a hosted tool rather than source code; the evaluation speech corpora recorded for the study are not released.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "5 of 16 references (31.3%) are by the authors: [1] Cucu PhD thesis, [2] Cucu, Besacier, Burileanu, Buzo, [4] Cucu, Buzo, Petrica, Burileanu, Burileanu, [12] Cucu, Buzo, Besacier, Burileanu, [15] Buzo, Cucu, Petrica, Burileanu. All are topically related (the group's Romanian ASR system), but the ratio exceeds the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "System-description paper extending a CMU Sphinx-based Romanian ASR system with rule grammars, tuning decoder parameters and modelling informal number pronunciations; no formalism issues, but self-citation narrowly exceeds 30%.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Building grammar-based recognisers (numbers, dates, cities, names, yes/no) on top of an existing CMU Sphinx 4 LVCSR system, tuning three decoder parameters, and adding within-word and cross-word pronunciation variants for Romanian two-digit numbers.\n**Level:** 2 (Low)\n**Rationale:** Existing toolkits (Sphinx, SRILM) configured for new tasks plus a parameter-tuning study. The cross-word solution (merging words into underscore compounds with alternative pronunciations) is a practical engineering step, not a new algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (WER)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The JSGF grammar listing is shown as code, not dressed up as formal notation; WER is the standard metric.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nFive of 16 references (31.3%) are self-citations to the SpeeD group's prior LVCSR, phonetisation, domain-adaptation and diarisation work. Each is relevant to the system being extended, so no irrelevance flag is raised, but the ratio crosses the 30% threshold for EXCESSIVE_SELF_CITATION. The remaining references are standard ASR textbooks and OOV-modelling papers.\n\n---\n\n## Structural Analysis\n\nTables 4-7 support the parameter choices and the 14% and 63% relative WER improvements. The evaluation corpora are small for some tasks (4-7 speakers) and recorded mostly by students; no significance testing. Limitations are acknowledged only inline ('there is still room for improving the recognition of informally pronounced numbers'). The system is reachable as an online demo; the study's corpora are not released.\n\n---\n\n## Conclusion\n\nCompetent applied engineering with appropriate absence of formalism and an online demo. The self-citation ratio, though driven by a group building on its own system, sits just above the disqualifying threshold."
+  },
+  {
+   "paper_id": "petrica2015",
+   "paper": {
+    "title": "IxFIZZ: Integrated Functional and Fuzz Testing Framework based on Sulley and SPIN",
+    "authors": [
+     "Lucian Petrică",
+     "Laura Vasilescu",
+     "Ana Ion",
+     "Octavian Radu"
+    ],
+    "abstract": "Fuzzing has long been established as a way to automate negative testing of software components. While effective, existing fuzzing frameworks lack the necessary features to test stateful protocols in-depth. We propose using the modelling language Promela, and its interpreter SPIN, as an intuitive and generic way to describe protocol state machines, allowing the automatic generation of stateful fuzzing scripts for the popular Sulley fuzzing framework. Our approach involves the simulation of the Promela description in order for a set of valid protocol conversation sequences to be extracted. These sequences are then automatically modified by IxFIZZ, which inserts erroneous messages in the protocol conversation according to a set of heuristics. This approach also enables automatic analysis of test results against the protocol model and a tight integration of fuzzing with existing test-driven methodologies. We evaluated IxFIZZ against Linphone, a popular multi-platform SIP phone, to demonstrate the effectiveness of this approach, and compared the results to PROTOS, an established fuzzing framework for stateful network protocols. Our results indicate that IxFIZZ is able to detect more defects in the target software.",
+    "keywords": [],
+    "doi": null,
+    "pages": "54-68",
+    "source_file": "04-lpetrica.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 82.75,
+    "composite": 62.06,
+    "final": 62.06
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; Sulley, SPIN, Linphone and Wireshark are third-party tools.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Tool paper integrating SPIN simulation of a Promela protocol model with the Sulley fuzzer to generate stateful fuzzing scripts; no formalism, clean citations, but a single-target qualitative evaluation and no released tool.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A framework that simulates a Promela protocol model in SPIN to extract conversation graphs and generates Sulley fuzzing scripts with five state-machine attacks, plus a simulation-based result analyser.\n**Level:** 1 (Trivial)\n**Rationale:** The system combines existing components (SPIN, Sulley) through code generation and a simple randomized graph traversal with counters. No novel algorithm with analysis is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Promela, Sulley and SPIN output are shown as code listings, which is the appropriate register.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 29 references. References cover fuzzers, model checking and SIP appropriately. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe claim that IxFIZZ 'is able to detect more defects' than PROTOS rests on one DUT (two Linphone versions) and a qualitative defect list (Table 1); there is no count of PROTOS findings, coverage metric, or test-case budget comparison. A minimal SIP model (one UAC, one UAS) was used. Limitations are acknowledged inline (manual writing of Sulley blocks is time-consuming; Sulley supports only TCP/UDP). No code for IxFIZZ, the Promela SIP model, or generated scripts is released.\n\n---\n\n## Conclusion\n\nA clearly written tool paper with no formalism theater and no citation concerns. Its evidence base is thin (single target, qualitative comparison) and nothing is available for reproduction."
+  },
+  {
+   "paper_id": "chitescu2015",
+   "paper": {
+    "title": "Approximation of Köthe-Bochner Spaces Lρ(X) in case X has a Schauder Basis",
+    "authors": [
+     "Ion Chiţescu",
+     "Răzvan-Cornel Sfetcu",
+     "Oana Cojocaru"
+    ],
+    "abstract": "We consider Köthe-Bochner spaces Lρ(X) (X Banach space, ρ function norm) in case X has a Schauder basis. The canonical finite dimensional subspaces Y of X generate the Köthe-Bochner spaces Lρ(Y), which approximate Lρ(X). Numerical computations in case X is a Lorentz sequence space are performed. We present a general computation and a special computation for a particular case, comparing the procedures and noticing that the special computation is more economic.",
+    "keywords": [
+     "Köthe spaces",
+     "Köthe-Bochner spaces",
+     "Schauder basis",
+     "Lorentz sequence spaces",
+     "measurable vector functions"
+    ],
+    "doi": null,
+    "pages": "69-78",
+    "source_file": "05-ichitescu.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 82,
+    "structural_integrity": 68,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.7,
+    "composite": 59.78,
+    "final": 59.78
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the numerical example is a hand calculation.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Short functional-analysis paper proving that Schauder-basis projections approximate elements of Köthe-Bochner spaces under an absolute-continuity condition, with a counterexample and a worked Lorentz-space estimate; formalism necessary and proportionate.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Coordinate decomposition and approximation of functions in Köthe-Bochner spaces Lρ(X) when X has a Schauder basis, with an explicit convergence-rate estimate in a Lorentz sequence space.\n**Level:** 3 (Medium)\n**Rationale:** The paper proves a convergence theorem with a sharpness counterexample and derives an explicit bound. The results are fairly direct consequences of the bounded-projection property and absolute continuity of ρ, so Level 3 rather than higher.\n\n### Formal Elements\n- Definitions: 6 (function norm, Riesz-Fischer property, absolute continuity, Lρ(X), Definitions 2.2 and 2.3)\n- Theorems: 3 (2.4 quoted without proof, 3.1, 3.2)\n- Proofs: 3 (Theorems 3.1, 3.2 and estimate (2))\n- Equations: ~20\n\n### Proportionality\nCalculated complexity: 6x2 + 3x3 + 3x4 = 33\nExpected range (Level 3): 10-40\nRatio: 0.83x upper bound\n\n**Assessment:** Proportionate. In a functional-analysis paper the definitions are the objects being proved about; each is used in the theorems or the counterexample.\n\n### Issues\nNone identified as theater. Presentation has minor flaws: the 'numerical computations' are analytical bounds evaluated by hand, and the claim of 'computational steps' conflates truncation index with computational cost.\n\n---\n\n## Citation Analysis\n\nOne self-citation among only 6 references (16.7%): [1] Chiţescu, Function spaces, a monograph used as theoretical basis. Relevant. The reference list is very short and contains no recent work on approximation in Köthe-Bochner spaces, so novelty relative to the literature is not established.\n\n---\n\n## Structural Analysis\n\nClaims are the theorems, each with a proof; the counterexample supports the necessity of the a.c. condition. Limitations are acknowledged inline ('the results thus obtained are not very sharp'). Pure mathematics: no artifact expected, recorded as relevant: false.\n\n---\n\n## Conclusion\n\nA modest but sound mathematical note whose formalism is the substance of the contribution. The main weaknesses are a thin bibliography and the framing of hand-derived bounds as numerical computation."
+  },
+  {
+   "paper_id": "zene2015",
+   "paper": {
+    "title": "Efficient Hardware Implementation of Snapshotting Algorithms for NoC Applications",
+    "authors": [
+     "Andrei Zene",
+     "Claudiu-Teodor Chirap",
+     "Octavian Creţ",
+     "Lucia Văcariu"
+    ],
+    "abstract": "The NoC domain has known a big development lately, acquiring an ever growing importance in the context of hardware miniaturization. However at this point it is still hard to observe and / or debug what is going on inside the chip, be it for debugging purposes or for long-running processes like computational biology simulations which could gain a great improvement when ran on an FPGA chip. Therefore, this paper proposes hardware implementations of three of the most important snapshot algorithms: Lai-Yang, Li et al. and Mattern, which could be used in order to achieve observability on a long-running process physically implemented on an FPGA target. The setup is based on the layers architecture, making it easy to separate the snapshot algorithm from the application or the intercommunication network. The intercommunication network was generated using the CONNECT NoC generator and the snapshots are sent to a PC via UART for displaying. The algorithms were compared from three points of view: operating frequency, throughput and resource usage. Based on the obtained results, we show that the Mattern algorithm is the best candidate for an effective hardware implementation (both from the resource usage and speed points of view).",
+    "keywords": [
+     "FPGA",
+     "NoC debugging",
+     "network-on-chip",
+     "snapshot algorithms",
+     "observability",
+     "computational biology"
+    ],
+    "doi": null,
+    "pages": "79-92",
+    "source_file": "06-ocret.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 82,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.2,
+    "composite": 33.15,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; CONNECT is a third-party NoC generator and the VHDL layers and C# console application are described but not released.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 implementation-comparison paper restating the global state as a set union GS = {U LSi, U SCij} (Eq. 1) and consistency as two membership implications with XOR (Eqs. 2-3). The paper immediately re-explains both in plain English, and the formulas are never used in the design, the implementation or the results; removing them would not change what is built."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "FPGA implementation and comparison of three existing non-FIFO snapshot algorithms on a CONNECT-generated NoC; sound engineering comparison, but background set-theoretic definitions of global state are decorative and trigger the Level 2 zero-tolerance rule.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Hardware (VHDL on a Kintex-7) implementations of the Lai-Yang, Li et al. and Mattern snapshot algorithms over a CONNECT-generated NoC, compared on throughput, operating frequency and resource usage.\n**Level:** 2 (Low)\n**Rationale:** The algorithms are taken from the literature; the contribution is their implementation in a layered architecture and an empirical comparison. No new algorithm or correctness proof is offered.\n\n### Formal Elements\n- Definitions: 2 (global state, consistency; inline, not numbered)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3\n\n### Proportionality\nCalculated complexity: 2x2 = 4\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Within the numeric range, but the elements fail the Necessity Test. They restate textbook material from [5], are paraphrased in English in the following paragraph, and play no role in the implementation or evaluation.\n\n### Issues\nEq. (1): 'GS = { U LSi, U SCij }' is set notation for 'the collection of node states and channel states'. Eqs. (2)-(3) use membership implications and XOR for 'a sent message is either received or in transit, not both'. Neither the hardware design nor any result depends on them.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 13 references (7.7%): [11] Chirap and Creţ on multi-FPGA communication, relevant to the scaling discussion. Two references are poorly matched to the claims they support: [12] (workspace of a 3RUU parallel manipulator) is cited for 'artificial life' and [13] (magnetic stimulation of the spinal cord) for 'biological simulations'. They are not by the authors, so no self-citation flag applies, but their relevance is doubtful and lowers the citation score.\n\n---\n\n## Structural Analysis\n\nTables 1-3 support the conclusion that Mattern's algorithm is preferable, though the no-snapshot throughput figures are 'computed theoretically' and the Lai-Yang and Li et al. rates were artificially limited, which makes the overhead comparison partly a consequence of setup choices. Limitations are acknowledged inline (UART bottleneck, the 16-node comparison size, NoC failure at 100% load, 128-node synthesis ceiling). The motivating link to computational biology is not evaluated. Nothing is released.\n\n---\n\n## Conclusion\n\nA practical hardware comparison with clear results and honest inline limitations. Under the framework's zero-tolerance rule for Level 1-2 papers, the decorative set-theoretic restatement of global-state consistency triggers FORMALISM_THEATER, although the formalism is small, borrowed from the literature, and not used to inflate the contribution."
+  }
+ ]
+}

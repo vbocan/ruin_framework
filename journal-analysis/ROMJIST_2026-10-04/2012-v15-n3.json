@@ -1,0 +1,325 @@
+{
+ "batch_id": "2012-v15-n3",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 15,
+  "issue": 3,
+  "year": 2012
+ },
+ "papers": [
+  {
+   "paper_id": "alexandru2012a",
+   "paper": {
+    "title": "Nominal Semantics of Mobility",
+    "authors": [
+     "Andrei Alexandru",
+     "Gabriel Ciobanu"
+    ],
+    "abstract": "We present a nominal semantics of the π-calculus defined by a set of compact transition employing a nominal quantifier. We analyze the behavior of the π-calculus binding operators new and input, and several nominal properties of new and input are presented. A comparison of expressiveness between the nominal semantics of the π-calculus and other known semantics is made; the nominal semantics and the late semantics of the π-calculus have the same expressive power.",
+    "keywords": [],
+    "doi": null,
+    "pages": "171-214",
+    "source_file": "01-gciobanu.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 40,
+    "citation_integrity": 92,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 63.2,
+    "composite": 47.4,
+    "final": 42.4
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "DISPROPORTIONATE_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "DISPROPORTIONATE_FORMALISM": "About 23 numbered definitions, 33 theorem-like results (theorems, propositions, lemmas, corollaries) and 20 proofs give a formalism complexity of roughly 225, above twice the Level 4 upper bound of 80. Much of Section 2 restates Fraenkel-Mostowski set theory, the ZFA axioms (listed twice) and an excursus on the failure of the axiom of choice that the semantics never uses. At Level 4 this flag is recorded but does not cap the score.",
+    "NO_LIMITATIONS": "No limitations section and no inline statement of the approach's constraints. The paper credits M. Gabbay with priority but does not discuss what its semantics cannot do, or how far the proofs that omit cases ('We analyze only few cases') can be relied on."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Process-calculus theory paper that recasts π-calculus transition rules with the nominal quantifier and proves the result equivalent to the late semantics. The formalism is the subject matter, but its volume is inflated by restated background set theory, and several key proofs are only sketched.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A nominal (Fraenkel-Mostowski) operational semantics for the monadic π-calculus. Freshness side conditions are encoded with the nominal quantifier N, and the paper proves the semantics equivalent to the standard late semantics.\n**Level:** 4 (High)\n**Rationale:** The contribution is an operational semantics and an equivalence (same-transitions) proof by induction on derivations. That is comparable to a type-soundness result, which is Level 4. It is not a universality or undecidability result, so it is not Level 5.\n\n### Formal Elements\n- Definitions: ~23 (2.1-2.4, 2.9, 2.10, 2.15, 2.17, 2.25, 2.27, 3.1-3.9, 4.3-4.5, 4.7)\n- Theorems/propositions/lemmas/corollaries: ~33\n- Proofs: ~20 (many partial; Lemmas 4.14 and 6.2 are stated without proof)\n- Equations: many transition rules (Tables 1-3, Figure 2)\n\n### Proportionality\nCalculated complexity: ~225 (23×2 + 33×3 + 20×4)\nExpected range (Level 4): 30-80\nRatio: ~2.8x upper bound\n\n**Assessment:** Disproportionate in volume, though not in kind. The nominal machinery (support, freshness, abstraction, the N quantifier) is needed for the stated results. A large share of the count, however, is background the results never call on: both the ZFA and the FM axiom lists, the von Neumann cumulative hierarchy, Example 2.19 and Remark 2.20 on infinite-coinfinite sets, and a hand argument that choice fails in FM. The standard π-calculus definitions from Milner and Sangiorgi-Walker are also reproduced in full.\n\n### Issues\n- The proofs of the main equivalence (Theorem 4.16) and of Proposition 5.1 handle only selected cases ('We analyze only few cases. The rest of them are similar or trivial').\n- Proposition 4.21 is a motivational argument dressed as a proposition with a proof ('The freshness condition ... is motivated by the manner in which the links are moved').\n- There is a dangling cross-reference ('see Remark ??'), and the text refers to 'Theorem 4.14' where Theorem 4.16 is meant.\n- By the authors' own account, the trivial nominal semantics (Theorem 4.18) is a rewriting of the late rules much like their earlier πI-calculus paper [1].\n\n---\n\n## Citation Analysis\n\nThere are 2 self-citations among 15 references (13%): [1], Alexandru and Ciobanu on the nominal semantics of the πI-calculus, and [3], Ciobanu and Rotaru on a π-calculus machine. Both are on the same topic. The rest of the list is the canonical literature (Gabbay, Pitts, Milner, Sangiorgi-Walker, Bengtson-Parrow, Urban). No issues identified.\n\n---\n\n## Structural Analysis\n\nThe claims are mathematical, and proofs or proof sketches support them. Evidence is adequate overall, weakened by the omitted cases. The related-work comparison with Gabbay's FM π-calculus and with the HOAS and de Bruijn formalisations is fair, and the authors say plainly that their perspective is not claimed to be better. There is no limitations discussion. Nothing is offered as an artifact, and a pure theory paper needs none. A mechanised check (e.g. in Nominal Isabelle) would have been the natural one.\n\n---\n\n## Conclusion\n\nThis is a legitimate Level 4 contribution: nominal techniques used to refine the communication-closing rule while keeping equivalence with the late semantics. The formal apparatus is appropriate in kind but excessive in volume, because restated set-theoretic foundations and textbook π-calculus definitions roughly triple what the results need. The incomplete case analyses in the central proofs are the main weakness on substance."
+  },
+  {
+   "paper_id": "petrica2012",
+   "paper": {
+    "title": "A SIMD Approach to Thread Matching for Interleaved Multithreading",
+    "authors": [
+     "Lucian Petrică"
+    ],
+    "abstract": "Interleaved multithreading processors offer improved performance and power efficiency in a multithreading environment compared to standard CPUs by allowing multiple threads to share a single processing pipeline. However, resource contention is a natural result of such a system and can determine how well the overall thread group performs on the processor. Selecting threads which perform well together has proven to be a difficult problem to solve because it is computationally intensive and grows rapidly in complexity with the number of threads in a system. We propose a vector algorithm for this task which is able to significantly outperform a scalar implementation and which shows improved scaling characteristics.",
+    "keywords": [],
+    "doi": null,
+    "pages": "215-228",
+    "source_file": "02-lpetrica.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 77.25,
+    "composite": 57.94,
+    "final": 57.94
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Parallelises an exhaustive search over thread pairings across the cells of a SIMD engine and measures the speedup on a cycle-accurate simulator. The formalism is minimal and appropriate, but the evaluation is thin and the novelty claim is unsupported.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Exhaustive search for the best split of a 2K-thread window into two K-thread groups (minimum average CPI from a lookup table), mapped one candidate per cell onto the 128-cell BEAM-Connex SIMD array. The paper adds two small hardware changes: DMA feeding the distribution network, and a min-reduction.\n**Level:** 2 (Low)\n**Rationale:** The algorithm is brute-force enumeration with a reduction. The work lies in mapping it to a specific vector platform and in using combinatorial-number-system indexing (Knuth). It is a straightforward parallelisation of an existing method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 (objective function, counts of schedules and type groups, combination/reverse-combination index relations)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The counting formulas (6)-(8) set the number of SIMD cells and the memory needed (Table 2), and equations (9)-(10) define the index conversion each cell executes. Both pass the necessity test.\n\n### Issues\nNone identified with the formalism. The typesetting of equations (1)-(4) is garbled in places, but they are standard counts.\n\n---\n\n## Citation Analysis\n\nThere is 1 self-citation in 9 references (11%): [2], Codreanu, Petrică and Hobincu on the same thread-interleaved vector platform. It is directly relevant as the platform description. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe evaluation is a single benchmark against a scalar implementation of the same algorithm, run on a simulator. Results appear only as figures, with no tabulated numbers, no variance and no comparison with heuristic schedulers (e.g. Fedorova et al. [5]). The comparison is confounded because the vector code was compiled at -O0 and the scalar code at -O3, which the paper notes. The claim that this is 'the first vector algorithm for solving the thread matching problem' is not backed by a literature search. Some constraints are acknowledged inline: the windowing loses optimality, the loss is 'outside the scope of this paper', and K>5 or larger T are left to future work. No code, simulator or data is released.\n\n---\n\n## Conclusion\n\nThis is a modest engineering paper with proportionate formalism. Its contribution is a platform mapping of an exhaustive search plus two hardware tweaks. The evidence for the speedups is limited to one simulated configuration family, and nothing is available to reproduce it."
+  },
+  {
+   "paper_id": "ilie2012",
+   "paper": {
+    "title": "An efficient 3D Visual Speech Synthesis Framework for Romanian Language Logopedics use",
+    "authors": [
+     "Mihai Daniel Ilie",
+     "Cristian Negrescu",
+     "Dumitru Stanomir"
+    ],
+    "abstract": "In this paper, we propose a 3D facial animation model for simulating visual speech production in the Romanian language. To our best knowledge, this is the first study dedicated to 3D visual speech synthesis for the Romanian language. The model is also capable to generate complex emotion activity for the virtual actors during the speech. Using a set of existing 3D key shapes representing various facial expressions, fluid animations describing facial activity during speech pronunciation are provided, taking into account several Romanian language coarticulation effects. A novel mathematical model for defining efficient viseme coarticulation functions is provided. The 3D tongue activity could be closely observed in real-time while different words are pronounced in Romanian. The framework proposed in this paper is designed for helping people with hearing disabilities learn how to articulate correctly in Romanian and also it works as a training-assistant for Romanian language lip-reading. The efficiency of our method was successfully proven by tests made on various logopedics specialists, deaf students and deaf lip-reading instructors from a special school for people with hearing disabilities in Bucharest, Romania.",
+    "keywords": [
+     "visual speech synthesis",
+     "Romanian language",
+     "logopedics",
+     "lip-reading",
+     "viseme animation",
+     "3D facial animation",
+     "coarticulation"
+    ],
+    "doi": null,
+    "pages": "229-245",
+    "source_file": "03-mdilie.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 41.5,
+    "composite": 31.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper containing a tuple definition of a data structure that is never used: 'The 3D head is regarded as a discrete domain mesh M = (V, T), where V is a finite set of vertices in 3D space and T is the set of triangles'. Neither M, V nor T appears again. The sentence that follows already says the same thing in plain English, so the element fails the necessity test. It is the only such element in the paper; the blendshape sum (4) and the viseme curve (6)-(7) are needed.",
+    "NO_LIMITATIONS": "No limitations section and no acknowledgement of constraints on the method or the evaluation. Viseme timing parameters are hand-chosen, the user test has no reported sample size, and the system has not been compared with any other coarticulation model."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Blendshape-based 3D visual speech animation for Romanian, with hand-tuned piecewise-cosine viseme curves. The applied idea is useful, but one decorative mesh tuple triggers the zero-tolerance formalism rule, and the evaluation is a single unquantified recognition-rate comparison.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A text-driven 3D facial animation system for Romanian. It uses 25 manually sculpted viseme blendshapes plus emotion blendshapes, combines them additively (standard morph-target method), and drives the weights with a custom piecewise cosine/sine curve whose key times and magnitudes come from hand-set phonetic-context rules.\n**Level:** 2 (Low)\n**Rationale:** The method applies the standard blendshape technique with an alternative dominance-function shape, in the style of Cohen-Massaro, to a new language. The 'novel mathematical model' is a parametrised easing curve. The system is otherwise an integration of the authors' earlier masking [19] and circular-interpolation [20] methods.\n\n### Formal Elements\n- Definitions: 0 numbered; 1 inline tuple (mesh M = (V, T))\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (three recalled dominance functions, blendshape sum and constraint, viseme curve, normalised time)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** The count is proportionate, but one element fails the necessity test. Equations (4)-(7) specify what is implemented and are necessary. The mesh tuple in the introduction is never referenced again and restates the next sentence. The pseudo-code also writes the per-occurrence magnitude as α = q3, without q1-q3, f or g ever being specified. That notation stands in for values the paper does not report.\n\n### Issues\n- 'The 3D head is regarded as a discrete domain mesh M = (V, T)': a decorative tuple for a data structure.\n- The timing functions f and g and the quantities q1-q3 'differ depending on the phonetic context' but are given for only one example (semivowel o before a). The model therefore cannot be reproduced from the paper.\n\n---\n\n## Citation Analysis\n\nThere are 2 self-citations in 20 references (10%): [19], Automatic Masked Morphing, and [20], Circular Interpolation for Morphing (ROMJIST 2011). Both are components the framework actually uses for emotion masking and non-human interpolation, so they are relevant. The remaining references cover the facial-animation and coarticulation literature appropriately. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe central empirical claim is that 'the efficiency of our method was successfully proven'. It rests on one sentence of results, 87.13% recognition for the virtual actor against 'around 85%' for human speakers. The paper gives no number of participants or words, no statistical test and no description of the protocol beyond its premises. It also concedes that results 'increased significantly' after training on the system, which confounds the comparison. 'Efficient' in the title is never measured (no timing or frame-rate data). The other evidence is qualitative: figures of dominance curves and snapshots. No limitations are acknowledged. No software, models or test data are released.\n\n---\n\n## Conclusion\n\nThe work has evident practical value for Romanian deaf education and was developed with practitioners. As a research contribution it is thin: a hand-tuned curve shape plus integration of the authors' prior methods, supported by an essentially anecdotal evaluation. The single decorative mesh tuple triggers the framework's zero-tolerance rule at Level 2. The weaker evaluation would hold the paper back in any case."
+  },
+  {
+   "paper_id": "subramanian2012",
+   "paper": {
+    "title": "Generative models for pictures tiled by triangles",
+    "authors": [
+     "K. G. Subramanian",
+     "P. Wiederhold",
+     "Ibrahim Venkat",
+     "Rosni Abdullah"
+    ],
+    "abstract": "The problem of generation of triangle-tiled pictures that are two-dimensional figures tiled by isosceles right triangles of the same size, is investigated. Grammars called context-free triangle-tiled picture grammars (CF-ttPG) that generate such figures making use of context-free type rules, are proposed. The special case that all rules of such a grammar are regular, is studied. In the framework of membrane computing which is a biologically inspired computability model, generation of triangle-tiled pictures by rules of a CF-ttPG is considered. The picture language of rectangular hollow frames which cannot be generated by any CF-ttPG, can be generated by a specific type of P system with two membranes.",
+    "keywords": [
+     "picture generation by grammars",
+     "context-free grammar",
+     "picture grammar",
+     "triangle-tiled picture",
+     "P system",
+     "figure decomposed by triangles",
+     "rectangular hollow frame"
+    ],
+    "doi": null,
+    "pages": "246-265",
+    "source_file": "04-kgsubramanian.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 78,
+    "citation_integrity": 60,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 67.2,
+    "composite": 50.4,
+    "final": 45.4
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "6 of 26 references (23%) include the first author K. G. Subramanian: [6], [16], [19], [22], [23], [24]. All are on array grammars, picture languages or array P systems and are topically relevant. [24] is the preliminary version whose definition this paper corrects."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Formal-language paper defining context-free and regular grammars and P systems for pictures tiled by right-isosceles triangles, with four separation and generation results. The formalism is proportionate and used, but the proofs are informal sketches.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Triangle-tiled picture grammars (CF-ttPG, Reg-ttPG) and triangle-tiled picture P systems, including t-communication of type tin. The paper gives generative-power results: Reg ⊊ CF, rectangular hollow frames are not CF-ttPG, Reg-ttPG ⊊ Reg-ttPP(3), and hollow frames are generated by a two-membrane t-communicating P system.\n**Level:** 4 (High)\n**Rationale:** The contribution is a set of language-family separation and expressiveness results in formal language theory and membrane computing. This is computability and expressiveness work where formal definitions are the subject matter. It is not Level 5: there is no universality or undecidability result, and the proofs are elementary.\n\n### Formal Elements\n- Definitions: 7 (tt-picture, hollow frame, CF-ttPG, regular rule, Reg-ttPG/language families, CF-ttPP, t-communicating ttPP)\n- Theorems: 4\n- Proofs: 4\n- Equations: few (family notation, membrane structure)\n\n### Proportionality\nCalculated complexity: 42 (7×2 + 4×3 + 4×4)\nExpected range (Level 4): 30-80\nRatio: 0.5x upper bound\n\n**Assessment:** Proportionate. Every definition is used in a theorem or construction. The grammar and P-system tuples are the standard way to specify such devices and are needed to state the separation results. Set notation for the language families (CF-ttPL = {L(G) : ...}) is native to the field.\n\n### Issues\n- The negative results are argued informally. In Theorem 1, a regular grammar 'cannot handle the junction'. In Theorem 2, the grammar 'has no control to stop'. Neither is a pumping-style argument. This is a quality weakness, not theater.\n- The proof of Theorem 3 lists 'r1, r2 in membrane 1, r2, r4, r5 in membrane 2' and then applies r3 in membrane 1, an apparent typo. The closing remark cites 'Theorem 9', which does not exist. The section numbering repeats '5'.\n- The rule sets carrying the constructions are given only as figures, which the text extraction does not capture. Their correctness could not be checked here.\n\n---\n\n## Citation Analysis\n\nThe self-citation ratio is 23% (6/26), all with Subramanian as co-author. The cited works are on array-rewriting P systems, puzzle grammars, picture languages, array P systems with t-communication, and the preliminary triangle-tiled picture paper [24]. All are directly related (similarity well above 0.5), so the flag is for volume, not relevance. The list also covers the external literature appropriately: Rosenfeld, Wang, Giammarresi-Restivo, Păun, and Kalyani et al. on iso-arrays.\n\n---\n\n## Structural Analysis\n\nClaims are formal and are backed by constructions and proof sketches. The paper states an open problem (whether Reg-ttPPL(m) ⊆ CF-ttPPL(m) is proper) and corrects an error in the earlier definition from [24], which counts as inline acknowledgement of limitations. Applications such as character recognition are only gestured at. No artifact is expected for a theory paper.\n\n---\n\n## Conclusion\n\nThis is a coherent, modest formal-language contribution whose formalism matches its subject. The main weaknesses are the informal proofs of the impossibility results, several editorial errors, and a self-citation share in the elevated band, though every self-citation is pertinent."
+  },
+  {
+   "paper_id": "shi2012",
+   "paper": {
+    "title": "An Efficient RSA-Based Remote User Authentication Scheme",
+    "authors": [
+     "Wenbo Shi",
+     "Yitao Chen"
+    ],
+    "abstract": "Password authentication has been adopted as one of the most commonly used solutions in network environment to protect resources from unauthorized access. Recently, Awasthi et al. proposed an efficient RSA-based remote user authentication scheme. In this paper, we will point out that Awasthi et al.'s scheme is vulnerable to a privileged insider attack, a password guessing attack and an impersonation attack. To improve the security, we also propose a new RSA-based remote user authentication scheme. The analysis shows our scheme could overcome the weaknesses in Awasthi et al.'s scheme and has better performance than their scheme.",
+    "keywords": [
+     "Authentication",
+     "Smart card",
+     "RSA"
+    ],
+    "doi": null,
+    "pages": "266-276",
+    "source_file": "05-ychen.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.5,
+    "composite": 33.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DISPROPORTIONATE_FORMALISM"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Six informal security claims are labelled 'Theorem 1'-'Theorem 6', each with a 'Proof' of two to four sentences. There is no formal adversary model, reduction or hardness assumption. For example, Theorem 1's proof is that the adversary 'could not generate the message since he does not the server's secret d'. The theorem-proof framing adds nothing that a plain-English security discussion would not, so it fails the necessity test at Level 2.",
+    "DISPROPORTIONATE_FORMALISM": "6 theorems × 3 + 6 proofs × 4 = 42, which exceeds twice the Level 2 upper bound of 15 (30). The count consists entirely of the informal 'theorems' above."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Cryptanalysis of a published smart-card authentication protocol followed by a patched scheme. The attacks on the earlier scheme are concrete. The security of the new scheme, however, is asserted through six informal 'theorems' with no adversary model or reduction, which is formalism theater at this level.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** The paper shows that Awasthi et al.'s RSA-based smart-card remote authentication scheme is open to insider, offline password-guessing and impersonation attacks. It then proposes a modified scheme (hashed password with a nonce at registration, an RSA-encrypted nonce at login) and compares storage, communication and computation costs.\n**Level:** 2 (Low)\n**Rationale:** The paper belongs to the 'break and patch' line of protocol work. Proving cryptographic security guarantees would be Level 4, but no proof in the cryptographic sense is attempted: no model, no reduction, no assumption stated. The new scheme combines standard primitives (RSA encryption, hashing, timestamps). Defaulting to the lower level, it is Level 2.\n\n### Formal Elements\n- Definitions: 0 (adversary capabilities listed informally)\n- Theorems: 6\n- Proofs: 6\n- Equations: protocol steps and one verification identity (1)\n\n### Proportionality\nCalculated complexity: 42\nExpected range (Level 2): 0-15\nRatio: 2.8x upper bound\n\n**Assessment:** Disproportionate, and decorative. The protocol equations are necessary, since they are the scheme. The impersonation attack's derivation (1) using the extended Euclidean algorithm is a genuine, checkable argument. The six 'theorems' about the new scheme, though, are one-line informal assertions.\n\n### Issues\n- Theorem 4's proof states that the adversary 'cannot verify the correctness of pw′ without the server's secret d'. No argument shows that no other verifier exists, for example a replayed (X_i, T_i) pair combined with a candidate CID_i.\n- Theorem 6 relies on timestamp freshness alone, with no discussion of replays within ΔT.\n- The performance comparison counts operations analytically (Tables 1-3). Nothing is implemented or measured.\n\n---\n\n## Citation Analysis\n\nThere are no self-citations (0/11). The references trace the RSA-based password authentication lineage (Lamport, Yang-Shieh, Shen, Yoon, Liu, Awasthi) and the smart-card power-analysis literature. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe attack section is well supported. Each attack is given step by step and can be checked from the reviewed scheme. The defence section is weak: the security claims rest on assertion, and the efficiency claims on bit and operation counts. One limitation is acknowledged inline, that the scheme 'needs a true random number generator', which adds per-user cost. There is no implementation and nothing to release.\n\n---\n\n## Conclusion\n\nThe cryptanalysis of the earlier scheme is the paper's real contribution. The improved scheme is presented with theorem-proof formatting that imitates provable security without supplying it, which triggers the formalism flags at Level 2. A formal analysis (e.g. BAN logic, ProVerif, or a reduction under a stated model) would have been needed to support the security claims."
+  },
+  {
+   "paper_id": "cret2012",
+   "paper": {
+    "title": "Implementing True Random Number Generators Based on High Fanout Nets",
+    "authors": [
+     "Octavian Creţ",
+     "Tamás Györfi",
+     "Alin Suciu"
+    ],
+    "abstract": "The main component of a true random number generator (TRNG) is its source of entropy. Field Programmable Gate Arrays (FPGAs) are emerging as a popular platform for implementing single-chip TRNGs. Most of the generators implemented in FPGAs exploit the jitter from ring oscillators as source of entropy. The present paper proposes a new method for implementing TRNGs in FPGAs based on high fanout circuits operating at high frequency. The advantage of this design is its solid source of entropy and its high throughput. The quality of the random number stream is further increased by applying post-processing functions. All the theoretical assumptions related to the analysis of the entropy source are validated by practical implementations and results.",
+    "keywords": [
+     "Random number generation",
+     "fanout",
+     "entropy",
+     "FPGA",
+     "cryptography"
+    ],
+    "doi": null,
+    "pages": "277-298",
+    "source_file": "06-ocret_001.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 55,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 68.75,
+    "composite": 51.56,
+    "final": 46.56
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the VHDL sources are mentioned ('synthesizing it (the VHDL source files) on other FPGA devices') but not released or offered",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "5 of 17 references (29%) are by the authors: [5] Klein, Creţ, Suciu; [6] Creţ, Suciu, Györfi; [12] Györfi, Creţ, Suciu; [14] Creţ, Tudoran, Suciu, Györfi; [15] Tudoran, Creţ, Bănescu, Suciu. All are FPGA TRNG designs used as comparison points in Table 1, so they are relevant, but they make up nearly a third of the list."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Empirical FPGA hardware paper proposing high-fanout nets driven near their timing limit as a TRNG entropy source. It reports NIST and TestU01 passes, cross-vendor portability and power figures. It carries no formalism, but its self-citation share is elevated and it releases no VHDL.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A TRNG for FPGAs. A driver flip-flop fans out to about 1536 sampling flip-flops clocked near the frequency at which the fanout-induced delay equals half the clock period. Outputs are XOR-collected and XOR-post-processed over 5 bits. The design is evaluated on Xilinx Virtex-II Pro, Virtex-4 and Virtex-5 and on Altera Cyclone II.\n**Level:** 2 (Low)\n**Rationale:** The paper is an empirical hardware design study: build a circuit, characterise its bias, tune frequency and fanout, apply standard statistical batteries. No algorithmic or theoretical model of the entropy source is developed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper has no formal apparatus. Its 'theoretical bases' are qualitative circuit arguments (slew rate, setup/hold violations, duty-cycle distortion).\n\n### Issues\nNone identified with formalism. Several claims of 'theoretical novelties' ('determining a universal method', 'explaining the mechanism from the entropy generation point of view') are not backed by any entropy model or estimate of min-entropy.\n\n---\n\n## Citation Analysis\n\nThe self-citation ratio is 29% (5/17), at the top of the elevated band. Every self-citation is a prior FPGA TRNG design by the same group (RO-based, BRAM-based, crosstalk-based) and is used as a comparison baseline. Relevance is therefore high, but the comparison set in Table 1 is dominated by the authors' own designs. External baselines include Kohlbrenner-Gaj, Schellekens et al., Fischer et al., Sunar et al. and Güneysu.\n\n---\n\n## Structural Analysis\n\nThe evidence is reasonably strong for an engineering paper. It includes bias histograms across fanouts, frequency sweeps, a full NIST SP 800-22 table in the appendix, TestU01 Alphabit and Rabbit passes, raw-output pass rates without post-processing, cross-device and cross-vendor runs, and a power comparison with an RO-based TRNG. Weaknesses:\n- 'Number of slices' for the proposed design in Table 1 is 1536, the flip-flop count, so the efficiency figure of 39 Kbps/slice may not be like-for-like. The text elsewhere reports 450 slices on Virtex-5.\n- The content of Table 2 is absent from the extracted text.\n- The two-run comparison is said to show that 'the TRNG is undoubtedly working correctly', an overstatement for a single bitwise-agreement test.\n- Statistical tests cannot establish entropy. No entropy estimate is given, and robustness to temperature or voltage is deferred to future work.\n\nLimitations are acknowledged inline: higher resource use than the alternatives, about 20% of flip-flops being non-deterministic, and untested environmental attacks. No VHDL or bitstream data is released, although portability via 'the same VHDL architecture' is the main selling point.\n\n---\n\n## Conclusion\n\nThis is a solid empirical FPGA design paper with appropriate absence of formalism and a credible testing regime. The main concerns are the elevated self-citation share, an apparent slice-count inconsistency in the comparison table, overstated 'theoretical' claims, and the absence of the very sources whose portability the paper advertises."
+  }
+ ]
+}

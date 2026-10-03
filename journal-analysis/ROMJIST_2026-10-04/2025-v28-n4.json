@@ -1,0 +1,350 @@
+{
+ "batch_id": "2025-v28-n4",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 4,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "balaban2025",
+   "paper": {
+    "title": "112 Emergency Video Call Response Pipeline for Car Crashes Using Computer Vision and Natural Language Processing",
+    "authors": [
+     "Béatrix-May Balaban",
+     "Ioan Sacală",
+     "Alina-Claudia Petrescu-Niţă"
+    ],
+    "abstract": "This paper presents a comprehensive 112 emergency response pipeline that integrates multimodal technologies, such as automatic speech recognition, object detection, natural language processing, and blockchain, to enhance how critical incident information is gathered, analyzed, and acted upon. From real-world video inputs, speech content is transcribed using a speech-to-text algorithm, while computer vision models identify individuals involved. The transcribed dialogue is semantically processed to extract structured question-answer pairs, which are then evaluated to assess the medical urgency of the case. The system cross-references vehicle ownership claims made in the transcript with a blockchain-based ledger of profiles linked by VIN identifiers, retrieving owner and medical background data, and a lightweight web interface presents this information to first responders.",
+    "keywords": [
+     "Blockchain",
+     "computational linguistics",
+     "computer vision",
+     "emergency services",
+     "natural language processing",
+     "object detection",
+     "semantic processing"
+    ],
+    "doi": "10.59277/ROMJIST.2025.4.01",
+    "pages": "315-326",
+    "source_file": "paper811.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.2,
+    "composite": 57.15,
+    "final": 52.15
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "No code or dataset link. The CarEM-Vid dataset (49 videos) is described but not released; the only link, ref. [13] https://1drv.ms/b/s!Ajn0ZsYKsVKMkvFwQDqhmf-lpwuqBA?e=F0Zb8y, is a 'Supplementary material' document containing transcription tables, not the videos or code.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no acknowledgment of the system's own constraints (scripted, staged videos; 49-clip dataset; rule-based severity mapping; no evaluation on real calls). The only related remark is a future-work wish for better Romanian speech-to-text."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Integration of off-the-shelf YOLOv8/DeepSORT, Whisper, SentenceTransformer and a blockchain store into an emergency-call pipeline; no formalism, but evaluation is thin and the headline accuracy is not traceable to a defined experiment.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Pipeline that chains existing object detection/tracking (YOLOv8 + Deep SORT), speech-to-text (Whisper), sentence-embedding matching and rule-based severity scoring, plus a blockchain lookup and a Flask front end, for 112 car-crash video calls.\n**Level:** 1 (Trivial)\n**Rationale:** The contribution is a system architecture combining existing components and a small scripted dataset; no new algorithm is proposed. The severity logic is a hand-written rule (three 'High' answers = Critical, one = Urgent).\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the paper describes its system in plain prose and a flow diagram.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 16 references: [13], the authors' own supplementary material, which is directly relevant. References [14]-[16] (Romanian NLP) are by other authors and are cited for future work. No concerning pattern.\n\n---\n\n## Structural Analysis\n\nThe evaluation is weak relative to the claims. The same figure, 83.67%, is reported both as the YOLOv8 person-counting accuracy (Section 4.2) and as the 'overall urgency classification accuracy' (Section 6), and the conclusion gives 83.6%; neither experiment's protocol, ground truth or sample size is stated. Results are four illustrative transcripts (Table 3). Claims such as 'a reduction in false alarms', 'classifies emergencies with high accuracy' and that critical cases 'are never delayed' are not supported by any measurement. The dataset consists of staged/scripted recordings, which undermines the 'real-world' framing. The speech-to-text comparison is qualitative (one example table, more in supplementary material). The blockchain component is described only by a screenshot of sample data. Artifacts: dataset and code are not released; the OneDrive link holds supplementary tables only.\n\n---\n\n## Conclusion\n\nA Level 1 systems-integration paper with no formal apparatus and clean self-citation practice. Its weakness is structural: a single accuracy number of unclear provenance, reused across two different tasks, supports broad claims of robustness and life-saving impact, and no limitations are acknowledged. No code or data is available."
+  },
+  {
+   "paper_id": "meng2025",
+   "paper": {
+    "title": "Deep Reinforcement Learning and Metaheuristic Approaches to Maximize Downlink Sum-Rate for Internet of Things Systems in Non-Orthogonal Multiple Access-based Space-Air-Ground Integrated Networks",
+    "authors": [
+     "Sothearath Meng",
+     "Kimchheang Chhea",
+     "Sengly Muy",
+     "Jung-Ryun Lee"
+    ],
+    "abstract": "This paper focuses on maximizing the downlink sum-rate in a NOMA-based SAGIN-IoT system by jointly optimizing the geographical locations and transmit powers of HAPs and UAVs, bandwidth allocation ratio, and link selection between a LEO satellite and IoT devices. The problem is formulated as a joint optimization task involving discrete and continuous variables. Two solution algorithms are employed: a deep Q-learning (DQL) algorithm and an Alternative Optimization (AO) algorithm that decomposes the problem into two subproblems solved iteratively with Differential Annealing. Performance is compared with Gradient Search; simulations show DQL achieves superior sum-rate with lower computational complexity, while AO is competitive but more computationally demanding.",
+    "keywords": [
+     "Alternative Optimization (AO)",
+     "Deep Reinforcement Learning (DRL)",
+     "High-Altitude Platform (HAP)",
+     "Internet of Things (IoT)",
+     "link selection",
+     "Unmanned Aerial Vehicle (UAV)"
+    ],
+    "doi": "10.59277/ROMJIST.2025.4.02",
+    "pages": "327-340",
+    "source_file": "paper812.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 65,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 64.75,
+    "composite": 48.56,
+    "final": 43.56
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "No code or data link. Ref. [33] is the authors' supplementary material ('[Online]. Available here.'), holding figures, tables and pseudocode, not code or simulation data.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section or inline acknowledgment of constraints (e.g., single LEO/HAP, simplified channel model, simulation only, DQL action quantisation, benchmark choice). The conclusion offers only a future-work direction on energy efficiency."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Standard DQN and simulated-annealing-based alternating optimisation applied to a SAGIN sum-rate problem; formalism is the conventional system model, but nearly all results live in an external supplement and the reference list contains off-topic citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Joint UAV/HAP placement, power, bandwidth and link-selection optimisation in a NOMA space-air-ground network, solved with deep Q-learning and alternating optimisation with differential annealing, benchmarked against gradient search.\n**Level:** 2 (Low)\n**Rationale:** The problem formulation is a new combination of standard wireless-model components, but both solution methods are existing algorithms (DQN with replay and target network; alternating optimisation with annealing) applied to it. No convergence or complexity proof is given in the paper (the complexity analysis is deferred to the supplement). Defaulted to the lower level.\n\n### Formal Elements\n- Definitions: 0 (no numbered definitions)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 15 (path loss, Rician fading, SINR, Shannon rate, bandwidth constraint, the MIP with 13 constraints, Bellman update, target Q-value, MSE loss, state/action/reward, subproblems P1/P2)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations are the conventional system model and MDP specification that an implementer needs (channel model, constraints, quantisation levels of the action space). They pass the necessity test.\n\n### Issues\nMinor notational looseness only: coordinates written as sets (u_i = {x_i, y_i, z_i}) and the state vector written in set braces (eq. 11). These are vectors in the standard idiom of the field, not set operations standing in for list manipulation, so no theater flag is raised. Greek letters α, γ, ε appear in the textbook Q-learning update, not as decoration. Eq. (2) labels the CN(0,1) component as LoS where it should be NLoS.\n\n---\n\n## Citation Analysis\n\nOnly one self-citation ([33], the authors' own supplementary material) out of 33 references, so SCR is about 3%. However, several references are topically unrelated to the claims they support: [4] (ambient assisted living), [5] (semantic web mash-ups) and [6] (strategic decision-making in IoT) are cited for statements about satellite technology and coverage. References [11]-[22] are not cited in the main text (the related work is moved to the supplement), and among them [18], [19], [20], [21] and [22] (tower-crane control, fuzzy Stackelberg games, volatility surfaces, feature selection, teaching optimisation, several of them in this journal or by an author associated with it) have no evident relation to SAGIN resource allocation. Mutual citation cannot be established from the paper alone, so no citation-ring flag is raised, but the pattern lowers the citation-integrity score.\n\n---\n\n## Structural Analysis\n\nThe paper outsources its evidence: the network figure, DQN architecture, both algorithm listings, the parameter table, every result figure (Figs. 3-7), the complexity analysis and the execution-time table are all 'provided in [33]', whose reference ends with 'Available here.' and no usable address. Within the printed paper, the claims that DQL has lower computational complexity and better scalability than AO and GS cannot be checked. The text describes results numerically (e.g., 220 Mbps convergence, 1200 Mbps at 45 SDs), but no variance or statistical comparison is given. The Section 6.2 'Computational analysis' is two sentences pointing to the supplement. No code or data released.\n\n---\n\n## Conclusion\n\nA conventional application of DQN and annealing-based alternating optimisation to a SAGIN sum-rate problem, with proportionate and necessary system-model mathematics. The main concerns are structural (the printed paper contains almost none of its own evidence) and bibliographic (a block of off-topic references, partly to the publishing journal, that the main text never uses). No limitations are acknowledged and no artifacts are released."
+  },
+  {
+   "paper_id": "li2025",
+   "paper": {
+    "title": "Design and Simulation of Integrated Radio Frequency Transmitter for Wireless Sensor Network Applications",
+    "authors": [
+     "Zhenyao Li",
+     "Jie Jin",
+     "Daobing Zhang",
+     "Zhijing Li"
+    ],
+    "abstract": "This paper introduces a low-voltage low-power integrated RF transmitter using GlobalFoundries' 0.18 µm CMOS RF process for 2.4 GHz wireless sensor network applications. The transmitter consists of an LC voltage-controlled oscillator and a sub-harmonic mixer. Simulations show operation at 1 V supply with 2.55 mW power consumption, an input-referred third-order intercept point of 3.19 dBm, and a conversion gain of approximately 12.5 dB.",
+    "keywords": [
+     "Complementary metal-oxide-semiconductor (CMOS)",
+     "mixer",
+     "oscillator",
+     "radio frequency (RF)",
+     "transmitter",
+     "wireless sensor network (WSN)"
+    ],
+    "doi": "10.59277/ROMJIST.2025.4.03",
+    "pages": "341-352",
+    "source_file": "paper813.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 55,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 61.25,
+    "composite": 45.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the design was simulated with Cadence IC design tools 5141 (third-party), and schematics are described but not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "IRRELEVANT_SELF_CITATION"
+   ],
+   "flag_details": {
+    "IRRELEVANT_SELF_CITATION": "Ref. [3] (J. Jin et al., 'A novel dynamic hill cipher and its applications on medical IoT', IEEE IoT Journal 2025), by the corresponding author, is cited in the opening sentence for the general popularity of wireless sensor networks. A cipher paper has no topical relation to a CMOS VCO/mixer transmitter design (estimated similarity about 0.2)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simulation-only CMOS VCO plus sub-harmonic mixer for 2.4 GHz WSN built from known topologies; formalism is appropriate, but the paper carries an off-topic self-citation, a duplicated reference and internal numerical inconsistencies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Schematic-level design and Cadence simulation of an integrated 2.4 GHz transmitter combining a cross-coupled LC VCO and a current-bleeding sub-harmonic Gilbert mixer in 0.18 µm CMOS.\n**Level:** 2 (Low)\n**Rationale:** Known circuit topologies (complementary cross-coupled LC VCO, LO frequency doubler, Gilbert cell with current bleeding) are combined and sized for a target band; no new circuit theory or analysis method is introduced. Defaulted to the lower level.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (five small-signal relations for the VCO's negative resistance, plus Leeson's phase-noise equation inline)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations are standard circuit analysis supporting the oscillation condition and phase-noise discussion.\n\n### Issues\nNo theater. Eq. (1) contains a typo ('gm1 = gm2 = gm3 = gm1'). The phase-noise result (-110 dBc/Hz at 1 MHz offset) is stated without a figure or the parameter values used in Leeson's equation.\n\n---\n\n## Citation Analysis\n\nSelf-citations by J. Jin: [3], [7], [19] (3 of 38 references, about 8%; [24] by a 'Z. Li' in 2004 is not counted as the author identity is uncertain). [7] and [19] (amplifier-based and sub-harmonic mixers) are directly relevant. [3], a hill-cipher paper for medical IoT, is cited for the general attention WSNs receive and is topically unrelated to RF circuit design, which triggers IRRELEVANT_SELF_CITATION. Other citation problems: [18] (torque sub-harmonic reduction in induction-motor drives) is cited for sub-harmonic mixers; [2] (a humidity-sensor nanocomposite in this journal) is cited for WSN popularity; [35] and [38] are the same paper listed twice; [14] gives conference year 2023 but '2013' in the venue line. Several references with generic titles in Chinese Journal of Electronics ([23], [26], [27]) and [22] could not be checked against the text and warrant verification.\n\n---\n\n## Structural Analysis\n\nEvidence is simulation-only (Cadence, post-schematic; no layout or post-layout extraction results, no fabrication). Internal inconsistencies: the abstract gives a conversion gain of about 12.5 dB, the results 12.447 dB, and the conclusion 'approximately 10.5 dB'; the comparison text attributes 14.5 dBm IIP3 to [36] while Table 2 attributes it to [35], and then describes [36]-[38] as negative. Section 3.2 claims 'superior performance' although three of four comparators have higher gain and one has much higher IIP3. Comparison is with mixers rather than complete transmitters, and the power-consumption figure is for the mixer. An inline acknowledgment exists: fabrication and testing in a real WSN are deferred to future work, and Section 3.3 discusses unmodelled parasitics. No artifacts.\n\n---\n\n## Conclusion\n\nA routine simulation study of a CMOS transmitter front-end with proportionate, ordinary circuit equations. Its integrity problems are bibliographic and editorial: an unrelated self-citation by the corresponding author (disqualifying under the specification), unrelated and duplicated references, and contradictory performance figures between abstract, results and conclusion. No design files are available."
+  },
+  {
+   "paper_id": "mocanu2025",
+   "paper": {
+    "title": "Miniaturized High Frequency Ratio Quadrature Coupler for Dual Band Wireless Systems",
+    "authors": [
+     "Iulia Andreea Mocanu",
+     "Norocel Dragoş Codreanu",
+     "Mihaela Pantazică"
+    ],
+    "abstract": "A miniaturized dual-band branch-line coupler with large frequency ratio and coupling losses around 3.5 dB for both bands is proposed, implemented, and measured. Miniaturized impedance inverter transmission lines replace the classical transmission lines of the branch-line coupler. Two frequencies with a ratio of 8.28 were chosen. Simulation shows good agreement with measurements: return loss and isolation exceed 30 dB, insertion and coupling losses are around 3.5 dB, the phase difference is 90 degrees with over 20% relative bandwidth for ±5 degree imbalance, and the dimensions are around 0.45λg × 0.23λg at 3.25 GHz.",
+    "keywords": [
+     "Dual-band microwave passive component",
+     "high band ratio",
+     "measurement of S-parameters",
+     "miniaturized branch-line coupler",
+     "wireless applications"
+    ],
+    "doi": "10.59277/ROMJIST.2025.4.04",
+    "pages": "353-364",
+    "source_file": "paper814.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.7,
+    "composite": 61.27,
+    "final": 61.27
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; component values, substrate and layout are described, and measurements were taken on a physical prototype, but no design files or measurement data are released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Applied microwave design that reuses the authors' dual-band impedance-inverter cell to build a measured branch-line coupler with a frequency ratio of 8.28; equations are minimal and necessary, with some editorial inconsistencies in the comparison.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Dual-band branch-line quadrature coupler built by replacing quarter-wave lines with lumped-element π impedance-inverter cells, designed for 0.7/5.8 GHz, fabricated on RT/duroid 5880 and measured.\n**Level:** 2 (Low)\n**Rationale:** The unit cell and its analytic design equations come from the authors' earlier work [13]; this paper applies them to a different coupler type with a larger frequency ratio and handles practical implementation. Engineering design with measurement, not new theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (two 2x2 systems for the series and shunt branches and their closed-form solutions)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations give the lumped-component values a designer must compute; they pass the necessity test.\n\n### Issues\nNone identified in the formalism. The frequency ratio k is printed garbled ('k = ω ω1 / 2') by extraction.\n\n---\n\n## Citation Analysis\n\nOne self-citation ([13], Mocanu and Petrescu, the dual-band rat-race coupler that introduced the unit cell) out of 15 references, about 7%, and it is directly relevant. The paper explicitly delineates what is new relative to [13]. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe paper is supported by a fabricated prototype measured on a VNA after calibration, with simulation-measurement overlays for all S-parameters, which is good evidence for a Level 2 design paper. Weaknesses are editorial: the abstract gives 5.6 GHz and the body 5.8 GHz; 0.7 and 5.8 GHz are called 'WLAN bands'; the comparison text refers to [8] and [9] while Table 1 lists [9] and [11]; the insertion-loss and coupling-loss bandwidths appear swapped between Table 1 and the text; the measured phase difference is 269/-89 degrees while Table 1 reports 270/90. The novelty claim ('largest frequency ratio reported') is qualified as being to the authors' knowledge, and the comparison table includes only two prior couplers. A limitation is stated inline: the cell is dual-band only and cannot be extended to triple-band couplers. No artifacts.\n\n---\n\n## Conclusion\n\nA solid, measured applied-design paper with minimal and necessary mathematics and clean citation practice. Its claims rest on real measurements, though the comparison section is thin and contains several reference and value mismatches. No design or measurement files are released."
+  },
+  {
+   "paper_id": "teodorescu2025",
+   "paper": {
+    "title": "AI Texts under the Etymologic Lens",
+    "authors": [
+     "Mike H. M. Teodorescu",
+     "Cecilia Speranţa Bolea",
+     "Horia-Nicolai Teodorescu"
+    ],
+    "abstract": "Etymologic analysis of the vocabulary of texts is proposed for examining the complexity of AI generated texts. When asked to emulate an author, AI appears to use an etymologic mixture less complex than that of human literary texts. When asked to recount a specific literary work emulating its author, AI produced writings with an etymologic distribution far from that of the narrated text and with aberrations, throwing doubt on AI ability to emulate a specific author at the etymologic level. Etymologic analysis may help distinguish between AI and human generated texts.",
+    "keywords": [
+     "AI",
+     "AI author emulation",
+     "AI texts",
+     "AI text detection",
+     "etymological distribution",
+     "etymology comparison",
+     "etymology of AI texts"
+    ],
+    "doi": "10.59277/ROMJIST.2025.4.05",
+    "pages": "365-376",
+    "source_file": "paper815.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 60,
+    "structural_integrity": 42,
+    "artifact_availability": 50,
+    "intellectual_integrity": 64.3,
+    "composite": 60.73,
+    "final": 55.73
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The content analyzed (reproduced in the online Appendices at http://iit.academiaromana-is.ro/) was generated at the first prompt\"; the comparison text is a named published novel (Teodoreanu, La Medeleni, 1925). The authors' etymology-assignment software is not linked; the scraper [11] (github.com/vxern/dexonline-scraper) is third-party.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "4 of 15 references ([4], [5], [6], [8]) are by the authors, SCR about 27%. All are on etymological text analysis and relevant, but [5] is an unpublished public presentation (YouTube) and the method, the novel's baseline data and the parsing-error analysis are all delegated to these works."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Exploratory empirical comparison of etymology distributions between one Romanian novel and a handful of free-ChatGPT recountings; no formalism, but broad conclusions about AI detection and education rest on a single work and a few prompts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Comparison of the distribution of word etymologies (and Zipf exponents) between the novel La Medeleni and texts produced by the free ChatGPT web app when asked to present or recount it.\n**Level:** 2 (Low)\n**Rationale:** An empirical study using existing tools (RACAI parser, Dexonline, a third-party scraper) and basic statistics (chi-square test, Zipf fits). No new algorithm or model.\n\n### Formal Elements\n- Definitions: 0 (the inline 'l-etymology' is a plain-language term)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 numbered; chi-square and Zipf parameters reported inline\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — no formal apparatus.\n\n### Issues\nNone in formalism. The statistical reporting is muddled: the chi-square result is described as accepting 'the hypothesis of identical distribution with a confidence of less than 0.1%', which inverts the usual language of rejection, and lemma counts in a ~300-lemma text are compared against the 500 most frequent lemmas of a novel without addressing the size mismatch beyond a one-sentence argument.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio about 27% (4/15), all topically related (etymological analysis of Romanian literary and AI texts), so no relevance flag. The dependence is heavy: the novel's etymological baseline, the processing method and the parsing-error analysis are taken from [4], [6] and [8], and [5] is an unpublished talk. Remaining references are largely Nature news pieces and preprints used for context. ELEVATED_SELF_CITATION applies.\n\n---\n\n## Structural Analysis\n\nThe evidence base is a single novel and a few ChatGPT sessions (free tier, no log-in, first answer only, no repetition), which the authors acknowledge inline in the closing paragraph as a starting point needing extension to other authors, languages, repeated prompts and other AI systems. Even so, the discussion draws broad conclusions (AI produces a 'langue de bois', a risk of language degradation in education, a route to AI-text detection, a comment on the Turing test) that the data cannot carry, and the observation that the word 'important' appears three times is offered as evidence of an AI style pattern. Prompts were partly adapted in response to unsatisfactory answers, which introduces researcher influence that is not controlled. Artifacts: the AI-generated texts are said to be in online appendices at the institute's site (a top-level URL rather than a specific deposit), and the novel is a published work, so the data category applies; the authors' etymology software is not released.\n\n---\n\n## Conclusion\n\nAn interesting, exploratory idea with no formalism concerns, executed at pilot scale. Self-citation is elevated but relevant. The main weakness is the gap between a single-novel, few-prompt experiment and the general claims about AI and education; limitations are acknowledged only as future work. Data are partially available."
+  },
+  {
+   "paper_id": "lazarescu2025",
+   "paper": {
+    "title": "Personalized Movement Algorithms for Neural Forearm Prostheses Using Convolutional Neural Networks",
+    "authors": [
+     "Sorin Lazarescu",
+     "Florin Istudor",
+     "Octavian Ionescu",
+     "David Dragomir",
+     "Marian Ion",
+     "Ladislau Székely",
+     "Szilárd Olasz",
+     "István Tüsez",
+     "Gabriela Ionescu",
+     "Stefanos P. Zaoutsos",
+     "Cătălin Niculae",
+     "Bogdan Sinatoma"
+    ],
+    "abstract": "The article presents personalized movement algorithms for neural forearm prostheses equipped with an AI module. The implementation uses a glove with finger flexion sensors on the patient's healthy hand, a neural interface with plug electrodes implanted in the motor fascicles of the median and ulnar nerves of the amputation stump, and an AI module based on a convolutional neural network. For each selected prosthesis movement, the glove detects finger movement parameters, the neural interface detects motor neural signals, and the CNN identifies the specific pattern of motor neural signals, learning to recognize the patient's commands for the prosthesis.",
+    "keywords": [
+     "Convolutional neural networks",
+     "implantable neural interface",
+     "movement algorithms",
+     "neural prostheses"
+    ],
+    "doi": "10.59277/ROMJIST.2025.4.06",
+    "pages": "377-384",
+    "source_file": "paper816.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 80,
+    "structural_integrity": 15,
+    "artifact_availability": 0,
+    "intellectual_integrity": 63.75,
+    "composite": 47.81,
+    "final": 27.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only links are to statistics sources and the third-party 5DT Data Glove datasheet",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "The paper reports no CNN training, no neural-signal recordings and no classification results; the 'Tests and Results' section describes the glove's thresholding and an FPGA inference time. Yet the conclusion states that 'the results presented in this article show' neural prostheses offer a greater range of movement and many tactile feedback functions, and that the interface was successfully tested in vitro and in vivo, without any data. Claim-evidence ratio is well below 0.33.",
+    "NO_LIMITATIONS": "No limitations are acknowledged: the assumption that stump nerve signals are identical before and after amputation, the absence of any neural data, and the untested mapping of 31 needle combinations to movements are presented as facts. The only qualifier is that the first iteration uses constant motor speed."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Project description of a planned neural-prosthesis training scheme (data glove plus implanted electrodes plus CNN) with no neural data, no trained model and no results to support its conclusions.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Concept for training a CNN to map motor-nerve signals from implanted plug electrodes to finger movements, using a data glove on the healthy hand for labels, implemented on a Basys3 FPGA, within the NerveRepack project.\n**Level:** 1 (Trivial)\n**Rationale:** A prototype/system description combining a commercial glove, an FPGA board and an unspecified one-layer CNN; no algorithm is specified in reproducible detail and no evaluation is performed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (eq. 1, the sum of binomial coefficients C(5,i) for i = 1..5 = 31)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — a single counting expression for the number of non-empty needle combinations, treated as a basic equation rather than decorative formalism.\n\n### Issues\nThe counting argument itself is unsupported rather than over-formalised: it assumes each subset of five needles yields a distinct, decodable movement command, and it is inconsistent with the 32 output classes stated for the network (one per flex/extend combination of five fingers).\n\n---\n\n## Citation Analysis\n\nNo self-citations among 8 references. Citation quality is nevertheless poor: the plug electrodes and neural interface are said to be 'presented in detail in [8]', but [8] is the glove datasheet; most references are amputation statistics and a 2010 news article; there is no reference to the large literature on peripheral-nerve decoding or CNN-based neural decoding. No citation-manipulation pattern.\n\n---\n\n## Structural Analysis\n\nThere are no experimental results on the stated contribution. The CNN architecture is described in a single contradictory sentence ('a single convolutional layer' followed by 'two hidden layers'); no training data, accuracy or validation exist, since the electrodes are yet to be implanted in a human (planned for March 2027). The FPGA paragraph mixes up DSP throughput figures (929 GMAC/s versus '2 to 8 MFLOPS'). Key physiological premises (that stump nerve signals are 'the same as before amputation') are asserted without citation. The conclusion presents expectations and project claims as results. No artifacts.\n\n---\n\n## Conclusion\n\nA project-report-style paper describing an intended training scheme rather than a tested algorithm. The single equation is harmless, and there is no self-citation, but the absence of any neural data or model results means that its central claims are unsupported, and no limitations are acknowledged."
+  }
+ ]
+}

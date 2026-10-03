@@ -1,0 +1,585 @@
+{
+ "batch_id": "2022-v25-n2",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 25,
+  "issue": 2,
+  "year": 2022
+ },
+ "papers": [
+  {
+   "paper_id": "bal2022",
+   "paper": {
+    "title": "The Impact of Features and Preprocessing on Automatic Text Summarization",
+    "authors": [
+     "Salih Bal",
+     "Efnan Sora Gunal"
+    ],
+    "abstract": "Automatic text summarization obtains a shortened and informative version of a given text without manual intervention based on specific features, preprocessing methods, and decision mechanisms. This paper aims to thoroughly analyze the impact of common features and preprocessing techniques on the performance of automatic text summarization, particularly in the Turkish language. Also, a new distinctive feature based on latent semantic analysis is proposed as another contribution. Two datasets consisting of a total of 120 documents and 1,466 sentences were used for the analysis. Two different success metrics were utilized to assess the performance of automatic text summarization. A set of comprehensive experimental studies revealed the optimal feature subset and the most useful preprocessing methods that can improve the summarization performance. Moreover, it has been verified that the proposed feature further improves the performance.",
+    "keywords": [
+     "computational linguistics",
+     "automatic text summarization",
+     "feature extraction",
+     "feature selection",
+     "machine learning",
+     "preprocessing"
+    ],
+    "doi": null,
+    "pages": "117-132",
+    "source_file": "paper711.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 45.95,
+    "composite": 34.46,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the two Turkish datasets are taken from earlier studies [28] and [19] with no statement that they are public",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 empirical feature/preprocessing study that wraps plain list and loop descriptions in set-builder notation, e.g. 'D={Si | i=1,2,...,N} represents the sentences in a given document' and 'TF={Tj | j=1,2,...,M} represents the terms in a given sentence'; these are arrays of sentences and terms.",
+    "UNNECESSARY_SET_THEORY": "Set-builder notation is used for the sentence list and term list in the proposed-feature algorithm and in Tables 5 and 6 (the evaluation algorithms); no proof depends on it.",
+    "NO_LIMITATIONS": "No limitations section and no acknowledgement of constraints such as the small datasets (120 documents), overfitting from exhaustive search of 65,535 subsets on the same data, or the absence of significance testing."
+   },
+   "verdict": {
+    "summary": "Exhaustive feature-subset and preprocessing study for Turkish extractive summarization with a simple LSA-derived feature; set-builder notation for plain lists triggers the formalism rule, and the results lack validation against overfitting.",
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Extractive summarization of Turkish news: 15 standard sentence features plus one new feature (cosine similarity to the sentence with the highest LSA score), exhaustive search over feature subsets and 16 preprocessing combinations.\n**Level:** 2 (Low)\n**Rationale:** An empirical comparison of existing features and preprocessing steps; the new feature is a one-line combination of existing quantities (LSA score and cosine similarity). No new algorithmic idea or analysis.\n\n### Formal Elements\n- Definitions: 0 numbered\n- Theorems: 0\n- Proofs: 0\n- Equations: 18 (feature formulas, SVD, compactness measures)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Disproportionate in kind rather than count. Most feature equations are needed to define the features, but the proposed-feature algorithm and the two evaluation algorithms (Tables 5-6) introduce set-builder notation for what are ordered lists: 'D={Si | i=1,2,...,N}', 'TF={Tj | j=1,2,...,M}'. Under the zero-tolerance rule for Levels 1-2 this triggers the formalism flags.\n\n### Issues\n- Set-builder notation for sentence and term arrays (Section 3.3, Tables 5-6).\n- Eq. (6)-(8) write C-style ternaries inside sums and min/max; readable, but they are code fragments in mathematical dress.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 33 references: [28] Bal and Sora Gunal (2021), the earlier Turkish summarization model whose dataset is reused here; directly relevant. References [21] and [30] are by 'S. Gunal', a different author by initials and not counted as self-citations. SCR is about 3%.\n\n---\n\n## Structural Analysis\n\nThe results tables are extensive, but the best subsets are selected and reported on the same data with no held-out split or cross-validation, so the 'optimal' subsets are probably overfitted to these 120 documents. No variance or significance testing is given. The comparison with prior work uses figures reported elsewhere under different protocols (the authors admit a one-to-one comparison is not always possible), and the Discussion quotes a maximum of 0.774 on Dataset II while the tables report at most 0.770. No limitations are discussed. Implementation in C# is mentioned, but no code or data is released.\n\n---\n\n## Conclusion\n\nA careful but routine empirical study whose main value is the systematic grid over preprocessing combinations. Under the framework's zero-tolerance rule it is flagged for set-builder notation applied to plain lists. Apart from that, the bigger concern is methodological: selecting and evaluating on the same small datasets leaves the headline gains unvalidated."
+  },
+  {
+   "paper_id": "lin2022",
+   "paper": {
+    "title": "Fuzzy AHP-based Prioritization of the Optimal Alternative of External Equity Financing for Start-ups of Lending Company in Uncertain Environment",
+    "authors": [
+     "Chun-Yueh Lin"
+    ],
+    "abstract": "This paper presents a novel model that applies a combination of triangular fuzzy numbers and the analytic hierarchy process (AHP) to the decision-making process to evaluate the optimal alternative of external equity financing for start-ups companies in the financial technology (FinTech) industry. First, this study develops the criteria and sub-criteria by modifying the Delphi method based on the literature review. Second, the fuzzy-AHP is used to obtain fuzzy weights of the criteria and sub-criteria. Third, the defuzzification method is used to rank the optimal alternative of the external equity financing for start-ups companies in terms of their overall weights on multiple evaluation criteria. Moreover, this study conducted a case study of lending start-ups in the FinTech industry to assess the optimal alternative of external equity financing. The results indicate that the equity crowdfunding is the optimal external equity financing alternative for lending start-ups in the FinTech industry and the costs of capital is the most important criterion for evaluating the optimal solution on an external equity financing approach.",
+    "keywords": [
+     "fuzzy systems",
+     "external equity financing",
+     "peer to peer lending company",
+     "FinTech industry",
+     "start-ups",
+     "AHP"
+    ],
+    "doi": null,
+    "pages": "133-149",
+    "source_file": "paper712.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 85,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 71.75,
+    "composite": 53.81,
+    "final": 48.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the expert questionnaire data are not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgement; the number and profile of experts, the consistency of their judgments, and the generalisability of a single-case ranking are never discussed."
+   },
+   "verdict": {
+    "summary": "Standard fuzzy-AHP application to choosing among three equity-financing options; methodologically thin, with every computational step deferred to the author's earlier paper and key survey details missing.",
+    "classification": "LIMITED",
+    "disqualified": false,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Ranking angel financing, equity crowdfunding and venture capital for FinTech lending start-ups with a Delphi-derived criteria hierarchy and triangular-fuzzy AHP.\n**Level:** 2 (Low)\n**Rationale:** An off-the-shelf MCDM method applied to a new domain. The model is explicitly 'based on the research of Lin (2020)'.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (normalisation of weights), plus a linguistic-scale table\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. If anything the paper is under-specified: Steps 2-6 of the fuzzy-AHP procedure each say only that the quantity 'can be obtained by the formula from Lin (2020)', so the method cannot be reproduced from this paper alone.\n\n### Issues\nNone in the formalism-theater sense.\n\n---\n\n## Citation Analysis\n\nOne self-citation ([41], Lin 2020) out of 81 references, cited repeatedly as the source of the whole procedure; topically relevant. SCR is about 1%. Some citations stand out as out of place in a start-up finance paper: vehicle-routing optimisation [34], GWO-tuned fuzzy controllers for clutch systems [35], particle-filter/PSO controller tuning [36], fuzzy modus ponens in SISO systems [60], fuzzy-signature expert systems [61] and tower-crane modelling [62]. Several come from one control-engineering group and from this journal. They are not self-citations and mutuality cannot be checked from the paper, so no citation flag is raised, but they look like padding and lower the score.\n\n---\n\n## Structural Analysis\n\nThe empirical section reports pairwise-comparison matrices and weights, but never states how many experts took part, who they were, or what consistency ratio their judgments reached. Figure 1 is captioned 'Feature extraction process', which does not match its stated content (the TFN structure). Claims of 'valuable guidance' for practitioners rest on one aggregated survey. No limitations are acknowledged. No data or computation scripts are provided.\n\n---\n\n## Conclusion\n\nA routine fuzzy-AHP case study with appropriate, even minimal, formalism. Its weaknesses are reporting and reproducibility: the method is outsourced to an earlier paper, the expert panel is undescribed, and the reference list carries off-topic citations."
+  },
+  {
+   "paper_id": "verma2022",
+   "paper": {
+    "title": "Computational Cost Reduction of Convolution Neural Networks by Insignificant Filter Removal",
+    "authors": [
+     "Amit Verma",
+     "Toshanlal Meenpal",
+     "Bibhudendra Acharya"
+    ],
+    "abstract": "Convolutional Neural Networks are widely employed in a range of computer vision applications such as image classification and text recognition. While delivering excellent results across a range of applications, these high performing CNNs are computationally intensive. This is due to dependency on huge number of parameters which limit their re-usability on lower end CPUs. To address these limitations, we propose an eigenvalue-based framework (EVF) to reduce computational cost by removing insignificant convolution layers filters from the network while maintaining similar accuracy. Proposed method is architecture independent and may easily be deployed to existing deep learning platforms. Experiments have been carried on standard VGG-16 and AlexNet. Based on experiments the resultant reduced models outperforms the original models in terms of computational cost while maintaining similar accuracy. We have also compared proposed EVF with the state-of-the-art methods. We have achieved comparable accuracy after filter pruning only and without further retraining.",
+    "keywords": [
+     "computational cost reduction",
+     "convolutional filter",
+     "VGG-16",
+     "AlexNet"
+    ],
+    "doi": null,
+    "pages": "150-165",
+    "source_file": "paper713.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 80,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 72.5,
+    "composite": 66.88,
+    "final": 61.88
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"Experiments were performed on VGG-16 [23] and AlexNet [16] trained on ImageNet ILSVRC-2012 dataset [22]\"; no code is released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations are acknowledged, although Table 7 shows the method reducing FLOPs far less than the compared pruning methods; the paper only says 'a direct comparison is not possible'."
+   },
+   "verdict": {
+    "summary": "Heuristic filter pruning that scores feature maps with a Harris-style corner response; the formalism mostly re-derives the Harris detector, and the reported savings (12-30%) are modest next to existing methods.",
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Pruning convolution filters whose output feature maps score low on a Harris-corner-like response (det - m*trace^2 of a gradient structure matrix extended with a diagonal Sobel derivative).\n**Level:** 2 (Low)\n**Rationale:** A known image-processing measure is applied as a pruning criterion, with a threshold set as a fraction of the layer mean. There is no complexity analysis or theoretical guarantee.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 (convolution, Sobel kernels, autocorrelation, Taylor expansion, structure matrix, response, means)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in count, and the equations do define the score a programmer would implement. The Taylor-expansion derivation (Eq. 7) is a textbook Harris derivation extended to a 'z + d' diagonal coordinate that a 2-D feature map does not have; this is mathematically loose rather than decorative. The index-range quantifiers are conventional, not set theory standing in for list operations.\n\n### Issues\nThe third 'diagonal' dimension in Eq. (6)-(7) treats a 45-degree Sobel response as a separate coordinate axis, which is not well-founded.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 27 references. Several references are tangential to CNN pruning: GPA prediction [1], neural networks in medical decision-making [2], fuzzy/K-means clustering [4], evolving fuzzy models of shape-memory-alloy actuators [21], mobile-learning SEM [25] (never cited in the text), and SVM/RBF sleep-EEG classification [26]. Several come from this journal or one editorial group. No flag is raised, but this looks like padding and lowers the score.\n\n---\n\n## Structural Analysis\n\nThe experiments cover two standard networks on ImageNet with top-1/top-5 accuracy and FLOP counts. The 'state-of-the-art' comparison (Table 7) shows EVF achieving the smallest reduction of any method (13.3B FLOPs against 7.0-9.6B for VGG-16), which the text reframes as an advantage of not retraining. The abstract says the reduced models 'outperform' the originals, which is only true of cost. There are no runtime measurements on the low-end CPUs that motivate the work. No limitations are discussed. The data is public (ImageNet); no code is released.\n\n---\n\n## Conclusion\n\nA simple, implementable pruning heuristic with appropriately scaled mathematics, though the derivation is loose. The evidence supports modest savings without retraining; the framing overstates its standing against prior work."
+  },
+  {
+   "paper_id": "muller2022",
+   "paper": {
+    "title": "Editorial: Special Issue on Electronics, Microtechnologies and Materials Science",
+    "authors": [
+     "Raluca Müller",
+     "Miron Adrian Dinescu"
+    ],
+    "abstract": "Guest editorial introducing a special issue of extended best papers from the International Semiconductor Conference (CAS 2021).",
+    "keywords": [],
+    "doi": null,
+    "pages": "166-169",
+    "source_file": "paper714.pdf"
+   },
+   "concept_level": null,
+   "scores": {
+    "formalism": null,
+    "citation_integrity": null,
+    "structural_integrity": null,
+    "artifact_availability": null,
+    "intellectual_integrity": null,
+    "composite": null,
+    "final": null
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; editorial with nothing to release",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EDITORIAL"
+   ],
+   "flag_details": {
+    "EDITORIAL": "Guest editorial introducing the CAS 2021 special issue and summarising its seven papers; not a research paper."
+   },
+   "verdict": {
+    "classification": "NOT_APPLICABLE",
+    "disqualified": false,
+    "record_type": "editorial"
+   },
+   "provenance": "## Formalism Analysis\n\nNot applicable: guest editorial.\n\n---\n\n## Citation Analysis\n\nNot applicable: no reference list.\n\n---\n\n## Structural Analysis\n\nThe document describes the history of the CAS conference and summarises the seven special-issue papers that follow.\n\n---\n\n## Conclusion\n\nEditorial content, flagged EDITORIAL and excluded from analysis."
+  },
+  {
+   "paper_id": "neculoiu2022",
+   "paper": {
+    "title": "Compact Implementation of an RFID Tag with Electromagnetic Wave Polarization Diversity",
+    "authors": [
+     "Dan Neculoiu",
+     "Alina-Cristina Bunea",
+     "Ovidiu George Profirescu"
+    ],
+    "abstract": "The paper presents a backscattering RFID system with reduced interference of incident and reflected electromagnetic waves. The tag system is designed for 5 GHz operating frequency and uses two microstrip patch antennas with linear polarization in perpendicular directions. Between the tag antennas a block including a Schottky diode is used for amplitude modulation of the received signal with tag information. The tag is fabricated on a FR-4 double clad substrate and the measurements results are presented for different reading ranges.",
+    "keywords": [
+     "amplitude modulation",
+     "microstrip patch antenna",
+     "RFID",
+     "wave polarization diversity"
+    ],
+    "doi": null,
+    "pages": "170-178",
+    "source_file": "paper715.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.0,
+    "composite": 58.5,
+    "final": 53.5
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; layout parameters (Table 1) are a description, not a released artifact",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations are acknowledged: no discussion of the short tested range (100-300 mm), the absence of bit-error or SNR metrics, or the lack of tests on metallic objects, although interference from such objects motivates the design."
+   },
+   "verdict": {
+    "summary": "Short hardware paper integrating two orthogonally polarized patch antennas and a Schottky-diode modulator on one FR-4 board; standard design equations, qualitative validation from spectrum-analyzer traces.",
+    "classification": "LIMITED",
+    "disqualified": false,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Single-board 5 GHz backscatter RFID tag that uses orthogonal linear polarizations to separate incident and reflected waves.\n**Level:** 2 (Low)\n**Rationale:** Standard microstrip patch design and a diode AM block, integrated on one substrate. The concept was already reported in the authors' conference paper [5]; the contribution is the integration.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (patch resonance, inset-fed input impedance)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Both equations are textbook design formulas that actually set the layout dimensions.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nOne self-citation ([5], Neculoiu and Bunea, the CAS 2021 conference version) out of 9 references; directly relevant. SCR is about 11%. The reference list is short and mostly textbooks.\n\n---\n\n## Structural Analysis\n\nThe antenna reflection measurements are quantitative. Validation of the tag itself consists of spectrum-analyzer traces at 100 mm and 300 mm, from which the authors conclude the received amplitude is 'large enough'. There is no reading-range limit, no comparison with a co-polarized baseline (which would show the claimed interference reduction), and no modulation-quality metric. The substrate thickness differs between Section 1 (1.5 mm) and the Conclusions (1.57 mm). No limitations are discussed. No design files are released.\n\n---\n\n## Conclusion\n\nAn honest, small integration paper with appropriate formalism. The central claim, reduced interference through polarization diversity, is shown in principle rather than measured against a baseline."
+  },
+  {
+   "paper_id": "sularea2022",
+   "paper": {
+    "title": "High Power Supply Rejection Capacitor-less Low Dropout Regulators Based on High Slew Rate Symmetrical Operational Transconductance Amplifiers",
+    "authors": [
+     "Iulian Sularea",
+     "Cristian Răducan",
+     "Marius Neag"
+    ],
+    "abstract": "This paper introduces a power supply rejection (PSR) enhancement technique for capacitor-less low dropout (LDO) voltage regulators with PMOS pass transistor. The main idea for enhancing the PSR is to create a feed forward signal path, so that variations of the supply line result in a current injected directly into the node at the gate of the pass transistor which cancels the effect of the unwanted signal paths between the input and output of the LDO. Circuit implementation is based on an additional OTA that senses the supply variations by using a high pass filter and generates the cancelling signal current. The technique is demonstrated on two LDOs with different error amplifiers based on symmetrical operational transconductor amplifiers with high Slew-Rate. Both LDOs are designed in a 0.18um standard CMOS process and provide a regulated 1.5 V output voltage for load currents up to 50 mA, while burning only 22 uA. These LDOs exhibit PSR values better than -40 dB at 1 MHz at a maximum load current of 50mA, for values of the load capacitor between 10pF to 1nF and dropout voltages as low as 300 mV. A new Figure of Merit was introduced to compare their performance against LDOs with similar design requirements.",
+    "keywords": [
+     "capacitor-less LDO",
+     "class-A symmetrical OTA",
+     "class-AB symmetrical OTA",
+     "high SR symmetrical OTA",
+     "PSR enhancer"
+    ],
+    "doi": null,
+    "pages": "179-204",
+    "source_file": "paper716.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 61.25,
+    "composite": 45.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; schematics are described, not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "6 of 14 references (about 43%) include at least one of the authors: [1] Sularea, Răducan, Neag; [7], [8], [9], [10] Răducan/Neag group papers; [12] Răducan and Neag. All are on LDO design and topically relevant, but the ratio exceeds 30%."
+   },
+   "verdict": {
+    "summary": "Competent simulation-only circuit design that applies feed-forward supply cancellation to two capacitor-less LDOs, with proportionate small-signal analysis; disqualified by a 43% self-citation ratio, and one stated specification (gain margin) is not met.",
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Capacitor-less PMOS LDOs with a feed-forward PSR enhancer (high-pass filter plus auxiliary differential pair) and a voltage buffer for bandwidth extension, in class-A and class-AB symmetrical OTA variants.\n**Level:** 2 (Low)\n**Rationale:** Feed-forward supply cancellation is an established technique ([1]-[4]); the paper applies it within known high-slew-rate OTA topologies. This is solid engineering design rather than a new theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 27 (small-signal ripple paths, poles/zeros, DC gain, figures of merit)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The small-signal expressions guide component sizing (e.g. matching C_FF to C_GD, choosing R_in) and are the normal working language of analog design.\n\n### Issues\nNone in the formalism-theater sense.\n\n---\n\n## Citation Analysis\n\nSix of 14 references are by the authors' group ([1], [7]-[10], [12]); SCR is about 43%. All are on closely related LDO work, so none is irrelevant, but the ratio crosses the 30% threshold and triggers EXCESSIVE_SELF_CITATION.\n\n---\n\n## Structural Analysis\n\nEvidence comes entirely from simulation (frequency sweeps, PVT corners, 200 Monte Carlo runs), and Table 2 marks the PSR figures as simulated against measured values for prior work. That is a fair disclosure, but the comparison mixes simulated and silicon results. The design specification requires gain margin above 5 dB, yet LDO1's minimum GM is reported as 3.3 dB; the conclusions still say the LDOs 'met the main requirements'. The new FOM_PSR, designed by the authors, ranks their own LDOs best. Constraints are acknowledged inline (FFSC limited by the residual C_GD path, phase margin dropping at low load current). No design files are released.\n\n---\n\n## Conclusion\n\nTechnically sound, well-explained analog design with appropriate mathematics. It is capped by the self-citation rule, and the summary overstates compliance with its own specification."
+  },
+  {
+   "paper_id": "beleca2022",
+   "paper": {
+    "title": "Methods for Assessing the Stability of Conditionally Stable Circuits by Using Small-signal Simulations",
+    "authors": [
+     "Valentin Beleca",
+     "Cosmin-Sorin Plesa",
+     "Raul Onet",
+     "Marius Neag"
+    ],
+    "abstract": "The popular Bode stability criterion is not suitable for assessing the stability of feedback systems for which the phase characteristic of their loop gain, T(s), crosses the -180 degree horizontal more than once. This fact is illustrated by four simple examples of such circuits, that also help demonstrate an extension of the Bode criterion proposed in this paper: the stability of a sub-class of conditionally stable circuits - whose T(s) comprises neither RHP poles nor poles in the origin, and the module frequency characteristic of their T(s) crosses the 0dB horizontal only once - can be assessed by analyzing the phase characteristic of their loop gain. The relationship between the phase margin of these circuits and their frequency and step response is also analyzed. Finally, the paper introduces a three-step method for assessing the stability of all feedback systems, including the conditionally stable ones, by using small-signal analysis. It involves extracting the poles and zeros of T(s), then plotting the corresponding Nyquist contour by using MATLAB scripts developed for this purpose.",
+    "keywords": [
+     "Bode stability criterion",
+     "conditionally stable circuits",
+     "multiple critical frequencies",
+     "Nyquist contour",
+     "Nyquist stability criterion",
+     "pole-zero analysis"
+    ],
+    "doi": null,
+    "pages": "205-223",
+    "source_file": "paper717.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 80,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.75,
+    "composite": 55.31,
+    "final": 55.31
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "\"plotting the corresponding Nyquist contour by using MATLAB scripts developed for this purpose\"; the scripts are described but neither linked nor stated to be available",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "summary": "Tutorial-style study of four conditionally stable loop gains showing where Bode margins mislead, proposing a parity rule for -180 degree crossings that is argued from examples rather than proved, plus a practical pole-zero-to-Nyquist workflow.",
+    "classification": "LIMITED",
+    "disqualified": false,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Limits of the Bode criterion for conditionally stable circuits; an even/odd-crossing rule for a restricted sub-class; a three-step workflow (simulate the pole-zero set, rebuild T(s) in MATLAB, plot the Nyquist contour).\n**Level:** 2 (Low)\n**Rationale:** The results follow from the classical Nyquist criterion applied to examples. The proposed 'extension' is a stated rule, not a new theorem with proof, and the workflow is a tooling procedure.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0 (the extension is stated as a rule, without proof)\n- Proofs: 0\n- Equations: 4 (example loop-gain transfer functions)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The transfer functions are the objects under study. If anything the paper is under-formalised: a claim about the stability of a class of systems would normally be backed by an argument from the Nyquist encirclement count, not only by two examples and unspecified 'similar analyses'.\n\n### Issues\nNone in the theater sense.\n\n---\n\n## Citation Analysis\n\nTwo self-citations out of 12 references: [8] Neag, Onet et al. (2015) on simulation-based margin extraction, and [11] Beleca et al. (CAS 2021), the conference version. Both are directly relevant. SCR is about 17%, in the elevated-but-unflagged band. The rest are classical sources (Bode, Nyquist, Astrom-Murray).\n\n---\n\n## Structural Analysis\n\nThe four examples are clear and internally consistent (Bode margins, Nyquist plots and step responses agree, Table 1). The general claims, the parity rule and 'a positive PM remains a necessary condition', rest on these examples plus 'similar analyses' that are not shown, so the claims outrun the evidence. The authors admit the paper does not contradict existing theory (textbook [12] already warns about multiple crossings) and that a positive PM 'may not be sufficient' for loops with RHP or origin poles, which counts as an inline limitation. The workflow is demonstrated only on ideal VCVS models, not on a transistor-level circuit. The MATLAB scripts are not released.\n\n---\n\n## Conclusion\n\nA useful, didactic paper with proportionate formalism. Its main proposal would be stronger as a short proof, and its workflow needs a demonstration on a realistic circuit."
+  },
+  {
+   "paper_id": "scharf2022",
+   "paper": {
+    "title": "On the Reverse Breakdown Behavior of GaAs PIN Diodes for High Power Applications",
+    "authors": [
+     "Patrick Scharf",
+     "Fabio Alberto Velarde Gonzalez",
+     "André Lange",
+     "Tobias Urban",
+     "Volker Dudek"
+    ],
+    "abstract": "In the field of power electronics, the compound semiconductors gallium nitride and silicon carbide are dominating the market. Due to its beneficial properties, gallium arsenide is gaining more and more importance. The aim is to manufacture devices based on gallium arsenide for use in power electronics with comparable or better properties, but at lower costs. In this work, a first GaAs PIN diode for 900 V operation is fabricated and characterized. The temperature-dependent reverse breakdown behavior is investigated with the help of TCAD simulations and high-voltage measurements. Based on these results, an analytical model is generated which can reproduce this behavior. This enables further optimization of the GaAs PIN diode to optimally meet customer's needs.",
+    "keywords": [
+     "analytical model",
+     "GaAs",
+     "high-voltage measurements",
+     "PIN diode",
+     "power electronics",
+     "reverse breakdown",
+     "TCAD simulations"
+    ],
+    "doi": null,
+    "pages": "224-234",
+    "source_file": "paper718.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 86.0,
+    "composite": 64.5,
+    "final": 64.5
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; simulations use the commercial Silvaco Atlas tool and measured data are not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "summary": "Fabrication and reverse-bias characterisation of a 900 V GaAs PIN diode with a compact empirical model (Arrhenius saturation current, Miller multiplication, linear breakdown voltage); modest but candid about where simulation and measurement diverge.",
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Process flow for vertical GaAs PIN diodes, TCAD versus measured reverse IV across -40 to 150 degrees C, and a fitted analytical reverse-bias model.\n**Level:** 2 (Low)\n**Rationale:** The model combines three standard textbook relations (Arrhenius, Miller's empirical multiplication factor, a linear temperature fit) and fits them to data.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 4\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Every equation is a fit function with reported parameters (Table 2).\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nOne self-citation ([19], the CAS 2021 conference version) out of 21 references; directly relevant. SCR is about 5%. Two references are manufacturer datasheets from the co-authors' company ([14], [17]), which are relevant device specifications rather than scholarly self-citation.\n\n---\n\n## Structural Analysis\n\nClaims are well matched to evidence. The authors state that the breakdown voltage increase predicted by TCAD 'cannot be confirmed in the measurements', attribute this to edge termination, restrict the measurement-fitted model to -40/-20 degrees C, drop the saturation-current temperature dependence because of SMU resolution limits, and note that the model has a pole at breakdown. These are substantive inline limitations. The model is fitted only to TCAD data and then re-parameterised for measurements, so its predictive value on new devices is untested. No data are released.\n\n---\n\n## Conclusion\n\nA compact, transparent device-characterisation paper with proportionate formalism and honest reporting of model-measurement mismatch. The contribution is incremental but well supported."
+  },
+  {
+   "paper_id": "ilie2022",
+   "paper": {
+    "title": "Battery Connected Linear Voltage Regulator for Very Low Current Consumption Automotive Applications",
+    "authors": [
+     "Ionuţ-Alin Ilie",
+     "Cristian Ştefan Zegheru",
+     "Adrian-Gabriel Băjenaru",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "This paper presents a battery connected linear voltage regulator suitable for always-on automotive applications (keyless entry, car monitoring, anti-theft system). The regulator is designed as a simple 3 pins device and it is always connected to the battery, even when the car's engine is off; therefore, a very low quiescent current of the regulator is mandatory. The regulator has a fixed 5 V output voltage and can deliver up to 0.5 A to the load. The total quiescent current of the proposed regulator is 3.8 uA at no load and due to an adaptive biasing technique a value of 75 uA is achieved at 500 mA load current. The architecture include a buffer to bias the gate of pMOS pass device and so a PSRR value of 65 dB at 100 Hz is obtained. Moreover, being supplied directly from the automotive battery, this regulator can withstand the very harsh environment in terms of temperature, line disturbances, EMC. The proposed regulator was implemented on silicon in a 0.8 um BiCMOS technology and its characteristics were simulated and measured.",
+    "keywords": [
+     "pMOS",
+     "power supply rejection ratio",
+     "very low quiescent current"
+    ],
+    "doi": null,
+    "pages": "235-245",
+    "source_file": "paper719.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 61.25,
+    "composite": 45.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "3 of 8 references (37.5%) are by the authors: [2] Ilie's M.Eng. thesis, [3] Ilie et al. CAS 2021 conference paper, and [6] Zegheru and Lenz patent. All are relevant to the regulator design, but the ratio exceeds 30%."
+   },
+   "verdict": {
+    "summary": "Silicon-measured, very-low-quiescent-current automotive LDO built from standard blocks; sound engineering with minimal formalism, but disqualified by a 37.5% self-citation ratio in a very short reference list, and much of the content is reused from the conference version.",
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** 5 V / 500 mA battery-connected pMOS linear regulator in 0.8 um BiCMOS with a pre-regulator, Brokaw bandgap, symmetrical OTA plus adaptively biased source-follower buffer, and R-C compensation.\n**Level:** 2 (Low)\n**Rationale:** An industrial design that integrates known building blocks (Brokaw reference, adaptive buffer biasing [5], capacitance-multiplier compensation [6]) to meet a demanding quiescent-current specification.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (output voltage divider)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; the stability discussion is qualitative (poles and zeros listed, no expressions).\n\n### Issues\nNone in the formalism sense.\n\n---\n\n## Citation Analysis\n\nThree of eight references are the authors' own (thesis [2], conference paper [3], co-author patent [6]); SCR is 37.5%. They are topically appropriate, but the list is so short that self-work dominates, triggering EXCESSIVE_SELF_CITATION. Most figures and both tables are marked as reproduced from [3], and the paper calls itself 'an extended version of [3]'.\n\n---\n\n## Structural Analysis\n\nMeasured silicon results (quiescent current, PSRR, load and line transients, temperature drift) back the specification claims. The quiescent-current measurement is 'done for a single sample'. The comparison with [7] and [8] admits that the references have better transient performance and that the design trades away power efficiency, which counts as inline limitation acknowledgement. The conclusion that 'all initial requirements were met' is consistent with the reported data. No design files are released.\n\n---\n\n## Conclusion\n\nA solid, measured circuit paper with appropriate formalism. It is capped by the self-citation rule, and the extension adds little beyond the conference version."
+  },
+  {
+   "paper_id": "gheorghe2022",
+   "paper": {
+    "title": "Motion Algorithms for a Neuroprosthesis Equipped with Velostat Sensors",
+    "authors": [
+     "Mirela-Iuliana Gheorghe",
+     "Monica Dascalu",
+     "Cristian Ovidiu Opris",
+     "Florin-Cristian Vasiliu",
+     "David Catalin Dragomir",
+     "Eduard Franti"
+    ],
+    "abstract": "The objective of this extended version of our previous paper is to present some new motion algorithms tested on a neural prosthesis prototype that is equipped with manually fabricated Velostat sensors used for providing tactile feedback to the patient. This neural prosthesis was developed as part of a larger research project that aims to capture biological signals with the help of implants at the level of the median nerve and ulnar nerve. These signals will later be processed with various techniques to be suitable for triggering the movement of the prosthesis. Such a prosthetic device is intended to help the large number of patients who suffer from upper limb amputation. The implemented motion algorithms are based on how the motors, that are part of the mechatronics structure, rotate in one direction or another, with a certain speed, to achieve a specific movement. The implemented algorithms are functional, they have been successfully tested on the experimental assembly containing the mechatronics structure and the command-and-control block.",
+    "keywords": [
+     "algorithms",
+     "microsystems",
+     "Velostat",
+     "actuators",
+     "neuroprosthesis"
+    ],
+    "doi": null,
+    "pages": "246-259",
+    "source_file": "paper720.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.0,
+    "composite": 58.5,
+    "final": 58.5
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the Arduino Finger class and motion algorithms are described but not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "summary": "Prototype report on a 3D-printed hand driven by an Arduino with hand-made Velostat contact sensors and simple threshold-triggered grasp routines; appropriately free of formalism, but the evaluation is qualitative.",
+    "classification": "LIMITED",
+    "disqualified": false,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Arduino Mega control of five DC motors in a 3D-printed hand; Velostat piezoresistive pressure sensors stop flexion on contact; two- and three-finger grasp routines implemented with millis()-based state machines.\n**Level:** 1 (Trivial)\n**Rationale:** A prototype description of embedded control combining off-the-shelf components; the 'algorithms' are threshold-triggered motor sequences.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (pressure = mass x g / area)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The single elementary equation is used to convert test weights to pressure.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo self-citations out of 15 references: [1] the CAS 2021 conference version and [5] an earlier ROMJIST paper by Franti, Dascalu et al. on forearm-amputation support. Both are relevant. SCR is about 13%.\n\n---\n\n## Structural Analysis\n\nThe Velostat characterisation reports resistance-pressure curves from ten measurement sets and a temperature test, but no error bars. The motion algorithms are validated by photographs and the statement that they were 'successfully tested', with no grasp success rate, timing, force or repetition statistics. The conclusion's description of the device as 'quite versatile and sophisticated' is not backed by measurement. Limitations are acknowledged inline (Velostat ageing and non-homogeneity; mechanical limits of thumb travel and finger interference; no power supply at the test stage). The neural-interface and nerve-stimulation aspects in the abstract are future work, not tested here. No code is released.\n\n---\n\n## Conclusion\n\nAn engineering progress report with appropriate (minimal) formalism and candid mechanical limitations, but thin quantitative evidence for its functional claims."
+  },
+  {
+   "paper_id": "tismanar2022",
+   "paper": {
+    "title": "Vis-active TiO2 - rGO Photocatalysts for Advanced Wastewater Treatment",
+    "authors": [
+     "Ioana Tismanar",
+     "Alexandru Cosmin Obreja",
+     "Octavian Buiu",
+     "Anca Duta"
+    ],
+    "abstract": "The implementation of efficient Vis-active photocatalysts, targeting water re-use, represents a priority considering the up-scaling and possible feasible candidates are the composites with metal oxide matrix and graphene derivative(s) fillers. The most efficient metal oxide matrix is titanium dioxide and coupled with the reduced graphene oxide it can develop Vis-active photocatalytic composites. This paper analyzes the performance of these composites as potential photocatalysts to be implemented at industrial scale. The properties of the TiO2 - rGO composite thin films are discussed along with the efficiencies in degrading the methylene blue standard pollutant; moreover, the stability of these thin films during the photo-degradation processes is outlined correlated with the rGO filler content in the composites.",
+    "keywords": [
+     "photocatalyst aqueous stability",
+     "TiO2 - rGO composite thin film",
+     "Vis-active photocatalyst"
+    ],
+    "doi": null,
+    "pages": "260-271",
+    "source_file": "paper721.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.75,
+    "composite": 56.81,
+    "final": 56.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "summary": "Experimental materials study of spray-deposited TiO2/TiO2-rGO double-layer films across rGO contents, with XRD/SEM/EDX/AFM characterisation and methylene-blue degradation; no formalism, but single-run efficiencies and a weak Vis-activation control limit the conclusions.",
+    "classification": "LIMITED",
+    "disqualified": false,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Spray pyrolysis and sol spraying of TiO2 / TiO2-rGO double layers (0.15-7.5 wt% rGO), characterisation, photocatalytic degradation of methylene blue under UV+Vis and UV, and stability after use.\n**Level:** 2 (Low)\n**Rationale:** An empirical parameter study (filler content, annealing temperature) of an established composite system.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo self-citations out of 11 references: [9] the CAS 2021 conference version and [10] Tismanar et al. (2021) on TiO2-GO films. Both are directly relevant. SCR is about 18%, in the elevated-but-unflagged band.\n\n---\n\n## Structural Analysis\n\nEfficiencies are reported as single values with no replicates or uncertainties, and the differences between conditions are small (e.g. 26.8% vs 31.1%), so the 'constant increase' up to 5 wt% and the choice of an optimum are weakly supported. Vis-activation is inferred from UV+Vis exceeding UV-only, without a Vis-only run or an unmodified TiO2 control under identical conditions. The XRD peak at 2theta = 5.5 degrees is attributed to rGO tentatively ('may be related'). Table 4's caption duplicates Table 3's ('0.15%w') while reporting the 0.9-7.5% samples. Constraints are acknowledged inline (filler-matrix incompatibility causing cracks, limited aqueous stability, sulphur by-product adsorption requiring regeneration). No data are released.\n\n---\n\n## Conclusion\n\nA conventional, formalism-free materials paper whose qualitative findings are plausible, but whose quantitative ranking of compositions lacks replication and the controls needed to claim visible-light activity firmly."
+  }
+ ]
+}

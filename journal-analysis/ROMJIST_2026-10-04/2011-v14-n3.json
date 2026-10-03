@@ -1,0 +1,475 @@
+{
+ "batch_id": "2011-v14-n3",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 14,
+  "issue": 3,
+  "year": 2011
+ },
+ "papers": [
+  {
+   "paper_id": "ravariu2011",
+   "paper": {
+    "title": "Arguments for The NOI Nanotransistor Affiliation to The FETs Family",
+    "authors": [
+     "Cristian Ravariu",
+     "Adrian Rusu"
+    ],
+    "abstract": "Among the nanodevices, the vacuum nanotransistors are intensively studied in the last decade. A recent novel device was proposed as the NOI - Nothing On Insulator - nanotransistor, inspired from ultrathin SOI devices. Therefore, this new device preserves some properties from the SOI structures. Obviously, the NOI nanotransistor is a vacuum tunnel device among the vacuum field emission devices. But the main target, in this paper, is to prove that its particularity comes from affiliation to the FETs family, monitoring the gate-control on the drain current. The drain current is activated by the VDS voltage under tunneling conditions. But the gate terminal modulates the carriers concentration and consequently the drain current flow, accordingly with its inherent included SOI structure. Also, a new model parameter comes to complete the NOI theory. The third order derivative was used for the extraction of a threshold drain-source voltage that splits the work domain in two conduction regions.",
+    "keywords": [
+     "SOI devices",
+     "Field Effect Transistors",
+     "modeling",
+     "simulation"
+    ],
+    "doi": null,
+    "pages": "203-211",
+    "source_file": "01-ravariu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 30,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 56.25,
+    "composite": 42.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "9 of 19 references (47%) include an author of this paper: [2], [4], [5], [6], [9], [12], [13], [14], [15]. All concern SOI/NOI device modelling, so they are topically related, but the ratio is well above 30%."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Short device-modelling paper on the NOI nanotransistor with physically necessary equations, but nearly half the references are self-citations and a further block of references are unrelated same-journal papers cited in passing.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Analytical and simulated arguments that the vacuum-channel NOI nanotransistor behaves as a field-effect transistor (gate modulation of carrier concentration), plus extraction of a threshold drain-source voltage via the third-order derivative.\n**Level:** 2 (Low)\n**Rationale:** The model is an approximation of the authors' earlier tunnelling model plus a standard first integration of Poisson's equation in a semiconductor film with an oxide boundary condition; Atlas simulations confirm the trend. This is the application of textbook device physics to a previously proposed structure, not a new mathematical model with independent validation.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0 (the \"Non-Linear Electrical Conduction Theorem\" is cited from [6], not stated or proved here)\n- Proofs: 0\n- Equations: 4\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the Fowler-Nordheim-style current expression, Poisson's equation, the VG-fS relation and the carrier-concentration expression are the physics the argument rests on.\n\n### Issues\nNone identified in the formalism. The abstract states the aim \"to prove\" FET affiliation; what is offered is a qualitative accumulation argument and simulations, which is a weaker form of evidence than the wording implies.\n\n---\n\n## Citation Analysis\n\nNine of nineteen references include Ravariu or Rusu; all are on SOI/NOI devices or closely related device modelling, so none is judged irrelevant, but the ratio is excessive. In addition, references [3], [7], [8], [10] and [16]-[19] are papers from this journal or the authors' institution on unrelated topics (CMOS linearity, graphene capacitance, artificial-society simulators, UWB channel capacity, electro-thermal actuators), cited in bulk for generic statements such as \"Usually the simulations help for a macro-model establishing, [16-19]\" and \"relationships with SOI devices, [6-10]\". This looks like citation padding toward the venue and colleagues; reciprocal citation cannot be verified from the paper alone, so no ring flag is raised.\n\n---\n\n## Structural Analysis\n\nClaims are supported by simulation figures and one numerical cross-check between Atlas concentrations and Eq. (4); there is no experimental device. The only acknowledged constraint is inline: model (1) \"is acceptable in the VdsT vicinity\". No code, simulation decks or data are offered.\n\n---\n\n## Conclusion\n\nThe technical content is modest but internally coherent and its formalism is proportionate. The paper's main weakness is citation conduct: a 47% self-citation ratio together with vague, bulk citations of unrelated journal papers."
+  },
+  {
+   "paper_id": "cismaru2011",
+   "paper": {
+    "title": "EMBG Resonators Based on Carbon Nanotubes for DNA Detection",
+    "authors": [
+     "Alina Cismaru",
+     "Marius Voicu",
+     "Antonio Radoi",
+     "Adrian Dinescu",
+     "Dan Neculoiu",
+     "Mircea Dragoman"
+    ],
+    "abstract": "The paper presents modeling, fabrication and measurements of microwave propagation in electromagnetic band gap (EMBG) CNTs based resonator for DNA detection. We report on sensing of DNA wrapped on multi walled carbon nanotubes (CNTs) deposited over a coupled lines area of two types of EMBG resonator structures. A new EMBG structure with coupled lines as a defect in the structure in order to obtain a EMBG resonator is proposed. Two types of EMBG resonator structures having the distance between the coupled lines 50 µm and 100 µm respectively have been used in order to find the best coupling with CNTs. The transmission magnitude and the phase for two types of EMBG resonators based on carbon nanotubes has been presented. Detection of DNA using EMBG resonators based on CNTs was demonstrated by a shift of the resonance frequency and an averaged phase shift of 20 degrees for a broadband frequency range of 6-20 GHz.",
+    "keywords": [
+     "electromagnetic bang gap",
+     "resonators",
+     "CNTs",
+     "DNA detection",
+     "high frequency"
+    ],
+    "doi": null,
+    "pages": "212-221",
+    "source_file": "02-cismaru.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.0,
+    "composite": 58.5,
+    "final": 53.5
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints: a single DNA concentration, one sample per structure, no control for deposition thickness (which the paper itself invokes to explain the differing shifts) and no repeatability statistics are reported without caveat."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Experimental microwave sensor paper with no formalism and clean citations, but a thin evidential base for its detection claim and no acknowledged limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** CPW electromagnetic-band-gap resonators with a coupled-line defect, coated with MWCNTs or a DNA-MWCNT composite, measured on-wafer to show frequency and phase shifts.\n**Level:** 2 (Low)\n**Rationale:** Design with a commercial EM solver, standard microfabrication and VNA measurement; the novelty is the device configuration and application, not a model or algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — no formal apparatus.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSeven references, none including an author of this paper. The bibliography is very short for a sensing paper, but there is no self-citation or irrelevant citation.\n\n---\n\n## Structural Analysis\n\nThe detection claim (\"Detection of DNA ... was demonstrated\") rests on one composite concentration per structure, with frequency shifts that differ between the two structures and are attributed post hoc to deposition thickness. Repeated measurements over several days are mentioned without numbers. Section numbering is duplicated (two Section 3s). No limitations are acknowledged. No data or simulation files are offered.\n\n---\n\n## Conclusion\n\nA straightforward experimental report with proportionate (absent) formalism and normal citation practice. The structural weakness is the gap between a single-condition measurement and a broadly stated detection claim, with no stated limitations."
+  },
+  {
+   "paper_id": "serban2011",
+   "paper": {
+    "title": "CO2 Sensing Layers for SAW/BAW Devices",
+    "authors": [
+     "Bogdan Şerban",
+     "A. K. Sarin Kumar",
+     "Mihai Brezeanu",
+     "Cornel Cobianu",
+     "Octavian Buiu",
+     "Cazimir Bostan",
+     "Nicolae Varachiu",
+     "Ştefan Costea"
+    ],
+    "abstract": "The CO2 sensing performance of several coating layers deposited on piezoelectric devices (Surface and Bulk Acoustic wave - SAW/BAW) are discussed and compared. The layers are amino groups-based polymers and their selection was based on two principles: Hard Soft Acid Bases (HSAB) and Bronsted-Lowry. Experimentally measured CO2 frequency shifts and sensitivities of emeraldine, 4-sulfocalix[4]arene-doped polyaniline, matrix based emeraldine and carbonic anhydrase (PACA) are compared to previously reported results obtained for coatings such as: polyallylamine (PAA), polyethyleneimine (PEI), nanocomposite matrix based on PAA-aminocarbon nanotubes and PEI-aminocarbon nanotubes.",
+    "keywords": [],
+    "doi": null,
+    "pages": "222-231",
+    "source_file": "03-serban.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.0,
+    "composite": 45.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "9 of 24 references (37.5%) include an author of this paper: [6]-[14], of which four are patents or patent applications. All are on CO2 sensing coatings and so topically related, but the ratio exceeds 30%, and the HSAB-side comparison data come entirely from these self-citations."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Empirical comparison of CO2-sensing coatings framed by two acid-base theories; no formalism problems, but the comparison leans heavily on the authors' own prior work and patents, and mixes SAW and BAW devices and different CO2 ranges.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Comparison of amine-based polymer coatings for SAW/BAW CO2 sensors selected by HSAB (Lewis) versus Bronsted-Lowry reasoning, with new measurements for emeraldine, calixarene-doped polyaniline and a polyaniline-carbonic anhydrase matrix.\n**Level:** 2 (Low)\n**Rationale:** An empirical materials comparison interpreted with established chemical theories.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (a chemical reaction) plus reaction schemes in figures\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nReferences [6]-[14] are by the first author's group (Şerban, Sarin Kumar, Costea, Cobianu, Buiu, Brezeanu, Varachiu, Bostan), four of them patents. They are all on the paper's topic, so none is judged irrelevant, but the self-citation ratio (37.5%) is excessive, and the HSAB results against which the new measurements are compared are drawn wholly from this self-cited set.\n\n---\n\n## Structural Analysis\n\nThe central conclusion (HSAB selection outperforms Bronsted-Lowry selection) is drawn from measurements on different device types (BAW for emeraldine, SAW for PACA and the HSAB coatings) and very different CO2 concentration spans (100% versus about 2100 ppm). The authors acknowledge part of this inline (\"usually, SAW devices ... are more sensitive than BAW devices\") and note that the emeraldine protonation mechanism \"is still under debate\", but they then generalise across the confound. There is no keyword list. No data are offered.\n\n---\n\n## Conclusion\n\nThe chemistry is reasonable and the formalism appropriate. The paper is weakened by an excessive self-citation ratio, partly composed of patents, and by a cross-device, cross-range comparison that supports its headline conclusion less firmly than stated."
+  },
+  {
+   "paper_id": "neacsu2011",
+   "paper": {
+    "title": "A Continuous Chaos Generator Using Harmonic Oscillator Circuit",
+    "authors": [
+     "Cristian Neacşu",
+     "Valentin Chesaru",
+     "Claudius Dan",
+     "Mircea Bodea"
+    ],
+    "abstract": "This paper presents a continuous time chaos generator based on a simple oscillator structure. The developed mathematical model (based on dedicated software), Spice simulation and hardware implementation of the circuit demonstrate the strange attractor and chaotic behavior.",
+    "keywords": [],
+    "doi": null,
+    "pages": "232-241",
+    "source_file": "04-neacsu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.25,
+    "composite": 59.44,
+    "final": 54.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "\"The developed mathematical model (based on dedicated software)\" - the software is mentioned but no availability statement or link is given",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints (e.g. sensitivity to component tolerances, the single swept parameter, or agreement between model and hardware); the conclusion is a single sentence."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Circuit-level nonlinear-dynamics study whose ODE model, fixed-point analysis and Lyapunov estimates are all necessary; the paper is thinly referenced and states no limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A harmonic oscillator with an amplitude-control loop that becomes chaotic as an offset parameter SV is swept, analysed by state equations, fixed-point eigenvalues, Poincaré sections and largest Lyapunov exponent, confirmed in LTSpice and hardware.\n**Level:** 2 (Low)\n**Rationale:** Standard nonlinear-dynamics tools applied to a particular circuit; no new analytical method is proposed.\n\n### Formal Elements\n- Definitions: 0 (the Lambert W function and divergence are recalled, not defined as contributions)\n- Theorems: 0\n- Proofs: 0\n- Equations: 17\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the circuit equations, the canonical state-space form, the Jacobian and eigenvalues are exactly what is needed to locate and classify the fixed point; none can be replaced by prose.\n\n### Issues\nNone identified. Minor: Eq. (14) is said to derive from Eq. (5), apparently meaning Eq. (8).\n\n---\n\n## Citation Analysis\n\nThree references (a textbook, a Colpitts bifurcation paper, a Lyapunov-estimation method), none by the authors. No self-citation; the bibliography is too sparse to situate the circuit against the many existing chaotic oscillators the introduction alludes to.\n\n---\n\n## Structural Analysis\n\nThe chaos claim is supported by several converging indicators (phase portraits, Poincaré sections, Lyapunov exponent versus SV, Spice FFT, scope capture). No limitations are acknowledged and there is no comparison with existing chaos generators. The \"dedicated software\" for the model is not made available.\n\n---\n\n## Conclusion\n\nA technically sound, appropriately formal circuit study. Its weaknesses are structural: minimal literature context, no stated limitations and no released model code."
+  },
+  {
+   "paper_id": "rusu2011",
+   "paper": {
+    "title": "Programmable Low Pass Filter Using the Gated Diode in Breakdown Collapse Regime",
+    "authors": [
+     "Alexandru Rusu",
+     "Dragoş Dobrescu",
+     "Corneliu Burileanu",
+     "Adrian Rusu"
+    ],
+    "abstract": "In this paper we present a unity-gain follower amplifier based on a gated diode operated in breakdown regime in common cathode configuration. The amplifier has only one stage and it provides power amplification, high input impedance and a low output one. The maximum frequency that can be applied on the entrance of the amplifier so that the output remains undistorted is dependent on the bias current therefore it can be used also as a programmable low pass filter. The diode is fully characterized in order to set the bias in the linear region where the amplification is very close to one.",
+    "keywords": [
+     "Gated Diode",
+     "Breakdown",
+     "Common Cathode",
+     "Small Signal"
+    ],
+    "doi": null,
+    "pages": "242-250",
+    "source_file": "05-rusu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 61.25,
+    "composite": 45.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "2 of 5 references (40%) include an author of this paper: [1] Rusu A., Badila M., Rusu Al. and [3] Rusu A., Bulucea C. Both are on the gated diode in breakdown and are relevant, but with only five references the ratio exceeds 30%."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Measurement-driven device/circuit paper with a simple and necessary charge-rate argument; candid about measurement limits, but with a five-item bibliography of which two are self-citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** DC and capacitance characterisation of a CMOS gated diode in breakdown-collapse regime, its use as a single-stage unity-gain follower, and an empirical and first-order explanation of the bias-current dependence of the maximum undistorted frequency.\n**Level:** 2 (Low)\n**Rationale:** Experimental characterisation with an elementary I = C dV/dt argument.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: about 6 (empirical power-law fit, I = dQ/dt, slew-rate condition, f_max expression)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the slew-rate derivation is the paper's explanation of its main observation and is stated at the right level.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nFive references; [1] and [3] include Adrian Rusu (and [1] also Alexandru Rusu). Both are directly relevant prior work on the same device, but the 40% ratio is excessive given how little external literature is engaged (one gated-diode amplifier paper, one textbook, one filter book).\n\n---\n\n## Structural Analysis\n\nThe paper is candid inline about limitations: the buffer restricts measurements to 4 MHz, f_max was judged \"only on human observation ... therefore the points on the graph are subject to measurement errors\", the collapse-regime capacitance \"could not be measured\", and an anomalous drop at 3 µA \"should be further studied\". The proposed theory is tested only indirectly. No data are offered.\n\n---\n\n## Conclusion\n\nA modest, honestly reported experimental study with appropriate formalism. The citation profile is the main concern: a very short bibliography in which self-citations make up 40%."
+  },
+  {
+   "paper_id": "stanescu2011",
+   "paper": {
+    "title": "Adjustable LDO with External Control Technique for Current Limit",
+    "authors": [
+     "Cornel Stănescu",
+     "Radu Iacob",
+     "Cristian Dincă",
+     "Ovidiu Profirescu"
+    ],
+    "abstract": "This paper presents an adjustable LDO with external control technique for the current limit. Using an external resistor, the user can change the current limit within wide domain. This is possible by using a special block which generates the current reference for the current protection block. The block consumes between 5 and 25 µA, and uses the 1.25 V voltage reference. The proposed LDO has a fast transient response and can deliver up to 300 mA continuous load current. It consumes 100 µA and has a dropout voltage of 200 mV at 300 mA.",
+    "keywords": [],
+    "doi": null,
+    "pages": "251-258",
+    "source_file": "06-stanescu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 10,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 52.5,
+    "composite": 39.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "All 3 references (100%) are by the first author, [1] with co-authors of this paper. They describe the same LDO techniques and are relevant, but the paper cites no external literature at all."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Industrial circuit-design report of an LDO with an externally set current limit, simulated and measured on silicon; formalism is minimal and appropriate, but every reference is a self-citation and no related work is discussed.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A current-limit reference block (voltage buffer driving an external resistor) added to a CMOS LDO so the user can set the current limit, with HSPICE simulations and silicon measurements.\n**Level:** 2 (Low)\n**Rationale:** Application of standard analog building blocks (buffer, current mirrors, replica sensing) to a product requirement.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (Ohm's law and a headroom sum)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThe three references are all Stănescu's own CAS conference papers. They are relevant (the LDO \"includes all circuit techniques previously presented in [1]-[3]\"), but the paper engages no external work on LDO current limiting or adjustable protection, so the novelty of the technique cannot be judged from the text.\n\n---\n\n## Structural Analysis\n\nClaims are backed by simulation and measurement figures with good agreement in most cases. The paper acknowledges inline that the short-circuit current without REXT \"was twice the expected value\" and that \"Further analysis is needed\". No comparison with competing designs. No data or design files are offered (as expected for an industrial design).\n\n---\n\n## Conclusion\n\nA competent, well-evidenced design note with proportionate formalism, undermined by a bibliography consisting entirely of self-citations and the absence of any related-work positioning."
+  },
+  {
+   "paper_id": "giacomozzi2011",
+   "paper": {
+    "title": "A Flexible Fabrication Process for RF MEMS Devices",
+    "authors": [
+     "F. Giacomozzi",
+     "V. Mulloni",
+     "S. Colpo",
+     "J. Iannacci",
+     "B. Margesin",
+     "A. Faes"
+    ],
+    "abstract": "RF MEMS are assuming a great importance in the fast evolving telecommunication market and space applications. In the last years a flexible technology platform has been developed and continuously optimized at FBK (Italy) for the fabrication of RF MEMS basic components as well as complex RF circuits working in the frequency range from sub-GHz up to more than 100 GHz. The paper reports about the fabrication process and its capabilities. The most important process features are described together with some modifications required for the manufacturing of specific devices, like dielectric less RF MEMS switches. Examples of produced devices and their performances are briefly presented.",
+    "keywords": [
+     "RF-MEMS",
+     "fabrication process"
+    ],
+    "doi": null,
+    "pages": "259-268",
+    "source_file": "07-giacomozzi.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 25,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 56.5,
+    "composite": 42.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "5 of 7 references (71%) include an author of this paper: [2], [3], [4], [6], [7]. All report devices made with the FBK process and are relevant to a platform overview, but the ratio far exceeds 30%."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Descriptive overview of an in-house RF MEMS fabrication platform with no formalism; device results are presented briefly and largely by reference to the group's own earlier papers, giving a very high self-citation ratio.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Step-by-step description of the FBK 8-mask RF MEMS process, its extension modules (backside metallisation, second implant, TMAH etching, quartz substrates, dielectric-less electrodes) and example devices.\n**Level:** 1 (Trivial)\n**Rationale:** A process/platform description, akin to a system or prototype description; no model or algorithm is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nFive of seven references include FBK authors of this paper (Mulloni, Giacomozzi, Margesin, Colpo). They are relevant, since the paper showcases devices from the process, but the bibliography beyond them is one textbook and one switch-concept paper, and no competing RF MEMS processes are discussed.\n\n---\n\n## Structural Analysis\n\nProcess steps are described in detail. Device performance is summarised briefly (isolation, insertion loss, capacitance ratio, actuation-voltage drift), mostly deferring to cited papers. Drawbacks are noted inline (photoresist spacer gives \"only a partial planarization\"; ohmic-switch isolation degrades at higher frequency). There is no yield, uniformity or reproducibility data for a paper whose subject is a manufacturing process. No data are offered.\n\n---\n\n## Conclusion\n\nAn informative process overview without formalism concerns, but with thin quantitative support for process capability and a 71% self-citation ratio."
+  },
+  {
+   "paper_id": "bunea2011",
+   "paper": {
+    "title": "Analytic and Electromagnetic Investigation of Millimeter Wave Membrane Supported CPWs Processed on High Resistivity Silicon",
+    "authors": [
+     "Alina-Cristina Bunea",
+     "Dan Neculoiu",
+     "Alexandru Müller"
+    ],
+    "abstract": "This paper investigates a series of membrane supported millimeter wave transmission lines up to 110 GHz. The structures were fabricated using high resistivity silicon micromachining (wet etching). Three approaches, based on full-wave electromagnetic simulations, analytic closed form equations and equivalent circuit were used in the investigation process. The results were validated by the experimental results for different test structures. The analytic equations were inserted in a Matlab routine and the effective permittivity and characteristic impedance were plotted for various geometries. These same geometries were then simulated electromagnetically in CST Microwave Studio. A comparison between the two approaches is made. The effective permittivity of a membrane supported coplanar waveguide (CPW) line was extracted from measurements and it is in very good agreement with the electromagnetically simulated data.",
+    "keywords": [
+     "effective permittivity",
+     "characteristic impedance",
+     "electromagnetic modeling",
+     "millimeter wave components",
+     "silicon micromachining"
+    ],
+    "doi": null,
+    "pages": "269-283",
+    "source_file": "08-bunea.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 86.0,
+    "composite": 64.5,
+    "final": 64.5
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "\"Formulas (1)-(3) were inserted in a Matlab routine\" - the routine is described but no availability statement or link is given",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Solid comparative modelling study of membrane-supported CPWs to 110 GHz, validated against measurements, with standard closed-form equations, normal citation practice and candid inline discussion of discrepancies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Comparison of full-wave EM simulation, quasi-TEM closed-form formulas and a sectioned equivalent-circuit model for CPW lines on micromachined dielectric membranes, validated by on-wafer measurements to 110 GHz.\n**Level:** 2 (Low)\n**Rationale:** Established modelling methods compared on a specific technology; the equivalent-circuit sectioning of the bulk-to-membrane transition is an incremental modelling choice.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (standard conformal-mapping CPW formulas with elliptic-integral ratio)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations are the analytic model being evaluated.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nOne of ten references ([4], Neculoiu and Müller) is a self-citation (10%), relevant to the membrane technology used. Remaining references are standard textbooks and primary papers. No issues identified.\n\n---\n\n## Structural Analysis\n\nEach modelling approach is compared against measurements on several test structures, and discrepancies are discussed inline: the analytic formulas' limitation on bulk silicon \"can be observed especially for the effective permittivity curves\", a persistent ~1.5 dB insertion-loss gap is attributed tentatively to dielectric-loss modelling, and S21 is noted to be \"very sensitive to the calibration technique\". The Matlab routine and measured S-parameters are not made available.\n\n---\n\n## Conclusion\n\nThe strongest paper in the issue on structural grounds: proportionate formalism, clean citations, multi-method validation and honest treatment of residual disagreement. Reproducibility would benefit from released data and code."
+  },
+  {
+   "paper_id": "buiculescu2011",
+   "paper": {
+    "title": "Operating Frequency Extension of Surface Assembled Microwave Components",
+    "authors": [
+     "Valentin Buiculescu"
+    ],
+    "abstract": "A novel transition from microstrip and coplanar lines to the specific signal interfaces of usual surface assembled components is considered in this paper. It is aimed to improve the bandwidth of printed circuit board (PCB) based packages, provided by smaller values and better geometry controlled parasitic elements due to proposed structure. Moreover, the same interface model is compatible with surface assembly of substrate integrated waveguide components. Guidelines for component values preliminary calculation and optimization are presented. Microstrip test circuits were accordingly manufactured for design verification, with satisfactory results up to 8 GHz. The relative permittivity of FR-4 substrate material used in our experiments is considered the solely responsible for certain differences existing between simulated and experimental data, because they became effective after PCB manufacturer was replaced.",
+    "keywords": [
+     "surface mount assembly",
+     "coplanar waveguide",
+     "microstrip line",
+     "low-pass filter",
+     "substrate-integrated waveguide"
+    ],
+    "doi": null,
+    "pages": "284-295",
+    "source_file": "09-buiculescu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 74.5,
+    "composite": 55.88,
+    "final": 55.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Proposal of a circularly symmetric via transition for surface-mounted microwave components using standard closed-form design equations; the experimental verification is limited and its mismatch with simulation is attributed to a single cause without testing.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Equivalent-circuit (LPF) view of SMD pad parasitics, closed-form estimates of series inductance and open-end capacitance, and a new coaxial-like via transition for microstrip/CPW and SIW components, with FR-4 test circuits measured to 8 GHz.\n**Level:** 2 (Low)\n**Rationale:** Standard microwave design formulas and commercial-solver optimisation applied to a new transition geometry.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (reactance, Wadell wire inductance with correction, Hammerstad open-end and effective-permittivity formulas)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the formulas are design guidance taken from handbooks and are used to set component values.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo of eleven references ([7] and [11]) are by the author (18%), both on the same transition/SIW work and relevant. Two references are web pages (Wikipedia, a vendor product page). Self-citation is moderately elevated but below 20%.\n\n---\n\n## Structural Analysis\n\nThe paper acknowledges a shortcoming of the transition inline (the connection \"can be only performed with transitions from stripline\") and states that measured results \"are not yet in very good agreement with circuit simulations\". However, the discrepancy is declared \"solely\" due to FR-4 permittivity tolerance without any permittivity measurement or re-simulation to test this. Experimental evidence is a few microstrip test structures; the SIW part is argued by reference to other work. No data or design files are offered.\n\n---\n\n## Conclusion\n\nA reasonable engineering proposal with appropriate formalism and acceptable citation practice, whose experimental support is preliminary and whose explanation of the simulation-measurement gap is asserted rather than demonstrated."
+  }
+ ]
+}

@@ -1,0 +1,297 @@
+{
+ "batch_id": "2025-v28-n3",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 3,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "vatavu2025",
+   "paper": {
+    "title": "Conducting Human-Computer Interaction Scientific Experiments in Extreme Environments: Insights from Analog Mars Missions",
+    "authors": [
+     "Radu-Daniel Vatavu",
+     "Jean Vanderdonckt",
+     "Julie Manon",
+     "Michael Saint-Guillain",
+     "Philippe Lefevre",
+     "Romain Maddox",
+     "Jessica J. Marquez"
+    ],
+    "abstract": "Discusses the challenges of running HCI experiments in extreme environments, structured around users, platforms and environments, and reports perceived user-experience ratings (efficiency, dependability, trustworthiness) collected longitudinally from two eight-person crews at the Mars Desert Research Station, one indoors with a scheduling GUI and one outdoors operating a drone in suits. The authors draw implications for replication, artifact reproducibility and the need for new conceptual frameworks.",
+    "keywords": [
+     "Context of use",
+     "extreme environments",
+     "human-computer interaction",
+     "interactive systems",
+     "Mars analog missions",
+     "scientific experiments",
+     "user experience"
+    ],
+    "doi": "10.59277/ROMJIST.2025.3.01",
+    "pages": "247-259",
+    "source_file": "paper806.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.25,
+    "composite": 58.69,
+    "final": 58.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; only aggregated UEQ means are reported in Table 1",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Short empirical HCI experience report with two n=8 longitudinal UX studies; formalism is minimal and proportionate, self-citation is moderate and on-topic, but no data or materials are released and the Friedman test reporting is internally inconsistent.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Methodological reflections on running HCI experiments at a Mars analog station, illustrated by two small longitudinal UX questionnaire studies (UEQ scales) analysed with Friedman tests.\n**Level:** 2 (Low)\n**Rationale:** Empirical study with basic descriptive and non-parametric statistics; no algorithm, model or formal framework is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (the dimension averages in Table 1, e.g. Efficiency = 0.25·(E1+E2+E3+E4))\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the only notation is the averaging of four questionnaire items, which states the scoring procedure exactly and is not decorative.\n\n### Issues\nNone identified for formalism.\n\n---\n\n## Citation Analysis\n\nFive of 30 references (about 17%) include authors of this paper: [11] (extraterrestrial applicability of interaction frameworks), [14] (Calvary et al. context-of-use reference framework, co-authored by Vanderdonckt), [24] (astronaut self-scheduling system used as the indoor platform), [28] (EICS newcomer's guide, cited for artifact reproducibility) and [30] (sensorimotor realities framework). All are topically related (similarity well above 0.5); [14] supplies the paper's organising framework and [24] is the system under study. The ratio sits in the 15-20% band, slightly elevated but not flagged. The remaining references (SpaceCHI, NASA handbooks, power-analysis and replication literature) are appropriate.\n\n---\n\n## Structural Analysis\n\nClaims about adaptation over time are backed by the reported item and dimension means and by test statistics. The statistical reporting has problems: Friedman tests over three time points should have 2 degrees of freedom, yet they are written as χ2(8), and several p-values do not match χ2 with 2 df (e.g. 12.800 gives about .002, not .001; 1.407 gives about .495, not .579). With eight participants per crew, the authors themselves discuss the sample-size limitation, the training burden, and the limited transferability of analog findings to real extraterrestrial settings (inline limitations in Sections 2.1 and 4). The discussion section's broader claims (need for new frameworks, replication difficulty) are argued with citations rather than data, which is appropriate for a reflective paper.\n\nArtifacts: none. Neither the raw questionnaire responses nor the study materials are released; only aggregated means appear in Table 1.\n\n---\n\n## Conclusion\n\nA concise, honest experience report with proportionate notation and on-topic citations. Its weaknesses are evidentiary rather than integrity-related: very small samples, a mis-stated test statistic, and no released data. It reads as a position-plus-pilot paper and should be weighted accordingly."
+  },
+  {
+   "paper_id": "zavadskas2025",
+   "paper": {
+    "title": "Intelligent Expert Systems Using Molecular Fuzzy Genetic Algorithms and Multi-Objective Particle Swarm Optimization for Circular-Oriented Project Investments",
+    "authors": [
+     "Edmundas Kazimieras Zavadskas",
+     "Hasan Dinçer",
+     "Serhat Yüksel",
+     "Serkan Eti"
+    ],
+    "abstract": "Proposes a hybrid decision-making model for circular-economy project investments that chains information-gain attribute selection to reduce alternatives, a Q-learning-style update to balance expert opinion matrices, molecular fuzzy sets with geometry-based angle normalisation, a genetic algorithm for criteria weighting and particle swarm optimisation for ranking. Applied to four criteria and eight candidate projects evaluated by three experts, it finds emission reduction and financial performance most important and waste-to-energy plants and urban mining top-ranked.",
+    "keywords": [
+     "Circular-oriented projects",
+     "genetic algorithms",
+     "molecular fuzzy sets",
+     "swarm optimization"
+    ],
+    "doi": "10.59277/ROMJIST.2025.3.02",
+    "pages": "260-273",
+    "source_file": "paper807.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 75,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 36.25,
+    "composite": 27.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; expert opinion matrices are printed in Tables 1 and 3 but no code or dataset is deposited",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 MCDM application with 33 numbered equations, many of which fail the necessity test: Eq. (13) and (14) restate the same weight vector first as a list and then as a set; Eq. (18) and (19) give the same cumulative sum twice; Eq. (24) re-labels the second offspring O1; Eq. (27) is malformed (wi, wj inside a square); the \"Q-learning\" of Eqs. (3)-(5) is a single weighted difference update with no states, actions or Q-table; Greek letters and symbols decorate fixed PSO constants (ω = .5, ∂ = .1). The genetic algorithm and PSO are textbook procedures written out in notation that adds nothing a programmer would need.",
+    "UNNECESSARY_SET_THEORY": "Eq. (6) uses a big-union symbol over decision makers to denote the arithmetic mean of their fuzzy triples; Eq. (14) writes the GA population, an ordered list of weight vectors, as a set {w1, ..., wn}; Eq. (30) writes a particle position vector as a set. In each case the operation is a list or an average, and no proof depends on set semantics."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Hybrid fuzzy-MCDM pipeline applied to a small illustrative case; notation is heavy, duplicated and partly malformed for a Level 2 application, the novelty claims for molecular fuzzy sets are asserted rather than shown, and robustness is claimed from rank tables that are identical by construction.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Ranking circular-economy investment projects with a chain of existing techniques (information gain, an expert-opinion update rule, molecular fuzzy numbers, a genetic algorithm for weights, PSO for ranking) on three experts' ratings of four criteria and eight projects.\n**Level:** 2 (Low)\n**Rationale:** Existing methods are combined and applied to a new decision domain; there is no complexity analysis, convergence argument or validation against a baseline. \"Applies existing algorithm to new domain\" maps to Level 2.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 33\n\n### Proportionality\nCalculated complexity: 0 (formula counts only definitions, theorems and proofs)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Disproportionate in kind rather than count. The equation apparatus restates standard GA and PSO operations at length and includes duplicates and errors, so it fails the necessity test even though the formula score is zero.\n\n### Issues\n- Eq. (6) uses a union symbol for averaging fuzzy triples across decision makers.\n- Eq. (13)/(14) and (18)/(19) duplicate each other; Eq. (24) names the second child O1 again.\n- Eqs. (3)-(5), labelled Q-learning, are a single proportional update (reward minus penalty times a learning rate) with no reinforcement-learning structure.\n- Eq. (10) defines piecewise normalisation by molecular geometry angles (linear, trigonal planar, tetrahedral, etc.); the choice of chemical bond angles as normalisers for expert opinions is asserted, not justified.\n- Eq. (27) is typographically malformed.\n- Table 3 is captioned \"The IGs for the Project Factors\" although it holds opinion matrices; the text refers to a \"Table 17\" that does not exist; the best offspring is picked by the lowest FFS while the fitness is described as something to maximise in the selection step.\n\n---\n\n## Citation Analysis\n\nTwo of 21 references (about 10%) involve the authors: [1] (Shahbaz, Dinçer, Yüksel et al., circular-economy renewable projects) and [19] (Shen, Liu, Yüksel, Dinçer, molecular fuzzy decision model). Both are topically related. The self-citation ratio is normal.\n\nSeveral non-self citations are weakly connected to the claims they support: [15] and [16] (a healthcare bed-occupancy study and a conference preface) are cited for the need to choose \"the right fuzzy numbers and techniques\"; [17] (multi-AAV path planning) is cited for the entropy measure; [20] (Archimedes wind turbine design) for the genetic algorithm. This is citation padding rather than self-promotion and is not a flag category, but it lowers the score.\n\n---\n\n## Structural Analysis\n\nThe central claims — that molecular fuzzy sets give \"more advanced uncertainty modeling\" and that GA weighting is a significant contribution over CRITIC or AHP — are not tested: there is no comparison with a classical fuzzy model or an alternative weighting method. The sensitivity analysis (Tables 7 and 10) shows identical ranks across all learning rates and shapes, and this is offered as proof of \"consistency and validity\", which it does not establish. The input data are a small illustrative set of expert judgments. Limitations: one inline sentence acknowledging reliance on expert subjectivity. Estimated claim-evidence ratio is about 0.4, in the weak band.\n\nArtifacts: none. The rating matrices are printed but no code, scripts or deposited data are provided.\n\n---\n\n## Conclusion\n\nA Level 2 hybrid MCDM application wrapped in notation that is duplicated, partly incorrect, and in places mislabelled (Q-learning, set union for averaging). Under the zero-tolerance rule for Level 1-2 papers this is formalism theater. Citation conduct is acceptable on self-citation but shows padding with off-topic references. Evidence for the methodological novelty claims is missing."
+  },
+  {
+   "paper_id": "milicevic2025a",
+   "paper": {
+    "title": "Design of a Microcomputer for Controlling a Servo System for Cutting Steel Pipes",
+    "authors": [
+     "Miroslav S. Milićević",
+     "Valentina M. Nejković"
+    ],
+    "abstract": "Describes the redesign of the control system for a flying saw that cuts steel pipes to length on a moving production line: a hydraulic servo model with transfer-function analysis, an Intel 8080-based microcomputer architecture with memory, I/O and interrupt design, and an adaptive feedback loop built around an analog process model, reported to reduce cut-length error from up to 50 mm to below 1 mm.",
+    "keywords": [
+     "Cutting steel pipes",
+     "design",
+     "microcomputer",
+     "regulation",
+     "servo system"
+    ],
+    "doi": "10.59277/ROMJIST.2025.3.03",
+    "pages": "274-285",
+    "source_file": "paper808.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 65,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 63.5,
+    "composite": 47.62,
+    "final": 42.62
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "https://github.com/valentinanejkovic/milicevic-romjist2024/blob/main/New%20attachment.pdf — a supplementary PDF of block diagrams and schematics (Figs. P1-P7); no program code or measurement data is linked",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints; the paper ends by claiming economic justification and productivity gains without qualifying the absence of measured results."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Engineering case description of an 8080-era flying-saw controller with necessary, proportionate control equations, but the headline accuracy improvement is asserted without measurements, limitations are absent, and the recent reference block is padded with loosely related citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design of a microcomputer (Intel 8080, 256 B RAM, 1 KB EPROM) to control a hydraulic flying saw for cutting steel pipe, with a classical second-order servo model and an op-amp-based process model for adaptive gain compensation.\n**Level:** 2 (Low)\n**Rationale:** Application of standard control-engineering modelling (Laplace transforms, second-order transfer functions, stability by the Mikhailov criterion) and standard microprocessor system design to an industrial problem. No new algorithm or theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 18 numbered plus a block of circuit relations\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations are the physical model of the hydraulic actuator, the input ramp, the step response and the op-amp model's transfer function. An engineer implementing the controller would need them; none is decorative.\n\n### Issues\nMinor notational errors rather than theater: Eq. (7) writes s instead of S in the gain, Eq. (10) has S^2 in place of s^2, and Eq. (15) refers to Wp while the text defines W2. The block diagram is said to be in Fig. 1 but Fig. 1 is the overall line diagram.\n\n---\n\n## Citation Analysis\n\nFour of 43 references (about 9%) are the authors' own: [29] and [30] (the first author's 1979 and 1984 conference papers on the same flying-saw control), [31] (a book on electric actuators) and [32] (the paper's own supplement on GitHub). All are directly related; the ratio is normal.\n\nThe reference list is otherwise dominated by 1960s-1980s manuals and textbooks, which fits a design that appears to date from that period. The \"more recent works\" block [33]-[43] is loosely related: seven of its eleven entries are co-authored by one research group (PI-fuzzy control, tower cranes, teaching optimisation, reinforcement learning), and they are justified as giving \"ideas\" for future improvement. The paper even states that citing them \"will in practice benefit the authors\". This reads as citation padding toward third parties. It is not a self-citation, and there is no evidence of reciprocity in this paper, so no ring flag is raised, but the citation score is reduced.\n\n---\n\n## Structural Analysis\n\nThe design narrative is concrete (memory map, timing budget of subroutines, interrupt priorities, component values). The outcome claims, however — total cut-length error \"below 1 mm\" against up to 50 mm before, right-angle cuts, higher productivity and economic justification — come with no measurement data, test protocol, sample of cuts or error distribution. The stability claim (phase margin 65°) is stated without the supporting plot. The paper seems to report a historical industrial design as current work, which the text does not acknowledge. Estimated claim-evidence ratio is about 0.4. No limitations are acknowledged.\n\nArtifacts: the GitHub link holds a supplementary PDF of figures (block diagrams, schematics, flowchart). Description is not availability: no assembler program, simulation model or measurement data is released.\n\n---\n\n## Conclusion\n\nA competent but dated engineering description whose modelling is proportionate and necessary. Its weaknesses are structural: unsupported performance claims, no limitations, and a padded reference block. It reads more as a teaching case study (as the conclusion itself suggests) than as a research contribution with evidence."
+  },
+  {
+   "paper_id": "casquilho2025",
+   "paper": {
+    "title": "Effect of Random Variation of the Initial Values of Ordinary Differential Equations and its Web-based Application to Chemical Kinetics",
+    "authors": [
+     "Miguel Casquilho",
+     "Rui Galhano",
+     "Jorge Buescu"
+    ],
+    "abstract": "Uses Monte Carlo simulation to study how Gaussian random variation in the initial values of an ODE system propagates to its final values, illustrated with first-order consecutive A→B→C kinetics (as in furfural production). Rate constants are first fitted from data, with Python minimize preferred over curve_fit for multi-response ODEs, and the fraction of final compositions outside tolerance is then mapped against coefficients of variation. All computations run on public PHP/Python web pages so readers can reproduce the results.",
+    "keywords": [
+     "Chemical kinetics",
+     "Monte Carlo simulation",
+     "ordinary differential equations",
+     "random initial values",
+     "scientific computing",
+     "web-based application"
+    ],
+    "doi": "10.59277/ROMJIST.2025.3.04",
+    "pages": "286-298",
+    "source_file": "paper809.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 78,
+    "citation_integrity": 55,
+    "structural_integrity": 60,
+    "artifact_availability": 100,
+    "intellectual_integrity": 65.45,
+    "composite": 74.09,
+    "final": 69.09
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"the results can be verified on constructed, public web pages\"; web pages [17], [25]-[27] are given as hyperlinks, with a fixed seed (75357) \"to permit verification of the results by a user\"; the fitting data come from the published source [30]",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "Nine of 41 references (about 22%) are the first author's own works or web pages: [17]-[21], [25]-[27], [41]. They are topically related (web-based computing, ODE fitting, Monte Carlo), but the ratio falls in the 20-30% band."
+   },
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Simple Monte Carlo propagation study on a textbook ODE system with necessary, light formalism and a genuine reproducibility route through public web tools; self-citation is elevated, several citations are admittedly unrelated, and the contribution is modest.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Monte Carlo propagation of Gaussian uncertainty in the initial concentrations of a first-order A→B→C kinetic system to the fraction of final compositions outside tolerance, delivered through PHP/Python web pages; plus a note on fitting multi-response ODEs with scipy minimize rather than curve_fit.\n**Level:** 2 (Low)\n**Rationale:** Straightforward application of standard Monte Carlo simulation and numerical ODE integration; no new algorithm, bound or proof.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 numbered (the ODE systems) plus inline expressions (cv = σ/µ, inversion method, Renard R5 ratio, a Gamma density)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the ODEs define the problem and the inline relations state the simulation choices precisely.\n\n### Issues\nTwo small decorative touches, judged too marginal to count as necessity failures: the Gamma density is written out although it is explicitly not used, and the index range i = m..n is glossed with quantifier notation. Neither affects the method. The formalism score is slightly reduced for them.\n\n---\n\n## Citation Analysis\n\nSelf-citation is about 22% (9 of 41): five of the first author's publications on web-based computing and ODE fitting ([18]-[21]) plus four of his web pages that are the paper's actual artifacts ([17], [25]-[27]) and a figures page [41]. All are on-topic; [18] (standard-deviation estimation from unequal samples) is the most marginal but still Monte Carlo-related. The 20-30% band triggers ELEVATED_SELF_CITATION.\n\nSeveral non-self references are, by the authors' own description, unrelated: [4], [11] and [13] (observation modelling, COVID statistics, an ensemble fuzzy system), [7] (resistor colour code recognition), [12] (vitamin D prediction) and [14] (Logistics 4.0). They are listed as \"example references\" with explicitly weak links. This is padding with no flag category of its own, and it lowers the citation score.\n\n---\n\n## Structural Analysis\n\nClaims are mostly quantitative and backed by reported simulation outputs (FNC against cv and tolerance, run-length checks at up to 1.5 million trials). Some statements overreach: \"the tendencies and their magnitudes are certainly trustworthy\" sits awkwardly beside the inline caveat that the ODE adherence and Gaussian assumptions are \"just reasonable hypotheses\". The curve_fit-versus-minimize finding is a usage note rather than a tested comparison. Limitations are acknowledged inline (Gaussian assumption, model adequacy, negative-value skipping, run-time limits).\n\nArtifacts: the computations are hosted on public university web pages given as hyperlinks (the text extraction shows the reference entries without URLs, but the paper states hyperlinks are underlined in the text). Default inputs and a fixed seed allow the reported results to be regenerated, and the fitting data come from a published source [30]. This is the authors' own tool together with public data, hence code_and_data. Source code is not downloadable, only executable, and link persistence is a separate question.\n\n---\n\n## Conclusion\n\nA modest but transparent study whose main merit is that readers can rerun it. Formalism is light and necessary. Elevated self-citation and openly irrelevant filler citations are the main integrity concerns; the scientific contribution is incremental."
+  },
+  {
+   "paper_id": "precup2025",
+   "paper": {
+    "title": "Problem Setting for Trajectory Planning and Cruise Control of a Connected Autonomous Electric Bus in Intersection Scenarios with Human-Driven Vehicles to Optimize Energy, Comfort and Tracking",
+    "authors": [
+     "Radu-Emil Precup",
+     "Claudia-Adina Bojan-Dragos",
+     "Kun Gao",
+     "Shaohua Cui"
+    ],
+    "abstract": "Formulates a two-stage design approach for a connected autonomous electric bus crossing a signalised three-lane intersection among human-driven vehicles: a discrete-time, segment-based trajectory-planning problem penalising energy, time and lane-change frequency, and a continuous-time cruise-control problem trading off energy and tracking. It proposes a traffic-light indication formula, a road-segment length formula, and trigonometric position and speed profiles. Neither optimisation problem is solved; four open-loop simulation scenarios with random inputs are reported in an external supplement.",
+    "keywords": [
+     "Electric vehicles",
+     "energy consumption",
+     "human-driven vehicles",
+     "optimization",
+     "trajectory planning",
+     "trajectory tracking"
+    ],
+    "doi": "10.59277/ROMJIST.2025.3.05",
+    "pages": "299-312",
+    "source_file": "paper810.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 25,
+    "structural_integrity": 25,
+    "artifact_availability": 0,
+    "intellectual_integrity": 15.0,
+    "composite": 11.25,
+    "final": 11.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "http://www.aut.upt.ro/~rprecup/2025RomjistSupplementaryMaterial.pdf — supplementary PDF with derivations, parameter tables and figures; simulation \"performed in Matlab & Simulink\" with no model or code linked",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "IRRELEVANT_SELF_CITATION",
+    "ELEVATED_SELF_CITATION",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 problem formulation (adapted from [2] and [3], with no solution, algorithm or proof) presented with heavy notation that fails the necessity test: Eqs. (1)-(3) declare the route, traffic-light and surrounding-vehicle parameters as sets Or, Ot, Os, which are parameter records; Eqs. (15)-(18), (22), (23) restate optimal sequences and time lists as sets; Eq. (13) rewrites the objective of Eq. (12) through four chained arg-min forms that introduce JDT, JDT1, JDT2 without using them in the paper. Index notation is inconsistent (i and j swapped in the definition of Os), and Eq. (20) uses an undefined f.",
+    "UNNECESSARY_SET_THEORY": "Eqs. (17) and (18) build the optimal longitudinal and lateral trajectories as unions of sets, {kDs | k = 1...Ns-2} ∪ {S}, which is appending the final waypoint to a list; ordered trajectories lose their order as sets. Eqs. (22)-(23) likewise write start and end time sequences as sets. Eqs. (1)-(3) use set braces for heterogeneous parameter tuples. No proof depends on these operations.",
+    "IRRELEVANT_SELF_CITATION": "References [15] (evolving fuzzy models for prosthetic hand myoelectric control) and [16] (tensor-product model transformation for pendulum-cart systems), both co-authored by the first author and [16] also by the second, are cited for the claim that a raised-cosine speed profile is \"inspired by the trigonometric membership functions of fuzzy sets\". Topical similarity to electric-bus trajectory planning is below 0.3; a raised cosine needs no fuzzy-control citation.",
+    "ELEVATED_SELF_CITATION": "Six of 21 prior-work references (about 29%, excluding the paper's own supplement [5]) include an author of this paper: [3], [6], [15], [16], [17], [20]. Counting [5] gives 7 of 22 (about 32%).",
+    "UNSUPPORTED_CLAIMS": "The conclusions claim the approach \"has a big potential for practical applications\" and will yield lower power consumption and smoother trajectories, yet neither optimisation problem is solved and all simulation results (Figs. S9-S40) are outside the paper, obtained with random control inputs in open loop. The paper itself contains no results, so the claim-evidence ratio is well below 0.33."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Problem-formulation paper with no solved optimisation and no results in the main text; heavy set-based notation for parameter records and trajectories fails the necessity test at Level 2, self-citation is elevated with off-topic fuzzy-control self-references, and the performance claims are unsupported.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Formulating (not solving) two optimal-control problems for a connected autonomous electric bus at a signalised intersection: segment-based lane and speed planning, then continuous-time cruise control, with a traffic-light indication formula, a segment-length formula and raised-cosine reference profiles.\n**Level:** 2 (Low)\n**Rationale:** The formulation is explicitly adapted from Dong et al. [2], [3] \"with a different objective function and a similar set of constraints\". No algorithm is proposed, nothing is solved, and no property is proved. Problem restatement with modified cost terms is at most Level 2.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 27 numbered, many multi-line, plus about 78 further relations (S1-S78) moved to the supplement\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Disproportionate in kind. The vehicle kinematics (5)-(7) and the cost functional (10) are legitimate. A large share of the remaining notation, however, recasts parameter lists and ordered trajectories as sets and stacks equivalent arg-min rewrites, none of which changes what would be implemented.\n\n### Issues\n- Eq. (1): the route described as a \"set\" Or containing the stop-line location, zone lengths, lane count, lane width and speed limits — a configuration record.\n- Eq. (17): a trajectory written as {kDs | k = 1...Ns-2} ∪ {S}, i.e. a list with its final point appended.\n- Eq. (13): four successive equalities of arg-min expressions that only rescale the objective by a constant and rename it.\n- Eq. (4): the \"novel\" traffic-light formula is a piecewise test of whether t lies in a green or red interval of the current cycle, i.e. a modulo comparison.\n- Inconsistencies: the definition of Os swaps lane index i and vehicle index j; Eq. (20) uses an undefined f; Eq. (5) defines x, y but the text speaks of sx, sy.\n\n---\n\n## Citation Analysis\n\nExcluding the paper's own supplement [5], six of 21 references (about 29%) include the authors: [3] (Dong et al., with K. Gao), [6] (the authors' KES 2025 conference version of this work), [15], [16], [17] (Precup et al., fuzzy modelling and control) and [20] (Roman, Precup et al., tower crane control). [3] and [6] are directly relevant. [17] (a survey of fuzzy control for mechatronics) is marginal. [15] (prosthetic-hand myoelectric fuzzy models) and [16] (pendulum-cart tensor-product modelling) are cited only to credit a raised-cosine speed profile to fuzzy membership functions; their similarity to the topic is below 0.3, hence IRRELEVANT_SELF_CITATION. [20] appears in the future-work list next to non-self references [19] (piezoelectric laminated shells), [21] (maglev) and [22] (indoor mobile robots), which are equally distant from bus trajectory planning; three of these four are papers in this journal. The same maglev paper [21] and the same group's tower-crane paper are also cited, with similarly thin justification, by another paper in this issue (the flying-saw controller). That alone is not evidence of mutual citation, so no ring flag is raised.\n\n---\n\n## Structural Analysis\n\nThe paper's own Section 4.3 states that the optimisation problems \"are not solved in this phase\", and that the simulations use random control inputs in open loop. All derivations of constraints (S23-S57 etc.), all parameter tables and all 32 result figures are in the external supplement. The main text therefore contains no evidence for the conclusions about potential energy savings, smoothness or tracking accuracy. The listed novelties (objective functions, segment-length formula, traffic-light model, trigonometric profiles) are minor adaptations. Limitations are acknowledged inline (offline planning requires accurate traffic information) but are immediately softened.\n\nArtifacts: the supplement is a PDF of derivations and figures. The Matlab/Simulink model is not released. Description is not availability.\n\n---\n\n## Conclusion\n\nA problem statement presented as a design approach, with the substance moved to a supplement and no solved problem or result in the paper. At concept Level 2 the set-theoretic packaging of parameter records and trajectories is formalism theater. Self-citation is elevated and includes off-topic self-references, and the practical-potential claims are unsupported. The formalism and self-citation flags both disqualify."
+  }
+ ]
+}

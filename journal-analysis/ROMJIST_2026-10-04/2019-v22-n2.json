@@ -1,0 +1,362 @@
+{
+ "batch_id": "2019-v22-n2",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 22,
+  "issue": 2,
+  "year": 2019
+ },
+ "papers": [
+  {
+   "paper_id": "mogniotte2019",
+   "paper": {
+    "title": "Analytical modelling of a lateral dual gate MESFET for integrated circuit in SiC",
+    "authors": [
+     "J.F. Mogniotte",
+     "C. Raynaud",
+     "M. Lazar",
+     "L. Michel"
+    ],
+    "abstract": "This paper presents a static analytical model derived from a lateral dual gate MESFET in SiC for which the gates have the particularity to be of different physical nature: the first gate is a Schottky barrier and the second gate is a bipolar junction. In order to build a design-kit dedicated to simulation, a spice model has been developed that includes an analytical model of the MESFET which takes into account especially the influence of the both gates on the channel conductivity. The model provides results with a good agreement with experimental measurements and continuous optimization processes allow having a better matching.",
+    "keywords": [
+     "SiC",
+     "analytical model",
+     "MESFET"
+    ],
+    "doi": null,
+    "pages": "103-110",
+    "source_file": "paper621.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 63.0,
+    "composite": 47.25,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "3 of 9 references (33%) are by the authors: [4] and [5] (Mogniotte, Raynaud, Lazar et al.) and [8] (Mogniotte et al.). All three are on the same SiC MESFET integrated-circuit line of work and are topically relevant, but the ratio exceeds the 30% threshold in a very short reference list."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Short device-modelling paper adapting an existing dual-gate JFET model to a Schottky/bipolar dual-gate SiC MESFET, with necessary device-physics equations and qualitative fit to measurements; a third of its nine references are self-citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Static analytical model of a lateral SiC MESFET with one Schottky gate and one buried bipolar gate, compared with I-V measurements.\n**Level:** 2 (Low)\n**Rationale:** The model is explicitly \"based on the dual gate JFET model proposed by H. Morel [9]\"; the contribution is applying a known drift-current channel model with two depletion regions to a new device. There is no novel algorithm, proof, or new modelling theory, so the lower level applies.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 (depletion widths, built-in potential, channel current, pinch-off condition, series resistance)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Every equation is standard semiconductor device physics that a SPICE/VHDL-AMS implementer would actually code; they pass the necessity test.\n\n### Issues\nNone identified in the formalism. Minor presentation issues: variables v and υ are used interchangeably, and Table 2 omits several symbols used (NA, Vp, Rs).\n\n---\n\n## Citation Analysis\n\nNine references, three of which ([4], [5], [8]) are by the first author with co-authors Raynaud and Lazar. They concern the same SiC MESFET technology and are relevant, but SCR = 33% exceeds the 30% threshold. [9] (Morel et al.) shares the laboratory but none of this paper's authors, so it is not counted. The remaining citations are a handful of general SiC IC and sliding-mode control papers.\n\n---\n\n## Structural Analysis\n\nThe model-versus-measurement comparison is qualitative (\"Global shapes of the curves are similar\"), with no error metric. The fit for the floating-G1 case relies on an ad hoc assumption (\"VGS1 = 0.05×VGS2 + 1.8\") introduced to match the data. Fitted parameters differ from nominal ones (NA 5×10^16 versus the stated 5×10^15 cm^-3) without comment. Limitations are acknowledged inline: the mismatch at low VGS, the floating-gate case, and the statement that \"further improvements are needed\". No model code, SPICE netlist or measurement data are released.\n\n---\n\n## Conclusion\n\nA compact, honest device-modelling note whose equations are necessary and proportionate. Its weaknesses are a qualitative validation without error metrics and a reference list in which one third are self-citations, which triggers the excessive self-citation flag although the cited works are topically appropriate."
+  },
+  {
+   "paper_id": "bunea2019",
+   "paper": {
+    "title": "Packaging approaches for GaN/Si SAW Band Pass Filters with Operating Frequencies above 5 GHz",
+    "authors": [
+     "A. C. Bunea",
+     "D. Neculoiu",
+     "A. M. Dinescu"
+    ],
+    "abstract": "This paper presents two packaging approaches for surface acoustic wave band pass filters (SAW-BPF) processed on GaN/Si and operating at frequencies above 5 GHz. One approach is based on a surface mount device (SMD) quad flat no-leads (QFN) ceramic package available off-the-shelf for applications up to few GHz. The other approach is based on quasi-wafer level packaging (quasi-WLP), using a PMMA cap and epoxy resin glue to cover only the sensitive area of the SAW-BPF. The two packages are evaluated using a coplanar waveguide transmission line (CPW-TL) as test vehicle. The ceramic SMD QFN package shows additional losses lower than 1 dB up to 6 GHz, while the PMMA quasi-WLP shows additional losses lower than 0.1 dB up to 30 GHz. SAW-BFPs with operating frequencies around 5.5 GHz are packaged using the two approaches and measurement data shows little effect on the main SAW-BPF parameters.",
+    "keywords": [
+     "band pass filters",
+     "ceramic package",
+     "coplanar waveguide",
+     "gallium nitride",
+     "packaging",
+     "PMMA",
+     "surface acoustic wave",
+     "surface mount device",
+     "wafer level packaging"
+    ],
+    "doi": null,
+    "pages": "111-123",
+    "source_file": "paper622.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 65,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 69.75,
+    "composite": 52.31,
+    "final": 47.31
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "2 of 9 references (22%) are by the authors: [5] (Neculoiu, Bunea, Dinescu, Farhat) on the filters themselves and [6] (Bunea, Neculoiu, Dinescu), the conference paper first proposing the PMMA quasi-WLP. Both are directly relevant."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Experimental packaging study comparing an off-the-shelf ceramic QFN package and a PMMA quasi-wafer-level cap for 5.5 GHz GaN/Si SAW filters; no formalism, measurement-based but on single samples, with an extension of the authors' own conference work.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Two packaging options (commercial ceramic QFN and a machined PMMA cap glued with epoxy) for GaN/Si SAW band-pass filters, evaluated with CST simulation and VNA measurements.\n**Level:** 2 (Low)\n**Rationale:** Empirical engineering comparison of existing packaging approaches; no new model or algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper is entirely descriptive and measurement-driven.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo of nine references are the authors' own ([5], [6]); both are the direct precursors of this work (the filter design and the first PMMA quasi-WLP proposal), so they are relevant. SCR = 22%, in the elevated band. The reference list is short; a paragraph describing CST Microwave Studio's solver capabilities is uncited marketing-style text.\n\n---\n\n## Structural Analysis\n\nClaims are backed by S-parameter plots and two before/after parameter tables. Evidence rests on one CPW line and one filter per package, with no repeat samples or spread. There are internal inconsistencies: the abstract and conclusions cite added losses \"lower than 0.1 dB up to 30 GHz\" for PMMA, while the packaged filter shows about 0.5 dB added insertion loss (15.9 to 16.44 dB), and the cap size is given as 2.7x1.4 mm2 in Section 3.1 but 2.7x1.25 mm2 in the conclusions. The cost advantage of PMMA is asserted without any cost data, and hermeticity and reliability of the epoxy-glued cap are not tested. Limitations are acknowledged inline (QFN usable only to about 6 GHz, PMMA resonances above 30 GHz). No data or design files are released.\n\n---\n\n## Conclusion\n\nA straightforward, formalism-free experimental packaging report with adequate measurement evidence for its narrow claims, weakened by single-sample results, an unsupported cost claim, and minor numerical inconsistencies. Self-citation is elevated but relevant."
+  },
+  {
+   "paper_id": "baracu2019",
+   "paper": {
+    "title": "Microfabrication and experimental characterization of an Out-of-Plane MEMS switch",
+    "authors": [
+     "Angela Baracu",
+     "Raluca Müller",
+     "Rodica Voicu",
+     "Catalin Tibeica",
+     "Adrian Dinescu",
+     "Marius Pustan",
+     "Corina Birleanu"
+    ],
+    "abstract": "This paper presents an approach to improve the performance of a Micro-Electro-Mechanical (MEMS) switch with vertical movement, manufactured using surface micromachining technology. We focused on the investigations of the critical technological dimensions (gap, thickness of the arms) in order to obtain a released, stable mechanical structure and to avoid the stiction effect of the metallic shapes. Technological experiments, Scanning Electron Microscopy (SEM) investigations, CoventorWare and Comsol simulations were performed in order to investigate the electro-thermo-mechanical behaviour of the switch.",
+    "keywords": [
+     "MEMS switch",
+     "thermal actuator",
+     "microfabrication",
+     "sacrificial layer"
+    ],
+    "doi": null,
+    "pages": "124-134",
+    "source_file": "paper623.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 40,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 56.0,
+    "composite": 42.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "3 of 9 references (33%) are by the authors: [4] (Pustan, Birleanu, Muller, Baracu), [5] (Baracu, Voicu, Müller, Pustan, Birleanu) and [6] (Baracu, Müller, Voicu, Pustan, Birleanu, Dinescu). All are on the same MEMS thermal actuator/switch work and are topically relevant, but the ratio exceeds 30%; two figures are reused from [4] and [6]."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Fabrication and FEM-simulation report on a thermally actuated vertical MEMS switch with no formalism; despite the title, no electrical or mechanical measurements are reported, and a third of the references are self-citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Surface-micromachined aluminium electro-thermal MEMS switch using photoresist as sacrificial layer, with CoventorWare and COMSOL simulations and SEM images of released structures.\n**Level:** 2 (Low)\n**Rationale:** Process description plus commercial-tool FEM simulation of a new geometry; no new model, algorithm or analysis method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. No formal apparatus.\n\n### Issues\nNone identified in the formalism.\n\n---\n\n## Citation Analysis\n\nNine references; [4], [5] and [6] include the first author and/or Pustan, Birleanu, Müller, Voicu and Dinescu. SCR = 33%, above the 30% threshold. The self-citations are on-topic (the authors' earlier chevron actuator and the conference version of this switch), and Figures 3b, 4 and 14 are reused from [4]/[6], so this paper is substantially an extension of the conference paper [6].\n\n---\n\n## Structural Analysis\n\nThe title promises \"experimental characterization\", but the only experimental evidence is optical and SEM images showing that structures released for two gap sizes. No actuation, displacement, contact resistance or switching measurement is reported; the conclusions state \"Future work will be focused on experimental measurements\", which is the only acknowledgment of this gap. The claim of \"very high reproducibility\" and reduced stiction is asserted without yield or repeat data. Simulation reporting is internally inconsistent: a parametric analysis is described over a \"1-200 V range\" while results are given in mV, reference temperature is given as 2 degrees C, and the 50 mV/60 degrees C/12 µm values sit oddly with the COMSOL step at 28-29 mV. Simulations use commercial tools; no models, layouts or data are released.\n\n---\n\n## Conclusion\n\nA formalism-free fabrication note whose evidence supports only that the structures release; the electro-thermal behaviour rests on simulations with unit inconsistencies, and the promised experimental characterization is deferred to future work. Excessive self-citation is triggered by three closely related prior papers out of nine."
+  },
+  {
+   "paper_id": "moldovan2019",
+   "paper": {
+    "title": "Design and fabrication of tubes-guided structure with electrical stimulation module for neural regeneration and in-vivo testing",
+    "authors": [
+     "C. Moldovan",
+     "A. Barbilian",
+     "G. Stergios",
+     "M. Drignei",
+     "E. Jovenet",
+     "I. Lascar",
+     "A. Berami",
+     "E. Drignei",
+     "L. Dobrescu",
+     "O. Dontu",
+     "D. Dobrescu",
+     "D. Besnea",
+     "B. Fartat",
+     "D. Dragomir",
+     "P.L. Milea",
+     "D. Muraru",
+     "T.P. Neagu",
+     "E.L. Stănciulescu",
+     "R. Scarlet",
+     "F. Sandru",
+     "M.C. Dumitrascu",
+     "C. Draghici"
+    ],
+    "abstract": "The research work is proposing a new biointerface to permit functional recovering of peripheral nervous fascicles using repair surgery. One biointerface can be experimentally used for Lewis rats' sciatic nerve. Simple tubes-guide structures are already experimentally used to safely regenerate peripheral nerves in recent years. Using dedicated software, the main tubular structure has been designed and then it has been 3D printed. Two types of gold electrodes (2 mm and 4 mm long) wrap the tube-guided structure in order to allow electric signals application around the tubes-guided structure. A special compact Wi-Fi electronic module containing a low frequency oscillator is attached to this structure. This novel biointerface enables a programmable electric stimulation process that accelerates the nerves growth after repair surgery. Functional tests may be performed and their results are expected to show that the regeneration rate of the sciatic nerve of the rats increases.",
+    "keywords": [
+     "Electrical stimulation",
+     "nanoelectrodes",
+     "biointerface",
+     "peripheral nervous fascicles",
+     "tubes-guided"
+    ],
+    "doi": null,
+    "pages": "135-143",
+    "source_file": "paper624.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 70,
+    "structural_integrity": 20,
+    "artifact_availability": 0,
+    "intellectual_integrity": 61.5,
+    "composite": 46.12,
+    "final": 26.12
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "Central claims have no evidence in the paper: the abstract asserts the biointerface \"accelerates the nerves growth after repair surgery\" and the conclusions that \"infectious risks are significantly reduced\", yet no in-vivo or bench result is reported; the functional outcome is stated only as what results \"are expected to show\" or \"should reveal\". The electronic module is described without any electrical measurement. Evidence sentences are well under one third of claim sentences.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints; the absence of any experimental result is not acknowledged as a limitation."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Prototype description of a 3D-printed nerve guide with gold electrodes and a stimulation oscillator module, presented with a prospective rat protocol; it contains no results, so its claims of accelerated regeneration and reduced infection risk are unsupported.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** CAD design (CATIA) and 3D printing of a tubular nerve-guide biointerface, gold wrap electrodes, and an electronic stimulation module built around a commercial programmable oscillator, plus a planned rat sciatic-nerve protocol.\n**Level:** 1 (Trivial)\n**Rationale:** A prototype description assembling existing tools and an off-the-shelf oscillator chip; no model, algorithm or analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. No formalism.\n\n### Issues\nNone identified in the formalism.\n\n---\n\n## Citation Analysis\n\nThree of nineteen references include authors of this paper: [14] and [15] (Moraru, Besnea, Dontu et al., on additively manufactured dental prostheses) and [16] (Oproiu, Lascar, Moldovan, Dontu, Dobrescu, Scarlet, Neagu et al., peripheral nerve WiFi interfaces, also in ROMJIST). SCR = 16%, slightly elevated. [16] is directly relevant. [14] and [15] are cited for general statements about CATIA and 3D printing; their dental-prosthesis topic is only marginally related (similarity judged about 0.3-0.4, additive manufacturing of medical parts), so they are noted as marginal rather than irrelevant. Several clinical references ([9], [12]) are stem-cell reviews cited for claims about tube-guides in humans that they do not obviously support; [18] is listed but never cited in the text.\n\n---\n\n## Structural Analysis\n\nThe paper reports no results of any kind: no electrode characterization, no stimulation waveform, no implantation outcome. Tense is inconsistent and misleading: Section 3 states the electronics \"were removed from the peripheral nervous system of the rats by surgery\" and that implantation \"was minimally invasive\", while the abstract and Sections 4-6 treat testing as future (\"may be performed\", \"should show\"). The module is repeatedly called \"Wi-Fi\" although the described circuit is an oscillator powered by an induction coil with no radio. Fabrication materials are given inconsistently (CELLINK pluronics/collagen/GelMA in Section 2, PLGA in Section 4). Much of the introduction is epidemiology unrelated to the contribution. With 22 listed authors and \"all authors have equal contributions\" for a nine-page design note, authorship is also unusually inflated. Nothing is released.\n\n---\n\n## Conclusion\n\nThis is a design proposal presented as a research paper. Its formalism is not at issue, but its principal claims (accelerated regeneration, reduced infection risk) are asserted without any supporting data, and no limitation is acknowledged. Structural integrity is very weak."
+  },
+  {
+   "paper_id": "plesa2019",
+   "paper": {
+    "title": "Design of Over-Temperature Protection for Switched-Capacitor DC-DC Converter Based on Electro-Thermal Simulations",
+    "authors": [
+     "Cosmin-Sorin Plesa",
+     "Marius Neag",
+     "Cristian Mihai Boianceanu"
+    ],
+    "abstract": "This paper presents an over-temperature protection (OTP) circuit for a DC-DC converter based on switching capacitors (SC DC-DC). A two-steps design methodology was employed: a first-pass circuit was obtained by using standard, electrical-only simulations; next, electro-thermal simulations were employed to ascertain the best location of the thermal sensor and the resulting thermal coupling, thus allowing for the fine-tuning of the final circuit. The die temperature distribution was analyzed for two critical operational scenarios in order to identify the worst case and to provide design data for implementing a robust and precise OTP. The key electrical and electro-thermal simulation results are presented in some detail. Finally, results of measurement performed on the actual silicon are presented, to validate the design.",
+    "keywords": [
+     "Over-temperature protection",
+     "switched-capacitor DC-DC converter",
+     "controlled charging current",
+     "thermal shutdown",
+     "electro-thermal simulations"
+    ],
+    "doi": null,
+    "pages": "144-157",
+    "source_file": "paper625.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.5,
+    "composite": 49.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "4 of 13 listed references (31%) include an author: [2] and [13] (Bajenaru, Boianceanu, Brezeanu et al.), [11] (Plesa, Neag, Radoias) and [12] (Pfost, Boianceanu et al.). If the duplicate entries [7] and [9] (the same Gregoire paper) are merged, the ratio is 4/12 = 33%. All self-citations concern OTP circuits or electro-thermal simulation and are relevant."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Solid applied circuit-design paper on placing and tuning an over-temperature protection for an SC DC-DC converter using electro-thermal simulation, validated on silicon; minimal necessary formalism, but self-citations just exceed 30% of a short reference list.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Two-step design (electrical-only then electro-thermal simulation) of an over-temperature protection circuit and its sensor placement in an integrated switched-capacitor DC-DC converter, with silicon measurements.\n**Level:** 2 (Low)\n**Rationale:** Application of an established electro-thermal co-simulation methodology [12, 13] and a standard comparator-with-hysteresis OTP to a specific converter; a design methodology, not a new algorithm or model.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (DeltaT = THOTSPOT - TOTPSENSOR)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The single equation defines the quantity the paper optimizes.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nFour of thirteen entries involve the authors (Boianceanu on [2], [12], [13]; Plesa and Neag on [11]). They supply the OTP topology and the electro-thermal simulation method actually used, so they are topically appropriate, but SCR is 31% (33% after merging the duplicated Gregoire reference [7]/[9]), just above the threshold. One reference is a product datasheet.\n\n---\n\n## Structural Analysis\n\nClaims are supported by simulations (temperature sweeps, 500-run Monte Carlo, thermal maps for three sensor positions) and by measurements on three silicon samples showing thresholds within about 2 degrees C of design, plus a time-to-OTP match of 785 ms measured versus 780 ms simulated. Limitations are acknowledged inline: electro-thermal results are \"difficult to validate through direct measurements\", the mean-power approximation carries an error under 10 degrees C, and measurements were not in a low-EMI environment. Minor errors: Table 1 lists TSTART as \"-150\" degrees C where 150 is meant, trace colours for sensor and hot-spot are swapped between text and Fig. 10 caption, and sample S3 is labelled S2. The rationale for choosing the second-best sensor position (58 degrees C versus 33 degrees C) rests on an unquantified layout difficulty. No simulation models or data are released.\n\n---\n\n## Conclusion\n\nA competent, well-evidenced applied design paper with proportionate formalism and genuine silicon validation. The only substantive concern is that self-citations make up just over 30% of a thirteen-entry reference list, which triggers the excessive self-citation flag although the cited works are directly relevant."
+  },
+  {
+   "paper_id": "dragan2019",
+   "paper": {
+    "title": "An Improved I/O Pin for Serial Communication Interfaces",
+    "authors": [
+     "Anca Mihaela Dragan",
+     "Andrei Enache",
+     "Alina Negut",
+     "Adrian Macarie Tache",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "Modern mid-speed serial communication interfaces are required to operate in a wide range of power supply voltages, while achieving transmission rates in the order of Mbps or tens of Mbps. An important factor in determining the maximum bit rate is the I/O of the interface. An I/O pin with an improved digital push-pull output buffer is designed and implemented in a 0.18µm CMOS EEPROM process. The pin acts as an interface between an internal low voltage and an external, higher level voltage. The circuit can operate at power supply voltages from 1.6V to 5.6V and can be used in an I2C UFm interface at 5 Mbps and an SPI interface at 10 Mbps. These performances were achieved through topology changes to a classic digital output buffer.",
+    "keywords": [
+     "Serial communication interface",
+     "wide voltage range",
+     "high data rate",
+     "I/O pin",
+     "digital output buffer",
+     "push pull stage"
+    ],
+    "doi": null,
+    "pages": "158-180",
+    "source_file": "paper626.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 95,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.5,
+    "composite": 61.12,
+    "final": 61.12
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Circuit-design paper presenting a faster mixed-voltage push-pull output buffer and its use in I2C UFm and SPI interfaces; no formalism, low self-citation, and claims backed by corner/temperature simulation tables, though no silicon measurements are shown.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Topology modifications (low-threshold output nMOS driven from the LV domain, removal of one level shifter, revised non-overlap logic) to a standard mixed-voltage push-pull output buffer in 0.18 µm CMOS, evaluated in I2C UFm and SPI slave interfaces.\n**Level:** 2 (Low)\n**Rationale:** Incremental improvement of a standard circuit, evaluated by HSPICE simulation; no new algorithm or theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Timing parameters are defined in prose.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nOne of 23 references ([1], the authors' CAS 2018 conference paper on the same buffer) is a self-citation; SCR = 4%, relevant. The rest are a mix of journals, patents, specifications and product datasheets used as comparison points. No concerns.\n\n---\n\n## Structural Analysis\n\nClaims are supported by min/typ/max tables across process corners and -40 to 125 degrees C, supply sweeps, and comparison against datasheet limits of commercial parts (CAT25128, NXH5104, PCU9661). The abstract and conclusions say the circuit was \"designed and implemented\", but all evidence is simulation; the conclusions correctly say the buffers were demonstrated \"through simulations\", yet no silicon measurements are given, which weakens the 20 Mbps and access-time claims. Limitations are acknowledged inline (the standard topology performs better at higher VDD, the low-voltage pull-up improvement is limited by pMOS overdrive). There are editing errors: the 65 ns worst case is attributed to Table 6 instead of Table 5, Fig. 4 and Fig. 3 are cited where the output-buffer figures are meant, and tplh appears twice in Table 1. No netlists or simulation data are released, which is typical for an industrial process.\n\n---\n\n## Conclusion\n\nA clear, well-quantified incremental circuit-design contribution with proportionate (absent) formalism and clean citation practice. The main weakness is that the performance claims rest entirely on simulation despite the language of implementation."
+  }
+ ]
+}

@@ -1,0 +1,489 @@
+{
+ "batch_id": "2021-v24-n2",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 24,
+  "issue": 2,
+  "year": 2021
+ },
+ "papers": [
+  {
+   "paper_id": "dumitru2021",
+   "paper": {
+    "title": "Exploring the Effect of Segmentation on a 10-bit DAC",
+    "authors": [
+     "Florin-Silviu Dumitru",
+     "Carmen Raluca Ilie",
+     "Mircea Bodea",
+     "Marius Enachescu"
+    ],
+    "abstract": "This paper investigates the impact of segmentation on the DNL (differential non-linearity) and INL (integral non-linearity) of a 10-bit differential output current-steering digital-to-analog converter (DAC), implemented in a 40 nm, 2.5 V, CMOS process. The achievable DNL improvement was characterized by simulating all intermediate degrees of segmentation possible between a binary and a thermometer implementation. The DNL results ranged between (-0.467, +0.474) LSB and (-0.024, +0.026) LSB with the INL remaining almost invariant at (-0.376, +0.345) LSB. A differential output current of +/-1mA was achieved for a circuit with an active analog area of 0.01 mm2. All decoder variants required for driving the analog content of the DAC have been physically implemented with their area documented. The theoretical results for the DNL and INL are compared with the Monte Carlo simulation results and are shown to be within a 30% margin of error.",
+    "keywords": [
+     "Microelectronics",
+     "nanotechnology",
+     "DAC",
+     "current-steering",
+     "segmentation",
+     "RMS",
+     "decoder"
+    ],
+    "doi": null,
+    "pages": "129-142",
+    "source_file": "paper684.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.25,
+    "composite": 58.69,
+    "final": 58.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation-based design-space study of DAC segmentation with proportionate textbook formalism; two related self-citations, no released netlists or scripts, and limitations acknowledged only in passing.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Exhaustive Monte Carlo characterisation of all ten binary/thermometer segmentation splits of a 10-bit current-steering DAC in 40 nm CMOS, plus synthesis and place-and-route areas for the matching binary-to-thermometer decoders, compared against literature formulas for sigma_DNL and sigma_INL.\n**Level:** 2 (Low)\n**Rationale:** Applies known segmentation theory and known mismatch-based estimation formulas (taken from lecture notes [11] and Pelgrom-style mismatch) to a new technology node. The contribution is an empirical validation and area table, not a new method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 numbered (binary-weighted output current sum; Pelgrom mismatch relation) plus a table of six sigma formulas\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the standard engineering relations the paper sets out to test against simulation; removing them would remove the object of the comparison.\n\n### Issues\nNone identified for formalism. Minor inconsistencies: the purely thermometer variant is labelled \"01B10T\" in one place and \"00B10T\" elsewhere; the relative-error range in the text, (-30.70, -11.55)%, does not match the last row of Table 6 (-11.66%).\n\n---\n\n## Citation Analysis\n\n13 references; 2 self-citations: [6] the authors' own CAS 2020 conference version of this study (directly related; this paper is its extension) and [9] a 1985 Romanian textbook on electronic measurement instruments co-authored by M. Bodea, cited for the usual range of thermometer bits (marginal but on-topic). SCR about 15%, at the boundary of normal and elevated. The theoretical sigma formulas rest on a university lecture handout [11] rather than a peer-reviewed source.\n\n---\n\n## Structural Analysis\n\nClaims are tied to tables (Table 5 areas, Table 6 computed vs simulated sigmas) and figures; the 30% error claim is supported by Table 6. All results are simulation-only (200 Monte Carlo runs); no silicon measurement. Limitations are acknowledged inline only: the finite number of Monte Carlo runs and the systematic overestimation by the formulas. No netlists, layouts, or Matlab scripts are released.\n\n---\n\n## Conclusion\n\nA competent, modest extension of a conference paper. Formalism is proportionate and necessary. The main weaknesses are the absence of measured silicon, reliance on a lecture handout for the formulas under test, and no released artifacts."
+  },
+  {
+   "paper_id": "boncu2021",
+   "paper": {
+    "title": "An algorithm-based method for accurate compensation of bandgap references over temperature",
+    "authors": [
+     "Madalina Boncu",
+     "Catalin Botezatu",
+     "Florin Draghici"
+    ],
+    "abstract": "A curvature-compensated bandgap voltage reference circuit, with a high degree of temperature compensation, is designed and implemented in a 0.18um CMOS technology. The accuracy of the circuit was obtained with the help of a software code, having the aim of calculating the necessary parameters. Thus, a newly design method, implemented in MATLAB software, is proposed. The circuit is intended for integration within a voltage regulator with an adjustable output voltage. The bandgap circuit provides a reference voltage of 1.2V, for supply voltages between 1.65V and 3.6V, over a temperature range of -40C to 85C. The targeted TC is below 10 ppm/C for typical process parameters.",
+    "keywords": [
+     "Bandgap Voltage Reference (BVR)",
+     "Curvature compensation",
+     "Temperature coefficient (TC)",
+     "Proportional To Absolute Temperature (PTAT)",
+     "Complementary To Absolute Temperature (CTAT)"
+    ],
+    "doi": null,
+    "pages": "143-160",
+    "source_file": "paper685.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.95,
+    "composite": 59.96,
+    "final": 59.96
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the MATLAB design code is described through flow diagrams only",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Piecewise-linear curvature-compensated bandgap with a MATLAB parameter-sweep script; proportionate circuit equations, but the \"algorithm\" is a set of while-loops, the code is not released, and some performance claims are overstated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design of a 1.2 V bandgap reference in 0.18 um CMOS using the known piecewise-linear curvature-correction technique (Rincon-Mora), with two nonlinear currents; resistor and mirror coefficients are found by a MATLAB script that iteratively adjusts values with while-loops until slopes match.\n**Level:** 2 (Low)\n**Rationale:** An existing compensation technique applied to a new design, with a straightforward iterative parameter search. The \"algorithm\" is described by the authors themselves as \"basic programming statements (if and while)\".\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (VBE temperature dependence, piecewise nonlinear current, output voltage expressions, TC definition, figure of merit)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are standard circuit relations that the MATLAB script evaluates; they are needed to reproduce the design.\n\n### Issues\nNone identified for formalism. Consistency issues: the abstract states a targeted TC below 10 ppm/C, Table 1 specifies below 20 ppm/C; the conclusions give the supply range as 1.8-3.6 V while results are reported from 1.65 V.\n\n---\n\n## Citation Analysis\n\n9 references; 1 self-citation ([1], the authors' own CAS 2020 version of this work, directly related). SCR about 11%. Reference [9] does not appear to be cited in the text. No issues of concern.\n\n---\n\n## Structural Analysis\n\nSimulation results over temperature, supply, process corners and Monte Carlo are tabulated and support the TC and line-sensitivity numbers. However, several claims lack support: that the code \"gives the best results\" and that design time was \"considerably reduced\" are asserted without any comparison or timing data. The figure of merit comparison mixes simulated results for this work with measured silicon from others. Limitations are acknowledged inline: the algorithm ignores side effects, the op-amp offset is uncompensated, and trimming may be needed. The MATLAB code, the paper's stated contribution, is shown only as flow diagrams and is not released.\n\n---\n\n## Conclusion\n\nA routine but adequate circuit design paper whose novelty claim rests on a simple iterative script that is not made available. Formalism is appropriate. Structural integrity is weakened by unsupported efficiency claims, internal specification inconsistencies, and simulation-only validation."
+  },
+  {
+   "paper_id": "petrasuc2021",
+   "paper": {
+    "title": "A Novel Full-Wave Current Sensor for Automotive Synchronous Buck Converters",
+    "authors": [
+     "Gabriel Petrasuc",
+     "Paul Miresan",
+     "Marius Neag",
+     "Cosmin Chira"
+    ],
+    "abstract": "This paper presents a novel full-wave current sensor based on the Vds-sense technique, suitable for fully integrated complementary switching power stages such as those used in synchronous buck DC-DC converters. It is designed to operate over a wide range of input voltages required by automotive applications. Provisions have been made for both current- and voltage-output, as well as for trimming. The novel sensor was derived by addressing the main limitations of a solution published previously by the authors. Both the circuit topology and circuit implementation were improved in order to increase the sensor accuracy. The new topology is simpler and allows for the signal paths to be implemented by using low-voltage transistors; the main transconductors were implemented by using the common-gate topology, which provides large bandwidth for a relatively low power consumption. A design example is presented in some detail: a full-wave current sensor for synchronous buck DC-DC converter designed in a High-Voltage 180nm CMOS process. The converter provides a nominal 5V output and up to 500mA, while the input voltage varies between 6V and 45V. Simulation results shown that the current sensor presented here operates over the entire range of input voltages and resulting duty-cycle, between 10% and 80%. The relative error when the signals driving the power switches have a 50% duty-cycle is under 1.2%pkpk for inductor currents larger than 200mA and remains below 7.2%pkpk down to 50mA.",
+    "keywords": [
+     "Full-wave current sensor",
+     "Vds-sense",
+     "sense-FET",
+     "synchronous buck converter",
+     "Sample&Hold",
+     "common-gate amplifier"
+    ],
+    "doi": null,
+    "pages": "161-181",
+    "source_file": "paper686.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.25,
+    "composite": 58.69,
+    "final": 58.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Incremental topology improvement of the authors' own Vds-sense current sensor, validated by simulation against re-implemented and published sensors; proportionate formalism, modestly elevated self-citation, no artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Improved full-wave Vds-sense inductor current sensor for an automotive synchronous buck converter in 180 nm HV CMOS: relocated Sample&Hold, an HV cascode isolating a low-voltage current mirror, common-gate transconductors, and a two-step trimming scheme.\n**Level:** 2 (Low)\n**Rationale:** Circuit-level refinement of a known technique and of the authors' own earlier topology [1]; contribution is design and simulation, not a new theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 11 (core current expressions for high-/low-side modes, matching conditions, output current/voltage, W/L sizing conditions)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations give the sizing conditions a designer needs to match high- and low-side gains; they are used to set K and m in the design example.\n\n### Issues\nNone identified. Minor: Fig. 15's caption repeats the 10% duty-cycle text although the figure is the 80% case; a sentence in Section 4.d is truncated (\"smaller than 1\").\n\n---\n\n## Citation Analysis\n\n12 references; 2 self-citations: [1] the authors' CAS 2020 sensor that this paper improves (directly related) and [11] an LDO with common-gate OTA co-authored by M. Neag (related, cited for the common-gate transconductor choice). SCR about 17%, elevated but both citations are topical.\n\n---\n\n## Structural Analysis\n\nAccuracy claims are backed by simulated waveforms and relative-error plots across duty cycles, with comparison to [1], an in-house re-implementation of [2], and published data from [3]. All validation is simulation; no silicon. Limitations are acknowledged inline (large error during Hold intervals, slightly larger error than [2] at 80% duty cycle above 120 mA). No netlists or testbenches are released.\n\n---\n\n## Conclusion\n\nA solid, conventional analog design paper with proportionate formalism and clear simulation evidence. The main limitations are simulation-only validation and no released design artifacts."
+  },
+  {
+   "paper_id": "veselu2021",
+   "paper": {
+    "title": "New Constant-gm circuit for precision chopper offset-stabilized operational amplifiers",
+    "authors": [
+     "Adrian Constantin Veselu",
+     "Cornel Stănescu",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "The paper presents a low-voltage chopper offset-stabilized operational amplifier with a new constant-gm technique, having a 1.8-5.5 V supply range, designed and simulated in a 0.25 um CMOS process. The amplifier has an offset voltage of +/-5 uV, minimum CMRR of 106 dB, minimum PSRR of 121 dB, 51 nV/sqrt(Hz) voltage noise density and 550 kHz unity-gain bandwidth. The quiescent current is only 36 uA and was obtained due to the new low current constant-gm technique, which provides a variation of only 4% of the input transconductance and almost constant unity-gain bandwidth within the common-mode voltage range.",
+    "keywords": [
+     "Microelectronics and electronic packaging",
+     "chopper offset-stabilized operational amplifier",
+     "constant-gm",
+     "low current",
+     "offset voltage",
+     "noise"
+    ],
+    "doi": null,
+    "pages": "182-200",
+    "source_file": "paper687.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 85,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.25,
+    "composite": 60.94,
+    "final": 60.94
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Low-current constant-gm input stage integrated into a chopper op-amp, with extensive PVT and Monte Carlo simulation; proportionate formalism, related self-citations, limitations stated, no artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A rail-to-rail input stage that keeps total transconductance constant using dummy differential pairs and small scaled current mirrors (Iref/8), reducing extra current relative to two related-art schemes, evaluated inside a chopper offset-stabilised op-amp in 0.25 um CMOS.\n**Level:** 2 (Low)\n**Rationale:** A circuit-level variation on known constant-gm techniques (dummy pairs, current injection), validated by simulation.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (weak-inversion gm in the three common-mode regions)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Three one-line gm expressions explain why the tail current must double; nothing is decorative.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n14 reference entries, of which [4] and [6] are the same paper listed twice. 2 self-citations: [1] the authors' CAS 2020 version (directly related) and [8] a notch filter for chopper amplifiers by C. Stanescu (directly related; the filter is used in this design). SCR about 14-15%. No concerns beyond the duplicated entry.\n\n---\n\n## Structural Analysis\n\nClaims are supported by tables of UGBW, phase margin, IQ, offset, CMRR, PSRR and open-loop gain, including Monte Carlo statistics over temperature and supply. The comparison table mixes simulated results for this work with published silicon from others. Limitations are acknowledged inline and explicitly: the proposed circuit is slower and more complex than related art, and chopping degrades settling time, slew rate and step response. All results are simulation; no fabricated chip. No design files released.\n\n---\n\n## Conclusion\n\nA careful, well-evidenced analog design extension of a conference paper. Formalism is minimal and necessary; self-citations are topical. Weaknesses are simulation-only validation and no released artifacts."
+  },
+  {
+   "paper_id": "paun2021",
+   "paper": {
+    "title": "Microheater optimized for the integration with metasurface-based IR sources for gas sensing application",
+    "authors": [
+     "Costel Paun",
+     "Roxana Tomescu",
+     "Catalin Parvulescu",
+     "Octavian Ionescu",
+     "Doina Elena Gavrila",
+     "Dana Cristea"
+    ],
+    "abstract": "This paper presents the design, manufacturing stages, electrothermal analysis and characterization of micro-heaters with platinum (Pt) resistive layer in four geometric configurations, which can be integrated with metasurfaces absorbers with applications in gas detection. The results obtained according to the electrothermal analysis and the performed experiments show that the studied micro-heaters can be integrated with metasurfaces to obtain the IR emission, necessary for gas detection.",
+    "keywords": [
+     "Microheater",
+     "IR emitter",
+     "metasurfaces",
+     "metamaterial absorber",
+     "gas sensor"
+    ],
+    "doi": null,
+    "pages": "201-212",
+    "source_file": "paper688.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 92,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.2,
+    "composite": 59.4,
+    "final": 59.4
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Design, COMSOL simulation, fabrication and thermal characterisation of four Pt microheater geometries; textbook heat-transfer equations, related self-citations, qualitative agreement claims, no artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Four Pt meander microheater layouts on fused silica intended to double as the metal back-plane of a metasurface IR emitter for CO2 sensing; COMSOL electrothermal simulation, fabrication flow, R(T), steady-state and transient thermal measurements.\n**Level:** 2 (Low)\n**Rationale:** Standard microheater design and characterisation applied to a new integration concept; empirical comparison of four geometries.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 9 (Joule heating, resistance, conduction, convection and radiation heat-loss terms)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in count. The equations are textbook background (cited to [15]) and are not used quantitatively afterwards, since the design is done in COMSOL; they are background rather than theater patterns.\n\n### Issues\nThe radiation term is written with ΔT^4 and the Stefan-Boltzmann constant given in W m^-2 °C^-4, which is physically incorrect (radiation depends on T^4 - T0^4 in kelvin). Table 1 gives electrical conductivity in kg/m^3. These are presentation errors rather than formalism theater.\n\n---\n\n## Citation Analysis\n\n18 references; 2 self-citations: [13] Tomescu et al. on metasurface IR emissivity control (directly related) and [14] Paun et al., the CAS 2020 version of this work (directly related). SCR about 11%. No issues.\n\n---\n\n## Structural Analysis\n\nSimulation and measurement are both presented, and Fig. 12 overlays measured and simulated temperature vs voltage. Agreement is described as \"very good\" without a quantitative error figure, and uniformity is judged visually from IR images. The integration with the metasurface, which is the paper's motivating novelty, is not demonstrated: no emission spectra are reported. A limitation is acknowledged inline (the 1 cm2 active area was dictated by the test set-up and will be reduced to cut power). No data or design files are released.\n\n---\n\n## Conclusion\n\nA competent device-engineering report with appropriate, if partly erroneous, background physics. The claims about suitability for metasurface integration go further than the evidence, which covers only the heater."
+  },
+  {
+   "paper_id": "chiriac2021",
+   "paper": {
+    "title": "Manipulation of particles using dielectrophoresis in a microchannel",
+    "authors": [
+     "Eugen Chiriac",
+     "Marioara Avram",
+     "Corneliu Bălan"
+    ],
+    "abstract": "Over the years several methods were used to separate cells within a microfluidic device such as cavities, with vortex microfluidics method, or cell trapping mechanisms using size filters. However, one of the methods that is widely used to separate cancer cells from blood cells is the dielectrophoresis. In this work we employ the numerical code COMSOL Multiphysics for a dielectrophoretic separation of CTCs (circulating tumor cells) from RBCs (red blood cells) in a 3D microchannel. The microfluidic device is composed of one inlet and three outlets. The non-uniform alternative electric field is generated using interdigitated electrodes and it separates the cells within the device to the corresponding outlet. The electric field frequency was set to 100 kHz. For this paper, one single CTC line is selected MDA-MB-231, breast cancer cells. The CTCs and the RBCs are considered in an ideal way in the simulation as spheres, but with the afferent characteristics. This work can be extended to testing multiple CTC lines at various flow velocities and electric field frequencies",
+    "keywords": [
+     "particle manipulation",
+     "dielectrophoresis",
+     "microchannel",
+     "CFD"
+    ],
+    "doi": null,
+    "pages": "213-221",
+    "source_file": "paper689.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 78,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 70.55,
+    "composite": 52.91,
+    "final": 52.91
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "COMSOL simulation of dielectrophoretic CTC/RBC separation with only the flow field checked by micro-PIV; textbook equations, elevated but related self-citation, internally inconsistent results, no artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fabrication of a PDMS-on-pyrex microchannel with interdigitated gold electrodes, and COMSOL simulation of the trajectories of one CTC and one RBC under dielectrophoresis at two frequencies; micro-PIV check of the velocity field.\n**Level:** 2 (Low)\n**Rationale:** Application of a standard commercial multiphysics workflow (laminar flow, electric currents, particle tracing) to a known separation problem.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 (DEP force, Clausius-Mossotti factor, complex permittivities, Reynolds number, Stokes equations, quasi-static field equations, Newton's law, Stokes drag)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in count. The equations restate the physics COMSOL solves; they are textbook background rather than a contribution, but they are not theater patterns.\n\n### Issues\nNone identified as theater. Several internal inconsistencies: the inlet velocity is given as 500 um/s, 180 um/s and \"500 m/s\" in different places; at 100 kHz both particles are said to experience negative DEP yet \"remain attached to the electrodes\", which contradicts the paper's own description of negative DEP pushing particles away from high-gradient regions; only one particle of each type is simulated.\n\n---\n\n## Citation Analysis\n\n11 references; 2 self-citations: [8] the authors' CAS 2020 paper this work continues (directly related) and [4] a magnetophoretic manipulation system co-authored by M. Avram (related as an active-separation example). SCR about 18%, elevated. Reference [1] is incomplete (no venue or year).\n\n---\n\n## Structural Analysis\n\nThe only experimental validation is a micro-PIV velocity profile of the flow field, without a quantitative comparison to the simulation. The separation claims rest on single-particle simulated trajectories. The conclusion that high frequency gives \"better results\" is undercut by the authors' own statement that 4.5e8 Hz is not experimentally obtainable without damaging cells; this is the main limitation acknowledged inline. No model files or data are released.\n\n---\n\n## Conclusion\n\nA preliminary simulation study with minimal experimental support and internal contradictions in the reported results. Formalism is background physics and not inflated; structural integrity is the main weakness."
+  },
+  {
+   "paper_id": "serbanescu2021",
+   "paper": {
+    "title": "A Standalone System for Resistive Smart Sensors Based on a Wheatstone Quarter-Bridge",
+    "authors": [
+     "Matei Serbanescu",
+     "Vlad-Mihai Placinta",
+     "Florin Nastase",
+     "Gheorghe Pristavu",
+     "Octavian Buiu",
+     "Gheorghe Brezeanu",
+     "Bogdan Serban"
+    ],
+    "abstract": "This paper presents the architecture of a resistive smart-sensor based on a Wheatstone quarter-bridge. The overall system also comprises a signal-conditioning circuit and a microcontroller. The intended sensing element is a small-variation chemo-resistive sensor. Its resistance gradient is converted by the conditioning circuit into a signal with variable duty-cycle. The proposed architecture is theoretically analyzed and validated by both simulations and measurements on a prototype, implemented with discrete and low-cost components. The output signal exhibits a maximum of 1.8% relative error, for a sensing element value variation of 10 Ohm. Sensing linearity is assessed via R2 at up to 0.9995, while sensitivity reaches 57.71 us/Ohm.",
+    "keywords": [
+     "Resistive sensor",
+     "quarter-bridge",
+     "signal-conditioning circuit",
+     "microcontroller",
+     "duty-cycle"
+    ],
+    "doi": null,
+    "pages": "222-232",
+    "source_file": "paper690.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 72,
+    "artifact_availability": 0,
+    "intellectual_integrity": 83.5,
+    "composite": 62.62,
+    "final": 62.62
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Prototype PCB readout for a small-variation resistive sensor built from off-the-shelf parts, with simple circuit equations validated by measurement; low self-citation, limitations noted, no artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A smart-sensor prototype combining a Wheatstone quarter-bridge, buffers, a differential amplifier, a comparator against a microcontroller-generated triangle wave (duty-cycle output), and a dsPIC that measures on-time with two input-capture modules.\n**Level:** 1 (Trivial)\n**Rationale:** A system that integrates commercial components (OPA4317, LMV761, MCP1603, dsPIC33CK) into a prototype; the conditioning topology is the authors' earlier one [14]. The classification rule for prototypes and component integration applies.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (bridge output, amplifier gain, on/off times, sensitivity factor k, timer arithmetic, coefficient of determination)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are elementary circuit relations that yield the theoretical transfer curve compared against measurement in Fig. 8. Eq. (7), the on-time as timer difference times timer period, is trivially expressible in words but is ordinary arithmetic, not notation dressing up a data structure, and is not counted as a theater pattern.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n27 references; verifiable self-citations: [14] Serbanescu et al., the CAS 2020 conditioning circuit (directly related) and [20] Serban et al., the target humidity sensor (directly related). [26] and [27] (\"Simionescu O. et al.\", \"Cobianu C. et al.\") are IMT nanomaterial sensor papers that may include co-authors of this paper, but the \"et al.\" form prevents verification. SCR between about 7% and 15%. Many datasheet references. No concerns.\n\n---\n\n## Structural Analysis\n\nTheory, Multisim simulation and PCB measurements are compared on one plot with R2 values and maximum relative error; sources of discrepancy (op-amp offset, supply ripple, bridge mismatch) are identified. The sensor itself is emulated by a trimmer, so behaviour with the real chemo-resistive element is untested; the authors acknowledge the narrow tested range inline and list future work. No firmware, schematics files or data are released.\n\n---\n\n## Conclusion\n\nA modest but honest prototype paper whose claims match its evidence. Formalism is appropriate for a Level 1 system. Weaknesses are the emulated sensing element and no released firmware or design files."
+  },
+  {
+   "paper_id": "rebigan2021",
+   "paper": {
+    "title": "Fabrication of Fresnel lenses operating as image correcting optical components for long infrared imaging systems",
+    "authors": [
+     "R. Rebigan",
+     "A. Avram",
+     "R. Tudor",
+     "M. Kusko",
+     "D. Ursu",
+     "G. Sorohan",
+     "C. Kusko"
+    ],
+    "abstract": "We present the technological processes required to fabricate silicon Fresnel lenses with sixteen discrete depth levels operating as corrector optical components for long infrared imaging systems. In order to configure the discrete surface of the lenses, four separated photolithographic processes each one of them followed by deep reactive ion etching were used. In order to detach the configured lenses presenting a disk like shape from the wafer, a DRIE Bosch deep etching process was employed. Finally, an antireflective layer consisting of a nanostructured surface was configured on both sides of the lenses in order to improve the transmission in LWIR spectral range. The geometrical parameters of the fabricated Fresnel lenses were determined by white light interferometry method and it was found that they are in good agreement with the design specifications. The optical and scanning electron microscopy measurements reveal a high quality of the optical surface with a low value of roughness. The spectral characteristics of the lenses in the LWIR spectral region reveal a transmission of above 70%.",
+    "keywords": [
+     "Fresnel lens",
+     "long infrared optics",
+     "silicon microfabrication",
+     "photolithographic processes",
+     "reactive ion etching"
+    ],
+    "doi": null,
+    "pages": "233-243",
+    "source_file": "paper691.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 77.45,
+    "composite": 58.09,
+    "final": 53.09
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints; the optical (image-correcting) performance that motivates the lens is never measured, and this is not acknowledged."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Process report for 16-level silicon Fresnel correctors for LWIR; essentially formula-free, related self-citations, but optical function is untested, agreement is asserted qualitatively, and no limitations are stated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fabrication flow for 16-level diffractive silicon Fresnel corrector lenses (four lithography/cryogenic DRIE steps), Bosch-process die separation, KOH thinning, and MACE antireflective nanostructuring; characterisation by WLI, optical/SEM microscopy and FTIR transmission.\n**Level:** 2 (Low)\n**Rationale:** Application and optimisation of established binary-optics fabrication methods; empirical process development.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 inline (d = λ/(n-1))\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The single relation sets the etch depth and is necessary.\n\n### Issues\nNone identified for formalism.\n\n---\n\n## Citation Analysis\n\n20 references; 2 self-citations: [14] Rebigan et al., the CAS 2020 version, from which Figs. 1 and 2 are reproduced (directly related), and [19] Rebigan et al. on the antireflective layers (directly related). SCR 10%. The silicon refractive index is attributed in the text to [10] (a Fresnel camera paper), whereas [20] (Salzberg and Villa, infrared refractive indexes) is the evident source and is otherwise uncited.\n\n---\n\n## Structural Analysis\n\nProcess parameters are documented in detail (Tables 1-2). Morphological agreement with design is asserted from a WLI cross-section showing about 250 nm steps, but no quantitative deviation statistics are given. The abstract's \"low value of roughness\" is not quantified anywhere. Transmission figures conflict: the text gives lens thicknesses as 270 nm and 540 nm where micrometres are meant, and states both a 10% gain and \"above 70%\" without reconciling them. The lenses' purpose, aberration correction in an LWIR imager, is not tested at all. No limitations are acknowledged. No mask files or data are released.\n\n---\n\n## Conclusion\n\nA useful fabrication recipe with minimal and necessary formalism, but its claims about quality and suitability go beyond the evidence, and limitations are not discussed."
+  },
+  {
+   "paper_id": "ravariu2021a",
+   "paper": {
+    "title": "Investigations of the Fabricated Nothing On Insulator Nanodevices as Metal-Air-Metal variant - NOI-MAM",
+    "authors": [
+     "Cristian Ravariu",
+     "Elena Manea",
+     "Adrian Dinescu",
+     "Catalin Parvulescu",
+     "Raluca Gavrila",
+     "Bhargav Appasani",
+     "Avireni Srinivasulu",
+     "Munizer Purica"
+    ],
+    "abstract": "This paper presents some investigations of an experimental Nothing On Insulator device, made in the Metal-Air-Metal (NOI-MAM) variant. The vacuum nanodevices are potential candidates for tera-Hertz applications. The investigations concern the fabrication processes, measurements of the output characteristics and simulations of the NOI-MAM devices. Two metallic nanowires are considered instead of two semiconductor nano-islands for Source and Drain. Air molecules in normal conditions inside a gap of maximum 36 nm size represents the \"Nothing\" area. The electron-beam lithography technology or AFM sectioning by tips are investigated by SEM and AFM analysis. The measured and simulated current-voltage curves are investigated for potential applications.",
+    "keywords": [
+     "Nanotechnology",
+     "Metallic nanowires",
+     "electron-beam lithography",
+     "vacuum devices",
+     "SEM",
+     "AFM"
+    ],
+    "doi": null,
+    "pages": "244-254",
+    "source_file": "paper692.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 30,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 55.75,
+    "composite": 41.81,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "13 of 29 references (about 45%) are by the authors: 12 by C. Ravariu ([4], [9]-[13], [15]-[19], [21]) and 1 by A. Srinivasulu ([29]). This exceeds the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Follow-up fabrication and Atlas simulation of metal-air-metal NOI nanogaps with no new equations; dominated by self-citation (about 45%), with speculative application claims and limited new evidence.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Further investigation of the authors' Nothing On Insulator device in a metal-air-metal variant: EBL-defined Cr/Au nanowire gaps of 19-31 nm, an AFM-scratching attempt, measured I-V curves, and Silvaco Atlas simulations of field, lattice temperature and I-V for three gap sizes.\n**Level:** 2 (Low)\n**Rationale:** Experimental fabrication and commercial-simulator study of a previously reported device; no new model or theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; there is no formalism.\n\n### Issues\nNone identified for formalism.\n\n---\n\n## Citation Analysis\n\n29 references, of which 13 are self-citations: C. Ravariu appears on [4], [9], [10], [11], [12], [13], [15], [16], [17], [18], [19], [21], and A. Srinivasulu on [29]. SCR about 45%, above the 30% threshold. Most Ravariu citations concern NOI devices and are topically related. [29] (ULPD pull-up stages for DCVSL) supports a speculative application paragraph and is only marginally related. Reference [20], a paper on chitosan for biomedical use by unrelated authors, is cited in the range \"[18-21]\" for NOI simulations and has no evident connection to the topic. The introduction also notes that another group \"cited our previous work\".\n\n---\n\n## Structural Analysis\n\nNew evidence is limited: SEM gap measurements, one AFM scratch that did not fully separate the nanowires, I-V curves already partly reported in [17], and Atlas simulations that differ from the measurements. Key premises are asserted rather than shown: that an air gap under 36 nm is equivalent to vacuum, and that the device has potential DCVSL or terahertz applications. The comparison in Fig. 7 overlays digitised points from other papers on mismatched scales. Limitations are acknowledged inline: incomplete AFM separation, and simulation/experiment discrepancies attributed to heating. No data or simulation decks are released.\n\n---\n\n## Conclusion\n\nAn incremental report on a device line dominated by the lead author's own prior work. Formalism is not a concern. The self-citation ratio exceeds the disqualifying threshold, and the application claims outrun the evidence."
+  }
+ ]
+}

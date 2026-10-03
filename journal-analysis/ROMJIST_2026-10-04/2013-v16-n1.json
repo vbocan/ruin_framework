@@ -1,0 +1,327 @@
+{
+ "batch_id": "2013-v16-n1",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 16,
+  "issue": 1,
+  "year": 2013
+ },
+ "papers": [
+  {
+   "paper_id": "sosik2013",
+   "paper": {
+    "title": "A Catalytic P System with Two Catalysts Generating a Non-Semilinear Set",
+    "authors": [
+     "Petr Sosík"
+    ],
+    "abstract": "Gives an explicit example of a one-membrane catalytic P system with two catalysts and 54 rules that generates a non-semilinear set of numbers, filling the gap left by the 2005 universality result for two catalysts; the minimal number of rules remains open.",
+    "keywords": [
+     "Catalytic P System",
+     "Membrane Computing",
+     "Non-Semilinear Set"
+    ],
+    "doi": null,
+    "pages": "3-9",
+    "source_file": "01-petr@20sosik.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 66.75,
+    "composite": 50.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "2 of 6 references ([2] Freund, Kari, Oswald, Sosík 2005; [6] Sosík, Freund 2003) include the author, SCR = 33%, just above the 30% threshold. Both are directly relevant: they are the universality results the note builds on. The ratio is high because the reference list has only six entries."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Short, technically focused note in membrane computing theory that builds an explicit two-catalyst P system for a non-semilinear set. The formalism is the subject matter and is proportionate. The self-citation ratio crosses 30% only because the reference list is tiny, and both self-citations are on topic.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Explicit construction of a one-membrane catalytic P system with two catalysts that generates the non-semilinear set produced by a three-register non-deterministic register machine, then simplification of the rule set from 64 to 54 rules.\n**Level:** 4 (High)\n**Rationale:** The paper settles a computational-expressiveness question (generation of a non-semilinear set) for a formal model of computation by construction and proof. It does not prove universality itself (that is cited from [2]), so Level 5 is not warranted. It is more than a new algorithm, so Level 3 is too low.\n\n### Formal Elements\n- Definitions: 1 (extended catalytic P system, quoted from the Oxford Handbook [5])\n- Theorems: 1\n- Proofs: 1 (constructive)\n- Equations: system specification and rule sets, register-machine program, configuration derivations\n\n### Proportionality\nCalculated complexity: 1x2 + 1x3 + 1x4 = 9\nExpected range (Level 4): 30-80\nRatio: 0.11x upper bound\n\n**Assessment:** Proportionate. The set-builder notation for the alphabet and rule set is the native language of membrane computing. The construction cannot be stated precisely without it.\n\n### Issues\nNone of the theater type. Minor textual problems: the generated set is printed as \"{2n - 2n | n >= 2}\", which reads as a lost superscript (presumably 2^n - 2n). The simplified alphabet O lists {o1, o2} but leaves out o3, although the rules still produce o3 and it carries the result. The correctness argument for the 64-rule base system rests entirely on Theorem 4.1 of [5] rather than being checked here. The ten-rule reduction is argued informally.\n\n---\n\n## Citation Analysis\n\nSix references, two of them self-citations ([2], [6]), SCR = 33%. Both are the foundational universality results for catalytic P systems that the note extends, so their topical similarity is high (about 0.9). The flag comes from the arithmetic of a very short reference list, not from padding. No citation-ring pattern.\n\n---\n\n## Structural Analysis\n\nThe one central claim (Theorem 1) is backed by an explicit construction. The conclusion acknowledges that 54 rules is probably not minimal and suggests ways to reduce it, which counts as inline acknowledgment of limitations. Pure theory: there is nothing to release, so artifact relevance is false.\n\n---\n\n## Conclusion\n\nA compact, legitimate theoretical note whose formalism matches its subject. The only flag is mechanical: two relevant self-citations out of six references go past the 30% threshold. Readers should treat that disqualification as an artifact of the short reference list rather than as evidence of citation manipulation."
+  },
+  {
+   "paper_id": "ege2013",
+   "paper": {
+    "title": "Cohomology Theory for Digital Images",
+    "authors": [
+     "Ozgur Ege",
+     "Ismet Karaca"
+    ],
+    "abstract": "Defines simplicial cohomology groups for digital images, states the Eilenberg-Steenrod axioms and the Universal Coefficient Theorem in this setting, shows that excision, homotopy and the Künneth formula fail for digital images, and defines a digital cup product and proves its basic properties.",
+    "keywords": [
+     "Digital image",
+     "digital simplicial cohomology group",
+     "Universal Coefficient Theorem",
+     "Künneth formula",
+     "cup product"
+    ],
+    "doi": null,
+    "pages": "10-28",
+    "source_file": "02-ozgur@20ege.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 78,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 63.8,
+    "composite": 47.85,
+    "final": 37.85
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "6 numbered definitions, 13 theorem-like statements (10 theorems + 3 corollaries) and 7 proofs give a complexity of 79, above the Level 3 upper bound of 40 but within 2x. Much of this material restates textbook algebraic topology (Ext/Tor properties, UCT, Künneth, cup-product identities) with proofs adapted from or deferred to standard sources.",
+    "NO_LIMITATIONS": "The conclusion restates the results and does not acknowledge any limitation, open problem, or the restriction of the examples to very small images."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Mathematical paper that carries simplicial cohomology over to digital images. The formalism is the content, but its volume is elevated because much of it is transcribed textbook material. Several statements and proofs contain errors (variance direction of induced maps, contradictory conclusions in the excision proof, an overstated corollary). No limitations are discussed.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Simplicial cohomology for digital images (subsets of Z^n with an adjacency relation): definitions, Eilenberg-Steenrod axioms, Universal Coefficient Theorem, failure of excision, homotopy and Künneth, and a digital cup product.\n**Level:** 3 (Medium)\n**Rationale:** The paper extends an existing theoretical framework (digital simplicial homology) to cohomology and proves properties. Most of the results transfer the classical theory, with routine proofs. It does not reach the depth of Level 4 results such as complexity or soundness proofs.\n\n### Formal Elements\n- Definitions: 6 numbered (2.3, 3.1, 3.2, 3.3, 3.8, 6.1), plus many inline definitions in the preliminaries (adjacency, continuity, homotopy, simplexes)\n- Theorems: 10 numbered theorems plus 3 corollaries; 5 axioms stated without proof\n- Proofs: 7 explicit (3.4, 3.9, 6.2-6.6); Example 5.3 serves as the proof of 5.2\n- Equations: numerous (boundary/coboundary maps, exact sequences, cup-product identities)\n\n### Proportionality\nCalculated complexity: 6x2 + 13x3 + 7x4 = 79\nExpected range (Level 3): 10-40\nRatio: 1.98x upper bound\n\n**Assessment:** Elevated. The formal elements are necessary in kind, since this is mathematics and passes the Necessity Test. Their quantity is inflated by restating standard material: Ext and Tor properties, the Universal Coefficient Theorem (\"We don't give its proof because it is similar as in algebraic topology\"), the Künneth formula for spaces, and cup-product identities whose proofs follow Hatcher and Prasolov almost line by line.\n\n### Issues\n- Theorem 3.4 claims H^q is contravariant, but the proof defines phi*: H^q(X) -> H^q(Y) for phi: X -> Y, which is the covariant direction.\n- In the proof of Theorem 3.9 the authors first derive H^{1,8}(X,A) = Z, then conclude \"and so we get H^{1,8}(X,A) = 0\" when they mean the excised pair, so the final inequality is stated inconsistently.\n- Corollary 3.10 says homotopy-equivalent digital images \"couldn't have isomorphic cohomology groups\", an overstatement of the single counterexample (it should read \"need not\").\n- The list of Ext properties is garbled: duplicated items and a lost product/sum distinction.\n- The commutativity and exactness axioms are cited to Munkres [24] for the digital setting, although Munkres treats topological spaces.\n\n---\n\n## Citation Analysis\n\n29 references. Five involve an author: [1] Arslan, Karaca, Oztel; [8] Boxer, Karaca, Oztel; [19], [20], [21] Karaca, Ege. SCR = 17%, which is elevated. All five are on digital homology of images and directly relevant (similarity about 0.8). Reference [1] is attributed in the text to \"Havana et al.\", a name mismatch. No ring pattern detected.\n\n---\n\n## Structural Analysis\n\nThe claims are mathematical and backed by proofs or explicit small examples (a single point, the 4-point 8-curve, MSS'_18, [0,1]_Z x [0,1]_Z), although several proofs contain the errors listed above. The introduction promises relevance to imaging applications, but no computation or application appears. There is no limitations discussion. Pure theory, so artifact relevance is false.\n\n---\n\n## Conclusion\n\nA legitimate but derivative mathematical contribution: it carries simplicial cohomology over to digital images and records which classical properties fail. The formal apparatus is appropriate in kind but swollen by restated textbook theorems. Its reliability suffers from errors in the functoriality proof, in the excision argument, and in the wording of Corollary 3.10."
+  },
+  {
+   "paper_id": "teodorescu2013",
+   "paper": {
+    "title": "Improved Heterogeneous Gaussian and Uniform Mixed Models (G-U-MM) and Their Use in Image Segmentation",
+    "authors": [
+     "Horia-Nicolai Teodorescu",
+     "Mariana Rusu"
+    ],
+    "abstract": "Revisits the authors' Gauss-Uniform Mixture Model for histogram-based image segmentation, argues for its suitability over pure Gaussian mixtures, and improves the earlier heuristic algorithm so that tops of wide Gaussians are no longer mistaken for uniform intervals; results are illustrated on several test images and compared with Otsu's method using unsupervised quality indexes.",
+    "keywords": [
+     "image segmentation",
+     "Gaussian Mixture Model",
+     "Gaussian-Uniform Mixture Model",
+     "evaluation of segmentation"
+    ],
+    "doi": null,
+    "pages": "29-51",
+    "source_file": "03-mrusu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 85,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 74.25,
+    "composite": 68.19,
+    "final": 68.19
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "Test images are linked public images, e.g. \"Image Lena. Available at: http://www.ece.rice.edu/ wakin/images/lena512.bmp\" and the \"Berkeley segmentation dataset\" [33]. Code is only claimed: \"The algorithm will be deposited with CERFS (web page) and is available for research purposes.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Heuristic improvement of the authors' own histogram-segmentation method, with modest and appropriate formalism. The evaluation is thin: seven images, a single baseline (Otsu), and tables in which Otsu scores better on most images, at odds with the paper's strong claims. Some citations are misattributed.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Heuristic piecewise approximation of smoothed grey-level histograms by Gaussian and uniform components, used for threshold segmentation. The new step is a test that keeps the flat tops of wide Gaussians from being labelled uniform.\n**Level:** 2 (Low)\n**Rationale:** A heuristic refinement of the authors' existing method, with an empirical illustration. There is no new model with proofs and no complexity analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 15 (squared approximation error, Gaussian width estimation, error comparisons, and five standard segmentation-quality indexes)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Equations (3)-(7) are needed to implement the width-estimation and comparison test, and (8)-(15) restate published evaluation indexes. Section 2.4 frames segmentation as approximation over a complete function family Omega. That framing is never used algorithmically (the authors \"prefer a heuristic solution\"), but it consists of basic error equations used as motivation, not one of the theater patterns, so it is not counted as a necessity failure.\n\n### Issues\nThe description of the algorithm has internal inconsistencies. The centrality test |k_m - (k1+k2)/2| < (k2 - k1) is always satisfied for a maximum inside the interval. The second b-estimation variant misplaces the parentheses in the exponent. Step 3 refers to Fig. 3 where Fig. 6 is meant.\n\n---\n\n## Citation Analysis\n\n34 references. Three self-citations ([14], [17], [34]), all earlier versions of the same G-U-MM method: SCR = 9%, all relevant. Citation accuracy problems: the text says the heterogeneous G-U-MM \"was first used ... and explained in some detail in [15], [16]\", but those are Rasmussen & Williams (Gaussian processes) and Blanchard et al. (non-Gaussian components), and neither describes G-U-MM. Reference [32] (a giraffe coat-colour zoology paper) is cited as an image source. No ring pattern.\n\n---\n\n## Structural Analysis\n\nThe abstract claims the method \"has solid mathematical foundation\" and \"produces remarkable results\". The quantitative evidence is two tables over seven images against Otsu's method. In Table 3, Otsu obtains lower (better) F, F1 and Q values for Peppers, Rabbit, Blood cells, both Giraffes and Skier, and the proposed method wins clearly only on Lena. The conclusion concedes the improvement holds \"for some typical images, but not for all\", which is an inline limitation, along with the acknowledged imperfect approximation. The many claims about how human vision segments images are offered as suggestions without evidence. Artifacts: the test images are public and linked. The code is only promised (\"will be deposited with CERFS\"), with no link.\n\n---\n\n## Conclusion\n\nA modest heuristic contribution with appropriate, implementation-relevant equations. The paper's weakness is structural, not formal: its confident claims outrun an evaluation in which the baseline often wins, and several citations are attached to works that do not support them."
+  },
+  {
+   "paper_id": "soto2013",
+   "paper": {
+    "title": "Nurse and Paramedic Rostering with Constraint Programming: A Case Study",
+    "authors": [
+     "Ricardo Soto",
+     "Broderick Crawford",
+     "Eric Monfroy",
+     "Wenceslao Palma",
+     "Fernando Paredes"
+    ],
+    "abstract": "Presents a constraint-programming case study of nurse, paramedic and chief-nurse rostering for six mid-size Chilean health centres using the two-shift \"fourth shift\" system, with a logical-relations model and a regular-constraint model implemented in ECLiPSe, and reports solving times for instances of increasing size.",
+    "keywords": [
+     "Rostering",
+     "Constraint Programming",
+     "Heuristic Search"
+    ],
+    "doi": null,
+    "pages": "52-64",
+    "source_file": "04-wpalma.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 35,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 22.25,
+    "composite": 16.69,
+    "final": 16.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (the regular-constraint call is printed, but no model files or code are linked or offered)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 application paper that opens with a formal tuple definition of a CSP, \"P = <X, D, C>\" with X, D and C as n- and m-tuples and constraints as subsets of Cartesian products of domains, plus a formal solution-assignment definition. This is textbook background that is never used afterwards; the actual model is given directly as constraints on V_{i,j} in {0,1,2}. It fails the Necessity Test (it could be said in a sentence, and removing it changes nothing a programmer would build). The DFA 5-tuple in Section 4 is borderline, since delta, q0 and F reappear as arguments of the regular constraint.",
+    "EXCESSIVE_SELF_CITATION": "11 of 28 references include at least one author ([8]-[12], [18], [19], [23]-[26]), SCR = 39%. Eight of them are cited in one bracket in the future-work sentence ([11, 18, 25, 10, 12, 10, 9, 8], with [10] listed twice) as autonomous-search directions; [26] (cell formation in group technology) is cited for combining CP and SAT. These are related to constraint solving generally but marginal to nurse rostering.",
+    "NO_LIMITATIONS": "The conclusion calls the work ongoing and suggests extensions to bigger centres, but acknowledges no limitation of the models, of the validation, or of the experiments."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Straightforward CP case study whose model is legitimately expressed as constraints, but which opens with decorative textbook tuple formalism. Self-citation is excessive (39%), and much of it is concentrated in a future-work citation cluster. The evaluation reports only solve times, with no validation against the hospitals' manual rosters.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Modelling a two-shift nurse/paramedic/chief-nurse rostering problem as a CSP in ECLiPSe, once with logical implications and occurrence constraints and once with a regular (DFA) constraint, and timing the solver.\n**Level:** 2 (Low)\n**Rationale:** An existing technique (constraint programming with standard global constraints) is applied to a new domain instance. There is no new algorithm and no proof.\n\n### Formal Elements\n- Definitions: 2 inline tuple definitions (CSP triple; DFA 5-tuple)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 30 constraint formulas (the model itself)\n\n### Proportionality\nCalculated complexity: 2x2 = 4\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** The count is proportionate, but the Necessity Test fails for the CSP triple. The constraint formulas are the model and are necessary. The formal CSP definition (\"Formally, a CSP P is defined by a triple P = <X, D, C> ...\") is generic background that nothing later depends on. Under the zero-tolerance rule for Level 1-2 this triggers FORMALISM_THEATER.\n\n### Issues\nThe models contain inconsistencies. The nurse-15 preference is V15,1 = 0 and V15,2 = 0 in Section 3.1 but V15,4 = 0 and V15,2 = 0 in Section 4. Chief-nurse constraint 3 requires \"nurses/2 chief nurses per day\", which mixes populations. Constraint 5 applies weekly counts to the per-day set X_j. The DFA figure is referenced as \"figure ??\".\n\n---\n\n## Citation Analysis\n\n28 references, 11 of them self-citations (SCR = 39%). The relevant self-citations are [19] (the conference version this paper extends) and [23], [24] (soft-constraint nurse rostering for the same Chilean centres). Most of the rest ([8]-[12], [18], [25]) are autonomous-search and hyperheuristic papers piled into one future-work sentence, with [10] cited twice in the same bracket. [26] on cell formation is cited only for the idea of combining CP and SAT. None is clearly below 0.3 similarity (all concern constraint solving), so IRRELEVANT_SELF_CITATION is not raised, but the pattern is citation padding.\n\n---\n\n## Structural Analysis\n\nThe central practical claim is that the system generates \"suitable rosters within some seconds instead of manually some days\". The only evidence is Table 1, solve times on synthetic instances. There is no comparison with the centres' actual rosters, no measure of roster quality or preference satisfaction, and no user evaluation. The \"six hospitals\" framing is not backed by any per-hospital data, and only one centre's preferences are shown. No limitations are given. No artifact is released, although the models would be easy to share.\n\n---\n\n## Conclusion\n\nA routine application of constraint programming that would be adequate as a short practitioner case study. Under the framework, it is disqualified both by decorative formal background at Level 2 and by a 39% self-citation ratio, much of it padding in the future-work section. Even setting the flags aside, the empirical support for the practical claims is minimal."
+  },
+  {
+   "paper_id": "yousefikhoshbakht2013",
+   "paper": {
+    "title": "Modification of the Ant Colony Optimization for Solving the Multiple Traveling Salesman Problem",
+    "authors": [
+     "Majid Yousefikhoshbakht",
+     "Farzad Didehvar",
+     "Farhad Rahmati"
+    ],
+    "abstract": "Proposes NMACO, a modified ant colony optimisation for the multiple travelling salesman problem that uses a savings-augmented transition rule, a capped candidate list, insert/swap/2-opt local search on the two best solutions, and pheromone reinforcement of the iteration-best and best-known solutions; it is compared with classic ACO and other metaheuristics on TSPLIB-derived and literature MTSP instances.",
+    "keywords": [
+     "Multiple Traveling Salesman Problem",
+     "Ant Colony Optimization",
+     "Updating Pheromone",
+     "Combinatorial Optimization Problems"
+    ],
+    "doi": null,
+    "pages": "65-80",
+    "source_file": "05-myousefikhoshbakht.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 80,
+    "structural_integrity": 35,
+    "artifact_availability": 50,
+    "intellectual_integrity": 68.75,
+    "composite": 64.06,
+    "final": 59.06
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"For more information regarding the provided examples visit: http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/.\" Benchmark instances are public (TSPLIB and the cited dataset [33]); the Matlab code is not released.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "Neither the results nor the conclusion acknowledges any limitation (run count, lack of statistical testing, parameter sensitivity, instances where competitors win); the conclusion lists only future extensions."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Incremental ACO variant for the MTSP with standard, implementation-relevant equations. The empirical section is undermined by internal inconsistencies between tables and text, claims contradicted by the paper's own tables, and multiple misattributed references. No limitations are acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A modified ant colony optimisation (new transition rule with a savings term, capped candidate list, local search on the best two solutions, dual-elite pheromone update) for the multiple TSP.\n**Level:** 2 (Low)\n**Rationale:** Simple modifications of an existing metaheuristic, evaluated empirically. There is no convergence or complexity analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (ACO transition probability, pheromone deposit and evaporation, modified transition rule, candidate-list size, elite deposit, update rule, gap)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The Greek-letter parameters (alpha, beta, rho, lambda) are exponents and coefficients inside formulas an implementer needs, not decorative names for configuration values, so they pass the Necessity Test.\n\n### Issues\nThe equations are not stated carefully. In (4), lambda is both the exponent of kappa and a coefficient in kappa's definition, alongside alpha' and beta'. The text after (7) describes \"0 < alpha < 1\" as the persistence, where rho is meant. Formula (5) is inverted relative to its prose description.\n\n---\n\n## Citation Analysis\n\n34 references. Self-citations: [2] (ACO for VRP with simultaneous pickup and delivery) and [29] (sweep + elite ant system for MTSP), SCR = 6%, both relevant. Citation accuracy is poor. [3] (Dorigo's Ant System) is cited for the MTSP generalisation. [30] (Liaw, hybrid GA for open shop scheduling) is cited as a hybrid GA for the MTSP. [34] (Angel et al., 1972 school-bus scheduling) is cited as the grouping genetic algorithm. [25] and [31] are the same paper. [32] is cited both as MACA and as NGGA. [28] has no venue. No ring pattern.\n\n---\n\n## Structural Analysis\n\nThe paper claims NMACO \"has been able to improve the efficiency of the ACO in all instances and is quite competitive\", and the conclusion claims better solutions than other metaheuristics. Its own data conflict with these claims:\n- The text says ACO failed \"in any of the fourteen examples\"; Table 1 has six.\n- NMACO's Pr152 best is 127083 in Table 1 but 127781 in Table 2.\n- In Table 2, MGA's Pr226 best (166827) beats NMACO's (167239), contradicting the claim that NMACO beats MGA on all instances except Pr76.\n- In Table 3, NMACO's best on instance 17 (38811) is worse than the BKS (38434).\n- The text says local search is applied \"in an attempt to increase the length of the routes\".\n- Section numbering skips Section 3.\n\nResults come from 10 runs with no variance or significance testing. CER is around 0.5 (tables exist but are contradicted in places). No limitations are given. The benchmark instances are public; the code is not.\n\n---\n\n## Conclusion\n\nThe formalism is appropriate for a routine metaheuristic modification. The paper's integrity problems lie in its evidence and citations: the tables, text and claims disagree in several places, and many references do not support the statements they are attached to."
+  },
+  {
+   "paper_id": "morariu2013",
+   "paper": {
+    "title": "Vector versus Tree Model Representation in Document Clustering",
+    "authors": [
+     "Daniel I. Morariu",
+     "Radu G. Creţulescu",
+     "Lucian N. Vinţan"
+    ],
+    "abstract": "Compares the vector space model with a suffix tree document model for text clustering, building a suffix tree for each pair of documents and proposing a new similarity formula (NEWST) that weights common nodes by shared words; results with HAC and k-Medoids on a small news dataset, with and without stemming, are evaluated by accuracy and F-measure.",
+    "keywords": [
+     "Data Mining",
+     "Text Clustering",
+     "Vector Space Model Representation",
+     "Suffix Tree Document Representation",
+     "k-Medoids",
+     "Hierarchical Agglomerative Clustering"
+    ],
+    "doi": null,
+    "pages": "81-102",
+    "source_file": "06-lvintan.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.8,
+    "composite": 57.6,
+    "final": 57.6
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the 193-document dataset was assembled from live RSS feeds (\"http://feeds.bbci.co.uk/news/rss.xml\", \"http://www.reuters.com/tools/rss\") over three days and is not deposited, and the Java implementation is not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Empirical comparison of vector and pairwise suffix-tree document representations, with a new heuristic similarity formula. Formalism is minimal and appropriate. The evidence rests on a small, unreleased 193-document dataset, with inconsistent reported improvement figures and text duplicated between the HAC and k-Medoids sections.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Representing documents as pairwise suffix trees instead of term vectors, with a new tree-based similarity (NEWST), feeding HAC and PAM k-Medoids, and evaluating on labelled news items.\n**Level:** 2 (Low)\n**Rationale:** An empirical comparison of existing representations and clustering algorithms, plus a heuristic similarity formula. No new algorithm with analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 11 (TF, single-link similarity, Euclidean, Canberra, Jaccard, OLDST, NEWST, precision, recall, F-measure)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. All equations are standard measures or the proposed formula, each needed for implementation.\n\n### Issues\nNone of the theater type. The single-link formula (2) is written as a minimum of similarities, which describes complete link; single link takes the maximum similarity (minimum distance). The PAM description (randomly replace a medoid, stop if unchanged) is not PAM's swap-cost procedure.\n\n---\n\n## Citation Analysis\n\n18 references. Self-citations: [10] (Morariu, text mining with SVMs) and [11] (the conference version of this paper), SCR = 11%, both relevant. [11] is also cited as the source of the AGNES pseudo-code, an odd attribution. [7] and [8] appear to be the same Manning textbook, and [4] and [6] (k-means) are cited for k-Medoids. No ring pattern.\n\n---\n\n## Structural Analysis\n\nThe headline claim is that STDM with NEWST improves accuracy substantially. It is supported by tables on seven subsets drawn from a single 193-document collection gathered over three days, with no variance, repetitions, or significance tests. The reported HAC improvement is 46.30% in Section 6.1 and 34.84% in Section 6.3 and the conclusion. The k-Medoids discussion repeats verbatim the HAC stemming figures (0.78%, 0.18%, 22.93%) while elsewhere stating that stemming helped all metrics under k-Medoids. The paper acknowledges long execution times and the need to test on larger datasets, which counts as inline limitations. No artifact: the dataset came from live feeds and was not archived, and the code is not linked.\n\n---\n\n## Conclusion\n\nA reasonable exploratory study with appropriate formalism and low self-citation. Its conclusions are weakened by a very small private dataset, the absence of statistical support, and inconsistent or copied numerical claims between sections."
+  }
+ ]
+}

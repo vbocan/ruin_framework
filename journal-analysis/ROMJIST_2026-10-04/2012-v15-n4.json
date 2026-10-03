@@ -1,0 +1,321 @@
+{
+ "batch_id": "2012-v15-n4",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 15,
+  "issue": 4,
+  "year": 2012
+ },
+ "papers": [
+  {
+   "paper_id": "ramanujan2012",
+   "paper": {
+    "title": "Control Languages Associated with Spiking Neural P Systems",
+    "authors": [
+     "Ajeesh Ramanujan",
+     "Kamala Krithivasan"
+    ],
+    "abstract": "We consider labeled spiking neural P systems, which are usual spiking neural P systems with a label associated with every rule; the labels are symbols of a given alphabet or can be λ (empty). The rules used in a transition should have either the empty label or the same label from the chosen alphabet. In this way, a string is associated with each halting computation, called the control word of the computation. The set of all control words associated with computations in a given spiking neural P system form the control language of the system. We study the family of control languages of spiking neural P systems in comparison with the families of finite, regular, context-free, context-sensitive, and recursively enumerable languages. In the restricted case when in each step at least one rule with a non-empty label is used, every regular language is a control language, there are context-sensitive non-context-free languages of this type, but not all context-free languages are control languages of a spiking neural P system. All languages that are accepted by labeled spiking neural P systems are context-sensitive. If transitions with all rules labeled with λ are allowed, then each recursively enumerable language can be the control word of a spiking neural P system.",
+    "keywords": [],
+    "doi": null,
+    "pages": "301-318",
+    "source_file": "01-aramanujan.pdf"
+   },
+   "concept_level": 5,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 62,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 71.2,
+    "composite": 53.4,
+    "final": 48.4
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "4 of 17 references (23.5%) are by the authors: [8], [13], [14] (listed as \"Submitted\") and [16]. All concern spiking neural P systems and are topically relevant."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Formal-language-theory paper placing control languages of labeled SN P systems in the Chomsky hierarchy, including a universality result; the formalism is the subject matter, but several proofs are sketched or left to the reader and self-citation is elevated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Language families accepted by labeled spiking neural P systems (control languages), compared with FIN, REG, CF, CS and RE.\n**Level:** 5 (Very High)\n**Rationale:** The paper establishes language-family inclusions and separations and a computational universality result (Theorem 8: L_λLSNP_* = RE), which the classification guide places at Level 5. Set-theoretic and automata notation is the native language of the contribution.\n\n### Formal Elements\n- Definitions: 2 numbered (SN P system, LSN P system), plus inline definitions of register machines, regular expressions, configurations and language families\n- Theorems: 8\n- Proofs: 8\n- Equations: a handful of constructions and one counting expression\n\n### Proportionality\nCalculated complexity: 2×2 + 8×3 + 8×4 = 60\nExpected range (Level 5): 60-150\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate. Every formal element serves a construction or a proof; the necessity test is passed throughout.\n\n### Issues\nProof quality is uneven. Theorem 1 (FIN ⊂ LLSNP_1) and Theorem 7 (LLSNP_* ⊂ CS) are stated as proper inclusions, but the proofs show only inclusion. The correctness of the Theorem 3 construction is \"left to the reader\", as is that of the N2 system in Theorem 6. Theorem 8 relies on modules from [11] without giving the construction. The Theorem 1 construction mixes rules written \"→ a\" and \"→ λ\", and its final set F is typeset incorrectly. The counting argument in Theorem 5 assumes that the rule firings add up to l, the input length, although several rules may fire in a single step; the bound still holds up to a constant factor, but the argument as written is loose. None of this is formalism theater; these are gaps in rigour.\n\n---\n\n## Citation Analysis\n\nFour of seventeen references are self-citations (23.5%): [8], [13], [14] and [16], one of them an unpublished submission. All four are on SN P systems or control words and are topically relevant (similarity well above 0.5). References [5] and [6] are not cited in the body. No citation-ring pattern is apparent.\n\n---\n\n## Structural Analysis\n\nClaims are theorems, and each comes with a proof or proof sketch, so the claim-evidence balance is adequate to good. The conclusion lists open questions (whether final configurations matter, whether the delay can be removed from Theorem 8), which counts as an inline acknowledgment of the result's limits. As a theory paper it has nothing to release; no artifact is mentioned.\n\n---\n\n## Conclusion\n\nA competent contribution to membrane-computing language theory, with formalism fully proportionate to a Level 5 subject. The main weaknesses are proofs that are incomplete or deferred to the reader, and a self-citation ratio in the elevated band."
+  },
+  {
+   "paper_id": "mandal2012",
+   "paper": {
+    "title": "Maintaining a Minimum Spanning Tree for Kinetic Autonomous Robots in 2D-Euclidean Plane",
+    "authors": [
+     "Chintan Mandal",
+     "Anil Kumar Sahu",
+     "Suneeta Agarwal"
+    ],
+    "abstract": "This paper presents a procedure for maintaining a 2D-Euclidean Minimum Spanning Tree for a set of n autonomous kinetic robots having no central supervision. The proposed procedure is based on the Kinetic data structure framework and the well known fact that the edges of the minimum spanning tree for a given set of points in the 2D-Euclidean domain are contained in the edges of its Delaunay triangulation. The kinetic data structure framework has a centralized data structure along with a priority queue on which a proposed algorithm works to maintain a combinatorial geometrical structure for a set of geometric objects. In this work, we propose an approach where the computation of the geometrical structure is done through the geometrical objects, in our case, the computations being done by the robots themselves. This is unlike that of maintaining a centralized data structure in the kinetic data structure framework. The kinetic autonomous robots, each being a computing object do all computations by themselves and update the spanning tree as the tree changes. In terms of kinetic data structure metrics, our data structure is local and compact.",
+    "keywords": [
+     "Delaunay triangulation",
+     "Kinetic data structures",
+     "Euclidean minimum spanning trees"
+    ],
+    "doi": null,
+    "pages": "319-334",
+    "source_file": "02-cmandal.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 92,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 77.95,
+    "composite": 58.46,
+    "final": 58.46
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Heuristic, decentralised maintenance of an approximate kinetic EMST built from standard kinetic Delaunay machinery; formalism is minimal and necessary, but the complexity claims are doubtful and the evaluation is thin.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Distributing the kinetic Delaunay triangulation / kinetic data structure event queue across moving robots so that they maintain an approximate Euclidean MST with local repairs.\n**Level:** 2 (Low)\n**Rationale:** The method combines existing components (kinetic Delaunay triangulation, the EMST ⊂ DT property, Kruskal/Prim) with a local heuristic for reconnecting the tree after flips and stretch events. It offers no proofs, no approximation guarantee and only a cursory complexity discussion, so it does not reach Level 3.\n\n### Formal Elements\n- Definitions: 1 (Delaunay triangulation, a standard textbook definition cited to [9])\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (in-circle determinant, linear motion, stretch inequality)\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Proportionate. The in-circle determinant and the motion equation are needed to compute certificate failure times, and the stretch inequality defines the new event type. The Delaunay definition is ordinary background stated in prose, not a tuple or data-structure definition, so it does not fail the necessity test.\n\n### Issues\nNone in formalism. The analysis section has substantive problems. Breadth-first cycle detection along tree branches is claimed to take O(log n), but a BFS over a spanning tree is O(n) in the worst case. The claim that the structure is \"local and compact\" rests on the average Delaunay degree, not on a bound. The conclusion reverses the earlier assumption about communication time (\"A longer communication time between robots than the time difference ... ensures\" consistency, where Section 3 assumes it is shorter). In Table 1 and the accompanying text the event type labels are inconsistent: {t1[E], B} is described as a Normal Flip.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 12 references. The references are relevant (KDS, kinetic EMST, Delaunay), but several are incomplete, giving no venue for [1], [2], [3] and [4].\n\n---\n\n## Structural Analysis\n\nThe main claims (a decentralised, local and compact structure; O(1) event processing; O(log n) cycle checks) are supported mostly by assertion. The evaluation is three plots comparing kinetic and exact EMST cost for three stretch factors, with no number of robots, motion model, repetition count or error measure given, and an axis label (\"msec\") that conflicts with the text (\"secs\"). The paper acknowledges inline that the resulting EMST is not exact, that the number of external stretch events cannot be bounded, and that the structure is not responsive. No code or simulation data is released.\n\n---\n\n## Conclusion\n\nA plausible engineering idea, decentralising kinetic Delaunay maintenance for robot swarms, described with appropriate and minimal formalism. Its weaknesses are evidential rather than formal: unproven or incorrect complexity statements, no approximation bound, and a thinly specified simulation."
+  },
+  {
+   "paper_id": "chang2012",
+   "paper": {
+    "title": "On The Harmonic Index and The Minimum Degree of A Graph",
+    "authors": [
+     "Renying Chang",
+     "Yan Zhu"
+    ],
+    "abstract": "The harmonic index H(G) of a graph G is the sum of 2/(d(u)+d(v)) over all edges uv of G, where d(u) denotes the degree of a vertex u in G. In this paper, we give the minimum value of H(G) for graphs G with given minimum degree δ(G) ≥ 2 and characterize the corresponding extremal graph. Furthermore, we prove a best-possible lower bound on the harmonic index of a triangle-free graph G with arbitrary minimum degree δ(G).",
+    "keywords": [
+     "Harmonic index",
+     "triangle-free graph",
+     "minimum degree"
+    ],
+    "doi": null,
+    "pages": "335-343",
+    "source_file": "03-rchang.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.5,
+    "composite": 59.62,
+    "final": 54.62
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "The paper has no conclusion or discussion section and acknowledges no limitation or open question."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Extremal graph theory paper proving tight lower bounds on the harmonic index, with formalism that is entirely necessary; minor typographical slips in the proofs and no discussion of limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Lower bounds on the harmonic index of graphs with given minimum degree (δ ≥ 2), and of triangle-free graphs, with characterisation of the extremal graphs.\n**Level:** 3 (Medium)\n**Rationale:** The paper proves non-trivial extremal properties with induction and case analysis. This is pure mathematics, so formalism is the substance, but the results are a moderate extension of a known line of work, so Level 3 rather than 4.\n\n### Formal Elements\n- Definitions: 3 inline (harmonic index, the graph K*_{δ,n−δ}, (i,j)-edge counts), plus the auxiliary function h(x)\n- Theorems: 4 (Lemma 2.1, Theorem 2.2, Lemma 3.1, Theorem 3.2); Claims 1 and 2 are counted as part of the proof of Theorem 2.2\n- Proofs: 4\n- Equations: many inequality chains within the proofs\n\n### Proportionality\nCalculated complexity: 3×2 + 4×3 + 4×4 = 34\nExpected range (Level 3): 10-40\nRatio: 0.85x upper bound\n\n**Assessment:** Proportionate. Every element is needed for the proofs; nothing could be replaced by prose.\n\n### Issues\nNo formalism theater. Some slips weaken the presentation. In Claim 2, Case 1, the induction hypothesis is stated as H(G′) ≥ h(n−1) for a graph of order n−3, and then used correctly as h(n−3). Several monotonicity justifications are asserted without detail. These look like editing errors rather than gaps in the arguments.\n\n---\n\n## Citation Analysis\n\nTwo of eleven references are self-citations (18.2%): [10] and [11], one submitted and one to appear, both on the harmonic index and directly relevant. The ratio is in the 15-20% band, which lowers the citation score without triggering a flag. The rest of the reference list (Randić index literature, Zhong, Ilić, Xu) is on topic.\n\n---\n\n## Structural Analysis\n\nEvery claim is a stated theorem with a proof, and the tightness claim (\"best-possible\") is supported by the equality cases K*_{2,n−2} and K_{k,n−k}, so the claim-evidence balance is strong. The paper ends after the last proof, with no conclusion, discussion of open cases or limitations. As a pure theory paper it has nothing to release.\n\n---\n\n## Conclusion\n\nA sound, compact contribution to chemical graph theory whose formalism is fully justified by its content. Its shortcomings are presentational: minor errors in the proofs and no discussion of scope or open problems."
+  },
+  {
+   "paper_id": "stanimirovic2012",
+   "paper": {
+    "title": "Block Method for Convex Polygon Triangulation",
+    "authors": [
+     "Predrag S. Stanimirović",
+     "Predrag V. Krtolica",
+     "Muzafer H. Saračević",
+     "Sead H. Mašović"
+    ],
+    "abstract": "In this paper, the block method for convex polygon triangulation is presented. The method is based on the usage of the previously generated triangulations for polygon with smaller number of vertices. In the beginning, we establish some relations between the triangulations of the polygons having the consecutive number of vertices. Using these relations, we decompose the triangulation problem into subproblems which are themselves smaller instances of the starting problem. The recursion with memoization is used to avoid repeating the calculation of results for previously processed inputs. The corresponding algorithm is developed and implemented.",
+    "keywords": [
+     "Convex polygon triangulation",
+     "Catalan numbers",
+     "Recursion",
+     "Memoization",
+     "Divide & Conquer algorithms"
+    ],
+    "doi": null,
+    "pages": "344-354",
+    "source_file": "04-pstanimirovic.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.7,
+    "composite": 33.52,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "Code fragments are printed in the appendix (\"Some interesting parts of the code are presented in Appendix\"); no repository, link or availability statement.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (a variant of the Hurtado-Noy enumeration with empirical timing) containing formal elements that fail the necessity test: set notation for the working list of vertex pairs, the vacuous recurrence Tn = 2Tn−1 + rest(Rn) with rest(Rn) never defined, and Dolan-Moré performance-profile machinery applied to two solvers whose timings are already in a table.",
+    "UNNECESSARY_SET_THEORY": "The algorithm's working structure, which the paper itself calls a \"list of ordered pairs\", is written as a set: L = {(1, 1), (2, 2), ..., (n, n)} and L = {(s, i_s), s = 1, ..., l}. It is an array of (position, vertex) pairs from which elements are removed and re-indexed; no proof depends on the set notation."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Incremental variant of an existing triangulation-enumeration algorithm with timing comparisons; set notation for a list and decorative formulas trigger the formalism flags, and the printed Java code is fragmentary.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Generating all triangulations of a convex n-gon from those of the (n−1)-gon by copying each triangulation twice as a \"block\" and filling in the remaining rows, compared in running time with the Hurtado-Noy algorithm.\n**Level:** 2 (Low)\n**Rationale:** A simple optimisation of an existing generation method. There is no complexity analysis and no correctness proof of the full algorithm, only one proposition and empirical timings.\n\n### Formal Elements\n- Definitions: 1 (Definition 2.1, circular distance between vertex indices)\n- Theorems: 1 (Proposition 1.1)\n- Proofs: 1\n- Equations: 4 (Catalan count, recurrence (2), list forms (3)-(4)), plus the performance-profile ratio and distribution\n\n### Proportionality\nCalculated complexity: 1×2 + 1×3 + 1×4 = 9\nExpected range (Level 2): 0-15\nRatio: 0.6x upper bound\n\n**Assessment:** Within range by count, but several elements fail the necessity test, and at Level 2 a single failure is enough to trigger the flags.\n\n### Issues\n- The working list is written in set notation, L = {(1, 1), (2, 2), ..., (n, n)} and L = {(s, i_s), s = 1, ..., l}, although the text calls it a \"list of ordered pairs\" and the algorithm removes elements and decrements positions. It is an array.\n- Equation (2), \"Tn = 2Tn−1 + rest(Rn)\", never defines rest(Rn). It says only that Tn exceeds 2Tn−1 and carries no information a programmer could use.\n- The Dolan-Moré performance profile (r_{p,s}, ρ_s(τ)) is applied to two solvers and eleven problem sizes whose timings are already in Table 1. The text also defines t_{p,s} as \"the number of iterations\" although the metric is CPU time.\n- Definition 2.1 (circular distance) is used directly in the ear test d(p, q) = 2 and passes the necessity test. Proposition 1.1 is a legitimate, if informal, justification of the block-copying step.\n\n---\n\n## Citation Analysis\n\nOne of nine references is a self-citation (11%): [8], Saračević, Stanimirović, Mašović et al., on implementing convex-polygon triangulation, and directly relevant. The remaining references (Hurtado-Noy, Catalan numbers, Chazelle, Cormen et al., Dolan-Moré) are appropriate.\n\n---\n\n## Structural Analysis\n\nThe central claim, a speedup over Hurtado's algorithm, is supported by a single run per n in Table 1, with no repetitions or variance. The speedup is non-monotone (peaking at 11.48 for n = 13 and falling to 3.74 at n = 15), which goes unexplained, and the n ≤ 9 timings are dominated by fixed overhead. The Java listings in the appendix do not correspond to a working implementation: contains() calls itself unconditionally, and variables such as n1, i, n and L are undefined or out of scope, so they cannot corroborate Algorithm 4. The paper acknowledges inline that RAM is exhausted for n > 16 and that disk I/O would blur the comparison. No code or data is released; printed fragments are description, not availability.\n\n---\n\n## Conclusion\n\nA modest algorithmic tweak with a plausible empirical advantage, wrapped in notation that does not earn its place: set notation for a list, an undefined recurrence term, and a performance-profile apparatus for two solvers. At Level 2 this triggers formalism theater, and the unreliable code listings further weaken the evidence."
+  },
+  {
+   "paper_id": "kusko2012",
+   "paper": {
+    "title": "Design Studies of Integrated Fabry-Perot Sensor Based on Bragg Grating Mirrors",
+    "authors": [
+     "Mihai Kusko"
+    ],
+    "abstract": "In this work the results of the theoretical studies of photonic integrated circuit refractive index sensor based on quasi1D Bragg grating configurations which act as a Fabry-Perot interferometers are presented. The variation of the medium refractive index is detected by monitoring the shift of the spectral maxima of the Fabry-Perot cavity. The sensor has been designed using the analytical expressions of the Fabry-Perot interferometer and the sensor response has been simulated with CAMFR software. The theoretical sensitivity and the detection limit are calculated and the influence of the fabrication errors on the sensor response is evaluated.",
+    "keywords": [
+     "Sensor",
+     "waveguide",
+     "Fabry-Perot",
+     "Bragg gratings"
+    ],
+    "doi": null,
+    "pages": "355-367",
+    "source_file": "05-mkusko.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 93,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 84.05,
+    "composite": 63.04,
+    "final": 63.04
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Simulation-based design study of a silicon-nitride Fabry-Perot refractive-index sensor using standard analytical expressions and third-party solvers; formalism is necessary and modest, and analytic and simulated results agree reasonably well.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Designing an integrated-optics refractive-index sensor (a Fabry-Perot cavity between two shallow-etched Bragg gratings on Si3N4 waveguides) using textbook Fabry-Perot and coupled-mode expressions, checked with CAMFR mode-expansion and OptiBPM simulations.\n**Level:** 2 (Low)\n**Rationale:** Standard analytical relations and existing simulators applied to a specific device design; there is no new theory or method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 (detection limit, linewidth, finesse, grating reflectivity, FSR, effective length, sensitivity, quarter-wave condition, bandgap)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Each equation is used to set a design parameter (period count, cavity length, etch depth) or to predict a figure that is then compared with simulation. All pass the necessity test.\n\n### Issues\nNone identified in the formalism. The theoretical sensitivity (127 nm/RIU) differs from the simulated values (109 and 111 nm/RIU) by about 13-15%, which is described as \"close\" without discussion. The detection-limit factor of 1/15 of the linewidth is borrowed from [7] without justification.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 17 references (single author). The references are on topic (photonic biosensors, Bragg-grating sensors, coupled-mode theory, effective-index method); two are bare software URLs (CAMFR, Optiwave).\n\n---\n\n## Structural Analysis\n\nAnalytical predictions (FSR, linewidth, detection limit) are compared with simulation for two etch depths, and fabrication tolerance is explored by simulation, so the claim-evidence balance is adequate. The conclusion that the structure \"is robust to fabrication errors\" rests on a limited set of perturbations (20% depth, 20 nm lateral). The paper acknowledges inline that the detection limit is tied to the linewidth because noise is hard to estimate theoretically, and that other experimental factors dominate at smaller detection limits; the study is explicitly theoretical, with no fabricated device. CAMFR and OptiBPM are third-party tools; no simulation scripts or data are released.\n\n---\n\n## Conclusion\n\nA straightforward, well-proportioned design study in which the mathematics serves the engineering. Its limitations are the absence of any experimental validation and of released simulation inputs, and a somewhat generous reading of the agreement between theory and simulation."
+  },
+  {
+   "paper_id": "franti2012a",
+   "paper": {
+    "title": "Personalized Support System for The Patients with Forearm Amputations",
+    "authors": [
+     "Eduard Franti",
+     "Lucian Milea",
+     "Monica Dascalu",
+     "Marius Moga",
+     "Catalin Florea",
+     "Adrian Barbilian",
+     "Mihail Teodorescu",
+     "Paul Schiopu",
+     "Florin Lazo",
+     "Mark Eduard Pogarasteanu"
+    ],
+    "abstract": "This paper presents a system for assisting patients with amputated hands. Using this system, they can define and implement custom motion algorithms of mobile elements of the artificial hand they use. The system includes a virtual environment simulation, configuration and personalized assistance, a virtual reality glove and hardware components for signal processing. The patient who has one amputated hand, can load in the virtual environment, using a special glove (virtual reality glove) positioned on the healthy hand, simple or even complex sets of movements which are realized by the natural movements of the healthy hand. These sets of movements are loaded in the virtual environment of personalized assistance which then generates, through transformations and extrapolations, motion algorithms \"in the mirror\" for the virtual prosthesis (from the virtual environment) and then, they are loaded into the patient's artificial hand. Thus, the system enables forearm prosthesis users to define complex custom motions they need to conduct different specific activities that they are supposed to realize, in which they need the help of the artificial hand.",
+    "keywords": [],
+    "doi": null,
+    "pages": "368-376",
+    "source_file": "06-efranti.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 25,
+    "artifact_availability": 0,
+    "intellectual_integrity": 52.5,
+    "composite": 39.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "3 of 7 references (42.9%) include authors of this paper: [5] (Franti, Schiopu), [6] (Milea, Moga) and [7] (Milea L., Dascalu). All are on prosthesis software or training and are topically related, but the ratio exceeds 30%.",
+    "UNSUPPORTED_CLAIMS": "Strong statements (11.2 million amputees worldwide per the WHO, over 90% of patients of modest means, only five of 55 000 Romanian patients owning a myoelectric hand, custom movements \"implemented on none of the existing types of prostheses\", the system being \"very useful\") are unsupported or attributed to sources that do not contain them. The \"Experimental tests and measurements\" section reports no measurements, participants or results.",
+    "NO_LIMITATIONS": "No limitation of the system or of its evaluation is acknowledged; the only limitations mentioned are those of commercial prostheses."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Descriptive account of a VR-glove and virtual-environment system for teaching custom movements to forearm prostheses, with no quantitative evaluation, largely unsupported claims, and a self-citation ratio above 30%.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A rehabilitation and configuration system in which movements recorded with a commercial VR glove (P5 Glove, DG5 VHand) on the healthy hand are mirrored in a virtual environment and loaded into a forearm prosthesis.\n**Level:** 1 (Trivial)\n**Rationale:** A system description integrating existing hardware (VR gloves, a prosthesis, signal acquisition) with a previously published virtual environment [5]. No algorithm is specified.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; the paper contains no formalism.\n\n### Issues\nNone in formalism. The paper does not describe the \"transformations and extrapolations\" that generate mirrored motion algorithms, so the central mechanism cannot be assessed.\n\n---\n\n## Citation Analysis\n\nSeven references, three of which include authors of this paper ([5], [6], [7]): SCR 42.9%, above the 30% threshold. The self-cited works concern prosthesis modelling, software and patient training and are topically related, so IRRELEVANT_SELF_CITATION is not raised. Reference [1], a US limb-loss prevalence study, is cited for a WHO worldwide estimate it does not contain. References [2], [3] and [4] (a market analysis, a news URL and an Indonesian ministry report) are never cited in the text. The bibliography contains no technical prior work on VR-glove-driven prosthesis programming or mirror therapy.\n\n---\n\n## Structural Analysis\n\nThe paper is almost entirely descriptive. Statistics on amputee numbers, costs and income are given without valid sources. Despite its title, Section 8 (\"Experimental tests and measurements\") reports no measurements, number of patients, success rates, latencies or comparisons, only that experiments \"led to finding the optimal position of the prosthesis engine components\". The claim-evidence ratio is well below 0.33. No limitations of the approach are acknowledged. Nothing is released (software, designs or data).\n\n---\n\n## Conclusion\n\nA project report rather than a research paper: no formalism, which is appropriate for its Level 1 content, but also no evidence for the system's effectiveness, misattributed statistics, and a self-citation ratio that exceeds the disqualifying threshold."
+  }
+ ]
+}

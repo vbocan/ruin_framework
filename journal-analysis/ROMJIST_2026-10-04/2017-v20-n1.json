@@ -1,0 +1,413 @@
+{
+ "batch_id": "2017-v20-n1",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 20,
+  "issue": 1,
+  "year": 2017
+ },
+ "papers": [
+  {
+   "paper_id": "zhang2017",
+   "paper": {
+    "title": "Foreword: Special Issue on Membrane Computing",
+    "authors": [
+     "Gexiang Zhang",
+     "Linqiang Pan",
+     "Gheorghe Păun",
+     "Ravie Chandren Muniyandi"
+    ],
+    "abstract": "Guest editors' foreword introducing a special issue of selected papers from the Fifth Asian Conference on Membrane Computing (ACMC 2016, Bangi, Malaysia), summarising the six papers it contains.",
+    "keywords": [],
+    "doi": null,
+    "pages": "3-4",
+    "source_file": "foreword.pdf"
+   },
+   "concept_level": null,
+   "scores": {
+    "formalism": null,
+    "citation_integrity": null,
+    "structural_integrity": null,
+    "artifact_availability": null,
+    "intellectual_integrity": null,
+    "composite": null,
+    "final": null
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EDITORIAL"
+   ],
+   "flag_details": {
+    "EDITORIAL": "Guest editors' foreword to the ACMC 2016 special issue; describes the conference and lists the papers in the volume. Not a research paper."
+   },
+   "verdict": {
+    "classification": "NOT_APPLICABLE",
+    "disqualified": false,
+    "record_type": "editorial"
+   },
+   "provenance": "## Formalism Analysis\n\nNot applicable: the document is a two-page guest editors' foreword describing ACMC 2016 and summarising the six papers of the special issue.\n\n---\n\n## Citation Analysis\n\nNo reference list.\n\n---\n\n## Structural Analysis\n\nNo claims requiring evidence; no artifacts.\n\n---\n\n## Conclusion\n\nFlagged `EDITORIAL` and excluded from analysis. (Minor factual slip noted in passing: the foreword dates the introduction of SN P systems to 2016, whereas they were introduced in 2006.)"
+  },
+  {
+   "paper_id": "yu2017",
+   "paper": {
+    "title": "Fault Diagnosis of Power Systems Using Fuzzy Reasoning Spiking Neural P Systems with Interval-valued Fuzzy Numbers",
+    "authors": [
+     "Wenping Yu",
+     "Jun Wang",
+     "Hong Peng",
+     "Jun Ming",
+     "Chengyu Tao",
+     "Tao Wang"
+    ],
+    "abstract": "Extends fuzzy reasoning spiking neural P systems with interval-valued fuzzy numbers (ivFRSN P systems) to represent uncertain alarm information in power-system fault diagnosis; gives a modelling approach and matrix-based fuzzy reasoning algorithm and illustrates it on single- and multiple-fault cases of a six-bus 69 kV distribution system.",
+    "keywords": [
+     "Power system",
+     "Fault diagnosis",
+     "Fuzzy reasoning spiking neural P systems",
+     "Interval-valued fuzzy numbers"
+    ],
+    "doi": null,
+    "pages": "5-17",
+    "source_file": "paper1.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 32.25,
+    "composite": 24.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 application of an existing reasoning formalism (FRSN P systems) with a different fuzzy-number type. Definition 1 presents the model as a construct Π = (A, σ1,...,σm, syn, I, O) with a singleton alphabet A = {a} and rules a^θ → a^β that play no role in the reasoning, which is carried out entirely by the matrix algorithm of Section 2.3 (vectors θ, δ, matrices D1, D2, E, C).",
+    "DECORATIVE_DEFINITIONS": "Definition 1 ('An ivFRSN P system of degree m ≥ 1 is a construct') is a tuple definition of a weighted rule graph; its content is restated in prose and in the matrices, and removing it would not change what a programmer builds.",
+    "ELEVATED_SELF_CITATION": "Roughly 6-7 of 24 references (25-29%) include an author of this paper (J. Wang, H. Peng, T. Wang): refs [13], [16]?, [18], [19], [20], [21], [22]. All are on SN P systems or fuzzy fault diagnosis and are topically relevant.",
+    "NO_LIMITATIONS": "No limitations are acknowledged. The only constraint mentioned is that modelling for Case 2 is omitted 'due to space limitations'; the conclusion asserts 'good accuracy' without qualification."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Incremental application of fuzzy reasoning SN P systems to power-system fault diagnosis, wrapped in a decorative P-system construct and supported only by two worked examples.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Replacing trapezoidal fuzzy numbers with interval-valued fuzzy numbers in an existing fuzzy-reasoning SN P system model for power-system fault section identification.\n**Level:** 2 (Low)\n**Rationale:** The reasoning machinery (matrix-based forward propagation of truth values over AND/OR rule neurons) is taken from prior FRSN P system work [19, 22]; the contribution is substituting the number type and its min/max/product operators. No complexity analysis, no proofs, no new algorithmic idea.\n\n### Formal Elements\n- Definitions: 1 (Definition 1, the ivFRSN P system construct)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 numbered, plus 4 interval-valued arithmetic operators and 3 matrix-vector operators\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Numerically proportionate, but fails the necessity test. The interval arithmetic and matrix operators are needed to implement the reasoning. Definition 1 is not: its singleton alphabet and spike-rule notation are never used, and everything a programmer needs is in the vectors and matrices of Section 2.3.\n\n### Issues\n- The P-system construct dresses up a fuzzy production-rule network as a membrane computing model without the membrane semantics affecting the computation.\n- The relation `≥` between interval-valued fuzzy numbers used as the fault threshold (Section 3.2) is never defined.\n- In Case 2 the text says buses C1/C2 trip 'CB9, CB10 and CB11' although the system is described as having 10 CBs.\n\n---\n\n## Citation Analysis\n\n24 references. Self-citations to J. Wang, H. Peng or T. Wang: [13], [18], [19], [20], [21], [22], and possibly [16] (a J. Wang co-authored with L. Pan, likely a different person). SCR is about 25-29%, which falls in the elevated band. All self-citations are on SN P systems or fuzzy fault diagnosis, so all are relevant.\n\n---\n\n## Structural Analysis\n\nThe evidence is two hand-worked cases on a six-bus test system taken from [7]. There are no statistics, no test set and no quantitative baseline comparison. The comparison with CTPN and FRSN P systems in Section 3.4 is qualitative only: 'more reliable', 'easier to handle and more intuitive', 'more flexible and effective'. Certainty factors and confidence levels are set by expert judgement without justification. No limitations are stated. No code or data is released.\n\n---\n\n## Conclusion\n\nThe concept is a modest variant of an established fault-diagnosis formalism. Under the Level 2 zero-tolerance rule, the decorative P-system construct triggers `FORMALISM_THEATER`. The empirical support is illustrative, not evaluative, and the claimed advantages over prior methods are not demonstrated."
+  },
+  {
+   "paper_id": "rong2017",
+   "paper": {
+    "title": "A Novel Approach to Fault Classification of Power Transmission Lines Using Singular Value Decomposition and Fuzzy Reasoning Spiking Neural P Systems",
+    "authors": [
+     "Haina Rong",
+     "Ming Zhu",
+     "Zhipeng Feng",
+     "Gexiang Zhang",
+     "Kang Huang"
+    ],
+    "abstract": "Classifies ten short-circuit fault types on power transmission lines by extracting wavelet singular values from fault current components and feeding fuzzified features into a fuzzy reasoning spiking neural P system classifier; evaluated on PSCAD/EMTDC simulations with varied fault conditions, line parameters and noise.",
+    "keywords": [
+     "Membrane computing",
+     "fuzzy reasoning spiking neural P systems",
+     "fault classification",
+     "wavelet transform",
+     "singular value decomposition"
+    ],
+    "doi": null,
+    "pages": "18-31",
+    "source_file": "paper2.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 62,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 36.7,
+    "composite": 27.53,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 pipeline (wavelet + SVD features, 12 hand-written fuzzy IF-THEN rules) presented through a P-system tuple Π = (O, σ1,...,σm, syn, in, out) with an unused singleton alphabet O = {a}. The instance Π1 then writes the rule graph as a set syn = {(1,21), (2,22), ...} of 54 pairs that duplicates Figure 4. This is a tuple definition for a data structure and set notation for an edge list; the classification itself is threshold rules on four normalised features.",
+    "ELEVATED_SELF_CITATION": "6 of 24 references (25%) include G. Zhang and/or H. Rong: [5], [6], [7], [10], [12], [13]. All are on membrane computing; [7] (manufacturing parameter optimisation with tissue membrane systems) is only marginally related.",
+    "NO_LIMITATIONS": "No limitations are acknowledged. The conclusion only lists future fault situations, and the paper reports 100% accuracy without discussing simulation-only validation or how the fixed membership thresholds would transfer."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simulation-validated fault-type classifier combining standard wavelet-SVD features with a fuzzy rule network; P-system notation is decorative and limitations are unacknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fault-type classification on a two-machine transmission line using wavelet singular values as features and twelve fuzzy production rules encoded as an rFRSN P system.\n**Level:** 2 (Low)\n**Rationale:** Applies an existing reasoning model [14] and an existing feature-extraction method (wavelet singular values, cf. [16]) to a new task. The authors call it the first application of FRSNPS to fault-type classification. There is no new algorithm and no analysis.\n\n### Formal Elements\n- Definitions: 1 (the rFRSNPS tuple, recalled without a number), plus the system instance Π1\n- Theorems: 0\n- Proofs: 0\n- Equations: about 6 (fault component current, wavelet bands, normalisation, two reasoning equations, three operators)\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Low in count but fails the necessity test. The 12 rules R1-R12 and the membership thresholds (0.5 for phases, 0.001 for zero sequence) fully specify the classifier. The P-system tuple, the unused alphabet and the enumerated synapse set add nothing a programmer would need.\n\n### Issues\n- `syn = {(1, 21), (2, 22), (3, 23), ...}` restates the edge list of Figure 4 in set notation.\n- Internal inconsistencies: Cases 3 and 4 state 'the value 0.95 is the highest' while the reported outputs are 0.9025. Operators ⊕ and ⊗ are introduced with D1 described as 'general' and D2 as 'and' neurons, and the naming is inconsistent with Equation (1). Section 3 is titled 'Extractionn'.\n- The rFRSNPS is introduced as 'rTFRSNPS' in one place.\n\n---\n\n## Citation Analysis\n\n24 references. Six (25%) include G. Zhang (corresponding author) and/or H. Rong: [5] a monograph, [6] a survey, [7] a hybrid DE/tissue P optimiser, [10] an optimisation SN P system, and [12], [13] FRSN P fault diagnosis. All fall within membrane computing. [7] is marginal for a fault-classification paper but not unrelated.\n\n---\n\n## Structural Analysis\n\nThe evidence base is reasonable for an applied paper: 1200 PSCAD simulations over fault resistance, location and inception angle; 240 samples with altered line parameters; and noise tests from 10 to 40 dB with comparison figures for two prior methods at 30-40 dB. The weaknesses are that all data are simulated on a single topology, the baseline numbers are copied from the literature rather than re-run, and the uniform 100% accuracy is not interrogated. No limitations are stated. Simulation data and code are not released.\n\n---\n\n## Conclusion\n\nThe paper is competent applied engineering with credible simulation evidence. Under the strict Level 2 rule, the decorative P-system construct and the set-notation edge list trigger `FORMALISM_THEATER`. Self-citation is elevated but topical."
+  },
+  {
+   "paper_id": "wang2017",
+   "paper": {
+    "title": "Spiking Neural P Systems with Anti-Spikes and without Annihilating Priority",
+    "authors": [
+     "Xun Wang",
+     "Tao Song",
+     "Pan Zheng",
+     "Shaohua Hao",
+     "Tongmao Ma"
+    ],
+    "abstract": "Introduces a variant of spiking neural P systems with anti-spikes in which annihilation of spikes and anti-spikes has no priority over spiking, and proves that such systems with at most two rules per neuron, using two spiking-rule categories and no forgetting rules, are Turing universal as number generators, answering an open problem from the original anti-spike paper.",
+    "keywords": [
+     "Membrane computing",
+     "Spiking neural P system",
+     "Turing completeness",
+     "Register machine",
+     "Anti-spike"
+    ],
+    "doi": null,
+    "pages": "32-41",
+    "source_file": "paper3.pdf"
+   },
+   "concept_level": 5,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.5,
+    "composite": 49.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "At least 7 of 20 references (35%) include an author of this paper, mostly T. Song: [6], [7], [8], [16], [17], [18], [19]. [11] (X. Wang as co-author) would make 8 of 20 (40%). All are on SN P systems and topically relevant, but the ratio exceeds the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Sound, proportionate universality proof for an SN P system variant, undermined on citation conduct by a self-citation ratio of at least 35%.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computational power of SN P systems with anti-spikes when annihilation is non-obligatory; Turing universality via register-machine simulation.\n**Level:** 5 (Very High)\n**Rationale:** The result is a proof of Turing completeness (NRE characterisation), which is the canonical Level 5 category.\n\n### Formal Elements\n- Definitions: 2 (ASN P system without annihilating priority; register machine)\n- Theorems: 1 (Theorem 0.1), plus 1 corollary\n- Proofs: 1 (constructive, by ADD/SUB/FIN modules)\n- Equations: configuration notation only\n\n### Proportionality\nCalculated complexity: 2x2 + 2x3 + 1x4 = 14\nExpected range (Level 5): 60-150\nRatio: 0.09x upper bound\n\n**Assessment:** Proportionate. The model definition and register-machine construction are the subject matter. Set and regular-language notation is native to the result and passes the necessity test.\n\n### Issues\n- The proof argues module behaviour step by step against figures that are not reproduced in the text layer, and it is informal in places, e.g. the treatment of interference between SUB modules.\n- The abstract's claim that the result is 'optimal in the sense of having a minimal number of rules' is not proved: no argument is given that one rule per neuron cannot suffice.\n- Typographical slips: 'σl10)', a missing parenthesis in the corollary, and theorem numbering '0.1'.\n\n---\n\n## Citation Analysis\n\n20 references. T. Song (corresponding author) appears on [6], [8], [16], [17], [18] and [19]. X. Wang, T. Song and P. Zheng appear on [7]. X. Wang appears on [11], plausibly the same author. This gives 7-8 of 20 (35-40%). All are on SN P systems, and most are on anti-spike variants, so they are relevant. The ratio itself is excessive under the framework.\n\n---\n\n## Structural Analysis\n\nThe central claim is supported by a constructive proof. The Final Remarks frame the open problems: other rule categories, pure rules with anti-spikes, and small universal systems. This acknowledges the scope of the result. The paper is theoretical and has nothing to release.\n\n---\n\n## Conclusion\n\nThe paper is technically appropriate: a concise universality result whose formalism is proportionate. The self-citation ratio of at least 35% exceeds the disqualification threshold, so the paper is disqualified on citation conduct, not on content."
+  },
+  {
+   "paper_id": "pan2017",
+   "paper": {
+    "title": "Flat maximal parallelism in tissue P systems with promoters",
+    "authors": [
+     "Linqiang Pan",
+     "Yanfeng Wang",
+     "Suxia Jiang",
+     "Bosheng Song"
+    ],
+    "abstract": "Studies tissue P systems with promoters under flat maximal parallelism, proving Turing universality with at most two promoters per rule and only length-1 symport rules, and giving a uniform linear-time solution to SAT using cell division and length-1 symport rules with at most two promoters.",
+    "keywords": [
+     "Tissue P system",
+     "Promoter",
+     "Flat maximal parallelism",
+     "SAT problem",
+     "Universality"
+    ],
+    "doi": null,
+    "pages": "42-56",
+    "source_file": "paper4.pdf"
+   },
+   "concept_level": 5,
+   "scores": {
+    "formalism": 88,
+    "citation_integrity": 62,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.65,
+    "composite": 56.74,
+    "final": 51.74
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "11 of 38 references (29%) include L. Pan and/or B. Song: [15], [16], [28]-[34], [36], [37]. All concern P systems, universality or efficiency, so they are relevant. [36], an evolutionary membrane computing survey, is the most peripheral."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Proportionate theoretical paper giving universality and SAT-efficiency results for tissue P systems with promoters; elevated but topical self-citation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computational power and efficiency of tissue P systems with promoters under the flat maximally parallel rule-application mode.\n**Level:** 5 (Very High)\n**Rationale:** The paper proves Turing universality (NRE characterisation) and gives a uniform polynomial-time solution to an NP-complete problem with a complexity-class corollary.\n\n### Formal Elements\n- Definitions: 2 (Definition 1, tissue P system with promoters and cell division; register machine)\n- Theorems: 2, plus 1 corollary\n- Proofs: 2\n- Equations: rule sets and resource counts\n\n### Proportionality\nCalculated complexity: 2x2 + 3x3 + 2x4 = 21\nExpected range (Level 5): 60-150\nRatio: 0.14x upper bound\n\n**Assessment:** Proportionate. Rule-level specification is necessary for both constructive proofs.\n\n### Issues\n- The recognizer-system notions used in Theorem 2 (input alphabet Σ, input cell iin) are deferred to [25, 29] and are absent from Definition 1.\n- Corollary 1 claims NP ∪ co-NP but justifies only closure under polynomial-time reductions. Closure under complement is not stated.\n- Small slips: 'r6,i' should be 'r9,i' in the generation phase; the conclusion refers to 'section 2 and section 3' for results in Sections 3 and 4; Π(⟨n,m⟩) and Π(⟨m,n⟩) are used interchangeably; 'Corrolary'.\n\n---\n\n## Citation Analysis\n\n38 references. Self-citations to L. Pan and/or B. Song: [15], [16], [28], [29], [30], [31], [32], [33], [34], [36], [37], i.e. 11 (29%), in the elevated band. They form a coherent research line, and [29], the base model, and [15], flat parallelism in cell-like systems, are directly foundational. No unrelated self-citation was found.\n\n---\n\n## Structural Analysis\n\nThe claims are established by constructive proofs with explicit resource bounds. The conclusion states open problems: one promoter, antiport rules, inhibitors and time-freeness. This delimits the result. The paper is theoretical and has nothing to release.\n\n---\n\n## Conclusion\n\nThe paper is a well-scoped theoretical contribution with proportionate formalism and minor rigor gaps in the corollary and in notation. Self-citation is elevated but consistent with an established research programme."
+  },
+  {
+   "paper_id": "carandang2017",
+   "paper": {
+    "title": "CuSNP: Spiking Neural P Systems Simulators in CUDA",
+    "authors": [
+     "Jym Paul A. Carandang",
+     "John Matthew B. Villaflores",
+     "Francis George C. Cabarle",
+     "Henry N. Adorna",
+     "Miguel A. Martinez-del-Amor"
+    ],
+    "abstract": "Reports improvements to CuSNP, a set of sequential (CPU) and CUDA (GPU) simulators for spiking neural P systems: a P-Lingua input parser, an extension of the matrix representation to handle delays, a finite-automaton method for more regular-expression forms, and runtime comparisons on generalized and bitonic sorting networks showing up to 50x GPU speed-up.",
+    "keywords": [
+     "Membrane computing",
+     "SN P systems",
+     "CUDA",
+     "GPU"
+    ],
+    "doi": null,
+    "pages": "57-70",
+    "source_file": "paper5.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 58,
+    "structural_integrity": 65,
+    "artifact_availability": 70,
+    "intellectual_integrity": 36.55,
+    "composite": 44.91,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"The latest version of the CuSNP code is available at [29].\" [29]: http://aclab.dcs.upd.edu.ph/productions/software/cusnp_v060616",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "UNNECESSARY_SET_THEORY",
+    "DISPROPORTIONATE_FORMALISM",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 simulator engineering paper (porting an existing matrix representation [23] to handle delays, adding a parser and GPU kernels) carrying 11 numbered definitions, a lemma and two theorems. The theorems are restatements of vector arithmetic: Theorem 2 is C(k+1) = C(k) + St ⊗ (IV·TV) − S·RM, and Theorem 3 asserts that Algorithm 1 computes it.",
+    "DECORATIVE_DEFINITIONS": "Definitions 1-11 formalise plain arrays: e.g. 'Definition 5: (Delay Vector). The delay vector D = ⟨d1,...,dn⟩ contains the delay count for each rule', and the Loss and Gain vectors. Each is a variable declaration a programmer would write without the definition.",
+    "UNNECESSARY_SET_THEORY": "Definition 8 and Definition 10 define the transition and removing matrices as an 'ordered set of vectors TV = {tv1,...,tvn}', which is set notation for a 2-D array; no proof depends on set properties.",
+    "DISPROPORTIONATE_FORMALISM": "Formalism complexity = 11 definitions x2 + 3 theorems/lemmas x3 + 2 proofs x4 = 39, above twice the Level 2 upper bound (30).",
+    "ELEVATED_SELF_CITATION": "9 of 30 references (30%) include an author: [2], [4], [5], [12], [19], [23], [26], [29], [30]. [29] is the software itself; excluding it gives 8/29 (28%). All are on SN P systems or P system simulation and are relevant."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Useful GPU simulator with released code and honest limitations, but presented with a heavy apparatus of decorative vector definitions and trivial 'theorems'.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Engineering improvements to CPU and GPU simulators for SN P systems: parser, delay support in the matrix representation, regular-expression matching via small DFAs, and benchmarking on sorting networks.\n**Level:** 2 (Low)\n**Rationale:** The matrix representation comes from [23], and the GPU simulation approach continues the authors' earlier work [26, 30]. The new content is software and a straightforward extension to delays. The 'proofs' do not establish non-trivial properties.\n\n### Formal Elements\n- Definitions: 11 numbered (plus the recalled SN P system tuple)\n- Theorems: 3 (Lemma 1, Theorem 2, Theorem 3)\n- Proofs: 2\n- Equations: about 4\n\n### Proportionality\nCalculated complexity: 39\nExpected range (Level 2): 0-15\nRatio: 2.6x upper bound\n\n**Assessment:** Disproportionate. The definitions name arrays and the theorems restate the update rule that Algorithm 1 implements line by line.\n\n### Issues\n- The formalism is also internally inconsistent. S(k) has n entries (one per rule) but the proof calls it 1 x m. IV is defined with m entries yet 'indicates which rule' fires, and is multiplied by an n x m matrix. Definition 3 says 'neuron m' for neuron i. The worked example gives St(1) = ⟨1,1,1⟩ and later ⟨1,1,0⟩.\n- Rule density is defined as 'total number of rules n over the total number of neurons n'.\n\n---\n\n## Citation Analysis\n\n30 references, of which 9 (30%) include one of the five authors. This sits at the top of the elevated band, and the count includes the software release [29]. All are on SN P systems or GPU/P-Lingua simulation and are relevant.\n\n---\n\n## Structural Analysis\n\nThe speed-up claims (about 9x at 128 inputs, up to 50x at 512) are backed by runtime plots and nvprof kernel profiling on one stated hardware configuration. The number of repetitions and the variance are not reported. Limitations are acknowledged inline: the 512-input ceiling from thread limits, the lack of syntax error checking in the parser, and unsupported regex features. The simulator code is linked (category `code`). The benchmark SN P systems are generated from published constructions but are not deposited.\n\n---\n\n## Conclusion\n\nThe engineering contribution is real and the code is available. The paper wraps routine array bookkeeping in 11 numbered definitions and trivial theorems that are themselves dimensionally inconsistent. At Level 2 this is formalism theater and disqualifying."
+  },
+  {
+   "paper_id": "valenciacabrera2017",
+   "paper": {
+    "title": "A Simulation Software Tool for Cell-like Spiking Neural P Systems",
+    "authors": [
+     "Luis Valencia-Cabrera",
+     "Tingfang Wu",
+     "Zhiqiang Zhang",
+     "Linqiang Pan",
+     "Mario J. Pérez-Jiménez"
+    ],
+    "abstract": "Presents P-Lingua language support and a simulator, integrated in the MeCoSim environment, for cell-like spiking neural P systems, a recently proposed model combining a hierarchical membrane structure with spiking and forgetting rules; illustrates the tool on examples from the literature.",
+    "keywords": [
+     "Bio-inspired computing",
+     "Membrane computing",
+     "Spiking neural P system",
+     "Cell-like P system",
+     "P-Lingua"
+    ],
+    "doi": null,
+    "pages": "71-84",
+    "source_file": "paper6.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 65,
+    "citation_integrity": 35,
+    "structural_integrity": 45,
+    "artifact_availability": 70,
+    "intellectual_integrity": 49.5,
+    "composite": 54.62,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"have made publicly available in the current version of MeCoSim, that can be downloaded from [36]\"; [36]: http://www.p-lingua.org/mecosim/",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "About 22 of 37 references (59%) include at least one author, chiefly L. Pan and M. J. Pérez-Jiménez: [1], [4], [6], [8], [9], [11], [13], [14], [16], [17], [18], [20], [25]-[34]. Several are cited only as generic examples of universality or efficiency results (e.g. [26], [28], [30] on tissue/promoter/protein P systems). These are marginal (0.3-0.5) for a simulator paper but stay within membrane computing.",
+    "NO_LIMITATIONS": "No limitations section and no acknowledgment of constraints of the tool (performance, scale, unsupported features). A sentence in Section 4.6 is truncated ('policies implemented yet'), and the conclusion claims the tool helped detect 'subtle details not considered in previous works' without saying which."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Descriptive tool paper adding cell-like SN P system support to P-Lingua/MeCoSim, with downloadable software but no evaluation and a self-citation ratio near 60%.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Language syntax and a simulator for cell-like SN P systems within the existing P-Lingua/MeCoSim framework.\n**Level:** 1 (Trivial)\n**Rationale:** The paper is a software tool description that extends an existing framework with a new model's syntax and a standard select/execute simulation loop. It has no algorithmic novelty and no analysis.\n\n### Formal Elements\n- Definitions: 3, all recalled from the literature in prose (cell-like P systems with rewriting rules, SN P systems, cSN P systems)\n- Theorems: 0\n- Proofs: 0\n- Equations: the rule forms and one example system\n\n### Proportionality\nCalculated complexity: 6\nExpected range (Level 1): 0-5\nRatio: 1.2x upper bound\n\n**Assessment:** Slightly above the Level 1 range, but the recalled definitions pass the necessity test. They specify the semantics the simulator must implement (target indicators here/in/inj/inall, one rule per membrane, regular-expression applicability), and a programmer would need them. They are not numbered 'Definition' blocks and are not invented for the paper.\n\n### Issues\n- The paper header shows 2016 against volume 20 (2017).\n- Section 4.6 contains a garbled or truncated sentence about regular-expression policies.\n\n---\n\n## Citation Analysis\n\n37 references. Roughly 22 (about 59%) include L. Pan, M. J. Pérez-Jiménez, L. Valencia-Cabrera, T. Wu or Z. Zhang, well above the 30% threshold. The core self-citations are directly relevant: [31, 32] define the model, [8, 16, 25] are the framework. A substantial block in the introduction ([18], [20], [26]-[30], [34]) is cited as generic evidence that P systems are universal or efficient. Those works are only marginally related to a simulator for cSN P systems.\n\n---\n\n## Structural Analysis\n\nThere is no evaluation: no performance measurement, no validation against known results beyond two toy examples from [31], and no comparison with other simulators. The claims that the tools 'proved their ability to validate the solutions' and helped detect 'subtle details' are asserted without evidence. No limitations are stated. The software is downloadable through MeCoSim, so the category is `code`.\n\n---\n\n## Conclusion\n\nThe paper is a useful community-infrastructure note with an available tool and proportionate use of the model's formal definition. It offers little evidence beyond illustrative examples. The self-citation ratio near 60% exceeds the disqualification threshold."
+  }
+ ]
+}

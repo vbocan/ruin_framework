@@ -1,0 +1,322 @@
+{
+ "batch_id": "2014-v17-n3",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 17,
+  "issue": 3,
+  "year": 2014
+ },
+ "papers": [
+  {
+   "paper_id": "boiangiu2014",
+   "paper": {
+    "title": "Applying Localized Otsu for Watershed Segmented Images",
+    "authors": [
+     "Costin-Anton Boiangiu",
+     "Andrei Tigora"
+    ],
+    "abstract": "This paper describes an image binarization method that applies localized Otsu thresholding to irregular regions of images, determined through watershed segmentation. Traditional localized binarization techniques work on square regions, which group together pixels of different origins. This is a problem, as there may not always be available a comparator for objects from different classes. In order to solve this problem, we use a method that first selects the objects (like shadow and light regions) and then performs binarization on each individual object in order to expose its characteristics. For more accurate results, an inter-scale segmentation and binarization method is proposed.",
+    "keywords": [],
+    "doi": null,
+    "pages": "219-229",
+    "source_file": "01-cboiangiu2014.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 80,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 71.25,
+    "composite": 53.44,
+    "final": 53.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only implementation statement is \"The algorithm was implemented in C++, using the OpenCV image library.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Incremental image-binarization pipeline (median filter, Canny, watershed, per-segment Otsu at two scales) with proportionate background formalism, but evaluated only by visual inspection of a few images, with no quantitative metric or benchmark comparison.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Binarization by applying Otsu thresholding inside watershed segments computed at two image scales, averaging the two thresholds per pixel.\n**Level:** 2 (Low)\n**Rationale:** The method chains existing components (median filter, Canny, dilation, watershed, Otsu) with a simple averaging step; it is a straightforward combination and extension of the authors' earlier single-scale method [1], with no new algorithmic theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (Otsu's inter-class variance, class probability, class mean, arg max)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The only equations restate Otsu's classical criterion in the background section; they describe exactly the thresholding the method applies and pass the necessity test.\n\n### Issues\nNone identified in the formalism. Minor: Otsu's class-mean equation (3) omits the normalisation by class probability.\n\n---\n\n## Citation Analysis\n\n3 of 17 references are self-citations (SCR about 18%): [1] Tigora (the direct predecessor method), [2] Boiangiu, Bucur, Tigora (binarization survey), [4] Boiangiu et al. (local thresholding with variable windows). All three are on image binarization and directly relevant. The rest of the list covers the standard binarization literature (Otsu, Niblack, Sauvola, Wolf-Jolion, AdOtsu, water-flow model).\n\n---\n\n## Structural Analysis\n\nThe evaluation is qualitative only: \"Lena\" and two further images (a hand on a notepad, a printed page) are shown with intermediate segmentations, and timing ranges are given per stage. There is no ground truth, no standard document-binarization benchmark, and no numerical comparison (e.g. F-measure, PSNR) against Otsu, Sauvola or the authors' earlier method. Conclusions such as \"significantly reduces the noise in the binarized image\" and \"improves considerably the previous method\" are therefore supported only by figures, and the text itself reports failure cases (background-only regions classified as foreground, black areas left unfilled). Limitations are acknowledged inline (\"This method is not useful for natural images\"; \"Some artifacts still remain\"). No code or data is released; OpenCV is a third-party library.\n\n---\n\n## Conclusion\n\nA short applied paper whose formalism is limited to textbook Otsu equations and is entirely appropriate. Its weakness is evidential: the claimed improvement over prior methods is asserted from visual inspection of a handful of images without any quantitative evaluation, which leaves the contribution hard to assess. No integrity concerns in citation practice."
+  },
+  {
+   "paper_id": "zhu2014",
+   "paper": {
+    "title": "On the Harmonic Index of Unicyclic Conjugated Molecules",
+    "authors": [
+     "Yan Zhu",
+     "Renying Chang"
+    ],
+    "abstract": "The harmonic index H(G) of a graph G is defined as the sum of weights 2/(d(u)+d(v)) of all edges uv of G, where d(u) denotes the degree of a vertex u in G. In this paper, we first present a sharp lower bound on the harmonic index of unicyclic conjugated graphs (unicyclic graphs with a perfect matching). Also a sharp lower bound on the harmonic index of unicyclic graphs is given in terms of the order and given size of matching.",
+    "keywords": [
+     "Harmonic index",
+     "unicyclic graph",
+     "given size of matching"
+    ],
+    "doi": null,
+    "pages": "230-236",
+    "source_file": "02-zhuyan2014.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 84.95,
+    "composite": 63.71,
+    "final": 63.71
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the paper consists of extremal graph-theory proofs with nothing to release",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Short extremal graph-theory paper proving two sharp lower bounds on the harmonic index of unicyclic graphs with a given matching size; formalism is the subject matter and is proportionate, self-citation is low and relevant.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Sharp lower bounds on the harmonic index H(G) for unicyclic graphs with a perfect matching and, more generally, with an m-matching, with characterisation of the extremal graph U_{n,m}.\n**Level:** 3 (Medium)\n**Rationale:** The contribution consists of new, non-trivial extremal results proved by induction with case analysis. It is a standard type of result in chemical graph theory rather than a new theory, so Level 3 rather than 4.\n\n### Formal Elements\n- Definitions: 4 (H(G), the class U_{n,m}, the extremal graph U_{n,m} with phi(n,m), the auxiliary function kappa)\n- Theorems: 6 (Lemmas 2.1-2.4, three quoted from the literature; Theorems 3.1 and 3.2)\n- Proofs: 3 (Lemma 2.4, Theorem 3.1, Theorem 3.2)\n- Equations: numerous inequality chains inside the proofs\n\n### Proportionality\nCalculated complexity: 4x2 + 6x3 + 3x4 = 38\nExpected range (Level 3): 10-40\nRatio: 0.95x upper bound\n\n**Assessment:** Proportionate. The paper is a mathematics paper; every definition is used in the theorems and proofs, and the notation is the subject matter rather than decoration.\n\n### Issues\nNone in the sense of formalism theater. Minor: the extracted text shows some notational slips (e.g. \"G' is not isomorphic to {H6, H8}\" used for set non-membership), and several small cases (H6, H8, Q8, G1-G6) are settled by numerical values read from figures rather than shown computations.\n\n---\n\n## Citation Analysis\n\n2 of 17 references are self-citations (SCR about 12%): [3] Chang and Zhu on harmonic index and minimum degree, and [17] Zhu, Chang, Wei on harmonic index of bicyclic graphs. Both are on the harmonic index and directly relevant. Reference [9] (Liu and Zhang) appears in the list without being cited in the text, which is a minor editorial issue.\n\n---\n\n## Structural Analysis\n\nClaims are theorems, and the evidence is the proofs, which are given in full with explicit case analysis; the claim-evidence balance is good. Limitations are acknowledged inline: Theorem 3.2 is restricted to m >= 5, and Note 2 states that sharp upper bounds for n >= 2m+2 are unknown (\"This case maybe much more complicated\"). No artifact is relevant to a purely theoretical paper.\n\n---\n\n## Conclusion\n\nA compact, correctly scoped contribution in chemical graph theory. Formalism is proportionate to a Level 3 mathematical result, citations are appropriate, and open cases are stated. The main reservation is that some base cases depend on numerical values reported in figures without derivation."
+  },
+  {
+   "paper_id": "saracevic2014",
+   "paper": {
+    "title": "Construction and Notation of Convex Polygon Triangulation Based on Ballot Problem",
+    "authors": [
+     "Muzafer H. Saračević",
+     "Predrag S. Stanimirović",
+     "Predrag V. Krtolica",
+     "Sead H. Mašović"
+    ],
+    "abstract": "In this paper we provide a new way for constructing and storing the convex polygon triangulations. The main motivation for the presented method is derived from two combinatorial problems: ballot problem and problem of lattice path. The method is derived upon the so-called movement through polygon. The movement is defined on ballot records and validity of the lattice path through the grid. We give two algorithms: Triangulation to ballot and Ballot to triangulation. Also, we give a method to make coding for a ballot record or the corresponding triangulation even more compact using a stack. All mentioned algorithms are implemented in the Java programming language.",
+    "keywords": [
+     "Triangulation of convex polygon",
+     "Catalan numbers",
+     "Ballot problem",
+     "Lattice path",
+     "Stacks"
+    ],
+    "doi": null,
+    "pages": "237-251",
+    "source_file": "03-msaracevic2014.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 35,
+    "structural_integrity": 55,
+    "artifact_availability": 70,
+    "intellectual_integrity": 26.0,
+    "composite": 37.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"Java applications for both methods can be downloaded from: http://muzafers.uninp.edu.rs/triangulation/Ballot.rar and http://muzafers.uninp.edu.rs/triangulation/Hurtado.rar\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "3 of 7 references ([5], [6], [7]) are by the authors (SCR about 43%, above the 30% threshold). The cited works are on the same topic (convex polygon triangulation), but the reference list is very short and almost half of it is the authors' own work; [6] also supplies part of the comparison data.",
+    "FORMALISM_THEATER": "Level 2 paper with formalism complexity 16 (above the Level 2 upper bound of 15) and unnecessary formal elements: Proposition 2.1 and Proposition 3.1, with proofs, restate the classical facts that ballot records and convex-polygon triangulations are counted by Catalan numbers, which the paper already cites from Koshy [4]. They do not inform the algorithms and could be replaced by a one-sentence citation."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Encoding of convex-polygon triangulations as ballot records and stack permutations, with Java code released; disqualified by a 43% self-citation ratio and by propositions that re-prove textbook Catalan-number facts in a Level 2 paper.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A bijective encoding between convex-polygon triangulations and ballot sequences (via a 'movement through the polygon'), plus a stack-based compaction of the ballot record, compared against the Hurtado-Noy generation method.\n**Level:** 2 (Low)\n**Rationale:** The paper applies the well-known Catalan bijections (ballot sequences, lattice paths, stack permutations) to triangulation storage. The algorithms are new descriptions but no correctness proof of the bijection or complexity analysis is given, so Level 3 is not justified.\n\n### Formal Elements\n- Definitions: 1 (Definition 3.1, cyclic distance between vertex labels)\n- Theorems: 2 (Propositions 2.1 and 3.1)\n- Proofs: 2\n- Equations: 4 (binomial counts, Segner recurrence, Cn = T_{n+2})\n\n### Proportionality\nCalculated complexity: 1x2 + 2x3 + 2x4 = 16\nExpected range (Level 2): 0-15\nRatio: 1.07x upper bound\n\n**Assessment:** Slightly above range, and the excess consists of unnecessary elements. Definition 3.1 is used operationally in Algorithm 3 (it distinguishes edges from diagonals) and passes the necessity test. The two propositions do not: both restate classical results (Catalan counting of ballot records and of triangulations) already available in the cited monograph [4]. The proof of Proposition 3.1 is also loosely argued (it counts symbols rather than establishing that the movement defines a bijection), so the one result that would genuinely need proof, that Algorithms 1 and 3 are mutually inverse, is not proved.\n\n### Issues\n- Propositions 2.1 and 3.1 re-prove textbook facts rather than the paper's own claims.\n- Algorithm 1 step 2.2.1 and Algorithm 3 step 2.2.1 (\"return for one more node\") are underspecified; Algorithm 3 is referred to later as \"Alg. 3.1\".\n\n---\n\n## Citation Analysis\n\nSelf-citations: [5] Saračević, Stanimirović, Mašović, Biševac (implementation of triangulation algorithm), [6] Stanimirović, Krtolica, Saračević, Mašović (block method for triangulation, ROMJIST), [7] the same authors (decomposition of Catalan numbers and triangulations). 3 of 7 references, SCR about 43%. All three are topically close (similarity high), so there is no irrelevant self-citation, but the ratio exceeds 30% and the reference list ignores most of the literature on triangulation enumeration and Gray-code style generation beyond Hurtado-Noy and Gupta et al.\n\n---\n\n## Structural Analysis\n\nThe experimental section reports CPU times and buffer sizes for v = 5..16 against the Hurtado-Noy method. The Hurtado-Noy figures are taken partly from the authors' earlier paper [6], so it is unclear whether both were measured under identical conditions. The memory comparison contrasts storing stack values (SVBs) with storing explicit diagonal vertices, which is largely a difference of output format rather than of method. The paper does report that Hurtado-Noy is faster in the generation phase alone, an inline acknowledgment of a weakness, but there is no limitations discussion. The Java code for both methods is linked; the data are generated by the code.\n\n---\n\n## Conclusion\n\nThe encoding idea is reasonable and the code is released, which is a strength. However, almost half the references are self-citations, and the formal apparatus re-proves classical Catalan-number facts while leaving the paper's actual correctness claim (the two algorithms are mutually inverse bijections) unproved. Under the framework both points are disqualifying."
+  },
+  {
+   "paper_id": "crawford2014",
+   "paper": {
+    "title": "A Binary Coded Firefly Algorithm that Solves the Set Covering Problem",
+    "authors": [
+     "Broderick Crawford",
+     "Ricardo Soto",
+     "Miguel Olivares-Suárez",
+     "Wenceslao Palma",
+     "Fernando Paredes",
+     "Eduardo Olguín",
+     "Enrique Norero"
+    ],
+    "abstract": "This work presents a study of a new binary coded firefly algorithm. The firefly algorithm is a novel nature-inspired metaheuristic, inspired by the social behavior of fireflies, which is being applied to solve many optimization problems. We test the proposed binary coded firefly algorithm solving the non-unicost set covering problem which is a well-known NP-hard discrete optimization problem with many practical applications. To tackle the mapping from a continuous search space to a discrete search space we use different transfer functions which are investigated in terms of convergence speed and accuracy of results. The experimental results show the effectiveness of our approach where the binary coded firefly algorithm produce competitive results solving a portfolio of set covering problems from the OR-Library.",
+    "keywords": [
+     "Set Covering Problem",
+     "Binary Firefly Algorithm",
+     "Metaheuristic"
+    ],
+    "doi": null,
+    "pages": "252-264",
+    "source_file": "04-wpalma2014.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 60,
+    "structural_integrity": 35,
+    "artifact_availability": 50,
+    "intellectual_integrity": 61.75,
+    "composite": 58.81,
+    "final": 48.81
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"the binary FA was tested using the 65 SCP test instances from OR-Library [4]\" (named public benchmark); no code link or availability statement",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "7 of 31 references ([10]-[15], [26]) include the authors (SCR about 23%). Three concern the set covering problem; four concern autonomous search and hyperheuristics and are cited only in the future-work paragraph, with marginal relevance.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment, even though the reported deviations from optimum (7% to 50% RPD) are large and no competing method is compared."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Straightforward binarisation of the firefly metaheuristic for set covering, tested on the public OR-Library instances; formalism is appropriate, but the results (mean RPD near 20%, up to 50%) do not support the claim of high-quality near-optimal solutions, and no baseline or limitation is given.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A binary firefly algorithm for the non-unicost set covering problem, using eight existing S-shaped and V-shaped transfer functions and three discretisation rules, with a greedy repair step.\n**Level:** 2 (Low)\n**Rationale:** The paper applies an existing metaheuristic and existing transfer functions (Mirjalili and Lewis) to a standard benchmark problem; this is a configuration study of known components.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 (SCP integer program, firefly attractiveness, distance and movement, three binarisation rules, RPD)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The SCP model and the firefly update equations are what an implementer needs; the Greek letters (beta0, gamma, alpha) are the algorithm's own parameters inside the update formula, not decorative names for configuration values.\n\n### Issues\nNone in the formalism. Editorial defects: Algorithm 1 refers to \"Table ??\"; the movement step in Algorithm 1 indexes fireflies[i][j] with j ranging over fireflies rather than dimensions, which conflicts with the textual description.\n\n---\n\n## Citation Analysis\n\nSelf-citations (Crawford, Soto, Palma, Paredes): [10] evolutionary approach to set covering, [12] cultural algorithms for set covering, [13] hybrid soft computing for subset problems (all relevant), and [11], [14], [15], [26] on autonomous search, hyperheuristics and constraint programming, cited only to motivate future work (marginal relevance, similarity estimated at 0.3-0.5). SCR 7/31, about 23%.\n\n---\n\n## Structural Analysis\n\nThe experiments cover all 65 OR-Library instances with 30 runs each, which is a good protocol. However, the results contradict the stated conclusion: the minimum cost found exceeds the optimum by 7% to 50% (most instances 13-30%), yet the text says the approach \"provides high quality near optimal solutions\". No other method (greedy, Lagrangian, GA, ACO from the cited literature) is run or tabulated for comparison, so \"competitive\" in the abstract has no support. The near-identical min, max and average over 30 runs (e.g. 481, 482, 481.03) suggests the search barely diversifies, which is not discussed. Only 50 generations and 25 fireflies are used, chosen \"empirically\", without sensitivity analysis. No limitations are acknowledged. The benchmark data are public (OR-Library); no code is released.\n\n---\n\n## Conclusion\n\nAn appropriately formalised but weakly evaluated metaheuristic application. The benchmark is public and the experimental protocol is reasonable in size, but the paper's claims of effectiveness and competitiveness are not supported by its own tables and there is no baseline. Self-citation is moderately elevated, partly through references relevant only to future work."
+  },
+  {
+   "paper_id": "alexandru2014",
+   "paper": {
+    "title": "A Nominal Approach of Fusion Calculus",
+    "authors": [
+     "Andrei Alexandru",
+     "Gabriel Ciobanu"
+    ],
+    "abstract": "We provide a nominal semantics of the monadic version of the fusion calculus. A set of compact transition rules is presented in the Fraenkel-Mostowski framework by using a specific nominal quantifier. Using several nominal techniques, it is proved the equivalence between the new nominal semantics and the original semantics of the monadic fusion calculus.",
+    "keywords": [],
+    "doi": null,
+    "pages": "265-288",
+    "source_file": "05-gciobanu2014.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 62,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.7,
+    "composite": 45.53,
+    "final": 35.53
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the paper is a theoretical semantics paper with nothing to release",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "Formalism complexity of about 140 (15 definitions, 22 propositions/lemmas/theorems/corollaries, 11 proofs) against a Level 4 upper bound of 80, i.e. 1.75x. A large share is background on nominal sets restated from Gabbay and Pitts [6] and from the authors' earlier paper [1].",
+    "ELEVATED_SELF_CITATION": "3 of 11 references ([1], [2], [3]) are by the authors (SCR about 27%). All are on nominal techniques and relevant; [2] is the conference version of which this paper is an extension."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Theoretical paper recasting the monadic fusion calculus semantics with the nominal quantifier and proving equivalence with the Parrow-Victor semantics; formalism is the subject matter but heavy relative to a modest contribution, and the main proofs examine only a few cases.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A nominal (Fraenkel-Mostowski) presentation of the labelled transition semantics and structural congruence of the monadic fusion calculus, replacing side conditions with the N quantifier, and proofs that it coincides with the Parrow-Victor semantics.\n**Level:** 4 (High)\n**Rationale:** Equivalence of operational semantics for a process calculus is comparable to the type-system and protocol-proof category. Level 5 (formal verification frameworks, undecidability) would overstate a contribution that re-expresses an existing semantics; defaulting low gives Level 4.\n\n### Formal Elements\n- Definitions: 15 (2.1, 2.2, 2.5, 2.9, 2.11, 2.15, 3.1-3.3, 4.1, 4.2, 4.4-4.6, 4.15)\n- Theorems: 22 (propositions, lemmas, theorems and corollaries in Sections 2-4, about a third quoted from [6] or [9])\n- Proofs: 11\n- Equations: transition-rule schemata and set-theoretic identities throughout\n\n### Proportionality\nCalculated complexity: 15x2 + 22x3 + 11x4 = 140\nExpected range (Level 4): 30-80\nRatio: 1.75x upper bound\n\n**Assessment:** Elevated. In this field set membership, permutation actions and quantifiers are the native language, so the notation itself passes the necessity test. The excess comes from restating a long block of nominal-set background (Definitions 2.1-2.15, Propositions 2.3-2.18) largely available in [6] and [1], and from seven near-identical lemmas (4.8-4.13) whose proofs repeat the same Proposition 2.13/2.14 argument.\n\n### Issues\n- The two main results (Theorems 4.18 and 4.20) are proved by examining \"only one case\" or \"only a few cases\", with the rest declared \"trivial\" or \"very similar\".\n- Lemma 4.16 states equality between rule 5 of Definition 4.4 and rule 5 of Definition 4.5, whereas the proof concerns Definition 4.15; Example 2.4 cites \"Proposition ??\".\n- The contribution (eliminating freshness side conditions with the N quantifier) mirrors the authors' earlier treatment of the piI-calculus [1].\n\n---\n\n## Citation Analysis\n\nSelf-citations: [1] nominal semantics for the piI-calculus (direct methodological predecessor), [2] nominal fusion calculus at SYNASC 2013 (the conference version), [3] nominal groups (related, cited for a survey of nominal-set applications). 3 of 11 references, SCR about 27%. All relevant (similarity at least 0.5). The reference list is short but covers the foundational sources (Gabbay-Pitts, Parrow-Victor, Pitts, Sangiorgi-Walker).\n\n---\n\n## Structural Analysis\n\nClaims are theorems, and the evidence is proofs; most lemma proofs are given, but the central equivalence proofs are abbreviated to a few representative cases, which weakens the support for the main claim. Scope is acknowledged inline in the conclusion (the agreement between presentations \"potentially, may break down for more powerful systems\"). No artifact is relevant; no mechanisation (e.g. in a proof assistant) is offered.\n\n---\n\n## Conclusion\n\nA competent but incremental formal-semantics paper extending the authors' nominal treatment of the piI-calculus to the fusion calculus. The formalism is appropriate in kind and passes the necessity test, but its volume is inflated by restated background and repetitive lemmas, while the main theorems rest on sketched case analyses. Self-citation is moderately elevated but entirely topical."
+  },
+  {
+   "paper_id": "chitescu2014",
+   "paper": {
+    "title": "Sugeno Measures on the Code Space",
+    "authors": [
+     "Ion Chiţescu",
+     "Anca Plăviţu"
+    ],
+    "abstract": "One considers a finite set X (the alphabet), the code space X^∞ of all sequences formed with elements (letters) from the alphabet X and B the Borel sets of X^∞. A concrete representation of all Sugeno measures on B is given. This representation is, heuristically speaking, matricial, being inspired by the concrete representation of all probabilities on B.",
+    "keywords": [
+     "Borel sets",
+     "Code space",
+     "Monotone measure",
+     "Sugeno measure"
+    ],
+    "doi": null,
+    "pages": "289-301",
+    "source_file": "06-ichitescu2014.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 62,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 61.2,
+    "composite": 45.9,
+    "final": 30.9
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the paper is pure measure theory with nothing to release",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM",
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "Formalism complexity of about 61 (6 definitions, 7 lemmas/theorems, 7 proofs) against a Level 3 upper bound of 40, i.e. about 1.5x.",
+    "ELEVATED_SELF_CITATION": "3 of 14 references include the first author ([3], [4] Calude and Chiţescu on Martin-Löf random sequences; [5] Chiţescu, Stănică, Plăviţu on lambda-measures), SCR about 21%. [5] is directly relevant; [3] and [4] are cited only to illustrate that the code space matters in random-sequence theory (marginal relevance).",
+    "NO_LIMITATIONS": "No limitations section or inline acknowledgment; the conclusion lists only future directions."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Rigorous pure-mathematics paper giving a matrix-style representation of Sugeno lambda-measures on the Borel sets of the code space; proofs are complete, but the main representation follows quickly from composing Wang's known bijection with the classical description of probabilities.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Representation of all Sugeno (normalised lambda-) measures on the Borel sets of the code space X^N by 'lambda-distributions' (multiplicative analogues of the classical consistent families of cylinder probabilities), plus characterisation of measures that are lambda-measures for several lambda simultaneously (exactly the Dirac measures).\n**Level:** 3 (Medium)\n**Rationale:** New mathematical results with full proofs, but of moderate depth: Theorem 3.5 is obtained by composing Wang's bijection V_lambda with the classical representation T_0 via a logarithm. It fits 'prove non-trivial properties' rather than Level 4-5 categories.\n\n### Formal Elements\n- Definitions: 6 (monotone measure / lambda-rule / lambda-measure, 0-distribution, Definitions 3.4, 3.6, 3.8)\n- Theorems: 7 (Lemma 3.1, Theorems 3.2, 3.3, 3.5, Lemma 3.7, Theorems 3.9, 3.10)\n- Proofs: 7\n- Equations: many, all within definitions and proofs\n\n### Proportionality\nCalculated complexity: 6x2 + 7x3 + 7x4 = 61\nExpected range (Level 3): 10-40\nRatio: about 1.5x upper bound\n\n**Assessment:** Elevated by count, though in a pure-mathematics paper the formalism is the content and passes the necessity test: each definition is used in a subsequent theorem and nothing is decorative. Several results are elementary (Theorem 3.9's surjectivity is immediate from the construction; Lemma 3.7 follows directly from the definitions).\n\n### Issues\nNone of the theater type. Minor: Theorem 3.3 statement is garbled in the text (\"write here S0 = M\"), and Definition 3.6/3.8 add a 'global' map T whose non-injectivity (Theorem 3.10) is an artefact of taking a disjoint union over lambda.\n\n---\n\n## Citation Analysis\n\nSelf-citations: [5] Chiţescu, Stănică, Plăviţu on existence of lambda-measures with preassigned values (relevant), [3] and [4] Calude and Chiţescu on Martin-Löf random sequences (cited only as examples of fields using the code space; marginal). 3 of 14, SCR about 21%. The rest of the list consists of standard monographs (Halmos, Dinculeanu, Wang-Klir, Barnsley, Falconer) and the original Sugeno and Wang sources.\n\n---\n\n## Structural Analysis\n\nEvery claim is a theorem with a complete proof, so claim-evidence balance is strong. No motivation is given for why a representation of Sugeno measures on the code space is useful beyond the closing list of future directions (Choquet/Sugeno integrals, cellular automata), and no limitations are discussed. No artifact is relevant.\n\n---\n\n## Conclusion\n\nA correct, carefully proved but modest contribution in generalised measure theory. Its formalism is necessary for its subject yet somewhat above the Level 3 expectation in volume. Self-citation is slightly elevated through two weakly related references, and the paper does not discuss limitations or applications concretely."
+  }
+ ]
+}

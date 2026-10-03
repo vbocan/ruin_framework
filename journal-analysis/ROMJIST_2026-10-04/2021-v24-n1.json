@@ -1,0 +1,384 @@
+{
+ "batch_id": "2021-v24-n1",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 24,
+  "issue": 1,
+  "year": 2021
+ },
+ "papers": [
+  {
+   "paper_id": "coste2021",
+   "paper": {
+    "title": "Programmable Capacitor Multiplier Based on Gm-cell with Two Outputs – Topology, Circuit Implementations and Applications",
+    "authors": [
+     "Paul Coste",
+     "Paul Martari",
+     "Marius Neag",
+     "Marina Topa",
+     "Vlad Ionescu"
+    ],
+    "abstract": "This paper introduces a novel circuit topology for programmable capacitance multipliers implemented with linear transconductors (Gm cells), along with several circuit implementations and applications. Starting from a fairly well-known architecture that employs two Gm cells, the proposed topology only requires one transconductor core. Mathematical analysis and parametric simulations were performed to assess the impact of non-idealities; the finite output resistance was found to be the main limiting factor, so a compact active-cascode current mirror was used. The multiplier is demonstrated in three applications designed in a standard 0.18um CMOS technology: a programmable triangular waveform generator, a fully differential lossy integrator with programmable pole frequency, and the decoupling capacitor of a fully integrated LDO.",
+    "keywords": [
+     "Microelectronics",
+     "capacitor multiplier",
+     "linear transconductor",
+     "active cascode",
+     "triangular wave generator",
+     "programmable pole frequency",
+     "capacitorless LDO"
+    ],
+    "doi": null,
+    "pages": "4-27",
+    "source_file": "paper677.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.25,
+    "composite": 58.69,
+    "final": 58.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation-only analog circuit design paper whose small-signal equations are proportionate and necessary; modest self-citation, no released netlists or design files.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A capacitance-multiplier topology that replaces two Gm cells with one transconductor core feeding two scaled current outputs, with three transistor-level implementations and three application circuits, all validated by simulation in 0.18um CMOS.\n**Level:** 2 (Low)\n**Rationale:** The contribution is a circuit-topology refinement of a known architecture (ref. [8]) plus standard design techniques (active cascodes, binary-weighted mirrors). It is engineering design with first-order analysis, not a new theory or algorithm with proofs.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 19 (impedance, pole/zero, output resistance, oscillation and pole frequency expressions)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — every equation is ordinary circuit analysis that a designer needs to size the circuit (Cequivalent, Rs, Rp, pole/zero locations, fosc = IB/(2·Cequivalent·ΔVth)). None is notation standing in for something simpler.\n\n### Issues\nNo formalism theater. Minor inconsistencies: the triangular-wave generator uses IB = 5uA in Section 3.a but the conclusions state 1uA; Table 3 reports settling times as 11s/6s (units garbled) and Table 4 caption says VIN jumps to 1.6V while the text says 1.8V.\n\n---\n\n## Citation Analysis\n\nThree of 17 references include the authors (SCR about 18%): [1] the authors' own CAS 2019 conference version of this capacitor multiplier, [11] Neag and Topa on a Gm-cell voltage-controlled amplifier (the source of the programmable current mirror), and [15] Raducan and Neag on the capacitorless LDO used in Section 3.c. All three are directly relevant. No ring pattern is apparent; several citations go to a different Romanian group (Bonteanu) working on the same topic.\n\n---\n\n## Structural Analysis\n\nClaims are backed by simulation figures and tables (phase-error ranges, oscillation-frequency and amplitude errors, LDO transient comparisons). The authors acknowledge that the comparison table uses simulation results only and identify the output resistance and capacitance of the high-gain mirror as the factor limiting the usable frequency range, which counts as inline acknowledgment of constraints. There are no measurements on silicon and no Monte Carlo or corner analysis, so robustness to mismatch, which is one of the motivations for the topology, is asserted rather than demonstrated. No netlists, layouts or simulation files are offered.\n\n---\n\n## Conclusion\n\nA competent applied circuit-design paper with formalism matched to its content. Its main weakness is that all evidence is simulation, with no process-variation analysis, plus a few internal inconsistencies in reported values. Citation practice is sound."
+  },
+  {
+   "paper_id": "ravariu2021",
+   "paper": {
+    "title": "Electrical characterization of a pseudo-mos transistor with organic thin film produced by nanotechnologies",
+    "authors": [
+     "Cristian Ravariu",
+     "E. Mihaiescu",
+     "Alina Morosan",
+     "Avireni Srinivasulu"
+    ],
+    "abstract": "Organic thin film transistors are alternative candidates to classical electronics. This paper offers an electrical characterization of some organic thin film transistors based on the pseudo-MOS method classically used for SOI wafers. It presents the main technological steps for fabricating an organic semiconductor (PABA-Fe3O4 nanoparticles) on an organic insulator (polystyrene), using non-toxic precursors. Current-voltage static characteristics are measured; the p-type organic layer works in accumulation. Extracted parameters include a doping concentration around 8x10^13 cm^-3, a hole mobility of 0.2 cm2/Vs and a global interface charge of 6x10^10 e/cm2.",
+    "keywords": [
+     "Experiment",
+     "organic shell",
+     "green electronics",
+     "electrical characterization",
+     "thin film transistor"
+    ],
+    "doi": null,
+    "pages": "28-36",
+    "source_file": "paper678.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 60,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.5,
+    "composite": 49.12,
+    "final": 44.12
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "7 of 27 references (about 26%) include an author of this paper: Ravariu in [15], [16], [19], [20], [23], [25], and Morosan/Mihaiescu in [18]. All are on pseudo-MOS characterization or the PABA-Fe3O4 material, so they are relevant, but the ratio falls in the 20-30% band."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Short experimental device-characterization paper using textbook pseudo-MOS equations; thin evidence base, internally inconsistent parameter extraction, and elevated self-citation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fabrication of a PABA-Fe3O4 nanoparticle film on polystyrene over ITO glass, measured as a pseudo-MOS transistor, with device parameters extracted from the I-V curves.\n**Level:** 2 (Low)\n**Rationale:** An existing characterization method (pseudo-MOS, from Cristoloveanu) is applied to a new material. The analysis uses standard MOS and resistivity equations; there is no new model.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 12 (pseudo-MOS drain current, capacitance, resistivity, doping, saturation mobility, depletion width)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations are the textbook relations needed to turn measured currents into parameters.\n\n### Issues\nNo formalism theater, but the equations are applied carelessly. Eq. (1) omits the mobility term that the text defines and writes A_Acc for V_Acc in the denominator. Eq. (2) uses mu_p,sat in the linear regime. The extracted parameters disagree with each other: the abstract reports 0.2 cm2/Vs and 8x10^13 cm^-3, but the 0.2 value is taken from the literature as an input, while the paper's own saturation extraction gives 1.09 cm2/Vs and a revised doping of 1.6x10^13 cm^-3. The authors then say their models may be off by an order of magnitude.\n\n---\n\n## Citation Analysis\n\nSeven of 27 references (about 26%) involve the authors, mostly Ravariu's earlier pseudo-MOS and PABA-Fe3O4 work. All are topically related, so none counts as irrelevant, but the ratio is elevated. The conclusion attributes the PABA-is-vitamin-Bx statement to [26] (a pseudo-MOS biosensing paper), whereas [27] (p-aminobenzoic acid in drug design) is the evident source and is otherwise never cited, which suggests a numbering error.\n\n---\n\n## Structural Analysis\n\nThe evidence is one sample (code 41) measured at three probe positions, with an averaged curve and no statistics, no repeated samples, and no physical characterization in this paper (it is deferred to [19]). The authors do acknowledge inline that their models can induce up to one order of magnitude of error and that saturation is not stable. The conclusion summarizes the process but not the extracted parameters. Measurement data are not shared.\n\n---\n\n## Conclusion\n\nA brief feasibility characterization with proportionate formalism but a weak, single-sample evidence base and inconsistent parameter values between abstract and body. Self-citation is elevated but topical."
+  },
+  {
+   "paper_id": "bai2021",
+   "paper": {
+    "title": "Sink Location Privacy Protection Algorithm Based on Virtual Circle in WSNs",
+    "authors": [
+     "Leqiang Bai",
+     "Jizhe Yu",
+     "Keyan Cao"
+    ],
+    "abstract": "For the protection of sink location privacy in WSNs, a sink location privacy protection algorithm based on a virtual circle (ABVC) is put forward. A virtual circle is constructed with the sink as center, and mathematical models determine an expected phantom source node from the source location. A second-stage phantom source node is randomly selected on the circle clockwise. Both phantom sources inject fake packets toward random destinations and fake sinks. Fake sinks are placed by random angle selection outside the circle and a normal-distribution distance model. Simulation results show that the algorithm can induce adversaries to deviate from the real path and improve the safe time.",
+    "keywords": [
+     "Wireless sensor networks (WSN)",
+     "sink location privacy",
+     "virtual circle",
+     "phantom source node",
+     "fake sink"
+    ],
+    "doi": null,
+    "pages": "37-57",
+    "source_file": "paper679.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 88,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.3,
+    "composite": 54.97,
+    "final": 54.97
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; simulations are reported as run on \"the Matlab R2017b simulation platform\" with no code released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Heuristic phantom-routing and fake-sink scheme for WSN sink privacy, evaluated only by single-scenario MATLAB simulation; geometry is necessary, probability analysis is textbook and contains errors.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A routing scheme that sends real packets via a tangent or radial point on a virtual circle around the sink, then along the circle by a random angle, while two phantom sources emit fake packets to random destinations and fake sinks.\n**Level:** 2 (Low)\n**Rationale:** The scheme recombines established ingredients of the location-privacy literature (phantom routing, ring routing, fake packets, fake sinks) into a new heuristic. There are no security proofs or complexity bounds; evaluation is empirical.\n\n### Formal Elements\n- Definitions: 4 (prose definitions of virtual circle, expected phantom source, first- and second-stage phantom sources; not formal Definition blocks)\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 (circle/tangent/line geometry, point-to-line distance, fake-sink sector spacing, standard normal CDF and interval probabilities)\n\n### Proportionality\nCalculated complexity: 0 (the four labelled terms are operational descriptions, not formal definitions)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the analytic geometry (tangent point from source to circle, distance to line) is what a node must compute, so it passes the necessity test.\n\n### Issues\nThe restatement of the standard normal CDF (eq. 11) is textbook padding, but not one of the theater patterns. The probability analysis contains errors: R_fake = R(|x|+1) is stated to fall in [R,3R) with probability 0.95449 and then, a paragraph later, with probability 0.27181, and in [R,4R) with 0.04281. These later figures are the band probabilities [2R,3R) and [3R,4R), mislabelled. Table 1 is garbled (the period T formula and fake-sink bounds), and the conclusion leaves the radius blank (\"with the radius of ;\"). Section 3.1 (3)(i) names the first-stage node P10 instead of P1.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 27 references. References [26] and [27] are duplicates of the same Li and Ren paper, and the cited \"hunter-panda\" model is attributed to [25-26]. Coverage of the sink-privacy literature is reasonable.\n\n---\n\n## Structural Analysis\n\nThe evaluation is one MATLAB grid network (10,000 nodes, sink at the centre) against two baselines (LPR, MRF), with no number of runs, variance or confidence intervals, and adversary behaviour described only qualitatively. Comparisons in Figs. 9 and 12 are \"without fake packets\" for ABVC, whose design includes fake packets, which muddles the comparison. The paper reports that ABVC has the highest energy consumption and longer delivery time below 25 hops, which counts as inline acknowledgment of its cost, but there is no limitations discussion of the adversary model or deployment assumptions. No code or simulation scripts are offered.\n\n---\n\n## Conclusion\n\nAn incremental heuristic with formalism appropriate to its geometry, weakened by errors in its probability analysis and a thin, single-configuration simulation without statistics. Citation practice is clean apart from a duplicated reference."
+  },
+  {
+   "paper_id": "kumar2021",
+   "paper": {
+    "title": "An Improved User Authentication Protocol Based on Chaotic Maps for Multiserver Environment",
+    "authors": [
+     "Devender Kumar",
+     "Satish Chand",
+     "Bijendra Kumar"
+    ],
+    "abstract": "Researchers have focused on designing smart-card authentication schemes. Li et al. discussed a chaotic-map-based protocol for multiserver environments; we find it is not resistant to privileged insider and smart card loss attacks and lacks user anonymity. We propose an improved user authentication protocol for multiserver environments using chaotic maps. We prove mutual authentication with BAN logic, give a formal security analysis using the random oracle model and an informal analysis against known attacks, and simulate the protocol with AVISPA to verify security against active and passive attacks.",
+    "keywords": [
+     "User authentication",
+     "smart card",
+     "session key agreement",
+     "multiserver environment",
+     "chaotic maps"
+    ],
+    "doi": null,
+    "pages": "58-78",
+    "source_file": "paper680.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 45,
+    "citation_integrity": 95,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.0,
+    "composite": 48.75,
+    "final": 48.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "\"The AVISPA code of our scheme is omitted because of the space limitation.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Break-and-fix authentication protocol in a well-worn template; BAN derivation is relevant, but the random-oracle 'proofs' are not reductions and the AVISPA model is withheld.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Cryptanalysis of Li et al.'s chaotic-map multiserver authentication scheme (insider and smart-card-loss attacks, lack of anonymity) and a modified protocol with hashed identity/password registration and a fuzzy verifier.\n**Level:** 3 (Medium)\n**Rationale:** A security protocol with claimed security guarantees would ordinarily sit at Level 4. It is placed at Level 3, defaulting low, because it is an incremental modification within a standard break-and-fix template. Its security arguments are boilerplate (BAN derivation, game-style random-oracle sketches, AVISPA) rather than original reductions.\n\n### Formal Elements\n- Definitions: 2 (Chebyshev polynomial; enhanced Chebyshev polynomial over the extended interval)\n- Theorems: 2 (Theorems 1 and 2, random-oracle security)\n- Proofs: 3 (two theorem proofs plus the BAN-logic derivation)\n- Equations: numerous protocol computations and BAN formulas\n\n### Proportionality\nCalculated complexity: 2x2 + 2x3 + 3x4 = 22\nExpected range (Level 3): 10-40\nRatio: 0.55x upper bound\n\n**Assessment:** Proportionate in count. One element fails the necessity test. Theorems 1 and 2 are \"proved\" by experiments built on a Reveal oracle that inverts the hash function, followed by the remark that inverting a hash is infeasible. That is a restatement of the assumption, not a reduction bounding an adversary's advantage. It delivers no bound English could not, and it is presented as formal security analysis.\n\n### Issues\n- The formal security analysis (Section 7.1) carries no security weight beyond assuming the primitives are secure. The success probability in Theorem 1 is written as Pr[...] - 1 rather than 2Pr[...] - 1.\n- The Chebyshev preliminaries list T2 to T5 and expand the semigroup property step by step, which is textbook padding.\n- Zi = h(PWi||IDi) mod n XOR Ni reduces the hash modulo n (2^4 to 2^8) before masking a full nonce, so the masking is weak. The paper does not discuss this.\n- The BAN analysis is the conventional template. Goal derivations go through, but the idealized messages bear only loose relation to the actual protocol messages.\n\n---\n\n## Citation Analysis\n\nOne of 39 references is a self-citation: [37], the authors' earlier cryptanalysis-and-improvement of a WSN authentication protocol, which is the same research line and relevant (SCR about 3%). Other references are appropriate to the multiserver/chaotic-map authentication literature.\n\n---\n\n## Structural Analysis\n\nThe claim that the protocol is \"more secure than the existing protocols\" rests on a self-assessed feature table and informal arguments. The AVISPA result is shown only as a screenshot of the OFMC summary, and the HLPSL model is withheld (\"omitted because of the space limitation\"), so the formal verification cannot be checked. The paper acknowledges inline that its protocol costs 4 and 13 more hash operations than the two comparators. There is no communication-cost comparison and no implementation timing.\n\n---\n\n## Conclusion\n\nA typical incremental authentication-protocol paper. The identified attacks on the prior scheme are plausible, and the fix is reasonable. Its formal security apparatus is largely ritual, and the one machine-checkable artifact, the AVISPA model, is not released. Citation practice is clean."
+  },
+  {
+   "paper_id": "yapicipehlivan2021",
+   "paper": {
+    "title": "A Novel Multiplicative Fuzzy Regression Function with A Multiplicative Fuzzy Clustering Algorithm",
+    "authors": [
+     "Nimet Yapici Pehlivan",
+     "Ismail Burhan Turksen"
+    ],
+    "abstract": "Fuzzy System Modeling describes possible structures of systems with various input and output variables. Fuzzy Functions with Least Squares Estimation (FF-LSE) were proposed by Turksen. In this study, we propose a novel approach, Multiplicative Fuzzy Regression Function (MFRF), constructed on a new Multiplicative Fuzzy Clustering (MFC) algorithm. In MFC, membership values are initially computed by Fuzzy c-Means, then transformations of the membership values generate multiplicative fuzzy functions for each cluster; these, together with input variables, are used by least squares to form MFRFs per cluster. Computational complexity is discussed and performance is examined on the Concrete Compressive Strength dataset, compared to FF-LSE and classical LSE.",
+    "keywords": [
+     "Fuzzy Systems",
+     "Databases and Information Systems",
+     "Data Mining and Analysis"
+    ],
+    "doi": null,
+    "pages": "79-98",
+    "source_file": "paper681.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 35,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 54.75,
+    "composite": 53.56,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"Compressive Concrete Strength, where eight inputs and one output, from UCI Machine Learning Repository\"; reference [30] https://archive.ics.uci.edu/ml/datasets/Concrete+Compressive+Strength.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "11 of 31 references (about 35%) include co-author Turksen: [1], [8], [16], [17], [18], [19], [20], [21], [24], [25], [31]. They are topically related (fuzzy functions, improved fuzzy clustering, validity indices), but the ratio exceeds 30%, and several are cited only in lists of validity indices or related variants rather than used."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Variant of the authors' fuzzy-functions method tested on one public dataset with no significant improvement on test data; self-citation exceeds 30% and reported tables contain inconsistencies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A modification of Turksen's FF-LSE in which membership-value transformations multiply the input matrix rather than augment it, preceded by an IFC-like clustering step (MFC) using the same transformations, evaluated on the UCI concrete strength data.\n**Level:** 2 (Low)\n**Rationale:** The method changes how features are constructed within an existing clustering-plus-least-squares framework. There is no convergence analysis or new theory, and despite the abstract, no complexity analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 23 (objective functions, membership and centre updates, design matrices, LSE solution, R2/RMSE, hypotheses)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the objective and update equations are what an implementer needs. The membership update for MFC (eq. 4) is stated without derivation, by analogy with IFC.\n\n### Issues\nNotation is loose. The transformation vector \"mu + mu^2 + ... + e^(mu^m)\" is used inconsistently as a sum in MFC and as separate columns in IFC/FF-LSE (Table 2). Eq. (4) uses beta_i where beta_j is meant. The stopping rule \"If t = iter and J(t) - J(t-1) < epsilon\" is logically odd. None of this is theater.\n\n---\n\n## Citation Analysis\n\nEleven of 31 references (about 35%) are by co-author Turksen, triggering EXCESSIVE_SELF_CITATION. All concern fuzzy clustering or fuzzy functions, so none is irrelevant in topic. [31], an ontological and epistemological perspective on fuzzy set theory, is marginal and is cited only for FCM details. [20] on Shanghai/CRB commodity forecasting and the cluster validity indices [16], [17], [21] are listed but play no role in the method or experiments.\n\n---\n\n## Structural Analysis\n\nThe abstract promises that \"Computational complexity of the proposed MFRF method is discussed\", but no complexity discussion appears in the body, so that claim is unsupported. The experiments use one dataset with ten random 80/20 splits and Mann-Whitney tests. The authors candidly report that MFRF is \"comparable, although not superior\" and not significantly different on test data, which counts as inline acknowledgment of limitations. Data integrity problems:\n- In Table 8, experiments S3 and S4 have identical FF-LSE and MFRF rows despite different LSE baselines.\n- Table 5's FF-LSE test RMSE values (about 5.4-6.2) are inconsistent with Table 3's FF-LSE test averages (6.8-8.2) and with the R2 values beside them.\n- Table 4 has NaN entries.\n\nThe dataset is public (UCI). No code is released.\n\n---\n\n## Conclusion\n\nAn incremental fuzzy-modelling variant with proportionate equations but no demonstrated advantage. An abstract claim is not delivered, and the tables are inconsistent. The self-citation ratio exceeds the 30% threshold, which is disqualifying under the framework regardless of topical relevance."
+  },
+  {
+   "paper_id": "cristescu2021",
+   "paper": {
+    "title": "Machine Learning Techniques for Improving the Performance Metrics of Functional Verification",
+    "authors": [
+     "Mihai-Corneliu Cristescu"
+    ],
+    "abstract": "In this paper, it is explored how machine learning techniques help improve the performance metrics of functional verification. The article outlines a landscape of the current practice, underlines some of the most prominent solutions, compares different approaches, and locates other possible synergy points. In the end, a personal vision is expressed for future research directions.",
+    "keywords": [
+     "Artificial Intelligence",
+     "Machine Learning",
+     "Data Mining",
+     "Support Vector Machine",
+     "Evolutionary Programming",
+     "Functional Verification",
+     "Formal Verification",
+     "Intelligent Verification",
+     "Automated Code Generation",
+     "Automated Requirements Extraction",
+     "Bug-oriented Verification",
+     "Automated Coverage Feedback",
+     "Automated Bug Detection",
+     "Intelligent Proving Theory"
+    ],
+    "doi": null,
+    "pages": "99-116",
+    "source_file": "paper682.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 85,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.0,
+    "composite": 56.25,
+    "final": 51.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; narrative survey with nothing of its own to release",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "The survey discusses strengths and 'lowlights' of the reviewed methods but never states the scope, search method or limitations of the review itself."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Single-author narrative survey of ML for hardware functional verification; no formalism, no self-citation, but unsystematic coverage and some mischaracterized sources.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A narrative review of machine-learning approaches to functional verification: requirements extraction, coverage-directed test generation, bug detection from revisions and traces, and ML for formal verification.\n**Level:** 1 (Trivial)\n**Rationale:** Surveys and literature reviews are Level 1 by the classification guide.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — no formal apparatus.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 30 references. Source quality is uneven: [3] points to a Wikipedia page, [4] is a whole conference-proceedings volume, and the survey leans heavily on one secondary review ([13], Ioannides et al.) for many of its comparative claims. [22], on rough sets and genetic algorithms for power transformer fault diagnosis, is presented as post-silicon fault diagnosis, which misdescribes the source. [14] (\"XCS cannot learn all Boolean functions\") is described as a GA-based CDTG approach with Fire Drill/Fire Path tooling, which does not obviously match the title.\n\n---\n\n## Structural Analysis\n\nThe survey has no stated method for selecting papers, no coverage period and no quantitative synthesis. Comparative statements (e.g. that GAs are \"regarded as the best\" for CDTG) are attributed to a single review. The comparison in Section 4 and Fig. 6 numbers the strategies inconsistently with Section 3 (bug-model weaknesses are attributed to the \"fourth\" strategy, which is formal verification). The closing research direction is a one-paragraph personal suggestion. Limitations of the review are not discussed.\n\n---\n\n## Conclusion\n\nA student-level overview that may orient newcomers but adds little synthesis beyond the reviews it draws on, with some citation mischaracterizations. It has no formalism problems and no citation-integrity concerns in the self-citation sense."
+  },
+  {
+   "paper_id": "gindac2021",
+   "paper": {
+    "title": "Open-source SoC-based Off-the-shelf Industrial-Grade Low-Cost Logic Analyzer",
+    "authors": [
+     "Andrei Gindac",
+     "Andrei-Edward Popa",
+     "Andrei-Alexandru Ulmamei",
+     "Calin Bira"
+    ],
+    "abstract": "This paper proposes a solution for back-to-back 200+ MHz 150-channel data acquisition based on Xilinx's Zynq-7000 family (dual-core ARM + Artix-class FPGA) with Linux Ubuntu rootfs and PYNQ software framework and application running in Jupyter notebook. A comparison is made between High Level Synthesis (HLS) and Hardware Description Language (HDL) versions of the device (performance, power consumption). It distinguishes itself from the state of art by providing a very good (MSa/s * channel) / USD value, in addition to large amounts of sample storage.",
+    "keywords": [
+     "SoC",
+     "FPGA",
+     "HLS",
+     "HDL",
+     "many channels",
+     "logic analyzer"
+    ],
+    "doi": null,
+    "pages": "117-126",
+    "source_file": "paper683.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 45,
+    "artifact_availability": 70,
+    "intellectual_integrity": 76.75,
+    "composite": 75.06,
+    "final": 75.06
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"All the source code may be found in [19]\"; [19] https://gitlab.dcae.pub.ro/research/ifin_scintilators/-/tree/TE0720/",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Engineering build report of a Zynq/PYNQ logic analyzer integrating vendor IP; source is linked, but headline claims (industrial-grade, large storage) are not backed by measurements.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Bringing up Ubuntu/PYNQ on a Trenz Zynq-7000 module and building a 152-channel timestamped acquisition core in HLS and Verilog, feeding Xilinx FIFO/DMA IP, with resulting Fmax, power and buffer sizes.\n**Level:** 1 (Trivial)\n**Rationale:** System integration of existing components (vendor boards, PetaLinux, PYNQ, Xilinx IP cores) plus a straightforward sampling/timestamp core.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — no formal apparatus.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 21 references. About half the references are vendor or project web pages, which is appropriate for a commercial-comparison table. Academic prior work (FPGA logic analyzers [3]-[7]) is summarized briefly.\n\n---\n\n## Structural Analysis\n\nThe abstract and title claim \"industrial-grade\" and \"large amounts of sample storage\", but the reported on-chip buffers are 2k-16k samples (0.52-4.19 Mb), and DDR streaming throughput is never measured. The Fmax and power figures in Fig. 7 appear to be synthesis or implementation estimates. There is no capture test with the Digital Discovery stimulus generator, no sustained-throughput or data-loss measurement, and no validation of back-to-back acquisition at 250 MHz. Table 1 credits the authors' own system with 152-ch 250 MSa/s for USD 413 without supporting measurement. The text is inconsistent in places: the FSBL steps repeat \"creating the Root File System\", the summary says \"I moved to HLS I\", and the page header shows Volume 1. The paper does acknowledge inline the HLS core's one-cycle reset gap, the RTL-I timing failures and the frequency limits of each variant. The source repository is linked.\n\n---\n\n## Conclusion\n\nA useful engineering note with released source code and no formalism concerns. Its evaluative claims outrun the evidence: no acquisition measurements back the headline throughput, back-to-back, or storage claims."
+  }
+ ]
+}

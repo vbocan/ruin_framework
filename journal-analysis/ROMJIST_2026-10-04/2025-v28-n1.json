@@ -1,0 +1,446 @@
+{
+ "batch_id": "2025-v28-n1",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 1,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "milicevic2025",
+   "paper": {
+    "title": "Three-Position Temperature Control of a Nonlinear Process Model with Time Delay",
+    "authors": [
+     "Miroslav S. Milićević",
+     "Valentina M. Nejković"
+    ],
+    "abstract": "In this paper, nonlinear automatic control systems are analyzed. Although there is a division into linear and nonlinear systems, complex systems that contain linear and nonlinear control elements are dealt with here. Analytical, graphical and grapho-analytical methods are used to check the stability of the management system. One system was chosen for temperature regulation, where elements were chosen whose mathematical representation complicates the system to the extent that it is difficult to analyze it using elementary operations. This paper applies the descriptive function method that was developed for nonlinear systems. For this, the apparatus of numerical mathematics will be used, for which a special calculation software has been developed.",
+    "keywords": [
+     "Control",
+     "descriptive function",
+     "numerical mathematics",
+     "software"
+    ],
+    "doi": null,
+    "pages": "17-28",
+    "source_file": "paper787.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 40,
+    "structural_integrity": 50,
+    "artifact_availability": 100,
+    "intellectual_integrity": 56.5,
+    "composite": 67.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "The values specifed in (6) to (8) can be found in the specific example from the work and in the computer program from the attachment at the link [42]. Ref. [42]: Supplementary files ... Available: https://github.com/valentinanejkovic/milicevic1",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "IRRELEVANT_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "Ten of 42 references are the authors' own (refs [27]-[35] and the supplementary-file entry [42]), an SCR of about 24%.",
+    "IRRELEVANT_SELF_CITATION": "Ref. [35] (Milićević, Nejković, Tošić, an e-learning ecosystem based on social-network computing, YU INFO 2013) has no topical connection to describing-function analysis of a relay temperature controller; similarity well below 0.3. It is cited only in the blanket sentence \"The references and experiences of the author of this work given in [27–35] also helped.\""
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Textbook harmonic-linearization analysis of a relay temperature loop, solved numerically by Newton iteration; formalism is proportionate, but self-citation is elevated and includes an unrelated e-learning paper.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Describing-function (harmonic linearization) analysis of a relay-based temperature control loop with pure delay, with the self-oscillation amplitude and frequency found by a two-variable Newton iteration instead of graphically.\n**Level:** 2 (Low)\n**Rationale:** Both the describing-function method and Newton's method for two nonlinear equations are standard; the contribution is applying the numerical solver to one deliberately complicated plant. No new algorithm or proof.\n\n### Formal Elements\n- Definitions: 0 (numbered or formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 40 (transfer functions, heat balance, describing function, characteristic equation, Newton iteration and partial derivatives)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the derivation a programmer needs to reproduce the computation (eqs. 30-40 are exactly what the program evaluates). Eqs. (1)-(3), generic forms for autonomous and non-autonomous systems, are textbook background but do not follow a theater pattern. Some presentation errors: eq. (10) writes θs on the left where θ(s) is meant; eqs. (21)-(24) mix W1 and W3 inconsistently with the figure.\n\n### Issues\nNone that fail the necessity test. Several results (\"It is shown in Attachment 2 [42] that ... A = 1.2V and ω = 1.4 rad/s\") and the CSMP verification are delegated to the supplementary repository instead of being shown in the paper.\n\n---\n\n## Citation Analysis\n\n42 references. Self-citations: [27]-[35] (nine papers by Milićević and/or Nejković) plus [42], the authors' supplementary files: 10/42 ≈ 24%. Refs. [27]-[31] are 1980s Yugoslav conference papers on motor speed and induction-welding temperature control (related); [33], [34] concern thermal processes in welding (marginal); [35] is on an e-learning ecosystem built on social-network computing, unrelated to the paper. All nine are cited in one blanket sentence with no specific use.\n\nA separate block of eight references ([21], [22], [24], [25], [37], [38], [40], [41]) cites one Timisoara group's work on tower cranes, servo systems and reinforcement-learning control. Each gets a one-sentence mention and none is used in the method; they read as courtesy or requested citations. Mutual citation could not be established from this paper alone, so no ring flag. Ref. [26] (a buck-converter paper) is listed but never cited in the text.\n\n---\n\n## Structural Analysis\n\nThe paper derives the equations and states that the program converges quickly and agrees with graphical and CSMP results, but it reports almost no numbers in the body: one amplitude/frequency pair, with the comparison tables and plots in the external attachments. Claims of \"high accuracy\" and of being \"a valuable method for system analysis and synthesis of more complex nonlinear systems\" are supported mainly by that reference. Limitations get inline acknowledgment only: the authors note that harmonic linearization introduces an approximation error and that the components are dated. The GitHub repository holds the program and the example parameters, so the computation can be reproduced.\n\n---\n\n## Conclusion\n\nA competent but routine application of classical describing-function analysis with a numerical solver. The formalism is what the computation needs. The weaknesses are thin in-paper evidence and a padded reference list: a blanket block of self-citations, including one unrelated e-learning paper, and a cluster of loosely related courtesy citations. The unrelated self-citation is a disqualifying flag under the specification."
+  },
+  {
+   "paper_id": "aguerotrejo2025",
+   "paper": {
+    "title": "Randomness and One-way Functions",
+    "authors": [
+     "José Manuel Agüero Trejo",
+     "Cristian S. Calude"
+    ],
+    "abstract": "This paper proposes a method using high-quality randomness for inverting a class of one-way functions in a pre-given time. Experimental results suggest that the method is better than the lexicographic search.",
+    "keywords": [
+     "Algorithmic random string",
+     "Borel normality",
+     "experiment",
+     "program-size complexity",
+     "randomised search"
+    ],
+    "doi": null,
+    "pages": "29-38",
+    "source_file": "paper788.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 70,
+    "citation_integrity": 35,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 52.75,
+    "composite": 52.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "The data used in this article can be downloaded from the website https://tinyurl.com/4rtwmncv.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Seven of 14 references ([1], [3], [4], [7], [8], [9], [10]) include Calude or Agüero Trejo as author: SCR 50%. All are topically related (algorithmic randomness, QRNGs), but the ratio exceeds the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A heuristic randomised search for SHA-512 inputs whose outputs contain bit patterns, motivated by algorithmic information theory and tested in one small experiment; half the references are self-citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A heuristic \"Randomised search\" that seeds candidate inputs from a quantum RNG and perturbs them with bit patterns, monitored by Borel-normality tests, to find inputs whose SHA-512 outputs contain given patterns; compared with lexicographic enumeration.\n**Level:** 2 (Low)\n**Rationale:** The algorithm is new but heuristic. It has no complexity analysis, no correctness or efficiency proof, and only one empirical comparison. Level 3 needs a novel algorithm with complexity analysis, so the paper defaults to Level 2.\n\n### Formal Elements\n- Definitions: 6 (inline: c-compressibility, Borel-m normality, Borel normality with accuracy (m, ε), pattern, pattern application P, one-way function)\n- Theorems: 0\n- Proofs: 0 (counting arguments in Section 2 are textbook)\n- Equations: about 10\n\n### Proportionality\nCalculated complexity: 12\nExpected range (Level 2): 0-15\nRatio: 0.8x upper bound\n\n**Assessment:** Proportionate. The Borel-normality definitions are used: the algorithm runs Borel-k tests. The pattern notation, though heavy for what is a list of (index, bit) pairs, is how the algorithm is specified. The Kolmogorov-complexity counting in Section 2 is background for the field rather than the paper's own result. It supports the informal \"bands of randomness\" argument in Section 5 but proves nothing about the algorithm.\n\n### Issues\nThe derivations contain errors. The displayed identity in Section 2 has K(x) > |x| − c on both sides of the subtraction. The \"probability that a string is c-incompressible\" uses the ≤ count instead of the > count. The Borel-m normality limit is written without its target value 2^(-m). The argument that the method should beat lexicographic search is heuristic and never quantified.\n\n---\n\n## Citation Analysis\n\n14 references, of which 7 are by Calude and/or Agüero Trejo: SCR = 50%. All are on algorithmic randomness, Borel normality or quantum RNGs, so none is irrelevant (similarity ≥ 0.5), but they make up half of a short reference list. Ref. [10] is listed under Proceedings of the Royal Society A with a Physical Review A-style paper number, a possible bibliographic error.\n\n---\n\n## Structural Analysis\n\nThe evidence is one experiment: four pattern sets, a budget of 5,000,000 SHA-512 calls each, one run per method, and raw counts of valid strings (e.g. 10 vs 4, 6 vs 3). There are no repetitions, variance or significance tests, and the lexicographic baseline is deterministic, so gains of a few strings may be chance. The paper hedges appropriately (\"Experimental results suggest\", \"may allow\") and notes inline what is unknown: \"we do not know to what extent the quality of randomness is lost nor which bands of randomness the strings in T belong to\". There is no limitations section. Data are linked through a URL shortener; the search code itself is not released.\n\n---\n\n## Conclusion\n\nAn interesting heuristic idea stated with appropriate formal vocabulary for its subfield. The empirical case is thin: a single unrepeated run of four configurations with small counts. The formal background contains several sign and inequality errors. The 50% self-citation ratio is a disqualifying flag under the specification, although the self-cited works are on topic."
+  },
+  {
+   "paper_id": "colbu2025",
+   "paper": {
+    "title": "Long-term Power Generation Prediction in Photovoltaics Using Machine Learning-based Models",
+    "authors": [
+     "Stefania-Cristiana Colbu",
+     "Daniel-Marian Bancila",
+     "Dumitru Popescu"
+    ],
+    "abstract": "This research focuses on proposing serial algorithms that combine machine learning and global optimization algorithms to solve stochastic optimization problems. Gated Recurrent Unit (GRU) architecture, Support Vector Machine for Regression (SVR) models and Differential Evolution algorithm (DE) are used in developing the forecast of grid power generation across environmental variations. Initially, four serial GRU-SVR models will be trained to address the prediction for the seasonal evolution. Afterwards, a hybrid approach GRU-SVR-DE strategy will be defined to integrate four seasonal models, providing a robust forecasting strategy for PV power generation.",
+    "keywords": [
+     "Hybrid models",
+     "machine learning",
+     "optimization algorithms",
+     "photovoltaic energy prediction"
+    ],
+    "doi": null,
+    "pages": "39-50",
+    "source_file": "paper789.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 95,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 77.0,
+    "composite": 70.25,
+    "final": 70.25
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "the datasets were built based on Hourly Radiation Data [14] derived from the Photovoltaic Geographical Information System (PVGIS 5.3) [15] for a specific geographic location ... (44.436° latitude, 26.047° longitude). Ref. [15]: https://re.jrc.ec.europa.eu/pvg_tools/en",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Standard GRU-SVR stacking with DE-weighted seasonal ensembling for PV forecasting on PVGIS data; appropriate formalism, but no baselines and a weak evaluation design.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Seasonal GRU→SVR serial forecasters for PV power, combined into an annual predictor by Differential Evolution-optimised weights, trained on PVGIS-SARAH3 hourly data for one Bucharest location.\n**Level:** 2 (Low)\n**Rationale:** Existing models (GRU, SVR, DE, grid search) applied to a new dataset and combined in a straightforward pipeline.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 15 (GRU gates, SVR primal and kernel form, DE mutation and crossover, MSE/RMSE/MAE/R, custom loss with range penalty)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. These are the standard defining equations of the models used, plus the custom bounded loss (eqs. 14-15), which is the paper's own element and is needed to implement it.\n\n### Issues\nPresentation errors: MSE (eq. 10) and RMSE (eq. 11) omit the square. The SVR description says the hyperplane maximises \"the difference between estimated and measured values\". The dropout grid lists \"150\" as a rate. No theater patterns.\n\n---\n\n## Citation Analysis\n\nOne self-citation of 23 references ([1], the authors' own SVM-based PV prediction paper, directly related): SCR ≈ 4%. The references are on topic.\n\n---\n\n## Structural Analysis\n\nResults are reported with four metrics on held-out data, and the authors acknowledge inline that the autumn and winter models are weaker (\"there is still a need for improvement\") and that the results hold for the specific location. Weaknesses: there is no baseline (persistence, plain GRU, plain SVR, or the cited hybrids on the same data), so \"excellent performance\" is not comparative. The \"comparison\" with [7] and [8] uses different data and horizons. The seasonal models are tested on 20% splits of the same 2022 seasons, roughly 18 days, which the authors themselves note. The PVGIS series is modelled irradiance/PV output, not measured plant output. Metrics are on [0,1]-scaled data, so they cannot be interpreted physically. The annual model's 6.4 s elapsed time excludes the ~6,000 s per seasonal model. CER is adequate but the claims outrun the design. Data come from a named public service with coordinates and system parameters given; no code is released.\n\n---\n\n## Conclusion\n\nA routine applied-ML paper with proportionate formalism and clean citation practice. Its weaknesses are evaluation design: no baselines, scaled metrics, and short test windows. Its strength is a fully public and reproducible data source."
+  },
+  {
+   "paper_id": "cristea2025",
+   "paper": {
+    "title": "Behavioral Modelling of Analog Computing Circuit for a Synapse of any Neuron in Artificial Neural Networks",
+    "authors": [
+     "Miron Cristea",
+     "Laura Gheorghe",
+     "Lidia Dobrescu"
+    ],
+    "abstract": "Analog implementation and behavioral modelling of neural network computing for artificial intelligence AI is demonstrated in this work. The main advantages of this solution are the low count of semiconductor devices and low power consumption. A behavioral model of an analog multiplying circuit for a synapse of any neuron in artificial neural networks was developed in the paper to demonstrate the proof of concept and simulate its operation. The operation of the analog circuits resulted in very good concordance with the mathematical formula it is supposed to implement. The application of the behavioral model concerning the technological variation of parameters like the MOS transistors threshold voltage resulted in demonstrating a low margin of error.",
+    "keywords": [
+     "Analog multiplying",
+     "artificial intelligence",
+     "behavioral model",
+     "neuron synapse",
+     "real-time and embedded systems",
+     "signal processing"
+    ],
+    "doi": null,
+    "pages": "51-62",
+    "source_file": "paper790.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 85,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.0,
+    "composite": 56.25,
+    "final": 56.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (circuits are implemented \"as parametrical behavioral models based on PSpice simulator\"; PSpice is a third-party tool)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "PSpice simulation of a textbook translinear current multiplier in bipolar and subthreshold-MOS versions; minimal, appropriate formalism, but hardware and neural-network suitability claims rest on simulation alone.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A classical translinear four-transistor current multiplier (from [10]) used as an ANN synapse, simulated in PSpice in bipolar (2N2222) and subthreshold nMOS (BSP89) versions, with Monte Carlo variation of device parameters and an estimate of power consumption.\n**Level:** 2 (Low)\n**Rationale:** Simulation study of a known circuit topology; no new circuit or method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (synapse product, translinear loop, resulting current product)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The translinear-loop equations are the minimum needed to state what the circuit computes.\n\n### Issues\nNone identified in the formalism.\n\n---\n\n## Citation Analysis\n\nTwo of 20 references involve the authors: [12], a direct predecessor on the same MOS multiplier (related), and [9], L. Dobrescu's paper on threshold-voltage evaluation of GAA nanowire FETs. [9] is cited only to mention GAA technology; it is marginally related (similarity about 0.4), not unrelated. SCR = 10%. Several references are generic textbooks on Monte Carlo methods and the normal distribution, cited for elementary statements.\n\n---\n\n## Structural Analysis\n\nThe evidence is simulation only: 200-run Monte Carlo per technology with 10% parameter tolerance, and a maximum relative error of 0.72% under Kp variation. The conclusions go further than this supports. \"Demonstrated technological feasibility\", \"very suitable for neural networks in real-time\", and \"the possibility of the expansion of this circuit at whole neural network scale with minimal errors\" have no fabricated circuit, no multi-synapse or network-level simulation, and no temperature sweep (the translinear product depends on matched Is and on temperature). The claim that a Gaussian output histogram \"demonstrates the robustness\" conflates distribution shape with spread. Power figures in Table 1 are back-of-envelope products of current and supply voltage, not simulated. One inline limitation is noted: \"convergence issues and the possibility to obtain an idealized behavior\". There is no limitations section. No models or netlists are released.\n\n---\n\n## Conclusion\n\nA modest simulation exercise on a well-known analog multiplier with appropriate formalism and normal citation behaviour. Its main weakness is structural: hardware-level and network-level claims are drawn from single-cell PSpice runs, with nothing released to check them."
+  },
+  {
+   "paper_id": "mateescu2025",
+   "paper": {
+    "title": "Machine Learning Control for Assistive Humanoid Robots Using Blackbox Optimization of PID Loops Through Digital Twins",
+    "authors": [
+     "Andrei Mateescu",
+     "Dragos Constantin Popescu",
+     "Ioana Livia Stefan",
+     "Ioana Miruna Vlasceanu",
+     "Alina Claudia Petrescu-Nita",
+     "Ioan Sacala",
+     "Ioan Dumitrache"
+    ],
+    "abstract": "In this work, we address the problem of accelerating Machine Learning Control (MLC) algorithms by parallelizing the learning with the aid of a simulated test environment containing a Digital Twin of a NAO robot. The increase of the modeling robustness and of the generality of the control algorithm is ensured by performing random positioning tasks with each learning episode. The solutions are further leveraged through Transfer Learning using the real robot and the results are validated and compared. In this respect, a thorough statistical study concerning the comparison of two typical MLC algorithms, namely the Genetic Algorithm and the Bayesian Optimization, is included.",
+    "keywords": [
+     "Assistive robots",
+     "automation and control theory",
+     "digital twins",
+     "natural computing",
+     "optimization",
+     "robotics"
+    ],
+    "doi": null,
+    "pages": "63-76",
+    "source_file": "paper791.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.0,
+    "composite": 60.75,
+    "final": 60.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link to the authors' code; the linked repositories are third-party (https://github.com/ros-naoqi/nao_robot, https://github.com/rmsolgi/geneticalgorithm) and pyGPGO [22]",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "GA vs. Bayesian optimisation of 39 PID gains on a Gazebo NAO digital twin; sound formalism and citations, but the comparison is unequal and the \"transfer to the real robot\" is not actually performed.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Black-box tuning of NAO joint PID gains in a ROS/Gazebo digital twin using an off-the-shelf elitist GA and Bayesian optimisation, with repeated runs and a comparison against the physical robot.\n**Level:** 2 (Low)\n**Rationale:** Existing optimisers and simulators applied to PID tuning; an empirical comparison study.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (PID law, cumulative cost, normalised squared error)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The cost function is needed to reproduce the work.\n\n### Issues\nNone in the formalism. Eq. (3) states normalisation by (ri − ri0) while the text calls it normalisation by step amplitude; squared amplitude would be dimensionally consistent with the rad² units reported.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 22 references. The references are on topic (MLC, digital twins, GA/BO PID tuning).\n\n---\n\n## Structural Analysis\n\nThe simulation results are reported carefully: three trials per hyper-parameter setting, ten full learnings per method, and histograms of the residual cost. Two structural problems weaken the main claims.\n1. The GA-vs-BO comparison is unequal: about 15,000 evaluations versus 1,000 in a similar wall-clock time. The \"order of magnitude\" gap mostly measures throughput, which the authors partly acknowledge.\n2. The \"transfer learning\" and \"validation on the real robot\" are not performed. The authors state that the NAO \"doesn't provide any means of configuring the PID gains of the joints\", so the real robot runs its default gains, with the simulated response replayed as a position trajectory. The abstract's claim that solutions \"are further leveraged through Transfer Learning using the real robot and the results are validated\" therefore overstates what was done.\nThe conclusion that trust is \"statistically proven\" rests on histograms of ten runs without tests. Limitations get inline acknowledgment (non-uniform per-joint performance from the cumulative cost; NAO software constraints). The optimiser code and DT setup are not released; only third-party repositories are linked.\n\n---\n\n## Conclusion\n\nA reasonably executed simulation study with appropriate formalism and clean citations. Its headline claims of transfer learning and real-robot validation are not backed by the experiment as performed, and the method comparison is confounded by unequal evaluation budgets."
+  },
+  {
+   "paper_id": "serban2025",
+   "paper": {
+    "title": "Carbon Nano-Onions-Based Matrix Nanocomposite as Sensing Film for Resistive Humidity Sensor",
+    "authors": [
+     "Bogdan-Catalin Serban",
+     "Niculae Dumbravescu",
+     "Octavian Buiu",
+     "Marius Bumbac",
+     "Mihai Brezeanu",
+     "Cristina Pachiu",
+     "Cristina-Mihaela Nicolescu",
+     "Cornel Cobianu",
+     "Cosmin Romanitan",
+     "Vasilica Tucureanu"
+    ],
+    "abstract": "This paper reports several preliminary investigations concerning the relative humidity (RH) detection response of a chemiresistive sensor that uses a novel sensing film based on a matrix nanocomposite comprising pristine carbon nano-onions and polyvinylpyrrolidone polymer at 1/1 w/w. The sensing layer's morphology and composition are analyzed by SEM, AFM, FTIR, X-Ray diffraction, and Raman spectroscopy. The experimental measurements show that the resistance of the tested nanocomposite slightly increases with RH for RH < 50% and has a sharp increase with RH for larger RH. The decrease of the hole concentration in the CNOs in interaction with water molecules and the rapid swelling of the hydrophilic polyvinylpyrrolidone polymer at high RH levels are the RH sensing mechanisms that best explain the measured RH detection behavior. The hysteresis characteristic of the sensor is improved after the first operating cycle.",
+    "keywords": [
+     "Carbon nano-onions",
+     "Hard Soft Acid Base theory",
+     "polyvinylpyrrolidone",
+     "resistive relative humidity sensor",
+     "swelling"
+    ],
+    "doi": null,
+    "pages": "77-88",
+    "source_file": "paper792.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 58.75,
+    "composite": 44.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Twelve of 32 references ([17]-[24], [27], [30]-[32]) are by the first author's group (Serban, Buiu, Cobianu, Bumbac et al.): SCR ≈ 37.5%."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Preliminary characterisation of a CNO/PVP chemiresistive humidity film; one trivial equation and no formalism concerns, but the reference list is dominated by the group's own work and performance claims are thinly quantified.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fabrication by drop casting and characterisation (FTIR, SEM, AFM, Raman, XRD) of a 1:1 carbon nano-onion / PVP film on an interdigitated polyimide substrate, its resistance-vs-RH response over three cycles, and a qualitative discussion of sensing mechanisms (p-type hole depletion, HSAB, PVP swelling and percolation).\n**Level:** 2 (Low)\n**Rationale:** Experimental materials study with descriptive measurements; no algorithmic or mathematical contribution.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (sensitivity S = ΔR/ΔRH)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate.\n\n### Issues\nNone in the formalism. Minor reporting errors: the sonicator is given \"70 MW output power\", and both AFM images report the identical Sq = 265.4 nm.\n\n---\n\n## Citation Analysis\n\n12 of 32 references are by the authors' group: SCR ≈ 37.5%. All are on carbon-nanomaterial or humidity/gas sensing, so none is unrelated (similarity ≥ 0.5). Several are used for generic statements a neutral source would serve better: [24] (the group's own conference paper) for the standard D/G Raman bands of carbon, [22] for placing sensors near the gas inlet, and [31] for the HSAB argument. Three ([17], [19], [20]) are abstracts at congresses on agriculture/animal husbandry and architectural sciences, unusual venues for sensor work. The ratio exceeds the 30% threshold.\n\n---\n\n## Structural Analysis\n\nThe paper calls itself \"preliminary\", which is an inline acknowledgment of limited scope; there is no limitations section. The measurements are mostly qualitative. The resistance-vs-RH curves are shown, but response and recovery times, long-term stability, selectivity, temperature dependence and a numerical sensitivity are not reported (\"the sensitivity triples\" is the only figure). Only one device appears to have been tested. Conclusions such as \"excellent RH sensing performance\" and the claim of \"a significant advantage over comparable RH sensors\" on power have no comparative data behind them. The mechanism discussion is plausible but argued rather than tested, e.g. dismissing proton conduction without a control experiment. XRD was done on a film on Si, a different structure from the sensor. No data are released.\n\n---\n\n## Conclusion\n\nA preliminary materials paper with no formalism concerns. The integrity problem is citation practice: more than a third of the references are the group's own, several standing in for textbook facts. Performance claims also go beyond the limited, single-device measurements. The self-citation ratio is a disqualifying flag under the specification."
+  },
+  {
+   "paper_id": "roman2025",
+   "paper": {
+    "title": "Higher-Order Model-Free Control Tuned by Fictitious Reference Iterative Tuning for 3D Cranes",
+    "authors": [
+     "Raul-Cristian Roman",
+     "Radu-Emil Precup",
+     "Emil M. Petriu"
+    ],
+    "abstract": "The current paper proposes to mix two data-driven algorithms, i.e. Model-Free Control (MFC) and Fictitious Reference Iterative Tuning (FRIT). The MFC algorithm has the main advantage of not using the precise process model, and the FRIT algorithm has the main benefit of determining the optimal parameters of the controller using a set of initial input/output data. An empirical sensitivity study is performed, where higher-order MFC algorithms are tuned via FRIT. The study aims to determine how a higher-order MFC improves the performance of the control loop. The resulting MFC-FRIT algorithms are experimentally validated on the 3D crane laboratory equipment.",
+    "keywords": [
+     "3D cranes",
+     "fictitious reference iterative tuning",
+     "model-free control"
+    ],
+    "doi": null,
+    "pages": "89-102",
+    "source_file": "paper793.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 70,
+    "citation_integrity": 55,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 59.75,
+    "composite": 44.81,
+    "final": 39.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "Ref. [38]: \"Supplementary material of the paper ... Available: https://uptro29158-my.sharepoint.com/:b:/g/personal/raul-cristian_roman_upt_ro/...\" The supplementary file holds \"Figs. 2 through 6\" (plots); neither code nor data is offered.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "Fifteen of 53 references ([1], [10], [14]-[19], [30], [31], [35], [38], [45], [50], [51]) are by Roman and/or Precup: SCR ≈ 28%. [45], [50] and [51] (fuzzy telesurgery, Popov stability of fuzzy systems, ABS fuzzy control) are only marginally related and appear in a future-work list."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Combining the group's earlier MFC-FRIT scheme with ultra-local models of order 1-5 on a 3D crane; formalism is appropriate, but the conclusions contradict the data and the reference list is padded.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Discrete-time model-free control with ultra-local models of order 1-5 and a PI component, with gains tuned by Fictitious Reference Iterative Tuning (trust-region optimisation), tested on an Inteco 3D crane.\n**Level:** 2 (Low)\n**Rationale:** Combines two existing data-driven methods, a pairing the same group has already published ([14]-[16]), and runs an empirical sweep over model order. No new theory or proof.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: about 20 (ultra-local models, control laws and F-estimators for five orders, FRIT cost, fictitious reference, trust-region step, crane state-space model, performance index, reference models)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Most equations are what an implementer needs. The ten-equation nonlinear crane model (14) is taken from the manual and never used, since the controller is model-free. It is background plant description, not one of the theater patterns. Eq. (13) is a limit stated from [20] without proof. Eq. (11) mislabels the trust-region acceptance ratio as the step direction.\n\n### Issues\nRepetitive presentation: each equation is restated for five orders, and Step 1.1 is spelled out five times. \"♢ = {MFCi, MFCi-FRIT}\" is decorative but trivial.\n\n---\n\n## Citation Analysis\n\n53 references; 15 by Roman/Precup (including the supplementary-material entry): SCR ≈ 28%. Most self-citations are directly on MFC, FRIT and crane control and are relevant. [45], [50] and [51] are marginal (similarity about 0.3-0.4). The future-work paragraph cites fifteen references ([39]-[53]) on unrelated subjects: piezoelectric shells, fetal heart-rate variability, ad-hoc networks, bin packing, emergency-facility location. Each gets a few words and none has any bearing on the paper. Several are in ROMJIST or allied regional venues. This is citation padding even though most are not self-citations. No mutual-citation evidence is visible from this paper alone, so no ring flag.\n\n---\n\n## Structural Analysis\n\nTen repeated real-time runs per controller, with means and variances of the performance index, are a reasonable empirical base. The FRIT gain of about 27% in J is consistent across orders. Problems:\n- The conclusion contradicts itself. \"There is no doubt that a higher-order MFC performs better ... therefore there is a direct proportionality between controller complexity and improvements\" is followed by \"Therefore, the authors' recommendation ... is to use a first-order MFC algorithm\". The 3-10% differences between orders are not tested for significance.\n- Robustness to \"unexpected disturbances\" is claimed in the introduction, but the experiments specify \"no additive disturbances\".\n- Results figures are moved to an external SharePoint file.\nThe only limitation acknowledged is the need for an initial closed-loop experiment. Neither code nor data is released.\n\n---\n\n## Conclusion\n\nAn incremental extension of the authors' own MFC-FRIT line with appropriate formalism and repeated experiments. The paper's reasoning in the discussion is internally inconsistent, and its reference list carries elevated self-citation plus an unrelated future-work citation block."
+  },
+  {
+   "paper_id": "karadeniz2025",
+   "paper": {
+    "title": "Mobile Robot Environment Representation Through Fuzzy Signatures-Integrated Quadtrees",
+    "authors": [
+     "Ahmet Mehmet Karadeniz",
+     "Csaba Hajdu",
+     "László T. Kóczy"
+    ],
+    "abstract": "This paper presents an innovative environment representation technique for mobile robots, incorporating obstacle detection within their operational space. Leveraging the fuzzy signature method, this approach uses quadtrees for efficient data organization. A set of fuzzy rules evaluates feature points to ascertain the relevance of identified obstacles. These points and their fuzzy associations are systematically arranged using a quadtree structure. The environmental model is reconstructed by traversing this tree and applying the established fuzzy rules. This paper has achieved a high-resolution grid representation of 0.1m within a 20m×20m area. Notably, the inference operation completes in just 0.5 ms, underscoring the method's efficiency.",
+    "keywords": [
+     "A* search algorithm",
+     "environment representation",
+     "fuzzy signatures",
+     "fuzzy systems",
+     "quadtrees",
+     "robotics"
+    ],
+    "doi": null,
+    "pages": "103-116",
+    "source_file": "paper794.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 55,
+    "structural_integrity": 30,
+    "artifact_availability": 70,
+    "intellectual_integrity": 26.75,
+    "composite": 37.56,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "The software developed for this purpose is accessible for download from the Github repository: https://github.com/robotlabor-nexus/fuzzy_signatures",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "ELEVATED_SELF_CITATION",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 prototype (a quadtree whose nodes store coordinates plus fuzzy membership values) presented with a recursive Cartesian-product definition of fuzzy signatures, nested-vector notation and a formal \"fuzzy signature class\" P. None of it is used in any derivation, and a programmer would implement it as a nested list or a node struct.",
+    "UNNECESSARY_SET_THEORY": "S(n) = ∏ Si, \"the Cartesian product of its elements\", defined recursively, with A : X → S(n). This is set notation for what the paper later stores as \"a (x, y, Fx(x), Fy(y)) 4-tuple\" in each quadtree node, i.e. a nested array or record.",
+    "ELEVATED_SELF_CITATION": "Nine of 32 references ([1], [4], [16]-[21], [27]) are by the authors (mostly Kóczy): SCR ≈ 28%.",
+    "UNSUPPORTED_CLAIMS": "Claims of a \"significant contribution\", \"scalability\", \"low memory consumption\" and \"high-resolution\" mapping rest on one synthetic example and a single timing figure (0.5 ms). There is no memory measurement, no baseline (e.g. occupancy grid or plain quadtree), and no sensor data. CER well below 0.33."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A quadtree storing fuzzy distance memberships at each node, wrapped in set-theoretic fuzzy-signature notation and shown on one synthetic example; formalism theater and largely unsupported efficiency claims.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Insert 2D obstacle points into a quadtree centred on the robot, attach fuzzy memberships (NF/NN/D/PN/PF) for x and y distance to each node, rebuild an occupancy-like grid by product-sum inference over the tree, and run A* on the grid.\n**Level:** 1 (Trivial)\n**Rationale:** A prototype combining a standard spatial data structure, standard fuzzy membership functions and a standard path planner; Algorithm 1 is a plain insertion loop.\n\n### Formal Elements\n- Definitions: 3 (recursive S(n) / fuzzy signature A : X → S(n), fuzzy signature sets, fuzzy signature class P)\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (Cartesian product, nested vectors (2)-(6), class tuple (7), A* cost (8))\n\n### Proportionality\nCalculated complexity: 6\nExpected range (Level 1): 0-5\nRatio: 1.2x upper bound\n\n**Assessment:** Disproportionate for Level 1, and the necessity test fails.\n\n### Issues\n- \"The set S(n) is recursively established as follows as the Cartesian product of its elements Si\", followed by \"the function A : X → S(n)\". This is a nested list of numbers in [0,1].\n- Eq. (7), P = [x, y, Fx(x), Fy(y)]ᵀ, a \"fuzzy signature class\", is a four-field record. The paper itself later calls it \"a (x, y, Fx(x), Fy(y)) 4-tuple\" stored in each node.\n- Eqs. (2)-(6) restate generic fuzzy-signature notation from [18]-[21], and the min/max aggregation example (4)-(5) is never connected to the obstacle representation actually used.\n- The A* equation f(n) = g(n) + h(n) is textbook and harmless.\nNone of these elements supports a derivation, bound or proof; each could be replaced with \"each node stores its coordinates and two membership vectors\".\n\n---\n\n## Citation Analysis\n\n32 references; 9 by the authors, mainly Kóczy's earlier fuzzy-signature work (including the supplementary-material entry): SCR ≈ 28%. These are relevant to fuzzy signatures and robot control. Separately, [9] (tensor-product modelling of tower cranes) and [10] (observation processes in cognition), from the same Timisoara group cited across this issue, are attached to a vague sentence about \"advanced nonlinear modeling techniques\" for indoor navigation. So are several ROMJIST papers ([11], [12], [15]) on fuzzy regression, decision support and indoor positioning. Their relevance is weak. Part of the Introduction is moved to an external supplementary PDF (\"The rest of the Introduction part is provided as a separate file in [1]\"), which is unusual.\n\n---\n\n## Structural Analysis\n\nThe results section has one synthetic configuration (Fig. 5), a qualitative tree diagram (Fig. 6), an inference grid (Fig. 7) and one timing figure. Memory use is asserted but not measured. The \"older generation PC\" is described as an Intel Core 2 Duo with 16 GB RAM, which does not support a low-resource claim. There is no comparison with occupancy grids or plain quadtrees, no real sensor data, and no robot experiment. The A* demonstration is not quantified. Limitations appear only implicitly, as future work: dynamic obstacles and real-world use are not yet handled, and the authors call the efficacy \"preliminary\". The authors' code is released on GitHub; the input data appear to be synthetic and are not separately deposited.\n\n---\n\n## Conclusion\n\nThe idea of attaching fuzzy distance memberships to quadtree nodes is simple and could be useful. The paper dresses it in set-theoretic fuzzy-signature notation that does no work, and supports its efficiency and scalability claims with a single synthetic example. Formalism theater at Level 1 is disqualifying under the specification. Releasing the code is the paper's main strength."
+  }
+ ]
+}

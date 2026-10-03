@@ -1,0 +1,383 @@
+{
+ "batch_id": "2015-v18-n4",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 18,
+  "issue": 4,
+  "year": 2015
+ },
+ "papers": [
+  {
+   "paper_id": "radescu2015",
+   "paper": {
+    "title": "On Additional Constrains in Lossless Compression of Text Files",
+    "authors": [
+     "Radu Rădescu"
+    ],
+    "abstract": "Coding algorithms are generally aimed at minimizing the output code length encoding speed once the code has been designed. This paper examines other issues related to coding, such as additional constraints imposed on the channel: length-limited codes, alphabetic codes, and codes for non-binary channel alphabets. The subsequent experimental results cover the problem of alphabetic coding and of limited length coding.",
+    "keywords": [],
+    "doi": null,
+    "pages": "299-311",
+    "source_file": "01-radu@20radescu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 25,
+    "structural_integrity": 35,
+    "artifact_availability": 50,
+    "intellectual_integrity": 49.5,
+    "composite": 49.62,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"[11] The testing Calgary Corpus: ftp://ftp.cpsc.ucalgary.ca/pub/projects/text.compression.corpus/\" and \"[12] The testing Canterbury Corpus: http://corpus.canterbury.ac.nz\"; the author's application is only described (\"implemented in the application accompanying this paper\") with no link.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "17 of 26 references (65%) are by the sole author ([2], [8], [10], [13]-[26]); [10] and [21] are the same paper listed twice, and [2]/[14] are the same 2003 book. None of the self-citations is invoked in the body text, which cites only [5], [11] and [12].",
+    "NO_LIMITATIONS": "No limitations section and no acknowledgment of constraints of the study; the only caveat is that faster workstations would give faster times."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Thin implementation report of textbook length-limited and alphabetic (Hu-Tucker/Knuth) coding, tested on the Calgary and Canterbury corpora; reference list dominated by uncited self-citations, results given almost only as figures with inconsistent descriptions.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Implementation and testing of existing constrained prefix-coding algorithms (Hu-Tucker/Knuth alphabetic coding, Turpin-Moffat reverse package-merge length-limited coding) on standard text corpora.\n**Level:** 2 (Low)\n**Rationale:** The paper applies known algorithms and reports compression rate and time; no new algorithm, model or analysis is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (only inline order relations s_i < s_j, garbled in extraction)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. There is no formalism to evaluate; if anything the algorithms are described too loosely to be reproduced (Section 4 on the limited-length algorithm is two sentences).\n\n### Issues\nNone identified in formalism.\n\n---\n\n## Citation Analysis\n\n17 of 26 references are the author's own work. They are all on compression (text, image, medical imaging, teaching tools for compression), so topical similarity is marginal-to-related rather than unrelated, and IRRELEVANT_SELF_CITATION is not raised. However, none of them is cited in the text: the body refers only to [5] (Moffat), [11] and [12] (corpora). Two self-citations are duplicated ([10] = [21]; [2] and [14] are the same MatrixRom book). The pattern is reference-list padding.\n\n---\n\n## Structural Analysis\n\nThe experimental section is weak and internally inconsistent. Compression rate is defined as output size divided by input size, yet values of \"about 1.4÷1.5\" are called good results, and WinRAR is said to give \"a compression rate of 54\". The text attached to Fig. 1 (alphabetical coding) describes \"imposing an upper limit on the words\", while paragraphs for Fig. 1 and Fig. 2 are near-verbatim duplicates; the compression-time paragraphs are also duplicated. Table 1 keeps a template caption (\"Type Sizes for Camera-Ready Papers\"). Conclusions such as the limited-length method \"guarantees a good to very good compression\" rest on unlabeled bar charts with no numeric table. Claim-evidence ratio estimated around 0.4 (weak). No limitations are acknowledged.\n\nArtifacts: the GUI application is mentioned but not linked. The Calgary and Canterbury corpora are public and linked; the Romanian test files are not. Category `data`.\n\n---\n\n## Conclusion\n\nA low-complexity applied paper whose formalism is not at issue, but whose citation conduct is: two thirds of the references are uncited self-citations, some duplicated, which triggers the disqualifying EXCESSIVE_SELF_CITATION flag. The experimental reporting is too vague and inconsistent to support its conclusions."
+  },
+  {
+   "paper_id": "frunza2015",
+   "paper": {
+    "title": "Dielectric Properties of LDH-Type Layered Materials Containing Zn or Mg Ions: On the Non Monotonous Temperature Dependence of Relaxation Times",
+    "authors": [
+     "Ligia Frunza",
+     "Stefan Frunza",
+     "Constantin Paul Ganea",
+     "Irina Zgura",
+     "Florentina Neatu",
+     "Vasile I. Parvulescu"
+    ],
+    "abstract": "The electrical behavior of layered double hydroxides containing Al or Ga as the trivalent ions and Mg or Zn as bivalent ions was evaluated using broadband dielectric spectroscopy in a wide temperature range. A relaxation peak at high frequencies is assigned to reorientational fluctuations of adsorbed water; a Maxwell-Wagner-Sillars peak is observed at low frequencies. A non-monotonous temperature dependence of the relaxation rates was found and described quantitatively by a model of two competing processes: rotational fluctuation of water molecules and formation of additional defects.",
+    "keywords": [],
+    "doi": null,
+    "pages": "312-328",
+    "source_file": "02-frunza.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 83.7,
+    "composite": 62.77,
+    "final": 62.77
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Competent experimental dielectric-spectroscopy study applying the established Havriliak-Negami and Ryabov models to four LDH samples; formalism is proportionate and open questions are acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Broadband dielectric spectroscopy of four layered double hydroxide samples, with fitting of the water relaxation rate to the Ryabov two-process model.\n**Level:** 2 (Low)\n**Rationale:** Empirical characterization applying existing models (Havriliak-Negami, Ryabov) to new materials; no new model is developed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 numbered (HN function, Ryabov relaxation time) plus inline conductivity term and water-layer thickness estimate\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Every equation is a fitting model actually used to extract the parameters in Table 2; none could be replaced by prose without losing the fitted quantities.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSelf-citations by any author: [28], [29], [30], [38], [39], [40], [49], i.e. 7 of 53 (13%). All are on LDH preparation/catalysis or dielectric relaxation of confined water or guests in porous hosts, directly related. [28] is a conference version of the same study. No issues.\n\n---\n\n## Structural Analysis\n\nClaims are tied to measured spectra, TG data and fitted parameters (Tables 1-2, Figs. 1-5). Some interpretive statements are hedged (\"might suggest\", \"must be supported by other studies\"). Limitations are acknowledged inline: \"This needs further investigations\", \"it is still unclear how it does\", \"More experiments are thus necessary to elucidate this behavior\". Minor issues: the Table 2 sample label \"Mg2Ga-LDH\" does not match the Mg3Ga sample in the text, and the abstract's comparison claims are somewhat broader than the table supports. No data or fitting files are made available.\n\n---\n\n## Conclusion\n\nA conventional, adequately supported materials-physics measurement paper. Formalism is limited to the fitting functions it needs, self-citation is normal, and uncertainty is acknowledged. The main weakness for reproducibility is the absence of shared data."
+  },
+  {
+   "paper_id": "lazar2015",
+   "paper": {
+    "title": "P-Type Doping of 4H-SiC for Integrated Bipolar and Unipolar Devices",
+    "authors": [
+     "M. Lazar",
+     "S. Sejil",
+     "L. Lalouat",
+     "C. Raynaud",
+     "D. Carole",
+     "D. Planson",
+     "G. Ferro",
+     "F. Laariedh",
+     "C. Brylinski",
+     "H. Morel"
+    ],
+    "abstract": "P-type 4H-SiC layers formed by ion implantation need high temperature processes, which generate surface roughness, losing and incomplete activation of dopants. Vapor-Liquid-Solid (VLS) selective epitaxy is an alternative method to obtain locally highly doped p-type layers in the 10^20 cm^-3 range or more. Lateral JFET devices are fabricated by integrating p-type layers created by Al ion implantation or VLS growth. The p-type VLS layers improve the access resistances on the electrodes of the fabricated devices.",
+    "keywords": [
+     "ion implantation",
+     "VLS epitaxial growth",
+     "RIE",
+     "JFET"
+    ],
+    "doi": null,
+    "pages": "329-342",
+    "source_file": "03-lazar.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 62.5,
+    "composite": 46.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "11 of 19 references (58%) include at least one of the paper's authors ([4], [5], [10], [11], [13]-[19]). The self-citations are all on SiC doping and devices and are topically relevant, but the ratio exceeds the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Review-style experimental summary of the group's own SiC p-type doping work (Al implantation versus VLS epitaxy) and integrated lateral JFETs; no formalism issues, but more than half of the references are the authors' own.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Comparison of Al ion implantation and VLS selective epitaxy for local p-type doping of 4H-SiC, and their use in integrated lateral JFETs.\n**Level:** 2 (Low)\n**Rationale:** Experimental process and device study summarizing measurements (sheet resistance, AFM, SIMS, RBS/C, I-V); no model or algorithm is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. No formal apparatus.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSelf-citations (any of the ten authors): [4], [5], [10], [11], [13], [14], [15], [16], [17], [18], [19] = 11/19 (58%). The paper is largely a synthesis of the group's earlier results, and several figures are reproduced from those works ([4], [13], [14]). All self-citations are on-topic, so IRRELEVANT_SELF_CITATION does not apply, but the ratio triggers EXCESSIVE_SELF_CITATION under the specification.\n\n---\n\n## Structural Analysis\n\nClaims are generally supported by measurements shown in figures (Figs. 1-6, 10, 11, 14), though some quantitative statements are given without the underlying data (e.g. \"multiply drain-source current by more than one order of magnitude\"). Limitations are acknowledged inline: \"the VLS growth is still an immature technological process\", junctions \"still suffer from a poor interface\", and reverse leakage in VLS-gated JFETs. Text extraction garbled a few exponents (\"10 cm3 range\"). No artifacts are provided.\n\n---\n\n## Conclusion\n\nA readable experimental overview with honest discussion of the immaturity of VLS doping. Its formalism is not an issue; its citation profile is, with a self-citation ratio near 60%, which the framework treats as disqualifying regardless of topical relevance."
+  },
+  {
+   "paper_id": "volmer2015",
+   "paper": {
+    "title": "Detection of Magnetic Nanoparticles for Lab-on-a Chip Applications",
+    "authors": [
+     "Marius Volmer",
+     "Marioara Avram",
+     "Andrei Marius Avram"
+    ],
+    "abstract": "Detection of magnetic carriers used as labels for biosensing applications represent key features in lab-on-a-chip (LOC) devices. This paper presents a review of some experimental techniques used by us to characterize magnetic nanoparticles and to detect them using Permalloy based planar Hall effect sensors. We found that sensitivities better than 0.2x10^-3 emu/mV can be obtained for specific detection schemes. A freeware micromagnetic simulator, SimulMag, was used to complete the view on these experiments.",
+    "keywords": [
+     "Magnetic nanoparticles",
+     "Planar Hall effect sensors",
+     "Micromagnetic simulations",
+     "Lab-on-chip"
+    ],
+    "doi": null,
+    "pages": "343-355",
+    "source_file": "04-volmer.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 68,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.55,
+    "composite": 57.41,
+    "final": 52.41
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only link, \"[13] PC Micromagnetic Simulator, http://math.nist.gov/oommf/contrib/simulmag/\", is a third-party tool",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "3 of 15 references (20%) are by the authors ([11], [12], [14]), at the lower boundary of the 20-30% band. All are directly related micromagnetic/PHE sensor work."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Experimental characterization of disk-shaped Permalloy planar Hall sensors and maghemite nanoparticle detection, with appropriate use of the Langevin fit and an explicit limitations statement; self-citation at the 20% boundary.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Characterization of Permalloy planar Hall effect sensors and of PEG-functionalized maghemite nanoparticles, and detection of the particles with the sensor, supported by micromagnetic simulation.\n**Level:** 2 (Low)\n**Rationale:** Experimental sensor study using standard physics (AMR/PHE, Langevin superparamagnetism) and an existing simulator.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 numbered (Langevin function) plus inline proportionalities for the PHE signal and sensitivity\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The Langevin function is used to fit the magnetization curves and extract the magnetic diameter (9.88 nm, 11.48 nm); the proportionalities explain the bias-field trade-off observed in Fig. 3.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSelf-citations [11], [12], [14] = 3/15 (20.0%), on the boundary between the elevated and high bands; treated as ELEVATED_SELF_CITATION. All three are the authors' related micromagnetic and PHE detection work and are used substantively (simulation setup, particle retention mechanism). No unrelated self-citation.\n\n---\n\n## Structural Analysis\n\nClaims are backed by measured curves and a worked sensitivity estimate (2.33e-5 emu producing 0.06-0.16 mV). The abstract's \"sensitivities better than 0.2x10^-3 emu/mV\" does not match the body and conclusions (1.456e-4 to 3.88e-4 emu/mV; \"up 1.456x10^-4\"), and the paper calls itself a review of the authors' techniques. Limitations are stated explicitly: \"The main limitation of our system ... comes from the relatively large dimension of the PHE sensors.\" The simulator used is third-party freeware; no data or code of the authors is shared.\n\n---\n\n## Conclusion\n\nA sound small-scale experimental paper with proportionate physics and an honest limitation statement. Minor inconsistency in the headline sensitivity figure and a self-citation ratio at the 20% threshold are the only concerns."
+  },
+  {
+   "paper_id": "amariutei2015",
+   "paper": {
+    "title": "On the Suppression of Output Oscillations in a Software Controlled DC-DC Buck Converter",
+    "authors": [
+     "Roxana-Daniela Amariutei",
+     "Liviu Goras",
+     "Monica Rafaila",
+     "Andi Buzo",
+     "Georg Pelz"
+    ],
+    "abstract": "In this paper unwanted output voltage oscillations due to the nonlinearities in a software controlled DC-DC Buck converter are analyzed and conditions for their suppression are given. These conditions are correlated with the PID parameters designed using an algorithm that ensures imposed transient behavior for input steps and load variations.",
+    "keywords": [
+     "DC-DC Buck converter",
+     "limit cycles",
+     "PID",
+     "describing function",
+     "ripples"
+    ],
+    "doi": null,
+    "pages": "356-375",
+    "source_file": "05-amariutei.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 95,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.8,
+    "composite": 59.85,
+    "final": 54.85
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; models are \"implemented in Matlab/Simulink with components from Simscape library\" (third-party tool, not released)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section or inline acknowledgment of constraints (e.g. simulation-only validation, single converter design, simplified on-resistance-only switch model)."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation study applying Peterchev-Sanders limit-cycle conditions and the quantizer describing function to a software-controlled buck converter and adding them as constraints to a PID tuning search; equations are standard and used, but validation is simulation-only despite a claim of experimental confirmation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Predicting and suppressing quantization-induced limit cycles in a digitally (software) PID-controlled buck converter, using known no-limit-cycle conditions and the describing function of the ADC quantizer, and embedding them in a PID tuning search.\n**Level:** 2 (Low)\n**Rationale:** Applies existing conditions [6], the standard describing function and the averaged converter model [12] to one design; the tuning algorithm is described only in outline.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 22 (ripple design formulas, Fourier/describing-function formulas, averaged transfer functions, discrete closed-loop expressions, characteristic condition)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the standard control-engineering machinery needed to evaluate condition (17) numerically and are actually used to compute N(A) and the predicted 38.57 kHz limit cycle, which the spectrum in Table 7 matches. None of them is notation standing in for a plain programming operation.\n\n### Issues\nNone identified in formalism. Section numbering in the text is inconsistent (the averaged model is referred to as Section 4 and Section 5).\n\n---\n\n## Citation Analysis\n\nOne self-citation ([14], the conference version of this work) out of 14 references (7%). Related. No issues.\n\n---\n\n## Structural Analysis\n\nThe analytical predictions are checked against simulation for two PID sets, which is a reasonable internal validation. However the conclusion states \"Simulation and experimental results confirm the validity of theoretical considerations\" although no hardware measurements are reported; this claim is unsupported. The tuning algorithm (dominant-pole placement plus an \"adaptive searching algorithm\") is not specified enough to reproduce. No limitations are discussed. No models or scripts are released.\n\n---\n\n## Conclusion\n\nA competent application of established limit-cycle analysis to a specific converter, with formalism that is proportionate and functional. Weaknesses are structural: simulation-only evidence presented as experimental confirmation, an under-specified tuning algorithm, and no limitations."
+  },
+  {
+   "paper_id": "paun2015a",
+   "paper": {
+    "title": "On the Necessary Verification of Fabrication Stages for SOI CMOS Humidity Sensors",
+    "authors": [
+     "Maria-Alexandra Paun",
+     "Claudio Falco",
+     "Florin Udrea"
+    ],
+    "abstract": "A humidity sensor, which is part of an air quality sensor system, based on MWCNTs/MMA composite doped with KOH has been studied. A standard SOI CMOS process, with only one post-processing step for the membrane etching, was used to fabricate the sensor. Tip sonication was used to obtain a homogeneous distribution of the CNTs. The current-voltage and resistance-voltage characteristics have been investigated for different temperatures, the parabolic dependence of the resistance with the applied voltage has been proven for positive voltages, and the first and second order coefficients have been extracted.",
+    "keywords": [
+     "humidity sensor",
+     "SOI CMOS technology",
+     "MMA",
+     "MWCNTs",
+     "KOH",
+     "resistive",
+     "relative humidity"
+    ],
+    "doi": null,
+    "pages": "376-387",
+    "source_file": "06-mapaun.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 88,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 43.3,
+    "composite": 32.47,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with formal elements that fail the Necessity Test: Section 2.1 'Basic definitions' gives textbook equations for absolute, relative and saturation humidity (Eqs. 1-3) that are never used afterwards (no humidity value is ever computed), and Eqs. 4-5 write out the full infinite Taylor series with a remainder term only to arrive at an ordinary quadratic fit R = R0[1 + aT dT + bT dT^2]. These could be stated in one sentence each and change nothing in what is built or measured."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Preliminary fabrication-stage report of a CNT/PMMA humidity sensor on an SOI CMOS chip; textbook humidity definitions and an infinite Taylor-series expansion decorate what is a quadratic curve fit, and humidity response is shown only qualitatively.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Preparation and first electrical characterization (I-V, R-V at six heater temperatures, qualitative humidity response) of an MWCNT/MMA-KOH resistive humidity sensor deposited on an SOI CMOS micro-hotplate.\n**Level:** 2 (Low)\n**Rationale:** Experimental fabrication and characterization reusing a published recipe [2]; the modelling is a second-order polynomial fit.\n\n### Formal Elements\n- Definitions: 0 numbered (Section 2.1 'Basic definitions' introduces AH, RH, SH, dew and frost point as equations/prose)\n- Theorems: 0\n- Proofs: 0\n- Equations: 12\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Count is within range, but the Necessity Test fails for several elements. Eqs. (1)-(3) define humidity quantities that play no further role; no absolute or relative humidity is ever computed, and Eq. (3) multiplies a density by 100 without explanation. Eqs. (4)-(5) present the general Taylor series and an O-remainder only to justify a quadratic TCR model; Eq. (10) (solving the quadratic for T) is used and is legitimate. Eq. (11)-(12) restate the same quadratic for voltage. Under the zero-tolerance rule for Level 1-2, the decorative elements trigger FORMALISM_THEATER.\n\n### Issues\n\"In the case in which [the remainder] = O[((T - T0)^(n>=3))] -> 0\" is a formal dressing for \"we keep a quadratic fit\". The humidity definitions read as textbook filler.\n\n---\n\n## Citation Analysis\n\nOne self-citation ([18], the CAS 2015 conference version of the same work) out of 21 (5%). The introduction states that verification of fabrication stages was \"performed by the authors previously in [17]\", but [17] is a third-party review (Farahani et al.); the reference appears mis-numbered, and the humidity definition is attributed to [18], the authors' own conference paper. Small deduction for citation accuracy; no integrity flag.\n\n---\n\n## Structural Analysis\n\nThe paper's stated objective (RH accuracy of +/-2% over 5-95% RH) is not tested; the humidity response is shown only as a qualitative current/resistance trace after \"a blow on the chip\". The R-V fits in Table 2 have coefficients that change sign erratically between temperatures, with goodness-of-fit down to 0.838, which weakens \"the parabolic dependence ... has been proven\". Limitations are acknowledged implicitly: \"Further measurements will prove if it depends on the relative or absolute humidity\" and \"Our immediate goal is to perform humidity tests\". No artifacts.\n\n---\n\n## Conclusion\n\nA work-in-progress report whose experimental content is modest and whose central claim (a working humidity sensor) is not yet demonstrated quantitatively. The decorative textbook definitions and Taylor-series apparatus in a Level 2 paper trigger the FORMALISM_THEATER flag under the framework's zero-tolerance rule."
+  },
+  {
+   "paper_id": "purdila2015",
+   "paper": {
+    "title": "Low-Voltage Controlled Floating Buck Converter with Imbalanced Stacked MOSFETs Switch (ISMS) for High LED Driving Capability",
+    "authors": [
+     "Anca Gabriela Purdila",
+     "Gheorghe Pristavu",
+     "Vlad Anghel",
+     "Gheorghe Brezeanu",
+     "Emilian Ceuca"
+    ],
+    "abstract": "This paper presents a cost effective technique for extending LED driving capability of floating buck converters, using an imbalanced stacked MOSFETs switch (ISMS), comprising a low-voltage transistor and a power MOSFET biased at a constant voltage, drivable by low output capability control blocks. The impact of the turn ON/OFF times on switching frequency is investigated. The technique is validated in floating buck converters with a critical conduction mode controller and a variable OFF time controller. Measurements for 6-48 LEDs and up to 250 V input show peak efficiency of 97% and switching frequencies between 25 kHz and 170 kHz; converters with ISMS drive up to eight times more LEDs than their regular versions.",
+    "keywords": [
+     "stacked MOSFETs",
+     "floating buck LED driver",
+     "low-voltage control",
+     "critical conduction control",
+     "variable OFF time control"
+    ],
+    "doi": null,
+    "pages": "388-407",
+    "source_file": "07-apurdila.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 78,
+    "artifact_availability": 0,
+    "intellectual_integrity": 86.75,
+    "composite": 65.06,
+    "final": 65.06
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; links given are to manufacturer datasheets only",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Well-evidenced circuit-design paper proposing an imbalanced stacked-MOSFET switch for floating buck LED drivers, with a first-order switching-time analysis and hardware measurements on two controllers compared against prior art.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A stacked low-voltage/high-voltage MOSFET switch biased at constant gate voltage that lets low-voltage controllers drive long LED strings in floating buck converters; switching-sequence analysis and experimental validation with CrM and variable OFF-time controllers.\n**Level:** 2 (Low)\n**Rationale:** A circuit technique derived from known stacked-switch/ESBT topologies, analysed with standard first-order RC switching expressions and validated by measurement.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (turn-on/turn-off interval expressions)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The switching-time expressions identify which device dominates the transition and are checked against oscilloscope measurements (120 ns / 350 ns), so they inform design.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSelf-citations [18], [19] (the authors' variable OFF-time controller) = 2/35 (6%), directly used as one of the two test platforms. Several references are datasheets from the first and third authors' employer (ON Semiconductor), which are component citations rather than self-citations. No issues.\n\n---\n\n## Structural Analysis\n\nClaims are supported by PSpice simulation of the ZCD modification, oscilloscope waveforms, efficiency and frequency sweeps (Figs. 7-12) and two comparison tables, including a comparison with five prior designs. Trade-offs are acknowledged inline: the ISMS comes \"at the cost of increased ON resistance\" and its \"transition time is slightly higher than state-of-the-art stacked topologies\"; lower LED currents than competitors are explained. Minor inconsistencies (250 V vs 240 V maximum input; Fig. 12 caption duplicating Fig. 11) do not affect the conclusions. No schematics files, data or firmware are released.\n\n---\n\n## Conclusion\n\nA solid applied power-electronics contribution with proportionate analysis and good experimental support. Reproducibility relies on the description alone, as no artifacts are provided."
+  }
+ ]
+}

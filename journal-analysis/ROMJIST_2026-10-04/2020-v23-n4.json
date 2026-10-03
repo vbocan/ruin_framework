@@ -1,0 +1,179 @@
+{
+ "batch_id": "2020-v23-n4",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 23,
+  "issue": 4,
+  "year": 2020
+ },
+ "papers": [
+  {
+   "paper_id": "braic2020",
+   "paper": {
+    "title": "Ascertaining the root-cause of discrepancies between simulations and measurements for a SC DC-DC converter",
+    "authors": [
+     "Nicolae Adrian Braic",
+     "Cristian Raducan",
+     "Marius Neag",
+     "Marina Topa",
+     "Vlad Ionescu"
+    ],
+    "abstract": "This paper presents a methodology for ascertaining the root cause of discrepancies between simulation and measurement results related to particular parameters and/or features of an integrated circuit. The main idea is to assess the sensitivity of the wanted IC parameter/feature to factors which may not have been accurately and comprehensively considered during pre-silicon verification, such as block-level non-idealities, internal parasitic components and inaccuracies in modeling the package and external components. This is achieved by running parametric simulations on amended views of the top-level IC schematic and the main simulation testbench. Behavioral models of large functional blocks within the IC are employed, not only to reduce the simulation time but also to allow for a quick assessment of the impact block-level non-idealities may have on the IC performance. After identifying the factors that impact most the IC parameter/feature under test, the designer can find the sets of values/combinations of some of those factors that yield simulation results most similar to measurements. Finally, the system layout, the simulation testbenches and the measurement setup are analyzed in detail, focusing on possible root cause(s) of the factors/combination of factors indicated by simulations. A real-case deployment of this methodology is presented: a switched-capacitor DC-DC converter, whose measured output voltage ripple had a different shape and larger amplitude than those predicted by simulations. The proposed methodology can be embedded in the design flow, as well, from deriving block-level parameters from general system requirements to setting clear requirements for layout routing of key tracks within the IC.",
+    "keywords": [
+     "Microelectronics",
+     "verification methodology",
+     "analog and mixed-signal IC",
+     "root-cause identification",
+     "Verilog-A model",
+     "switched capacitor DC-DC converter",
+     "voltage output ripple"
+    ],
+    "doi": null,
+    "pages": "333-353",
+    "source_file": "paper666.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 70,
+    "structural_integrity": 72,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.5,
+    "composite": 57.38,
+    "final": 52.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the Verilog-A behavioral models are described by equations (1)-(4) but not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "3 of 15 references (SCR = 20%) include authors of this paper: [4] Plesa, Neag et al. (electro-thermal SC converter protection), [7] Grajdeanu, Raducan, ..., Neag (SC converter design environments) and [8] Braic, Raducan, Neag, Ionescu (Verilog-A model of the same converter). All are topically related; the ratio sits at the lower boundary of the 20-30% band."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Practical debugging methodology for mixed-signal ICs, illustrated on one switched-capacitor converter; minimal, necessary behavioral-model equations, good simulation evidence plus a confirming bench test, but a single case study and no released models.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A workflow for locating the root cause of simulation-versus-measurement discrepancies in an IC, using Verilog-A behavioral models of functional blocks, a schematic annotated with parameterized parasitics, and parametric sweeps; demonstrated on an automotive SC DC-DC converter whose output ripple was traced to an 18.2 fF coupling between the CP track and the VREF line.\n**Level:** 2 (Low)\n**Rationale:** The contribution is an engineering procedure built on standard tools (Spectre, Verilog-A, PEX) and standard sensitivity sweeps. No new algorithm or model theory is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (smooth saturating OTA output current, soft-limited OTA transfer function, power-mirror saturation, smooth switch-resistance transition)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Each equation is the actual expression coded in the Verilog-A models and its smooth form is motivated by simulator convergence; a programmer implementing the models would need them. Equation (2) contains a typesetting slip (a stray '+·'), and parameter values are given for most constants.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n15 references, 3 with author overlap ([4], [7], [8]), SCR = 20%. All three concern switched-capacitor converters or the Verilog-A model of this very circuit, so they are relevant; [8] is the conference precursor from which Figures 5-8 are reproduced. The rest are standard Verilog-A/AMS modelling guides and mixed-signal methodology texts. No irrelevant or ring-like citations.\n\n---\n\n## Structural Analysis\n\nClaims about each candidate root cause are backed by parametric sweeps (Figures 9-18, Table 2), the final hypothesis is checked by a layout inspection and a bench test driving VREF_EXT with added decoupling, and the simulation-time benefit of behavioral models is quantified (Table 1). The generality of the methodology is asserted from a single case study and the bench confirmation is described qualitatively, with no numbers. A limitations paragraph in the conclusions states that the method does not guarantee identification of the root cause, e.g. for electro-thermal effects (inline acknowledgment). No models, netlists or testbenches are released.\n\n---\n\n## Conclusion\n\nA sound, well-evidenced applied engineering paper whose formalism is limited to the model equations it needs. The weak points are reliance on one worked example to support a general methodology, a self-citation ratio at the 20% boundary (all relevant), and no released artifacts."
+  },
+  {
+   "paper_id": "kataria2020",
+   "paper": {
+    "title": "Data Prediction of Electromagnetic Head Tracking using Self Healing Neural Model for Head-Mounted Display",
+    "authors": [
+     "Aman Kataria",
+     "Smarajit Ghosh",
+     "Vinod Karar"
+    ],
+    "abstract": "In Avionics, Helmet Mounted Display (HMD) is used by the pilot to display the synchronized view of the external environment and the vital parameters related to the aircraft on the visor. For perfect synchronization of the view on the visor, it is necessary that the coordinates of the external environment, as well as the coordinates of the head movement of the pilot, should be synchronized. To locate the coordinates of the pilots head motion, the process known as Head Tracking plays an important role. Head tracking can be performed using different tracking techniques such as Optical tracking, Magnetic tracking or Inertial tracking. In this paper, a six-degrees-of-freedom (6-DoF) magnetic motion tracking device (Polhemus Patriot) is used to acquire the coordinates of the pilot's head movement in real time on the simulator bed. During acquisition process by the tracker, the data may get missed due to magnetic field interference caused by ferromagnetism. For this, a Self-Healing Neural Model (SHNM) is employed to predict the missed data. The data used for the recovery has 5200 6-DoF samples of the head movement. SHNM yields more than 85% of accuracy to predict the three different sets of missing data. The accuracy of the predicted data by the proposed model is compared with the Back Propagation Neural Network (BPNN) model and it has been observed that accuracy achieved by the SHNM model is better than the BPNN model.",
+    "keywords": [
+     "Head Tracking",
+     "Neural Network",
+     "Self Healing",
+     "Recovery",
+     "Avionics"
+    ],
+    "doi": null,
+    "pages": "354-367",
+    "source_file": "paper667.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 70,
+    "citation_integrity": 75,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 64.25,
+    "composite": 48.19,
+    "final": 48.19
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the 5200-instance tracker dataset is shown only as a ten-row sample (Table 2)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Application of an existing self-healing neural model to impute gaps in magnetic head-tracker data; light formalism, but the method, accuracy metric, BPNN baseline and missing-data protocol are too thinly described to support the reported gains.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Imputation of missing 6-DoF samples from a Polhemus Patriot magnetic tracker on a cockpit simulator, using the Self-Healing Neural Model of Sharma et al. [25], compared against a backpropagation network.\n**Level:** 2 (Low)\n**Rationale:** An existing neural model is applied to a new data set and its accuracy compared with a baseline; no new algorithm is proposed beyond dropping the time term of the healing function.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (healing function SH, taken from [25])\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in quantity. The single equation is the borrowed cost function of the method and is not decorative in kind, but it is poorly specified: E is defined as 'the number of missing instances' yet appears inside a sum over j, and the paper never explains how SH drives the imputation or how the 0.8 threshold relates to it. Not a theater pattern; scored below the proportionate band for lack of clarity.\n\n### Issues\nThe equation is reproduced without enough definition to be implemented from this paper alone ('further explanation can be obtained from [25]').\n\n---\n\n## Citation Analysis\n\n30 references, no self-citations (SCR = 0%). Several references are only loosely connected to the text that cites them: [29] (weak ferromagnetism in a free-electron gas, Nature) is cited for low-field trackers, [12] and [14] (RF exposure; subsurface prospecting) for electromagnetic tracking, [19] (burst-mode clock and data recovery circuit) and [30] (reversible data hiding) for 'recovery'. Four of these are from the same journal (AEU). These are not self-citations and trigger no flag, but they look like padding and lower the citation score.\n\n---\n\n## Structural Analysis\n\nThe central evidence is Table 3 and Figures 3-8, but key methodological details are missing: how 'accuracy' is computed for a continuous coordinate, network architectures and training settings for SHNM and BPNN, train/test split, and how the 10/25/35% missing sets were produced (the text alternates between inducing field disturbance and switching off the sensor). No statistical comparison or repeated runs. The claim that the approach enables 'nearly a perfect low-cost flight simulator' is not evaluated. Section 6 (Open Issues) notes that the method has not been tried on optical or inertial tracking, which counts as an inline acknowledgment of limits. Figure 1 caption and Section 2 write 'SFNM' for SHNM. Neither data nor code is available.\n\n---\n\n## Conclusion\n\nA straightforward Level 2 application paper with minimal formalism and no citation-conduct concerns, but weak reproducibility: the reported 8% improvement over BPNN rests on an undefined accuracy metric and an unspecified baseline. Adequate as a feasibility note; not convincing as evidence for the method's superiority."
+  },
+  {
+   "paper_id": "marinescu2020",
+   "paper": {
+    "title": "Electrochemical sensors with interdigitated electrodes for counting T-cells",
+    "authors": [
+     "Maria-Roxana Marinescu",
+     "Marioara Avram",
+     "Corneliu Voitincu",
+     "Mihaela Savin",
+     "Carmen Mihailescu",
+     "Liviu-Daniel Ghiculescu"
+    ],
+    "abstract": "This paper presents the fabrication of an electrochemical sensor that is used for counting T-cells from blood, based on interdigitated electrodes integrated in a microfluidic system. The sensor is composed of two working interdigitated electrodes (WE), a reference electrode (RE) and a counting electrode (CE). Electrochemical impedance spectroscopy was used to study the cellular activities. Impedance spectra allows to analyse the changes and charge transfer resistance due to cell attachment on the interdigitated microelectrodes.",
+    "keywords": [
+     "Electrochemical sensors",
+     "interdigitated electrodes",
+     "impedance",
+     "T-cells"
+    ],
+    "doi": null,
+    "pages": "368-378",
+    "source_file": "paper668.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 30,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.0,
+    "composite": 54.75,
+    "final": 39.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; fabrication steps and electrode dimensions are described but nothing is deposited or linked",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "The title and abstract present a sensor for counting T-cells, but no cell counting is reported: the only measurements are Nyquist plots of electrode functionalization and antigen binding (Figures 7-9) and a coverage table. Claims that testing 'takes place within half an hour for each antigen. It is a shorter time than for any other device', that the system 'avoids the cell congestion', and that it 'can determine all the T cells: CD3+, CD4+ and CD8+' have no supporting data. Estimated CER below 0.33."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Fabrication report for an interdigitated-electrode impedance sensor in a microfluidic chip; formalism is minimal and appropriate, but the T-cell counting the paper is named for is never demonstrated and comparative performance claims are unsupported.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design and photolithographic fabrication of gold interdigitated electrodes with Ag/AgCl reference and counter electrodes inside an SU-8/PDMS microfluidic chip, antibody functionalization, and EIS characterization intended for counting CD3+/CD4+/CD8+ T-cells.\n**Level:** 2 (Low)\n**Rationale:** Device fabrication and characterization using established techniques (Coulter principle, EIS, SAM/Protein G antibody immobilization); no new model or algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (AgCl chlorination reaction; surface coverage theta = (1 - Rct_i/Rct_0) x 100)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Both expressions are ordinary domain notation needed to state the process and the metric.\n\n### Issues\nNo formalism issues. The coverage formula's terms are mis-glossed (Rct_0 described as 'the noise', Rct_i as 'the signal recorded at each concentration'), and Table 1 lists the 1mM:7mM ratio twice with different results, while the methods state 1mM:9mM for anti-CD8.\n\n---\n\n## Citation Analysis\n\n21 references. Two share authors with this paper: [2] (Burinaru, ..., Avram, ..., Marinescu; magnetic nanoparticles for circulating tumour cell capture) and [17] (Marinescu, Avram, ..., Voitincu; SU-8 in MEMS). SCR about 10%. Both are related (cell capture in microfluidics; the SU-8 process used here). [18] is a conference abstract book cited without authors or title; [4] is a consumer health website. No concerning patterns.\n\n---\n\n## Structural Analysis\n\nThe paper reports fabrication steps with optical micrographs and three Nyquist plots showing semicircle growth after functionalization and antigen addition. It reports no cell passage, no impedance pulses, no count, no blood sample results, no calibration curve, no comparison with flow cytometry, and no timing measurements, yet the introduction and conclusions claim speed advantages over 'any other device' and full CD3/CD4/CD8 coverage. The only acknowledgment of limits is that the device 'can become such a device after rigorous validation and calibration' (inline). The sections 2 and 3 share an identical heading, and Fig. 8's caption names CD3+ antigens for the CD4+ electrode. No artifacts.\n\n---\n\n## Conclusion\n\nFormalism and citation conduct are unproblematic, but the paper's central claim, a T-cell counting sensor, is not substantiated by the presented measurements, and several comparative claims lack any evidence. It reads as an interim fabrication report rather than a validated sensor."
+  }
+ ]
+}

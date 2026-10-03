@@ -1,0 +1,431 @@
+{
+ "batch_id": "2010-v13-n4",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 13,
+  "issue": 4,
+  "year": 2010
+ },
+ "papers": [
+  {
+   "paper_id": "chesaru2010",
+   "paper": {
+    "title": "Discontinous-Time Comparator with State Saving",
+    "authors": [
+     "Valentin Chesaru",
+     "Cristian Neacsu",
+     "Claudius Dan",
+     "Mircea Bodea"
+    ],
+    "abstract": "This paper presents the design of a low power discontinuous time comparator that saves its state in a digital latch circuit when entering shut-down mode. The designed low power comparator can be used in any integrated circuit to decrease power consumption in shut-down mode. The design is based on a simple and efficient idea: while the comparator is in shut-down mode, its previous state is stored in a latch. This idea can be easily applied to any 'already designed' discontinuous-time comparator.",
+    "keywords": [],
+    "doi": null,
+    "pages": "323-331",
+    "source_file": "01-chesaru.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 40,
+    "structural_integrity": 58,
+    "artifact_availability": 0,
+    "intellectual_integrity": 61.3,
+    "composite": 45.98,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "1 of 3 references (33%) is by a co-author: [1] Dan C., Continuous-Time Comparators (co-author Claudius Dan). The citation is topically related, but the ratio exceeds 30%; the reference list is very short and [1] is not cited anywhere in the body text."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Short circuit-design note adding a D-latch to a textbook two-stage comparator, verified only in H-Spice; formalism is standard and proportionate, but the three-item reference list yields a self-citation ratio above 30%.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A hysteretic CMOS comparator whose output is held in a D-latch during shut-down so the comparator can be powered off between comparisons.\n**Level:** 1 (Trivial)\n**Rationale:** The contribution combines two existing components (a textbook two-stage amplifier used as comparator, described in [2], and a standard-library D-latch). The paper itself calls it 'a simple and efficient idea'. No new circuit theory or algorithm is introduced.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 9 (textbook threshold and hysteresis equations for extrinsic-hysteresis comparators, resistor ratio, power ratio)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Equations (2)-(7) are the standard design equations from which RF/RI is computed (Eq. 8), so they are used in the design. Equation (9) is a one-line ratio that is barely needed but is ordinary engineering notation, not a theater pattern.\n\n### Issues\nNone identified in the formalism. Minor inconsistencies: Eq. (4) and Eq. (7) give the same hysteresis expression for both the non-inverting and inverting configurations; Eq. (9) is labelled 'eta[%]' but defined as a current ratio times duty cycle. The PDF header reads 'Volume 13, Number 3', while source.json places the paper in issue 4; the batch metadata was kept.\n\n---\n\n## Citation Analysis\n\nThree references in total, two textbooks and one Romanian monograph by co-author C. Dan. Only [2] is cited in the body; [1] and [3] are listed but never referenced. The self-citation is on-topic (comparators, similarity well above 0.5), but with so few references it gives SCR = 33%, above the 30% threshold. The reference list is far too thin for a journal paper and contains no prior work on state-saving or duty-cycled comparators.\n\n---\n\n## Structural Analysis\n\nAll results are H-Spice simulations; no silicon was fabricated or measured. Claims are mostly backed by the simulated figures and Table 1. Limitations are acknowledged inline (random and systematic offsets neglected in simulation; 'Random offset will alter the result'). Some claims overreach: shut-down consumption is reported as 206 pA and then described as 'zero', and the paper states the scheme 'can be used on any existing design' without evidence beyond one simulated circuit. The latch is taken from a 0.13 um library while the comparator is designed in 0.18 um, which is not explained. No netlists or simulation files are offered.\n\n---\n\n## Conclusion\n\nA brief, competently presented application note with appropriate, textbook-level equations. Its scholarly weaknesses are a minimal and partly uncited reference list (which, through one co-author monograph, crosses the excessive self-citation threshold), simulation-only validation, and no comparison with existing low-power or duty-cycled comparator techniques."
+  },
+  {
+   "paper_id": "kliros2010",
+   "paper": {
+    "title": "A Phenomenological Model for the Quantum Capacitance of Monolayer and Bilayer Graphene Devices",
+    "authors": [
+     "George S. Kliros"
+    ],
+    "abstract": "Graphene nanostructures exhibit an intrinsic advantage in relation to the gate delay in three-terminal devices and provide additional benefits when operate in the quantum capacitance limit. In this paper, we developed a simple model that captures the Fermi energy and temperature dependence of the quantum capacitance for monolayer and bilayer graphene devices. Quantum capacitance is calculated from the broadened density of states taking into account electron-hole puddles and possible finite lifetime of electronic states through a Gaussian broadening distribution. The obtained results are in agreement with many features recently observed in quantum capacitance measurements on both gated monolayer and bilayer graphene devices. The temperature dependence of the minimum quantum capacitance around the charge neutrality point is also investigated.",
+    "keywords": [
+     "Graphene",
+     "Bilayer",
+     "Density of States",
+     "Quantum Capacitance",
+     "Electron-hole puddles"
+    ],
+    "doi": null,
+    "pages": "332-341",
+    "source_file": "02-kliros.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 68,
+    "artifact_availability": 0,
+    "intellectual_integrity": 84.25,
+    "composite": 63.19,
+    "final": 63.19
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Compact analytical model applying Gaussian broadening to known graphene densities of states; physics-level equations are all used, citations are clean, and validation is qualitative only.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Quantum capacitance of monolayer and bilayer graphene computed from a Gaussian-broadened density of states, as a function of Fermi energy and temperature.\n**Level:** 2 (Low)\n**Rationale:** The model convolves known density-of-states expressions (from [1], [16], [17]) with a Gaussian of width Gamma and inserts the result into the standard quantum-capacitance integral from [18]. This is a modest extension of established methods with one phenomenological parameter. A case for Level 3 (new model) exists, but validation is only qualitative, so the lower level is retained.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 (dispersion relations, densities of states, broadening integral and its closed form, capacitance integral)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Every equation is physics content that the numerical results depend on; Eqs. (7), (9) and (10) are explicitly the basis of the computed figures. No set notation, decorative definitions or parameter Greek-lettering beyond the physical constants of the field.\n\n### Issues\nNone in the formalism. Small slips: section numbering jumps from 2 to '2. Results' to 4; m* = gamma1/(2 vF^2) is written without the constants; the PDF header reads 'Number 3' although source.json assigns issue 4.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 19 references (5%): [10] Kliros and Divari on magnetocapacitance of a MODFET, cited for the difficulty of extracting quantum capacitance. Topical similarity is moderate to good (quantum capacitance in 2D electron systems). Three references are to Dragoman et al., including one in this journal, which are relevant to graphene devices and not by the author. No concerning patterns.\n\n---\n\n## Structural Analysis\n\nClaims of agreement with experiment are qualitative, and the author says so directly: 'we do not make an attempt to obtain quantitative agreement since the experimental results show substantial sample-to-sample variation.' The conclusion also acknowledges that a self-consistent effective-medium theory is needed for a rigorous treatment. No experimental data are overlaid on the computed curves, which weakens the evidence for 'agreement with many features'. There is a mild inconsistency between the Fig. 4 discussion (enhanced temperature dependence for monolayer) and the conclusion (minimum capacitance 'increases dramatically for bilayer ... nearly unchanged for monolayer'). No code or computed data are offered, though the closed-form expressions make the results reproducible.\n\n---\n\n## Conclusion\n\nA clear, proportionate modelling paper whose mathematics is entirely functional. Its main weaknesses are the qualitative-only comparison with measurements and an internal contradiction about which material shows the stronger temperature dependence."
+  },
+  {
+   "paper_id": "cobianu2010",
+   "paper": {
+    "title": "Emerging All-Differential Chemical Sensing",
+    "authors": [
+     "Cornel Cobianu",
+     "Bogdan Serban",
+     "Ion Georgescu",
+     "Stefan Costea",
+     "Cazimir Bostan"
+    ],
+    "abstract": "It is the purpose of this paper to present a novel generic concept for low drift chemical sensing which is applicable at micro and nanometer scale, based on a new, all-differential approach. At micrometer level, our principle is explained by means of surface acoustic wave (SAW) chemical sensing, while at nano level, we are using the resonant sensing principle to develop our genuine differential concept. Unlike the traditional differential approaches based on functionalized sensing layer in the sensing loop, and on a uncoated surface in the reference loop, our all differential concept provides a better response subtraction between the two paths, as the sensing loop consists of a functionalized sensing layer, as before, but, the reference loop consists of a functionalized non-sensing layer, with the same ageing and humidity behavior as the sensing layer. Twinned electronic reading is used for both loops, and thus all the common mode signals are subtracted in the differential reading, assuring the minimum base line drift of the sensor. Preliminary results of all differential sensor eliminating the effects of humidity and temperature variations are shown for the SAW sensors, with the sensor signal kept independent of their changes. Finally, the application of the novel concept for the humidity sensing with all differential resonant nanosensor is presented.",
+    "keywords": [],
+    "doi": null,
+    "pages": "342-349",
+    "source_file": "03-cobianu.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 35,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 55.5,
+    "composite": 41.62,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "4 of 10 references (40%) are by the authors: [4] Cobianu et al. CAS 2009, [7] Cobianu & Georgescu US patent application, [8] Cobianu & Serban US patent application, [9] Cobianu, Serban & Mihaila US patent application. All are on the same concept (topically related), but three are the authors' own patent filings that carry the paper's core claims."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Concept paper on using a functionalized non-sensing reference layer in differential chemical sensors; supported by two preliminary SAW plots and a list of proposed layer pairs, with 40% of references being the authors' own patent filings and papers.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Differential SAW and resonant gas sensors in which the reference element carries a functionalized but non-sensing layer, so that ageing and humidity effects cancel in the subtraction.\n**Level:** 1 (Trivial)\n**Rationale:** The contribution is a design concept (matching the reference layer to the sensing layer) applied to existing differential sensing architectures. There is no new model or algorithm; the nanosensor part is a description of proposed configurations.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (differential response with drift terms)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Equations (1)-(3) express a subtraction of two signals with drift terms and could be said in a sentence, but they are elementary algebra rather than one of the theater patterns (no set notation, tuple definitions or formal definitions), and they make the drift-cancellation argument explicit. They were not counted as necessity-test failures.\n\n### Issues\nNone identified in the formalism.\n\n---\n\n## Citation Analysis\n\nTen references, four of them by the first author: one conference paper and three US patent filings (two still applications). All concern the same all-differential concept, so they are topically relevant, but the novelty of the concept rests largely on the authors' own patents, and the ratio (40%) exceeds the 30% threshold. Several references are incomplete (no titles for [1], [2], [3], [5], [10]).\n\n---\n\n## Structural Analysis\n\nThe experimental evidence consists of two figures (Figs. 3 and 4) for an all-differential SAW sensor exposed to temperature (20-60 C) and humidity (15-50% RH) changes; no numerical drift values, repetitions, gas exposures, or comparison with a classical uncoated reference are reported, even though improvement over the classical scheme is the central claim. Ageing compensation, which motivates the concept, is not tested at all. The resonant-nanosensor section is a list of proposed hydrophilic/hydrophobic layer pairs with no results. The abstract's word 'Preliminary' is the only acknowledgment of limitation. Claim-evidence balance is weak.\n\n---\n\n## Conclusion\n\nA concept-and-patent showcase with minimal formalism and thin experimental support. The idea is plausible and clearly explained, but the evidence does not test the claimed advantage over conventional differential sensing, and the self-citation ratio, driven by the authors' patent filings, crosses the excessive threshold."
+  },
+  {
+   "paper_id": "bragaru2010",
+   "paper": {
+    "title": "Platinum Nanoparticles for Nanocomposite Membranes Preparation",
+    "authors": [
+     "Adina Bragaru",
+     "Mihaela Miu",
+     "Monica Simion",
+     "Andra Iordanescu",
+     "Mihai Danila",
+     "Antonio Radoi",
+     "Adrian Dinescu"
+    ],
+    "abstract": "This work is based on platinum nanoparticles preparation protected by a polycation- PDDA- poly (diallyldimethylammonium chloride) and to embed them in a Nafion 117 membrane matrix in order to obtain a nanocomposite structure, which can be used as alternative polymer electrolyte membrane for direct methanol fuel cells (DMFC).",
+    "keywords": [
+     "direct methanol fuel cell",
+     "polymer electrolyte membrane",
+     "nanocomposite membrane"
+    ],
+    "doi": null,
+    "pages": "350-357",
+    "source_file": "04-bragaru.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 90,
+    "structural_integrity": 42,
+    "artifact_availability": 0,
+    "intellectual_integrity": 74.8,
+    "composite": 56.1,
+    "final": 56.1
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Synthesis and basic characterization of PDDA-protected Pt nanoparticles self-assembled on Nafion; formalism and citations are unproblematic, but particle-size figures contradict each other and the intended fuel-cell benefit is not tested.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Preparation of PDDA-stabilized platinum nanoparticles by alcoholic reduction and their electrostatic self-assembly onto Nafion 117, characterized by UV-vis, XRD/SAXS and SEM.\n**Level:** 2 (Low)\n**Rationale:** An empirical materials-preparation study that follows a known route (refs. [14], [15]) and reports standard characterization; no model or new method is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (specific surface area from particle diameter)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The single equation is a standard formula used to compute a reported value.\n\n### Issues\nNone in the formalism itself, although the density of platinum is given in 'gcm-1' rather than g/cm3.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 15 references. Several references lack titles ([1], [2], [13]-[15]) and [2] has volume and page reversed. References [5]-[12] support a generic sentence about nanoparticle film applications rather than the work itself. No manipulation pattern.\n\n---\n\n## Structural Analysis\n\nThe central quantitative result, particle size, is reported inconsistently: the XRD table lists sizes of 15, 6 and 3 without units and with very large uncertainties (3(11)), the text says SAXS gives 3-4 nm 'calculated using Scherrer equation' (Scherrer is an XRD peak-width method), and the conclusion states an average size of 1.8 nm that appears nowhere in the results. The conclusion that PDDA 'increased the absorbance of the platinum nanoparticles' is drawn from a precursor-solution UV-vis shift. The stated purpose, blocking methanol crossover in DMFCs, is not measured; the authors acknowledge this as future work and also note that a uniform particle distribution could not be concluded, which counts as inline limitation. Claim-evidence balance is weak.\n\n---\n\n## Conclusion\n\nA preliminary experimental report with no formalism concerns and clean citations, but with internally contradictory size results and no test of the application that motivates it. Its reliability rests on the figures, and the numerical reporting around them needs correction."
+  },
+  {
+   "paper_id": "mihailescu2010",
+   "paper": {
+    "title": "Two-Steps Profile Diffractive Microlenses Design to Generate Binary Focal Points Along The Propagation Axis",
+    "authors": [
+     "Mona Mihailescu",
+     "Arcadie Sobetkii",
+     "Mihaela Pelteacu"
+    ],
+    "abstract": "The aim of our study is to find a simple design for the two-steps profile diffractive micro-lenses (DMLs) which will generate binary focal points on the propagation axis at monochromatic plane wave incidence. Their fabrication steps include e-beam lithography (for mask pattern) and reactive ion etching (for transparent DMLs). For the two-steps profile, the fabrication process is simpler because it doesn't introduce errors due to masks alignment. In the design algorithm, developed in MATLAB, we start with simple DMLs which generate one single focal point at a given distance. We propose a method which uses some sections from different simple DMLs to built one DML with special properties. We investigate the influence of the missing zones in the diffraction pattern. The propagation was simulated in the Fresnel approximation. To visualize their transparent binary microrelief and the phase profile, we employ the digital holographic microscopy technique. Experimental and simulation results are presented.",
+    "keywords": [
+     "Diffractive microlenses",
+     "Fresnel approximation",
+     "digital holographic microscopy"
+    ],
+    "doi": null,
+    "pages": "358-367",
+    "source_file": "05-mihailescu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.25,
+    "composite": 59.44,
+    "final": 54.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (the MATLAB design code is described, not released: 'Our implementation of the Fresnel approximation in MATLAB is largely described elsewhere [7]')",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints of the design, simulation, or fabrication; the experimental comparison is visual only and its shortcomings are not discussed."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Bifocal binary diffractive microlens built by combining zones of two Fresnel zone plates, simulated with standard Fresnel propagation and fabricated; formalism is textbook and needed, but the experimental validation is qualitative and limitations are not discussed.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design of a two-level diffractive microlens producing two axial foci by combining sections of two Fresnel zone plates with different focal lengths, simulated by Fresnel propagation in MATLAB, fabricated by e-beam lithography and RIE, and characterized by digital holographic microscopy.\n**Level:** 2 (Low)\n**Rationale:** Standard diffraction theory and FFT-based propagation are applied to a new zone-combination design found by trial; no new algorithm or optimization procedure is formalized.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (Fresnel convolution, impulse response, Fresnel transform, sampling, zone-plate radii)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the textbook propagation model (Goodman [5]) that the simulations implement, plus the zone-plate radius relation used to generate the masks. All are used.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 8 references (12.5%): [7] Mihailescu, Opt. Express 2010, cited for the authors' MATLAB implementation of Fresnel propagation; directly relevant. The reference list is short but on-topic.\n\n---\n\n## Structural Analysis\n\nSimulation results are shown in figures with a few quantitative statements (signal-to-noise 61% vs 28%, relative peak heights 0.92 vs 1 and 1 vs 0.99). Experimental validation consists of two CCD images at the two focal planes, judged to be 'in agreement with the simulated ones' without any measured intensity profile or efficiency. How the numbers of missing central zones (16, 17) were chosen is not explained, and the depth-measurement results promised in the conclusion are not tabulated. No limitations are acknowledged. The MATLAB design code is referred to another paper and not released.\n\n---\n\n## Conclusion\n\nA sensible applied-optics design paper whose formalism is all functional. Its evidence is mostly simulated, the experimental confirmation is visual, and the paper does not discuss the constraints of the approach."
+  },
+  {
+   "paper_id": "damaceanu2010",
+   "paper": {
+    "title": "Nanostructured Polyimide Films by UV Excimer Laser Irradiation",
+    "authors": [
+     "Mariana-Dana Damaceanu",
+     "Radu-Dan Rusu",
+     "Mihaela Olaru",
+     "Iuliana Stoica",
+     "Maria Bruma"
+    ],
+    "abstract": "Here we present a study of the polyimide films nanostructuring by KrF laser beam irradiation and the investigation of the mechanism of cone-like structure formation at two laser fluences, 57 and 240 mJ/cm2. These films were prepared from fluorinated poly(naphthyl-imide)s containing oxadiazole rings, by casting polymer solutions onto glass plates and gradually heating. Their morphology before and after laser ablation was investigated by using various techniques such as infrared spectroscopy (FTIR), atom force microscopy (AFM) and X-ray photoelectron spectroscopy (XPS).",
+    "keywords": [
+     "poly(naphthyl-imide)s",
+     "oxadiazole ring",
+     "laser irradiation",
+     "cone-like structure",
+     "carbon layer"
+    ],
+    "doi": null,
+    "pages": "368-377",
+    "source_file": "06-damaceanu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 58,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.75,
+    "composite": 45.56,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "5 of 13 references (38%) include an author of this paper: [3] Damaceanu, Bacosca, Bruma et al.; [4] Sava, Burescu, Bruma; [7] Damaceanu, Rusu, Bruma, Rusanov; [8] Bruma, Damaceanu; [12] Sava, Bruma, Sadowski. Most are relevant to polyimide synthesis or XPS of polyimides; [4] (azobenzene polyimides) and [3] (siloxane polyimides) are cited only for generic polyimide applications.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints (single pulse number, two fluences, XPS only for polymer I, mechanism inferred without direct test)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Careful experimental characterization of KrF-laser nanostructuring of new fluorinated poly(naphthyl-imide) films, without formalism concerns, but with 38% self-citation and a mechanism proposed without being tested.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Synthesis of two fluorinated oxadiazole-containing poly(naphthyl-imide)s, casting into films, and characterization of their surfaces after KrF excimer laser irradiation at two fluences by FTIR, AFM and XPS.\n**Level:** 2 (Low)\n**Rationale:** An empirical materials study applying standard ablation and characterization techniques to new polymers; no model is formalized.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate; no formal apparatus.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThirteen references, five involving the group's senior author M. Bruma or the first author. Synthesis ([7]) and thermal-stability comparison ([8]) self-citations are well justified; [12] supports XPS assignments; [3] and [4] are cited alongside [2] for the general claim that polyimides suit electronics applications, which is marginal. The ratio (38%) is above the 30% threshold. Reference [7] has only a DOI and no volume or pages.\n\n---\n\n## Structural Analysis\n\nMeasurement methods are described in detail and the FTIR, AFM and XPS observations are reported with specific numbers (Table 2). There is an internal tension: the results say that several imide bands grew after irradiation and that the expected decrease was not seen ('Instead, ... several bands have grown in intensity'), yet the conclusion says 'FTIR spectroscopy evidenced a decomposition of imide rings'. The impurity-shielding and self-organization explanations of cone formation are offered as 'can be due to' and 'can be considered responsible' without a test (e.g. impurity mapping). No limitations are acknowledged.\n\n---\n\n## Conclusion\n\nA solid descriptive experimental paper with no formalism issues. Its weaknesses are a self-citation ratio above 30%, a conclusion on imide decomposition that the FTIR data do not straightforwardly support, and untested mechanistic explanations."
+  },
+  {
+   "paper_id": "volmer2010",
+   "paper": {
+    "title": "On Designing a Positioning and Detection System for a Lab-on-a-Chip Device",
+    "authors": [
+     "Marius Volmer",
+     "Marioara Avram"
+    ],
+    "abstract": "The manipulation and detection of magnetic carriers used for biosensing represent key features in a lab-on-a-chip (LOC) device. In this contribution we present some results regarding the analysis of a manipulation system and the interaction between the magnetic nanoparticles (MNPs) and the spin valve sensor used for detection. We found that the detection sensitivity is strongly related with the position of the magnetic particles on the sensor's surface. A net signal can be obtained for a single magnetic nanoparticle of 100 nm in diameter. For micromagnetic simulations the employed program was SimulMag.",
+    "keywords": [
+     "Biomedical application",
+     "Lab-on-chip",
+     "Magnetic nanoparticles",
+     "Giant magnetoresistance",
+     "Planar Hall effect sensors",
+     "Micromagnetic simulations"
+    ],
+    "doi": null,
+    "pages": "378-388",
+    "source_file": "07-volmer.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 62,
+    "structural_integrity": 58,
+    "artifact_availability": 0,
+    "intellectual_integrity": 70.2,
+    "composite": 52.65,
+    "final": 47.65
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only URL is the third-party simulator: 'Oti J.O., PC Micromagnetic Simulator, http://math.nist.gov/oommf/contrib/simulmag/'",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "3 of 13 references (23%) are by the authors: [8] Volmer & Avram 2009, [10] Volmer & Neamtu 2006, [11] Volmer & Neamtu 2008. All concern micromagnetic modelling of spin-valve/PHE structures and are relevant."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Micromagnetic simulations with a third-party tool of GMR and planar-Hall detection of magnetic beads and of a V-shaped conductor for bead positioning; proportionate formalism, modest self-citation, simulation-only evidence.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Simulated response of GMR spin-valve and planar Hall effect sensors to superparamagnetic beads, plus the force profile of a V-shaped current line for positioning beads, all computed in SimulMag.\n**Level:** 2 (Low)\n**Rationale:** Application of an existing micromagnetic simulator and established Stoner-Wohlfarth modelling to a sensor configuration; no new model or algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (planar Hall voltage)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The single equation is the standard PHE relation used to explain the sensor principle.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThree of 13 references are the first author's earlier papers on the same modelling approach (23%), which are relevant but place the paper in the elevated band. The remaining references are appropriate literature on magnetic-bead biosensing, though several are cited only by journal, volume and page.\n\n---\n\n## Structural Analysis\n\nEvidence is almost entirely simulation, with one measured PHE curve for a 5 mm Co/Cu/NiFe disk (Fig. 6) that is not the simulated device. The abstract claims a net signal for 'a single magnetic nanoparticle of 100 nm in diameter', whereas the body simulates beads of about 200 nm diameter; this is an inconsistency between abstract and results. The positioning result is said to be 'in good agreement with experimental data [1]' without showing the comparison. Limitations are acknowledged inline: the mesh cell size is 'higher than usual' and the model is 'rather a phenomenological model', and the conclusion says the simulations 'will be refined, especially for PHE sensors'. The simulator is third-party; no input files or results are released.\n\n---\n\n## Conclusion\n\nA reasonable simulation study with proportionate formalism and acknowledged modelling simplifications. The abstract overstates the single-bead result (100 nm vs the simulated 200 nm), experimental support is thin, and self-citation is at the elevated level."
+  },
+  {
+   "paper_id": "rusu2010",
+   "paper": {
+    "title": "Macromodel and Emulator of the Avalanche Gate-Controlled Diode Working in the Analog Regime",
+    "authors": [
+     "Adrian Rusu",
+     "Cristian Ravariu",
+     "Alexandru Rusu",
+     "Dragos Dobrescu",
+     "Mihai Craciun",
+     "Dan Cozma"
+    ],
+    "abstract": "This paper presents the simulation results of the gate-controlled diode, working in the analog regime. The aim of the paper is to find the device macromodel that provides an optimum linearity of the junction breakdown voltage versus the gate voltage, at a given current. The lateral pn junction is simulated in the breakdown regime and the gate voltage biases the MOS capacitor in deep depletion. Finally, linearity under 1% was accomplished, being in agreement with the theory. An emulator based on equivalent circuit was developed according to these simulations in order to be implemented in Spice-like programs.",
+    "keywords": [
+     "unconventional MOS device",
+     "gated diode breakdown",
+     "simulations",
+     "equivalent circuit"
+    ],
+    "doi": null,
+    "pages": "389-398",
+    "source_file": "08-rusu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 20,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 52.25,
+    "composite": 39.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "4 of 6 references (67%) are by the first author: [2] Rusu, Badila, Bulucea 2008; [3] Rusu, Bulucea 2009; [4] Rusu, Pietrareanu, Bulucea 1980; [6] Rusu, Dobrescu, Rusu, Cozma 2009. All are on gate-controlled diodes and topically relevant, but they make up most of the reference list.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment; the emulator is presented without any validation against the TCAD results, and this is not noted."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "TCAD study of the analog regime of avalanche gate-controlled diodes with a proposed op-amp emulator; equations are elementary and used, but two thirds of the references are self-citations and the emulator is not validated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Atlas device simulations of a lateral pn junction under a MOS gate in avalanche breakdown, examining linearity of breakdown voltage versus gate voltage for several oxide thicknesses and doping levels, and an op-amp equivalent circuit for SPICE use.\n**Level:** 2 (Low)\n**Rationale:** Parameter study with a commercial TCAD tool plus a conventional op-amp behavioural model of a known device; no new theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 11 (field-continuity argument for unity slope, linear transfer characteristic, emulator resistor relations)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Equations (2)-(4) derive the unity-slope condition that the discussion relies on, and (9)-(11) set the emulator component values. Equations (5)-(8) are trivial but are ordinary circuit notation rather than theater patterns.\n\n### Issues\nNone identified in the formalism.\n\n---\n\n## Citation Analysis\n\nSix references, four by the first author (one from 1980, three from 2008-2009 conference and academy proceedings). They are on-topic, but the paper's grounding in independent literature amounts to a textbook [1] and one 1967 paper [5]. SCR of 67% is far above the 30% threshold. No recent independent work on gated-diode modelling is cited.\n\n---\n\n## Structural Analysis\n\nThe linearity claim ('under 1%') rests on four simulated points in Table 1; Table 2 gives 'better than 1.5%' without saying how linearity is computed. The abstract says the results are 'in agreement with the theory', whereas the discussion says scaled devices are 'in strong contradiction' with the classical condition xox << W, and the explanation offered (lateral fields) is not tested by simulation. The emulator (Fig. 11) is described by design equations only; no SPICE results compare it with the Atlas characteristics. The comparison with the 'earlier-made experimental structure [4]' promised in Section 2 is never shown. No limitations are acknowledged.\n\n---\n\n## Conclusion\n\nThe formalism is modest and functional, but the paper depends heavily on the authors' own prior work, validates neither the emulator nor the lateral-field explanation, and its abstract presents agreement with theory that the discussion partly contradicts."
+  }
+ ]
+}

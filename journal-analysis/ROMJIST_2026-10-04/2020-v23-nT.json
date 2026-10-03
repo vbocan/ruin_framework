@@ -1,0 +1,415 @@
+{
+ "batch_id": "2020-v23-nT",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 23,
+  "issue": "T",
+  "year": 2020
+ },
+ "papers": [
+  {
+   "paper_id": "precup2020",
+   "paper": {
+    "title": "Editorial: Special Issue on Optimization Problems in Information Science and Technology",
+    "authors": [
+     "Radu-Emil Precup"
+    ],
+    "abstract": "",
+    "keywords": [],
+    "doi": null,
+    "pages": "T1-T4",
+    "source_file": "paper669.pdf"
+   },
+   "concept_level": null,
+   "scores": {
+    "formalism": null,
+    "citation_integrity": null,
+    "structural_integrity": null,
+    "artifact_availability": null,
+    "intellectual_integrity": null,
+    "composite": null,
+    "final": null
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EDITORIAL"
+   ],
+   "flag_details": {
+    "EDITORIAL": "Guest editorial introducing the special issue on optimization problems; it summarises the seven accepted papers and is not a research contribution."
+   },
+   "verdict": {
+    "classification": "NOT_APPLICABLE",
+    "disqualified": false,
+    "record_type": "editorial"
+   },
+   "provenance": "## Classification\n\nThe document is the guest editor's introduction to the special issue (pages T1-T4). It explains how the issue was assembled, gives a general motivation for optimization in control and AI, and summarises the seven accepted papers. It contains no research contribution and is flagged `EDITORIAL`.\n\n## Note for the issue\n\nOf the 36 references in the editorial, a large share are to the guest editor's own work or to the same small group of venues (International Journal of Artificial Intelligence, Studies in Informatics and Control). Several of these works ([13] Purcaru et al., [26] Precup et al. grey wolf optimizer, [35] Abed-Alguni cuckoo search) reappear in the reference lists of the research papers of this issue, often in contexts unrelated to those papers. This is recorded in the individual provenances; the editorial itself is not scored."
+  },
+  {
+   "paper_id": "beldjilali2020",
+   "paper": {
+    "title": "Vehicles Circuits Optimization by Combining GPS / GSM Information with Metaheuristic Algorithms",
+    "authors": [
+     "Bilal Beldjilali",
+     "Belkacem Benadda",
+     "Zakaria Sadouni"
+    ],
+    "abstract": "This paper deals with the design of an intelligent decision system based on embedded tracked technology. The proposed system gives users the opportunity to solve the problem of Vehicle Routing Problem with Time Windows (VRPTW). The proposed system also makes it possible for users to estimate position and track their vehicles fleet remotely through web browsers. The proposed solution is realized in terms of two parts, the tracker installed on the vehicle, and an intelligence system installed in the server side based on Metaheuristics including genetic algorithm, which is able to estimate the ideal road serve with the minimum cost.",
+    "keywords": [
+     "Embedded device",
+     "GM862",
+     "GPS",
+     "GSM",
+     "Metaheuristics",
+     "Genetic algorithm"
+    ],
+    "doi": null,
+    "pages": "T5-T17",
+    "source_file": "paper670.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 65,
+    "citation_integrity": 85,
+    "structural_integrity": 30,
+    "artifact_availability": 0,
+    "intellectual_integrity": 63.25,
+    "composite": 47.44,
+    "final": 27.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "The conclusion states that the genetic algorithm 'provide[s] us a good solution in a reasonable time' and that the paper 'proved' real-time tracking, but no run time, no comparison with a baseline or known optimum, and no tracking accuracy are reported. The only result, Table 3, lists costs for three generations without interpretation (most third-generation costs are worse than the second). Claim-evidence ratio is estimated well below 0.33.",
+    "NO_LIMITATIONS": "No limitations section and no acknowledgement of constraints of the proposed system; the only caveat is the generic remark that metaheuristics 'do not guarantee definitive success'."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Prototype GPS/GSM tracker and web portal combined with a textbook savings heuristic and genetic algorithm for VRPTW; results are a single unexplained table, with no baseline, timing, or evaluation of the tracking system.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Vehicle tracking system (Telit GM862-GPS module, PHP/MySQL portal, Google Maps display) combined with an existing Clarke-Wright savings heuristic and genetic algorithm for the VRPTW.\n**Level:** 2 (Low)\n**Rationale:** The authors state that 'the aim of this work is not to develop a new Metaheuristics algorithm'. The system part integrates existing components (Level 1), and the optimization part applies known methods to a 10-customer instance (Level 2).\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: about 14 (standard VRPTW mixed-integer formulation (1)-(11), savings formulas (12)-(14)), plus Algorithm 1\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in quantity. The VRPTW formulation is the standard problem statement taken from [2]-[4] and defines what is being optimised, so it is not treated as theater. Its quality is poor: equation (4) uses the cost c in place of the decision variable x, equation (9) is missing although it is referred to, the variable list defines 'if' as service time and 'b' without index, and capacity is called q in the list but Q in (7). The formulation is never connected to the genetic algorithm actually used.\n\n### Issues\nThe genetic algorithm is described only by three generic steps; encoding, operators, and fitness are not specified. Algorithm 1 contains undefined variables (Solin1, Cost, a, b) and a single-pass swap presented as a sort.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 16 (6%): [6] Beldjilali and Benadda on GNSS estimation of atmospheric water vapour, cited for the statement that GPS computes vehicle coordinates. Topical similarity is marginal (about 0.3-0.4): shared GNSS theme, different problem. References [12]-[15] (traffic-light fuzzy interpolation, a nature-inspired control monograph, gravitational-search robot path planning, phylogram optimisation) are cited as sources for the savings heuristic and genetic algorithm, which they do not concern. The same four references appear in another paper of this issue (Zunic and Donko), which suggests they were added at review or editorial stage rather than by topical need; this is not a self-citation and no mutual-citation pattern is demonstrable, so no citation flag is raised.\n\n---\n\n## Structural Analysis\n\nThe paper is largely descriptive. There is no evaluation of the tracker (accuracy, latency, reliability) and no evaluation of the optimisation beyond Table 3. Figures carry the results that the text does not discuss. No code, data, or portal link is provided.\n\n---\n\n## Conclusion\n\nAn engineering prototype description with a standard optimisation model reproduced from the literature, with errors. Formalism is not excessive, but the empirical support for the claims is minimal and limitations are absent."
+  },
+  {
+   "paper_id": "schiopu2020",
+   "paper": {
+    "title": "Maximum Flows in Planar Dynamic Networks. The Static Approach",
+    "authors": [
+     "Camelia Schiopu",
+     "Eleonor Ciurea"
+    ],
+    "abstract": "The research of flows in planar static networks is motivated by the fact that more efficient algorithms can be developed by exploiting the planar structure of the graph. An nontrivial extension of the maximum static flow problem is the maximum dynamic flow model, where the transit time to traverse an arc is taken into consideration. The problem of finding a maximum flow in dynamic network is more complex than the problem of finding a maximum flow in static network. This complication can be solved by rephrasing the problem from dynamic network D in a multiple source multiple sink static reduced expanded network R0. If dynamic network D is planar, we show that the network R0 is planar.",
+    "keywords": [
+     "planar network",
+     "dynamic network",
+     "maximum flow"
+    ],
+    "doi": null,
+    "pages": "T18-T27",
+    "source_file": "paper671.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 70,
+    "citation_integrity": 95,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.0,
+    "composite": 56.25,
+    "final": 56.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "summary": "Graph-algorithmic paper whose formalism is the native language of the topic and proportionate; the central planarity theorem rests on a thin argument, and the applicability of the cited outer-face algorithm is assumed rather than shown.",
+    "classification": "LIMITED",
+    "disqualified": false,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Maximum flow in (1,n)-planar dynamic networks with constant transit times, solved by building the time-expanded reduced static network R0 and applying the Miller-Naor algorithm for planar networks with all sources and sinks on one face.\n**Level:** 3 (Medium)\n**Rationale:** The paper proves a structural property (planarity of R0) and derives correctness and complexity of the composed algorithm. The algorithmic novelty is the composition of known parts, so Level 3 is the upper reasonable choice; Level 4 is not warranted.\n\n### Formal Elements\n- Definitions: 2 (planar digraph, bordered face)\n- Theorems: 8 (Theorems 1-5 recalled from the literature, Theorems 6-8 new)\n- Proofs: 3 (Theorems 6, 7, 8)\n- Equations: about 12 (flow conservation, cut capacity, dynamic flow model, expanded-network construction)\n\n### Proportionality\nCalculated complexity: 2x2 + 8x3 + 3x4 = 40\nExpected range (Level 3): 10-40\nRatio: 1.0x upper bound\n\n**Assessment:** Proportionate. Set notation describes node and arc sets of networks and is the subject matter, not a stand-in for list operations.\n\n### Issues\n- The proof of Theorem 6 argues only that copies of non-crossing source-sink paths do not cross 'after a new geometric representation'; it does not handle arcs shared between paths or the interleaving of time layers, so the planarity claim is asserted more than proved.\n- Algorithm 3 applies MFDPSNSSOF, which requires all sources and sinks to lie on one face; the paper notes two possible cases and says 'Next we consider the first case' without showing that R0 falls into it. Theorem 7 inherits this gap.\n- Theorem 8 uses 'n0 < nt' (presumably n(T+1)) without derivation.\n- Algorithm 1 line 10 tests F(B) != empty where the text requires F(B) = empty.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 18 (5.6%): [12] the authors' earlier paper on the dynamic approach to the same problem; directly relevant. The statement that the static approach 'is treated so far only by the authors of this paper' is unsupported, since the time-expanded network goes back to Ford and Fulkerson [4] and Ahuja et al. [1], which the paper itself cites. No issues with self-citation.\n\n---\n\n## Structural Analysis\n\nClaims are carried by theorems and one worked example (T=6, max flow 42). There is no conclusion section. Scope restrictions are stated inline (constant transit times, node waiting 'not discussed in this paper'), which counts as an inline acknowledgement. Theoretical paper with nothing to release; artifact relevance is false.\n\n---\n\n## Conclusion\n\nA short theoretical contribution with appropriate formalism. Its weakness is not the amount of mathematics but the thinness of the key proof and an unexamined precondition of the algorithm it reuses."
+  },
+  {
+   "paper_id": "chen2020",
+   "paper": {
+    "title": "Modified Evolved Bat Algorithm of Fuzzy Optimal Control for Complex Nonlinear Systems",
+    "authors": [
+     "Tim Chen",
+     "Alex Babanin",
+     "Asim Muhammad",
+     "Bert Chapron",
+     "Cyj Chen"
+    ],
+    "abstract": "This paper proposes a novel artificial intelligence based Evolved Bat Algorithm (EBA) controller with machine learning matched membership functions in a complex nonlinear system. The proposed affine transformed membership functions are adopted and stabilized and closed-loop performance criteria TS fuzzy systems are obtained through a new parametric linear matrix inequality technology. Numerical examples confirm the superiority of this method. Furthermore, a stability criterion for the complex stability radius is proposed to guarantee the D-stability of discrete time-delay fuzzy systems in the presence of consequent parametric uncertainties.",
+    "keywords": [
+     "AI",
+     "EBA",
+     "optimization",
+     "nonlinear system"
+    ],
+    "doi": null,
+    "pages": "T28-T40",
+    "source_file": "paper672.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 45,
+    "citation_integrity": 55,
+    "structural_integrity": 20,
+    "artifact_availability": 30,
+    "intellectual_integrity": 42.25,
+    "composite": 39.19,
+    "final": 19.19
+   },
+   "artifact_assessment": {
+    "category": "claimed",
+    "relevant": true,
+    "evidence": "\"All data analyzed in this study have been included in this paper.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "The abstract says 'Numerical examples confirm the superiority of this method' and the text says 'The results are compared with the original EBA', but no comparison with any other method is reported. Table 2 gives four unlabelled numbers (mean 7528, minimum 6291, maximum 7748, mode 7576) without stating what they measure. The conclusion claims applicability to chaotic systems and limit cycles, which are never treated. Claim-evidence ratio is estimated below 0.33.",
+    "ELEVATED_SELF_CITATION": "Four of 20 references ([11], [12], [13], [15]) are by T. Chen, the first author (SCR 20%). A further four ([9], [10], [14], [20]) are by C. W. Chen; if this is the fifth author 'Cyj Chen' the ratio would be 40%, but the identity cannot be established from the paper, so only the confirmed count is used."
+   },
+   "verdict": {
+    "summary": "A robust D-stability criterion for discrete time-delay T-S fuzzy systems, joined to an evolved bat algorithm that is never connected to it; the text is largely incoherent, the claimed comparisons are absent, and the reference list is partly duplicated and mis-attributed.",
+    "classification": "CRITICAL",
+    "disqualified": false,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Sufficient conditions, via the complex stability radius, for robust D(alpha,r)-stability of discrete time-delay Takagi-Sugeno fuzzy systems; plus a PDC controller and an evolved bat algorithm (EBA) used to search for a Lyapunov matrix P and gains K.\n**Level:** 3 (Medium)\n**Rationale:** The stated purpose is to prove a stability criterion (Theorem 3.1 with proof, Corollary 3.1). That is a non-trivial property of a system class. The EBA part is a straightforward application (Level 2), so Level 3 is generous and rests only on the theorem.\n\n### Formal Elements\n- Definitions: 2 (D-stability, complex stability radius)\n- Theorems: 5 (Lemmas 2.1, 2.2, Theorem 3.1, Corollary 3.1, the unnumbered LMI stability condition (3.27)-(3.28))\n- Proofs: 3\n- Equations: about 45\n\n### Proportionality\nCalculated complexity: 2x2 + 5x3 + 3x4 = 31\nExpected range (Level 3): 10-40\nRatio: 0.78x upper bound\n\n**Assessment:** Proportionate in count, poor in function. The criterion of Section 3 closely follows the earlier stability-radius literature ([5]-[8]) and the authors' prior papers. The Lyapunov derivation (3.29)-(3.32) proves a condition that is stated without a theorem header and is never used afterwards. The EBA equations (3.33)-(3.35) and the binary fitness function (4.4) are not connected to Theorem 3.1 or to the numerical example; the parameter beta = 0.17 is a configuration constant dressed as notation. One necessity failure is counted for this decorative block. Because the paper is Level 3, the formalism family does not apply.\n\n### Issues\nThe prose contains many phrases that do not make technical sense ('capelin cluster system', 'five room club in the natural environment', 'the area of the shaft will change', 'synthetics are transported', 'had a different gel'), consistent with automated paraphrasing. The example sets h1 = 0.2, h2 = 0.8 as constants, which removes the fuzzy nonlinearity the method is meant to handle.\n\n---\n\n## Citation Analysis\n\nSCR 20% on confirmed author identity (T. Chen: [11] fluid-structure dynamics with fuzzy control, [12] evolved fuzzy NN control, [13] stability of optimal control, [15] building design of fuzzy structures). [12] and [13] are related; [11] and [15] are marginal (civil/structural applications, similarity about 0.3-0.4). References [9] and [10] carry an identical title in the same journal volume with different page ranges. The EBA is attributed to 'Tsai et al. in 2012', but that work is not in the list; the text refers the reader to [14], a structural simulation paper. Reference [16] (cascade control for telerobotic space medicine) is cited for a general statement about computational intelligence and is unrelated; it and [18], [19] belong to a cluster of references that recurs across this special issue. No mutual-citation pattern is demonstrable from the paper, so `CITATION_RING_INDICATOR` is not raised.\n\nThe author list combines affiliations in Vietnam, Russia, Pakistan, Cote d'Ivoire and Nigeria, mostly with webmail addresses; this is recorded as an observation only.\n\n---\n\n## Structural Analysis\n\nRemark 3.1 acknowledges the conservativeness of case (I) and the difficulty of applying case (II), which counts as an inline limitation. Evidence is a single numerical example and a pole plot; the EBA results are unlabelled. The data statement refers to the numbers printed in the paper; no data or code are deposited.\n\n---\n\n## Conclusion\n\nThe stability theorem gives the paper its formal content, but the rest is disconnected and in places unintelligible. The abstract's superiority claim has no support in the text, and the reference list shows duplication, mis-attribution and padding."
+  },
+  {
+   "paper_id": "zunic2020",
+   "paper": {
+    "title": "An Innovative Concept for Setting Up and Adjustment the Parameters of Real-world Vehicle Routing Problems: Case Study in Logistics",
+    "authors": [
+     "Emir Zunic",
+     "Dzenana Donko"
+    ],
+    "abstract": "Transportation occupies one-third of logistics costs, and accordingly transportation systems largely influence the performance of the logistics system. Most of the algorithms for successful solving of vehicle routing problem (VRP) are consisted of several control parameters and constants, so this paper presents the data-driven prediction model for adjustment of the parameters based on historical data, especially for practical VRP problems with realistic constraints in the field of freight and logistics. The concept is consisted of four prediction models: GLM, SVM, Decision Tree, Naive Bayes, and decision support systems for comparing acquired results for each of the used models. A novel approach for setting up the customers' time of unloading goods is established. The successful feasibility of the given transportation routes, in a real environment, is also presented.",
+    "keywords": [
+     "Data Mining and Analysis",
+     "Data-driven concept",
+     "Vehicle Routing Problem",
+     "Parameter Setting Problem",
+     "Real-world dataset"
+    ],
+    "doi": null,
+    "pages": "T41-T56",
+    "source_file": "paper673.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 75,
+    "structural_integrity": 65,
+    "artifact_availability": 50,
+    "intellectual_integrity": 74.5,
+    "composite": 68.38,
+    "final": 68.38
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"Data with testing and validating of prediction models are provided at the 4TU Research Data Center [37]\"; https://doi.org/10.4121/uuid:97006624-d6a3-4a29-bffa-e8daf60699d8 and https://doi.org/10.4121/uuid:598b19d1-df64-493e-991a-d8d655dac3ea",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "summary": "Applied data-mining study that predicts VRP solver parameters and customer unloading times from a company's historical data; modest formalism, deposited datasets, and a real deployment, but the solver is not described, the models are not statistically compared, and some practical claims are overstated.",
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Predicting the penalty and tolerance parameters of an in-house rich-VRP solver from historical routing data with GLM, SVM, decision trees and naive Bayes (Oracle-style 'Predictive Confidence'), and estimating customer unloading time with a heuristic formula and Facebook Prophet.\n**Level:** 2 (Low)\n**Rationale:** Existing ML and forecasting methods applied to a new parameter-setting task with a real-world case study.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (unloading-time heuristic and correction factor (1)-(4), PE and MAPE (5)-(6)); the equations themselves are images and were not extracted to text, so they are assessed from the surrounding description\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are working formulas with named variables; nothing is decorative.\n\n### Issues\nThe SVM pseudocode is a linear classifier returning +1/-1, while the text uses SVM for regression of continuous parameters; the mismatch is not explained.\n\n---\n\n## Citation Analysis\n\nSeven of 38 references are the first author's (18.4%): five papers [31]-[35] and two deposited datasets [37], [38]. [32] and [35] are directly related (VRP with GPS data, adaptive data-driven VRP); [31] (smart warehouse) is related logistics work; [33] (text mining social-network traffic data) and [34] (time-series prediction of traffic accidents) are marginal (similarity about 0.3-0.4), cited collectively as the 'previous perennial research' on which the concept is based. Not judged below 0.3, so no `IRRELEVANT_SELF_CITATION`. References [27]-[30] (gravitational-search robot path planning, phylogram optimisation, traffic-light fuzzy interpolation, a fuzzy-servo optimisation monograph) are cited only as areas where the approach 'can be well incorporated'; the same four appear in the Beldjilali et al. paper of this issue, which points to non-topical insertion. No mutual-citation pattern is demonstrable.\n\n---\n\n## Structural Analysis\n\nEvidence is reasonably concrete: Table 1 (predictive confidence per parameter and model), Table 3 (three-month MAPE against driver-recorded times), Table 4 (route feasibility before and after, 79.65% to 99.14%). Weaknesses: the routing algorithm is explicitly out of scope, so the parameter predictions cannot be checked independently; no variance or significance testing; Table 4 compares unpaired periods. Statements such as 'this work takes on a strategic epithet and is crucial for every company that transports the goods' overreach. Limitations are acknowledged inline (instability of decision trees, attribute correlation for naive Bayes, increased distance and vehicles after the change). Datasets are deposited at 4TU with DOIs; no code is released.\n\n---\n\n## Conclusion\n\nA practical, data-backed application paper with proportionate formalism and public data. Its main weaknesses are the opaque solver, the absence of statistical comparison, and a reference list padded with off-topic optimisation works."
+  },
+  {
+   "paper_id": "christudas2020",
+   "paper": {
+    "title": "System Identification Using Long Short Term Memory Recurrent Neural Networks for Real Time Conical Tank System",
+    "authors": [
+     "Febina Christudas",
+     "Angeline Vijula Dhanraj"
+    ],
+    "abstract": "An essential prerequisite for designing model-based controllers is an accurate mathematical model. System Identification is a classical approach for getting a mathematical model from experimental data. Neural Networks are extensively deployed for the identification of systems as they are efficient function approximators. This paper proposes an intelligent technique for modelling a nonlinear Conical Tank System (CTS) using neural networks. Long Short Term Memory Recurrent Neural Networks (LSTM-RNN) are used for modelling the real-time CTS using input-output data. It is shown that LSTM-RNN models are effective in modelling in comparison with empirical models.",
+    "keywords": [
+     "Artificial neural networks",
+     "LSTM",
+     "nonlinear system",
+     "predictive models",
+     "RNN",
+     "system identification"
+    ],
+    "doi": null,
+    "pages": "T57-T77",
+    "source_file": "paper674.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 70,
+    "citation_integrity": 85,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 71.5,
+    "composite": 53.62,
+    "final": 53.62
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "summary": "Standard application of a MATLAB LSTM to identify a laboratory conical tank, compared by RMSE with transfer-function, nonlinear ARX and NARX models; long textbook exposition, a single comparison table, and no released data.",
+    "classification": "LIMITED",
+    "disqualified": false,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Black-box identification of a two-zone laboratory conical tank from step-response data, comparing a transfer-function model, nonlinear ARX (wavelet network), NARX neural network and an LSTM with dropout, all built in MATLAB.\n**Level:** 2 (Low)\n**Rationale:** Existing models applied to a new plant and compared by RMSE.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 42 (identification criterion, Levenberg-Marquardt, MLP, NARX, Lipschitz order index, BPTT vanishing-gradient derivation, LSTM gate equations and update laws)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate under the counting rule, and each block is standard model description rather than set notation or tuple definitions, so no theater flag is raised. The equations are, however, textbook material that the implementation (MATLAB toolboxes) does not depend on, and the LSTM block is internally inconsistent: r(k) is called both the input to the cell state and the forget-gate weight, c(k) is labelled the output gate after being introduced under 'input gate', and the weight list mentions wf, which never appears. The Lipschitz order index (21) is introduced and not used. The score is reduced for this padding.\n\n### Issues\nNone of the reproduced derivations is used to make a design decision in Section 6.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 40 (2.5%): [29], the authors' earlier conical-tank controller paper, directly relevant. Several references are mis-described or mis-attributed: [3] (cascade control for telerobotic space medicine) is cited as a fuzzy PID design using an empirical model for telesurgery; [27] is given as Hopfield's 1982 paper but with an arXiv identifier and the year 2014; [24] attributes 'Investigation of neural networks for function approximation' to Valverde et al., while another paper in this issue attributes the same title and venue to Yang et al. References [2]-[4], [8] and [25] belong to the citation cluster that recurs across this special issue. No self-citation problem.\n\n---\n\n## Structural Analysis\n\nThe central claim rests on Table 2: RMSE per model per zone from a single train-test split, without repeated runs or variance. The claim that dropout 'increased the performance of the model' and that LSTM converges faster than RNN are stated without numbers. An inline limitation is present ('LSTM faces limitations for very long sequences of data but not in this application'). No data or code are made available.\n\n---\n\n## Conclusion\n\nA competent but routine application study whose length comes mostly from reproduced background. The RMSE comparison supports the main conclusion only weakly, and nothing is released for reproduction."
+  },
+  {
+   "paper_id": "anikin2020",
+   "paper": {
+    "title": "Kohonen Neural Network Training by Cellular Automaton",
+    "authors": [
+     "Valerii Anikin",
+     "Oksana Anikina",
+     "Oksana Gushchina"
+    ],
+    "abstract": "Effective integral dispersion quantile measure of the quality of data topology mapping by the Kohonen neural network is proposed. The comparison of the algorithm of SOM training by cellular automaton and classical Kohonen online and batch training algorithms was systematically carried out. Advantages and disadvantages of the new SOM training algorithm were identified.",
+    "keywords": [
+     "Artificial Intelligence",
+     "Kohonen neural network",
+     "self-organizing map",
+     "learning algorithm of SOM",
+     "cellular automaton",
+     "quantile dispersive measure"
+    ],
+    "doi": null,
+    "pages": "T78-T93",
+    "source_file": "paper675.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 85,
+    "structural_integrity": 65,
+    "artifact_availability": 100,
+    "intellectual_integrity": 78.0,
+    "composite": 83.5,
+    "final": 83.5
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"The site https://github.com/okmih/Anikin_Kohonen contains the R code of the training algorithm and the data sets studied in the paper.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "summary": "Empirical comparison of a cellular-automaton SOM training algorithm against Kohonen batch training using a new quantile dispersion measure; proportionate formalism, released R code and data, and candid discussion of where the method fails, but the new measure is not validated against established ones.",
+    "classification": "STRONG",
+    "disqualified": false,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Reimplementation in R (package 'kohonen') of a previously proposed cellular-automaton SOM training algorithm, and a quantile dispersion measure (QDM) of topology preservation, evaluated on synthetic 2-D/3-D sets and the 'waveform' data.\n**Level:** 2 (Low)\n**Rationale:** An algorithm variant and a simple quality metric assessed empirically, without convergence or complexity analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (SOM winner and update rules, batch update, quantisation and topographic error, distortion, QDM and per-coordinate QDM)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations define the algorithms and the measure being proposed; parameters are presented as named code variables rather than Greek letters.\n\n### Issues\nNone identified in the formalism. The text refers to 'quality criteria (5-7)' and 'QDM (8)', one equation off from the numbering used.\n\n---\n\n## Citation Analysis\n\nTwo self-citations out of 15 (13%): [10] the original cellular-automaton SOM algorithm, directly relevant; [13] modelling algorithm information structure in Excel, cited to motivate the move from spreadsheets, marginal but related (about 0.4). References [6]-[9] (Assamese character recognition, function approximation, ERNEAD, medical ANN decision-making) are cited together as 'comparative analysis of the productivity and efficiency of various types of neural networks', which they are not; they match the cluster that recurs across this special issue, and [7] is attributed to different authors here than in the Christudas and Vijula Dhanraj paper. Not self-citation; no flag.\n\n---\n\n## Structural Analysis\n\nResults are given in Tables 1-4 and many figures, with explicit parameter settings and a fixed seed. The authors report cases where their algorithm is worse (Table 3 outside n/N 7-20, complex data sets, wrong initial orientation) and give a dedicated disadvantages paragraph in the conclusion, which counts as an inline limitation. QDM is called 'effective' and 'computationally efficient' without a timing comparison or a correlation with the established measures (4)-(6) that it is meant to replace; the authors concede that no functional relation can be established. Comparisons rest on single configurations rather than repeated runs, except for the twisting counts in Table 1. Code and data are released on GitHub.\n\n---\n\n## Conclusion\n\nA modest, honest empirical study with released artifacts. The main gap is the absence of validation of the new QDM measure against the measures it is proposed to replace."
+  },
+  {
+   "paper_id": "li2020",
+   "paper": {
+    "title": "HARD: Bit-Split String Matching Using a Heuristic Algorithm to Reduce Memory Demand",
+    "authors": [
+     "Xun Li",
+     "Lishui Chen",
+     "Yazhe Tang"
+    ],
+    "abstract": "High-speed content inspection relies on a fast multi-pattern matching algorithm to detect predefined rules. When the number of target rules becomes large, the memory requirements of the matching engine become a critical issue. This paper proposes an effective rule classifying method referred to as HARD for heterogeneous bit-split string matching architectures. HARD uses the uniqueness of the target pattern to classify all target rule characters. This paper also presents a method to estimate the distance between strings in unique pattern category. The distance formula is next used to find a class for each rule. Each class will be processed on different sizes of finite state machine. In popular data sets, when the number of rules is above 4000, HARD can save nearly 50% of memory consumption compared to the previous bit-split string matching methods mentioned in the paper.",
+    "keywords": [
+     "String Matching",
+     "State Machine Splitting",
+     "Finite State Machines",
+     "Fine-grained Traffic Identification"
+    ],
+    "doi": null,
+    "pages": "T94-T105",
+    "source_file": "paper676.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 70,
+    "citation_integrity": 80,
+    "structural_integrity": 65,
+    "artifact_availability": 100,
+    "intellectual_integrity": 72.25,
+    "composite": 79.19,
+    "final": 79.19
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"The complete code is given in [27].\" [27] https://github.com/xjtuleeson/HARD; rule sets from public sources [28] https://www.snort.org/downloads/#ruledownloads, [29] http://www.clamav.net/downloads, [30] https://suricata-ids.org/download/",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "summary": "Pattern-grouping heuristic for heterogeneous bit-split string-matching engines, evaluated in a Python memory simulator on public Snort, ClamAV and Suricata rule sets with released code; the NP-hardness argument is reversed, and the comparison methods are mis-referenced.",
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Grouping rule strings for bit-split Aho-Corasick engines: unique/non-unique pattern split (from Kim et al.) plus a k-means-like greedy grouping driven by a state-sharing distance, mapped onto tiles of different sizes.\n**Level:** 2 (Low)\n**Rationale:** A heuristic refinement of existing grouping schemes evaluated by simulation. An O(n^2) cost is stated but not analysed, and the hardness argument is informal; when uncertain, the lower level is used.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 1 informal (NP-hardness by reduction from QAP)\n- Equations: 7 (memory model (1)-(2), assignment problem (3), QAP (4)-(5), distances (6)-(7))\n\n### Proportionality\nCalculated complexity: 1x4 = 4\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Proportionate. The memory model and distance formulas are what the algorithm computes. The QAP argument is a legitimate kind of justification for using a heuristic, so it is not treated as theater, but it is wrong in direction: rewriting ARCP as a special case of QAP shows ARCP <= QAP, not QAP <= ARCP, so NP-hardness does not follow. The score is reduced for this.\n\n### Issues\nIn (5) the indicator I is defined from psi alone, so the 'QAP' form collapses back to the linear assignment of (3), which is polynomial; this undercuts the hardness claim further.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 30 references. Reference hygiene is poor: [5] and [19] are the same Aho-Corasick paper; 'the method in [9] and [11]' in the comparison refers to Boyer-Moore [11], which is not a grouping method (presumably [10] was meant); pattern uniqueness is credited to both [9] and [26], where [26] is Sahni and Gonzalez on P-complete approximation. References [13]-[16] (gravitational-search robot path planning, fuzzy cognitive maps, cuckoo search, grey-wolf PI-fuzzy tuning) are cited as heuristics 'worth learning' and have no topical bearing on string matching; they coincide with works named in the guest editorial and in other papers of this issue. Not self-citation, no mutual pattern demonstrable, no flag; citation score reduced for padding and mis-referencing.\n\n---\n\n## Structural Analysis\n\nClaims are supported by simulation figures on four public rule sets with several subset sizes, and by a parameter study for GroupNum. Results are memory estimates from formula (1), not hardware measurements, and the comparison baselines are re-implementations whose parameters are only partly given. Drawbacks are acknowledged inline (added hardware complexity, more circuits for more groups, O(n^2) grouping time). Code is linked on GitHub and the rule sets are public.\n\n---\n\n## Conclusion\n\nA reasonable engineering heuristic with released code and public data. The formal hardness claim is incorrect and the references are careless, but the empirical part is adequately supported for a simulator-level study."
+  }
+ ]
+}

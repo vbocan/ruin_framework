@@ -1,0 +1,409 @@
+{
+ "batch_id": "2023-v26-n1",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 26,
+  "issue": 1,
+  "year": 2023
+ },
+ "papers": [
+  {
+   "paper_id": "chen2023",
+   "paper": {
+    "title": "A Frequent Construction Mining Scheme Based on Syntax Tree",
+    "authors": [
+     "Bob Chen",
+     "Weiming Peng",
+     "Jihua Song"
+    ],
+    "abstract": "(Paraphrased) Proposes a definition and program representation of linguistic constructions (form-meaning pairs with fixed constants and empty slots) for NLP, and a frequent construction mining algorithm that splits Stanford Parser phrase-structure trees into tree sequences and mines them with a gap-aware extension of PrefixSpan, yielding a construction database for a corpus.",
+    "keywords": [
+     "Construction",
+     "data mining",
+     "semantic recognition",
+     "sequential pattern mining"
+    ],
+    "doi": null,
+    "pages": "3-20",
+    "source_file": "paper729.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 40,
+    "artifact_availability": 50,
+    "intellectual_integrity": 43.25,
+    "composite": 44.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The Leipzig Corpora Collection was utilized as the original corpus... The corpus can be downloaded from https://corpora.uni-leipzig.de/.\" No link to the authors' code.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "THEOREMLESS_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (a gap-counting modification of PrefixSpan applied to parser output) that dresses its glossary as seven numbered 'Definition N' blocks; none is needed to implement the method and none feeds a proof.",
+    "DECORATIVE_DEFINITIONS": "Definitions 1-7 (Construction, Constant, Empty slot, Phrase structure tree, Tree sequence, Support, Frequent construction) are plain-English glossary entries; Definition 4 restates the standard notion of a parse tree and Definition 6/7 restate standard support and minimum-support with Greek symbols (alpha, xi) that are never used again.",
+    "THEOREMLESS_FORMALISM": "Seven formal definitions and zero theorems, lemmas or complexity results.",
+    "NO_LIMITATIONS": "No limitations section and no acknowledgement of the weaknesses of the evaluation (no ground truth, no precision/recall of extracted constructions); the conclusion lists only future work."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Reasonable idea (gap-aware PrefixSpan over parse-tree sequences for construction mining) undermined by a glossary presented as formal definitions, inconsistent corpus figures and an evaluation without any quality measure of the mined constructions.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Mining frequent linguistic constructions by splitting Stanford Parser trees into sequences and running a PrefixSpan variant that records the number of skipped item sets.\n**Level:** 2 (Low)\n**Rationale:** The core algorithmic contribution is a modest extension of an existing sequential pattern miner (an integer gap counter in the pseudo-projection) plus two tree-flattening procedures. There is no complexity analysis, correctness argument or new theory, so Level 3 is not justified.\n\n### Formal Elements\n- Definitions: 7 (numbered)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (support is described verbally with symbols alpha and xi)\n\n### Proportionality\nCalculated complexity: 14\nExpected range (Level 2): 0-15\nRatio: 0.93x upper bound\n\n**Assessment:** Within the numeric range but failing the necessity test. The definitions are written in prose and add nothing a programmer would need; labelling them 'Definition 1..7' is presentation, not formalism that does work.\n\n### Issues\n- Definition 4 'Phrase structure tree' is a textbook concept; Definition 6 'Support' restates the standard data-mining notion.\n- The symbols alpha and xi are introduced in Definitions 6-7 and never reappear.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 31 references. References cover graph/sequential pattern mining, parsing and construction grammar and are topically appropriate.\n\n---\n\n## Structural Analysis\n\nThe evaluation reports counts of mined constructions versus minimum support, a top-10 table of abstract constructions (NP IN, DT NN, ...) and runtime/memory against PrefixSpan, plus one qualitative example (a+NN parallel construction). There is no measure of whether the mined patterns are linguistically valid constructions. Corpus numbers are internally inconsistent (1,000,000 sentences; '2.900 million sentences were filtered out'; '290,000 natural sentences'). The MaxRepeat and MaxGap thresholds are described but their values are not reported. Figures 7-9 are referenced but not interpretable from the text. Data source is a named public corpus with URL; no code is released.\n\n---\n\n## Conclusion\n\nA Level 2 algorithmic adaptation whose formal apparatus is decorative: seven numbered definitions with no theorems, used as a glossary. The empirical section is descriptive and lacks any validity measure, and the corpus statistics contradict one another. Flags for formalism theater, decorative definitions, theoremless formalism and missing limitations apply."
+  },
+  {
+   "paper_id": "unguritu2023",
+   "paper": {
+    "title": "Design and Assessment of an Anti-lock Braking System Controller",
+    "authors": [
+     "Maria-Geanina Unguritu",
+     "Teodor-Constantin Nichiţelea"
+    ],
+    "abstract": "(Paraphrased) Models an anti-lock braking system with a quarter-car longitudinal model and the Burckhardt tyre-road friction curve, simulates braking with and without ABS in Simulink, and proposes a three-position (dead-zone) slip regulator instead of the usual bang-bang controller, reporting shorter braking times and distances in simulation.",
+    "keywords": [
+     "Anti-lock braking system",
+     "automation and control theory",
+     "modelling",
+     "simulation"
+    ],
+    "doi": null,
+    "pages": "21-32",
+    "source_file": "paper730.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 85,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 77.5,
+    "composite": 58.12,
+    "final": 58.12
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the Simulink model is described (Fig. 4, parameter values in Eq. 8) but not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Textbook quarter-car ABS simulation with a dead-zone variant of the bang-bang slip controller; formalism is proportionate, but the evidence is simulation-only and the improvement is modest.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Quarter-car ABS model in Simulink comparing a bang-bang slip controller with a three-position (dead-zone) relay controller across four road surfaces.\n**Level:** 2 (Low)\n**Rationale:** Standard vehicle/wheel dynamics and an empirical friction model taken from the literature ([12]); the proposed controller is a relay with a dead band. This is an application of established methods, with no new analysis of stability or robustness.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (Newton's law for vehicle and wheel, slip definition, Burckhardt friction model, parameter list)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Every equation is the physical model a simulation needs; none is decorative.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo of 20 references (10%) are self-citations: [1] (adaptive harmonic control of a half-car active suspension) is related vehicle-dynamics control; [2] (traffic congestion at intersections for time-synchronised autonomous vehicles) is only marginally related to ABS control and is cited in a general sentence about transport quality (similarity judged about 0.35, marginal). Two further citations [3, 4] are to the same journal on unrelated automotive electronics topics, cited generically. No disqualifying pattern.\n\n---\n\n## Structural Analysis\n\nClaims are backed by simulation figures and Table 2 (slip average, braking time and distance for dry, wet, snowy and icy roads). The improvements (e.g. braking distance 59.54 m to 58.04 m on dry road) are small, there is no tuning sensitivity study for the dead band [0, 0.1], no robustness analysis, and no hardware or HIL validation, although the paper asserts easy ECU implementation. Simplifications (quarter-car, longitudinal dynamics only, no suspension) and real-time implementation issues are acknowledged inline. No artifacts are released.\n\n---\n\n## Conclusion\n\nA competent but elementary simulation study. Formalism is appropriate and citations are clean. The contribution is small and rests on a single simulation model without experimental validation; artifact availability is nil."
+  },
+  {
+   "paper_id": "georgievatrifonova2023",
+   "paper": {
+    "title": "Transforming 3D Models to Semantic Web Representation",
+    "authors": [
+     "Tsvetanka Georgieva-Trifonova",
+     "Miroslav Galabov"
+    ],
+    "abstract": "(Paraphrased) Presents RML mapping rules that transform X3D 3D models into RDF conforming to the X3D Ontology, argues that the rules themselves form a queryable knowledge base for validation and maintenance, systematises SPARQL query types for reconstructing the original X3D from the triples, states prerequisites and limitations, and outlines a knowledge base combining rules, models and a domain ontology.",
+    "keywords": [
+     "Ontology",
+     "RDF mapping language",
+     "X3D models"
+    ],
+    "doi": null,
+    "pages": "33-48",
+    "source_file": "paper731.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 60,
+    "artifact_availability": 100,
+    "intellectual_integrity": 82.25,
+    "composite": 86.69,
+    "final": 86.69
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"They are published and available from github address https://github.com/tsvetankageorgieva/RMLrules X3D to RDF. The file HelloWorld.rml.ttl contains the translation rules for the example file available at https://www.web3d.org/x3d/content/semantics/examples/HelloWorld.x3d\"; listings also deposited at https://doi.org/10.7910/DVN/GFRWU5",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "STRONG",
+    "disqualified": false,
+    "summary": "Engineering contribution (RML rules for X3D-to-RDF) with no formalism theater, clean citations, an explicit limitations section and fully released rules; evaluation is limited to a single example file.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Declarative RML mapping rules from the X3D schema to RDF/OWL individuals of the existing X3D Ontology, plus SPARQL queries for the reverse direction.\n**Level:** 1 (Trivial)\n**Rationale:** The work composes existing standards and tools (RML, X3D Ontology, SPARQL, Protégé); the contribution is a rule set and its organisation, with no algorithmic or theoretical novelty.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (code listings in RML/Turtle and SPARQL only)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Rules and queries are shown as code, which is the appropriate representation.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThe only self-reference among 58 is [44], the authors' own Harvard Dataverse deposit of the listings for this paper, which is an artifact pointer rather than citation padding. References are dominated by W3C specifications and directly relevant Semantic Web / Web3D literature. No issues identified.\n\n---\n\n## Structural Analysis\n\nA dedicated 'Prerequisites and limitations' subsection states the requirement of an id attribute on every element and per-file configuration of sources and prefixes. Evidence for the claims is thin: correctness of the reverse-transformation queries is demonstrated on one sample file (HelloWorld.x3d), the result tables are not legible in the text, and there is no measurement of coverage, performance or round-trip fidelity across a corpus of models. Advantages over XSLT-based conversion are argued rather than measured. Rules are released on GitHub and Dataverse and the example input is public.\n\n---\n\n## Conclusion\n\nA straightforward, honestly presented engineering paper with appropriate (absent) formalism and exemplary artifact release. Its main weakness is the lack of systematic evaluation beyond a single illustrative model."
+  },
+  {
+   "paper_id": "abramov2023",
+   "paper": {
+    "title": "New Opportunities Model for Monitoring, Analyzing and Forecasting the Official Statistics on Coronavirus Disease Pandemic",
+    "authors": [
+     "Sergey M. Abramov",
+     "Sergey Travin",
+     "Gheorghe Duca",
+     "Radu-Emil Precup"
+    ],
+    "abstract": "(Paraphrased) Proposes a 'new opportunities model' for monitoring and forecasting official COVID-19 statistics: the logistic SI solution is fitted by parabolic regression in the phase plane, and a new parabola is fitted whenever the data leave the current one; the approach is applied to Russia, Romania, Moldova and the Campania region and claimed to outperform similar models including the classical SI model.",
+    "keywords": [
+     "Coronavirus disease 2019 pandemic",
+     "new opportunities model",
+     "official statistics",
+     "optimization",
+     "parabolic regression",
+     "prediction"
+    ],
+    "doi": null,
+    "pages": "48-63",
+    "source_file": "paper732.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 10,
+    "structural_integrity": 20,
+    "artifact_availability": 50,
+    "intellectual_integrity": 8.5,
+    "composite": 18.88,
+    "final": 18.88
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "Primary data are public: \"these sites are [31] for Russia, [32] for Romania, [33] for Moldova and [34] for the Campania region\" (worldometers.info country pages). Results figures are in a supplementary .doc at http://www.aut.upt.ro/~rprecup/Supplementary material ROMJIST.doc; no code is linked.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "IRRELEVANT_SELF_CITATION",
+    "ELEVATED_SELF_CITATION",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 curve-fitting paper that expresses its daily data table and per-variable loops in set-builder notation (Eqs. 1 and 4).",
+    "UNNECESSARY_SET_THEORY": "S = {(ti, Vi, Hi, Di) | i = 0...m} is a table of daily rows, and 'Gamma in {V, E, S}' stands for 'for each of the three series'; no proof depends on either.",
+    "IRRELEVANT_SELF_CITATION": "Self-citations on shape-memory-alloy actuator fuzzy models [9], tensor-product modelling of tower cranes [13], fuzzy signatures [14], cognition observation processes [15], drug-development compounds [19], slime-mould tuning of fuzzy servo controllers [25, 26] and hybrid PF-PSO for fuzzy servo control [28] are unrelated to forecasting COVID-19 statistics (similarity well below 0.3); they are packed into a generic introductory survey of modelling and optimisation.",
+    "ELEVATED_SELF_CITATION": "10 of 35 prior-work references (28.6%) include at least one author of this paper ([9], [13], [14], [15], [17], [19], [25], [26], [28], [35]); counting the supplementary-material self-reference [36] gives 11/36 = 30.6%, at the excessive threshold.",
+    "UNSUPPORTED_CLAIMS": "The abstract and conclusions claim the model 'proves to be efficient over other similar models' and has 'very good performance, i.e. high prediction accuracy', yet the paper reports no error metric, no comparison model results and no forecasts versus outcomes; all results figures are relegated to an external supplementary .doc and described only qualitatively."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Piecewise logistic/phase-plane curve fitting of COVID-19 case counts, with set notation for a data table, a block of unrelated self-citations, and superiority claims that are not backed by any reported comparison or accuracy measure.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fitting the logistic (SI) solution to cumulative COVID-19 case counts via parabolic regression of velocity against volume, refitting a new parabola when the data depart from the current one.\n**Level:** 2 (Low)\n**Rationale:** The method is a classical logistic model with regime-switching refits; the algorithmic content is least-squares fitting and a threshold rule. No new theory or analysis.\n\n### Formal Elements\n- Definitions: 0 numbered (dataset and derived series defined by equations)\n- Theorems: 0\n- Proofs: 0\n- Equations: 15\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** The SI ODE, its tanh solution and the parabola fit are necessary. Equation (1), set-builder notation for the table of daily records, and the 'Gamma in {V, E, S}' device in (4) fail the necessity test.\n\n### Issues\n- Eq. (1): S = {(ti, Vi, Hi, Di) | i = 0...m} for what is a list of daily rows.\n- Internal inconsistencies: steps are introduced as NO1-NO4 but the first is labelled 'LO1'; step SI2 refers to 'the right-hand term of (7)' (which is k = 0.5aN), and step NO2 cites relationship (9) (parameter values) instead of (10) for tau.\n- The introduction frames the work by surveying unrelated topics (financial pricing, bifurcations, data-stream clustering, tensor-product transformation, metaheuristics) before stating that none is used.\n\n---\n\n## Citation Analysis\n\nThe author list includes R.-E. Precup, G. Duca, S. Travin and S. M. Abramov. Self-citations: [9], [13], [14], [15], [25], [26], [28] (Precup and co-authors on fuzzy control, servo systems, tower cranes, signatures), [17] (Precup, Duca, Travin on biomonitoring neural models), [19] (Duca on drug-development compounds) and [35] (Abramov and Travin on COVID statistics in Russia). Only [35] is topically related; [17] is marginal; the remainder are unrelated to epidemic forecasting. SCR is 28.6% excluding the supplementary-material reference [36], 30.6% including it. The surrounding survey also cites several metaheuristic and fuzzy-modelling papers by other groups with no bearing on the method; whether these form a reciprocal pattern cannot be established from this paper alone, so no ring flag is raised.\n\n---\n\n## Structural Analysis\n\nThe experimental section consists of verbal descriptions of figures 9-21 that are not in the paper but in an externally hosted .doc ([36]). No forecast-error statistic (RMSE, MAPE, etc.), no hold-out evaluation and no results for the 'other similar models' are given, although outperformance is asserted in the abstract and conclusions. The conclusion's claim that later pandemic evolution 'further confirms the very good performance' is unsupported. A limitation is acknowledged inline (one parameter must be set manually; official statistics differ from true incidence). Data sources are public; no code.\n\n---\n\n## Conclusion\n\nA simple modelling idea presented with set notation for a data table, a large block of unrelated self-citations in the introduction, and headline performance claims that the paper itself never substantiates. The irrelevant self-citations disqualify at any level; the formalism flags would also disqualify at Level 2."
+  },
+  {
+   "paper_id": "mathur2023",
+   "paper": {
+    "title": "Linear Voltage Controlled Oscillator Implementation in Electronically Variable Immittances",
+    "authors": [
+     "Koushick Mathur",
+     "Palaniandavar Venkateswaran",
+     "Rabindranath Nandi"
+    ],
+    "abstract": "(Paraphrased) Proposes a composite CFA and multiplication-mode current conveyor (MMCC) building block that realises electronically tunable inductor and FDNR immittances by the MMCC control voltage, analyses non-ideal port and parasitic effects, and applies the immittances to band-pass and band-reject filters and an LC-type linear voltage-controlled quadrature oscillator, verified by PSPICE and hardware measurements up to about 13.6 MHz.",
+    "keywords": [
+     "Current Feedback Amplifier (CFA)",
+     "linear voltage control oscillator",
+     "quadrature",
+     "selective filter",
+     "synthetic inductor/FDNR"
+    ],
+    "doi": null,
+    "pages": "65-77",
+    "source_file": "paper733.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 60,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.5,
+    "composite": 49.12,
+    "final": 39.12
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; circuit values and schematics are given but no PSPICE netlists or measurement data are released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "10 of 46 references (21.7%) are by the authors: [3], [4], [10], [14], [17], [18], [24], [33], [35], [37]. All are on related active-immittance and VCO circuits; [14] and [33] appear to be the same paper listed twice with different years.",
+    "NO_LIMITATIONS": "No limitations are acknowledged; parasitic and port-error effects are analysed only to conclude they are 'quite negligible', and there is no discussion of the frequency limit, power consumption, supply range or the cost of the multiplier-based block."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Incremental analog circuit paper (CFA plus MMCC tunable L/FDNR with filter and quadrature VCO applications) with proportionate circuit analysis and hardware measurements, but elevated self-citation, a duplicated reference and no limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Electronically tunable synthetic inductor and FDNR using a CFA plus multiplication-mode current conveyor, applied to selective filters and a linear-tuning quadrature VCO.\n**Level:** 2 (Low)\n**Rationale:** Standard nodal analysis of an active building-block topology, a variation on the authors' earlier tunable-immittance circuits [17, 18, 35, 37]; incremental design rather than new theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: about 14 plus design tables (impedance, port-error and parasitic sensitivity, filter transfer functions, oscillation frequency)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The transfer functions and sensitivity expressions are the ordinary working tools of circuit design.\n\n### Issues\nEquations are garbled in places (e.g. Eqs. 3-4 contain an unexplained '@ x arctan' form) and one paragraph about D-element derivation is duplicated verbatim; presentation quality is poor but the formalism is not decorative.\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio 21.7% (10/46), all on topically related circuits. [14] and [33] list the same title, authors and venue with years 2018 and 2017, inflating the count. Separately, [44]-[46] cite PI-fuzzy controllers, a buck converter and iterative feedback tuning for tower cranes with the boilerplate claim that these controllers are 'closely related to the process treated here'; they are not related to analog immittance circuits. These are not self-citations, so no self-citation flag follows from them, but the insertion is anomalous (the same three works are also cited in another paper of this issue, milicevic2023). Mutual citation cannot be established from this paper, so CITATION_RING_INDICATOR is not raised.\n\n---\n\n## Structural Analysis\n\nHardware and PSPICE results support the main claims (BP filter at about 5 MHz, BR at 4.4 MHz, VCO tuning 4.6-13.6 MHz with 2.6% linearity error, phase noise -103 dBc/Hz at 38 kHz offset, THD 1.5-1.7%). Comparative tables list prior designs but the claim of 'better results' is not quantified beyond frequency. No limitations discussion. No netlists or data released.\n\n---\n\n## Conclusion\n\nA conventional, measured analog circuit contribution with appropriate analysis. Deductions come from elevated self-citation (including a duplicate entry), unrelated control-engineering citations appended to the reference list, and the absence of any limitations."
+  },
+  {
+   "paper_id": "gaiseanu2023",
+   "paper": {
+    "title": "Information: From Cognitive-Sentient Exploration of Reality to Predictive Big Data Assisted Informational Era",
+    "authors": [
+     "Florin Gaiseanu"
+    ],
+    "abstract": "(Paraphrased) Argues that information is a constitutive component of non-living and living matter, presents the author's Informational Model of Consciousness and Informational System of the Human Body and its extension to cells and plants, frames ancient philosophical models as Cognitive-Sentient Exploration of Reality, and discusses predictive big-data analysis with an ARIMA-based illustration of COVID-19 case growth in Romania, Spain and the USA, together with prospective applications and the priority of Romanian contributions.",
+    "keywords": [
+     "Applications",
+     "artificial intelligence",
+     "cognitive-sentient exploration of reality",
+     "information",
+     "informational era",
+     "informational model of consciousness",
+     "informational model of living structures",
+     "informational system of the human body",
+     "predictive big data analysis"
+    ],
+    "doi": null,
+    "pages": "78-99",
+    "source_file": "paper734.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 0,
+    "structural_integrity": 10,
+    "artifact_availability": 0,
+    "intellectual_integrity": 2.5,
+    "composite": 1.88,
+    "final": 1.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the COVID-19 fit uses data \"collected from [61]\", a published paper, not an identified dataset, and no code is linked",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "EXCESSIVE_SELF_CITATION",
+    "IRRELEVANT_SELF_CITATION",
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 conceptual essay presenting acronym lists as equations: 'ISHB = (CASI + CDC + IES + MIS + GTS + IGG + IC)' (Eq. 5), 'I = (Iknow + Iwant + Ilove + Iam + Icreate + Icreated + Ibelieve)' (Eq. 6), the analogous ISLS sum (Eq. 7), and reaction-style relations 'Ortomatter + Informatter => Structured Matter' (Eqs. 2-4). None has quantitative meaning; each is a list written as an equation.",
+    "EXCESSIVE_SELF_CITATION": "55 of 80 references (69%) are by the sole author.",
+    "IRRELEVANT_SELF_CITATION": "Self-citations on boron diffusion and etching in silicon, pull-in voltage of polysilicon layers, process stress in capacitive pressure sensors and impurity diffusion modelling ([65], [67]-[71], [78], [79]) are unrelated to a paper on information, consciousness and living structures (similarity below 0.3); they are introduced through a digression on biomedical sensors.",
+    "UNSUPPORTED_CLAIMS": "Sweeping claims (that the model solves the mind-body problem and the nature-nurture problem, unifies 'all theories of psychological and behavior science', explains near-death and extrasensory phenomena, and that plants and cells 'feel' information) rest almost entirely on the author's own prior essays; no empirical test of the model is presented. The only computation, an exponential/ARIMA fit to 18 days of case counts, does not bear on the model.",
+    "NO_LIMITATIONS": "No limitations or alternative interpretations are acknowledged anywhere."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Speculative conceptual essay with pseudo-equations summing acronyms, a 69% self-citation ratio including unrelated microfabrication work, and far-reaching claims supported only by the author's own earlier essays.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A narrative synthesis of the author's informational model of consciousness and of living structures, ancient philosophy, Shannon information, and a brief illustration of ARIMA forecasting of COVID-19 cases.\n**Level:** 1 (Trivial)\n**Rationale:** The paper is a conceptual overview/survey of the author's own framework with no algorithm, no model that can be tested, and no new analysis; the ARIMA part restates textbook equations.\n\n### Formal Elements\n- Definitions: 0 numbered; several 'defined by the relation' constructs (Eqs. 5-7)\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 (Hartley/Shannon log2 N, four symbolic 'reaction' relations, three acronym sums, three ARIMA equations)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Disproportionate in kind rather than count. Equations (2)-(7) borrow the look of algebra or chemistry for what are lists of named components; addition has no defined meaning on 'Iknow + Ilove + Ibelieve'.\n\n### Issues\n- Eq. (5): 'ISHB = (CASI + CDC + IES + MIS + GTS + IGG + IC)'.\n- Eq. (6): the self 'I' as a sum of seven 'cognitive centers'.\n- Eqs. (2)-(4): 'Ortomatter + Informatter => Structured Matter', '(A + B) + I <=> (AB(I))', explicitly described by the author as only a 'schematic convenient representation'.\n- The text swaps the roles of 'Ortomatter' and 'Informatter' between consecutive sentences.\n\n---\n\n## Citation Analysis\n\nSole author; 55 of 80 references are his own (69%). Most are short articles in a narrow set of venues on the same informational model, which are relevant in topic but used as the main evidence for the paper's claims. Eight self-citations on silicon microfabrication, boron diffusion and pressure-sensor technology are unrelated and enter through a digression in Section 5. Three citations to F. G. Filip ([20], [72], [77]) are cited for general decision-support context; Filip is thanked in the acknowledgements for supporting this line of research. No reciprocal pattern can be established from this text.\n\n---\n\n## Structural Analysis\n\nThe paper is assertion-driven: almost every substantive statement about consciousness, cells or plants is supported only by the author's earlier essays. The COVID-19 example fits exponential growth lines to 18 days of data for three countries and is presented as a demonstration of 'predictive power' without any out-of-sample check. The list of twenty 'applications' (A1-A20) restates claimed explanatory reach without evidence. Wording such as 'priority of the Romanian concepts' signals advocacy rather than analysis. No limitations, no artifacts.\n\n---\n\n## Conclusion\n\nA speculative, self-referential essay whose formal elements are decorative, whose citation profile is dominated by the author's own work (including unrelated microfabrication papers), and whose claims lack evidential support. Citation flags disqualify at any level; the formalism flag also applies at Level 1."
+  },
+  {
+   "paper_id": "milicevic2023",
+   "paper": {
+    "title": "Development of Microcomputers and Motor Control Software for Steel Pipe Cutting Units",
+    "authors": [
+     "Miroslav Milićević",
+     "Valentina Nejković"
+    ],
+    "abstract": "(Paraphrased) Describes the redesign of a flying cut-off unit for moving welded steel pipes, replacing the hydraulic drive with a thyristor-controlled DC motor, reducer and rack, analysing DC-motor dynamics and ramped (tilting) voltage control to limit rotor current, and designing an 8-bit microcomputer with assembler control software to automate synchronisation and cutting for improved length accuracy.",
+    "keywords": [
+     "hardware",
+     "length",
+     "microcomputer",
+     "motor",
+     "pipe",
+     "regulation",
+     "software",
+     "speed"
+    ],
+    "doi": null,
+    "pages": "100-117",
+    "source_file": "paper735.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 20,
+    "structural_integrity": 30,
+    "artifact_availability": 70,
+    "intellectual_integrity": 46.5,
+    "composite": 52.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"subprograms and main program are developed in a symbolic language for this type of microcomputers and they are presented in https://github.com/valentinanejkovic/romjist2022/blob/main/SorceCode-Asembler.asm\"; no data released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "IRRELEVANT_SELF_CITATION",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "16 of 40 references (40%) are by the authors: [14]-[16], [22]-[34]. Most are 1979-1986 Serbian-language conference papers and an M.Sc. thesis by the first author.",
+    "IRRELEVANT_SELF_CITATION": "[34] (an e-learning ecosystem based on social-network computing) is cited among 'new theoretical and scientific results' motivating a fuzzy controller for pipe cutting; it is unrelated to motor control or pipe cutting (similarity below 0.3).",
+    "UNSUPPORTED_CLAIMS": "The paper claims improved cutting accuracy, higher productivity, longer life, fewer accidents and practical confirmation 'in the production', but presents no measured length errors, no before/after production data and no experimental traces; the evidence is analytic DC-motor step/ramp responses and an algorithm description."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Industrial redesign report (DC motor plus 8-bit microcomputer for a flying saw) with appropriate motor equations and released assembler code, but a 40% self-citation ratio, one unrelated self-citation and no measured evidence for the claimed accuracy gains.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Replacing a hydraulic flying-saw drive with a thyristor-fed separately excited DC motor and an Intel 8080/8085-class microcomputer controller for cutting moving steel pipes to length.\n**Level:** 2 (Low)\n**Rationale:** Classical DC-motor modelling (linearised transfer functions, step and ramp responses via inverse Laplace transforms) applied to a specific industrial machine, plus a microcomputer and program description. Established engineering applied to a domain.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: about 35 (motor equations, transfer functions, parameter calculations, current and speed responses)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations compute rotor current and speed for sizing and control, which is what the design requires; many are simply numeric parameter lines.\n\n### Issues\nNo decorative formalism. Several equations are garbled or dimensionally doubtful in the text (e.g. Eq. 23 gives a peak coefficient of 130236 A while the text reports 1450 A; Eq. 35 omits the integration variable), and figure numbering is inconsistent (the text refers to 'block scheme in Fig. 5 ... presented in Fig. 6').\n\n---\n\n## Citation Analysis\n\nSelf-citation ratio 40% (16/40), mostly decades-old Serbian-language conference papers and the first author's 1981 M.Sc. thesis [16], to which key derivations and programs are deferred. [34] (e-learning ecosystem) is unrelated. [32], [33] (welding temperature distribution, cooling time in arc welding) are cited to show the authors 'contribute to welding and thermia' and are marginal (similarity about 0.3-0.4). The block [35]-[38], [40] (PI-fuzzy controllers, a buck converter, tower-crane feedback tuning, two-degree-of-freedom fuzzy controllers, Q-learning servo control), largely by one group, is cited as 'new theoretical and scientific results' motivating a possible fuzzy controller that is never developed; three of these works also appear, appended to unrelated circuit content, in mathur2023 in this issue. This is anomalous but not a demonstrable mutual-citation pattern, so CITATION_RING_INDICATOR is not raised.\n\n---\n\n## Structural Analysis\n\nThe design reasoning is traceable (motor selection, inertia and torque calculations, current limiting by ramped voltage), but no experimental or field data are shown: no measured cutting-length errors, no comparison with the hydraulic system, no speed or current traces from the built system. Claims of practical confirmation and adaptive behaviour are asserted. A limitation is acknowledged inline (the same system in a different environment may become oscillatory). The assembler source is released on GitHub; no data.\n\n---\n\n## Conclusion\n\nA practice-oriented engineering description with proportionate mathematics and a released code artifact, weakened by heavy and partly irrelevant self-citation and by the absence of any measured evidence for its central accuracy and productivity claims. The citation flags disqualify at any level."
+  }
+ ]
+}

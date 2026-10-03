@@ -1,0 +1,452 @@
+{
+ "batch_id": "2024-v27-n1",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 27,
+  "issue": 1,
+  "year": 2024
+ },
+ "papers": [
+  {
+   "paper_id": "antonescu2024",
+   "paper": {
+    "title": "Multi-Function Scan Circuit for Assisting the Parallel Computational Map Pattern",
+    "authors": [
+     "Mihai Antonescu",
+     "Gheorghe M. Stefan"
+    ],
+    "abstract": "Some parallel computing patterns can be accelerated using appropriate networks of simple circuits. The authors propose a solution based on the Benes-Waksman permutation network, adapted to accelerate not only permutation but also pack, prefix operations and reductions, deployed alongside a map array of computational elements. The network returns a vector for permute, pack and prefix sum and a scalar for reductions (add, min, max). The cells of the Benes-Waksman network are redesigned to support the additional functionality, and applications are presented.",
+    "keywords": [
+     "Benes network",
+     "General-Purpose Accelerator",
+     "Multi-Function Permutation circuit",
+     "Scan Circuit"
+    ],
+    "doi": null,
+    "pages": "1-18",
+    "source_file": "paper758.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 85,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.75,
+    "composite": 59.06,
+    "final": 59.06
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the SystemVerilog design and golden-model testbench described in Section 6 are not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Hardware extension of the Benes-Waksman permutation network to support pack, prefix sum and reductions, with FPGA synthesis results; notation is functional and proportionate, but application-level acceleration figures are asserted without supporting experiments and no design files are released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Redesign of the cells of a Benes-Waksman permutation network so that one log-depth network also performs pack, prefix sum and add/min/max reductions for a linear map array of processing cells.\n**Level:** 2 (Low)\n**Rationale:** The contribution is an engineering adaptation of a well-known network (Benes 1964, Waksman 1968) and a known prefix construction (Ladner-Fischer), integrating several functions in one circuit. Size and depth expressions are given but no new complexity result is proved; the default-lower rule places it at Level 2 rather than 3.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: ~12 (size/depth of the permutation net, cell switching functions, prefix and reduction recurrences, cell-count formulas, pack timing)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The cell functions such as {y2i, y2i-1} = p_i ? {x2i-1, x2i} : {x2i, x2i-1} and the field bundles x_j = {v_j, enable, destination_j} are hardware signal specifications in Verilog-like notation; a designer needs them to build the cells. The cell-count expressions per type are used to explain the synthesis size results.\n\n### Issues\nNone in the formalism. Minor: the pack timing is written as O(log2 n) while the text states O(log n); harmless.\n\n---\n\n## Citation Analysis\n\nTwo self-citations out of 13 references (15.4%): [10] Dragomir and Stefan on all-pair shortest path on a map-reduce architecture, and [13] Malita, Popescu and Stefan on a heterogeneous accelerator for spectral clustering. Both concern the same map-reduce cellular architecture and are cited to support pipelining and the distributed-queue technique, so they are topically related (similarity well above 0.5). The rest of the list is the standard literature (Benes, Waksman, Ladner-Fischer, McCool et al., Sengupta et al.). No issues.\n\n---\n\n## Structural Analysis\n\nThe circuit is verified by randomized DUT-versus-golden-model simulation and synthesized on a ZYNQ7020 for 8 to 256 inputs; Tables 1-3 support the claim that the multi-function network is roughly double the LUT count of a permute-only network. Weaker: the application section asserts \"Simulations provided 6n x acceleration\" for matrix-vector multiplication and an acceleration of about 1.5 x n for FFT, with no simulation setup, baseline or data. Limitations are acknowledged inline (size doubling, unavoidable FFT latency, the sequential version trading pipelining for area, prefix shape not optimal for all associative functions). No dedicated limitations section. No code or HDL released.\n\n---\n\n## Conclusion\n\nA compact hardware-architecture paper whose notation is exactly what a circuit designer needs and whose central size claim is backed by synthesis tables. The application-level speedup numbers are unsupported assertions, and the absence of released HDL limits reproducibility. No flags."
+  },
+  {
+   "paper_id": "hentout2024",
+   "paper": {
+    "title": "Shortest Path Planning and Efficient Fuzzy Logic Control of Mobile Robots in Indoor Static and Dynamic Environments",
+    "authors": [
+     "Abdelfetah Hentout",
+     "Abderraouf Maoudj",
+     "Ahmed Kouider"
+    ],
+    "abstract": "The paper presents a navigation and control system for mobile robots in indoor static and dynamic environments with two layers: a Deterministic Constructive Algorithm (DCA) as global planner that generates the shortest path as a sequence of nodes avoiding static obstacles, and an Efficient Fuzzy Logic Controller (EFLC) as local planner that guides the robot around dynamic obstacles. Simulations on maps of different complexity and a V-REP validation are reported.",
+    "keywords": [
+     "Deterministic constructive algorithm",
+     "indoor static and dynamic environments",
+     "fuzzy logic control",
+     "mobile robots",
+     "shortest path planning"
+    ],
+    "doi": null,
+    "pages": "21-36",
+    "source_file": "paper759.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 78,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 38.55,
+    "composite": 28.91,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only links are to the authors' preprint [46] (https://doi.org/10.21203/rs.3.rs-3182222/v1) and the third-party V-REP simulator [47]",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 integration of a previously published constructive planner [40] and a fuzzy controller detailed in a preprint [46]. Section 2 states a binary-indicator optimization program (Eqs. 3-4, 8-10, with existential quantifiers and set membership over segment points) that the DCA never solves or uses: the planner is a geometric construction that checks segment-obstacle intersections. The formulation restates 'the path and the robot must not hit obstacles' and does not change what a programmer would build.",
+    "UNNECESSARY_SET_THEORY": "Eq. 11, Obs{} = [CPos, MovePoint] ∩ Obs_Seg_tj, and the reduction condition ([Nh, Nl] ∩ Obs_j = ∅) use set intersection for what is a filtered list of obstacles crossed by a segment and a boolean collision test; no proof depends on these operations."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Combination of an earlier constructive path planner and a fuzzy controller, dressed in an unused set-theoretic optimization formulation; comparisons rely on reprinted figures from other papers, the fuzzy rules and membership functions are deferred to a preprint, and the text misreads its own comparison table.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Two-layer mobile-robot navigation: a deterministic constructive global planner (from the authors' ETFA 2021 paper [40]) and a fuzzy local controller (detailed in the authors' preprint [46]).\n**Level:** 2 (Low)\n**Rationale:** Both components are taken from prior work by the same authors and combined; the planner is a geometric heuristic without a complexity or optimality proof, and the controller is a Mamdani FLC with rules described elsewhere. This is an established method applied and integrated, Level 2.\n\n### Formal Elements\n- Definitions: 0 (formal); a notation table (Table 1)\n- Theorems: 0\n- Proofs: 0\n- Equations: 13\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Count is low but the Necessity Test fails. Eqs. 3-4 and 8-10 define binary variables A_r,tj and B_i,tj via existential quantification over point pairs in segments, then constrain their sums to zero; the DCA is a constructive procedure that never evaluates these variables. Eq. 11 writes the set of crossed obstacles as a set intersection. The Euclidean path length (Eqs. 5-6) and the fuzzy inputs (Eqs. 12-13) are ordinary and acceptable.\n\n### Issues\n- The optimization program is decorative: it states the collision-free requirement in indicator form and is not used by the algorithm.\n- Eq. 13 computes the heading error as arctan((YT-Yr)/(XT-Xr)) - arctan(Yr/Xr), i.e. it uses the angle of the robot's position vector instead of its heading; as written it is not the quantity described.\n- Table 2 lists case 1 and case 5 identically ({P1,P2} in {Seg1,Seg2} -> MovePoint2).\n- The introduction classes RRT and PRM as deterministic approaches, though both are sampling-based.\n\n---\n\n## Citation Analysis\n\nNine of 47 references (19.1%) include at least one of the authors: [3], [9], [27], [30], [38], [39], [40], [41], [46]. All concern robot path planning or fuzzy path planning and are topically related; [40] and [46] are essential because the method and the controller details live there. SCR in the 15-20% band.\n\nSeparately, six references to one Timisoara control group ([18], [22], [23], [24], [25], [36]) appear in the metaheuristic and AI paragraphs. They concern tuning fuzzy controllers for servo, clutch and crane systems with GSA, GWO, SMA and iterative feedback tuning, not path planning; [24]-[25] are cited for the claim that metaheuristics \"establish reference inputs for tracking problems specific to mobile robots\", which those works do not address. These are not self-citations and no reciprocal pattern is visible from this paper, so no citation flag is raised, but the cluster looks like padding.\n\n---\n\n## Structural Analysis\n\nThe DCA evaluation compares against published results: Table 3 against memEAPF on four maps, and Fig. 6 against GA, RRT, ACO and Dijkstra using images reprinted from the cited papers, with no common implementation, hardware or repeated runs. The discussion misreads Table 3: DCA is worse than memEAPF on Maps 5 and 7 (IP -2.04% and -7.51%), yet the text says DCA \"typically outperforms memEAPF since it requires less runtimes to yield better paths\"; the reported 98.26% runtime improvement does not match the table's IP column (98.98-99.96%). The EFLC is validated on a single qualitative V-REP scenario (Fig. 7) with no metrics. Membership functions and the rule base are deferred to a preprint. A limitation is acknowledged inline in the conclusion (EFLC efficiency depends on its rules, which need tuning). No code is released.\n\n---\n\n## Conclusion\n\nAn integration paper whose two components are prior work of the authors, with a formal optimization model that the algorithm does not use and set-intersection notation for collision checks. Under the zero-tolerance rule for Level 2 this is formalism theater. The empirical support is thin: borrowed figures, a misread comparison table, and one qualitative simulation for the controller."
+  },
+  {
+   "paper_id": "hafs2024",
+   "paper": {
+    "title": "Enhancing Recognition in Multimodal Biometric Systems: Score Normalization and Fusion of Online Signatures and Fingerprints",
+    "authors": [
+     "Toufik Hafs",
+     "Hatem Zehir",
+     "Ali Hafs",
+     "Hanene Brahmia",
+     "Amine Nait-Ali"
+    ],
+    "abstract": "The study explores score normalization and its impact on multimodal biometric performance. Scores from an online-signature system based on Empirical Mode Decomposition and a minutiae-based fingerprint system are normalized and fused with a weighted sum. Experiments on three biometric databases are reported, with the best result, an EER of 1.69%, obtained by fusing online signature and fingerprint with Min-Max normalization.",
+    "keywords": [
+     "Empirical mode decomposition",
+     "fingerprints",
+     "image and signal processing",
+     "min-max",
+     "multibiometrics",
+     "online handwritten signatures",
+     "scores fusion",
+     "weighted sum"
+    ],
+    "doi": null,
+    "pages": "37-49",
+    "source_file": "paper760.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 70,
+    "citation_integrity": 75,
+    "structural_integrity": 30,
+    "artifact_availability": 50,
+    "intellectual_integrity": 61.75,
+    "composite": 58.81,
+    "final": 38.81
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The first used database is the publicly available MYCT-100 [16]\"; SVC2004 [17] and FVC2004 [18-19] are also named public datasets. No code is linked.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "The only result is a single four-cell table (EER per normalization on MCYT-100). The paper claims tests on three databases, generalization, superiority over unimodal systems \"illustrated in our work\" and over existing approaches, and an improvement \"from 2.91% to 1.69%\", but no unimodal results, no SVC2004 or FVC2004 results, no figure of 2.91% and no comparison with prior work are reported. Evidence sentences are far fewer than one third of the claims.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints (single database for the fusion experiment, weight estimation on the same data, no comparison with the state of the art)."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Weighted-sum score fusion of an existing EMD signature verifier and a minutiae fingerprint matcher, supported by one four-number table; claimed multi-database evaluation and unimodal comparisons are absent, the weight formula contradicts its own description, and unrelated references are inserted into the related work.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Score-level fusion (Min-Max, Z-score, TanH normalization plus EER-based weighted sum) of an online-signature verifier based on Empirical Mode Decomposition (from the first author's 2016 paper [4]) and a minutiae fingerprint matcher.\n**Level:** 2 (Low)\n**Rationale:** Standard normalization and fusion techniques applied to two existing unimodal pipelines; an empirical comparison of normalization methods.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (reference averaging, EMD stop criterion, EMD reconstruction, Euclidean score, weighted sum, weights, Bayes decision)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in amount; the equations are basic and describe what is implemented. No theater patterns. Score reduced for errors in the equations themselves.\n\n### Issues\n- Eq. 6 sets w_i = EER_i / sum EER_m, which makes weights proportional to error, while the text says the weights are \"inversely proportional\" and that the more discriminative modality gets more weight.\n- Eq. 8 does not follow from Eq. 7: cancelling P(S) yields P(S|H1)/P(S|H0) > P(H0)/P(H1), not P(S|H1)/P(S|H0) > P(S|H0)/P(S|H1).\n- Eq. 4 is described as counting identical minutiae pairs but is a normalized Euclidean distance.\n- The IMF conditions are misstated (\"the difference between maxima and minima can't be larger than one\").\n\n---\n\n## Citation Analysis\n\nOne self-citation of 30 references (3.3%): [4] Hafs et al. 2016 on EMD signature verification, which is the method reused and is directly relevant. However, the related-work section contains a sentence citing [10]-[15] on \"signatures in fuzzy modeling\" (mathematical signatures, not handwriting), SMA wire actuator models, COVID-19 mortality prediction, LSTM human-mobility prediction, K-means post-processing and Bayesian filtering. These are unrelated to biometric fusion; four of them ([10], [11], [14], [15]) share one co-author group and two ([11], [12]) are papers in this journal. They are not self-citations and no reciprocal citation is visible here, so no citation flag is raised, but the passage is citation padding and lowers the score.\n\n---\n\n## Structural Analysis\n\nThe paper states that three databases are used, but only MCYT-100 results appear (Table 1, four EER values, and a DET curve). The text says the unimodal systems were presented first and that the system \"performs much better compared to the unimodal systems illustrated in our work\", but no unimodal results are given; the \"2.91%\" baseline is not in any table. The database description is confused: the SVC2004 paragraph describes fingerprint sensors and a 12-acquisition protocol that belong to MCYT, and FVC2004 is called \"Fingerprint Verification Competition 2002\". The introduction calls the signature a physical modality and the fingerprint a behavioral one, reversed relative to Section 3.4. There is no comparison with the cited fusion literature (e.g. [7], [8]), and no limitations. Data rest on named public datasets; no code.\n\n---\n\n## Conclusion\n\nAn incremental fusion study whose evidence is a single small table on one database, with claims that outrun it and equations that contradict the text. The formalism is basic and not theatrical, but the structure and the padded related work are weak."
+  },
+  {
+   "paper_id": "roman2024",
+   "paper": {
+    "title": "Hybrid Data-Driven Active Disturbance Rejection Sliding Mode Control with Tower Crane Systems Validation",
+    "authors": [
+     "Raul-Cristian Roman",
+     "Radu-Emil Precup",
+     "Emil M. Petriu",
+     "Anamaria-Ioana Borlea"
+    ],
+    "abstract": "The paper combines continuous-time Active Disturbance Rejection Control (ADRC) with Sliding Mode Control (SMC) into an ADRC-SMC controller intended to improve control-loop performance while guaranteeing stability, with design steps focused on practical implementation. Parameters of the second-order continuous-time ADRC-SMC are tuned with the slime mould algorithm, enabling a comparison with ADRC. Both are validated experimentally on tower crane laboratory equipment.",
+    "keywords": [
+     "Active disturbance rejection control system structure",
+     "sliding mode control",
+     "slime mould algorithm",
+     "tower crane system",
+     "real-time experiments"
+    ],
+    "doi": null,
+    "pages": "50-64",
+    "source_file": "paper761.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 55,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 62.05,
+    "composite": 46.54,
+    "final": 41.54
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "The only link is to a supplementary PDF, \"Available: http://www.aut.upt.ro/~rprecup/SuppMatROMJIST2024.pdf\" [27], which holds figures, tables, theorems and proofs; no code or experimental data is linked or claimed.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "Thirteen of 44 references (29.5%) include at least one of the authors ([1], [9], [10], [16], [17], [18], [20], [21], [27], [29], [30], [35], [44]); 27.9% if the supplementary material [27] is excluded. Most are on ADRC, SMC, SMA tuning and tower cranes and are relevant; [29], [30], [35] and [44] are cited in a future-work list and are only marginally related."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "A derivation of a combined ADRC-SMC control law with a Lyapunov reaching condition and metaheuristic tuning, whose formalism is appropriate, but whose theorems, proofs, block diagrams and every experimental result are moved to an external supplementary PDF; the paper body contains no comparative numbers, and self-citation is high.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Adding a sliding-mode augmentation u_aug = u_eq + u_cor (boundary-layer saturation) to a second-order ADRC law, deriving the closed-loop state equations and a Lyapunov reaching condition, and tuning all parameters with the slime mould algorithm on a tower crane.\n**Level:** 3 (Medium)\n**Rationale:** The controller structure is new and comes with a derived stability condition (two theorems, in the supplement). The building blocks (ADRC, SMC with boundary layer, quadratic Lyapunov function) are standard, which keeps it at the bottom of Level 3.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 2 (stated and proved only in supplementary material [27])\n- Proofs: 2 (in [27])\n- Equations: 42\n\n### Proportionality\nCalculated complexity: 2x3 + 2x4 = 14\nExpected range (Level 3): 10-40\nRatio: 0.35x upper bound\n\n**Assessment:** Proportionate. The state-space derivation (Eqs. 10-22) and the control laws (Eqs. 27-37) are what an implementer needs; Greek letters denote genuine design parameters of the switching surface and boundary layer, not decoration. The feasible domain in Eq. 39 is a real optimization constraint set.\n\n### Issues\n- Eq. 39 places the reaching condition 2 beta T2 e_est_max < eta min(1, |sigma(t)|/epsilon) inside a parameter domain, although it depends on the time-varying sigma(t); as a constraint on constant parameters it is ill-posed as written.\n- The stability analysis explicitly excludes the derivative filters that the implemented law (Eq. 36) relies on, as the authors acknowledge.\n\n---\n\n## Citation Analysis\n\nSCR is 29.5% (13/44), in the 20-30% band. Self-citations on ADRC for tower cranes ([16]-[18]), model-free SMC ([21]), SMA tuning ([9], [10]) and the textbook [1] are on topic. The conclusion closes with a single sentence citing 16 works ([29]-[44]) on PID tuning, blood-gas control, mm-wave precoding, student-result prediction, human well-being, quantum TSP, haptics, medical images, digital twins and others as optimization algorithms to be \"adapted and implemented\". Most of these are unrelated to the paper; four are the authors' own and are marginally related (control topics), so IRRELEVANT_SELF_CITATION is not raised, but the list is padding.\n\n---\n\n## Structural Analysis\n\nThe paper body contains the design derivation and the tuned parameter values (Eqs. 40-42) but no comparison: Figs. 1-9, Table 1 with the cost-function averages and variances, the reference trajectories, and both theorems are \"given in [27]\". The claim that \"the performance comparison is quantitative and shows the performance enhancement ensured by the ADRC-SMC\" therefore has no support inside the article. A limitation is acknowledged inline: weak point (2) \"is not fully mitigated\" because filter dynamics are excluded from the stability analysis, and discrete-time implementation is left for future work. No code or data released.\n\n---\n\n## Conclusion\n\nTechnically coherent control-design work with proportionate, necessary formalism. Its weaknesses are structural: the evidence and the formal results live outside the paper, and roughly 30% of the references are the authors' own, with a padded future-work citation list."
+  },
+  {
+   "paper_id": "popescu2024",
+   "paper": {
+    "title": "Software Platform Based on the hLARM Formalism for Modeling Complex Systems",
+    "authors": [
+     "Dragos Constantin Popescu",
+     "Ioan Dumitrache"
+    ],
+    "abstract": "Defining, analyzing and reasoning about behaviors, facts and uncertainties in complex systems requires modeling formal methods and software tools able to manage heterogeneous, dynamically interacting entities. The paper presents the implementation of a software modeling platform based on the hLARM (Hybrid Logic-Algebraic Relational Modeling) formalism, from its conceptual background up to the algorithms supporting the inference procedures.",
+    "keywords": [
+     "Complexity",
+     "modeling",
+     "platform",
+     "relational modeling",
+     "trust factors"
+    ],
+    "doi": null,
+    "pages": "65-80",
+    "source_file": "paper762.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 20,
+    "artifact_availability": 0,
+    "intellectual_integrity": 38.25,
+    "composite": 28.69,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; links point only to third-party tools (Python, SymPy, NumPy, NetworkX, livereload, Bootstrap, leader-line)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 software-platform description. Eq. 1 typesets the list of a model's rules and the list of their trust factors as column vectors F(alpha) and Pi; Eq. 2 presents a Python dictionary {'index' : object} as a numbered equation; Eqs. 5-6 use operator notation (sigma|F_V, phi_fi|S_V) for 'call the SAT solver' and 'keep the auxiliary attributes of each solution', which the text itself says is \"implemented using standard set theory over Python dictionaries\". None of these change what a programmer would build.",
+    "UNSUPPORTED_CLAIMS": "The conclusion asserts \"a high degree of flexibility and real ease of use\", \"simplicity of configuration and high adaptability for wide classes of heterogeneous complex systems\" and efficient interfacing, but the paper contains no case study, no example model run through the inference procedures, no performance measurement and no user evaluation.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints (scalability of SAT and Quine-McCluskey based inference, single-machine terminal interface, absence of validation)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Implementation description of a Python modeling platform for a formalism published elsewhere, with lists and dictionaries rendered as equations, no evaluation of any kind, unresolved \"[citare]\" placeholders in the text, and no released software.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A Python terminal application plus a web UI (SymPy, NumPy, NetworkX, Bootstrap, leader-line) implementing the hLARM modeling formalism introduced in the authors' Information Fusion 2023 paper [3]: class hierarchy, GUI rendering, a layout heuristic, and step lists for the analysis, synthesis and structural-equivalence procedures.\n**Level:** 1 (Trivial)\n**Rationale:** The paper describes a software system that combines existing libraries (a DPLL SAT solver and Quine-McCluskey simplifier from SymPy, Kamada-Kawai layout from NetworkX) to implement algorithms defined in prior work. The new algorithmic content is a coordinate-expansion layout heuristic (Algorithm 1). This is a system-architecture and prototype description.\n\n### Formal Elements\n- Definitions: 0 (formal); Eq. 3 is quoted as \"Definition 8 from [3]\"\n- Theorems: 0\n- Proofs: 0\n- Equations: 6, plus Algorithm 1 with arithmetic steps\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** The count is small but the Necessity Test fails for several elements at a level with zero tolerance.\n\n### Issues\n- Eq. 1: F(alpha) and Pi written as stacked vectors of rules and of probabilities, i.e. two lists.\n- Eq. 2: {'index' : object related to the resource}, a Python dictionary displayed and numbered as an equation.\n- Eqs. 5-6: S_V = sigma|F_V and S_f = phi_fi|S_V for solving with the SAT solver and filtering the solution dictionaries.\n- Eq. 3 (least-squares trust-factor propagation) and Eq. 4 (the ITE construction that builds the V matrix) are needed and are not counted against the paper.\n\n---\n\n## Citation Analysis\n\nOne self-citation of 32 references (3%): [3], the paper that defines hLARM, which is essential. The remainder are tool homepages and standard references (DPLL, Quine, McCluskey, graph-layout surveys). Two citations are left as the literal placeholder \"[citare]\" (Romanian for \"citation\") for pickle and for the NetworkX Kamada-Kawai routine. No integrity issues.\n\n---\n\n## Structural Analysis\n\nThe paper is a description with no evidence: no worked example of a model being analysed, no output of any inference procedure, no runtime or scalability measurement, no comparison with the platforms surveyed in the introduction (KeYmaera X, Modelica, Ptolemy II, NetLogo, Modelio), and no user study supporting the claims of ease of use. Algorithms 2-6 are lists of method calls. Editorial residue (\"[citare]\", \"Te modeling environment\", \"duple clicks\") suggests the manuscript was not finalised. No limitations. The platform itself is not released, so a reader cannot obtain or test it.\n\n---\n\n## Conclusion\n\nA Level 1 system description in which lists and a dictionary are presented as equations, triggering formalism theater under the zero-tolerance rule. More seriously, the paper offers no evaluation at all for its claims of flexibility and ease of use, and does not release the software it describes."
+  },
+  {
+   "paper_id": "shambour2024",
+   "paper": {
+    "title": "An Effective Doctor Recommendation Algorithm for Online Healthcare Platforms",
+    "authors": [
+     "Qusai Y. Shambour",
+     "Mosleh M. Abualhaj",
+     "Ahmad A. Abu-Shareha"
+    ],
+    "abstract": "Online healthcare platforms often recommend the same doctors to all patients from a global ranking. The paper proposes a hybrid doctor recommendation approach combining multi-criteria collaborative filtering and content filtering to mitigate data sparsity and cold start. Offline tests on a real-world dataset are reported to show superiority over state-of-the-art approaches in prediction accuracy and coverage.",
+    "keywords": [
+     "Content filtering",
+     "doctor",
+     "multi-criteria collaborative filtering",
+     "medical informatics",
+     "recommender systems"
+    ],
+    "doi": null,
+    "pages": "81-93",
+    "source_file": "paper763.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 55,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 59.25,
+    "composite": 44.44,
+    "final": 34.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement for code or data; the dataset \"is crawled from the well-known online healthcare platform ratemds.com\" and is not deposited; the only link, https://drive.google.com/file/d/1p3nWPTXFjkZS5QsrbHx4-5YMs5LKJJE0/view?usp=sharing [23], is supplementary material holding figures and pseudo-code",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "Eight of 33 references (24.2%) are by the first author: [3], [4], [7], [8], [9], [10], [17] and the supplementary material [23]; 21.9% excluding [23]. They are recommender-system papers and are topically related; two of them ([3], [4]) also serve as the main baselines.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints; Section 5 lists future directions only."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "A conventional hybrid of multi-criteria item-based CF and specialty-based content filtering, evaluated on a crawled RateMDs dataset against weak baselines largely from the first author's earlier work; all result figures are in an external file, the reported 86-89% MAE reductions are implausible, and no limitations are stated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Doctor recommendation by switching-weighted hybrid of multi-criteria item-based collaborative filtering (quasi-norm similarity times Salton cosine, a reputation fallback) and content filtering on binary specialty vectors (Sokal-Sneath similarity).\n**Level:** 2 (Low)\n**Rationale:** Existing similarity measures and prediction formulas are combined and applied to a new domain; no new algorithmic principle or analysis.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 11\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations specify the similarity and prediction formulas a programmer would implement. Set notation such as |T_x ∩ T_y| is the standard way the Salton index is defined in the CF literature and is used inside a numeric metric, so it is not treated as theater.\n\n### Issues\n- Eq. 2 computes the single-neighbour prediction P_t,x = mean_x + (U_t(x) - mean_y) using U_t(x), the patient's actual rating of the target doctor, and Eq. 3 then measures similarity as the error between this prediction and the same U_t(x). The construction is circular as written and is not explained.\n- Eq. 11 uses the harmonic mean of the two predictions, which is undefined if their sum is zero; minor.\n\n---\n\n## Citation Analysis\n\nSCR 24.2% (8/33), within the 20-30% band; the self-citations are on recommender systems and relevant. The future-work section, however, builds bullets around [28]-[31] (observation-process modelling in cognition, GWO tuning of fuzzy controllers for clutch systems, tensor-product modelling of tower cranes, teaching optimization techniques) and [32]-[33] (papers in this journal on fuzzy decision support and text summarization). The [28]-[31] works share one co-author group and are unrelated to doctor recommendation. They are not self-citations, and no reciprocal citation can be seen from this paper, so no citation flag is raised, but they read as inserted citations.\n\n---\n\n## Structural Analysis\n\nEvery result figure (Figs. 3-8) and the pseudo-code are \"given in [23]\", an external Google Drive file; the article reports only percentage improvements. Average MAE improvements of about 89%, 89%, 86% and 33% over item-based CF baselines on a 1-5 rating scale are implausibly large and are not accompanied by absolute values, variances or significance tests. Two of four baselines are the first author's 2016 methods, and the closest prior system ([17], also by the first author) is not compared. The sparsity and cold-start subsets are constructed without a described protocol. The dataset was crawled and is not released. No limitations.\n\n---\n\n## Conclusion\n\nAn incremental recommender with proportionate equations but a weak evaluation: off-page results, implausible gains, self-selected baselines, and a circular single-neighbour prediction formula. Self-citation is elevated and the future-work citations look inserted."
+  },
+  {
+   "paper_id": "mone2024",
+   "paper": {
+    "title": "Multi-participant Decision-making Based on Digital Platforms: A Case Study for the Romanian Academy",
+    "authors": [
+     "Firicel Mone",
+     "Maria Visan",
+     "Mihaela Simionescu"
+    ],
+    "abstract": "The paper presents the platform-economy framework for peer-to-peer transactions, basic aspects of multi-participant collaborative decision-making, and an evaluation of teleconference platforms, using a Romanian Academy case study of teleconference platform adoption. A seasonal autoregressive model is used to explain the number of participants in the Academy's online conferences between April 2020 and August 2023 and to forecast September to December 2023.",
+    "keywords": [
+     "Blockchain",
+     "multi-participant decision-making",
+     "platform economy",
+     "SARMA model",
+     "teleconference platforms"
+    ],
+    "doi": null,
+    "pages": "94-105",
+    "source_file": "paper764.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 65,
+    "citation_integrity": 80,
+    "structural_integrity": 25,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.25,
+    "composite": 45.19,
+    "final": 25.19
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement for the participant series; the only author link, \"Appendix 1, [Online] Available https://mone.ro/Appendix 1.pdf\" [21], holds a residual correlogram, not the data",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "The paper's stated subject, multi-participant decision-making, is never measured: no decision outcome, survey, or evaluation of the platform comparison is reported, and the chosen platform is not even named. Conclusions such as increased effectiveness, efficiency, productivity, engagement, trust and reliability rest on no evidence; the only analysis is a SARMA fit to one monthly attendance series. The keyword 'Blockchain' never appears in the body.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints (about 40 monthly observations with summer months missing, a single institution, the pandemic structural break)."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "A descriptive account of teleconference adoption at one institution plus a textbook SARMA fit to about 40 monthly attendance counts; the decision-making claims in the title are not examined, the model equations are duplicated with labelling errors, and the references lean on vendor pages and blogs.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Narrative of the Romanian Academy's teleconference-platform adoption (stakeholders, stages, a feature comparison of five commercial platforms) and a SARMA(1,0)(1,0)12 model of monthly online-meeting attendance with unit-root tests and a four-month forecast.\n**Level:** 2 (Low)\n**Rationale:** An empirical case study with basic time-series statistics run in EViews; no new method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 numbered plus 3 ADF regressions\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in kind: the SARIMA polynomials and ADF regressions are the textbook specification of the model used, and Greek letters are model coefficients. Not theater, but carelessly presented.\n\n### Issues\n- Eqs. 6-10 repeat Eqs. 1-5 almost verbatim.\n- Eqs. 5 and 10 label the MA polynomial with phi instead of theta; Eq. 1 mixes phi and varphi for the same operators.\n- The model is a SARMA with no differencing, yet the paper discusses SARIMA throughout and fits it to a series with no meetings in June-August, without saying how the gaps are handled.\n- The Jarque-Bera statistic is printed as \"2094104\", evidently garbled.\n\n---\n\n## Citation Analysis\n\nNo self-citations. The reference list is dominated by vendor pricing pages, a blog post and Indeed career-advice pages ([5], [8], [10]-[17]) to which page ranges such as \"pp. 20-26\" are attached, although web pages have no pages; Kenney and Zysman appears twice ([1] and [20]) with different venues; Simon is cited for the decision-making model as [2] and also for the gig economy. No manipulation pattern, but the citation hygiene is poor.\n\n---\n\n## Structural Analysis\n\nThe decision-making framing is not connected to any evidence: Table 1 compares platform features from vendor pages, but there is no scoring matrix, no decision recorded and no assessment of how the platform affected decisions. The time series is said to cover two sub-periods, \"before the use of the teleconferencing platform (April 2020 - August 2020)\" and after, yet the series counts participants in online meetings throughout, which is not explained. Forecast accuracy measures are named but not reported. The final paragraphs of the results and the conclusion assert benefits that the data do not test. No limitations. The participant data are not released; the appendix link contains only a correlogram.\n\n---\n\n## Conclusion\n\nThe paper is a descriptive institutional report with a small textbook time-series exercise attached. Its formalism is ordinary but sloppy; its claims about multi-participant decision-making are unsupported, and no limitations are acknowledged."
+  },
+  {
+   "paper_id": "ning2024",
+   "paper": {
+    "title": "Neural Network-based Pattern Recognition in the Framework of Edge Computing",
+    "authors": [
+     "Jing Ning"
+    ],
+    "abstract": "Neural network models face performance and energy problems in edge computing environments. The article introduces the structure and training of neural networks including backpropagation, then a neural network modeling approach for edge computing including model compression, distributed models and knowledge distillation, and finally a pattern recognition model on the MNIST dataset. The approach is reported to improve the operating efficiency of the network in the edge computing environment by 6%-12% while keeping high recognition accuracy.",
+    "keywords": [
+     "Edge computing",
+     "Mixed National Institute of Standards and Technology Database",
+     "neural networks",
+     "pattern recognition"
+    ],
+    "doi": null,
+    "pages": "106-119",
+    "source_file": "paper765.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 60,
+    "structural_integrity": 10,
+    "artifact_availability": 50,
+    "intellectual_integrity": 47.5,
+    "composite": 48.12,
+    "final": 28.12
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"In this experiment, this article used the classic MNIST dataset for PR tasks\"; MNIST is a named public dataset. No code is linked or claimed.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "The network architecture, compression settings, distillation setup, edge hardware and the meaning of \"efficiency\" are never specified, yet the paper claims a 6%-12% efficiency gain, that knowledge distillation is best, that recognition takes 20-30 ms per frame, and that \"reliability and safety are guaranteed\". The only table reports roughly 70-84% accuracy on MNIST with no baseline, and all four figures carry captions about Romanian Academy online-conference attendance, so the plotted evidence cannot be identified.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints of the approach; the remark that accuracy is \"only about 80%\" is followed by no qualification of the conclusions."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Largely a textbook overview of neural networks, compression, distributed training and distillation, followed by an unspecified MNIST experiment at about 80% accuracy; figure captions belong to another paper in the issue, the headline efficiency gains are undefined, and unrelated citations are inserted into the literature review.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** General description of neural-network training, model compression (pruning, quantization, decomposition), data/model parallelism and knowledge distillation for edge computing, with an MNIST pattern-recognition experiment.\n**Level:** 2 (Low)\n**Rationale:** Standard ML techniques applied to a benchmark dataset; most of the text is survey-like exposition. Nothing new is proposed in a form that could be specified or reproduced.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (forward pass, softmax, cross-entropy, two backpropagation lines)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in amount; basic textbook equations, not a theater pattern. They describe no part of the author's own method and contain errors, which lowers the score.\n\n### Issues\n- Eq. 5 writes dL/dW1 as (dL/dalpha2)(dalpha1/W1) = delta2 alpha1, mixing layers; the text then defines delta as \"the deviation\" and W as \"the gradient of the weight\".\n- The section on the method describes a residual-connection design principle (\"the author proposed ... shortcut connections\") that is never used or tested, and mentions training \"on the riverside\" and tuning \"parameter c and kernel function in SVM\" in a neural-network experiment.\n\n---\n\n## Citation Analysis\n\nSingle author, no self-citations. The edge-computing review contains a paragraph on [13]-[15] (multi-parametric quadratic programming in fuzzy control, a method for teaching optimization techniques, actor-critic RL with GWO for servo control) and Section 5 ends with [20]-[22] (binary anarchic society optimization, GWO tuning of fuzzy controllers for clutches, brainstorm optimization for UAV path planning). None concern edge computing or pattern recognition. Four ([13], [14], [15], [21]) share one co-author group and two ([20], [22]) are in this journal or a sister Romanian Academy journal. They are not self-citations and no reciprocal citation can be seen from this paper, so no citation flag is raised, but the inserted passages lower the score substantially.\n\n---\n\n## Structural Analysis\n\nThe experiment is not reproducible from the text: no architecture, hyperparameters, compression ratios, teacher/student models, edge device or timing method are given. Table 2 shows roughly 70-84% accuracy on MNIST, far below the 98-99% that simple networks reach, with no baseline. Figs. 1-4 all carry the caption \"The number of participants to online conferences organized by the Romanian Academy in the period April 2020- August 2023\", copied from another paper in this issue, so the figures cannot be linked to the claims they are cited for. \"Information synthesis ability\" and \"information integrity\" indices (8-9) are undefined. The 6%-12% efficiency improvement has no defined metric. No limitations. MNIST is public; nothing else is available.\n\n---\n\n## Conclusion\n\nThe formal content is textbook and harmless; the problem is that the paper contains almost no verifiable evidence for its claims, with mislabelled figures, an undefined efficiency metric and unrelated inserted citations. Structural integrity is very low."
+  }
+ ]
+}

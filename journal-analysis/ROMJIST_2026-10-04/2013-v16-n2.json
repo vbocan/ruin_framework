@@ -1,0 +1,483 @@
+{
+ "batch_id": "2013-v16-n2",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 16,
+  "issue": 2,
+  "year": 2013
+ },
+ "papers": [
+  {
+   "paper_id": "spariosu2013a",
+   "paper": {
+    "title": "Foreword (Special Issue: Computational Models for Interethnic Studies in Transylvania and Banat)",
+    "authors": [
+     "Mihai Spăriosu",
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "Foreword to a special issue collecting nine papers from the workshop \"Computational Models for Interethnic Studies in Transylvania and Banat\" (Cluj-Napoca, September 27-29, 2012), with a summary of each contribution and acknowledgements.",
+    "keywords": [],
+    "doi": null,
+    "pages": "106-108",
+    "source_file": "00-foreword.pdf"
+   },
+   "concept_level": null,
+   "scores": {
+    "formalism": null,
+    "citation_integrity": null,
+    "structural_integrity": null,
+    "artifact_availability": null,
+    "intellectual_integrity": null,
+    "composite": null,
+    "final": null
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EDITORIAL"
+   ],
+   "flag_details": {
+    "EDITORIAL": "Guest editors' foreword to a special issue: summarises the nine papers, describes the funding project and workshop, and thanks participants. Not a research paper."
+   },
+   "verdict": {
+    "classification": "NOT_APPLICABLE",
+    "disqualified": false,
+    "record_type": "editorial"
+   },
+   "provenance": "## Formalism Analysis\n\nNot applicable. The document is the guest editors' foreword to the special issue on computational models for interethnic studies. It summarises each of the nine papers, names the CNCS-UEFISCDI project that funded the workshop, and acknowledges participants and hosts.\n\n---\n\n## Citation Analysis\n\nNo reference list.\n\n---\n\n## Structural Analysis\n\nNo research claims, methods or results.\n\n---\n\n## Conclusion\n\nFlagged EDITORIAL and excluded from analysis."
+  },
+  {
+   "paper_id": "spariosu2013b",
+   "paper": {
+    "title": "Computational Models of Intercultural Relations in Banat and Transylvania: Theoretical and Practical Issues",
+    "authors": [
+     "Mihai I. Spăriosu"
+    ],
+    "abstract": "This paper outlines the basic issues and challenges in building and testing computational models of intercultural conflict and harmony in Banat and Transylvania, using selected archival and online records of intercultural relations between heterogeneous populations in these regions at important moments in their history. This kind of project, the paper argues, can be successful only if it combines the qualitative methods of the humanities and the social sciences with the latest analytical and statistical methods from the Artificial Intelligence (AI) field of data mining, using entity relation modeling based on entity identification. The paper then describes a new method of parallel computation, based on the Quantum Relations Principle (QRP) - an offshoot of general systems theory, specifically complexity and self-organization theory, which is ideally suited for the modeling of intercultural relations.",
+    "keywords": [],
+    "doi": null,
+    "pages": "109-130",
+    "source_file": "01-spariosu.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 85,
+    "structural_integrity": 35,
+    "artifact_availability": 30,
+    "intellectual_integrity": 72.5,
+    "composite": 61.88,
+    "final": 46.88
+   },
+   "artifact_assessment": {
+    "category": "claimed",
+    "relevant": true,
+    "evidence": "\"We shall put this database online and make it publicly available to researchers, practitioners, and policy-makers concerned with intercultural issues.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "The paper is a research programme rather than a report of results, and its strongest assertions carry no evidence: the QRP/DFO model is said to be \"self-adaptable\", to \"automatically search for the best method and the shortest path\", to be not bound to Turing-computable functions, and to \"translate and incorporate any software program or computer language into its database, thus solving the currently intractable problem of systemic compatibility\". QRP-based technology is \"perfectly compatible with and can integrate any other parallel computing method\". None of these claims is backed by a citation, an experiment or a demonstration; estimated CER is well below 0.33 for the technical part."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Programmatic position paper for a funded project; no formalism problem, but the technical claims about the Quantum Relations platform are asserted without any evidence, and the only artifact is a promised future database.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Research agenda for computer-assisted modelling of intercultural conflict and harmony in Banat and Transylvania, surveying candidate methods (factor analysis, FCA, co-citation analysis, SIR/SIRS contagion models, fuzzy cognitive maps, cellular networks, PSO) and promoting the Quantum Relations Principle platform.\n**Level:** 1 (Trivial)\n**Rationale:** A proposal and survey of methods with no new algorithm, model or result. The two small analyses mentioned (an FCA of interwar Cluj periodicals, an author co-citation map built with NodeXL and VOSviewer) apply existing tools.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (one illustrative 2x3 table of religious percentages)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper uses physics vocabulary (state-space, vectors, operators, metric spaces, elementary particles) metaphorically in prose, but introduces no formal notation, so the Necessity Test has nothing to fail.\n\n### Issues\nNo formalism theater. The quantum-mechanical vocabulary for DFOs and FORs is rhetorical rather than mathematical.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 43 references ([33], the author's own book on global intelligence, cited for the systems-theory and Buddhism/Taoism comparison; relevant). SCR about 2%. Two reference-quality problems lower the score: reference [41], cited for Zadeh's fuzzy logic, is an astrophysics letter on hydroxyl masers at the Galactic Center by a different Zadeh, and [36] (a bibliometric mapping paper) is cited for concept mapping. Several references are listed but not used in the text ([39] Weidmann).\n\n---\n\n## Structural Analysis\n\nThe historical and political-science claims at the start are reasonably cited. The technical half, which describes the QRP/DFO platform, consists of capability claims with no evidence (see UNSUPPORTED_CLAIMS). The feasibility section reduces to a hardware throughput estimate. The partnering company is that of the QRP author (SCG), which the paper does disclose. Limitations appear only inline (\"This approach is not perfect\"; the models \"may not be entirely successful in accurately predicting individual or group behaviour\").\n\nArtifact: a future public database is promised, with no link or deposit; scored as claimed.\n\n---\n\n## Conclusion\n\nA project manifesto with proportionate (zero) formalism and clean self-citation behaviour. Its weakness is structural: the paper's most specific technical claims, concerning a proprietary parallel-computation platform, are unsupported, and the reference list contains at least one misattributed citation. No paper text addressed instructions to reviewers or agents."
+  },
+  {
+   "paper_id": "malita2013a",
+   "paper": {
+    "title": "Real Complexity vs. Apparent Complexity in Modeling Social Processes",
+    "authors": [
+     "Mihaela Maliţa",
+     "Gheorghe Ştefan"
+    ],
+    "abstract": "Complexity science, developed in the last few decades, starts from the unproved presupposition that the foundations of the processes which manifest themselves as complex are simple. Thus, it was easy to build quickly various models for complex processes. But, in the current stage of development we start, little by little, to become aware of the main limitations introduced by the deep simplicity hypothesis. Indeed, it is hard to explain the high phenomenological complexity by deep structural simplicity. Between phenomenon and structure we propose the intermediate concept of architecture, as a supporting environment for maximizing the complexity captured in our models.",
+    "keywords": [],
+    "doi": null,
+    "pages": "131-143",
+    "source_file": "02-malita-stefan1.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 45.75,
+    "composite": 34.31,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 conceptual essay with formal \"Definition 1\" and \"Definition 2\" blocks that restate a plain-English idea in notation: a complex entity has S_E(n) ~ C_E(n), a simple entity has S_E(n) >> C_E(n). The sentence immediately before already says the same thing in words (\"A short story ... is possible only for the description of something simple\").",
+    "DECORATIVE_DEFINITIONS": "Both numbered definitions fail the Necessity Test: S_E and C_E are never measured, bounded or used in any argument, and the paper itself concedes that the shortest description \"is hard to be defined\". The paper's central notion, apparent complexity, is then given only \"a preliminary, informal definition\", so the formal definitions do no work."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Short conceptual essay on apparent versus real complexity; its two numbered definitions are decorative notation for a plain-English distinction, which disqualifies it at Level 1.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Essay arguing that complexity science reduces real complexity to apparent complexity (simple generative rules with complex appearance), illustrated with the logistic map, rule 30 and rule 90 cellular automata, and Julia sets, and proposing an \"architectural\" (functional) approach for modelling social processes.\n**Level:** 1 (Trivial)\n**Rationale:** A position essay that reviews textbook examples; there is no new model, algorithm or result.\n\n### Formal Elements\n- Definitions: 2 (Definition 1 complex entity, Definition 2 simple entity)\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 illustrative (logistic map, two CA rules, Julia set map and two parameterisations); plus a Verilog listing\n\n### Proportionality\nCalculated complexity: 4\nExpected range (Level 1): 0-5\nRatio: 0.8x upper bound\n\n**Assessment:** Within range by count, but the definitions fail the Necessity Test. The illustrative equations are the examples under discussion and are acceptable.\n\n### Issues\nThe introduction promises that \"the distinction between size and complexity is rigorously defined\"; what follows is the notation S_E(n) ~ C_E(n) versus S_E(n) >> C_E(n), with \"~\" and \">>\" undefined and no measurement of C_E. The definitions are never used again. The second CA rule is misprinted (Si - 1 instead of S(i-1)).\n\n---\n\n## Citation Analysis\n\nNo self-citations among 8 references, all general books on complexity, chaos and fractals. Several ([3], [6], [7], [8]) are listed but not cited in the text.\n\n---\n\n## Structural Analysis\n\nThe examples support the descriptive points, but the main thesis (social processes cannot be reduced to simple rules; architecture is the needed compromise) is argued rhetorically, in a two-paragraph section with three bullet points and no evidence. Strong statements such as \"There is no algorithmic way which starts form Siepinski's geometric definition leading toward rule 90\" are unsupported. Limitation acknowledgment is minimal and inline (the approach is called \"a transitory solution\"; self-organizing mechanisms \"are not, for sure, the only mechanisms to be considered\").\n\nArtifact: a Verilog description is printed in the paper but nothing is linked or claimed. Being an essay, it has little to release (relevant: false).\n\n---\n\n## Conclusion\n\nA readable short essay whose formal apparatus is ornamental: two numbered definitions restate an informal intuition and are never used. Under the Level 1 zero-tolerance rule this is formalism theater. Citation conduct is clean."
+  },
+  {
+   "paper_id": "trausanmatu2013",
+   "paper": {
+    "title": "A Polyphonic Model, Analysis Method and Computer Support Tools for the Analysis of Socially-Built Discourse",
+    "authors": [
+     "Ştefan Trăuşan-Matu"
+    ],
+    "abstract": "The paper presents the polyphonic model of discourse, an associated analysis method and computer support tools based on them, following a socio-cultural approach and focusing on discourse built socially, for example in inter-ethnic debates. Natural Language Processing and Social Network Analysis methods were used for analyzing discourse in order to provide visualizations, feedback, and proposing conducting inter-animations toward a equilibrium-based polyphonic weaving.",
+    "keywords": [],
+    "doi": null,
+    "pages": "144-154",
+    "source_file": "03-trausanmatu.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 30,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 55.75,
+    "composite": 41.81,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (PolyCAFe and ReaderBench are named, with no link or availability statement)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "17 of 29 references (59%) include the author: [1], [5], [7], [8], [9], [10], [17], [19], [20], [21], [22], [23], [24], [25], [26], [27], [28]. Most concern the polyphonic model and its tools and are topically related; [22] (environmental information perception) and [17] (topic evaluation, not cited in the text) are only marginally related. The ratio far exceeds 30%.",
+    "NO_LIMITATIONS": "The only limitation mentioned is the general immaturity of NLP technology in the introduction. Nothing is said about the limits of the polyphonic model, the reliability of the tools, or the absence of any evaluation in this paper."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Overview of the author's polyphonic discourse model and tools, with no new evaluation; no formalism problem, but nearly 60% of the references are self-citations, which disqualifies it.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Overview of the Bakhtin-inspired polyphonic model of discourse (voices, inter-animation, longitudinal and transversal dimensions), a seven-step analysis method, and existing tools (PolyCAFe, ReaderBench) that apply TF-IDF, LSA, LDA, lexical chains and social network analysis.\n**Level:** 1 (Trivial)\n**Rationale:** A summary of previously published work and tool descriptions; existing NLP techniques are combined, and no new algorithm or result is introduced.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The model is presented entirely in prose and figures.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n17 of 29 references are self-citations (59%). They are largely relevant, because the paper is a synthesis of the author's research line, but the reference list is dominated by the author's group, and the external literature is limited to Bakhtin, standard NLP textbooks and a few method papers. Reference [17] is listed but never cited. Reference [1] is an unpublished manuscript. One self-reference appears in author-year form in the text (\"Trausan-Matu 2003\") and has no entry in the list.\n\n---\n\n## Structural Analysis\n\nThe paper states that the model is \"well suited\" to inter-ethnic discourse and that it \"can handle different types of discourse, including ... gestures and inner thinking\", without any evaluation or inter-ethnic case study. Figures show tool screenshots from educational chat data rather than the inter-ethnic application the special issue targets. Claims about the tools defer to earlier papers. No limitations section and no inline acknowledgment of the model's limits.\n\nArtifact: tools are named but not linked; nothing available.\n\n---\n\n## Conclusion\n\nA clear overview of an established research programme with no formalism concerns. The self-citation ratio (59%) exceeds the excessive threshold by a wide margin; even though the self-citations are topically related, the paper functions largely as a pointer to the author's earlier work. No new evidence is presented."
+  },
+  {
+   "paper_id": "schloer2013",
+   "paper": {
+    "title": "The Quantum Relation Principle: Technological Implementation and Real World Application in Intercultural Conflict Detection and Management",
+    "authors": [
+     "Hardy F. Schloer"
+    ],
+    "abstract": "The Quantum Relations Principle (QRP) is a theoretical and practical tool that guides us in building dynamic reality models that can measure the interactions of mutual causality among various observers and can make assumptions about how they may behave and affect each other in the future. The QRP approach redefines common computer intelligence (AI) into a n-dynamic (different dynamics in different frames of reference) and n-dimensional (quantum relational) parallel system, which is much more in tune with the way the human brain works. It has the advantage, however, of running on modern supercomputers, and therefore is highly scalable. In that way, it is poised to vastly outperform the human brain and thus greatly surpass human performance at all levels. QRP systems are ideally suited to model, analyze and offer solutions to very complex real-world problems, including interethnic and intercultural conflicts. The paper discusses a recent example from the Middle East to demonstrate both the predictive and the solution-oriented capabilities of the QRP systems. But similar QRP analytic methods can be applied to conflictive situations in other regions of the world, for example to the modeling of the historically tense relations between Hungarian and Romanian ethnic groups in Transylvania, or more generally, to the very complex intercultural relations in Central and Eastern Europe.",
+    "keywords": [],
+    "doi": null,
+    "pages": "155-176",
+    "source_file": "04-schloer.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 80,
+    "structural_integrity": 15,
+    "artifact_availability": 0,
+    "intellectual_integrity": 31.75,
+    "composite": 23.81,
+    "final": 23.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the paper states \"For reasons of confidentiality imposed by the client of this study we shall refrain from naming the country.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 architecture description in which DFO relationships are dressed in function notation that adds nothing to the words around it: \"Matching (static) attributes: a1 = a2\", \"Similar attributes: fsim(a1, a2) -> 1\", \"Matching instructions: fvalue(i1) = fvalue(i2)\", \"Similar instructions: ssim(fvalue(i1), fvalue(i2)) -> 1\", \"Interrelated methods: freact(DFO1, DFO2) = 1\". None of the functions is defined, computed or used; the text beside each bullet admits that \"the difficulty here is to determine a method to calculate similarity\". Five elements fail the Necessity Test.",
+    "UNSUPPORTED_CLAIMS": "Claim-evidence ratio is far below 0.33. Examples: QRP is \"poised to vastly outperform the human brain and thus greatly surpass human performance at all levels\"; the Western portrayal of the Arab Spring \"is false, and can be shown to be false\"; the conclusions \"have been reached with overwhelming computational evidence\"; QRT \"can make good predictions regularly between minutes and decades into the future\"; \"nearly every major bank in the world is using our algorithmic real-time data streams\"; the QR approach \"is arguably the only and at least most appropriate tool\". The only empirical material is an anecdote about a 2010 conference remark, an unreplicable Bahrain \"flow-model\", and a sentiment chart for an unnamed country with a confidential client. No method, data, validation or comparison is given."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Promotional description of a proprietary \"Quantum Relations\" analytics platform with sweeping, unsupported capability and geopolitical claims and decorative pseudo-formal notation; disqualified at Level 1.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Description of the Quantum Relations Technology (QRT): a server framework of plug-in AI \"problem-solving engines\", a Time Series Language, \"Data Fusion Objects\" inside \"Frames of Reference\", a \"Quantum-Sphere\" data store; followed by an account of Arab Spring news-flow analysis.\n**Level:** 1 (Trivial)\n**Rationale:** A system architecture combining existing components (time-series processing, Bayesian nets, genetic search, distance metrics, classifiers, news aggregation), described at a marketing level. No algorithm is specified.\n\n### Formal Elements\n- Definitions: 0 numbered\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 pseudo-formal relationship expressions (a1 = a2, fsim, fvalue, ssim, freact)\n\n### Proportionality\nCalculated complexity: 0 by the counting formula\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Within range by count, but every formal expression fails the Necessity Test (see FORMALISM_THEATER).\n\n### Issues\nBeyond the notation, the paper borrows physics vocabulary (quanta, uncertainty principle, mass/gravity clustering, critical mass, social energy) without any mathematical content, and asserts that the DFO model \"is not bound to Turing computable functions\" and \"conceptually provides methods for implementing quantum computing\".\n\n---\n\n## Citation Analysis\n\nFive references, none by the author; four general AI books are attached to a single footnote, and [5] is Spăriosu's book that republished the author's own notes. The theoretical basis is attributed in a footnote to unpublished notes by the author and a collaborator (1987-2001), which are not in the reference list. No self-citation flag is raised, but the reference base is too thin to support the paper's claims, and the Arab Spring background relies on \"Various news sources and online information incl. Wikipedia\".\n\n---\n\n## Structural Analysis\n\nAlmost every substantive sentence is an assertion of capability or a geopolitical judgment without evidence (see UNSUPPORTED_CLAIMS). The Arab Spring section makes political claims (\"willfully induced crisis\", memes of \"Persian language-culture\" origin) on the basis of an undisclosed, non-reproducible analysis. The client is confidential, the country unnamed, and the PR firms deliberately not named. The paper also frames its application as \"perception management\" on behalf of a ruler. Limitations appear only inline: \"one cannot fully exclude human bias\", and data \"that cannot be collected\".\n\nArtifact: proprietary system, confidential data; nothing available.\n\n---\n\n## Conclusion\n\nThe paper reads as promotional material for a commercial platform rather than research: it offers no method that could be reproduced, no data, no validation, and claims of superhuman performance and multi-decade prediction. The decorative relationship notation triggers the Level 1 formalism cap, and the claim-evidence imbalance is the most severe in this issue. No paper text addressed instructions to reviewers or agents."
+  },
+  {
+   "paper_id": "malita2013b",
+   "paper": {
+    "title": "Control Global Loops in Self-Organizing Systems",
+    "authors": [
+     "Mihaela Maliţa",
+     "Gheorghe Ştefan"
+    ],
+    "abstract": "Self-organizing systems are used to model complex or at least apparent complex behaviors. The idea currently in use is to study global behaviors based only on fixed and local rules. The emergence of a specific global behavior depends too strongly on the initial state of the system. This chaotic aspect can be avoided adding, besides the local loops, a global control loop to balance the too big \"local freedom\". The global loop can be used to tune the local behavior so as the entire system becomes more stable. Using various reduction functions some global parameters are extracted from the system and sent back locally to the elements of the system. The information received locally through the global loop is used to \"tune\" the local behavior. So the self-organized system becomes \"less self-organized\", but more flexible in maintaining its global state in prescribed limits. In order to illustrate the idea, the paper presents simple examples of cellular automata with global loops.",
+    "keywords": [],
+    "doi": null,
+    "pages": "177-191",
+    "source_file": "05-malita-stefan2.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 35,
+    "structural_integrity": 60,
+    "artifact_availability": 70,
+    "intellectual_integrity": 27.25,
+    "composite": 37.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"The two instruments used to exemplify and prove the opportunity of the control global loop in a self-organized system are annexed. The electronic forms are downloadable at: http://www.anselm.edu/internet/compsci/Faculty Staff/mmalita/\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 simulation study that restates ordinary data structures in tuple and matrix notation: the CA state as V = (a1 a2 ... an), an n x n matrix M written out element by element, and a Sugarscape cell as \"aij = (eij pij)\", explained in the next sentence as two lists, one for the environment and one for people. The global loop is written F(A, G(A)), but G is simply \"count the alive cells\". The notation is never used to derive anything; the actual mechanism is the Verilog and Scheme code in the appendices.",
+    "EXCESSIVE_SELF_CITATION": "2 of 3 references (67%) are by the authors: [1], the companion paper in the same issue, and [3], an earlier proceedings paper on a global loop over a linear CA. Both are topically related, but the reference list is so small that two-thirds of it is self-citation, and the only external source is Epstein and Axtell's book (whose authors are garbled as \"Epstein M. Epstein R.A.\")."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Small cellular-automaton experiments showing that a global feedback loop keeps populations alive, with code made available; disqualified by a 67% self-citation ratio in a three-item reference list and decorative tuple notation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Adding a global feedback loop (a reduction function such as a population count, fed back to switch the local CA rule) to a 64-cell one-dimensional CA and to Conway's Game of Life, with suggestions for Sugarscape.\n**Level:** 2 (Low)\n**Rationale:** An empirical simulation study of a simple control idea on standard CA. The paper repeatedly says it will \"prove\" its claim, but the support is a set of simulation examples, not a proof.\n\n### Formal Elements\n- Definitions: 0 numbered\n- Theorems: 0\n- Proofs: 0\n- Equations: about 6 (state vector, state matrix, two transition functions, Sugarscape cell tuple, threshold T = initValue - Difference)\n\n### Proportionality\nCalculated complexity: 0 by the counting formula\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Light notation, but the tuple and matrix restatements of data structures fail the Necessity Test (see FORMALISM_THEATER). The local transition functions themselves are standard and acceptable.\n\n### Issues\nThe word \"proof\" is used for what are illustrative experiments (\"The aim of this paper is to proof that ...\").\n\n---\n\n## Citation Analysis\n\nThree references, two of them the authors' own (67%). Both are relevant (the companion essay in this issue, and the authors' 1998 global-loop CA paper). The disqualification follows from the ratio, not from irrelevance; with only three references the paper does not engage with the literature on global or mean-field coupling in CA, or on controlled self-organisation.\n\n---\n\n## Structural Analysis\n\nThe Game of Life results rest on 100 runs per configuration (Table 1) and 20 per parameter pair (Table 2), which is more evidence than most papers in this issue offer, although the tables' contents are not legible in the text and no dispersion is reported. The \"more than 5 times\" improvement is stated against a 12.5% baseline. The Sugarscape section is a proposal only. Limitations are acknowledged inline (only one-bit, one- and two-dimensional CA; Sugarscape loops are \"suggested\").\n\nArtifact: Verilog and Scheme sources are printed in appendices and stated to be downloadable from a faculty web page. That is the authors' own code; the result tables are not deposited, but they come from randomised runs of that code. Scored as code.\n\n---\n\n## Conclusion\n\nA modest but concrete simulation contribution with code released, undermined by a vestigial reference list that is two-thirds self-citation, and by notation that restates data structures. Under the specification both issues disqualify; the code release and the replicated runs are the paper's strengths."
+  },
+  {
+   "paper_id": "cremene2013",
+   "paper": {
+    "title": "A Game Theoretical Perspective on Cooperation in Low Confidence Environments",
+    "authors": [
+     "Marcel Cremene",
+     "Ligia Cremene",
+     "Dumitru Dumitrescu"
+    ],
+    "abstract": "Cooperation is a key behaviour for common welfare. Spontaneous order occurs only under special conditions and often remains immaterialized or leads to situations that are not favorable to the society as a whole. The information society revolution, overlapping the particular political and economic context creates a highly dynamic, unpredictable social context. Emergence of cooperative behaviour in such a context is analyzed within the framework of Computational Game Theory. The Prisoner's Dilemma game yields a non-cooperative behaviour if played only ones. When the game is repeated players learn that they can gain more if they cooperate. But repetition does not seem to be favored by a rapidly changing environment. Our main hypothesis is that the lack of a reasonable expectation concerning the continuation of the game induces selfish, short-time thought actions, or actions based on altered perception, which do not favor social cooperation. Normal game and spatial scenarios are analyzed. Results indicate that low confidence conditions increase the incentive to defect.",
+    "keywords": [],
+    "doi": null,
+    "pages": "192-202",
+    "source_file": "06-cremene.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.75,
+    "composite": 59.81,
+    "final": 54.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment. The paper does not discuss that confidence is modelled only as a fixed defection or imitation probability, that results come from single parameter sweeps, or that mapping lattice PD dynamics to corruption in developing countries is an analogy."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Straightforward iterated and spatial Prisoner's Dilemma simulations with a confidence parameter; proportionate formalism and clean citations, but thin evidence and no limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Iterated Prisoner's Dilemma with a \"continuation confidence degree\" implemented as a defection probability (three two-player scenarios against always-cooperate and TFT), and a Nowak-May spatial PD in which players imitate any better neighbour with probability p.\n**Level:** 2 (Low)\n**Rationale:** Applies existing game models with a small variation to the update rule and reports simulation outputs.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (two payoff tables and parameters p1, p2, b, p)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Payoff matrices and probability parameters are the minimum needed to describe the games.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 15 references, which are canonical (Axelrod, Nowak and May, Ostrom, Hardin, Olson). Reference [2] is a book review entry rather than the book itself. No issues.\n\n---\n\n## Structural Analysis\n\nThe two-player results are payoff curves from 1,000-round games over a sweep of p1, apparently one run per point, with no averaging or variance reported. The spatial results are visual snapshots after 100 rounds and \"20 runs\", compared qualitatively with Nowak and May. The conclusion that an insecure environment favours defection follows almost by construction, since low confidence is implemented as a higher defection probability. The link to corruption and weak institutions in developing countries is asserted by reference to one book. No limitations are acknowledged.\n\nArtifact: nothing linked or claimed.\n\n---\n\n## Conclusion\n\nCompetent but slight applied simulation work with appropriate (minimal) formalism and clean citation practice. Evidence is qualitative and the central hypothesis is largely built into the model; the absence of any limitations discussion is the main structural weakness."
+  },
+  {
+   "paper_id": "suciu2013",
+   "paper": {
+    "title": "Evolutionary Dynamic for Inter-Group Cooperation",
+    "authors": [
+     "Mihai Suciu",
+     "Noémi Gaskó",
+     "Dumitru Dumitrescu"
+    ],
+    "abstract": "The evolution of cooperation has been intensively studied in social sciences, biology, and economics mainly using the Prisoner's Dilemma game. Previous studies concentrate on the dynamics of cooperation in a single group. We study the emergence and evolution of cooperation between groups. A new approach of modeling the Prisoner's Dilemma based interactions is presented. A hypergraph representation allowing a detailed study of interaction between groups is considered. Simulations indicate conditions for emergence of inter-group cooperation.",
+    "keywords": [],
+    "doi": null,
+    "pages": "203-216",
+    "source_file": "07-suciu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 45.75,
+    "composite": 34.31,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 simulation study whose formal apparatus is a set-theoretic hypergraph definition: \"Let X = {x1, x2, .., xn} be a finite set, and E = (Ei, i in I) be a family of subsets of X ... union of Ei = X\". All experiments use disjoint hyperedges (\"interacting groups have no common players\"), i.e. players partitioned into groups: a list of lists. No hypergraph property is used anywhere in the model or the analysis.",
+    "DECORATIVE_DEFINITIONS": "\"Definition 1\" restates, in set notation, the sentence that precedes it (\"in a hypergraph an edge can connect any number of vertices\"). It is never referenced again; removing it would not change the simulation a programmer would write."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Prisoner's Dilemma simulations between groups using four opponent-selection rules; the hypergraph definition is decorative since only disjoint groups are used, which disqualifies the paper at Level 2.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Inter-group Prisoner's Dilemma: players are assigned to groups, play only against players of other groups under four opponent-selection rules (R1-R4), and imitate the most successful opponent; cooperation frequency per group is plotted over 50 rounds.\n**Level:** 2 (Low)\n**Rationale:** Standard evolutionary PD with an imitation update, applied to a grouped population; the contribution is the choice of opponent rules and simulation observations.\n\n### Formal Elements\n- Definitions: 1 (hypergraph)\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (payoff ordering T > R > P > S, frequency of cooperation F)\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Low count, but the one definition fails the Necessity Test. The payoff ordering and the cooperation frequency are the minimum needed and are acceptable.\n\n### Issues\nThe hypergraph is presented as the paper's methodological novelty (\"A hypergraph representation allowing a detailed study of interaction between groups\"), yet the model only uses a partition of players into disjoint groups. The overlapping-group case that would need a hypergraph is mentioned only as future work.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 21 references, which cover the standard evolutionary game theory and group-cooperation literature. No issues.\n\n---\n\n## Structural Analysis\n\nResults are trajectories from one or two simulation runs per setting, with no averaging over seeds and no statistics. Several general conclusions go beyond this evidence: \"Cooperation is independent of the number of groups and the parameter b\"; \"It seems that pD = 0.01 is a critical point (describing a phase transition)\". The authors explain divergent runs as \"the random nature of the rule\", which confirms that single runs are not sufficient evidence. Limitation acknowledgment is minimal and inline (future work on overlapping groups and update rules).\n\nArtifact: nothing linked or claimed.\n\n---\n\n## Conclusion\n\nA small exploratory simulation study with clean citations. The formal hypergraph definition is decoration for what is, in every experiment, a list of disjoint groups, and under the Level 1-2 zero-tolerance rule this disqualifies the paper. The evidence base (single runs) is also thin for the generalisations drawn."
+  },
+  {
+   "paper_id": "neumann2013",
+   "paper": {
+    "title": "Securizitating the Nation: Simulating the Dynamics at the Case of Yugoslavia",
+    "authors": [
+     "Martin Neumann"
+    ],
+    "abstract": "This paper describes a simulation model of the escalation of ethnic conflicts in the former Yugoslavia. To integrate as much empirical evidence as possible from conflicting explanations of the conflicts the theory of securitization is applied. This allows to overcome the dichotomy of conflicting explanations, namely the thesis of ancient hatred and the thesis of political manipulation. To represent this theory, the simulation model consists of two agent classes: politicians, who enforce value orientations, and citizens, who form paramilitary militia. Simulation results reveal the mechanisms of securitization. Political actors can stimulate the emergence of ethnic mistrust and conflicts, but this ability is shaped by the network structure of the citizens.",
+    "keywords": [],
+    "doi": null,
+    "pages": "217-236",
+    "source_file": "08-neumann.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 80.5,
+    "composite": 60.38,
+    "final": 60.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (the model is implemented in Repast with the EmIL framework and ArcGIS; 1991 Yugoslav population statistics are used but not cited or linked)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Theory-rich agent-based model of conflict escalation in Yugoslavia with proportionate formalism and clean citations; results are explicitly preliminary, from an uncalibrated single run, and no model is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Agent-based model of early conflict escalation in the former Yugoslavia based on securitization theory: politician agents (SEU-style choice among nationalist, moderate and civil speeches) and citizen agents (two value orientations, neighbourhood opinion, demonstrations, militia formation), on a GIS map initialised from 1991 population data.\n**Level:** 2 (Low)\n**Rationale:** Applies standard agent-based modelling tools (Repast, EmIL, ArcGIS) to a new case. The theoretical integration is substantial, but the computational contribution is a domain model, not a new algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (the speech evaluation is described as a Euclidean distance in a two-dimensional value space)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The model is described in prose, a UML activity diagram and figures.\n\n### Issues\nNone identified. If anything the paper is under-specified: update rules, parameter values (avgOpinionMultiplicator, demoValueDivider) and the militia trigger are not given precisely enough to re-implement.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 79 references, which cover security studies, ethnic-conflict research and social simulation thoroughly. Minor reference errors: the REsCape model is cited as [7] instead of [8], and some sources appear in author-year form without list entries (Mann 2005, MASON RebeLand 2010). No integrity concerns.\n\n---\n\n## Structural Analysis\n\nThe literature review and the empirical case narrative are well supported. The results section reports one simulation trajectory (2,190 ticks) with value curves, population curves, maps and lists of the most popular politicians, with no replication, sensitivity analysis or comparison against historical data. The conclusions (\"the prime influence factor are the politicians\"; mobilisation succeeds only when enforced by the network) go further than one run supports. The limitations are stated plainly inline: \"The results presented here are the very first results. The model is not fully calibrated yet\", and only the early phases of escalation are modelled.\n\nArtifact: nothing linked or claimed; the census input is identified only generically.\n\n---\n\n## Conclusion\n\nThe strongest paper in the issue on theory and citation practice, with appropriate formalism. Its evidence is explicitly preliminary, and the model is neither released nor specified fully enough to reproduce. No flags are raised."
+  },
+  {
+   "paper_id": "jecan2013",
+   "paper": {
+    "title": "Concept Mapping of Ideological Positioning in Cultural and Political Periodicals in the Interbellum Cluj",
+    "authors": [
+     "Vlad Jecan",
+     "Radu Meza"
+    ],
+    "abstract": "The number of periodicals increased dramatically between 1919 and 1945 in Romania. New periodicals were published in either Romanian or Hungarian languages. In the context of the Great Union and following the 1923 constitution, we investigate the political positioning of both Hungarian and Romanian periodicals published in Cluj-Napoca in the Interbellum period. For our research, we have selected the introductory article of each new publication and extracted key terms relating to main themes to represent the political positioning of each of the publications. We used formal concept analysis to determine and analyze the different conceptual hierarchies that were constructed in the Interbellum period by publications belonging to the two cultures and we conclude that the Romanian periodicals suggest a conservative political positioning while Hungarian publications refer mostly to a search for adaptation to the new political context rather than expressing a clear political positioning. In addition, we have identified several research ideas and encourage further investigations based on our findings.",
+    "keywords": [],
+    "doi": null,
+    "pages": "237-250",
+    "source_file": "09-jecan.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 42.75,
+    "composite": 32.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 application of an existing method (FCA) to a keyword-by-periodical cross-table. The paper reproduces the set-theoretic definition of a formal context and formal concept (\"K := (G, M, I) where G and M are sets while I is a binary relation between G and M, i.e. I subset of G x M ... A formal concept ... is a pair (A, B) with A subset of G, B subset of M, A = B^I, and B = A^I\"). For this study the formal context is simply a table with periodicals as rows and keywords as columns, and the lattices are drawn by a tool; the notation is never applied to the data.",
+    "DECORATIVE_DEFINITIONS": "The quoted definition is used nowhere afterwards (no derivation, no use of the derivation operators), and it is transcribed incorrectly: \"A is the intent and B the extent\" reverses the standard terms (A, the object set, is the extent). A sentence saying that the periodicals are objects, the keywords attributes, and that concepts are maximal groups of periodicals sharing keywords would do the same job."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Exploratory FCA of keywords from interwar Cluj periodicals with interpretive conclusions; the textbook FCA definition is decorative (and mis-transcribed), which disqualifies it at Level 2.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Selecting the introductory article of 13 Romanian and 22 Hungarian periodicals first published in interwar Cluj, extracting keywords, building three formal contexts and line diagrams, and interpreting the concept lattices as ideological positioning.\n**Level:** 2 (Low)\n**Rationale:** Straightforward application of an existing analysis method to a new humanities corpus.\n\n### Formal Elements\n- Definitions: 1 (formal context and formal concept, inline, quoted from Wille)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 beyond the definition\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Low count, but the definition fails the Necessity Test (see flags).\n\n### Issues\nThe swapped intent/extent shows that the definition was copied in rather than used.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 11 references, which consist of FCA tutorials (Wille, Priss, Belohlavek) and Romanian press histories. A quotation attributed to Gyorffy appears twice; two full paragraphs of Section 1 are duplicated verbatim (one copy without citations), which is an editing failure rather than a citation-integrity issue.\n\n---\n\n## Structural Analysis\n\nThe keyword selection procedure is not described (who selected the terms, by what criteria, with what agreement), the formal contexts (cross-tables) are not shown, and one listed periodical (Erdelyi orvosi lap) has no article. The conclusions rest on interpretation of lattice diagrams; the authors themselves hedge them (\"This probably suggests a conservative political positioning\"). Estimated CER is weak (0.33-0.5). Limitations are acknowledged inline: first issues missing from the archive for some Hungarian titles, with substitute articles used, and causal explanation declared beyond the paper's scope.\n\nArtifact: the keyword data and formal contexts are not provided; nothing linked or claimed.\n\n---\n\n## Conclusion\n\nAn interesting exploratory idea in digital humanities, executed thinly: undocumented keyword extraction, unshown data, and interpretive conclusions. The textbook definition of FCA is included as decoration and is wrong in one detail; under the Level 1-2 zero-tolerance rule this is formalism theater."
+  }
+ ]
+}

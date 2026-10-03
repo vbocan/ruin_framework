@@ -1,0 +1,647 @@
+{
+ "batch_id": "2023-v26-n2",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 26,
+  "issue": 2,
+  "year": 2023
+ },
+ "papers": [
+  {
+   "paper_id": "yurtkan2023",
+   "paper": {
+    "title": "Student Success Prediction Using Feedforward Neural Networks",
+    "authors": [
+     "Kamil Yurtkan",
+     "Ahmet Adalier",
+     "Umut Tekgüç"
+    ],
+    "abstract": "Proposes predicting student grades with a conventional feed-forward neural network trained on the xAPI-Edu-Data (Kalboard 360) dataset of 480 students, with a variance-based feature selection that keeps attributes whose variance exceeds the mean variance. Reports 91.95% acceptable predictions (exact or one grade off) using four behavioural attributes and 93.17% without feature selection.",
+    "keywords": [
+     "data mining and analysis",
+     "educational data mining",
+     "feature selection",
+     "feed-forward neural networks",
+     "information content",
+     "natural computing",
+     "pattern recognition",
+     "student performance",
+     "student success prediction",
+     "variance"
+    ],
+    "doi": null,
+    "pages": "121-136",
+    "source_file": "paper736.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 75,
+    "structural_integrity": 60,
+    "artifact_availability": 100,
+    "intellectual_integrity": 41.25,
+    "composite": 55.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"The Matlab code and the dataset of the algorithm can be accessed via the following link: https://github.com/umuttekgucbau/StdSuccessPredictionFNN\"; dataset also public at https://www.kaggle.com/aljarah/xAPI-Edu-Data [35]",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (default-settings MATLAB FFNN plus a mean-variance threshold filter) that writes the data table as formal objects: Eqs. (2)-(3) define a feature vector FV_j = [f1 ... fk] and Eqs. (4)-(5) stack these into a matrix FM, each equation printed twice for before/after feature selection. These say only 'each student is a row of 17 (or 4) numbers' and change nothing a programmer would build. The backpropagation update (Eq. 1) is textbook background for a library call."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Standard FFNN applied to a public educational dataset with a simple variance filter; code and data are released, but decorative vector/matrix formalism for the data table triggers formalism theater at Level 2.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Grade prediction on the public xAPI-Edu-Data set with a MATLAB feed-forward network and variance-threshold feature selection.\n**Level:** 2 (Low)\n**Rationale:** An existing classifier with default settings applied to an existing dataset; the 'novel' feature selection keeps attributes whose variance exceeds the mean variance, computed on integer-coded categorical attributes, which is not a new algorithm.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (gradient-descent update; feature vector before/after selection; feature matrix before/after selection)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Low count but fails the necessity test — Eqs. (2)-(5) restate a data table as vectors and a matrix, printed twice each, with confused indices (k1/k2, n1/n2 'equal limits').\n\n### Issues\nEqs. (2)-(5) are decorative. The text also contains internal inconsistencies: a 'ten-class classification problem' while Fig. 2 states m = 8 output units; 480 samples split into '440 samples in training and 41 samples in testing'; Table 1 is captioned 'Comparison of the proposed approach with other similar ones' but lists attributes; the input dimension is given as 17 although GradeID is the target. Variance of integer-quantised nominal attributes is scale-dependent, so the 'most informative features' finding mainly reflects that the behavioural counts have larger numeric ranges — the authors partly concede this ('This observation is not supporting a fact and appears to be a delusion').\n\n---\n\n## Citation Analysis\n\nOne self-citation (Yurtkan et al. [36], feature selection for 3D facial expression recognition) out of 45 references, SCR 2.2%; marginally related (variance-based feature selection). Of more concern are non-self citations unrelated to student-success prediction: four papers co-authored by R.-E. Precup on observation-process modelling, shape-memory-alloy actuators, k-means post-processing and reinforcement-learning control ([6], [7], [10], [11]), and six Vinayakumar papers on botnets, stock prices, air quality, traffic and rainfall ([37]-[42]) cited for generic claims about visualisation and parameter settings. No mutual-citation evidence is visible from this paper alone, so no ring flag is raised, but the pattern looks like citation padding.\n\n---\n\n## Structural Analysis\n\nA dedicated Limitations subsection exists, though it argues limitations are 'minimized'. Evaluation uses repeated 10-fold cross-validation with per-fold tables. The comparison in Table 7 sets an 'exact + one grade' rate (91.95%) against exact-accuracy figures of other works (73.8%, 76.07%), which is not like-for-like and overstates competitiveness; the exact-grade rate is about 57%. Code and dataset are linked.\n\n---\n\n## Conclusion\n\nA modest applied ML study with genuine reproducibility (public code and data) and a limitations section. It is weakened by decorative data-structure formalism, numerical inconsistencies, an apples-to-oranges comparison, and padded citations to unrelated work. Under the zero-tolerance rule at Level 2 the decorative equations trigger FORMALISM_THEATER. No instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "mortazavi2023",
+   "paper": {
+    "title": "Detecting Images with Adult Content Using SURF and Haar Wavelet",
+    "authors": [
+     "Mohammad Mortazavi T.",
+     "Omid Mahdi Ebadati E.",
+     "Dang N. H. Thanh",
+     "Tudor Barbu"
+    ],
+    "abstract": "Presents a framework for detecting nudity in images that extracts SURF features at two pyramid levels and one-level Haar wavelet coefficients, builds a 300-feature bag of features, and classifies with a polynomial-kernel SVM, split into offline and online modules. On 899 images (402 adult, 497 non-adult) it reports 89.3% accuracy, 86.2% sensitivity and 92.03% specificity.",
+    "keywords": [
+     "adult content",
+     "Haar wavelets",
+     "machine learning",
+     "machine vision",
+     "nudity detection",
+     "speeded up robust features (SURF)",
+     "support vector machines"
+    ],
+    "doi": null,
+    "pages": "137-150",
+    "source_file": "paper737.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 80,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 38.0,
+    "composite": 28.5,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the positive images were 'taken from different websites' and are not released (only the 101 Caltech negatives come from a public dataset)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 pipeline of off-the-shelf MATLAB components (SURF, Haar transform, histogram, SVM). Some 14 equations re-derive textbook material — the SURF Hessian, the Haar mother wavelet and matrix, the hard-margin SVM primal, Lagrangian, stationarity conditions and dual (Eqs. 7-11), then the soft-margin primal and dual (Eqs. 12-13) — none of which the authors implement themselves. Several are garbled (Eq. 10 sets w equal to a constraint, alpha is reused for both margin offset and Lagrange multipliers), showing the notation does no work in the paper.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgement of constraints such as the small, self-collected dataset or the absence of a held-out test split."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Standard SURF/Haar/SVM pipeline on a small scraped dataset, padded with re-derived textbook SVM theory, with unclear evaluation protocol and no released artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Binary classification of images as adult/non-adult with SURF and Haar features and an SVM.\n**Level:** 2 (Low)\n**Rationale:** Applies existing feature extractors and classifier to a known problem; the contribution is the combination and an online/offline split.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: ~14 (SURF Hessian, Gaussian kernel, SURF descriptor, Haar averages/coefficients, Haar mother wavelet, SVM hard-margin primal, Lagrangian, gradients, dual, soft-margin primal and dual, metrics)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Count is low but nearly all equations fail the necessity test: they reproduce tutorial derivations of methods called from a library.\n\n### Issues\nThe hard-margin SVM derivation (Eqs. 7-11) is irrelevant to the reported polynomial-kernel soft-margin classifier. Eq. (10) reads '∇b L(w, b, α) = 0 : w = Σ αi yi = 0'; the dual constraint in Eq. (13) is written as a strict inequality '> 0'.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 38 references (SCR 0%). Some references are off-topic for the claims they support: [12] (student GPA prediction, ROMJIST) cited for popular classification models, [30] (stock price prediction) and [6] (grouped neural networks for model predictive control). Reference [16] is cited in Table 2 for 'Pornographic Image Recognition via Weighted Multiple Instance Learning' but [16] in the list is Hu et al. on web pages; the matching work is [17].\n\n---\n\n## Structural Analysis\n\nThe data description is inconsistent: '763 images from various resources on the Internet (Google images) and 101 images from Caltech' totals 864, not 899, and the contingency table totals 422 positives versus the stated 402. No train/test split or cross-validation is described; the contingency table covers all 899 images, which suggests results may be reported on training data. Comparisons in Table 2 use figures from other papers on different datasets. No limitations. No code or data released.\n\n---\n\n## Conclusion\n\nAn incremental application of standard components whose methodological sections are filled with re-derived, partially incorrect textbook mathematics, and whose evaluation cannot be reproduced or properly judged. FORMALISM_THEATER applies at Level 2. No instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "badovinac2023",
+   "paper": {
+    "title": "Biometric Authentication Model Based on Transformation of Face Image into a PIN Number Usable During the Covid-19 Pandemic",
+    "authors": [
+     "Nenad Badovinac",
+     "Dejan Simic"
+    ],
+    "abstract": "Proposes deriving a PIN for card-payment authentication from eye-region features visible above a face mask: iris radius, interpupillary distance and eye colour obtained with the MediaPipe Iris model through the commercial Ailia SDK, combined by a fixed formula. On BU-4DFE images, all 50 subjects authenticate across six expressions with a 1% tolerance, while 28.72% of 94 subjects share the most common PIN range.",
+    "keywords": [
+     "biometric authentication",
+     "Covid-19",
+     "electronic payments",
+     "facial biometric",
+     "PIN number"
+    ],
+    "doi": null,
+    "pages": "151-162",
+    "source_file": "paper738.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 35,
+    "artifact_availability": 50,
+    "intellectual_integrity": 70.75,
+    "composite": 65.56,
+    "final": 65.56
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The experiments used a large database of face images of different people and different facial expressions BU-4DFE (3D Dynamic Facial Expression Database) from Dr Lijun Yin\" [11]; the appendix link https://nenadbadovinac.com/appendix-rojist-2023 holds tables and figures, not code",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "SDK-based prototype mapping eye landmarks to a PIN; minimal formalism, but security and privacy claims far exceed what a 28.72% worst-case false-acceptance figure supports.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computing a 4-digit number from iris radius, interpupillary distance and eye colour obtained with a commercial SDK and the MediaPipe Iris model.\n**Level:** 1 (Trivial)\n**Rationale:** Calls an existing landmark detector and combines its outputs with one ad hoc formula, 'PIN = (4000 x Iris Radius / IPDEuclidDistance)+Color Parameter'.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (inline in pseudocode)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — no decorative formalism.\n\n### Issues\nNone identified for formalism.\n\n---\n\n## Citation Analysis\n\nTwo self-citations out of 35 references ([3], [25]), SCR 5.7%, both on biometric authentication/signatures and related. Several citations are off-topic: [26] (WASH gender-equality measurement) supports a claim about infection risk at ATMs; [32] (Precup et al., neural modelling of biomonitoring data in Moldova) and [33] (Barbu, content-based image retrieval) are cited as ways to improve iris analysis. Commercial web pages ([6], [9], [34]) support market and device claims.\n\n---\n\n## Structural Analysis\n\nThe evaluation is thin relative to the claims. With 94 subjects, PINs span only 3341-3473, and a 1% tolerance (about ±34) covers a quarter of that span; the paper itself finds 28.72% of people fall into the most common PIN group, yet concludes the model works and that the result 'is further increased' by 2FA. Assertions that biometric data 'cannot be compromised', that the identity 'is not possible to reveal', and that face recognition 'provides the highest security' are not tested. All subjects had brown eyes, so the colour component was not exercised. Inline limitation present (daylight needed for eye colour). Key tables are moved to an external appendix web page. Data: a named research dataset (BU-4DFE) is used; no code released.\n\n---\n\n## Conclusion\n\nA simple prototype with appropriate (near-zero) formalism, undermined by a weak empirical case for discriminative power and strong unverified security and privacy claims. No instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "muller2023",
+   "paper": {
+    "title": "Editorial: Special Issue on Topics in Electronics, Microtechnologies and Materials Science",
+    "authors": [
+     "Raluca Müller",
+     "Miron Adrian Dinescu"
+    ],
+    "abstract": "Guest editorial introducing a special issue of extended best papers from the International Semiconductor Conference CAS 2022 and summarising the seven papers it contains.",
+    "keywords": [],
+    "doi": null,
+    "pages": "163-166",
+    "source_file": "paper739.pdf"
+   },
+   "concept_level": null,
+   "scores": {
+    "formalism": null,
+    "citation_integrity": null,
+    "structural_integrity": null,
+    "artifact_availability": null,
+    "intellectual_integrity": null,
+    "composite": null,
+    "final": null
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text (editorial; nothing to release)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EDITORIAL"
+   ],
+   "flag_details": {
+    "EDITORIAL": "Guest editors' introduction to the CAS 2022 special issue: conference history, participation statistics and one-paragraph summaries of the seven contributed papers. Not a research paper."
+   },
+   "verdict": {
+    "classification": "NOT_APPLICABLE",
+    "disqualified": false,
+    "record_type": "editorial"
+   },
+   "provenance": "## Formalism Analysis\n\nNot applicable — editorial content.\n\n---\n\n## Citation Analysis\n\nNo reference list.\n\n---\n\n## Structural Analysis\n\nThe document introduces the special issue on electronics, microtechnologies and materials science drawn from CAS 2022, describes the conference and summarises papers 740-746 of this issue.\n\n---\n\n## Conclusion\n\nExcluded from analysis under the EDITORIAL flag. No instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "onet2023",
+   "paper": {
+    "title": "A Blended On-Campus and At-Home Approach to Laboratories on Electronic Circuits",
+    "authors": [
+     "Raul Onet",
+     "Marius Neag",
+     "Albert Fazakas",
+     "Paul Miresan",
+     "Gabriel Petrasuc",
+     "Iulian Sularea",
+     "Alessandro Battigelli",
+     "Michael Murray",
+     "Martin Hill"
+    ],
+    "abstract": "Describes the Erasmus+ HELP portable laboratory kit (a Hantek 2D72 handheld instrument plus a custom board with supplies, power amplifier, DC references and digital I/O) and a blended scheme combining on-campus labs with at-home experiments. In a case study, 18 third-year students were split randomly into two groups of nine; the HELP group obtained higher lab and exam marks.",
+    "keywords": [
+     "assessment of laboratory work",
+     "electrical engineering education",
+     "home electronics laboratory",
+     "online learning",
+     "portable electronic laboratory kits"
+    ],
+    "doi": null,
+    "pages": "167-180",
+    "source_file": "paper740.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 88,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.05,
+    "composite": 57.04,
+    "final": 52.04
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; only simplified schematics (Fig. 4) and a project page (https://international.utcluj.ro/help-home-electronics-laboratory/) are given, with no board design files or student data",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section; the very small sample (nine students per group), lack of statistical testing, and the instructor-not-blinded grading are not acknowledged."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Clear description of an educational hardware kit with no formalism; the efficacy claim rests on two groups of nine students without statistical testing or acknowledged limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A portable electronics lab kit built from a commercial handheld instrument plus a custom board of standard functional blocks, and a blended lab-teaching scheme.\n**Level:** 1 (Trivial)\n**Rationale:** System and course description combining existing components; the evaluation is a small classroom comparison.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo self-citations among 18 references ([10] O'Mahony, Hill, ..., Murray, Onet, Neag; [12] the CAS 2022 version of this work), SCR 11.1%, both directly related. The remaining references are relevant remote/take-home lab literature and component datasheets.\n\n---\n\n## Structural Analysis\n\nThe abstract and conclusion say the HELP group 'performed substantially better' and Section 5.2 says 'significantly better grades', but no statistical test is reported for n = 9 vs n = 9, and the medians/averages come only from a box plot. The authors do check the same students' grades in two other courses, which partly addresses selection effects — a good touch. Questionnaire responses come only from the HELP group. No limitations acknowledged. No hardware design files or data released.\n\n---\n\n## Conclusion\n\nA useful practice report with appropriately plain presentation; its causal conclusion about learning outcomes is stronger than an 18-student, untested comparison can support. No instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "pascu2023",
+   "paper": {
+    "title": "Enhanced Method of Schottky Barrier Diodes Performance Assessment",
+    "authors": [
+     "Razvan Pascu",
+     "Gheorghe Pristavu",
+     "Dan-Theodor Oneata",
+     "Marius Stoian",
+     "Cosmin Romanitan",
+     "Mihaela Kusko",
+     "Florin Draghici",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "Characterises Ti/Si and Mo/Si Schottky diodes with and without forming-gas annealing using XRD and I-V measurements over 15-500 K. Conventional extraction and the Werner-Güttler Gaussian inhomogeneity model (valid only over 25-200 K) are compared with the authors' p-diode model, which fits each annealed sample as three parallel diodes over 60-500 K.",
+    "keywords": [
+     "forming gas",
+     "inhomogeneity",
+     "metal silicides",
+     "p-diode model",
+     "Schottky barrier diode"
+    ],
+    "doi": null,
+    "pages": "181-192",
+    "source_file": "paper741.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 88,
+    "citation_integrity": 62,
+    "structural_integrity": 72,
+    "artifact_availability": 0,
+    "intellectual_integrity": 74.9,
+    "composite": 56.18,
+    "final": 51.18
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; measured I-V-T data and fitting code are not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "6 of 23 references (26.1%) are by the authors ([4], [9], [16], [17], [20], [23]). All are on Schottky/SiC contact characterisation and relevant, including the p-diode model [23] that the paper applies."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Solid experimental device characterisation using standard physical models where equations are necessary for parameter extraction; self-citation is elevated but topical.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fabrication and temperature-dependent electrical characterisation of Ti and Mo Schottky diodes on Si, with parameter extraction by established models.\n**Level:** 2 (Low)\n**Rationale:** An empirical characterisation study applying existing models (thermionic emission, Werner-Güttler, the authors' previously published p-diode model) to new samples; no new theory is developed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (TE law, saturation current, Gaussian barrier relation, Richardson and modified Richardson plots, p-diode sum)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — every equation is used directly to extract a tabulated or plotted parameter (SBH, σ, effective area, p_eff). They pass the necessity test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSCR 26.1% (6/23), within the 20-30% elevated band. All self-citations concern the same device physics and the model applied. The remaining references are standard sources (Tung, Werner & Güttler, RCA cleaning).\n\n---\n\n## Structural Analysis\n\nClaims are tied to measurements: XRD phase identification with card numbers, extracted parameters in Tables 1-2, and fitted vs. measured curves. The paper states inline where each model fails (Werner-Güttler limited to 25-200 K; p-diode drawbacks below 60 K; an 'unfeasibly low' 0.32 V barrier at cryogenic temperatures). It is not stated how many devices per type were measured, so device-to-device variability is unknown; 'excellent agreement' is asserted visually without a fit-error metric. No data released.\n\n---\n\n## Conclusion\n\nA competent experimental paper whose formalism is the working physics of the measurement. Main weaknesses are the unreported sample count, the lack of quantitative fit quality, and a self-citation ratio in the elevated band. No instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "ammar2023",
+   "paper": {
+    "title": "Design, Fabrication and Characterization of 10 kV 4H-SiC BJT for the Phototransistor Target",
+    "authors": [
+     "Ali Ammar",
+     "Mihai Lazar",
+     "Bertrand Vergne",
+     "Sigo Scharnholz",
+     "Luong Viet Phung",
+     "Pierre Brosselard",
+     "Dominique Tournier",
+     "Camille Sonneville",
+     "Christophe Raynaud",
+     "Marcin Zielinski",
+     "Hervé Morel",
+     "Dominique Planson"
+    ],
+    "abstract": "Describes the design (with TCAD-optimised JTE plus guard-ring termination) and the eleven-level fabrication process of a 10 kV, 10 A 4H-SiC NPN BJT. Vacuum probe measurements show breakdown up to 11 kV, the forward current gain reaches about 20-27 on probe and 15 at up to 15 A on packaged dies, and first optical-control tests are said to be encouraging.",
+    "keywords": [
+     "bipolar junction transistor",
+     "high-voltage power semiconductor device",
+     "peripheral protection",
+     "power electronics",
+     "silicon carbide"
+    ],
+    "doi": null,
+    "pages": "193-204",
+    "source_file": "paper742.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 58,
+    "structural_integrity": 48,
+    "artifact_availability": 0,
+    "intellectual_integrity": 66.3,
+    "composite": 49.72,
+    "final": 39.72
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; TCAD models and measurement data are not released (Sentaurus is a third-party tool)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "5 of 21 references (23.8%) include the authors ([16], [17], [18], [19], [21]); all concern SiC termination, contacts, the conference version of this work, and the test bench, so they are relevant.",
+    "NO_LIMITATIONS": "No limitations section. The paper calls its results 'first measurement results' and mentions a second lot is underway, but it does not discuss yield, the number of devices measured, the gap between simulated 11.8 kV and measured 11 kV, or the drop in gain after packaging as constraints."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Engineering device report without decorative formalism, but loosely written, with inconsistent figures and a miscited reference; elevated but relevant self-citation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design, fabrication and first characterisation of a high-voltage SiC BJT with JTE+ring edge termination.\n**Level:** 2 (Low)\n**Rationale:** Engineering application of established termination techniques, tuned by TCAD parameter sweeps; no new theoretical model.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate.\n\n### Issues\nNone for formalism.\n\n---\n\n## Citation Analysis\n\nSCR 23.8% (5/21), relevant. Reference [14] is cited for '9.2 kV (BVCEO) with a 50 µm ... drift layer' but [14] in the list is a paper on FBG-based optical VSB filters for WDM transmission — a clear miscitation. Market and policy claims rely on a market-research web page [2].\n\n---\n\n## Structural Analysis\n\nThe figures are poorly cross-referenced: Fig. 6 is referenced but absent from the numbered captions; Fig. 12 is cited for corner radii; Fig. 9 is said to refer to Fig. 14. Numbers are inconsistent: the leakage criterion is 0.1 mA/cm² in Section 3 and 10 µA in the conclusion; the current gain is 'up to 20' in the abstract and β = 27 in the results. Breakdown is reported on a single device (Fig. 12/14) with no statistics across the wafer. The abstract's 'first optical control tests have shown encouraging results' has no supporting data in the body. TCAD-guided design and measurement do support the 11 kV claim for that device.\n\n---\n\n## Conclusion\n\nA legitimate device-engineering contribution with appropriate absence of formalism, weakened by sloppy cross-referencing, inconsistent figures, a miscited reference, an unsupported optical-control claim, and no discussion of limitations. No instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "romanitan2023",
+   "paper": {
+    "title": "Relationship Between Structural and Optical Properties in Vanadium Pentoxide",
+    "authors": [
+     "Cosmin Romanitan",
+     "Iuliana Mihalache",
+     "Silviu Vulpe",
+     "Marius Stoian",
+     "Ioan-Valentin Tudose",
+     "Raluca Gavrila",
+     "Pericle Varasteanu",
+     "Marian Popescu",
+     "Oana Brincoveanu",
+     "Nikolay Djourelov",
+     "Emmanouel Koudoumas",
+     "Mirela Suchea"
+    ],
+    "abstract": "Compares V2O5 films deposited by spray pyrolysis (highly crystalline α-V2O5, bandgap 2.2-2.4 eV) and low-temperature RF magnetron sputtering (low crystallinity, bandgap 2.82-2.90 eV) using SEM, AFM, XRD with Rietveld refinement, XRR and diffuse reflectance spectroscopy. XPS shows the V4+ fraction rising with thickness, which the authors relate to the higher bandgap.",
+    "keywords": [
+     "RF magnetron sputtering",
+     "spray pyrolysis technique",
+     "vanadium oxide",
+     "X-ray diffraction"
+    ],
+    "doi": null,
+    "pages": "205-217",
+    "source_file": "paper743.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.0,
+    "composite": 60.75,
+    "final": 55.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; diffraction, reflectance and XPS data are not deposited",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section or inline acknowledgement, although the two deposition routes differ in substrate (FTO glass vs Si), temperature and post-treatment simultaneously, and the 100- and 200-swipe samples could not be measured optically."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Standard materials-characterisation study with necessary, textbook equations; the structure-bandgap correlation is plausible but confounded and stated without limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Morphological, structural, optical and XPS characterisation of V2O5 films from two deposition techniques.\n**Level:** 2 (Low)\n**Rationale:** An empirical study using standard characterisation methods; the analysis applies established relations.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (Rietveld profile, Kiessig thickness, Scherrer)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — each equation produces a reported quantity (crystallite size, thickness, refinement).\n\n### Issues\nNone for formalism. Minor: Scherrer's angle is said to be taken at the '(100)' peak while the analysis discusses the (001) reflection; Table 1 lattice parameters (1.18, 0.34, 0.43 nm) differ from those quoted in the text (1.148, 0.436, 0.355 nm) without comment.\n\n---\n\n## Citation Analysis\n\nFive self-citations among 53 references ([15], [31], [32], [33], [34]), SCR 9.4%, all on vanadium oxide films and directly relevant. The reference list is otherwise broad and appropriate.\n\n---\n\n## Structural Analysis\n\nObservations are supported by figures and tables (Rietveld fit metrics, XRR thicknesses, XPS deconvolution). The causal link from V4+ content to bandgap rests on a small spread (about 2.83 vs 2.90 eV) and the SPT/RF-MS comparison mixes several variables; the authors frame it as 'suggested', which is appropriately cautious, but no limitations are discussed. No data released.\n\n---\n\n## Conclusion\n\nA conventional, adequately evidenced characterisation paper with proportionate formalism and normal citation behaviour; its main gap is the unacknowledged confounding between deposition routes. No instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "vasilache2023",
+   "paper": {
+    "title": "Development of 0-level Packaged Dual SAW Pressure and Temperature Sensors on GaN Thin Membranes",
+    "authors": [
+     "Dan Vasilache",
+     "Alexandra Nicoloiu",
+     "George Boldeiu",
+     "Ioana Zdru",
+     "Thanasis Kostopoulos",
+     "Monica Nedelcu",
+     "Antonis Stavrinidis",
+     "Claudia Nastase",
+     "George Stavrinidis",
+     "George Konstantinidis",
+     "Adrian Dinescu",
+     "Alexandru Müller"
+    ],
+    "abstract": "Presents the design, fabrication and characterisation of GHz SAW resonators on GaN/Si/Mo membranes used as dual pressure-temperature sensors and packaged with a two-level silicon cap. COMSOL simulations predict membrane failure near 16 bar, matching the measured 14-16 bar. Pressure sensitivity reaches about 1100 kHz/bar and is practically unchanged by packaging; temperature sensitivity is about -446 to -470 kHz/°C.",
+    "keywords": [
+     "dual pressure and temperature sensor",
+     "GaN membrane",
+     "package",
+     "surface acoustic wave"
+    ],
+    "doi": null,
+    "pages": "218-226",
+    "source_file": "paper744.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 55,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.75,
+    "composite": 49.31,
+    "final": 39.31
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; COMSOL (third-party) models and measurement data not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "3 of 12 printed references (25%) are by the authors' group ([4], [8], [9]); the paper also describes itself as an extension of a Vasilache et al. paper cited as [10], but [10] in the list is an unrelated author group, so the intended self-citation is missing. Counting it would put the ratio near 31%.",
+    "NO_LIMITATIONS": "No limitations section or inline acknowledgement (for example, the narrow 0-12 bar operating window imposed by membrane breakage, the hermetic soldering requirement, or the single-device characterisation)."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Solid device-fabrication work with no decorative formalism, undermined by a defective reference list and an inconsistent headline sensitivity figure.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fabrication, packaging and measurement of GaN-membrane SAW resonators as pressure/temperature sensors.\n**Level:** 2 (Low)\n**Rationale:** An experimental device study with FEM simulation in a commercial tool; it extends the group's prior dual-sensor concept with a new package.\n\n### Formal Elements\n- Definitions: 0 (formal); sensitivity s = df/dx and PCF defined inline\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (inline)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. As printed, PCF = (1/p)·(df/dp) is dimensionally odd for a value reported in ppm/bar (normally (1/f)·df/dp), but this is an error, not theater.\n\n### Issues\nNone for formalism.\n\n---\n\n## Citation Analysis\n\nThe reference list has only 12 entries, while the text cites [13] for molybdenum strength. The extension source 'Development of high frequency SAW devices devoted for pressure sensing (D. Vasilache et al.) [10]' does not match [10] as printed (Brown et al., GaN nanowire tensile tests), and [10] is also cited for depositing Mo to support higher pressure. Ultimate-strength values come from commercial and generic websites ([11], [12]). SCR is 25% on the printed list (or about 31% counting the intended self-reference); self-citations are on-topic.\n\n---\n\n## Structural Analysis\n\nMeasurements (S11, frequency vs pressure and temperature, Table 1) support the sensitivity claims, and the measured membrane breakage at 14-16 bar matches the simulation. The abstract and conclusion report about 1100 kHz/bar, while Section 4.3 reports -382 to -566 kHz/bar over 25-125 °C; this discrepancy is not explained. It is not reported how many devices were tested. No limitations. No data released.\n\n---\n\n## Conclusion\n\nCredible experimental sensor work with appropriate presentation, weakened by reference-list errors, an elevated self-citation share, inconsistent headline numbers, and no limitations discussion. No instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "chiriac2023",
+   "paper": {
+    "title": "Ultrasensitive Electrochemical Sensor Based on Vertical Graphene for SARS-CoV-2 Protein N Detection",
+    "authors": [
+     "Eugen Chiriac",
+     "Bianca Adiaconiţă",
+     "Petruţa Preda",
+     "Tiberiu Burinaru",
+     "Cătălin Mărculescu",
+     "Cristina Pachiu",
+     "Gabriel Crăciun",
+     "Andrei Avram",
+     "Marioara Avram"
+    ],
+    "abstract": "Reports the microfabrication of an electrochemical sensor with vertical-graphene-modified interdigitated gold electrodes, decorated with gold nanoparticles and functionalised with anti-nucleocapsid antibodies, characterised by SEM, AFM and Raman. Cyclic voltammetry and impedance spectroscopy show signal changes after incubation with SARS-CoV-2 N protein at 1 nM, 1 fM and 1 aM.",
+    "keywords": [
+     "EIS detection",
+     "electrochemical biosensor",
+     "graphene",
+     "SARS-CoV-2"
+    ],
+    "doi": null,
+    "pages": "227-237",
+    "source_file": "paper745.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 75,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 69.0,
+    "composite": 51.75,
+    "final": 46.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; electrochemical data are not deposited",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations acknowledged, despite single measurements per concentration, no specificity controls, no calibration curve or limit-of-detection calculation, and no real-sample testing."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Biosensor fabrication report without formalism; the 'ultrasensitive' and specificity claims rest on single, internally inconsistent measurements at three concentrations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fabrication and functionalisation of a graphene-based electrochemical immunosensor and its CV/EIS response to SARS-CoV-2 N protein.\n**Level:** 2 (Low)\n**Rationale:** Applies established microfabrication, nanoparticle decoration and antibody immobilisation to a new target; experimental, no modelling.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate.\n\n### Issues\nNone for formalism.\n\n---\n\n## Citation Analysis\n\nOne self-citation among 15 references ([12], the CAS 2022 version), SCR 6.7%, relevant. Several references do not support their claims: SARS-CoV-2 morphology ('diameter of around 130 nm [2, 3]') is attributed to a paper on silver nanoparticles from sea-buckthorn extract and a morphine immunosensor, and the COVID-19 epidemic statement [1] to a paper on immobilising gold nanoparticles. Reference [15] is a bioRxiv preprint with a malformed page range.\n\n---\n\n## Structural Analysis\n\nEach concentration appears to be measured once, with its own separately prepared control, and the controls vary widely (Rct of 1200, 950 and 1080 Ω). The direction of response is inconsistent: Rct falls after binding at 1 nM and 1 fM but rises at 1 aM, and the conclusion's account of conductivity versus concentration is internally contradictory. No calibration curve, replicates, error bars, LOD, or selectivity test against other proteins are reported, yet the title claims 'ultrasensitive' and the conclusion says 'the only target of the sensor is the SARS-CoV-2 viral nucleocapsid protein'. Fabrication and morphology characterisation are well documented. No limitations. No data released.\n\n---\n\n## Conclusion\n\nA plausible fabrication contribution whose detection claims are far ahead of its evidence. Formalism is appropriate (none); structural integrity is the weak point. No instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "beydoun2023",
+   "paper": {
+    "title": "SiC Plasma and Electrochemical Etching for Integrated Technology Processes",
+    "authors": [
+     "Nour Beydoun",
+     "Mihai Lazar",
+     "Xavier Gassmann"
+    ],
+    "abstract": "Reports deep etching of 4H-SiC for device isolation. Electroplated Ni masks on an APTES/Pd-activated surface allow ICP/RIE SF6/O2 plasma etching up to about 30 µm, and electrochemical etching of n-type SiC with a p-type SiC stop layer reaches about 80 µm, producing porous, non-directional trenches whose porosity increases with current.",
+    "keywords": [
+     "APTES",
+     "etching",
+     "ICP",
+     "Ni electroplating",
+     "plasma",
+     "RIE",
+     "SiC"
+    ],
+    "doi": null,
+    "pages": "238-246",
+    "source_file": "paper746.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 57.5,
+    "composite": 43.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "5 of 9 references (55.6%) include the corresponding author M. Lazar ([1]-[5]). They are topically relevant (SiC RIE etching, Ni masks), but the ratio far exceeds the 30% threshold; the short reference list leaves the prior art on deep SiC etching outside the group thinly covered.",
+    "NO_LIMITATIONS": "No limitations acknowledged: the porous, non-directional electrochemical trenches, the jagged plasma-etch profiles, and the gap to the stated >100 µm requirement are described as observations, not discussed as constraints."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Short process-development report with no formalism; disqualified on a 56% self-citation ratio, with thin and partly inconsistent etch-depth evidence.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Process development for deep SiC etching using electroplated Ni masks and electrochemical etching with a p-type stop layer.\n**Level:** 2 (Low)\n**Rationale:** An experimental process study combining known techniques (APTES/Pd activation from polyester plating, the Shor et al. selective electrochemical etch).\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate.\n\n### Issues\nNone for formalism.\n\n---\n\n## Citation Analysis\n\nSCR 55.6% (5/9), all self-citations of the Lazar group's SiC etching work. Relevance is high (no IRRELEVANT_SELF_CITATION), but the ratio is excessive under the specification. The non-self references are a patent, two surface-chemistry papers and one photoelectrochemical etching paper.\n\n---\n\n## Structural Analysis\n\nThe etch-depth figures are not consistent: 12 µm after 30 min (0.4 µm/min), 'two 30 min plasma etching' steps claimed to give about 30 µm, yet Fig. 6 is described as showing 'a ∼ 3 µm etched thickness' after two 30-min steps. The 80 µm electrochemical result is supported by a single profilometer trace with no etch time or rate. The Ni-adhesion benefit of APTES/Pd is shown only qualitatively, with optical images. No limitations. No data released.\n\n---\n\n## Conclusion\n\nA brief technical report with appropriate (absent) formalism but thin quantitative support and a self-citation share that triggers the disqualifying EXCESSIVE_SELF_CITATION flag. No instructions addressed to reviewers or automated assessors were found in the text."
+  }
+ ]
+}

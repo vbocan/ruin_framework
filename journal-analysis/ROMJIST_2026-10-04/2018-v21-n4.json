@@ -1,0 +1,543 @@
+{
+ "batch_id": "2018-v21-n4",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 21,
+  "issue": 4,
+  "year": 2018
+ },
+ "papers": [
+  {
+   "paper_id": "teodorescu2018a",
+   "paper": {
+    "title": "Perspectives in Fuzzy Logic and Fuzzy Systems",
+    "authors": [
+     "Horia-Nicolai Teodorescu"
+    ],
+    "abstract": "Guest-editor introduction to the special issue on fuzzy systems and fuzzy logic applications; reviews publication trends for fuzzy systems and summarises the papers in the issue.",
+    "keywords": [],
+    "doi": null,
+    "pages": "324-327",
+    "source_file": "paper604.pdf"
+   },
+   "concept_level": null,
+   "scores": {
+    "formalism": null,
+    "citation_integrity": null,
+    "structural_integrity": null,
+    "artifact_availability": null,
+    "intellectual_integrity": null,
+    "composite": null,
+    "final": null
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EDITORIAL"
+   ],
+   "flag_details": {
+    "EDITORIAL": "Guest-editor preface to the fuzzy-logic special issue: it surveys Web of Science publication counts and introduces each paper in the issue. It is not a research paper."
+   },
+   "verdict": {
+    "classification": "NOT_APPLICABLE",
+    "disqualified": false,
+    "record_type": "editorial"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Editorial introduction to a special issue on fuzzy logic and fuzzy systems.\n**Level:** not assigned (editorial)\n**Rationale:** The text is a guest-editor preface. It reports trend lines fitted to Web of Science paper counts and summarises the issue's papers. It makes no research contribution of its own.\n\n### Issues\nNone assessed. The page header gives Volume 20, but the issue is 21(4).\n\n---\n\n## Citation Analysis\n\nEleven references, one to an earlier ROMJIST paper. Not assessed further.\n\n---\n\n## Conclusion\n\nFlagged EDITORIAL and excluded from analysis."
+  },
+  {
+   "paper_id": "zhao2018",
+   "paper": {
+    "title": "An extension of ELECTRE to multi-criteria decision making problems with extended hesitant fuzzy sets",
+    "authors": [
+     "Kexing Zhao",
+     "Xianjiu Huang"
+    ],
+    "abstract": "Extended hesitant fuzzy sets (EHFSs), which are an extension of hesitant fuzzy sets, consider possible value-groups for the membership of x into the set A and increase the richness of numerical representation based on the value-groups. Some extended hesitant fuzzy elements (EHFEs) aggregation operators are proposed. In this paper, the dominance relation and opposition relation for EHFEs which based on traditional ELECTRE methods are introduced and the method for comparing EHFEs is proposed. To extend EHFSs to multi-criteria decision making, we proposed an outranking approach which is similar to ELECTRE III, and the data of outranking approach is in the form of EHFEs. Finally, an example is given to illustrate the developed approach.",
+    "keywords": [
+     "Extended hesitant fuzzy set",
+     "extended hesitant fuzzy elements",
+     "ELECTRE III",
+     "outranking approach",
+     "multi-criteria decision making"
+    ],
+    "doi": null,
+    "pages": "328-343",
+    "source_file": "paper605.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 45.25,
+    "composite": 33.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "DISPROPORTIONATE_FORMALISM"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 adaptation of ELECTRE III to extended hesitant fuzzy data. Several formal elements play no part in the method. The EHFWA/EHFWG aggregation operators (Definitions 3.6-3.8) are defined and worked through in Example 3.1, then never used. The score functions (Definitions 2.2-2.3) serve only as motivation.",
+    "DECORATIVE_DEFINITIONS": "Definitions 3.6, 3.7 and 3.8 (a generic function on EHFE sets and two weighted aggregation operators) are not referenced by the outranking procedure in Section 5. Removing them would not change what a programmer builds.",
+    "DISPROPORTIONATE_FORMALISM": "19 definitions x2 + 6 properties x3 + 4 proofs x4 = 72, against a Level 2 upper bound of 15 (2x bound = 30)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "ELECTRE III recast for extended hesitant fuzzy elements. Unused aggregation operators and recalled definitions inflate the formal apparatus, and the illustrative computation contains inconsistencies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Concordance/discordance indices and an ELECTRE III-style ranking procedure for extended hesitant fuzzy elements, illustrated on a five-alternative energy-policy example.\n**Level:** 2 (Low)\n**Rationale:** The contribution applies the existing ELECTRE III scheme and the multi-hesitant concordance indices of Peng/Wang to a different fuzzy-set representation. The 'properties' are short consequences of the definitions. There is no complexity or convergence analysis. Following the default-low rule, this is an existing method carried into a new data type.\n\n### Formal Elements\n- Definitions: 19 (2.1-2.3, 3.1-3.8, 4.1-4.8)\n- Theorems (Properties): 6\n- Proofs: 4\n- Equations: about 15 numbered\n\n### Proportionality\nCalculated complexity: 72\nExpected range (Level 2): 0-15\nRatio: 4.8x upper bound\n\n**Assessment:** Disproportionate. The outranking definitions (4.5-4.8) are needed to implement the method. A large share of the rest is recalled background, or operators that the method never invokes: EHFWA/EHFWG with a full worked Example 3.1, the generic Theta mapping of Definition 3.6, and the score functions of Section 2.\n\n### Issues\n- Definition 4.1's discordance case (2) is written as c_j instead of d_j. Its case (3) has the inequality reversed ('If g_j(a1)+v_j >= g_j(a2), then d_j = 1').\n- Step 1 cites Xia and Xu as [25], which is a Zadeh reference.\n- Row A3 of the concordance matrix C is entirely dashes except one entry, yet the credibility matrix changes that entry from 0.202 to 0.194 with no explanation. The ranking at the end differs from the cited prior work [29], and the paper does not reconcile the two.\n- The proof of Property 4.2 cites 'Definition 4.3' where 4.6 is meant.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 30 references: [6] Chen, Huang, Tang on distance measures for higher-order dual hesitant fuzzy sets. It is topically related (similarity about 0.6). SCR 3.3%. One misattributed citation was found ([25] used for Xia and Xu).\n\n---\n\n## Structural Analysis\n\nThe claims of advantage over HFS-based methods ('avoid information loss', 'considers information comprehensively and can be applied to many fields') rest on one illustrative example with assumed data. There is no sensitivity analysis and no comparison beyond restating the ranking from [29]. Limitations are acknowledged inline: the thresholds are treated as constants. No code or computation is released.\n\n---\n\n## Conclusion\n\nThe outranking construction itself is coherent and implementable. The paper surrounds it with a sizeable body of formal material that the method does not use, which is formalism theater at this concept level. Errors in the base definitions and the unexplained changes in the worked matrices weaken confidence in the example."
+  },
+  {
+   "paper_id": "ngan2018",
+   "paper": {
+    "title": "Logic Connectives of Complex Fuzzy Sets",
+    "authors": [
+     "Tran Thi Ngan",
+     "Luong Thi Hong Lan",
+     "Mumtaz Ali",
+     "Dan Tamir",
+     "Le Hoang Son",
+     "Tran Manh Tuan",
+     "Naphtali Rishe",
+     "Abe Kandel"
+    ],
+    "abstract": "The Fuzzy Set Theory has been applied in various problems in numerous fields. In particular, the concepts of t-norms and t-conorms serve a significant role in shaping the theory and its applications. The notion of Complex Fuzzy Sets extends the Fuzzy Set Theory and provides several advantages over the classical theory. The notions of complex t-norms and t-conorms have not been fully developed so far. In this paper, we present the complex fuzzy set forms of t-norms and t-conorms and detail their properties. Additionally, we provide two numerical examples of applying the complex t-norm and t-conorm to multi-criteria decision making in the context of medicine-related problems using medical datasets.",
+    "keywords": [
+     "Fuzzy sets",
+     "Complex fuzzy sets",
+     "t-norm and t-conorm",
+     "Complex fuzzy t-norms and t-conorms",
+     "Multi-criteria decision making problem"
+    ],
+    "doi": null,
+    "pages": "344-357",
+    "source_file": "paper606.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 85,
+    "structural_integrity": 30,
+    "artifact_availability": 50,
+    "intellectual_integrity": 37.25,
+    "composite": 40.44,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"This example is performed on the Tsumoto dataset [14].\" (reference [15]: Hirano and Tsumoto, AMIA 2003, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1480296/)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "DISPROPORTIONATE_FORMALISM",
+    "NO_LIMITATIONS",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "The contribution amounts to restating t-norm axioms for complex membership grades, with no proofs, plus a five-step MCDM procedure (normalise, apply Lukasiewicz operator, sum, take max). Archimedean, strict and involutive definitions (4.3, 4.4, 4.13, 4.14) are introduced and never used by the algorithm or any result.",
+    "DECORATIVE_DEFINITIONS": "Definitions 4.3, 4.4, 4.13 and 4.14 have no role in the MCDM method or in a proof. Definitions 3.7-3.9 restate textbook t-norm/t-conorm/Archimedean definitions, and the first of these is stated with a three-argument domain by mistake.",
+    "DISPROPORTIONATE_FORMALISM": "16 definitions x2 + 8 propositions/theorems x3 + 0 proofs = 56, against a Level 2 upper bound of 15 (2x bound = 30).",
+    "NO_LIMITATIONS": "The paper acknowledges no limitations. The conclusion lists only future applications.",
+    "UNSUPPORTED_CLAIMS": "Propositions 4.8-4.10, 4.16, 4.17 and Theorems 4.11, 4.18, 4.19 are stated without proof, and Proposition 4.10 (I(p,q)=p) is false for general t-norms. The claim that results 'have been verified by physicians' and that the algorithm makes the problem 'efficiently tractable' has no supporting evidence."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Complex t-norm and t-conorm definitions stated without proofs, several of them mathematically ill-formed, followed by a trivial MCDM procedure on small expert-assigned matrices.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Extending t-norm, t-conorm and negation axioms to complex-valued fuzzy membership grades, and applying a 'Lukasiewicz complex t-norm' to two small medical decision matrices.\n**Level:** 2 (Low)\n**Rationale:** Substantive extension of a theoretical framework would merit Level 3. Here the definitions are transcribed from the real case, with no proofs, no new results, and no analysis of how ordering works on the complex disk. The application is a normalise-and-sum ranking.\n\n### Formal Elements\n- Definitions: 16 (3.1-3.9, 4.1-4.4, 4.12-4.14)\n- Theorems/Propositions: 8 (4.8-4.11, 4.16-4.19)\n- Proofs: 0\n- Equations: about 20\n\n### Proportionality\nCalculated complexity: 56\nExpected range (Level 2): 0-15\nRatio: 3.7x upper bound\n\n**Assessment:** Disproportionate. The formalism is also internally unsound:\n- Definition 4.1 requires monotonicity 'I(p,q) <= I(p,r) if q <= r' on complex numbers, but no order is defined on the complex disk. The associativity axiom is garbled: 'I(I(q,r)) = I(p, I(p,q), r)'.\n- Definition 3.5 (intersection) uses the max operator on amplitudes, which is identical to union.\n- Example 4.7 takes 'max' of complex numbers and rewrites p1 e^{jw1} + q1 e^{jw2} as (p1+q1) e^{j(w1+w2)}, which is not valid algebra.\n- Proposition 4.10 states idempotency as I(p,q) = p for all p, q. Proposition 4.16's excluded-middle laws do not hold for min/max either.\n\n### Issues\nThe MCDM section applies 'the operators in Example 4.7', then refers to 'Example 3.7', and the phase values in Table 4 exceed 1. The defuzzification step from Table 4 to Table 5 is not described.\n\n---\n\n## Citation Analysis\n\nFive of 35 references include one or more of the authors (Ali, Tamir, Rishe, Kandel): [1], [17], [26], [27], [30]. SCR 14.3%. All concern complex fuzzy sets or fuzzy decision making (similarity 0.4-0.8). [17] (disaster mitigation) is the most marginal. The Tsumoto dataset is cited as [14] in the text but listed as [15].\n\n---\n\n## Structural Analysis\n\nThe paper states its claims but gives no proof for any of them. The two numerical examples use 3x4 and 3x3 matrices of expert-assigned values. The 'Tsumoto dataset' contributes only the choice of indices, not data processed by the method, so the data category is generous. No limitations are acknowledged.\n\n---\n\n## Conclusion\n\nThe paper offers notation without results. The proposed axioms are ill-defined on complex numbers, the properties are asserted without proof and some are false, and the application never uses the theory beyond a sum. At concept Level 2 the volume of unused and unsound formalism is disqualifying."
+  },
+  {
+   "paper_id": "precup2018",
+   "paper": {
+    "title": "Experiments in Incremental Online Identification of Fuzzy Models of Finger Dynamics",
+    "authors": [
+     "Radu-Emil Precup",
+     "Teodor-Adrian Teban",
+     "Adriana Albu",
+     "Alexandra-Iulia Szedlak-Stinean",
+     "Claudia-Adina Bojan-Dragos"
+    ],
+    "abstract": "This paper suggests a set of evolving Takagi-Sugeno-Kang (TSK) fuzzy models that characterize the finger dynamics of the human hand in the framework of myoelectric (ME) control of prosthetic hands. The fuzzy model outputs are the finger angles, namely the midcarpal joint angles. Starting with the ME signals obtained from eight ME sensors, which are used as fuzzy model inputs, different numbers of additional model inputs obtained from past inputs and/or outputs are considered. The structure and parameters of the fuzzy models are evolved by an incremental online identification algorithm. The evolving TSK fuzzy models for three out of five fingers are tested against the experimental data and compared. The experimental results highlight that the proposed fuzzy models are consistent with both training and validation data.",
+    "keywords": [],
+    "doi": null,
+    "pages": "358-376",
+    "source_file": "paper607.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 40,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 62.25,
+    "composite": 46.69,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (the identification is \"supported by the eFS Lab software developed by A. Dourado and his team\", a third-party tool)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "IRRELEVANT_SELF_CITATION"
+   ],
+   "flag_details": {
+    "IRRELEVANT_SELF_CITATION": "In one sentence the paper cites a block of 20 references [34-53] on 'other fuzzy model structures' and 'optimization techniques', including gear trains, cloud load balancing, krill-herd and ideal-gas metaheuristics. The block contains two self-citations unrelated to evolving fuzzy models of finger dynamics: [36] telerobot simulation and control for space medicine, and [46] obstacle-avoiding trajectory design. Estimated similarity for both is about 0.2."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Competent application of an existing evolving-TSK identification algorithm (via third-party eFS Lab) to myoelectric finger data, undermined by padded citation blocks containing unrelated self-citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Identifying evolving Takagi-Sugeno-Kang fuzzy models that map eight myoelectric signals (plus lagged values) to finger flexion, using the Angelov-Filev eTS algorithm in the eFS Lab tool.\n**Level:** 2 (Low)\n**Rationale:** An existing online identification algorithm and existing software applied to a new dataset, with an input-structure comparison across 54 models.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 17 (TSK rule base, firing degrees, potentials, RLS update, RMSE)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations restate the eTS algorithm a re-implementer would need, so they pass the necessity test. Several contain typos: the consequent in (2) repeats a_i0, and (17) writes y_1,k for y_l,k.\n\n### Issues\nNone in the formalism.\n\n---\n\n## Citation Analysis\n\nEight of 53 references include one or more authors: [9], [10], [14], [15], [26], [30], [36], [46]. SCR 15.1%. The six evolving-fuzzy/NARX self-citations are directly related. [36] and [46] sit inside a 20-reference block [34-53] cited for a single generic sentence. That block also includes papers on gear trains, cloud load balancing, krill-herd optimisation and the journal's own editors' work. The two self-citations in it have low topical similarity, so the pattern reads as citation padding.\n\n---\n\n## Structural Analysis\n\nEvidence is substantial: RMSE on training and validation for 54 models in Tables 4-6, plus time-response plots. The authors themselves note that the models were selected on the validation set and should be checked on unseen data. They also note that the dataset covers 434.91 s from presumably one subject ('more people and larger data sets could conclude in different results'), which counts as an inline limitation. The claim that the models outperform DENFIS and NN models rests on earlier papers [9, 14], not on this one. Some best-model lists in the text do not match the tables. The data and model parameters are not released.\n\n---\n\n## Conclusion\n\nThe technical content is a reasonable empirical model-structure study with proportionate formalism and honest caveats. The integrity concern is in the reference list: a long, unfocused citation block that carries unrelated self-citations."
+  },
+  {
+   "paper_id": "dobrea2018",
+   "paper": {
+    "title": "A MANFIS model of the 3D head position based on a wearable system",
+    "authors": [
+     "Dan-Marius Dobrea",
+     "Monica-Claudia Dobrea"
+    ],
+    "abstract": "The fuzzy systems, the artificial neural networks, and the neuro-fuzzy systems have been widely used in modeling of the complex, unknown and nonlinear functions. In this paper, a comparative study between two soft computing techniques was done, namely, between a Multiple Neuro-Fuzzy Inference System (MANFIS) and two different Artificial Neural Network structures. The research used a new wearable system, named Intell.TieSens, in order to model the complex nonlinear relationship that exist between the capacitive sensors embedded in a tie collar and the 3D head position of the wearer of that tie. The results showed the superior performances obtained with MANFIS system - two times better than the performances obtained with the RBF neural network. Out of the tested models, the MLP neural network obtained the lowest performances.",
+    "keywords": [
+     "Fuzzy",
+     "MANFIS",
+     "CANFIS",
+     "neural network",
+     "RBF",
+     "wearable",
+     "capacitive sensing"
+    ],
+    "doi": null,
+    "pages": "377-391",
+    "source_file": "paper608.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 88,
+    "structural_integrity": 50,
+    "artifact_availability": 70,
+    "intellectual_integrity": 75.3,
+    "composite": 73.97,
+    "final": 68.97
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"The blessTags application [20] is commercialized within the virtual Microsoft Store and it was developed by the first author of this paper.\" [20] https://www.microsoft.com/store/apps/9p054xsjjr1n",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "The paper acknowledges no limitations, despite having three subjects, 1618 samples, a single 80/20 random split with no independent test set, and models fitted per subject pool."
+   },
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Standard comparison of MLP, RBF, MANFIS and CANFIS on a small capacitive-sensor head-pose dataset. Formalism is proportionate, but the evaluation is thin and contains inconsistencies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Comparing MLP, RBF and ANFIS-based regressors that map four neck capacitive-sensor readings to yaw, pitch and roll, using a custom BLE wearable.\n**Level:** 2 (Low)\n**Rationale:** Off-the-shelf learners trained on a new sensing dataset, with accuracy reported.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 9 (function-approximation statement, ANFIS layer equations, percent error)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The ANFIS layer equations are textbook and describe the model used.\n\n### Issues\nNone in the formalism.\n\n---\n\n## Citation Analysis\n\nFour of 31 references are by the authors: [14], [20] (their blessTags app), [30], [31]. SCR 12.9%. All relate to the same wearable system. [2] is an editorial note by the special-issue guest editor, cited for a general claim about function approximation. References [24] and [25] are duplicates.\n\n---\n\n## Structural Analysis\n\nTables 1-2 report MSE, NMSE, r and percent error on one cross-validation split, with no repeated runs or variance. The three CANFIS rows are identical across yaw, pitch and roll, which the text explains as a single global figure. The text then reports CANFIS percent error as 'around 42', but the table shows 20.27. The claim that MANFIS achieves under 5 degrees error is derived indirectly from percent error rather than measured. There is no limitations discussion. The blessTags link is to the authors' own BLE acquisition app on the Microsoft Store, not to the modelling code or data. It satisfies the code category literally, but it does not support reproducing the models.\n\n---\n\n## Conclusion\n\nThe formalism and citation practice are appropriate. The empirical support for 'two times better' is thin given three subjects, one split, and the internal inconsistencies in the CANFIS results."
+  },
+  {
+   "paper_id": "karali2018",
+   "paper": {
+    "title": "Development of a fuzzy logic-based loading algorithm in the selection of the most appropriate cargo package for cleaning and cosmetic products",
+    "authors": [
+     "Mehmet Karali"
+    ],
+    "abstract": "Minimum space and maximum capacity based loading algorithms or software products for in-container parcel loading or in-box product placement are very common. These software products, when desired to be used for placing cleaning and cosmetics products in cargo packages, have a number of special constraints and related challenges. In this study, cleaning and cosmetic products which have special restrictions and freedoms are taken as the primary targets. An algorithm has been developed that optimizes the placement of these products in the package. The algorithm is run and tested using the Excel database and macro code. The algorithm is integrated into a private company product line. Thanks to this software automation, which is developed to make package selection at the right size, 14,4 % monthly cargo charge and 10 % labor savings are obtained.",
+    "keywords": [
+     "Container loading problem",
+     "Fuzzy logic optimization",
+     "Container loading algorithm"
+    ],
+    "doi": null,
+    "pages": "392-405",
+    "source_file": "paper609.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 85,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 71.0,
+    "composite": 53.25,
+    "final": 48.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (\"The algorithm is run and tested using the Excel database and macro code\"; integrated into a private company's software)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations are acknowledged. The conclusion says only that the algorithm 'is open for further enhancement according to the product list'."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Industrial rule-based box-selection heuristic labelled as fuzzy logic. It reports company savings without independent evaluation, and its figures are inconsistent.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** An Excel-macro heuristic that picks one of five cargo-box sizes for an order, using volume thresholds plus product-group placement coefficients, deployed at one cosmetics company.\n**Level:** 2 (Low)\n**Rationale:** A domain heuristic built from historical statistics and lookup tables. Level 1 (software integration) is arguable, but the stepwise placement rule is a modest algorithmic contribution.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (a volume sum and a piecewise 'membership' table)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in quantity. Table 2 labels a crisp interval lookup µA(x) and calls it a membership function, although it returns box names rather than membership degrees. This is mislabelled fuzzy terminology rather than mathematical formalism. No fuzzy inference (membership degrees, rules, defuzzification) is actually performed, so the 'fuzzy logic' of the title describes uncertainty bands, not a fuzzy method.\n\n### Issues\nThe fuzzy framing is not substantiated by any fuzzy computation.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 14 references. Some references are mis-applied: [1] (ray optimization metaheuristic) and [4] (material selection with ANN/GA) are cited as examples of container-loading approach and layer classification.\n\n---\n\n## Structural Analysis\n\nThe headline outcomes are 99% correct box selection, 14.4% (abstract) or 14% (text) cargo-cost saving, and 10% labour saving. They rest on a comparison over '5700 actual order[s]' (Fig. 9), while elsewhere 57,000 parcels are analysed. There is no description of how correctness was established, no baseline beyond manual selection, and no statistical treatment. The 10% labour figure is not supported in the body. The code and data are proprietary to the funding company.\n\n---\n\n## Conclusion\n\nThis is a practical industrial case report with minimal formalism. It does not deliver the fuzzy-logic method its title claims, and its savings figures are inconsistent and unverified. It acknowledges no limitations."
+  },
+  {
+   "paper_id": "indirapriya2018",
+   "paper": {
+    "title": "Fuzzy logic approach for temperature analysis in multi-jet air impingement investigation",
+    "authors": [
+     "P. Indira Priya",
+     "P. Chandramohan",
+     "A. Kannan"
+    ],
+    "abstract": "In the present work, an experimental investigation was carried out to study the influence of design parameters of impinging air jets on heat transfer, temperature and Nusselt number in a multi-jet air impingement system. Square, triangle and circular type nozzles with area 8, 10 and 12 mm2 were used for the analysis considering Reynolds number 18000, 20000 and 22000. The H/D ratio used was 2D, 4D and 6D. Taguchi based design of experiment approach with L27 orthogonal array was used to design the experiments. Grey relational analysis is used to optimize the multiple responses and the uncertainty in the experimental data is handled using fuzzy logic technique. The investigation reveals that the type of nozzle contributes the most towards overall performance with contribution of 86% followed by area of nozzle, H/D ratio and Reynolds number respectively. A significant improvement in experimental data is observed with the application of fuzzy logic technique.",
+    "keywords": [
+     "Multi-jet air impingement",
+     "heat transfer",
+     "Fuzzy logic",
+     "Grey relational analysis"
+    ],
+    "doi": null,
+    "pages": "406-428",
+    "source_file": "paper610.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 0,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 40.75,
+    "composite": 30.56,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (raw measurements are printed in Table 3; analysis done in Minitab-16 and the MATLAB fuzzy logic toolbox, third-party tools)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "IRRELEVANT_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "IRRELEVANT_SELF_CITATION": "Five self-citations are unrelated to jet-impingement heat transfer. [43] (fuzzy unequal clustering for WSNs), [44] (temporal pattern classification with PSO) and [45] (fuzzy energy-efficient WSN routing) are cited in passing ('applied in other areas of research such as wireless sensor networks [43] and pattern classification [44]'). [46] and [47] (neuro-fuzzy social-network analysis) are listed but never cited in the text. Similarity is about 0.1.",
+    "NO_LIMITATIONS": "No limitations are acknowledged. The conclusions list findings only."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Routine Taguchi-GRA-fuzzy study of jet-impingement parameters. It presents the fuzzy grade as 'reducing fuzziness in the data' without basis, and appends unrelated self-citations on wireless sensor networks and social networks.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** L27 Taguchi experiments on a multi-jet air impingement rig, multi-response optimisation by grey relational analysis, then a Mamdani FIS in MATLAB mapping grey coefficients to a 'grey-fuzzy reasoning grade'.\n**Level:** 2 (Low)\n**Rationale:** An established DoE-GRA-fuzzy pipeline applied to a new experimental setup.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 (GRA normalisation, coefficients, grade; textbook linear and multiple regression)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The GRA equations describe the computation. The regression equations (9)-(10) are textbook statements that the paper never uses, and they are a minor redundancy.\n\n### Issues\nThe central claim is methodologically empty. Raising the ANOVA R² by replacing the grey grade with a FIS output, and reporting that every grade 'improved' by an average of 24.28%, says nothing about 'eliminating the vagueness or fuzziness in the obtained experimental data'. Duplicate measurements agree to the second decimal, so there is little uncertainty to handle. Fig. 14 refers to the 'machining parameters of EDM machine setup', apparently carried over from a machining study.\n\n---\n\n## Citation Analysis\n\nSix of 47 references include an author: [7] Chandramohan (related multi-jet PCA study), and [43], [44], [45], [46], [47] Kannan and/or Indira Priya on WSN clustering, temporal pattern classification, WSN routing and social-network classifiers. SCR 12.8%. The last five are unrelated to heat transfer, and two of them are never cited in the text. Separately, seven references are to one machining-optimisation group (Senthilkumar et al.: [20]-[24], [31], [32]), cited for generic GRA/Taguchi statements. This was not flagged without evidence of reciprocity.\n\n---\n\n## Structural Analysis\n\nTable 3 gives the full raw data, and ANOVA tables are reported. The novelty claim and the claim of reduced fuzziness are unsupported, the novelty statement is self-contradictory ('does not require any algorithm-specific parameter'), and no limitations are stated. ANOVA 'contribution' figures differ between the abstract (86%) and the body (85.26%, 73.30%).\n\n---\n\n## Conclusion\n\nThe experimental work is routine and adequately documented. The fuzzy layer adds no demonstrated value. The irrelevant self-citations disqualify the paper under the citation-integrity rules."
+  },
+  {
+   "paper_id": "labdai2018",
+   "paper": {
+    "title": "Sliding Mode Control via Fuzzy Multi-Level Switching control scheme for DFIG based WECS",
+    "authors": [
+     "S. Labdai",
+     "N. Bounar",
+     "A. Boulkroune",
+     "B. Hemici"
+    ],
+    "abstract": "This paper presents a new sliding mode control (SMC) via fuzzy multi-level switching (FMLS) technique for doubly fed induction generator-based wind energy conversion system (DFIG-based WECS). The main objectives are: 1) extraction of maximum power from the wind by achieving maximal power point tracking (MPPT) strategy, and 2) supplying the grid with zero reactive power. The SMC is combined with FMLS control to minimize the undesirable effect of chattering inherent to the conventional SMC. Based on the measured error, five error levels are selected. For each error level there is different switching level. Simulation results using Simulink/Matlab conclude that the proposed controller succeeded in eliminating perturbation and minimizing the chattering effect.",
+    "keywords": [
+     "Wind energy conversion system",
+     "MPPT",
+     "DFIG",
+     "Sliding mode control",
+     "Fuzzy control",
+     "Multi-level switching"
+    ],
+    "doi": null,
+    "pages": "429-445",
+    "source_file": "paper611.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.5,
+    "composite": 55.12,
+    "final": 50.12
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (simulation in Simulink/Matlab; parameters listed in Table 4)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations are acknowledged. The paper presents simulation-only results with tuning by 'try and fail' and no stability argument for the fuzzy gain schedule, and none of this is discussed as a constraint."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation study scheduling the SMC switching gain with a five-rule fuzzy map for a DFIG wind system. The modelling is standard, but the comparison is weak and the text contradicts its own timing table.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Vector-controlled DFIG wind turbine with MPPT, where rotor-current SMC uses a fuzzy map from |error| to switching gain, compared in Simulink with a prior fuzzy SMC.\n**Level:** 2 (Low)\n**Rationale:** Standard DFIG modelling and classical SMC with a Lyapunov argument, plus a one-input fuzzy gain schedule. This is an incremental combination of known techniques.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 1 (Lyapunov argument for classical SMC)\n- Equations: 30 (machine model, vector control, SMC law)\n\n### Proportionality\nCalculated complexity: 4\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Proportionate. The machine and control equations are needed to implement the controller. The stability proof covers only classical SMC with a fixed gain λ_j > |δ_j|. It does not cover the proposed fuzzy gain, which can fall below the uncertainty bound at small errors, so the robustness claim for FMLS has no formal support.\n\n### Issues\nThe proof attributes the conclusion to the 'Barbalet lemma' (Barbalat). The nomenclature defines R as resistance, while R is the blade diameter in (3).\n\n---\n\n## Citation Analysis\n\nTwo of 18 references include authors: [9] and [13], both by Bounar and Boulkroune on DFIM control. SCR 11.1%, and both are topically related. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe abstract and conclusion compare against 'conventional SMC', but Table 5 compares FSMC with FMLS. In the text, 'the controller calculation time is faster' with FMLS, yet the table shows 14.12 s for FMLS against 3.31 s for FSMC. The figures are described but not quantified beyond one MSE table. Only one simulated wind profile is used, there is no hardware validation, and no limitations are discussed. The FSMC baseline gains were chosen 'based on try and fail' because [18] did not report them, which weakens the comparison.\n\n---\n\n## Conclusion\n\nThe formalism is appropriate and the citations are clean. The empirical claims are thin and partly contradicted by the paper's own table."
+  },
+  {
+   "paper_id": "kolesau2018",
+   "paper": {
+    "title": "A Character-Based Part-of-Speech Tagger with Feedforward Neural Networks",
+    "authors": [
+     "Aliaksei Kolesau",
+     "Dmitrij Šešok",
+     "Mindaugas Rybokas"
+    ],
+    "abstract": "This article presents a simple method to perform part-of-speech (POS) tagging with feedforward neural networks applied to learnable character embeddings. The motivation of the research is based on the fact that for some languages a human can find out the part of speech for a word just by its spelling even without knowing the meaning of the word. One of the goals was to achieve high accuracy tagging without using semantic information (e.g. without word embeddings). This allows performing tagging for out of vocabulary words. Also, the dependency of the performance from context size was studied. The plausibility of the method was proved by building a POS-tagger with the accuracy comparable to state-of-the-art results.",
+    "keywords": [
+     "POS tagging",
+     "character embeddings",
+     "feedforward neural networks"
+    ],
+    "doi": null,
+    "pages": "446-459",
+    "source_file": "paper612.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 75,
+    "artifact_availability": 100,
+    "intellectual_integrity": 86.0,
+    "composite": 89.5,
+    "final": 89.5
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"You can see an implementation of our model at https://bitbucket.org/kolesov93/pos-tagger.\"; data: \"Experiments for two languages were conducted (Russian and English) on the Universal Dependencies data (http://universaldependencies.org/).\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "STRONG",
+    "disqualified": false,
+    "summary": "Simple character-embedding feedforward POS tagger on Universal Dependencies with released code. The formalism is minimal and the claims are mostly modest, though 'empirically proved' overstates the evidence.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** POS tagging from fixed-length one-hot character matrices, through a learned embedding and PReLU dense layers, with optional left/right word context, on UD Russian (SynTagRus), English and Lithuanian.\n**Level:** 2 (Low)\n**Rationale:** A straightforward neural classifier with a hyperparameter grid and accuracy reported.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 inline (probability vector, sigmoid/tanh in appendix)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The method is described in prose with matrix dimensions, which is what an implementer needs.\n\n### Issues\nAppendix C misdefines PReLU as linear in the negative domain without the learnable slope, and gives a wrong tanh formula. A discussion paragraph is duplicated verbatim.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 26 references. [20] (Tufiş, ROMJIST) is a relevant overview. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe paper uses standard UD train/validation/test splits, a most-frequent-tag baseline, a full grid in the linked repository, a second-stage run to convergence, and confusion matrices. It acknowledges limitations in the discussion and conclusions: weaker results for English, Lithuanian data too small, a simple architecture, and no sentence-level information. The abstract's 'comparable to state-of-the-art' is fair for English (89.11 vs SyntaxNet 90.48) but is not supported for Russian. 'We empirically proved' overstates what the evidence shows. Code is on Bitbucket and the data is a public, named corpus.\n\n---\n\n## Conclusion\n\nA modest, transparent empirical paper with appropriate formalism, clean citations and released code on public data."
+  },
+  {
+   "paper_id": "franti2018",
+   "paper": {
+    "title": "Decoding communication: a deep learning approach to voice-based intention detection",
+    "authors": [
+     "Eduard Franţi",
+     "Monica Dascalu",
+     "Ioan Ispas",
+     "Ana Voichita Tebeanu",
+     "Zoltan Elteto",
+     "Silvia Branea",
+     "Voichita Dragomir"
+    ],
+    "abstract": "This paper presents an original method of intention detection that can open a new direction of research in voice-based affective computing. A deep learning approach was used to detect the consistency between real and expressed intentions of a speaker (or the inconsistency, that is related to deceiving - or manipulative - intention), as reflected in their voice. The labeling and triangulation of results imply a qualitative research method, critical discourse analysis, and require expert evaluation. The method was implemented in a software platform integrated with the neural network programming frame. The experimental research applied the proposed method for a famous historical case: US President Richard Nixon's audio speeches from the 'Watergate affair'. A labeled data base of 2758 files (2 seconds audio fragments) was generated, based on publicly available voice recordings of President Nixon. These files were used for training and tests and an accuracy of over 94% was obtained.",
+    "keywords": [],
+    "doi": null,
+    "pages": "460-474",
+    "source_file": "paper613.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 85,
+    "structural_integrity": 25,
+    "artifact_availability": 0,
+    "intellectual_integrity": 68.0,
+    "composite": 51.0,
+    "final": 36.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text for the labeled dataset or code (source recordings: \"All files were downloaded from public websites (watergate.info and youtube.com [28])\", but the labeled 2-second fragments are not released)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "The paper claims an 'original method' that 'showed the effectiveness of this new method for detection of inconsistent or deceiving intentions'. The only quantitative evidence is one random-split test accuracy on 2-second fragments cut from the same recordings, where labels coincide with recording source (official speech and private calls vs. earlier unrelated recordings). Training is restarted until test accuracy exceeds 90%. The authors concede the prediction phase 'has not been yet formalized or evaluated as a numerical figure'."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "A Keras CNN on spectrograms of 2-second Nixon fragments, labelled by recording context. The 94% accuracy is confounded by recording source and fragment leakage and was selected on the test set, so it does not support the claimed detection of deceptive intention.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Binary 'manipulative vs non-manipulative' classification of 2-second spectrogram fragments from Nixon recordings with a small CNN adapted from a Keras example, plus a labelling GUI.\n**Level:** 2 (Low)\n**Rationale:** An off-the-shelf CNN applied to a new labelled audio set.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. There is no formalism.\n\n### Issues\nNone in the formalism.\n\n---\n\n## Citation Analysis\n\nTwo of 29 references include authors: [3] (voice emotion CNN, ROMJIST) and [26] (infant speech CNN). SCR 6.9%, and both are related. The reference list is misnumbered. The text cites [25] for the CNN's prior use, but [25] is Ekman. Keras is cited as [26] but listed as [27]. [28] is cited for youtube.com but is an emotion-recognition survey whose venue duplicates that of [26]. These are editorial defects, not manipulation.\n\n---\n\n## Structural Analysis\n\nMost of the paper is psychological and rhetorical background (Freud, Cicero, Le Bon). The experimental design cannot support its conclusion:\n- 'Manipulative' and 'non-manipulative' labels follow the recording source (Watergate speech and private calls vs. earlier recordings on other subjects), so the CNN may learn channel or recording-era differences.\n- The 2758 fragments are cut from the same recordings and randomly split 80/20, which leaks speaker-session information into the test set.\n- Step 2 of training repeats network creation 'If the test accuracy is less than 90%', which selects on the test set.\n- The training log sits at the class prior (0.6114) for 11 epochs before jumping. Table 1 (dense 128, 11.5M parameters) contradicts the text (dense 256, 23M parameters).\n\nThe paper does acknowledge, inline, that no taxonomy of intentions exists and that the prediction phase has not been evaluated numerically, so NO_LIMITATIONS is not raised. The labelled dataset and the software are not released.\n\n---\n\n## Conclusion\n\nThe research question is interesting, but the evidence does not separate 'intention' from recording context, and the reported accuracy was selected on the test set. The claim of a working intention detector is unsupported."
+  }
+ ]
+}

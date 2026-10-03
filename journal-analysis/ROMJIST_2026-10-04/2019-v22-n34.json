@@ -1,0 +1,458 @@
+{
+ "batch_id": "2019-v22-n34",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 22,
+  "issue": "3-4",
+  "year": 2019
+ },
+ "papers": [
+  {
+   "paper_id": "nicolae2019",
+   "paper": {
+    "title": "An Overview of Industry 4.0 Development Directions in the Industrial Internet of Things Context",
+    "authors": [
+     "Andrei Nicolae",
+     "Adrian Korodi",
+     "Ioan Silea"
+    ],
+    "abstract": "Reviews the state of the art of Industry 4.0 in the Industrial Internet of Things context and organises recent literature into five development directions: networking and OPC UA, Plug & Produce, information and data models, big data and cloud computing, and standardization.",
+    "keywords": [
+     "Industry 4.0",
+     "Industrial Internet of Things",
+     "OPC UA",
+     "Plug & Produce",
+     "data models",
+     "information models",
+     "big data",
+     "cloud computing",
+     "standardization"
+    ],
+    "doi": null,
+    "pages": "183-201",
+    "source_file": "paper627.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 82.25,
+    "composite": 61.69,
+    "final": 56.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text (literature survey; nothing of the authors' own to release)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of the survey's constraints (selection criteria described as 'feasibility and sustainability' judged by the authors, no systematic search protocol, coverage limited mainly to ETFA/INDIN proceedings)."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Narrative literature survey of Industry 4.0/IIoT directions with no formalism and negligible self-citation; the review method is informal and no limitations are acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Narrative survey of Industry 4.0 and IIoT research directions (OPC UA networking, Plug & Produce, information models, big data/cloud, standardization).\n**Level:** 1 (Trivial)\n**Rationale:** Surveys and literature reviews are Level 1 by the classification guide; the paper proposes no method, model or system of its own.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — no formal apparatus at all.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n109 references. Two self-citations: [90] (Korodi et al., OPC UA wrapper for wastewater systems) and [93] (Nicolae & Korodi, Node-RED/OPC UA historian). SCR ≈ 1.8%. Both are directly on topic (OPC UA in industrial automation) and are cited in the relevant sections. A large share of references comes from the 2018 ETFA and INDIN proceedings, which reflects the stated focus rather than manipulation. No ring indicators.\n\n---\n\n## Structural Analysis\n\nAs a survey, nearly every descriptive claim is attributed to a cited source, so claim-evidence balance is adequate. The selection method is loosely described: papers judged by the authors as 'not sustainable or not having a significant impact' were excluded, without stated criteria, search strings, or counts. The paper's own value claims ('very useful and time saving', 'solid starting point') are not evidenced. No limitations are discussed. Several minor factual/editorial slips (e.g., OPC UA expanded as 'Open Protocol Communication'; [19] dated 2004 and 2014). Nothing to release; artifact marked not relevant.\n\n---\n\n## Conclusion\n\nA conventional narrative overview with no formalism and clean citation behaviour. Its weaknesses are methodological: an unsystematic, author-judged selection process and the absence of any limitations discussion. Useful as an orientation map, not as a systematic review."
+  },
+  {
+   "paper_id": "kavipriya2019",
+   "paper": {
+    "title": "Architecture of Smart Sensors for Real Time Drinking Water Quality and Contamination Detection in Water Distributed Mains",
+    "authors": [
+     "S. Kavi Priya",
+     "G. Shenbagalakshmi",
+     "T. Revathi"
+    ],
+    "abstract": "Describes a low-cost wireless-sensor-network system for in-pipe drinking water monitoring that measures pH, temperature, conductivity, ORP and turbidity, classifies water quality with fuzzy logic, closes a solenoid valve on contamination, and notifies consumers via SMS or mobile app.",
+    "keywords": [
+     "water quality monitoring",
+     "wireless sensor network",
+     "fuzzy logic",
+     "water distribution mains",
+     "network lifetime",
+     "ZigBee protocol",
+     "in pipe",
+     "contamination detection"
+    ],
+    "doi": null,
+    "pages": "202-214",
+    "source_file": "paper628.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 92,
+    "structural_integrity": 30,
+    "artifact_availability": 0,
+    "intellectual_integrity": 71.7,
+    "composite": 53.77,
+    "final": 33.77
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "The abstract claims 'Experimental results indicate that this low cost real time water quality monitoring system acts as an ideal early warning system with best detection accuracy', and the text claims detection 'even at low concentrations', but the paper reports no detection experiment, no accuracy figure, no contamination trials, and no fuzzy rule base; the only results are screenshots of an SMS and a dashboard. CER is well below 0.33.",
+    "NO_LIMITATIONS": "No limitations section or inline acknowledgment; the conclusion lists only future contaminants to test."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Prototype description of a sensor-network water monitoring system whose headline accuracy and early-warning claims are not backed by any reported experimental result.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Integration of commercial water-quality probes, a microcontroller board, ZigBee links, a fuzzy classifier and SMS/app notification for in-pipe monitoring.\n**Level:** 1 (Trivial)\n**Rationale:** A prototype that combines existing components; the fuzzy logic and data aggregation algorithms are mentioned but not specified, and are referenced to the authors' earlier work.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — no formalism. The opposite problem applies: the 'algorithms for fusing the real time data and decision making using fuzzy logic' promised in the abstract are never presented (no membership functions, rules or thresholds).\n\n### Issues\nNone in formalism.\n\n---\n\n## Citation Analysis\n\n27 references, two self-citations ([11] IoT in-pipe contamination detection, [27] fuzzy synthetic evaluation of drinking water). SCR ≈ 7.4%. Both are on the same system and directly relevant; indeed key design content is deferred to them. No concerns.\n\n---\n\n## Structural Analysis\n\nThe paper consists of motivation, related work, tables of WHO/BIS parameter ranges and sensor datasheet values, block diagrams, and screenshots. It claims field testing at Amathur, Sivakasi, low power consumption, and 'best detection accuracy', but reports no measurements, contamination events, detection rates, false alarms or latency. Three figures share the caption 'System Architecture'. No limitations acknowledged. No code, data or design files are released.\n\n---\n\n## Conclusion\n\nFormalism is not an issue; evidence is. The central claims — accurate, early contamination detection with automatic valve shut-off — rest on no reported experiment, so the paper reads as a system description with unsupported performance claims."
+  },
+  {
+   "paper_id": "gellert2019",
+   "paper": {
+    "title": "Perceptron-Based Selective Load Value Prediction in a Multicore Architecture",
+    "authors": [
+     "Arpad Gellert",
+     "Maria Vinţan",
+     "Lucian Vinţan"
+    ],
+    "abstract": "Extends the authors' selective load value predictor for multicore processors with per-load single-cell perceptrons that classify critical loads as predictable or unpredictable; integrated in the Sniper simulator and evaluated on Splash-2, it yields an average 4.21% speedup (maximum about 17%) over the baseline.",
+    "keywords": [
+     "multicore architecture",
+     "issue bottleneck",
+     "selective load value prediction",
+     "perceptron",
+     "speculative execution",
+     "Splash-2 parallel benchmarks",
+     "Sniper multicore simulator"
+    ],
+    "doi": null,
+    "pages": "215-227",
+    "source_file": "paper629.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 70,
+    "artifact_availability": 50,
+    "intellectual_integrity": 63.75,
+    "composite": 60.31,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"We have used for the evaluations the large datasets of the Splash-2 parallel benchmarks [26].\" The simulator modifications are described by file but not released.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "11 of 26 references (≈42%) include Gellert and/or Vinţan as authors: [4], [5], [6], [7], [8], [9], [21], [22], [23], [24], [25]. Most are on value prediction and are topically related, but the ratio exceeds the 30% threshold; [25] (multi-objective meta-optimization) and [9] (fuzzy knowledge representation for CPU optimisation) are only marginally related."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Incremental adaptation of perceptron branch prediction to load value classification with proportionate formalism and a sound simulation, but a self-citation ratio above 30% and a small gain over the authors' own baseline (4.21% vs 4.14%).",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Replacing saturating-counter confidence with Jiménez–Lin single-cell perceptrons to decide whether a critical load's value prediction is used, inside the authors' existing selective load value predictor.\n**Level:** 2 (Low)\n**Rationale:** The paper explicitly adapts an existing perceptron branch-prediction scheme to a new target (load value classification). No new algorithmic theory or complexity analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (perceptron output in two equivalent forms; relative speedup), plus training pseudocode\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the perceptron sum and update rule are needed to specify the hardware, and the speedup equation defines the metric. Set membership (VR ∈ V) is used inside the update rule and is the natural notation there.\n\n### Issues\nSection 3.2 repeats the title of 3.1. The threshold is quoted as 'exactly' floor(1.93n+14) from prior work without discussion.\n\n---\n\n## Citation Analysis\n\n26 references, 11 self-citations (SCR ≈ 42%). Most concern the authors' line of value-prediction work and are relevant, and the paper honestly builds on [8]. Still, the ratio is well above 30%. [25] is cited only to support future design-space exploration and [9] for energy optimisation; both are marginal. External related work (Perais & Seznec, Martin et al., Jiménez) is appropriately covered.\n\n---\n\n## Structural Analysis\n\nThe evaluation is clearly specified (Sniper 6.1, Nehalem config, Table 1–2 parameters, Splash-2 large inputs) and results (Figures 3–5, Table 3) support the stated speedups and coverage/accuracy numbers. However, the improvement over the counter-based predictor is marginal (4.21% vs 4.14% average) and is presented as better without variance or significance analysis; the authors do note 'only insignificant differences between different LHR sizes'. The future-work claim that speedups 'would be, for sure, much more significant' is speculative. Limitations are only implicit. Simulator modifications are described by file name but not released; Splash-2 is a named public benchmark suite, hence category `data`.\n\n---\n\n## Conclusion\n\nTechnically competent, proportionately formalised incremental work. The main integrity concern is citation conduct: over 40% self-citation, which is disqualifying under the framework regardless of the topical relevance of most of those works."
+  },
+  {
+   "paper_id": "lakshmanan2019",
+   "paper": {
+    "title": "Security enhancement in In-vehicle Controller Area Networks by Electronic Control Unit authentication",
+    "authors": [
+     "Murugesan Lakshmanan",
+     "Senthil Kumar Natarajan"
+    ],
+    "abstract": "Proposes SETMAC, an ECU authentication scheme for CAN that computes an IDEA-based MAC truncated to four bytes, limits message data to four bytes so both fit in one frame, and uses an 8-bit per-ID counter against replay; simulated in Vector CANoe with real vehicle traffic, it reports feasible bus loads of 25.05% at 500 kb/s and 12.52% at 1 Mb/s.",
+    "keywords": [
+     "authentication",
+     "security",
+     "electronic control unit",
+     "encryption",
+     "in-vehicle network",
+     "Controller Area Network",
+     "International Data Encryption Algorithm"
+    ],
+    "doi": null,
+    "pages": "228-243",
+    "source_file": "paper630.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.0,
+    "composite": 60.75,
+    "final": 55.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the CAN dataset was \"captured from a USB-to-CAN device connected to the OBD-II port of a real vehicle\" and is not released, and CANoe is third-party software",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section or inline acknowledgment. Unaddressed issues include 8-bit counter wrap-around and resynchronisation, the security of deriving the key by inserting a counter into a partial key, the absence of any security analysis of the IDEA-based MAC construction, and simulation-only validation (mentioned only as future work)."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Straightforward application of a truncated block-cipher MAC with a counter to CAN, with a bus-load simulation that supports feasibility but no security analysis and no acknowledged limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Message authentication for CAN using an IDEA-derived MAC truncated to 32 bits, payload limited to 32 bits, and a per-ID 8-bit counter mixed into the key.\n**Level:** 2 (Low)\n**Rationale:** Applies standard primitives (block cipher MAC, truncation, counters) — already used in prior CAN authentication work such as Schweppe et al. — to a known problem. No security proof or new cryptographic construction.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 trivial length relations (DLC = data length + 4), plus one performance ratio\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. If anything the paper is under-formalised for a security contribution: the MAC construction (how IDEA is turned into a MAC over variable data) is never specified, and no adversary model is given.\n\n### Issues\nNone in formalism. Large parts of the extracted text are duplicated (layout artefacts of the PDF), which do not affect assessment.\n\n---\n\n## Citation Analysis\n\n21 references, no self-citations. Related work (CANAuth, LiBrA-CAN, TESLA, EVITA, Groza & Murvay) is relevant and appropriately cited. No concerns.\n\n---\n\n## Structural Analysis\n\nThe CANoe experiments (Tables 3–6) support the feasibility claims about schedulability and bus load at 500 kb/s and 1 Mb/s. The list of advantages (low deployment and maintenance overhead, low cost in 'hardware and software as well as labour', 'fast and real-time') is asserted without evidence; computation latency of IDEA on an ECU is not measured. The security claim of 35 weeks for a 32-bit MAC is borrowed from prior work. No limitations discussed. The captured CAN dataset and CAPL code are not released.\n\n---\n\n## Conclusion\n\nA modest engineering application with clean citations and proportionate (minimal) formalism. The evidence supports bus-load feasibility only; security properties and the advertised cost/latency benefits are asserted, and the paper acknowledges no limitations."
+  },
+  {
+   "paper_id": "fahim2019",
+   "paper": {
+    "title": "Clustering Algorithm for Multi-density Datasets",
+    "authors": [
+     "Ahmed Fahim"
+    ],
+    "abstract": "Proposes CMDD, a DBSCAN variant that replaces the Eps radius with a k-nearest-neighbour density (sum of distances to the k nearest neighbours), orders points by that density, and grows clusters from the densest unclustered point, admitting points whose density does not exceed that of the cluster initiator; visual experiments on five 2-D datasets compare it with DBSCAN.",
+    "keywords": [
+     "clustering methods",
+     "data analysis",
+     "data mining",
+     "knowledge discovery",
+     "unsupervised learning"
+    ],
+    "doi": null,
+    "pages": "244-258",
+    "source_file": "paper631.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 43.45,
+    "composite": 32.59,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the five datasets are unnamed and unpublished",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "THEOREMLESS_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (the author calls it 'very simple idea' and 'simple modification on the DBSCAN method') carrying eight numbered definitions modelled on DBSCAN, several of which fail the necessity test (see DECORATIVE_DEFINITIONS). Formalism complexity 16 exceeds the Level 2 upper bound of 15.",
+    "DECORATIVE_DEFINITIONS": "Definition 2 merely restates Eq. (3); Definition 3 (cluster initiator = densest point of the cluster) and Definition 8 ('Noise, a very small clusters are treated as noise') are plain-English statements dressed as definitions; Definition 1 wraps kNN in set-builder notation. None is used in any proof.",
+    "THEOREMLESS_FORMALISM": "Eight definitions and zero theorems, lemmas or proofs; the stated relational properties (symmetry, transitivity) and the O(n log n) complexity are asserted without proof.",
+    "NO_LIMITATIONS": "No limitations section or inline acknowledgment; sensitivity to k and Minpts, which visibly changes the clusters found (Figs. 4, 5, 7), is not discussed as a limitation."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simple kNN-density variant of DBSCAN wrapped in eight DBSCAN-style definitions and no theorems, evaluated only by visual inspection on unnamed 2-D datasets.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A DBSCAN variant using the sum of distances to the k nearest neighbours as local density, growing clusters from the densest point with a density bound set by that initiator.\n**Level:** 2 (Low)\n**Rationale:** By the author's own description it is a 'very simple idea' and a 'simple modification' of DBSCAN; there is no complexity proof or theoretical analysis, so it does not reach Level 3.\n\n### Formal Elements\n- Definitions: 8\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (cumulative kNN distance, kden, Euclidean distance, index ranges)\n\n### Proportionality\nCalculated complexity: 16 (8 × 2)\nExpected range (Level 2): 0-15\nRatio: 1.07x upper bound\n\n**Assessment:** Disproportionate for the level, though below the 2× threshold. Definitions 4–7 (direct density-reachability, density-reachability, density-connectivity, cluster) are near-copies of DBSCAN's and do specify the cluster-growth rule, but the algorithm listings (Algorithms 1–2) already do that operationally and nothing is proved from them.\n\n### Issues\n- Definition 2 restates Eq. (3); Definition 8 reads 'Noise, a very small clusters are treated as noise' with no size threshold.\n- Eq. (3) sums over index i while the summand uses j.\n- Definition 4 writes 1 < j < k, excluding the first and k-th neighbours, which conflicts with the algorithm.\n- 'O(n log n), same as DBSCAN' is asserted without analysis.\n\n---\n\n## Citation Analysis\n\n24 references, three self-citations ([1] enhanced k-means, [14] homogeneous densities clustering, [24] local-density clustering). SCR ≈ 12.5%. All are clustering papers and relevant; [14] and [24] are the closest prior work and are fairly discussed. No concerns.\n\n---\n\n## Structural Analysis\n\nExperiments use five unnamed 2-D datasets and are judged only by eye from scatter plots; there is no quantitative measure (ARI, NMI, purity), no ground-truth labels reported, no runtime measurement, and no comparison with the multi-density DBSCAN variants surveyed in Section 1 (VDBSCAN, DBSCAN-DLP, k-DBSCAN, etc.). The conclusion that the method is 'more efficient than the DBSCAN algorithm' is therefore weakly supported. No limitations are acknowledged. Nothing is released.\n\n---\n\n## Conclusion\n\nThe idea is reasonable and simple, but the paper presents it with DBSCAN-style definitional apparatus that does no formal work, includes definitions that are plain English or duplicates, and proves nothing. Combined with purely visual evaluation against a single baseline, this is a Level 2 paper with formalism theater under the framework's zero-tolerance rule."
+  },
+  {
+   "paper_id": "abdelaal2019",
+   "paper": {
+    "title": "Hadith Classification using Machine Learning Techniques According to its Reliability",
+    "authors": [
+     "Hammam M. Abdelaal",
+     "Hassan A. Youness"
+    ],
+    "abstract": "Classifies hadith into Sahih, Hasan, Da'if and Maudu' from three categorical attributes (narrator reliability, text grade, reference book) using WEKA decision tree and naive Bayes classifiers; information gain identifies the reference as most informative, and reported accuracies reach 92.19% (DT) and 93.75% (NB) under cross-validation.",
+    "keywords": [
+     "data mining",
+     "text classification",
+     "machine learning",
+     "naive Bayes",
+     "decision tree",
+     "Prophetic Hadith"
+    ],
+    "doi": null,
+    "pages": "259-271",
+    "source_file": "paper632.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 70,
+    "citation_integrity": 95,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 71.25,
+    "composite": 53.44,
+    "final": 48.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; only a partial sample of the 64-instance dataset is printed (Table 2), and WEKA is third-party software",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section or inline acknowledgment. The dataset has only 64 instances with three hand-coded categorical attributes, and the class is largely determined by the 'reference' attribute; neither issue is discussed (future work mentions only 'using a large dataset')."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Standard WEKA classifiers applied to a 64-instance hand-coded dataset; textbook equations are reproduced with several errors, and the high accuracies are not put in context of the tiny, near-deterministic data.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Applying off-the-shelf decision tree (ID3) and naive Bayes classifiers in WEKA to classify hadith grade from three categorical attributes.\n**Level:** 2 (Low)\n**Rationale:** Straightforward ML application: existing algorithms, existing tool, new domain.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: about 9 textbook formulas (entropy, expected information, Bayes' theorem, accuracy, precision, recall, F1) plus worked hand calculations\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in quantity — basic equations for standard metrics are acceptable at Level 2 — but of poor quality, hence a reduced formalism score.\n\n### Issues\n- Entropy is labelled 'E(S)=Gain(S, A)', conflating entropy and information gain.\n- The class-entropy calculation mixes log4 and log2.\n- Recall is given as TP/(TP+FP) in Eq. (6), identical to precision; the worked example then uses TP/(TP+FN).\n- Section 3.2 writes Bayes' theorem solved for P(x|c), then Eq. (3) gives the usual form.\n- Hand-computed information gains (reference 1.115, narrators 0.426) are not reproducible from the partial data shown.\nThese are errors of execution, not decorative formalism, so no theater flag is raised.\n\n---\n\n## Citation Analysis\n\n25 references, no self-citations. References are a mix of textbooks, hadith-classification studies and religious sources; several are cited generically (e.g., [20] Freund's boosting paper cited for TP/TN definitions). No integrity concerns.\n\n---\n\n## Structural Analysis\n\nThe dataset has 64 instances with three categorical features, and the grading rules (Table 2) appear close to deterministic given the reference book, so high accuracy is expected and says little about the method. Claims such as 'Naïve bayes classifier is the most accurate in comparison with all other classifiers' are generic and unsupported. Tables 4 and 5 swap class labels between classifiers (Forged and Good exchange values). No limitations are acknowledged. Neither data nor configuration is released.\n\n---\n\n## Conclusion\n\nA basic application paper with clean citations but weak evidence: tiny hand-coded data, error-ridden textbook equations, and accuracy figures presented without context. No disqualifying pattern, but low structural quality and no reproducible artifact."
+  },
+  {
+   "paper_id": "prilianti2019",
+   "paper": {
+    "title": "Adaptive Neuro-Fuzzy Inference System for Non-linear Classification Problem of Theobroma cacao Image",
+    "authors": [
+     "Kestrilia Rega Prilianti",
+     "Hendry Setiawan",
+     "Marcelinus Alfasisurya Setya Adhiwibawa",
+     "Indah Anita-Sari",
+     "Syaiful Anam",
+     "Tatas Hardo Panintingjati Brotosudarmo"
+    ],
+    "abstract": "Classifies cacao seedlings as fine-flavor or bulk from RGB and HSI colour features of 480 leaf images using ANFIS, comparing 24 ANFIS architectures with ANN and Fuzzy-MLP; the best ANFIS (HSI input) reaches 94% in-sample and 84% out-of-sample accuracy.",
+    "keywords": [
+     "Adaptive Neuro Fuzzy Inference System",
+     "ANFIS",
+     "cacao",
+     "image classification",
+     "non-linear classification"
+    ],
+    "doi": null,
+    "pages": "272-283",
+    "source_file": "paper633.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 92,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 77.95,
+    "composite": 58.46,
+    "final": 58.46
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; models built with \"MATLAB Fuzzy Logic and Neural Network Toolbox\" (third-party), and the 480-record leaf colour dataset is not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Standard ANFIS application to leaf-colour classification with proportionate formalism; the robustness claim for ANFIS outruns the authors' own out-of-sample results, and reporting the mean of the best 5 of 10 runs inflates performance.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Classifying cacao varieties (fine-flavor vs bulk) from mean RGB/HSI leaf colour using ANFIS, compared with ANN and Fuzzy-MLP.\n**Level:** 2 (Low)\n**Rationale:** Straightforward application of an existing soft-computing classifier to a new agricultural dataset; architecture search is parameter tuning.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (bell membership function, normalised firing strength, Sugeno output, aggregation, four confusion-matrix metrics)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the ANFIS layer equations describe the model actually used, and the metrics are standard.\n\n### Issues\nMinor errors: specificity (Eq. 6) is written tn/(tp+fn) instead of tn/(tn+fp); Eq. (3) uses six inputs while the text describes three RGB inputs; parameter a is described as a standard deviation and the bell curve as 'Gaussian'.\n\n---\n\n## Citation Analysis\n\n25 references, three self-citations ([1] Anita-Sari et al., [2] Adhiwibawa et al., [3] Anita-Sari et al.). SCR ≈ 12%. All three establish the anthocyanin–leaf colour basis of the method and are directly relevant. No concerns.\n\n---\n\n## Structural Analysis\n\nData collection is well described (480 leaves, 16 varieties, 400/80 split). However, performance is the average of 'the best 5 results' out of 10 repetitions per architecture, which biases all reported figures upward. The authors concede that 'in term of out sample classification, ANFIS did not significantly outperform the other two methods', yet the abstract and conclusion claim ANFIS is 'more robust' and better; inferring robustness from higher in-sample accuracy runs against usual reasoning about overfitting. No statistical tests, and the split is a single random partition. Limitations are only acknowledged inline (the out-of-sample parity). Nothing is released.\n\n---\n\n## Conclusion\n\nA competent, proportionately formalised applied ML study with relevant self-citations. Its weaknesses are evaluative: optimistic run selection and conclusions that overstate what the out-of-sample comparison shows."
+  },
+  {
+   "paper_id": "mihai2019",
+   "paper": {
+    "title": "IT-Based Financial Confirmation & Diagnosis Mechanisms",
+    "authors": [
+     "Răzvan Mihai",
+     "Tom Einar Nyberg",
+     "Einar Michaelsen",
+     "Ioana Rizea-Popp",
+     "Monica Dascălu",
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "Proposes a project combining a permissioned blockchain confirmation platform for inter-company transactions, a deep-learning diagnosis system fed by the platform's transaction graph, and the authors' MapReduce accelerator as the computational substrate; the architecture is described and its expected efficiency is argued from prior evaluations.",
+    "keywords": [],
+    "doi": null,
+    "pages": "284-299",
+    "source_file": "paper634.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 30,
+    "artifact_availability": 0,
+    "intellectual_integrity": 28.5,
+    "composite": 21.38,
+    "final": 21.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the accelerator is described as having \"a proprietary architecture\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNSUPPORTED_CLAIMS",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 project proposal. The diagnosis mechanism is introduced with entity/relation notation and an N×N matrix M_i per parameter assembled into an N×N×k array M (Eq. 1), but nothing is ever computed on it; the diagnosis itself is only said to be 'similar to the technique used in medical diagnose'. The notation fails the necessity test: 'an N×N×k array of pairwise transaction features' says the same and nothing downstream depends on it.",
+    "UNSUPPORTED_CLAIMS": "Sweeping claims — verification cost will 'significantly decrease to virtually zero', the auditor's role will 'dramatically change', the system will run at '3 − 4× less' energy than current solutions, other approaches give acceleration 'no higher than O(p/log p)' — rest on no experiment of the proposed system. The only quantitative evidence is a prior simulated SHA-256 comparison against a forum-sourced GPU figure. CER is below 0.33.",
+    "ELEVATED_SELF_CITATION": "6 of 24 references (25%) include Ştefan and/or Maliţa: [2], [13], [14], [15], [19], [20]; all concern the authors' accelerator line and are topically related, but [14] is never cited in the text."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Project-proposal paper combining blockchain, deep learning and the authors' accelerator, with decorative matrix notation for an unspecified diagnosis method and largely unsupported claims of cost and energy gains.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Architecture proposal: permissioned blockchain for transaction confirmation, a neural-network financial diagnosis fed from it, and an existing MapReduce accelerator for both workloads.\n**Level:** 1 (Trivial)\n**Rationale:** A system architecture combining existing components (blockchain, DNNs, the authors' prior accelerator). The paper itself states it 'represents the description of our proposed approach'; Section 6 is a work plan. No new algorithm is developed.\n\n### Formal Elements\n- Definitions: 0 numbered (inline notation for entities E_i, relations R_ij, parameter matrices M_i, 3D array M; register vectors of the accelerator)\n- Theorems: 0\n- Proofs: 0\n- Equations: Eq. (1) matrix, timing expression N + 2 + log2 p, performance ratio 3.37, register-transfer pseudocode\n\n### Proportionality\nCalculated complexity: 0 (no numbered definitions/theorems/proofs)\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Within range by count, but the necessity test fails for the diagnosis notation. The accelerator register-transfer descriptions and the assembly listing are legitimate ISA documentation and are not counted against the paper.\n\n### Issues\nThe graph/matrix formalisation of inter-company relations (Eq. 1, which also contains index typos such as p^i_{1N} in the last row) leads nowhere: no model, loss, input encoding or result is defined. Complexity statements (O(p) acceleration, supra-linear speedup) are asserted without derivation.\n\n---\n\n## Citation Analysis\n\n24 references, 6 self-citations by the Ştefan/Maliţa group (SCR 25%). All concern the authors' accelerator and parallel computation model and are relevant to Section 5, though [14] (stereo vision accelerator) is listed but never cited and [9] is also uncited. Many other references are web articles, white papers and a hashcat forum thread. Elevated but not irrelevant.\n\n---\n\n## Structural Analysis\n\nThe paper has no evaluation of the proposed system. The confirmation platform is a generic description of a permissioned blockchain; the diagnosis mechanism lists candidate input features only. The accelerator evidence is a prior 28 nm simulation of SHA-256 compared with a GPU figure from a forum post. Strong economic and energy claims are stated as expected outcomes. The only acknowledged constraint is that some ML computations may be I/O-bound. No keywords are provided. Nothing is released; the accelerator is proprietary.\n\n---\n\n## Conclusion\n\nThis is a research-project description rather than a research result. Under the framework it is a Level 1 paper with decorative formal notation for an unspecified diagnosis method, unsupported claims, and elevated self-citation."
+  }
+ ]
+}
