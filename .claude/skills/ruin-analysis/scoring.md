@@ -157,22 +157,43 @@ CER = evidence_sentences / claim_sentences
 | Inline acknowledgment | +5 |
 | None | -5, NO_LIMITATIONS flag |
 
-**Artifacts:**
-
-| Availability | Score |
-|--------------|-------|
-| Code + Data public | 100 |
-| Code only | 60 |
-| Data only | 40 |
-| "Available on request" | 20 |
-| Neither | 0 |
+Artifacts are scored separately, under Artifact Availability below; they do
+not enter the structural-integrity score. (Earlier revisions carried a second
+artifact table here with different anchors, 100/60/40/20/0, which contradicted
+the one below.)
 
 ---
 
 ### Artifact Availability Score
 
-| Status | Score |
-|--------|-------|
+The judgment is the **category**; the score is the category's anchor, computed
+by `ruin_scoring.artifact_score`. There is no interpolation between anchors.
+Record the category together with a verbatim quotation from the paper (or the
+URL) that supports it, or the statement that no such passage exists.
+
+| Category | Evidence required | Score |
+|----------|-------------------|-------|
+| `code_and_data` | A specific link to the authors' own code **and** the data it runs on is public (deposited, or an identified public dataset) | 100 |
+| `code` | A specific link to the authors' own code, software, or tool; the data is not public | 70 |
+| `data` | No public code, but the data the results rest on is public: deposited by the authors, or a named public dataset cited or linked | 50 |
+| `claimed` | Availability is asserted with no route to obtain it: "available on request", "will be released", code described as available with no link | 30 |
+| `none` | Nothing available and nothing claimed | 0 |
+
+Rules that keep the categories auditable:
+
+- **Third-party tools do not count as the authors' code.** A paper that uses
+  MATLAB, OpenCV, or a published simulator has released nothing of its own.
+- **Description is not availability.** Detailed methods, circuit schematics,
+  parameter tables, or pseudocode make a paper easier to re-implement, but a
+  reader cannot obtain them as an artifact; they score `none` unless
+  something is linked or claimed.
+- **Availability is assessed as published.** A link printed in the paper
+  counts whether or not it still resolves; link decay is a separate question.
+- **Papers with nothing to release** (pure theory, proofs) still score by the
+  table. Record `relevant: false` beside the category so that analyses can
+  separate them; the score itself is unchanged.
+
+--------|-------|
 | Public repository with working code + data | 100 |
 | Public repository with code | 70 |
 | Public dataset | 50 |

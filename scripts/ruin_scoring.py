@@ -153,6 +153,36 @@ COMPONENT_FIELDS = (
 
 DERIVED_FIELDS = ("intellectual_integrity", "composite", "final")
 
+#: Artifact-availability anchors (framework/scoring.md). The score is the anchor
+#: of the category the evidence supports; there is no interpolation between
+#: anchors. The first corpus run let the assessor interpolate, and the
+#: provenance records show the interpolation drifted into crediting artifacts
+#: that were described but never released, so the category is now the judgment
+#: and the score is derived from it.
+ARTIFACT_ANCHORS = {
+    "code_and_data": 100.0,   # the authors' code and the data it runs on, both public
+    "code": 70.0,             # the authors' code or software public, data not
+    "data": 50.0,             # the data the results rest on public, code not
+    "claimed": 30.0,          # availability asserted with no route to obtain it
+    "none": 0.0,              # nothing available, and nothing claimed
+}
+
+
+#: Status for a paper whose source text could not be obtained, so the evidence
+#: needed for a category does not exist. Its original score is kept and the
+#: record says why; it is never silently scored as "none".
+ARTIFACT_UNASSESSED = "unassessed"
+
+
+def artifact_score(category: str) -> float:
+    """Return the artifact-availability anchor for an evidence category."""
+    try:
+        return ARTIFACT_ANCHORS[category]
+    except KeyError:
+        raise ValueError(
+            f"artifact category {category!r} is not one of {sorted(ARTIFACT_ANCHORS)}"
+        ) from None
+
 
 def classify(final: float) -> str:
     """Return the classification band for a final score."""

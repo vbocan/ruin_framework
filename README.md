@@ -1,6 +1,6 @@
 # RUIN Framework
 
-> Reproduces RUIN's evaluation of 406 ROMJIST research papers (2010–2025) — including the 48.3/100 artifact-availability deficit and the 2024 formalism-theater spike — from the open framework specification and per-paper JSON outputs.
+> Reproduces RUIN's evaluation of 406 ROMJIST research papers (2010–2025) — including the artifact-availability deficit (16% of papers share code or data; 5% release their own code) and the 2024 formalism-theater spike — from the open framework specification and per-paper JSON outputs.
 
 Code, data, and specification accompanying:
 
@@ -61,7 +61,7 @@ Outputs land in `scripts/output/`:
 | `tables/table3_flags.csv` | Table 3 — flag occurrences |
 | `tables/table4_yearly_scores.csv` | Table 4 — per-year means |
 | `figures/figure4_temporal.png` | Figure 4 — temporal trajectory |
-| `tables/headline_stats.json` | Mean final score (73.6), artifact availability (48.3), CV (4.8%), regression slope, Fisher's exact OR for 2024 (12.91) |
+| `tables/headline_stats.json` | Mean final score (64.2), artifact availability (9.9), CV (4.7%), regression slope, Fisher's exact OR for 2024 (12.91) |
 
 This is the path from the open dataset to every number in the Results section.
 
@@ -78,6 +78,29 @@ When you want to re-run RUIN against the ROMJIST corpus end-to-end — for examp
    > Run the ruin-analysis skill on `{batch_folder}` and write the output JSON to `journal-analysis/ROMJIST_{run_date}/`.
 
 4. **Aggregate.** Run `python scripts/aggregate.py --input journal-analysis/ROMJIST_{run_date}/` to regenerate tables, figures, and headline statistics for the new run.
+
+## Models and the artifact re-assessment
+
+The judged fields of the ROMJIST run were produced in December 2025 with **Claude Opus 4.5** (`claude-opus-4-5`) under Claude Code. The run did not log its model at the time; every batch file now records it under `models`.
+
+The artifact-availability component was later **re-assessed** for every research paper, because the first run's provenance showed it crediting described but unreleased artifacts at the anchors for public code. The re-assessment is fully released:
+
+| File | Contents |
+|------|----------|
+| `scripts/artifact_evidence.py` | Deterministic extraction from the source PDFs: every non-publication URL, every availability statement, every dataset mention |
+| `data/artifact_evidence.jsonl` | The extracted evidence, one record per paper |
+| `data/artifact_pass_a.csv`, `data/artifact_pass_b.csv` | Two independent classification passes (Claude Opus 5.5, `claude-opus-5-5`), each with quoted evidence |
+| `data/artifact_adjudication.csv` | Rulings on the 6 disagreements (agreement 400/406, Cohen's κ = 0.95), plus one paper whose PDF is no longer served |
+| `data/artifact_rescore.csv` | The final category per paper, written into the batch JSONs by `scripts/apply_artifact_rescore.py` |
+
+The category is the judgment and the score is its anchor (`ruin_scoring.ARTIFACT_ANCHORS`); `rescore.py --check` fails if the two disagree. The original score is kept in each paper's `artifact_assessment.original_score`.
+
+```bash
+python scripts/artifact_evidence.py --corpus /path/to/ROMJIST_corpus --input journal-analysis/ROMJIST_29.12.2025 --output data/artifact_evidence.jsonl
+python scripts/artifact_agreement.py --report     # agreement and disagreements
+python scripts/artifact_agreement.py              # writes data/artifact_rescore.csv
+python scripts/apply_artifact_rescore.py && python scripts/rescore.py --write && python scripts/rescore.py --check
+```
 
 ## Worked example
 

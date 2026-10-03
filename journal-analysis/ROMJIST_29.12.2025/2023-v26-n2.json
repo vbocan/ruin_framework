@@ -36,9 +36,9 @@
     "formalism": 40,
     "citation_integrity": 80,
     "structural_integrity": 75,
-    "artifact_availability": 50,
+    "artifact_availability": 100.0,
     "intellectual_integrity": 62.75,
-    "composite": 59.56,
+    "composite": 72.06,
     "final": 24.0
    },
    "flags": [
@@ -53,7 +53,15 @@
     "summary": "Standard feedforward neural network applied to student success prediction. Presents textbook backpropagation as formal contribution. Feature selection based on variance is elementary. FORMALISM_THEATER: Level 2 paper with unnecessary mathematical presentation of standard algorithms.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** FFNN for student success prediction\n**Level:** 2 (Standard ML application)\n**Rationale:** Applying existing FFNN architecture to educational dataset. No novel ML contribution.\n\n### Necessity Test\n- Backpropagation (Eq. 1): FAILS - Standard textbook algorithm, not a novel contribution\n- Feature vectors (Eq. 2-3): FAILS - Trivial notation for \"list of features\"\n- Variance-based selection: Could be described in plain English\n\n**Verdict:** FORMALISM_THEATER - Mathematical notation used for standard, well-known algorithms.\n\n### Issues\n- Presents standard FFNN backpropagation as if it were a contribution\n- Feature vector notation adds no clarity over prose description"
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** FFNN for student success prediction\n**Level:** 2 (Standard ML application)\n**Rationale:** Applying existing FFNN architecture to educational dataset. No novel ML contribution.\n\n### Necessity Test\n- Backpropagation (Eq. 1): FAILS - Standard textbook algorithm, not a novel contribution\n- Feature vectors (Eq. 2-3): FAILS - Trivial notation for \"list of features\"\n- Variance-based selection: Could be described in plain English\n\n**Verdict:** FORMALISM_THEATER - Mathematical notation used for standard, well-known algorithms.\n\n### Issues\n- Presents standard FFNN backpropagation as if it were a contribution\n- Feature vector notation adds no clarity over prose description",
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "The Matlab code and the dataset of the algorithm can be accessed via the following link: https://github.com/umuttekgucbau/StdSuccessPredictionFNN.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 50
+   }
   },
   {
    "paper_id": "mortazavi2023",
@@ -83,9 +91,9 @@
     "formalism": 45,
     "citation_integrity": 75,
     "structural_integrity": 70,
-    "artifact_availability": 40,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 61.75,
-    "composite": 56.31,
+    "composite": 46.31,
     "final": 24.0
    },
    "flags": [
@@ -100,7 +108,15 @@
     "summary": "Standard SURF + SVM pipeline for adult content detection. Equations are copied from SURF algorithm description - not novel contributions. FORMALISM_THEATER: Presenting standard algorithm formulas as if they were research contributions.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Image classification for adult content\n**Level:** 2 (Standard CV pipeline)\n**Rationale:** Combining existing techniques (SURF, Haar, SVM) for classification task.\n\n### Necessity Test\n- Hessian matrix (Eq. 1): FAILS - This is the standard SURF definition, not a contribution\n- SURF descriptor (Eq. 2): FAILS - Copied from algorithm specification\n- Bag of features: Standard technique, no formalization needed\n\n**Verdict:** FORMALISM_THEATER - Equations are from algorithm documentation, not original work.\n\n### Issues\n- Presents SURF algorithm equations as contributions\n- No novel mathematical formulation\n- Dataset not publicly available"
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Image classification for adult content\n**Level:** 2 (Standard CV pipeline)\n**Rationale:** Combining existing techniques (SURF, Haar, SVM) for classification task.\n\n### Necessity Test\n- Hessian matrix (Eq. 1): FAILS - This is the standard SURF definition, not a contribution\n- SURF descriptor (Eq. 2): FAILS - Copied from algorithm specification\n- Bag of features: Standard technique, no formalization needed\n\n**Verdict:** FORMALISM_THEATER - Equations are from algorithm documentation, not original work.\n\n### Issues\n- Presents SURF algorithm equations as contributions\n- No novel mathematical formulation\n- Dataset not publicly available",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "There are not any datasets of pornography images, so the pornography images are taken from different websites.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 40
+   }
   },
   {
    "paper_id": "badovinac2023",
@@ -126,7 +142,7 @@
     "formalism": 65,
     "citation_integrity": 75,
     "structural_integrity": 75,
-    "artifact_availability": 50,
+    "artifact_availability": 50.0,
     "intellectual_integrity": 71.0,
     "composite": 65.75,
     "final": 65.75
@@ -139,7 +155,15 @@
     "summary": "Practical biometric system for Covid-era authentication. Minimal formalism - simple IPD calculations and PIN generation algorithm. Appropriate for applied security engineering paper. Novel application concept though limited technical depth.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Eye-based biometric PIN generation\n**Level:** 2 (Applied biometric system)\n**Rationale:** Practical system integrating existing SDK with novel application.\n\n### Necessity Test\n- IPD calculation: Simple Euclidean distance - appropriately minimal\n- PIN algorithm: Clearly described, no excessive notation\n- Eye color classification: Referenced to prior work\n\n**Verdict:** Appropriate minimal formalism for application paper.\n\n### Issues\n- Limited novelty in core algorithms\n- SDK-dependent implementation"
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Eye-based biometric PIN generation\n**Level:** 2 (Applied biometric system)\n**Rationale:** Practical system integrating existing SDK with novel application.\n\n### Necessity Test\n- IPD calculation: Simple Euclidean distance - appropriately minimal\n- PIN algorithm: Clearly described, no excessive notation\n- Eye color classification: Referenced to prior work\n\n**Verdict:** Appropriate minimal formalism for application paper.\n\n### Issues\n- Limited novelty in core algorithms\n- SDK-dependent implementation",
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "The experiments used a large database of face images ... BU-4DFE (3D Dynamic Facial Expression Database)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 50
+   }
   },
   {
    "paper_id": "muller2023_editorial",
@@ -214,20 +238,28 @@
     "formalism": 80,
     "citation_integrity": 85,
     "structural_integrity": 85,
-    "artifact_availability": 75,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 83.0,
-    "composite": 81.0,
-    "final": 81.0
+    "composite": 62.25,
+    "final": 62.25
    },
    "flags": [],
    "flag_details": {},
    "verdict": {
-    "classification": "STRONG",
+    "classification": "ADEQUATE",
     "disqualified": false,
     "summary": "Engineering education paper describing practical lab kit development. No unnecessary formalism - appropriate descriptive approach for hardware/education paper. Clear methodology with controlled study showing positive outcomes.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Educational laboratory kit development\n**Level:** 1 (Engineering description and educational study)\n**Rationale:** Hardware design and educational assessment - no theoretical framework needed.\n\n### Necessity Test\n- Block diagrams: Appropriate for hardware description\n- Circuit specifications: Necessary technical details\n- No mathematical formalism: Correct choice for this content\n\n**Verdict:** Appropriate - descriptive paper correctly avoids unnecessary formalism.\n\n### Issues\nNone - formalism level matches content complexity."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Educational laboratory kit development\n**Level:** 1 (Engineering description and educational study)\n**Rationale:** Hardware design and educational assessment - no theoretical framework needed.\n\n### Necessity Test\n- Block diagrams: Appropriate for hardware description\n- Circuit specifications: Necessary technical details\n- No mathematical formalism: Correct choice for this content\n\n**Verdict:** Appropriate - descriptive paper correctly avoids unnecessary formalism.\n\n### Issues\nNone - formalism level matches content complexity.",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "https://international.utcluj.ro/help-home-electronics-laboratory/",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 75
+   }
   },
   {
    "paper_id": "pascu2023",
@@ -259,10 +291,10 @@
     "formalism": 80,
     "citation_integrity": 85,
     "structural_integrity": 85,
-    "artifact_availability": 70,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 83.0,
-    "composite": 79.75,
-    "final": 79.75
+    "composite": 62.25,
+    "final": 62.25
    },
    "flags": [],
    "flag_details": {},
@@ -272,7 +304,15 @@
     "summary": "Semiconductor device characterization with standard thermionic emission equations. Formalism is necessary for device physics analysis. P-diode model provides useful extension. XRD characterization supports claims.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Schottky diode characterization\n**Level:** 3 (Device physics and characterization)\n**Rationale:** Semiconductor device analysis requiring physical models.\n\n### Necessity Test\n- Thermionic emission (Eq. 1-2): PASSES - Standard necessary equations for SBD analysis\n- Richardson constant: Standard device physics\n- Inhomogeneity model: Appropriate for observed behavior\n\n**Verdict:** Formalism is domain-appropriate and necessary.\n\n### Issues\nNone - standard semiconductor device paper."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Schottky diode characterization\n**Level:** 3 (Device physics and characterization)\n**Rationale:** Semiconductor device analysis requiring physical models.\n\n### Necessity Test\n- Thermionic emission (Eq. 1-2): PASSES - Standard necessary equations for SBD analysis\n- Richardson constant: Standard device physics\n- Inhomogeneity model: Appropriate for observed behavior\n\n**Verdict:** Formalism is domain-appropriate and necessary.\n\n### Issues\nNone - standard semiconductor device paper.",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 70
+   }
   },
   {
    "paper_id": "ammar2023",
@@ -308,10 +348,10 @@
     "formalism": 75,
     "citation_integrity": 85,
     "structural_integrity": 85,
-    "artifact_availability": 75,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 81.0,
-    "composite": 79.5,
-    "final": 79.5
+    "composite": 60.75,
+    "final": 60.75
    },
    "flags": [],
    "flag_details": {},
@@ -321,7 +361,15 @@
     "summary": "Power semiconductor device paper with appropriate TCAD-based design methodology. Minimal mathematical formalism - focus on fabrication process and characterization results. 11 kV blocking voltage achievement validates design approach.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** High-voltage SiC BJT design and fabrication\n**Level:** 3 (Power electronics device)\n**Rationale:** Novel device design with fabrication and characterization.\n\n### Necessity Test\n- TCAD simulations: Appropriate methodology\n- Fabrication process: Descriptive, no unnecessary formalism\n- Characterization: Standard I-V measurements\n\n**Verdict:** Appropriate formalism level for device fabrication paper.\n\n### Issues\nNone - good balance of design, fabrication, and characterization."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** High-voltage SiC BJT design and fabrication\n**Level:** 3 (Power electronics device)\n**Rationale:** Novel device design with fabrication and characterization.\n\n### Necessity Test\n- TCAD simulations: Appropriate methodology\n- Fabrication process: Descriptive, no unnecessary formalism\n- Characterization: Standard I-V measurements\n\n**Verdict:** Appropriate formalism level for device fabrication paper.\n\n### Issues\nNone - good balance of design, fabrication, and characterization.",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 75
+   }
   },
   {
    "paper_id": "romanitan2023",
@@ -356,10 +404,10 @@
     "formalism": 80,
     "citation_integrity": 85,
     "structural_integrity": 85,
-    "artifact_availability": 70,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 83.0,
-    "composite": 79.75,
-    "final": 79.75
+    "composite": 62.25,
+    "final": 62.25
    },
    "flags": [],
    "flag_details": {},
@@ -369,7 +417,15 @@
     "summary": "Materials science characterization paper. Rietveld refinement equation (Eq. 1) is standard and necessary for XRD analysis. Comprehensive characterization using multiple techniques (SEM, AFM, XRD, XRR, DRS, XPS) with proper correlation of structural-optical properties.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** V2O5 thin film characterization\n**Level:** 3 (Materials science characterization)\n**Rationale:** Multi-technique materials analysis correlating structure to properties.\n\n### Necessity Test\n- Rietveld refinement (Eq. 1): PASSES - Standard necessary equation for XRD analysis\n- Unit cell parameters: Necessary for crystal structure\n- Bandgap from DRS: Standard Kubelka-Munk analysis\n\n**Verdict:** Appropriate formalism for materials characterization.\n\n### Issues\nNone - comprehensive materials science paper."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** V2O5 thin film characterization\n**Level:** 3 (Materials science characterization)\n**Rationale:** Multi-technique materials analysis correlating structure to properties.\n\n### Necessity Test\n- Rietveld refinement (Eq. 1): PASSES - Standard necessary equation for XRD analysis\n- Unit cell parameters: Necessary for crystal structure\n- Bandgap from DRS: Standard Kubelka-Munk analysis\n\n**Verdict:** Appropriate formalism for materials characterization.\n\n### Issues\nNone - comprehensive materials science paper.",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 70
+   }
   },
   {
    "paper_id": "vasilache2023",
@@ -404,20 +460,28 @@
     "formalism": 80,
     "citation_integrity": 85,
     "structural_integrity": 85,
-    "artifact_availability": 75,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 83.0,
-    "composite": 81.0,
-    "final": 81.0
+    "composite": 62.25,
+    "final": 62.25
    },
    "flags": [],
    "flag_details": {},
    "verdict": {
-    "classification": "STRONG",
+    "classification": "ADEQUATE",
     "disqualified": false,
     "summary": "SAW sensor development with FEM simulation and fabrication. Minimal formalism - sensitivity and PCF definitions are standard. Good correlation between FEM predictions and experimental results (membrane failure at 14-16 Bar). Packaging methodology enables dual sensing.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** GaN-based SAW pressure/temperature sensor\n**Level:** 3 (Sensor engineering with FEM)\n**Rationale:** Novel dual-mode sensor with packaging solution.\n\n### Necessity Test\n- FEM simulations: Appropriate for mechanical analysis\n- Sensitivity equations: Standard sensor characterization\n- PCF/TCF definitions: Necessary for sensor performance\n\n**Verdict:** Appropriate formalism for sensor development paper.\n\n### Issues\nNone - good integration of simulation, fabrication, and testing."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** GaN-based SAW pressure/temperature sensor\n**Level:** 3 (Sensor engineering with FEM)\n**Rationale:** Novel dual-mode sensor with packaging solution.\n\n### Necessity Test\n- FEM simulations: Appropriate for mechanical analysis\n- Sensitivity equations: Standard sensor characterization\n- PCF/TCF definitions: Necessary for sensor performance\n\n**Verdict:** Appropriate formalism for sensor development paper.\n\n### Issues\nNone - good integration of simulation, fabrication, and testing.",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 75
+   }
   },
   {
    "paper_id": "chiriac2023",
@@ -449,20 +513,28 @@
     "formalism": 75,
     "citation_integrity": 80,
     "structural_integrity": 80,
-    "artifact_availability": 65,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 78.0,
-    "composite": 74.75,
-    "final": 74.75
+    "composite": 58.5,
+    "final": 58.5
    },
    "flags": [],
    "flag_details": {},
    "verdict": {
-    "classification": "ADEQUATE",
+    "classification": "LIMITED",
     "disqualified": false,
     "summary": "Biosensor development paper with appropriate descriptive approach. Minimal formalism - focus on fabrication process and characterization. Raman spectroscopy confirms graphene quality. EIS characterization is standard methodology.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Graphene-based SARS-CoV-2 biosensor\n**Level:** 2-3 (Applied sensor development)\n**Rationale:** Device fabrication and characterization paper.\n\n### Necessity Test\n- Fabrication steps: Descriptive, appropriate\n- Characterization: Standard AFM, Raman, EIS methods\n- No excessive mathematical formalism\n\n**Verdict:** Appropriate minimal formalism for device paper.\n\n### Issues\n- Could provide more quantitative detection limits\n- Limited comparison to existing sensors"
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Graphene-based SARS-CoV-2 biosensor\n**Level:** 2-3 (Applied sensor development)\n**Rationale:** Device fabrication and characterization paper.\n\n### Necessity Test\n- Fabrication steps: Descriptive, appropriate\n- Characterization: Standard AFM, Raman, EIS methods\n- No excessive mathematical formalism\n\n**Verdict:** Appropriate minimal formalism for device paper.\n\n### Issues\n- Could provide more quantitative detection limits\n- Limited comparison to existing sensors",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 65
+   }
   },
   {
    "paper_id": "beydoun2023",
@@ -491,10 +563,10 @@
     "formalism": 80,
     "citation_integrity": 80,
     "structural_integrity": 80,
-    "artifact_availability": 70,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 80.0,
-    "composite": 77.5,
-    "final": 77.5
+    "composite": 60.0,
+    "final": 60.0
    },
    "flags": [],
    "flag_details": {},
@@ -504,8 +576,20 @@
     "summary": "Process development paper with appropriate descriptive methodology. No unnecessary formalism - focus on etching parameters and results. Combines plasma and electrochemical etching to achieve 80 um depth. Clear process flow with SEM characterization.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** SiC deep etching for power device integration\n**Level:** 2 (Process development)\n**Rationale:** Combining existing techniques for deeper etching.\n\n### Necessity Test\n- Process parameters: Appropriately described\n- SEM characterization: Standard methodology\n- No mathematical formalism: Correct for process paper\n\n**Verdict:** Appropriate - process development paper correctly avoids unnecessary formalism.\n\n### Issues\nNone - good process paper with clear results."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** SiC deep etching for power device integration\n**Level:** 2 (Process development)\n**Rationale:** Combining existing techniques for deeper etching.\n\n### Necessity Test\n- Process parameters: Appropriately described\n- SEM characterization: Standard methodology\n- No mathematical formalism: Correct for process paper\n\n**Verdict:** Appropriate - process development paper correctly avoids unnecessary formalism.\n\n### Issues\nNone - good process paper with clear results.",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 70
+   }
   }
  ],
- "batch_notes": "Volume 26 Issue 2 (2023) analyzed with RUIN Framework v2.0 and Necessity Test. **2 papers flagged for FORMALISM_THEATER and disqualified:** (1) yurtkan2023 - presents textbook backpropagation as contribution for standard FFNN application; (2) mortazavi2023 - copies SURF algorithm equations as if novel. **1 paper excluded as EDITORIAL** (muller2023_editorial). Remaining 8 papers have appropriate formalism for their domains (semiconductor devices, sensors, materials, processes). Final: 2 CRITICAL (disqualified), 1 NOT_APPLICABLE (editorial), 1 LIMITED, 4 ADEQUATE, 2 STRONG."
+ "batch_notes": "Volume 26 Issue 2 (2023) analyzed with RUIN Framework v2.0 and Necessity Test. **2 papers flagged for FORMALISM_THEATER and disqualified:** (1) yurtkan2023 - presents textbook backpropagation as contribution for standard FFNN application; (2) mortazavi2023 - copies SURF algorithm equations as if novel. **1 paper excluded as EDITORIAL** (muller2023_editorial). Remaining 8 papers have appropriate formalism for their domains (semiconductor devices, sensors, materials, processes). Final: 2 CRITICAL (disqualified), 1 NOT_APPLICABLE (editorial), 1 LIMITED, 4 ADEQUATE, 2 STRONG.",
+ "models": {
+  "analysis": "claude-opus-4-5",
+  "artifact_reassessment": "claude-opus-5-5"
+ }
 }

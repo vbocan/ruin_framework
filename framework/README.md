@@ -41,10 +41,13 @@ message. A minimal harness:
    `output-format.md`.
 4. Persist the JSON as `{output_dir}/{journal_acronym}/{batch_id}.json`.
 
-The published ROMJIST results were produced under Claude Code. Any equivalent
-runtime should reproduce the headline figures to within the test-retest
-variance reported in the manuscript (mean absolute deviation 3.2 points on
-the 100-point final score).
+The published ROMJIST results were produced under Claude Code with Claude Opus
+4.5; the artifact component was re-assessed with Claude Opus 5.5 (see the
+root README). Record the model identifier in the batch file's `models` field
+for any new run. The test-retest variance reported in the manuscript (mean
+absolute deviation 3.2 points on the 100-point final score) was measured before
+the artifact re-assessment and includes the original, interpolated artifact
+judgment.
 
 ## Versioning
 

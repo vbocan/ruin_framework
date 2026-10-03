@@ -24,6 +24,10 @@ Examples:
   "batch_id": "string",
   "analysis_timestamp": "ISO 8601",
   "analysis_version": "string",
+  "models": {
+    "analysis": "model identifier that produced the judged fields, e.g. claude-opus-4-5",
+    "artifact_reassessment": "model identifier of any later re-assessment (optional)"
+  },
 
   "source": {
     "journal_acronym": "string",
@@ -54,6 +58,14 @@ Examples:
         "intellectual_integrity": "number (0-100)",
         "composite": "number (0-100)",
         "final": "number (0-100)"
+      },
+      "artifact_assessment": {
+        "category": "code_and_data | code | data | claimed | none",
+        "relevant": "boolean (false for papers with nothing to release)",
+        "evidence": "verbatim quotation or URL supporting the category, or 'no availability statement or link in the text'",
+        "assessor": "model identifier",
+        "assessed": "ISO 8601 date",
+        "original_score": "number | null (score before re-assessment, if any)"
       },
       "flags": ["string"],
       "flag_details": {

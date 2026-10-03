@@ -31,6 +31,8 @@ rather than zero, so a downstream mean cannot silently absorb them.
 | `classification` | enum | **Derived.** `STRONG`, `ADEQUATE`, `LIMITED`, `CONCERNING`, `CRITICAL`. |
 | `disqualified` | boolean | **Derived.** True for the 17 papers whose score is capped at 24. |
 | `flags` | string | Pipe-separated (`A|B`), empty when no flag fired. |
+| `artifact_category` | enum | Judged. `code_and_data`, `code`, `data`, `claimed`, `none`, or `unassessed` (one paper whose PDF is no longer served). `artifact_availability` is this category's anchor; see `framework/scoring.md`. |
+| `artifact_relevant` | boolean | Judged. False for papers with nothing that could be released (pure theory, proofs). Does not change the score. |
 
 The judged/derived split is the point of the pipeline, not a formatting
 detail. An assessor supplies the component scores, the concept level, the

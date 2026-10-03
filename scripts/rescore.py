@@ -133,6 +133,24 @@ def audit_paper(paper: dict) -> tuple[dict, list[str]]:
             )
         return canonical, issues
 
+    art = paper.get("artifact_assessment")
+    if art is not None and art.get("category") != rs.ARTIFACT_UNASSESSED:
+        anchor = rs.artifact_score(art.get("category"))
+        if abs(float(scores.get("artifact_availability", -1)) - anchor) > TOLERANCE:
+            issues.append(
+                f"artifact_availability: stated {scores.get('artifact_availability')}, "
+                f"category {art.get('category')!r} anchors {anchor}"
+            )
+            scores = {**scores, "artifact_availability": anchor}
+        if not (art.get("evidence") or "").strip():
+            issues.append("artifact_assessment carries no evidence")
+
+    if {"ELEVATED_SELF_CITATION", "EXCESSIVE_SELF_CITATION"} <= set(flags):
+        issues.append(
+            "ELEVATED_SELF_CITATION and EXCESSIVE_SELF_CITATION are defined on "
+            "disjoint bands (20-30%, >30%) and cannot both apply"
+        )
+
     derived = rs.derive(scores, flags, paper.get("concept_level"))
 
     for field in rs.DERIVED_FIELDS:

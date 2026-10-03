@@ -34,6 +34,7 @@ COLUMNS = [
     "formalism", "citation_integrity", "structural_integrity",
     "artifact_availability", "intellectual_integrity", "composite", "final",
     "classification", "disqualified", "flags",
+    "artifact_category", "artifact_relevant",
 ]
 
 
@@ -75,6 +76,8 @@ def rows(input_dir: Path, include_non_research: bool):
                 "classification": verdict.get("classification", ""),
                 "disqualified": verdict.get("disqualified", ""),
                 "flags": "|".join(flags),
+                "artifact_category": (p.get("artifact_assessment") or {}).get("category", ""),
+                "artifact_relevant": (p.get("artifact_assessment") or {}).get("relevant", ""),
             }
 
 

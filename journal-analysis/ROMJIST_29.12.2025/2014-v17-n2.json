@@ -35,7 +35,7 @@
     "formalism": 80,
     "citation_integrity": 85,
     "structural_integrity": 85,
-    "artifact_availability": 70,
+    "artifact_availability": 70.0,
     "intellectual_integrity": 83.0,
     "composite": 79.75,
     "final": 79.75
@@ -48,7 +48,15 @@
     "summary": "Comprehensive survey/vision paper on DSE methods for computer architecture. Formalism (COG equation, fuzzy logic rules) is appropriate for the domain and necessary for explaining fuzzy mutation operators. FADSE tool publicly available.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design Space Exploration (DSE) framework for computer architecture optimization\n**Level:** 3-4 (Novel framework with domain knowledge integration)\n**Rationale:** Presents FADSE tool with fuzzy logic integration, meta-optimization algorithms, and multi-objective evolutionary methods.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (COG for defuzzification)\n\n### Proportionality\nCalculated complexity: 2 (1 equation treated as definition)\nExpected range (Level 3-4): 10-80\nRatio: 0.02x upper bound\n\n**Assessment:** Proportionate - minimal formalism for a survey/vision paper.\n\n### Necessity Test\n- COG equation (Eq. 1): Necessary for explaining fuzzy logic defuzzification\n- Fuzzy logic rule examples: Necessary for domain-knowledge representation\n- Could be English? No - mathematical precision required for algorithm description\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n32 references cited. Author self-cites prior work on FADSE tool appropriately. Self-citation ratio approximately 25% but topically relevant to the survey scope. No irrelevant self-citations detected.\n\n---\n\n## Structural Analysis\n\nClear structure with Introduction, Computing Systems Optimizations, Domain-Knowledge, Contradiction Degrees, Meta-Optimization, RSM Integration, Pareto-Fuzzy Set, Related Works, Conclusions. Limitations acknowledged (domain-knowledge trade-offs). FADSE tool publicly available at Google Code.\n\n---\n\n## Conclusion\n\nWell-structured survey paper with appropriate minimal formalism. The single equation (COG) is necessary for fuzzy logic explanation. Tool availability strengthens reproducibility. Strong contribution to DSE methodology literature."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design Space Exploration (DSE) framework for computer architecture optimization\n**Level:** 3-4 (Novel framework with domain knowledge integration)\n**Rationale:** Presents FADSE tool with fuzzy logic integration, meta-optimization algorithms, and multi-objective evolutionary methods.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (COG for defuzzification)\n\n### Proportionality\nCalculated complexity: 2 (1 equation treated as definition)\nExpected range (Level 3-4): 10-80\nRatio: 0.02x upper bound\n\n**Assessment:** Proportionate - minimal formalism for a survey/vision paper.\n\n### Necessity Test\n- COG equation (Eq. 1): Necessary for explaining fuzzy logic defuzzification\n- Fuzzy logic rule examples: Necessary for domain-knowledge representation\n- Could be English? No - mathematical precision required for algorithm description\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n32 references cited. Author self-cites prior work on FADSE tool appropriately. Self-citation ratio approximately 25% but topically relevant to the survey scope. No irrelevant self-citations detected.\n\n---\n\n## Structural Analysis\n\nClear structure with Introduction, Computing Systems Optimizations, Domain-Knowledge, Contradiction Degrees, Meta-Optimization, RSM Integration, Pareto-Fuzzy Set, Related Works, Conclusions. Limitations acknowledged (domain-knowledge trade-offs). FADSE tool publicly available at Google Code.\n\n---\n\n## Conclusion\n\nWell-structured survey paper with appropriate minimal formalism. The single equation (COG) is necessary for fuzzy logic explanation. Tool availability strengthens reproducibility. Strong contribution to DSE methodology literature.",
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "https://code.google.com/p/fadse/",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 70
+   }
   },
   {
    "paper_id": "gpop2014",
@@ -74,10 +82,10 @@
     "formalism": 85,
     "citation_integrity": 90,
     "structural_integrity": 90,
-    "artifact_availability": 40,
+    "artifact_availability": 50.0,
     "intellectual_integrity": 88.0,
-    "composite": 76.0,
-    "final": 76.0
+    "composite": 78.5,
+    "final": 78.5
    },
    "flags": [],
    "flag_details": {},
@@ -87,7 +95,15 @@
     "summary": "Novel quality-aware forensic speaker recognition with strong experimental validation. Quality measure equations (ILCP, logWALE, MSAPVR) are domain-standard and necessary for score computation. EER improved from 14.37% to 5.95% in noisy conditions.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Quality-aware forensic speaker recognition using GMM-UBM\n**Level:** 3 (Novel quality measure integration with established speaker recognition)\n**Rationale:** Proposes new quality measure functions and integration methodology for forensic applications.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 (quality measures, likelihoods, scoring)\n\n### Proportionality\nCalculated complexity: 26 (13 equations x 2)\nExpected range (Level 3): 10-40\nRatio: 0.65x upper bound\n\n**Assessment:** Proportionate - equations are standard signal processing and statistical formulations.\n\n### Necessity Test\n- ILCP equation (Eq. 1): Necessary for quality measure computation\n- logWALE (Eq. 2): Necessary for harmonic structure quality\n- MSAPVR (Eq. 3): Necessary for co-channel detection\n- Likelihood functions (Eq. 7-9): Necessary for GMM score computation\n- Could be English? No - signal processing requires mathematical precision\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n16 references. Self-citation ratio low (<15%). References cover relevant prior work in speaker recognition and quality measures.\n\n---\n\n## Structural Analysis\n\nWell-organized: Introduction, Overview, Proposed Approach, Quality-based Score Computation, Experiments, Conclusions. Experiments on NIST 2008 SRE database. DET curves and confusion matrices provided. No public code/data release mentioned.\n\n---\n\n## Conclusion\n\nSolid applied research with novel quality measure integration. All formalism serves direct computational purpose. EER improvement from 14.37% to 5.95% at TIR=15dB demonstrates practical value."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Quality-aware forensic speaker recognition using GMM-UBM\n**Level:** 3 (Novel quality measure integration with established speaker recognition)\n**Rationale:** Proposes new quality measure functions and integration methodology for forensic applications.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 (quality measures, likelihoods, scoring)\n\n### Proportionality\nCalculated complexity: 26 (13 equations x 2)\nExpected range (Level 3): 10-40\nRatio: 0.65x upper bound\n\n**Assessment:** Proportionate - equations are standard signal processing and statistical formulations.\n\n### Necessity Test\n- ILCP equation (Eq. 1): Necessary for quality measure computation\n- logWALE (Eq. 2): Necessary for harmonic structure quality\n- MSAPVR (Eq. 3): Necessary for co-channel detection\n- Likelihood functions (Eq. 7-9): Necessary for GMM score computation\n- Could be English? No - signal processing requires mathematical precision\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n16 references. Self-citation ratio low (<15%). References cover relevant prior work in speaker recognition and quality measures.\n\n---\n\n## Structural Analysis\n\nWell-organized: Introduction, Overview, Proposed Approach, Quality-based Score Computation, Experiments, Conclusions. Experiments on NIST 2008 SRE database. DET curves and confusion matrices provided. No public code/data release mentioned.\n\n---\n\n## Conclusion\n\nSolid applied research with novel quality measure integration. All formalism serves direct computational purpose. EER improvement from 14.37% to 5.95% at TIR=15dB demonstrates practical value.",
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "speech recordings from the NIST 2008 SRE database",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 40
+   }
   },
   {
    "paper_id": "cbira2014",
@@ -116,10 +132,10 @@
     "formalism": 85,
     "citation_integrity": 90,
     "structural_integrity": 90,
-    "artifact_availability": 60,
+    "artifact_availability": 70.0,
     "intellectual_integrity": 88.0,
-    "composite": 81.0,
-    "final": 81.0
+    "composite": 83.5,
+    "final": 83.5
    },
    "flags": [],
    "flag_details": {},
@@ -129,7 +145,15 @@
     "summary": "Comprehensive parallel architecture paper with three algorithm case studies (AES, FFT, Batcher sort). Formalism includes complexity analysis, vector operations, and algorithm pseudocode. All formalism necessary for parallel algorithm design.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Parallel architecture with transpose-based data reorganization\n**Level:** 4 (Parallel architecture, algorithm complexity analysis)\n**Rationale:** Novel architectural approach with formal complexity analysis and multiple algorithm implementations.\n\n### Formal Elements\n- Definitions: Multiple function definitions (SetVector, BinaryOp, etc.)\n- Theorems: 0 formal theorems\n- Proofs: 0 formal proofs\n- Equations: ~15 (complexity bounds, vector operations)\n\n### Proportionality\nCalculated complexity: ~40\nExpected range (Level 4): 30-80\nRatio: 0.5x upper bound\n\n**Assessment:** Proportionate - formalism appropriate for parallel architecture paper.\n\n### Necessity Test\n- Inner product code (Example 1): Necessary for efficiency comparison\n- SADD selective add: Necessary for demonstrating predicated execution\n- FFT butterfly operations: Necessary for algorithm description\n- Transpose operations: Core contribution, necessary\n- Could be English? No - parallel algorithm design requires formal specification\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n11 references. Low self-citation. References cover Connex prior work and standard parallel algorithms.\n\n---\n\n## Structural Analysis\n\nComprehensive structure: CHLA description, three sub-architectures, three algorithm case studies (AES, FFT, Batcher). Code examples in SCHEME. Performance comparisons with ARM Cortex A9. Connex system implemented in silicon. SCHEME simulator available.\n\n---\n\n## Conclusion\n\nExcellent parallel architecture paper. Heavy but necessary formalism for three complete algorithm implementations. Comparison with ARM shows 82x improvement for AES. Well-validated contribution."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Parallel architecture with transpose-based data reorganization\n**Level:** 4 (Parallel architecture, algorithm complexity analysis)\n**Rationale:** Novel architectural approach with formal complexity analysis and multiple algorithm implementations.\n\n### Formal Elements\n- Definitions: Multiple function definitions (SetVector, BinaryOp, etc.)\n- Theorems: 0 formal theorems\n- Proofs: 0 formal proofs\n- Equations: ~15 (complexity bounds, vector operations)\n\n### Proportionality\nCalculated complexity: ~40\nExpected range (Level 4): 30-80\nRatio: 0.5x upper bound\n\n**Assessment:** Proportionate - formalism appropriate for parallel architecture paper.\n\n### Necessity Test\n- Inner product code (Example 1): Necessary for efficiency comparison\n- SADD selective add: Necessary for demonstrating predicated execution\n- FFT butterfly operations: Necessary for algorithm description\n- Transpose operations: Core contribution, necessary\n- Could be English? No - parallel algorithm design requires formal specification\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n11 references. Low self-citation. References cover Connex prior work and standard parallel algorithms.\n\n---\n\n## Structural Analysis\n\nComprehensive structure: CHLA description, three sub-architectures, three algorithm case studies (AES, FFT, Batcher). Code examples in SCHEME. Performance comparisons with ARM Cortex A9. Connex system implemented in silicon. SCHEME simulator available.\n\n---\n\n## Conclusion\n\nExcellent parallel architecture paper. Heavy but necessary formalism for three complete algorithm implementations. Comparison with ARM shows 82x improvement for AES. Well-validated contribution.",
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "Connex Simulator, posted at: http://www.anselm.edu/internet/compsci/Faculty Staff/mmalita/HOMEPAGE/research.html",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 60
+   }
   },
   {
    "paper_id": "taosong2014",
@@ -155,10 +179,10 @@
     "formalism": 95,
     "citation_integrity": 90,
     "structural_integrity": 95,
-    "artifact_availability": 30,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 93.25,
-    "composite": 77.44,
-    "final": 77.44
+    "composite": 69.94,
+    "final": 69.94
    },
    "flags": [],
    "flag_details": {},
@@ -168,7 +192,15 @@
     "summary": "Theoretical computer science paper proving Turing universality with 8 neurons. Heavy formalism is absolutely necessary for universality proofs. Answers open problem from prior work. Rigorous simulation of register machine.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Turing universality of Spiking Neural P systems with cooperating rules\n**Level:** 5 (Turing universality proof, computational theory)\n**Rationale:** Proves computational universality, requires formal rigor.\n\n### Formal Elements\n- Definitions: 3 (SN P system, cooperating rules, register machine)\n- Theorems: 1 (Theorem 1: NtotSNP8CR2(extend, forg) = NRE)\n- Proofs: 1 (complete proof of universality)\n- Equations: ~20 (rule specifications, spiking conditions)\n\n### Proportionality\nCalculated complexity: 3x2 + 1x3 + 1x4 + 20x2 = 6 + 3 + 4 + 40 = 53\nExpected range (Level 5): 60-150\nRatio: 0.35x upper bound\n\n**Assessment:** Proportionate - formalism required for universality proof.\n\n### Necessity Test\n- SN P system definition: Absolutely necessary for formal proof\n- Register machine definition: Necessary for simulation basis\n- Spiking rules specification (Table 1): Necessary for construction\n- Theorem and proof: Core contribution, absolutely necessary\n- Could be English? Absolutely not - computational universality requires formal precision\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n33 references. Comprehensive coverage of SN P systems literature. Self-citation appropriate for continuing research line. References seminal work (Ionescu, Paun, Pan).\n\n---\n\n## Structural Analysis\n\nClassic theory paper structure: Introduction, SN P Systems background, Small Universal Construction, Conclusion. Proof is detailed and complete. Answers open problem from Metta et al. (CMC15). No implementation/code (theoretical contribution).\n\n---\n\n## Conclusion\n\nRigorous theoretical contribution to membrane computing. 8-neuron construction improves on prior 10-neuron result. All formalism is absolutely necessary for universality proof. Exemplary theoretical computer science paper."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Turing universality of Spiking Neural P systems with cooperating rules\n**Level:** 5 (Turing universality proof, computational theory)\n**Rationale:** Proves computational universality, requires formal rigor.\n\n### Formal Elements\n- Definitions: 3 (SN P system, cooperating rules, register machine)\n- Theorems: 1 (Theorem 1: NtotSNP8CR2(extend, forg) = NRE)\n- Proofs: 1 (complete proof of universality)\n- Equations: ~20 (rule specifications, spiking conditions)\n\n### Proportionality\nCalculated complexity: 3x2 + 1x3 + 1x4 + 20x2 = 6 + 3 + 4 + 40 = 53\nExpected range (Level 5): 60-150\nRatio: 0.35x upper bound\n\n**Assessment:** Proportionate - formalism required for universality proof.\n\n### Necessity Test\n- SN P system definition: Absolutely necessary for formal proof\n- Register machine definition: Necessary for simulation basis\n- Spiking rules specification (Table 1): Necessary for construction\n- Theorem and proof: Core contribution, absolutely necessary\n- Could be English? Absolutely not - computational universality requires formal precision\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n33 references. Comprehensive coverage of SN P systems literature. Self-citation appropriate for continuing research line. References seminal work (Ionescu, Paun, Pan).\n\n---\n\n## Structural Analysis\n\nClassic theory paper structure: Introduction, SN P Systems background, Small Universal Construction, Conclusion. Proof is detailed and complete. Answers open problem from Metta et al. (CMC15). No implementation/code (theoretical contribution).\n\n---\n\n## Conclusion\n\nRigorous theoretical contribution to membrane computing. 8-neuron construction improves on prior 10-neuron result. All formalism is absolutely necessary for universality proof. Exemplary theoretical computer science paper.",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 30
+   }
   },
   {
    "paper_id": "pgrzegorek2014",
@@ -193,10 +225,10 @@
     "formalism": 95,
     "citation_integrity": 90,
     "structural_integrity": 95,
-    "artifact_availability": 30,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 93.25,
-    "composite": 77.44,
-    "final": 77.44
+    "composite": 69.94,
+    "final": 69.94
    },
    "flags": [],
    "flag_details": {},
@@ -206,7 +238,15 @@
     "summary": "Rigorous algorithm paper with competitive ratio proofs. Two lemmas and two theorems with complete proofs. Formalism is standard and necessary for algorithm analysis. Improves on prior bounds.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Competitive analysis of online bin packing algorithms\n**Level:** 4 (Algorithm proofs, competitive ratio bounds)\n**Rationale:** Novel algorithms with rigorous competitive analysis.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 2 (Theorem 1: R_P3S <= 2.8, Theorem 2: R_P3 <= 3.577)\n- Proofs: 4 (Lemma 1, Lemma 2, Theorem 1, Theorem 2)\n- Lemmas: 4 (area bounds)\n\n### Proportionality\nCalculated complexity: 2x3 + 4x4 + 4x2 = 6 + 16 + 8 = 30\nExpected range (Level 4): 30-80\nRatio: 0.375x upper bound\n\n**Assessment:** Proportionate - proofs necessary for competitive ratio claims.\n\n### Necessity Test\n- Lemma 1 (area bound 1/2): Necessary for Theorem 1\n- Lemma 2 (area bound 5/12): Necessary for Theorem 1\n- Lemma 3-4 (area bounds): Necessary for Theorem 2\n- Theorems 1-2: Core contributions with competitive ratios\n- Could be English? No - competitive ratio proofs require mathematical rigor\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n13 references. Covers prior bin packing work comprehensively. No self-citations. References seminal works (Lee-Lee, Epstein-van Stee).\n\n---\n\n## Structural Analysis\n\nClassic algorithm paper structure: Introduction, P3S algorithm, k-containers, P3 algorithm, analysis. Complete algorithm descriptions. Proofs are detailed with case analysis. No implementation mentioned (theoretical contribution).\n\n---\n\n## Conclusion\n\nRigorous algorithm paper with complete competitive ratio proofs. Improves competitive ratio from prior 4.5 to 2.8 for square packing, 4.0 to 3.577 for rectangle packing. All formalism serves proof purposes."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Competitive analysis of online bin packing algorithms\n**Level:** 4 (Algorithm proofs, competitive ratio bounds)\n**Rationale:** Novel algorithms with rigorous competitive analysis.\n\n### Formal Elements\n- Definitions: 0 formal numbered definitions\n- Theorems: 2 (Theorem 1: R_P3S <= 2.8, Theorem 2: R_P3 <= 3.577)\n- Proofs: 4 (Lemma 1, Lemma 2, Theorem 1, Theorem 2)\n- Lemmas: 4 (area bounds)\n\n### Proportionality\nCalculated complexity: 2x3 + 4x4 + 4x2 = 6 + 16 + 8 = 30\nExpected range (Level 4): 30-80\nRatio: 0.375x upper bound\n\n**Assessment:** Proportionate - proofs necessary for competitive ratio claims.\n\n### Necessity Test\n- Lemma 1 (area bound 1/2): Necessary for Theorem 1\n- Lemma 2 (area bound 5/12): Necessary for Theorem 1\n- Lemma 3-4 (area bounds): Necessary for Theorem 2\n- Theorems 1-2: Core contributions with competitive ratios\n- Could be English? No - competitive ratio proofs require mathematical rigor\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n13 references. Covers prior bin packing work comprehensively. No self-citations. References seminal works (Lee-Lee, Epstein-van Stee).\n\n---\n\n## Structural Analysis\n\nClassic algorithm paper structure: Introduction, P3S algorithm, k-containers, P3 algorithm, analysis. Complete algorithm descriptions. Proofs are detailed with case analysis. No implementation mentioned (theoretical contribution).\n\n---\n\n## Conclusion\n\nRigorous algorithm paper with complete competitive ratio proofs. Improves competitive ratio from prior 4.5 to 2.8 for square packing, 4.0 to 3.577 for rectangle packing. All formalism serves proof purposes.",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 30
+   }
   },
   {
    "paper_id": "rsoto2014",
@@ -232,7 +272,7 @@
     "formalism": 75,
     "citation_integrity": 85,
     "structural_integrity": 85,
-    "artifact_availability": 50,
+    "artifact_availability": 50.0,
     "intellectual_integrity": 81.0,
     "composite": 73.25,
     "final": 73.25
@@ -245,8 +285,20 @@
     "summary": "Novel CSP extension for sequential dependency with video game applications. Formal CSP definitions are standard and necessary. Implementation in Choco Solver validates approach. 98% success on Ms. Pac-Man level 1.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** CSP extension for video game AI agents\n**Level:** 2-3 (CSP framework extension with application)\n**Rationale:** Extends meta-CSP formalism for sequential dependencies, applied to game AI.\n\n### Formal Elements\n- Definitions: 3 (CSP, SD Meta-CSP, sub-problem)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (formal set notation for CSP definition)\n\n### Proportionality\nCalculated complexity: 3x2 = 6\nExpected range (Level 2-3): 0-40\nRatio: 0.15x upper bound\n\n**Assessment:** Proportionate - standard CSP formalism for framework extension.\n\n### Necessity Test\n- CSP definition (V, D, C): Standard, necessary for framework\n- SD Meta-CSP definition: Core contribution, necessary\n- Algorithm 1-3: Necessary for solver description\n- Constraint examples: Necessary for application specification\n- Could be English? Partially - CSP notation is standard in community\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n41 references. Comprehensive CSP literature coverage. Multiple self-citations but topically relevant to constraint programming research line.\n\n---\n\n## Structural Analysis\n\nGood structure: Introduction, Related Work, CSP Background, SD Meta-CSP, Video Game Modeling, Implementation, Conclusion. Two game applications (Ms. Pac-Man, Mario). Implementation with Choco Solver. 98% level 1 success for Ms. Pac-Man, 40/40 for Mario.\n\n---\n\n## Conclusion\n\nNovel CSP extension with practical video game applications. Formalism is standard CSP notation, necessary for formal framework definition. Implementation validates approach with good success rates."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** CSP extension for video game AI agents\n**Level:** 2-3 (CSP framework extension with application)\n**Rationale:** Extends meta-CSP formalism for sequential dependencies, applied to game AI.\n\n### Formal Elements\n- Definitions: 3 (CSP, SD Meta-CSP, sub-problem)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (formal set notation for CSP definition)\n\n### Proportionality\nCalculated complexity: 3x2 = 6\nExpected range (Level 2-3): 0-40\nRatio: 0.15x upper bound\n\n**Assessment:** Proportionate - standard CSP formalism for framework extension.\n\n### Necessity Test\n- CSP definition (V, D, C): Standard, necessary for framework\n- SD Meta-CSP definition: Core contribution, necessary\n- Algorithm 1-3: Necessary for solver description\n- Constraint examples: Necessary for application specification\n- Could be English? Partially - CSP notation is standard in community\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n41 references. Comprehensive CSP literature coverage. Multiple self-citations but topically relevant to constraint programming research line.\n\n---\n\n## Structural Analysis\n\nGood structure: Introduction, Related Work, CSP Background, SD Meta-CSP, Video Game Modeling, Implementation, Conclusion. Two game applications (Ms. Pac-Man, Mario). Implementation with Choco Solver. 98% level 1 success for Ms. Pac-Man, 40/40 for Mario.\n\n---\n\n## Conclusion\n\nNovel CSP extension with practical video game applications. Formalism is standard CSP notation, necessary for formal framework definition. Implementation validates approach with good success rates.",
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "The Mario AI Benchmark is a modified and open source version of ... Super Mario Bros",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 50
+   }
   }
  ],
- "batch_notes": "Volume 17 Issue 2 (2014) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** This issue contains high-quality theoretical and applied papers: DSE optimization survey, forensic speaker recognition, parallel architecture (Connex), Turing universality proof (SN P systems), bin packing algorithms, and CSP for video games. Papers 4-5 have heavy formalism appropriate for Level 4-5 theoretical contributions. Final: 0 CRITICAL, 0 LIMITED, 4 ADEQUATE, 2 STRONG."
+ "batch_notes": "Volume 17 Issue 2 (2014) analyzed with RUIN Framework v2.0 and Necessity Test. **No formalism theater detected.** This issue contains high-quality theoretical and applied papers: DSE optimization survey, forensic speaker recognition, parallel architecture (Connex), Turing universality proof (SN P systems), bin packing algorithms, and CSP for video games. Papers 4-5 have heavy formalism appropriate for Level 4-5 theoretical contributions. Final: 0 CRITICAL, 0 LIMITED, 4 ADEQUATE, 2 STRONG.",
+ "models": {
+  "analysis": "claude-opus-4-5",
+  "artifact_reassessment": "claude-opus-5-5"
+ }
 }

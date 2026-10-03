@@ -75,9 +75,9 @@
     "formalism": 45,
     "citation_integrity": 85,
     "structural_integrity": 70,
-    "artifact_availability": 30,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 65.25,
-    "composite": 56.44,
+    "composite": 48.94,
     "final": 24.0
    },
    "flags": [
@@ -94,7 +94,15 @@
     "summary": "Applied system integration paper combining GPS/GSM hardware with standard genetic algorithm for VRPTW. Mathematical formulation (Eq. 1-11) is standard VRP boilerplate that doesn't advance the contribution. Main value is in hardware/software integration, not algorithmic novelty.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** GPS/GSM embedded system with genetic algorithm for vehicle routing\n**Level:** 2 (Low) - System integration applying existing technologies\n**Rationale:** Core contribution is hardware integration (GM862-GPS module) with web platform. Genetic algorithm is standard application without novel modifications.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 (Eq. 1-11 for VRP constraints, Eq. 12-14 for cost calculation)\n\n### Proportionality\nCalculated complexity: 14 (14 equations treated as definitions x1)\nExpected range (Level 2): 0-15\nRatio: 0.93x upper bound\n\n**Assessment:** Within range numerically, but Necessity Test reveals issues.\n\n### Necessity Test Applied\n\n**Equations 1-11 (VRP constraints):**\n- Could be said in English? YES - \"minimize total tour cost\", \"each customer served once\", \"respect vehicle capacity\", \"respect time windows\"\n- Would programmer need this math? NO - VRP libraries abstract these constraints\n- Enables proofs? NO - no theoretical analysis follows\n\n**Verdict:** Equations are standard VRP formulation copied from literature, not necessary for understanding the hardware/software contribution.\n\n### Issues\n- Mathematical notation for well-known VRP constraints adds complexity without insight\n- Algorithm 1 pseudocode is more useful than the equations\n- No novel algorithmic contribution requiring formal treatment\n\n---\n\n## Citation Analysis\n\nSelf-citations: 1/16 (6%) - Normal\nReferences appropriately cover GPS, GSM, VRP, and genetic algorithms.\n\n---\n\n## Structural Analysis\n\n- System description is clear with good figures\n- No explicit limitations section\n- Code/data not publicly available (claims web platform exists)\n\n---\n\n## Conclusion\n\nPractical system integration paper with appropriate hardware focus. The VRP mathematical formulation is unnecessary boilerplate - the contribution is the GPS/GSM platform, not the optimization theory. Pseudocode and tables would suffice. Score reduced for formalism that doesn't serve the paper's actual contribution."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** GPS/GSM embedded system with genetic algorithm for vehicle routing\n**Level:** 2 (Low) - System integration applying existing technologies\n**Rationale:** Core contribution is hardware integration (GM862-GPS module) with web platform. Genetic algorithm is standard application without novel modifications.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 (Eq. 1-11 for VRP constraints, Eq. 12-14 for cost calculation)\n\n### Proportionality\nCalculated complexity: 14 (14 equations treated as definitions x1)\nExpected range (Level 2): 0-15\nRatio: 0.93x upper bound\n\n**Assessment:** Within range numerically, but Necessity Test reveals issues.\n\n### Necessity Test Applied\n\n**Equations 1-11 (VRP constraints):**\n- Could be said in English? YES - \"minimize total tour cost\", \"each customer served once\", \"respect vehicle capacity\", \"respect time windows\"\n- Would programmer need this math? NO - VRP libraries abstract these constraints\n- Enables proofs? NO - no theoretical analysis follows\n\n**Verdict:** Equations are standard VRP formulation copied from literature, not necessary for understanding the hardware/software contribution.\n\n### Issues\n- Mathematical notation for well-known VRP constraints adds complexity without insight\n- Algorithm 1 pseudocode is more useful than the equations\n- No novel algorithmic contribution requiring formal treatment\n\n---\n\n## Citation Analysis\n\nSelf-citations: 1/16 (6%) - Normal\nReferences appropriately cover GPS, GSM, VRP, and genetic algorithms.\n\n---\n\n## Structural Analysis\n\n- System description is clear with good figures\n- No explicit limitations section\n- Code/data not publicly available (claims web platform exists)\n\n---\n\n## Conclusion\n\nPractical system integration paper with appropriate hardware focus. The VRP mathematical formulation is unnecessary boilerplate - the contribution is the GPS/GSM platform, not the optimization theory. Pseudocode and tables would suffice. Score reduced for formalism that doesn't serve the paper's actual contribution.",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 30
+   }
   },
   {
    "paper_id": "schiopu2020",
@@ -118,10 +126,10 @@
     "formalism": 85,
     "citation_integrity": 90,
     "structural_integrity": 85,
-    "artifact_availability": 20,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 86.75,
-    "composite": 70.06,
-    "final": 70.06
+    "composite": 65.06,
+    "final": 65.06
    },
    "flags": [],
    "flag_details": {},
@@ -131,7 +139,15 @@
     "summary": "Legitimate theoretical computer science paper on network flows. Formalism is necessary for graph-theoretic proofs. Theorems 1-8 establish properties of planar dynamic networks and algorithm correctness. Appropriate Level 4 formalism.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Maximum flow algorithms in planar dynamic networks\n**Level:** 4 (High) - Graph-theoretic algorithm with correctness proofs\n**Rationale:** Extends Ford-Fulkerson to dynamic networks, proves planarity preservation, establishes algorithm complexity bounds.\n\n### Formal Elements\n- Definitions: 2 (D-stable dynamics, complex stability radius)\n- Theorems: 8 (Theorems 1-8 on flow properties, planarity, complexity)\n- Proofs: 4 (constructive proofs for theorems 6-8)\n- Equations: 8 (flow constraints, cut capacity)\n\nCalculated complexity: 2x2 + 8x3 + 4x4 = 44\nExpected range (Level 4): 30-80\nRatio: 0.55x upper bound\n\n**Assessment:** Proportionate - formalism is necessary for graph-theoretic proofs.\n\n### Necessity Test Applied\n\n**Flow constraints (1a-1c):**\n- Could be said in English? NO - precise mathematical constraints needed\n- Would programmer need this? YES - for correct implementation\n- Enables proofs? YES - Theorem 1 (max-flow min-cut) depends on these\n\n**Planarity testing algorithm (Algorithm 1):**\n- Necessary? YES - establishes planarity preservation\n\n**Theorem 6 (planarity of reduced expanded network):**\n- Proof is constructive and necessary for the main result\n\n**Verdict:** All formalism passes Necessity Test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 1/18 (6%) - Paper [12] is prior work by same authors on related dynamic approach. Topically relevant.\n\n---\n\n## Structural Analysis\n\n- Clear theorem-proof structure\n- Worked example in Section 5 with figures\n- No artifacts (theoretical paper)\n\n---\n\n## Conclusion\n\nSolid theoretical contribution to network flow algorithms. Formalism is justified by the need for rigorous graph-theoretic proofs. No formalism theater detected."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Maximum flow algorithms in planar dynamic networks\n**Level:** 4 (High) - Graph-theoretic algorithm with correctness proofs\n**Rationale:** Extends Ford-Fulkerson to dynamic networks, proves planarity preservation, establishes algorithm complexity bounds.\n\n### Formal Elements\n- Definitions: 2 (D-stable dynamics, complex stability radius)\n- Theorems: 8 (Theorems 1-8 on flow properties, planarity, complexity)\n- Proofs: 4 (constructive proofs for theorems 6-8)\n- Equations: 8 (flow constraints, cut capacity)\n\nCalculated complexity: 2x2 + 8x3 + 4x4 = 44\nExpected range (Level 4): 30-80\nRatio: 0.55x upper bound\n\n**Assessment:** Proportionate - formalism is necessary for graph-theoretic proofs.\n\n### Necessity Test Applied\n\n**Flow constraints (1a-1c):**\n- Could be said in English? NO - precise mathematical constraints needed\n- Would programmer need this? YES - for correct implementation\n- Enables proofs? YES - Theorem 1 (max-flow min-cut) depends on these\n\n**Planarity testing algorithm (Algorithm 1):**\n- Necessary? YES - establishes planarity preservation\n\n**Theorem 6 (planarity of reduced expanded network):**\n- Proof is constructive and necessary for the main result\n\n**Verdict:** All formalism passes Necessity Test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 1/18 (6%) - Paper [12] is prior work by same authors on related dynamic approach. Topically relevant.\n\n---\n\n## Structural Analysis\n\n- Clear theorem-proof structure\n- Worked example in Section 5 with figures\n- No artifacts (theoretical paper)\n\n---\n\n## Conclusion\n\nSolid theoretical contribution to network flow algorithms. Formalism is justified by the need for rigorous graph-theoretic proofs. No formalism theater detected.",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 20
+   }
   },
   {
    "paper_id": "chen2020",
@@ -159,7 +175,7 @@
     "formalism": 70,
     "citation_integrity": 75,
     "structural_integrity": 60,
-    "artifact_availability": 0,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 69.25,
     "composite": 51.94,
     "final": 31.94
@@ -178,7 +194,15 @@
     "summary": "Control theory paper combining bat algorithm with T-S fuzzy systems. Heavy formalism is appropriate for the domain (LMI, Lyapunov stability). However, the paper suffers from organizational issues - definitions are introduced but not clearly connected to the main contribution. No experimental validation beyond numerical example.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Bat algorithm for fuzzy optimal control with LMI stability analysis\n**Level:** 4 (High) - Control theory with stability proofs\n**Rationale:** Involves Lyapunov stability, LMI conditions, T-S fuzzy systems - all requiring formal treatment.\n\n### Formal Elements\n- Definitions: 2 (D-stability, complex stability radius)\n- Theorems: 2 (Theorem 3.1 parts I and II, Corollary 3.1)\n- Proofs: 2 (for Theorem 3.1 and Corollary 3.1)\n- Equations: 35+ (extensive LMI formulations, state equations)\n\nCalculated complexity: 2x2 + 2x3 + 2x4 + 35 = 53\nExpected range (Level 4): 30-80\nRatio: 0.66x upper bound\n\n**Assessment:** Within expected range for control theory.\n\n### Necessity Test Applied\n\n**LMI conditions (Eq. 3.27, 3.28):**\n- Could be said in English? NO - precise matrix inequalities needed\n- Enables proofs? YES - stability certification\n\n**Lyapunov function (Eq. 3.29):**\n- Necessary for stability proof\n\n**However:**\n- Connection between bat algorithm and LMI framework is unclear\n- Definitions 2.1, 2.2 seem unused in main results\n- Lemmas are borrowed from literature without clear integration\n\n### Issues\n- Disjointed presentation: definitions, lemmas, and main contribution not well connected\n- Bat algorithm details are minimal; focus is on LMI theory\n- Numerical example is brief with limited analysis\n\n---\n\n## Citation Analysis\n\nSelf-citations: Unable to determine author overlap with reference list.\nReferences cover relevant T-S fuzzy control literature.\n\n---\n\n## Structural Analysis\n\n- No clear limitations discussion\n- Numerical example is minimal\n- No code or data availability\n\n---\n\n## Conclusion\n\nLegitimate control theory content with appropriate formalism for the domain. However, paper organization is poor - the bat algorithm contribution is overshadowed by standard LMI theory. Connection between novel contribution and extensive formalism is weak."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Bat algorithm for fuzzy optimal control with LMI stability analysis\n**Level:** 4 (High) - Control theory with stability proofs\n**Rationale:** Involves Lyapunov stability, LMI conditions, T-S fuzzy systems - all requiring formal treatment.\n\n### Formal Elements\n- Definitions: 2 (D-stability, complex stability radius)\n- Theorems: 2 (Theorem 3.1 parts I and II, Corollary 3.1)\n- Proofs: 2 (for Theorem 3.1 and Corollary 3.1)\n- Equations: 35+ (extensive LMI formulations, state equations)\n\nCalculated complexity: 2x2 + 2x3 + 2x4 + 35 = 53\nExpected range (Level 4): 30-80\nRatio: 0.66x upper bound\n\n**Assessment:** Within expected range for control theory.\n\n### Necessity Test Applied\n\n**LMI conditions (Eq. 3.27, 3.28):**\n- Could be said in English? NO - precise matrix inequalities needed\n- Enables proofs? YES - stability certification\n\n**Lyapunov function (Eq. 3.29):**\n- Necessary for stability proof\n\n**However:**\n- Connection between bat algorithm and LMI framework is unclear\n- Definitions 2.1, 2.2 seem unused in main results\n- Lemmas are borrowed from literature without clear integration\n\n### Issues\n- Disjointed presentation: definitions, lemmas, and main contribution not well connected\n- Bat algorithm details are minimal; focus is on LMI theory\n- Numerical example is brief with limited analysis\n\n---\n\n## Citation Analysis\n\nSelf-citations: Unable to determine author overlap with reference list.\nReferences cover relevant T-S fuzzy control literature.\n\n---\n\n## Structural Analysis\n\n- No clear limitations discussion\n- Numerical example is minimal\n- No code or data availability\n\n---\n\n## Conclusion\n\nLegitimate control theory content with appropriate formalism for the domain. However, paper organization is poor - the bat algorithm contribution is overshadowed by standard LMI theory. Connection between novel contribution and extensive formalism is weak.",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 0
+   }
   },
   {
    "paper_id": "zunic2020",
@@ -204,20 +228,28 @@
     "formalism": 80,
     "citation_integrity": 90,
     "structural_integrity": 85,
-    "artifact_availability": 70,
+    "artifact_availability": 50.0,
     "intellectual_integrity": 84.75,
-    "composite": 81.06,
-    "final": 81.06
+    "composite": 76.06,
+    "final": 76.06
    },
    "flags": [],
    "flag_details": {},
    "verdict": {
-    "classification": "STRONG",
+    "classification": "ADEQUATE",
     "disqualified": false,
     "summary": "Well-executed applied ML paper for VRP parameter tuning. Formalism is minimal and appropriate - simple equations for unloading time estimation. Strong practical validation with real-world deployment. Clear contribution with proper limitations discussion.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Data-driven parameter prediction for VRP using ML models\n**Level:** 2-3 (Low-Medium) - Applied ML for practical optimization\n**Rationale:** Uses standard ML techniques (GLM, SVM, DT, NB) for parameter prediction. Novel contribution is the application domain and practical validation.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (Eq. 1-4 for unloading time calculation)\n\nCalculated complexity: 4\nExpected range (Level 2-3): 0-40\nRatio: 0.1x upper bound\n\n**Assessment:** Proportionate - minimal formalism appropriate for applied ML work.\n\n### Necessity Test Applied\n\n**Equations 1-4 (unloading time estimation):**\n- Could be said in English? Partially - but equations are clearer\n- Would programmer need this? YES - for implementation\n- Enables proofs? NO - but supports reproducibility\n\n**SVM Pseudocode:**\n- Clear algorithmic description\n- Supports reproducibility\n\n**Verdict:** Formalism is minimal, practical, and appropriate.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 5/35 (14%) - References [31]-[35] are prior work by authors. All are topically related to VRP and logistics. Reasonable for building on prior work.\n\n---\n\n## Structural Analysis\n\n- Clear limitations in Section 4\n- Real-world validation with production deployment\n- Describes system in use at distribution company\n- GitHub reference mentioned for Prophet algorithm\n\n---\n\n## Conclusion\n\nExcellent applied research paper. Appropriate minimal formalism for ML application. Strong practical validation with 3-month production testing. Clear contribution to VRP parameter tuning practice."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Data-driven parameter prediction for VRP using ML models\n**Level:** 2-3 (Low-Medium) - Applied ML for practical optimization\n**Rationale:** Uses standard ML techniques (GLM, SVM, DT, NB) for parameter prediction. Novel contribution is the application domain and practical validation.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (Eq. 1-4 for unloading time calculation)\n\nCalculated complexity: 4\nExpected range (Level 2-3): 0-40\nRatio: 0.1x upper bound\n\n**Assessment:** Proportionate - minimal formalism appropriate for applied ML work.\n\n### Necessity Test Applied\n\n**Equations 1-4 (unloading time estimation):**\n- Could be said in English? Partially - but equations are clearer\n- Would programmer need this? YES - for implementation\n- Enables proofs? NO - but supports reproducibility\n\n**SVM Pseudocode:**\n- Clear algorithmic description\n- Supports reproducibility\n\n**Verdict:** Formalism is minimal, practical, and appropriate.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 5/35 (14%) - References [31]-[35] are prior work by authors. All are topically related to VRP and logistics. Reasonable for building on prior work.\n\n---\n\n## Structural Analysis\n\n- Clear limitations in Section 4\n- Real-world validation with production deployment\n- Describes system in use at distribution company\n- GitHub reference mentioned for Prophet algorithm\n\n---\n\n## Conclusion\n\nExcellent applied research paper. Appropriate minimal formalism for ML application. Strong practical validation with 3-month production testing. Clear contribution to VRP parameter tuning practice.",
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "Data with testing and validating of prediction models are provided at the 4TU Research Data Center [37]",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 70
+   }
   },
   {
    "paper_id": "christudas2020",
@@ -244,10 +276,10 @@
     "formalism": 75,
     "citation_integrity": 90,
     "structural_integrity": 80,
-    "artifact_availability": 40,
+    "artifact_availability": 0.0,
     "intellectual_integrity": 81.5,
-    "composite": 71.12,
-    "final": 71.12
+    "composite": 61.12,
+    "final": 61.12
    },
    "flags": [],
    "flag_details": {},
@@ -257,7 +289,15 @@
     "summary": "Solid system identification paper comparing LSTM-RNN with traditional approaches. Formalism is appropriate for neural network and control theory domain. Equations describe standard LSTM gates, NARX structure, and error functions - all necessary for the methodology.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** LSTM-RNN for nonlinear system identification\n**Level:** 3 (Medium) - Applied deep learning for control systems\n**Rationale:** Applies LSTM architecture to system identification, compares with established methods. Novel application rather than algorithmic contribution.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 35+ (LSTM gates, NARX formulation, error functions, ARX model)\n\nCalculated complexity: 35\nExpected range (Level 3): 10-40\nRatio: 0.88x upper bound\n\n**Assessment:** Proportionate for neural network methodology paper.\n\n### Necessity Test Applied\n\n**LSTM equations (29-35):**\n- Could be said in English? NO - gate operations require precise formulation\n- Would programmer need this? YES - for implementation\n- Enables proofs? Supports understanding of architecture\n\n**Error functions (Eq. 3, 5, 6):**\n- Standard MSE definitions - necessary for evaluation\n\n**ARX/NARX structure (Eq. 7-22):**\n- Necessary to explain baseline comparison methods\n\n**Verdict:** Formalism is standard for neural network papers and appropriate.\n\n### Issues\n- Some equations could be condensed\n- No code availability mentioned\n\n---\n\n## Citation Analysis\n\nSelf-citations: 0/38 - No self-citations detected.\nComprehensive coverage of system identification and neural network literature.\n\n---\n\n## Structural Analysis\n\n- Clear methodology with multiple model comparisons\n- Real-time validation on physical tank system\n- MSE and R-squared metrics reported\n- Brief limitations discussion embedded in conclusion\n\n---\n\n## Conclusion\n\nWell-structured system identification paper. Formalism is appropriate for the neural network and control systems domain. Comparison methodology is sound. Could benefit from code release for reproducibility."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** LSTM-RNN for nonlinear system identification\n**Level:** 3 (Medium) - Applied deep learning for control systems\n**Rationale:** Applies LSTM architecture to system identification, compares with established methods. Novel application rather than algorithmic contribution.\n\n### Formal Elements\n- Definitions: 0 (formal)\n- Theorems: 0\n- Proofs: 0\n- Equations: 35+ (LSTM gates, NARX formulation, error functions, ARX model)\n\nCalculated complexity: 35\nExpected range (Level 3): 10-40\nRatio: 0.88x upper bound\n\n**Assessment:** Proportionate for neural network methodology paper.\n\n### Necessity Test Applied\n\n**LSTM equations (29-35):**\n- Could be said in English? NO - gate operations require precise formulation\n- Would programmer need this? YES - for implementation\n- Enables proofs? Supports understanding of architecture\n\n**Error functions (Eq. 3, 5, 6):**\n- Standard MSE definitions - necessary for evaluation\n\n**ARX/NARX structure (Eq. 7-22):**\n- Necessary to explain baseline comparison methods\n\n**Verdict:** Formalism is standard for neural network papers and appropriate.\n\n### Issues\n- Some equations could be condensed\n- No code availability mentioned\n\n---\n\n## Citation Analysis\n\nSelf-citations: 0/38 - No self-citations detected.\nComprehensive coverage of system identification and neural network literature.\n\n---\n\n## Structural Analysis\n\n- Clear methodology with multiple model comparisons\n- Real-time validation on physical tank system\n- MSE and R-squared metrics reported\n- Brief limitations discussion embedded in conclusion\n\n---\n\n## Conclusion\n\nWell-structured system identification paper. Formalism is appropriate for the neural network and control systems domain. Comparison methodology is sound. Could benefit from code release for reproducibility.",
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 40
+   }
   },
   {
    "paper_id": "anikin2020",
@@ -285,10 +325,10 @@
     "formalism": 80,
     "citation_integrity": 90,
     "structural_integrity": 85,
-    "artifact_availability": 80,
+    "artifact_availability": 100.0,
     "intellectual_integrity": 84.75,
-    "composite": 83.56,
-    "final": 83.56
+    "composite": 88.56,
+    "final": 88.56
    },
    "flags": [],
    "flag_details": {},
@@ -298,7 +338,15 @@
     "summary": "Quality machine learning paper proposing new SOM quality metric and training algorithm. Formalism is appropriate - equations define standard SOM update rules and the novel QDM measure. Code available on GitHub. Systematic experimental comparison.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Novel SOM training algorithm and quality measure\n**Level:** 3 (Medium) - New algorithm with systematic evaluation\n**Rationale:** Proposes new training approach (cellular automaton for SOM) and novel quality metric (QDM). Requires formal definition of algorithms and measures.\n\n### Formal Elements\n- Definitions: 0 (formal numbered definitions)\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (SOM update rules Eq. 1-3, quality measures Eq. 4-8)\n\nCalculated complexity: 8\nExpected range (Level 3): 10-40\nRatio: 0.2x upper bound\n\n**Assessment:** Proportionate - formalism is minimal and focused.\n\n### Necessity Test Applied\n\n**SOM update equations (1-3):**\n- Standard formulation needed to explain algorithm\n- Necessary for reproducibility\n\n**Quality measures (Eq. 4-6):**\n- Quantization error, topographic error, distortion\n- Standard measures from literature\n\n**Novel QDM measure (Eq. 7-8):**\n- Could be said in English? Not precisely - mathematical definition needed\n- Enables comparison? YES - key contribution\n- Necessary? YES - novel contribution\n\n**Verdict:** All formalism is necessary and well-motivated.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 1/27 (4%) - Reference [10] is prior work by one author. Topically relevant as it introduced the algorithm being extended.\n\n---\n\n## Structural Analysis\n\n- Clear algorithm description with pseudocode\n- Systematic experimental comparison\n- Code available on GitHub (https://github.com/okmih/Anikin_Kohonen)\n- Multiple test datasets\n\n---\n\n## Conclusion\n\nWell-executed machine learning paper. Novel contributions (QDM metric, cellular automaton training) are clearly presented with appropriate formalism. Strong reproducibility with GitHub code release."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Novel SOM training algorithm and quality measure\n**Level:** 3 (Medium) - New algorithm with systematic evaluation\n**Rationale:** Proposes new training approach (cellular automaton for SOM) and novel quality metric (QDM). Requires formal definition of algorithms and measures.\n\n### Formal Elements\n- Definitions: 0 (formal numbered definitions)\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (SOM update rules Eq. 1-3, quality measures Eq. 4-8)\n\nCalculated complexity: 8\nExpected range (Level 3): 10-40\nRatio: 0.2x upper bound\n\n**Assessment:** Proportionate - formalism is minimal and focused.\n\n### Necessity Test Applied\n\n**SOM update equations (1-3):**\n- Standard formulation needed to explain algorithm\n- Necessary for reproducibility\n\n**Quality measures (Eq. 4-6):**\n- Quantization error, topographic error, distortion\n- Standard measures from literature\n\n**Novel QDM measure (Eq. 7-8):**\n- Could be said in English? Not precisely - mathematical definition needed\n- Enables comparison? YES - key contribution\n- Necessary? YES - novel contribution\n\n**Verdict:** All formalism is necessary and well-motivated.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSelf-citations: 1/27 (4%) - Reference [10] is prior work by one author. Topically relevant as it introduced the algorithm being extended.\n\n---\n\n## Structural Analysis\n\n- Clear algorithm description with pseudocode\n- Systematic experimental comparison\n- Code available on GitHub (https://github.com/okmih/Anikin_Kohonen)\n- Multiple test datasets\n\n---\n\n## Conclusion\n\nWell-executed machine learning paper. Novel contributions (QDM metric, cellular automaton training) are clearly presented with appropriate formalism. Strong reproducibility with GitHub code release.",
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "https://github.com/okmih/Anikin_Kohonen",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 80
+   }
   },
   {
    "paper_id": "li2020",
@@ -324,21 +372,33 @@
     "formalism": 75,
     "citation_integrity": 90,
     "structural_integrity": 80,
-    "artifact_availability": 40,
+    "artifact_availability": 100.0,
     "intellectual_integrity": 81.5,
-    "composite": 71.12,
-    "final": 71.12
+    "composite": 86.12,
+    "final": 86.12
    },
    "flags": [],
    "flag_details": {},
    "verdict": {
-    "classification": "ADEQUATE",
+    "classification": "STRONG",
     "disqualified": false,
     "summary": "Solid algorithms paper for string matching optimization. Formalism is appropriate - memory estimation formulas (Eq. 1-2), distance metric (Eq. 6), and complexity analysis are necessary for the contribution. NP-hardness reduction from QAP is properly argued.",
     "record_type": "research"
    },
-   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Memory-efficient string matching with heterogeneous FSM architecture\n**Level:** 3 (Medium) - Algorithm optimization with complexity analysis\n**Rationale:** Proposes new grouping heuristic, proves NP-hardness via reduction, provides memory estimation formulas.\n\n### Formal Elements\n- Definitions: 0 (formal numbered)\n- Theorems: 0 (but contains NP-hardness argument)\n- Proofs: 1 (reduction from QAP to ARCP)\n- Equations: 7 (memory formulas Eq. 1-5, distance Eq. 6, optimization Eq. 3-5)\n\nCalculated complexity: 0x2 + 0x3 + 1x4 + 7 = 11\nExpected range (Level 3): 10-40\nRatio: 0.28x upper bound\n\n**Assessment:** Proportionate for algorithms paper.\n\n### Necessity Test Applied\n\n**Memory estimation (Eq. 1-2):**\n- Could be said in English? NO - precise formula needed for optimization\n- Would programmer need this? YES - for implementation\n- Enables analysis? YES - key for comparing approaches\n\n**Distance metric (Eq. 6):**\n- Novel contribution for string grouping\n- Necessary for algorithm\n\n**NP-hardness reduction (Eq. 3-5):**\n- Could be simpler? Perhaps, but reduction is standard approach\n- Necessary? YES - justifies heuristic approach\n\n**Verdict:** Formalism is appropriate and necessary.\n\n### Issues\n- Pseudocode in Table 1 could be clearer\n- No code availability mentioned\n\n---\n\n## Citation Analysis\n\nSelf-citations: 0/27 - No self-citations detected.\nGood coverage of string matching and DPI literature.\n\n---\n\n## Structural Analysis\n\n- Clear problem motivation\n- Experimental evaluation with multiple datasets\n- Comparison with prior methods\n- Brief limitations discussion\n\n---\n\n## Conclusion\n\nSolid algorithms contribution for memory-efficient string matching. Formalism is appropriate - memory formulas and complexity analysis are necessary for the contribution. Experimental validation is adequate."
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Memory-efficient string matching with heterogeneous FSM architecture\n**Level:** 3 (Medium) - Algorithm optimization with complexity analysis\n**Rationale:** Proposes new grouping heuristic, proves NP-hardness via reduction, provides memory estimation formulas.\n\n### Formal Elements\n- Definitions: 0 (formal numbered)\n- Theorems: 0 (but contains NP-hardness argument)\n- Proofs: 1 (reduction from QAP to ARCP)\n- Equations: 7 (memory formulas Eq. 1-5, distance Eq. 6, optimization Eq. 3-5)\n\nCalculated complexity: 0x2 + 0x3 + 1x4 + 7 = 11\nExpected range (Level 3): 10-40\nRatio: 0.28x upper bound\n\n**Assessment:** Proportionate for algorithms paper.\n\n### Necessity Test Applied\n\n**Memory estimation (Eq. 1-2):**\n- Could be said in English? NO - precise formula needed for optimization\n- Would programmer need this? YES - for implementation\n- Enables analysis? YES - key for comparing approaches\n\n**Distance metric (Eq. 6):**\n- Novel contribution for string grouping\n- Necessary for algorithm\n\n**NP-hardness reduction (Eq. 3-5):**\n- Could be simpler? Perhaps, but reduction is standard approach\n- Necessary? YES - justifies heuristic approach\n\n**Verdict:** Formalism is appropriate and necessary.\n\n### Issues\n- Pseudocode in Table 1 could be clearer\n- No code availability mentioned\n\n---\n\n## Citation Analysis\n\nSelf-citations: 0/27 - No self-citations detected.\nGood coverage of string matching and DPI literature.\n\n---\n\n## Structural Analysis\n\n- Clear problem motivation\n- Experimental evaluation with multiple datasets\n- Comparison with prior methods\n- Brief limitations discussion\n\n---\n\n## Conclusion\n\nSolid algorithms contribution for memory-efficient string matching. Formalism is appropriate - memory formulas and complexity analysis are necessary for the contribution. Experimental validation is adequate.",
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "https://github.com/xjtuleeson/HARD",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": 40
+   }
   }
  ],
- "batch_notes": "Volume 23 Special Issue T (2020) - Optimization Problems in Information Science and Technology. Guest edited by Radu-Emil Precup. Analyzed with RUIN Framework v2.0 and Necessity Test. **1 paper flagged for formalism issues**: paper670 (Beldjilali et al.) uses boilerplate VRP formulation that doesn't advance its hardware/software integration contribution. **7 papers passed Necessity Test** with appropriate formalism for their domains: graph theory (paper671), control theory (paper672), applied ML (paper673), neural networks (paper674, paper675), and algorithms (paper676). Final classification: 0 CRITICAL, 2 LIMITED (papers 670, 672), 4 ADEQUATE (papers 669, 671, 674, 676), 2 STRONG (papers 673, 675)."
+ "batch_notes": "Volume 23 Special Issue T (2020) - Optimization Problems in Information Science and Technology. Guest edited by Radu-Emil Precup. Analyzed with RUIN Framework v2.0 and Necessity Test. **1 paper flagged for formalism issues**: paper670 (Beldjilali et al.) uses boilerplate VRP formulation that doesn't advance its hardware/software integration contribution. **7 papers passed Necessity Test** with appropriate formalism for their domains: graph theory (paper671), control theory (paper672), applied ML (paper673), neural networks (paper674, paper675), and algorithms (paper676). Final classification: 0 CRITICAL, 2 LIMITED (papers 670, 672), 4 ADEQUATE (papers 669, 671, 674, 676), 2 STRONG (papers 673, 675).",
+ "models": {
+  "analysis": "claude-opus-4-5",
+  "artifact_reassessment": "claude-opus-5-5"
+ }
 }

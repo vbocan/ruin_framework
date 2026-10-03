@@ -7,6 +7,50 @@ specification is versioned independently of the corpus analysis runs — the
 `analysis_version` field inside each batch JSON records which specification
 revision produced that file.
 
+## [1.2.0] — 2026-10-04
+
+The artifact-availability component is re-assessed from the source PDFs, and
+the models behind every judged field are now recorded.
+
+### Framework specification
+- **Artifact availability is categorical.** The assessor assigns one of
+  `code_and_data`, `code`, `data`, `claimed`, `none`, and the score is the
+  category's anchor (100/70/50/30/0) through `ruin_scoring.artifact_score`.
+  Interpolation between anchors is removed. The first run's provenance showed
+  interpolated scores crediting artifacts that were described but never
+  released ("MATLAB code mentioned but not publicly available" scored 70), and
+  250 of 415 provenance records said nothing about artifacts at all.
+- `framework/scoring.md` carried two artifact tables with different anchors
+  (100/60/40/20/0 under structural integrity, 100/70/50/30/0 under artifact
+  availability). The first is removed; artifacts never entered the structural
+  score.
+- The output schema gains `models` (per batch) and `artifact_assessment`
+  (per paper: category, relevance, quoted evidence, assessor, date, original
+  score).
+
+### Analysis pipeline
+- New: `scripts/artifact_evidence.py`, `scripts/artifact_agreement.py`,
+  `scripts/apply_artifact_rescore.py`.
+- `rescore.py --check` now fails when an artifact score disagrees with its
+  category's anchor, when an assessment carries no evidence, and when a paper
+  carries both self-citation flags, whose bands are disjoint.
+- `export_scores.py` adds `artifact_category` and `artifact_relevant`.
+
+### ROMJIST_29.12.2025 data
+- Artifact availability re-assessed for all 406 research papers by two
+  independent passes (Claude Opus 5.5) over extracted evidence: agreement
+  400/406, Cohen's κ = 0.95; six disagreements adjudicated with recorded
+  reasons. One paper (tansu2025) keeps its original score: its PDF returns 404
+  at the publisher.
+- Mean artifact availability 48.3 → 9.9; mean final score 73.6 → 64.2;
+  111 papers change classification band. Flags, levels, and the other three
+  components are unchanged.
+- radescu2015: `ELEVATED_SELF_CITATION` removed; it also carried
+  `EXCESSIVE_SELF_CITATION`. Final score unchanged at 24.
+- Every batch records `models.analysis = claude-opus-4-5`, as recorded by the
+  authors (the run did not log it), and `models.artifact_reassessment =
+  claude-opus-5-5`.
+
 ## [1.1.0] — 2026-08-21
 
 Corrections found while auditing the corpus against the manuscript. The
