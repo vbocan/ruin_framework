@@ -46,6 +46,8 @@ RUIN (**R**igor, **U**tility, **I**ntegrity, **N**ecessity) shifts paper assessm
 └── LICENSE-CC-BY-4.0                   # applies to framework spec + analysis data
 ```
 
+**To repeat the experiment, start with [REPRODUCE.md](REPRODUCE.md)**: four levels, from re-deriving every number in minutes to re-running the model, each with the exact commands and the output to expect.
+
 ## Reproducing the published numbers (one command)
 
 The repository ships with every JSON file the manuscript's results are derived from. To regenerate Tables 3 and 4, Figure 4, and the headline statistics:
@@ -62,7 +64,7 @@ Outputs land in `scripts/output/`:
 | `tables/table3_flags.csv` | Table 3 — flag occurrences |
 | `tables/table4_yearly_scores.csv` | Table 4 — per-year means |
 | `figures/figure4_temporal.png` | Figure 4 — temporal trajectory |
-| `tables/headline_stats.json` | Mean final score (64.2), artifact availability (9.9), CV (4.7%), regression slope, Fisher's exact OR for 2024 (12.91) |
+| `tables/headline_stats.json` | Mean final score (42.7), artifact availability (11.4), disqualified papers (148), formalism-theater rate (17.8%), annual-mean CV and regression |
 
 This is the path from the open dataset to every number in the Results section.
 

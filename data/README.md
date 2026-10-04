@@ -8,11 +8,11 @@ which remain the archive of record:
 python scripts/export_scores.py --output data/ruin_scores.csv
 ```
 
-The file as shipped holds the **406 research papers** of the ROMJIST 2010–2025
+The file as shipped holds the **404 research papers** of the ROMJIST 2010–2025
 corpus across 56 issues. The nine non-research records — eight editorials and
 one unreadable PDF — are excluded by default, because every statistic the
 manuscript reports is computed over research papers only. Pass
-`--include-non-research` to emit all 415; their score columns come out blank
+`--include-non-research` to emit all 421; their score columns come out blank
 rather than zero, so a downstream mean cannot silently absorb them.
 
 ## Columns
@@ -42,21 +42,12 @@ have drifted apart.
 
 ## Caveat: the `doi` column is not a registration record
 
-`doi` carries only the identifier **printed in the paper's own PDF**. It is
-populated for 38 rows: 17 in 2023 and 21 in 2025, and *none at all* in 2024,
-even though Crossref holds 27 registered DOIs for that volume. The 2024 issues
-simply did not print theirs.
-
-So this column answers "did the paper show a DOI on the page?", not "does the
-paper have a DOI?". Counting blanks gives 368 papers without an identifier;
-the figure the manuscript reports in Section 4.7 is **322**, which is the count
-of corpus papers published before the journal's first DOI year, verified
-against the Crossref registration record:
+`doi` carries only the identifier **printed in the paper's own PDF**, as the analysing agent
+recorded it. In the current run it is populated for 21 rows, all from 2025, even though the
+journal registered DOIs from 2023 onwards. The column answers "did the agent record a DOI
+from the page?", not "does the paper have a DOI?". For registration, query Crossref:
 
 ```bash
 curl -s "https://api.crossref.org/journals/1453-8245/works?filter=type:journal-article&rows=0&facet=published:*"
 ```
 
-That query returns 106 journal-article DOIs under prefix 10.59277, distributed
-2023 = 27, 2024 = 27, 2025 = 38, 2026 = 14, and nothing earlier. Use Crossref,
-not this column, for any claim about persistent-identifier coverage.

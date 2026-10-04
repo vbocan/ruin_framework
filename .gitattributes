@@ -1,2 +1,11 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Data and scripts keep LF in every checkout, so byte-level comparisons
+# (REPRODUCE.md) give the same result on Windows as elsewhere.
+*.csv text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.sh text eol=lf

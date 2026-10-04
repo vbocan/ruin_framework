@@ -11,6 +11,10 @@ The text files are derived from the journal's content and are not published;
 re-run this script on a re-downloaded corpus and compare hashes.
 
     python reliability/extract_text.py --corpus /corpus --text /corpus_text
+    python reliability/extract_text.py --corpus /corpus --text /tmp/text --check
+
+With --check the manifest is left untouched and every PDF and text hash is
+compared against it instead.
 """
 
 import argparse
@@ -26,6 +30,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--corpus", type=Path, required=True)
     ap.add_argument("--text", type=Path, required=True)
+    ap.add_argument("--check", action="store_true", help="compare against the manifest, do not rewrite it")
     args = ap.parse_args()
     rows = list(csv.DictReader(MANIFEST.open(encoding="utf-8")))
     for r in rows:
@@ -34,8 +39,19 @@ def main() -> int:
         txt.parent.mkdir(parents=True, exist_ok=True)
         subprocess.run(["pdftotext", "-enc", "UTF-8", "-layout", str(pdf), str(txt)], check=False)
         data = txt.read_bytes() if txt.exists() else b""
+        if args.check:
+            pdf_ok = hashlib.sha256(pdf.read_bytes()).hexdigest() == r["sha256"]
+            txt_ok = hashlib.sha256(data).hexdigest() == r["text_sha256"]
+            r["_status"] = "ok" if pdf_ok and txt_ok else ("pdf differs" if not pdf_ok else "text differs")
+            continue
         r["text_chars"] = len(data.decode("utf-8", "replace"))
         r["text_sha256"] = hashlib.sha256(data).hexdigest()
+    if args.check:
+        bad = [(r["batch_id"], r["source_file"], r["_status"]) for r in rows if r["_status"] != "ok"]
+        print(f"{len(rows) - len(bad)} of {len(rows)} files match the manifest (PDF and text SHA-256)")
+        for b in bad:
+            print("   ", *b)
+        return 1 if bad else 0
     with MANIFEST.open("w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=list(rows[0]), lineterminator="\n")
         w.writeheader()
