@@ -1,0 +1,127 @@
+{
+ "batch_id": "2018-v21-n3",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 21,
+  "issue": 3,
+  "year": 2018
+ },
+ "papers": [
+  {
+   "paper_id": "mahalingam2018",
+   "paper": {
+    "title": "Palindromic Properties of Two-Dimensional Fibonacci Words",
+    "authors": [
+     "K. Mahalingam",
+     "M. Sivasankar",
+     "K. Krithivasan"
+    ],
+    "abstract": "Combinatorial properties of 1D Fibonacci words is a well studied topic in Formal language theory. In the year 2000, Apostolico et.al. extended the concept of one dimensional Fibonacci words to two dimensional Fibonacci arrays and investigated the number of repetitions of some structures (squares, tandems). In this paper, we investigate the number of distinct Palindromic occurrences in any given Fibonacci array. We also investigate the number of palindromes in the conjugacy class of a Fibonacci array.",
+    "keywords": [
+     "Fibonacci arrays",
+     "Palindromes",
+     "Parikh vector",
+     "Conjugacy"
+    ],
+    "doi": null,
+    "pages": "267-277",
+    "source_file": "paper599.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 40,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 62.5,
+    "composite": 46.88,
+    "final": 41.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "DISPROPORTIONATE_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "DISPROPORTIONATE_FORMALISM": "Counting every formal element printed in the paper: 7 numbered definitions (x2 = 14), 12 theorem-type statements - Lemmas 1-6, Proposition 1, Corollary 1, Theorems 1-4 (x3 = 36) - and 9 proofs (x4 = 36), total 86 against a Level 3 upper bound of 40 (2.15x). The flag is borderline: excluding the recalled Definitions 1-3 and the cited Lemma 3 brings the total to 77 (1.9x, elevated rather than disproportionate). At Level 3 the flag does not disqualify, and the formal elements all serve the counting proofs; the excess reflects a pure combinatorics paper measured against a proportionality bound, not notation standing in for programming.",
+    "NO_LIMITATIONS": "The conclusion restates the results and points to applications in pattern recognition and crystallography; no limitation, restriction of the results (e.g. the m, n > 2 conditions, or the reliance on an unpublished preprint [18] for the FibRep construction), or open question is acknowledged."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Pure combinatorics-on-words paper counting palindromic subarrays and palindromic conjugates of 2D Fibonacci arrays; formalism is the subject matter but dense relative to the Level 3 bound, proofs are informal in places and the text has several typographical errors in key statements.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Enumeration of palindromic subarrays and palindromic conjugates of two-dimensional Fibonacci arrays, extending known 1D results (Chuan, de Luca, Yu and Zhao) along the lines of Apostolico and Brimkov.\n**Level:** 3 (Medium)\n**Rationale:** The paper proves non-trivial combinatorial properties (exact counts F(m)xF(n) of distinct palindromic subarrays, size of the conjugacy class, number of palindromic conjugates). It is theory, not an application, so Level 1-2 does not fit; the results are counting arguments rather than complexity, decidability or universality results, so Level 4-5 is not justified. Defaulting to the lower of the plausible levels gives 3.\n\n### Formal Elements\n- Definitions: 7 numbered (Definitions 1-3 recalled from the literature; 4-7 new: horizontal/vertical palindromes, Type I/II/III palindromes, cyclic row/column rotation, 2D conjugacy class), plus inline preliminaries (alphabet, reversal, primitivity, Fibonacci words, Parikh vector)\n- Theorems: 12 theorem-type statements (Lemmas 1-6, Proposition 1, Corollary 1, Theorems 1-4); Lemma 3 is cited from [8, 9, 11], Lemma 1 is stated as an observation without proof\n- Proofs: 9\n- Equations: about 15 (recurrences, Parikh vector counts, ceiling sums, case formulas)\n\n### Proportionality\nCalculated complexity: 86 (77 if recalled material is excluded)\nExpected range (Level 3): 10-40\nRatio: 2.15x upper bound (1.9x excluding recalled material)\n\n**Assessment:** Disproportionate by count, borderline. Every element passes the Necessity Test: the definitions of reverse image, Type I/II palindromes and 2D conjugacy are exactly what the theorems quantify over, and the results cannot be stated without them. The count exceeds the bound because the whole paper is a sequence of lemmas and proofs, not because of decorative notation.\n\n### Issues\n- Typographical errors in load-bearing statements: the Fibonacci recurrence is printed as \"F (n) = F (n − 1) + F (n − 1)\"; Theorem 3 reads \"Thenumber of distinct of fm,n\"; the hypothesis \"a ≠ b ≠ c ≠ d\" is not the pairwise-distinctness the proofs need.\n- Lemma 5's statement assigns 2F(m) to vertical palindromes under a row condition and 2F(n) to horizontal palindromes under a column condition, while its proof argues about rows giving horizontal palindromes, so statement and proof are mismatched.\n- The proofs of Lemma 6 and Theorem 2 are constructive sketches; distinctness of the subarrays built by pairing vertical and horizontal palindromes is asserted rather than shown.\n- The proof of Theorem 4 relies on a Type II case \"for m = n = 2\" that is not established anywhere in the text.\n\n---\n\n## Citation Analysis\n\nThree of 25 references (12%) include an author of this paper: [17] Kulkarni and Mahalingam on 2D palindromes, [18] Kulkarni, Mahalingam and Sivasankar on combinatorial properties of Fibonacci arrays, and [23] Subramanian, Mahalingam et al. on Parikh matrices of picture arrays. All three are directly on topic (similarity well above 0.5). [18] is an unpublished preprint on which the FibRep construction of Fibonacci arrays rests, which the reader cannot check. The remaining references are the standard literature on Fibonacci words and 2D periodicity. No citation-ring pattern is visible.\n\n---\n\n## Structural Analysis\n\nClaims are statements of lemmas and theorems, each followed by a proof or a citation, so claim-evidence balance is adequate (CER around 1 for the formal results), though several proofs are informal and the worked Example 2 serves as the only check of Theorem 2. There is no limitations section and no inline acknowledgement of constraints; the conclusion only restates the results. The paper is pure theory with nothing to release; no code or data is linked or claimed.\n\n---\n\n## Conclusion\n\nA legitimate if modest combinatorics-on-words contribution: it extends known 1D palindrome and conjugacy counts to the 2D Fibonacci arrays of Apostolico and Brimkov. The formalism is the content and none of it is theater, but by the framework's count it runs past twice the Level 3 bound, which the DISPROPORTIONATE_FORMALISM flag records without disqualifying. The weaker points are presentation and rigour: misprinted recurrences and theorem statements, a lemma whose statement and proof disagree, and counting proofs that assert distinctness instead of proving it. No limitations are acknowledged."
+  },
+  {
+   "paper_id": "orellanamartin2018",
+   "paper": {
+    "title": "The Unique Satisfiability Problem from a Membrane Computing Perspective",
+    "authors": [
+     "David Orellana-Martín",
+     "Luis Valencia-Cabrera",
+     "Agustín Riscos-Núñez",
+     "Mario J. Pérez-Jiménez"
+    ],
+    "abstract": "Complexity class DP is the class of \"differences\" of any two languages in NP. It verifies that NP ∪ co-NP ⊆ DP ⊆ P^NP, where P^NP is the second level of the polynomial hierarchy, specifically, it is the class of languages decidable by a deterministic polynomial-time Turing machine having access to an NP oracle. The unique sastifiability problem (UNIQUE SAT) is a well known DP problem which has been proved to be co-NP-hard. In this paper, a uniform and polynomial time solution for the UNIQUE SAT problem is given by a family of polarizationless P systems with active membranes and division rules only for elementary membranes, without dissolution rules but using minimal cooperation and minimal production in object evolution rules.",
+    "keywords": [
+     "Complexity class DP",
+     "polarizationless P systems with active membranes",
+     "cooperative rules",
+     "UNIQUE SAT problem"
+    ],
+    "doi": null,
+    "pages": "288-297",
+    "source_file": "paper601.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 60,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.5,
+    "composite": 49.12,
+    "final": 39.12
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "4 of 16 references (25%) include at least one of the authors: [5], [12], [14], [15]. All are on topic: [14] and [15] are the SAT and #SAT solutions this design adapts, [5] and [12] establish the framework and the dissolution result the paper relies on.",
+    "NO_LIMITATIONS": "The conclusions describe the result and an open problem in complexity theory (whether DP = US) but acknowledge no limitation of the construction itself, such as the informal soundness and completeness argument or the assumption that n, p >= 2."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Incremental membrane-computing result adapting the authors' earlier SAT and #SAT constructions to UNIQUE SAT; formalism is proportionate and necessary, but correctness is argued only informally and the computation overview contains internal inconsistencies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A uniform polynomial-time solution to UNIQUE SAT using a family of polarizationless P systems with active membranes, elementary division, no dissolution, and minimal cooperation/production rules.\n**Level:** 3 (Medium)\n**Rationale:** The main theorem is nominally a complexity-class membership (UNIQUE SAT ∈ PMC for the class DAM0(mcmp, +c, −d, −n)), which would point to Level 4. However, the authors state that the solutions to SAT [14] and #SAT [15] \"are adapted, basically, in what concerns to the output stage\", and soundness and completeness are not proved but \"can be informally deduced\". A new algorithmic construction with resource analysis but no rigorous proof sits at Level 3; the lower level is taken under uncertainty.\n\n### Formal Elements\n- Definitions: 8 (1 numbered: the P system tuple; inline: strings and languages, multisets and their union, decision problems, complement problem, Cantor pairing function, recognizer P systems, class DP)\n- Theorems: 1\n- Proofs: 1 (a checklist proof, with item (e) argued informally)\n- Equations: about 10 (Cantor pairing, the UNSAT-to-UNIQUE SAT reduction, the working alphabet, input encoding, nine rule groups)\n\n### Proportionality\nCalculated complexity: 23\nExpected range (Level 3): 10-40\nRatio: 0.58x upper bound\n\n**Assessment:** Proportionate. The tuple definition of the P system and the set-builder specification of alphabet and rules are the program itself in this computing model; removing them removes the result. The preliminaries on decision problems and the complement problem are textbook material and the complement problem is not used afterwards, but the definitions overall are referenced, so there are no orphan or decorative definitions in the framework's sense.\n\n### Issues\n- Section 4.1 states that each system \"is deterministic\", yet the negative-answer Case 2 says the objects are \"selected non-deterministically from the existent ones\", so the two statements contradict each other.\n- Leftover text from the #SAT construction: the system is said to \"answer how many truth assignments make true the input formula\", which is not what a recognizer for UNIQUE SAT does.\n- Rule group R.8 carries an unused index (\"for 0 ≤ i ≤ n − 1\"), and the step counts in the overview (4, 4 and 3 steps for the output stage) do not obviously match the bounds n + 2p + 4 and n + 2p + 3 in the proof.\n- Item (e), soundness and completeness, the substantive part of any such result, is not proved.\n\n---\n\n## Citation Analysis\n\nFour of 16 references (25%) are self-citations: [5] Gutiérrez, Pérez-Jiménez, Riscos-Núñez, Romero on dissolution; [12] Pérez-Jiménez et al. on complexity classes in membrane computing; [14] and [15], the authors' SAT and #SAT solutions this paper adapts. All are directly relevant (similarity above 0.5), so none is irrelevant; the ratio alone gives the elevated-self-citation warning. Three references ([4] Cormen et al., [7] Papadimitriou, [8] Păun 2000) appear in the list but are never cited in the text, and [6] is given as the \"24th\" STOC for a 1982 paper. These are reference-list hygiene issues, not self-citation concerns.\n\n---\n\n## Structural Analysis\n\nThe paper's claims are the construction and its polynomial resource bounds; the bounds are listed explicitly (alphabet and rules O(n^2 p^2), 2 initial membranes, at most 3 objects per rule), but the correctness of the computation rests on an informal stage-by-stage overview. That overview contains the inconsistencies above, so the evidence for the central claim is weak. No limitations are acknowledged. The work is theoretical; no simulation file (e.g. P-Lingua) or code is linked or claimed.\n\n---\n\n## Conclusion\n\nA compact, incremental contribution in membrane-computing complexity: an existing SAT design is modified at the output stage to decide UNIQUE SAT, showing that a co-NP-hard, DP problem is solvable in the minimal-cooperation polarizationless framework. The formalism is proportionate and is the paper's substance. The main weaknesses are the absence of a soundness and completeness proof, contradictory statements about determinism, artefacts of the #SAT text, and a self-citation ratio of 25%, all to closely related prior work."
+  }
+ ]
+}

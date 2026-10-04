@@ -1,0 +1,170 @@
+{
+ "batch_id": "2013-v16-n4",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 16,
+  "issue": 4,
+  "year": 2013
+ },
+ "papers": [
+  {
+   "paper_id": "wu2013",
+   "paper": {
+    "title": "An Improved Authentication Protocol for Session Initiation Protocol Using Smart Card and Elliptic Curve Cryptography",
+    "authors": [
+     "Kan Wu",
+     "Peng Gong",
+     "Jiantao Wang",
+     "Xiaopeng Yan",
+     "Ping Li"
+    ],
+    "abstract": "The authenticated key agreement protocol is an important security protocol for the session initiation protocol, which allows the and the server to authenticate each other and generate a shared session key for privacy, integrity, and non-repudiation in their communications. Recently, Zhang et al. proposed a new authenticated key agreement protocol for the session initiation protocol using smart card and claimed their protocol was secure against various attacks. However, we found that Zhang et al.'s protocol cannot withstand the user impersonation attack, i. e., a malicious user could impersonate any other user to the server. We also propose a new authenticated key agreement protocol using smart card for SIP which is immune to the presented attack. Besides, the proposed protocol also has better performance than Zhang et al.'s protocol.",
+    "keywords": [
+     "elliptic curve",
+     "authenticated key agreement",
+     "session initiation protocol"
+    ],
+    "doi": null,
+    "pages": "324-335",
+    "source_file": "05-pingli.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 95,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.5,
+    "composite": 57.38,
+    "final": 52.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints; the conclusion asserts the scheme resists the attack and performs better, and its final sentence is truncated ('As a result, the proposed scheme is more')."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Cryptanalysis of Zhang et al.'s SIP smart-card protocol plus a repaired ECC-based protocol; the protocol notation is necessary, but the proposed protocol is internally inconsistent as printed and its security is argued informally, without any proof.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A user-impersonation attack on Zhang et al.'s smart-card/ECC authenticated key agreement for SIP, and a modified protocol based on He et al.'s ID-based construction.\n**Level:** 3 (Medium)\n**Rationale:** A new cryptographic protocol is designed, which is above routine application, but no security guarantee is established formally: there is no security model, no reduction and no proof, only heuristic per-attack arguments. Level 4 (cryptographic security guarantees) is therefore not justified; the default-lower rule gives Level 3.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 40 inline protocol expressions (point multiplications, hash compositions, message contents) and one cost table\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 3): 10-40\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The algebra is the protocol specification itself: an implementer needs exactly these expressions (V = b(R - h(PW||a)P), T = (s + h(username))V, SK = h1(K||username)) to build it, so every element passes the Necessity Test. No set-theoretic or decorative notation is present.\n\n### Issues\nThe notation is necessary but not correct as printed. In the proposed authentication phase the server computes K = cT and SK = h1(K||username), while the user's Step 3 still computes K = bh(h(PW||a)||username)S and SK = h1(K||r||username), copied from Zhang et al.'s scheme; the two sides would not agree on a key. The challenge message still carries r, which the new server step never generates. The proposed password-changing phase (Section 4.4) is a verbatim copy of Zhang et al.'s, computing R* = h(h(PW*||a*)||username)s^-1 P rather than the new registration form R = ((s + h(username))^-1 + h(PW||a))P. Figure 1, in the review of Zhang et al.'s protocol, is captioned as the proposed protocol.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 21 references; ref. [9] (Wu L. et al.) shares a surname with the first author but is a different person. The references trace the SIP authentication literature chain coherently and are on topic. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe attack in Section 3 is shown step by step and supports the cryptanalytic claim. The security claims for the new protocol (resistance to seven attacks, mutual authentication, perfect forward secrecy) rest on one-paragraph informal arguments of the form 'he cannot generate V and W since he does not know R and PW', with no formal model or proof, although the introduction notes that prior work was proved secure in the Canetti-Krawczyk model. The efficiency claim rests on an operation count (6Mec + 9H against 8Mec + 9H) with no measurement. The conclusion is cut off mid-sentence. No limitations are acknowledged. As a protocol paper it has nothing obvious to release, and nothing is linked or claimed.\n\n---\n\n## Conclusion\n\nThe cryptanalysis of Zhang et al.'s scheme is concrete and plausible, and the formalism is proportionate and necessary. The proposed protocol, however, is printed with inconsistencies that would prevent the two parties from deriving the same session key, and its security rests on informal assertion. The paper is a modest contribution whose central construction needs correction before it could be implemented."
+  },
+  {
+   "paper_id": "mao2013",
+   "paper": {
+    "title": "Ordering Trees by Sum-Connectivity Indices",
+    "authors": [
+     "Jianshu Mao",
+     "Bo Zhou"
+    ],
+    "abstract": "The sum-connectivity index of graph G is defined as the sum of the weights of the edges of G, where the weight of an edge uv of G is (dG(u) + dG(v))^(-1/2) with dG(u) being the degree of vertex u in G. We determine the n-vertex trees with the fourth for n >= 7, the fifth for n >= 10, the sixth, and the seventh for n >= 11 maximum sum-connectivity indices, and the n-vertex trees with the fourth, the fifth, the sixth, and the seventh for n >= 8, and the eighth for n >= 13 minimum sum-connectivity indices.",
+    "keywords": [],
+    "doi": null,
+    "pages": "351-364",
+    "source_file": "07-bozhou.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 35,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 53.75,
+    "composite": 40.31,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "ELEVATED_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Six of the ten references ([1], [2], [3], [8], [9], [10]) include the second author, B. Zhou: SCR = 60%, above the 30% threshold. All six are on the sum-connectivity index and topically relevant; the flag is raised on the ratio, not on relevance.",
+    "ELEVATED_FORMALISM": "Formalism complexity of about 74 (7 inline definitions x 2 + 12 lemmas/theorems x 3 + 6 proofs x 4) against a Level 3 upper bound of 40, i.e. about 1.85x, within the 1x-2x band.",
+    "NO_LIMITATIONS": "The paper ends with the proof of Theorem 2; there is no conclusion, discussion or acknowledgment of limitations or open cases."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A pure extremal-graph-theory paper extending known orderings of trees by the sum-connectivity index, with necessary and largely rigorous proofs, but with a 60% self-citation ratio and no concluding discussion.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Determination of the n-vertex trees with the fourth to seventh largest and the fourth to eighth smallest sum-connectivity indices, extending the first-three orderings of Zhou and Trinajstic.\n**Level:** 3 (Medium)\n**Rationale:** The paper proves non-trivial extremal properties of a graph invariant by case analysis and calculus estimates. It extends an existing result rather than founding a new theory, and it proves no complexity, protocol or verification results, so Level 4 is not warranted.\n\n### Formal Elements\n- Definitions: 7 inline (Randic index, sum-connectivity index, pendant path, neighbourhood, Tn(n1,n2,n3), Sn,p, Tn,a) (with constraints: 7)\n- Theorems: 12 (10 lemmas, 6 of them quoted from earlier work without proof, and 2 theorems)\n- Proofs: 6 (Lemmas 2, 4, 5, 6 and Theorems 1, 2)\n- Equations: many displayed index evaluations and inequality chains\n\n### Proportionality\nCalculated complexity: about 74\nExpected range (Level 3): 10-40\nRatio: about 1.85x upper bound\n\n**Assessment:** Elevated by count, though the formalism is the subject matter. The definitions are used in the lemmas and theorems, the lemmas are used in the theorem proofs, and nothing could be replaced by plain English; every element passes the Necessity Test. The count is inflated partly by restating six lemmas from the literature.\n\n### Issues\nThere are typographical defects in the statements, not in their substance: 'n1 + n2 + n3 - 5' where 'n1 + n2 + n3 = n - 5' is meant (Lemma 5 and the definition of Tn(n1,n2,n3)); 'Case 2. p - 2' and 'Case 3. p - 3' where 'p = n - 2' and 'p = n - 3' are evidently intended. Theorem 1(iii) states n >= 11 while the proof's summary gives n >= 9. In the proof of Theorem 2, Case 2 cites Lemma 8 for comparing Tn,n-5 with Tn(n-6,0,1), which appears to be a direct calculation rather than an application of Lemma 8. None of this appears to invalidate the results, but it makes them hard to check.\n\n---\n\n## Citation Analysis\n\nThe reference list is short (10 entries), and B. Zhou is an author on six of them: [1] Du, Zhou, Trinajstic; [2] Lucic, Trinajstic, Zhou; [3] Lucic et al. (survey); [8] Wang, Zhou, Trinajstic; [9] Xing, Zhou, Trinajstic; [10] Zhou, Trinajstic. All are directly on the sum-connectivity index, and [10] and [1] supply lemmas the proofs depend on, so topical similarity is high (above 0.8) and no self-citation is irrelevant. The ratio of 60% nonetheless exceeds the 30% threshold. The field is narrow and the second author founded the index, which explains the pattern; it is still a disproportionate concentration, and the citation-integrity score is capped accordingly. No citation-ring pattern can be assessed from the text.\n\n---\n\n## Structural Analysis\n\nClaims are theorems, and the evidence for them is the proofs, which are given for every new result; the claim-evidence balance is strong. The paper has no introduction to applications beyond a sentence, no conclusion and no discussion of open cases (for instance, the n ranges not covered). As pure mathematics it has nothing to release; nothing is linked or claimed.\n\n---\n\n## Conclusion\n\nThis is a competent, narrowly scoped extremal result whose formal apparatus is necessary and used throughout. It is elevated by count against the Level 3 bound, but not theatrical. Its main integrity concern is citation concentration: six of ten references are the second author's own work. Although they are all relevant, the ratio triggers the excessive self-citation rule, which disqualifies at any level. Typographical errors in key statements reduce verifiability."
+  },
+  {
+   "paper_id": "delrey2013",
+   "paper": {
+    "title": "A Note on the Reversibility Of Elementary Cellular Automaton 150 With Periodic Boundary Conditions",
+    "authors": [
+     "Angel Martín del Rey"
+    ],
+    "abstract": "In this work, the reversibility problem for the elementary cellular automaton with rule number 150 is tackled. Although this problem was solved before, we will introduce in this work an alternative construction of the inverse cellular automaton by means of the transition matrices instead of transition dipolynomials. This new approach allows one to obtain a more efficient and effective algorithm to compute the inverse cellular automaton.",
+    "keywords": [
+     "Reversibility",
+     "Elementary cellular automata",
+     "circulant matrix"
+    ],
+    "doi": null,
+    "pages": "365-372",
+    "source_file": "08-amdelrey.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 92,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.7,
+    "composite": 57.52,
+    "final": 52.52
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment; the conclusion restates that the matrix approach gives 'a more efficient procedure' without qualification."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Short note giving an explicit circulant-matrix inverse for ECA(150) with a proof; the formalism is proportionate, but the headline efficiency claim rests on comparing two cited complexity bounds for what is essentially the same cyclic convolution.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** An explicit inverse of the linear elementary cellular automaton with rule 150 under periodic boundary conditions, expressed as a circulant matrix over F2 instead of a transition dipolynomial.\n**Level:** 3 (Medium)\n**Rationale:** The contribution is a mathematical result (a closed-form inverse matrix) with a proof, which places it at Level 3. It sits at the low end of the level: the reversibility condition and an inverse were already known (ref. [7], co-authored by the author), and the new statement is a reformulation that is verified by direct multiplication.\n\n### Formal Elements\n- Definitions: 3 inline (ECA local rule and rule number, global transition function, reversibility) (with constraints: 3)\n- Theorems: 4 (Proposition 1 and Theorem 2 quoted from [7], new Theorem 3, Corollary 4)\n- Proofs: 1 (Theorem 3)\n- Equations: 26 numbered\n\n### Proportionality\nCalculated complexity: 22\nExpected range (Level 3): 10-40\nRatio: 0.55x upper bound\n\n**Assessment:** Proportionate. The background equations (local rule, rule-number encoding, truth table) are standard cellular-automaton notation and brief. Theorem 3 and its proof are the content of the paper, and the matrix forms are what an implementer would code, so they pass the Necessity Test. No set notation stands in for list operations.\n\n### Issues\nThe statement of Theorem 3 gives Qn in a block form (A, B, C or D, E, F) that the proof then treats as a circulant matrix described by its first row; the link between the block form and the circulant first row is asserted ('It is easy to check'), not shown. The proof announces Q.Mn but computes the coefficients of Mn.Q, and labels the last-column product F.C1. Theorem 2 mixes x and y in D(x), and equation (26) reduces modulo (x^n - 1) while the polynomial is in y. Only case (1) is argued; case (2) is 'similar'.\n\n---\n\n## Citation Analysis\n\nThere is one self-citation in 11 references: [7] Hernandez Encinas and del Rey, on the inverse rules of ECA 150. It is the result the paper reformulates, so it is directly relevant (similarity above 0.9). SCR = 9%. The remaining references are standard sources on cellular automata, circulant matrices and fast arithmetic. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe correctness claim for the inverse is supported by the proof, although the proof is sketchy. The headline claim, that the matrix approach yields 'a more efficient and effective algorithm', is weakly supported. It rests on quoting O(n log n + n log n log log n) for polynomial multiplication from one source and O(n log n) for circulant matrix-vector multiplication from another. Multiplication by a circulant matrix and polynomial multiplication modulo y^n - 1 are the same cyclic convolution, so the gap reflects different cost models in the two cited sources rather than a property of the new construction, and no timing or operation count is offered. No limitations are acknowledged. As a theoretical note it has nothing obvious to release, and nothing is linked or claimed.\n\n---\n\n## Conclusion\n\nThis is a brief, proportionate mathematical note: it restates a known inverse for ECA(150) as an explicit circulant matrix and verifies it. The formalism is appropriate and the self-citation is relevant. The proof contains labelling slips and leaves the block-to-circulant correspondence unshown, and the claimed efficiency advantage is not substantiated, since both procedures compute the same cyclic convolution."
+  }
+ ]
+}

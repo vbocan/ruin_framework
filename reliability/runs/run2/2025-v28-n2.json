@@ -1,0 +1,69 @@
+{
+ "batch_id": "2025-v28-n2",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 2,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "bonev2025",
+   "paper": {
+    "title": "Inclusion of Mechanical Stress Effects in a Compact MOSFET Model",
+    "authors": [
+     "Nikolay Bonev",
+     "Dirk Michael Nuernbergk",
+     "Christian Lang"
+    ],
+    "abstract": "The analog performance of integrated circuits relies on stable parameters of its transistors. Mechanical stress changes the electronic properties of silicon and therefore, also the device parameters. For circuit design a good model of these effects is needed for a predictable and reliable function of the circuits. This article extracts the changes of various MOSFET parameters under effect of mechanical stress. A compact description of the stress effects is derived by applying tensors of piezo coefficients. The deviations are included in the physically based compact EKV model. A comparison with measured data shows that the stress effects are modelled correctly within a 10 % error margin.",
+    "keywords": [
+     "EKV model",
+     "electron mobility",
+     "mechanical stress",
+     "MOSFET",
+     "parameter extraction",
+     "stress tensor",
+     "threshold voltage"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.02",
+    "pages": "138-149",
+    "source_file": "paper797.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.75,
+    "composite": 61.31,
+    "final": 61.31
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Empirical extraction of mobility and threshold-voltage piezo coefficients for an n-MOSFET via four-point bending and the EKV model; the equations are the working physics of the method and are proportionate, self-citation is low and on-topic, but evidence rests on one device type and no measurement data are released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Measuring how in-plane mechanical stress (applied with a four-point bending bridge) changes the mobility, threshold voltage and slope factor of a long-channel n-MOSFET in a 0.18 um SOI process, fitting the changes to the standard cubic-symmetry piezo-coefficient tensor, and adding the result to the EKV compact model.\n**Level:** 2 (Low)\n**Rationale:** The paper applies established machinery (EKV parameter extraction after Bucher et al., the cubic piezo tensor with three independent coefficients after Bittle et al., the four-point bending stress formula after Richter et al.) to a new measurement set and solves an overdetermined linear system by least squares. The contribution is experimental characterisation, not a new model or algorithm with analysis; the default-low rule places it at Level 2.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 17 (bending-beam stress, EKV current/pinch-off/specific-current relations, extraction equations, tensor model of mobility and threshold, tensor rotation)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Each equation is something a device or circuit engineer would actually compute: Eq. (2) converts applied force to stress, Eqs. (3)-(9) are the extraction procedure, and Eqs. (10)-(16) are the parameterisation that produces the eight linear constraints solved in Table 2. Removing them would remove the method. The 6x6 matrix in Eq. (12) is the standard Voigt form for cubic crystals, not decoration. No set notation, tuple definitions or Greek-letter configuration constants.\n\n### Issues\nNo formalism theater. Minor errors in the formal text: the paper says \"only 4 of these, u11, u12 and u44, are independent\" while listing three (three is correct for cubic symmetry); Eq. (15) is written as a product with V_T00 whereas Eq. (16) and the surrounding text treat it as an additive change; the text gives a maximum applied stress of \"60 GPa\" while Figs. 6-7 are in MPa and the Table 1 sensitivities (per GPa) are consistent only with MPa.\n\n---\n\n## Citation Analysis\n\n15 references. Two self-citations ([1] Bonev and Hristov, packaging stress on a CMOS bandgap reference; [14] Bonev, Nuernbergk and Lang, extraction of package-related stress effects in 180 nm SOI). Both are directly on topic, [14] being the preliminary conference version whose coefficients this paper revises. SCR = 2/15 = 13.3%, in the normal band. The remaining references are standard and relevant (EKV extraction, piezoresistance, strain physics). No issues identified.\n\n---\n\n## Structural Analysis\n\nThe measurement procedure is described clearly (hysteresis sweeps, dual temperature monitoring) and the central claims are backed by Figs. 6-8 and Tables 1-2, including a reported fit error (E) for the least-squares solution. Weaknesses: results rest on a single n-channel long-channel device geometry on one test chip, with no count of chips or strips and no uncertainty on the per-orientation sensitivities; the \"for the first time\" claim is not supported by a literature comparison; the 10% model accuracy is read from a figure rather than tabulated. Limitations are acknowledged inline rather than in a dedicated section: the authors note that low bias currents could not be reached, attribute the 10% threshold error to extraction uncertainty, restrict the results to long-channel devices, and list short-channel, p-channel and temperature extensions as future work.\n\nNo code, data or measurement files are linked or claimed; the extracted coefficients appear only as Table 2.\n\n---\n\n## Conclusion\n\nA compact, competent device-characterisation paper whose mathematics is exactly what the extraction requires. Its concerns are evidential rather than formal: a narrow experimental base, a few typographical errors in units and coefficient counts, and no released measurement data. No flags apply. The paper text contained no instructions addressed to the reviewer."
+  }
+ ]
+}

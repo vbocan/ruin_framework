@@ -1,0 +1,77 @@
+{
+ "batch_id": "2022-v25-n1",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 25,
+  "issue": 1,
+  "year": 2022
+ },
+ "papers": [
+  {
+   "paper_id": "musala2022",
+   "paper": {
+    "title": "Implementation of Semi-Static and Differential Null Convention Logic Gates Using CNTFET Technology",
+    "authors": [
+     "Sarada Musala",
+     "P. Vijaya Lakshmi",
+     "K. Kumar Lokesh",
+     "Avireni Srinivasulu",
+     "Cristian Ravariu"
+    ],
+    "abstract": "This paper aims to implement NULL Convention Logic gates using CNTFET technology. NCL is a clockless technique to solve timing problems, and CNTFET is a low-power technology in comparison to the others. Hence high performance and efficient circuits with low power and low delay can be obtained by combining the two techniques. In terms of power, latency, power delay product, and transistor count, various asynchronous NULL Convention Logic (NCL) gates semi static, and differential have been implemented using CNTFET technology and is compared with the existing CNTFET based NCL static gates, based on the observations gates suitable for adder design is identified. Differential NCL gates have low power and better PDP when compared to both static and semi-static NCL gates. The number of transistors used for differential NCL logic gates are minimum equivalent to semi-static logic and are lesser than static NCL gates. All the simulations are carried out using CNTFET 32nm technology in cadence virtuoso tool and the results obtained prove that the CNTFET based differential logic gates are efficient enough in terms of delay, power consumption and PDP.",
+    "keywords": [
+     "NCL Logic",
+     "logic gates",
+     "CNTFET",
+     "low power",
+     "low delay"
+    ],
+    "doi": null,
+    "pages": "47-57",
+    "source_file": "paper706.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 40,
+    "artifact_availability": 50,
+    "intellectual_integrity": 58.0,
+    "composite": 56.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"Figs 8-34 show the simulation results of the semi-static and differential mode NCL gates implemented in cadence with virtuoso platform with a supply voltage of 0.9 V. All these figures are saved in webpage [24].\" Reference [24]: https://drive.google.com/file/d/1zBP6Wim-V6PEQIQDIMeHQ0yxnGWcx6Ux/. The deposit holds simulation output (waveform figures); no netlists, schematics files or code are linked. The Stanford CNFET model [11] is third-party.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "IRRELEVANT_SELF_CITATION",
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "IRRELEVANT_SELF_CITATION": "Reference [13] (Srinivasulu, 'Modified optical OR and AND gates') is a co-author's paper on optical logic gates, cited as support for the claim that 'CNTFETs are ... high-density [13, 14]'. An optical-gate paper neither concerns CNTFETs nor NCL; topical similarity to this work is estimated below 0.3.",
+    "ELEVATED_SELF_CITATION": "6 of 24 references ([13], [14], [15], [16], [21], [22]) include co-authors Srinivasulu, Sarada (Musala) or Lakshmi: SCR = 25%.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints (simulation-only results, single technology node, no PVT or Monte Carlo analysis, unexplained outliers in Table 2)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simulation study re-implementing the 27 standard NCL threshold gates in semi-static and differential CNTFET form; formalism is minimal and appropriate, but one self-citation is topically unrelated, self-citation is elevated, the reported delay data contradict the speed claims, and no limitations are stated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Transistor-level realisation of the 27 known NCL threshold gates in semi-static and differential styles using a 32 nm CNTFET model, compared by delay, power, PDP and transistor count in Cadence Virtuoso simulation.\n**Level:** 2 (Low)\n**Rationale:** Existing circuit styles (semi-static and differential NCL, from [6], [9]) are applied to an existing device technology with an existing compact model; the contribution is an empirical comparison, not a new circuit principle or analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (Boolean output functions Z = A + B and Z = AB + CD, each given twice)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The Boolean functions are the standard way to specify gate behaviour and are not theater. They are redundant with Table 1, and Eq. (2)/(4) is introduced for a gate described as having \"A, B inputs\" although it uses four inputs, which is a presentation error rather than decorative formalism.\n\n### Issues\nNone in the formal content. Figure captions 4-7 all read \"CNTFET based TH12 Semi-Static NCL gate\" although the text says Figs. 5-7 show THxor0 semi-static, TH12 differential and THxor0 differential gates; the PDP figure is referred to as Figure 35 but captioned Fig. 8.\n\n---\n\n## Citation Analysis\n\nSix of 24 references share authors with this paper (SCR 25%): [14] CNTFET full adder and [15] CNTFET ternary XOR are relevant to CNTFET logic; [21] and [22] concern DCVSL, relevant to the differential style; [16] (single-stage 3-input XOR) is marginal, cited only for CNTFETs being low-power. [13], a paper on modified optical OR and AND gates, is cited for CNTFET density and has no evident topical relation to CNTFETs or NCL, hence IRRELEVANT_SELF_CITATION. Several citations elsewhere are also loosely attached, e.g. differential NCL \"[9-12]\" pointing to CNTFET review and device papers, and DCVSL \"[20-23]\" including a C-element paper.\n\n---\n\n## Structural Analysis\n\nThe results rest on one table of delay and power (Table 2), a transistor-count table and a PDP chart. The claims are only partly supported and in places contradicted by the paper's own data: Table 2 lists static gates as the fastest for most gates (e.g. TH12: static 5 ps, semi-static 45 ps, differential 10 ps), yet the abstract and conclusions present differential and semi-static styles as achieving speed; the TH34W32 differential power (1248 pW) is an unexplained outlier against a claim of uniformly lower power. Statements that results \"prove\" efficiency are not accompanied by any analysis of variation, sizing choices or simulation conditions beyond the supply voltage. The adder designs mentioned as confirming the prediction are not shown. No limitations are acknowledged. Simulation waveform figures (Figs. 8-34) are deposited on a Google Drive link; no netlists or design files are provided. CER is estimated at about 0.4.\n\n---\n\n## Conclusion\n\nA low-complexity applied circuit study with proportionate notation. Its weaknesses are in citation conduct and in the evidential base: a self-citation to unrelated optical-gate work, a 25% self-citation ratio, captions and text that do not match, and delay data that contradict the headline speed claims. The citation flag is disqualifying regardless of concept level.\n\nNo instructions addressed to an assessor were found in the paper text."
+  }
+ ]
+}

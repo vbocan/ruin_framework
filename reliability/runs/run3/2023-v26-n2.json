@@ -1,0 +1,66 @@
+{
+ "batch_id": "2023-v26-n2",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 26,
+  "issue": 2,
+  "year": 2023
+ },
+ "papers": [
+  {
+   "paper_id": "badovinac2023",
+   "paper": {
+    "title": "Biometric Authentication Model Based on Transformation of Face Image into a PIN Number Usable During the Covid-19 Pandemic",
+    "authors": [
+     "Nenad Badovinac",
+     "Dejan Simic"
+    ],
+    "abstract": "The digitization trend is developing throughout the crisis caused by the COVID-19 pandemic. The volume of digital payments is increasing. The most common way of checking the authentication in electronic payment systems is the PIN number that users type into the PINPAD device. Digital payment devices still require the entry of smart cards and the manual entry of a PIN into an ATM or POS device. In order to reduce the possibility of infection due to contamination from multiple touches of the PINPAD device by different people, cardholders use the PINPAD device with gloves. Instead of entering the PIN number on the PINPAD device, biometric authentication is available for the authentication process. On the other hand, the use of gloves and a medical face mask, during the Covid-19 pandemic, limits the biometric scanning of fingerprints and facial images. In this paper, a biometric authentication model is proposed that uses biometric features of the eyes, as these biometric data are available to scanners even in the case when the cardholder uses a protective medical mask on his/her face. The proposed model transforms data on the basis of correlations of characteristic points around the eyes and eye color into a stable PIN. Quantitative presentation of the experimental results confirms that for six different facial expressions of each of the 50 tested persons, the deviation of the authentication PIN from the reference PIN does not exceed 1%. Using the proposed innovative model, the existing infrastructure of payment systems should not be changed.",
+    "keywords": [
+     "biometric authentication",
+     "Covid-19",
+     "electronic payments",
+     "facial biometric",
+     "PIN number"
+    ],
+    "doi": null,
+    "pages": "151-162",
+    "source_file": "paper738.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 82,
+    "structural_integrity": 40,
+    "artifact_availability": 50,
+    "intellectual_integrity": 70.7,
+    "composite": 65.53,
+    "final": 65.53
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The experiments used a large database of face images of different people and different facial expressions BU-4DFE (3D Dynamic Facial Expression Database) from Dr Lijun Yin at the Department of Computer Science, State University of New York at Binghamton [11].\" The Python code is described (\"A Python code was developed for a commercial SDK software solution [10]\") but not linked; the appendix link https://nenadbadovinac.com/appendix-rojist-2023 holds result tables, not code.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Applied biometrics paper that turns an off-the-shelf iris-landmark model's output into a PIN via a single ad hoc ratio; formalism is minimal and proportionate, but the evaluation is thin, the key result tables are moved to an external website, the false-acceptance arithmetic is inconsistent, and the security and privacy claims are asserted rather than shown.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Deriving a 4-digit PIN from eye-region features (iris radius, interpupillary distance, iris colour) extracted by the commercial Ailia SDK / MediaPipe Iris model, for mask-compatible card authentication at ATMs and POS terminals.\n**Level:** 2 (Low)\n**Rationale:** The landmark detection is entirely third-party; the authors' contribution is a one-line heuristic, `PIN = (4000 x Iris Radius / IPDEuclidDistance) + Color Parameter`, applied to a public facial-expression database and evaluated with simple deviation and frequency counts. No new algorithm, no complexity analysis, no proofs. It sits at the boundary of Level 1 (wrapping an existing SDK) and Level 2 (applying existing methods to a new domain with an empirical study); Level 2 is assigned because there is a small empirical evaluation.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (the PIN formula inside the pseudocode of Algorithm 1), plus a verbal reference to the Euclidean distance\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The single formula is the implementation itself and passes the Necessity Test: a programmer would need it to reproduce the method. No set notation, tuple definitions, or Greek-letter decoration.\n\n### Issues\nNone in the formalism sense. The formula itself is unmotivated: the constant 4000 is not justified, and how the RGB-derived \"Color Parameter\" maps to an integer is never specified. Since \"All eyes in the study were classified as brown eyes\", the colour term contributes nothing measurable in the experiments, so the evaluated PIN reduces to a scaled ratio of iris radius to IPD.\n\n---\n\n## Citation Analysis\n\nTwo of 35 references are self-citations (SCR about 5.7%): [3] (multimodal biometric authentication in card payment systems, which the paper explicitly continues) and [25] (biometric creation of digital signatures for blockchain, cited for key-generation methods and future work). Both are topically related.\n\nSeveral non-self citations are weakly connected to the claims they support: [26], a WHO bulletin article on water, sanitation and gender equality, is cited for the risk of infection from ATM and POS devices; [32] (neural-network modelling of biomonitoring data in Moldova) and [33] (content-based image retrieval) are cited for improving iris image analysis, which neither addresses; both appear in the Proceedings of the Romanian Academy. Reference [9] (a Forbes column on a digital dollar) is cited for concerns about biometric data collection. These look like padding or loosely attached citations rather than a demonstrable mutual-citation ring, so no citation flag is raised, but the citation score is reduced. Several sources are web pages and press releases (e.g. [6], [34]).\n\n---\n\n## Structural Analysis\n\nThe experimental core is small: 50 subjects x 6 expressions for stability and 94 neutral images for collisions, all from BU-4DFE. The tables that carry the results (Tables 1, 3, 4, 5, and Figures 2-4) are not in the paper and are delegated to an external personal website ([20]), so the reader cannot check the main evidence from the published article.\n\nClaim-evidence balance is weak (CER estimated at about 0.4-0.5). Unsupported assertions include: biometrics \"provides the highest security in user authentication\"; \"Biometric data is not stored on media and cannot be compromised\" (a reference PIN derived from biometrics is stored on the card or a server); the model uses data \"from which it is not possible to reveal the person's identity\" (no privacy analysis); and the method \"meets the 2FA ... international standard\".\n\nThe numerical reasoning is internally inconsistent. Case Study 2 reports that 28.72% of people share the most common PIN group and concludes the model rejects false attempts \"in at least 72.28% of cases\"; the complement is 71.28%. All 94 PINs fall in a range of only 132 values (3341-3473), while the 1% tolerance used for acceptance corresponds to roughly 34 PIN values, about a quarter of the observed population range, which implies a false-acceptance rate far beyond any usable authentication system. No standard biometric measures (FAR/FRR/EER, ROC) are reported, there is no attack or spoofing analysis, and \"standard deviation ... from 5 to 19 PINs\" is reported in units of PINs without a stated method.\n\nLimitations: acknowledged inline only, in Future Work (\"The disadvantage of the presented model is that daylight is required to detect the correct eye color\"), together with the admission that the algorithm does not produce the same PIN for the same person. The high collision rate is acknowledged but dismissed by appeal to the smart card as a second factor. NO_LIMITATIONS is not raised.\n\nArtifacts: no code released (the Python code built on a commercial SDK is described only). The dataset is a named, cited research database (BU-4DFE), so the category is `data`.\n\nNo instructions addressed to an assessor were found in the paper text.\n\n---\n\n## Conclusion\n\nA low-complexity applied paper whose formalism is appropriately minimal: one formula that is the method. Its weaknesses are evidentiary rather than notational. The PIN function is an unjustified heuristic on top of a third-party landmark detector, the colour component is untested because every subject has brown eyes, the main result tables live outside the paper, the false-acceptance arithmetic contains an error, and the reported numbers suggest the scheme discriminates poorly between people. Security, privacy, and standards-compliance claims are asserted without analysis, and several references are only loosely connected to what they are cited for."
+  }
+ ]
+}

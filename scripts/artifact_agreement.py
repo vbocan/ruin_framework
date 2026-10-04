@@ -1,15 +1,15 @@
 """Merge two independent artifact-classification passes into the final re-assessment.
 
 The artifact re-assessment was judged twice, independently, from the same
-evidence file (data/artifact_evidence.jsonl) and the same rubric
+evidence file (journal-analysis/ROMJIST_29.12.2025/artifact_reassessment/artifact_evidence.jsonl) and the same rubric
 (framework/scoring.md, Artifact Availability Score). This script
 
     1. reports agreement between the passes: raw agreement, Cohen's kappa on the
        five categories, and agreement on the score itself;
     2. takes the category both passes agree on, and for every disagreement the
-       ruling recorded in data/artifact_adjudication.csv, which must cover every
+       ruling recorded in journal-analysis/ROMJIST_29.12.2025/artifact_reassessment/artifact_adjudication.csv, which must cover every
        disagreement and nothing else;
-    3. writes data/artifact_rescore.csv, the input to apply_artifact_rescore.py.
+    3. writes journal-analysis/ROMJIST_29.12.2025/artifact_reassessment/artifact_rescore.csv, the input to apply_artifact_rescore.py.
 
 Usage
 -----
@@ -29,7 +29,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import ruin_scoring as rs  # noqa: E402
 
-DATA = Path(__file__).resolve().parent.parent / "data"
+DATA = Path(__file__).resolve().parent.parent / "journal-analysis" / "ROMJIST_29.12.2025" / "artifact_reassessment"
 CATS = list(rs.ARTIFACT_ANCHORS)
 
 

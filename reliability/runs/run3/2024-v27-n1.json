@@ -1,0 +1,71 @@
+{
+ "batch_id": "2024-v27-n1",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 27,
+  "issue": 1,
+  "year": 2024
+ },
+ "papers": [
+  {
+   "paper_id": "mone2024",
+   "paper": {
+    "title": "Multi-participant Decision-making Based on Digital Platforms: A Case Study for the Romanian Academy",
+    "authors": [
+     "Firicel Mone",
+     "Maria Vişan",
+     "Mihaela Simionescu"
+    ],
+    "abstract": "The last decade culminating with the pandemic disrupted traditional business models in various industries and accelerated the digital transformation based on economy platforms. The main aim of this paper is to present the platform for economy framework to facilitate peer-to-peer transactions for different business models and the basic aspects related to multi-participant/collaborative decision-making and evaluation of teleconference platforms and particularize the virtual meetings and conferences. The necessary steps for planning a teleconference and the results of the concept implementation have been extracted from Romanian Academy practical case study referring to multi-participant decision-making using teleconference platforms. A Seasonal Autoregressive Moving Average model (SARIMA) is employed to explain the number of participants in an online conference in the Romanian Academy between April 2020 to August 2023. This model has been used to make short-run dynamic and static forecasts on the horizon from September 2023 to December 2023.",
+    "keywords": [
+     "Blockchain",
+     "multi-participant decision-making",
+     "platform economy",
+     "SARMA model",
+     "teleconference platforms"
+    ],
+    "doi": null,
+    "pages": "94-105",
+    "source_file": "paper764.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 80,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 68.0,
+    "composite": 51.0,
+    "final": 46.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "No code or data availability statement. The only link is to supplementary output: \"the correlogram of residuals in Appendix 1 [21]\" with [21] \"Appendix 1, [Online] Available https://mone.ro/Appendix 1.pdf\"; the participant series is shown only as a figure and the model was fitted in EViews (\"Source: own computations in Eviews.\").",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints. The SARMA model is fitted to roughly 41 monthly observations containing structural changes the authors themselves describe (pandemic peak, switch to hybrid meetings from January 2021, months with no meetings at all), yet none of this is discussed as a threat to the model or the forecasts, and the qualitative case-study claims are not qualified."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Descriptive case study of teleconference-platform adoption at the Romanian Academy plus a textbook SARMA fit to a short participant-count series; formalism is standard but duplicated and contains notation errors, the decision-making contribution is asserted rather than evaluated, and no data or code is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Narrative account of how the Romanian Academy selected and adopted a teleconference platform, a web-sourced feature comparison of five platforms (Table 1), and a SARMA(1,0)(1,0)12 model fitted in EViews to the monthly number of online-meeting participants (April 2020 - August 2023) with a four-month forecast.\n**Level:** 2 (Low)\n**Rationale:** The empirical component applies an existing, standard time-series method (unit-root tests, AIC order selection, SARMA estimation) to a new small dataset. The platform-adoption part is descriptive and would on its own sit at Level 1. No new algorithm or model is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 numbered (SARIMA general form and lag polynomials) plus 3 unnumbered ADF regressions\n\n### Proportionality\nCalculated complexity: 0 (no definitions, theorems or proofs)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the conventional statement of a SARIMA model and of the ADF test regressions, i.e. the 'basic equations' Level 2 allows; they specify the estimated model rather than dress up a list or a config parameter, so no theater pattern applies and no formalism flag is raised.\n\n### Issues\nThe equation block is of poor quality, which is why the formalism score is held below the proportionate baseline:\n- Equations (7)-(10) repeat (2)-(5) almost verbatim, introducing a two-seasonality variant (s and s') that the fitted model, with a single period of 12, never uses.\n- Notation is inconsistent: Eq. (1) uses ϕ and φ while the text says \"φ(L) and θ(L)\" and \"φ(Ls) and θ(Ls) are ... seasonal operators\"; Eq. (5) and (10) label the MA(q) polynomial ϕ(L) instead of θ(L).\n- The sentence \"The orders are chosen as to have p < 0.5s and q < 0.5s\" is unexplained.\n- The paper uses SARIMA, SARMA and \"Seasonal Autoregressive Moving Average model (SARIMA)\" interchangeably.\n\n---\n\n## Citation Analysis\n\nNo self-citations: none of the 21 references is authored by Mone, Vişan or Simionescu (SCR 0/21). Reference quality is weak, however: 11 of 21 entries are vendor pages, blogs or recruitment sites (Zoom/Webex/Microsoft/Google pricing pages, Indeed, Condeco, Owl Labs); several web pages are given fictitious page ranges (e.g. [10] \"pp. 15-21\", [12] \"pp. 17-23\" for websites); [1] and [20] are the same Kenney & Zysman title cited twice under different venues; and Simon [2] (1960 management-decisions book) is cited as the source for the term \"gig economy\". The keyword \"Blockchain\" appears nowhere in the body. Score lowered from the normal 90-100 band for these integrity-of-referencing problems, not for self-citation.\n\n---\n\n## Structural Analysis\n\nThe title and abstract promise a contribution on multi-participant decision-making and platform evaluation, but no decision method is applied: the conclusion states the platforms were evaluated \"based on a scoring system or matrix\", yet no criteria weights, scores or matrix appear in the paper, and Table 1 is a feature list compiled from vendor web pages. Claims such as the \"major lesson\" of \"increased effectiveness and efficiency, increased communication and collaboration\" and the conclusions on productivity, reputation and trust have no supporting data. The statistical section is the only evidenced part: unit-root tests (Table 2) and the coefficient table (Table 3) are reported, but the forecast accuracy measures said to favour static forecasts are not given numerically, the Jarque-Bera statistic is printed as \"2094104\", and the stated pre-platform period (April-August 2020) is not modelled as a break. The participant series links only loosely to decision-making. Estimated CER around 0.4 (weak, above the 0.33 flag threshold). No limitations acknowledged.\n\nArtifacts: no data or code is released. The only link ([21], mone.ro) holds a residual correlogram appendix, which is supplementary output rather than the data or code the results rest on; the series itself is available only as a plotted figure. EViews is third-party software.\n\n---\n\n## Conclusion\n\nA Level 2 paper whose formal content is the standard SARIMA specification, proportionate in amount but duplicated and carelessly notated. There is no self-citation problem, but the reference list leans heavily on vendor web pages with spurious page numbers and a duplicated entry. The central weakness is structural: the decision-making framing is asserted rather than demonstrated, qualitative conclusions are unsupported, limitations are absent, and nothing needed to reproduce the time-series result is released. The paper contains no instructions addressed to reviewers or automated assessors."
+  }
+ ]
+}

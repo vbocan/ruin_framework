@@ -1,0 +1,70 @@
+{
+ "batch_id": "2023-v26-n34",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 26,
+  "issue": "3-4",
+  "year": 2023
+ },
+ "papers": [
+  {
+   "paper_id": "paun2023",
+   "paper": {
+    "title": "Infinite Spike Trains in Spiking Neural P Systems",
+    "authors": [
+     "Gheorghe Păun",
+     "Mario J. Pérez-Jiménez",
+     "Grzegorz Rozenberg"
+    ],
+    "abstract": "We initiate the study of spiking neural P systems associated with infinite sequences, by considering them as computability devices which generate infinite sequences of bits (1 indicates a step when a spike exits the system, and 0 indicates a step when the system does not send a spike to the environment), and as devices which process infinite sequence of bits (for instance, computing Boolean operations or other operations on two input sequences). For both the generating and the transduction case we introduce some basic notions illustrated by numerous examples, establish some basic properties, and formulate a number of research topics.",
+    "keywords": [
+     "Membrane Computing",
+     "Spiking Neural P Systems",
+     "Spike Trains",
+     "Formal Languages"
+    ],
+    "doi": null,
+    "pages": "251-275",
+    "source_file": "paper748.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 40,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 64.3,
+    "composite": 48.23,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the only URL, http://ppage.psystems.eu/index.php/Home/, is the third-party P Systems Web Page cited as background",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "5 of 14 references (35.7%) include at least one of the authors: [4] Ionescu, Păun, Yokomori; [8] Păun; [9] Păun, Pérez-Jiménez, Rozenberg; [11] Rozenberg, Salomaa; [12] Rozenberg, Salomaa. SCR exceeds 30%. All five are topically relevant (the paper is a direct continuation of [4] and [9], and [8], [11], [12] are standard references for membrane computing, L systems and formal languages), so no IRRELEVANT_SELF_CITATION is raised; the flag rests on the ratio alone."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Theoretical formal-language paper on SN P systems as generators and transducers of infinite binary sequences, with three theorems (Boolean functions computable, non-length-preserving morphisms not computable, 2-block morphisms computable); formalism is native to the subject and proportionate, but the self-citation ratio exceeds 30% even though every self-citation is relevant.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Spiking neural P systems (a membrane-computing model) viewed as generators of infinite binary spike trains and as transducers of infinite bit sequences; constructions for Boolean functions, prefix/suffix operations, alternate filling and guided crossing over, plus an impossibility result for morphisms that are not length preserving and a positive result for 2-block morphisms.\n**Level:** 4 (High)\n**Rationale:** The contribution is a set of computability results about a formal device, including a counting/pigeonhole impossibility proof (Theorem 2) and constructive characterisation results (Theorems 1 and 3). This sits above Level 3 (no new algorithm with complexity analysis is the point) and matches the Level 4 description of proving computational results; it does not reach Level 5 since no universality or undecidability is proved here (universality is only recalled from [4] and [9]). Defaulting to the lower of 4/5.\n\n### Formal Elements\n- Definitions: 6 (inline: regular expressions and L(E); right derivative L/x; the SN P system construct Π = (O, σ1, ..., σm, syn, out) with its rule semantics; binary spike train bst(σ)/BST(Π); SN P transducer and Π(w); k-block morphism f̂)\n- Theorems: 3\n- Proofs: 3\n- Equations: numerous (system specifications, rule families, spike-count arithmetic, configuration-count bound)\n\n### Proportionality\nCalculated complexity: 6×2 + 3×3 + 3×4 = 33\nExpected range (Level 4): 30-80\nRatio: 0.41x upper bound\n\n**Assessment:** Proportionate. Set notation (V*, V^ω, L(E), syn ⊆ {1..m}×{1..m}) is the native language of formal language theory and is used to state and prove the results; it is not standing in for array operations. The necessity test passes: Theorem 2's proof depends on precise counting of configurations against 2^((r-1)k+s) input continuations, which English alone could not make rigorous.\n\n### Issues\n- The right derivative L/x is defined in Section 2 but never used later (a single orphan definition; below the ORPHAN_DEFINITIONS threshold).\n- Several claims are asserted without proof: \"The equality bst(Π4) = fω can be easily proved\"; the correctness of the Figure 10 crossing-over transducer is not argued.\n- The proof of Theorem 2 contains a symbol slip: the per-step spike increase is derived as m(o − 1) but the total is then written as m(d − 1)(rk + s). The argument is unaffected (the bound remains polynomial in k).\n- Many constructions are justified by informal step-by-step narration rather than formal proofs, which is customary in this area but leaves Theorems 1 and 3 as sketch-level arguments.\n\n---\n\n## Citation Analysis\n\n14 references. Self-citations (any author overlap): [4] (Păun), [8] (Păun), [9] (all three authors), [11] and [12] (Rozenberg). SCR = 5/14 = 35.7%, above the 30% threshold, so EXCESSIVE_SELF_CITATION applies and citation integrity is capped at 40. Relevance of each self-citation is high: the paper explicitly presents itself as \"a direct continuation of [4]\" and of [9]; [8] is the standard monograph on membrane computing; [11] (L systems) is cited for D0L sequences that the authors propose to compare against; [12] (Handbook of Formal Languages) is the general formal-language reference. None falls below the 0.3 similarity threshold. The high ratio reflects a small, specialised reference list in a field the authors founded or co-founded rather than padding, but the specification applies the ratio mechanically. No citation-ring pattern is detectable from a single paper.\n\n---\n\n## Structural Analysis\n\nAs a theory paper, claims are supported by explicit constructions (Figures 1-13) and three proofs; the claim-evidence balance is adequate. There is no conclusion or limitations section; limitations are acknowledged inline only: the anticipatory-output solution to the input-output delay is set aside \"because we do not have an implementation of this second idea\", Theorem 3 is restricted to k = 2, and comparisons with classical families of infinite sequences are left as \"an interesting research topic for the reader\". Several examples and the guided crossing-over transducer are stated without verification. The figures are heavily garbled in the text extraction, so the circuit-level correctness of Figures 3, 8, 10 and 12 could not be checked against their drawings; the analysis relies on the prose descriptions.\n\nArtifact availability: nothing to release (pure theory); no code, data or simulator is linked or claimed. The P Systems Web Page URL is a third-party community resource. Recorded as `none`, `relevant: false`.\n\nNo instructions addressed to reviewers or automated assessors were found in the paper text.\n\n---\n\n## Conclusion\n\nA genuine theoretical contribution in membrane computing whose formal apparatus is the subject matter and is used proportionately to establish computability and non-computability results; minor rigour gaps (unproved equalities, a typo in the counting bound, sketch-level construction proofs) do not undermine it. The paper's weakness under this framework is citation conduct: five of fourteen references are the authors' own work, which crosses the 30% excessive self-citation threshold despite all being directly relevant, and that flag is disqualifying under the specification."
+  }
+ ]
+}

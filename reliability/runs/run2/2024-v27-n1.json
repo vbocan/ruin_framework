@@ -1,0 +1,72 @@
+{
+ "batch_id": "2024-v27-n1",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 27,
+  "issue": 1,
+  "year": 2024
+ },
+ "papers": [
+  {
+   "paper_id": "mone2024",
+   "paper": {
+    "title": "Multi-participant Decision-making Based on Digital Platforms: A Case Study for the Romanian Academy",
+    "authors": [
+     "Firicel Mone",
+     "Maria Vişan",
+     "Mihaela Simionescu"
+    ],
+    "abstract": "The last decade culminating with the pandemic disrupted traditional business models in various industries and accelerated the digital transformation based on economy platforms. The main aim of this paper is to present the platform for economy framework to facilitate peer-to-peer transactions for different business models and the basic aspects related to multi-participant/collaborative decision-making and evaluation of teleconference platforms and particularize the virtual meetings and conferences. The necessary steps for planning a teleconference and the results of the concept implementation have been extracted from Romanian Academy practical case study referring to multi-participant decision-making using teleconference platforms. A Seasonal Autoregressive Moving Average model (SARIMA) is employed to explain the number of participants in an online conference in the Romanian Academy between April 2020 to August 2023. This model has been used to make short-run dynamic and static forecasts on the horizon from September 2023 to December 2023.",
+    "keywords": [
+     "Blockchain",
+     "multi-participant decision-making",
+     "platform economy",
+     "SARMA model",
+     "teleconference platforms"
+    ],
+    "doi": null,
+    "pages": "94-105",
+    "source_file": "paper764.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 85,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 69.75,
+    "composite": 52.31,
+    "final": 47.31
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "No code or data link. The only author-hosted item is \"[21] Appendix 1, [Online] Available https://mone.ro/Appendix 1.pdf\", which the text describes as \"the correlogram of residuals in Appendix 1\": a supplementary result, not the participant series the model is fitted to, which appears only as a plotted figure (\"Source: Authors' graph\").",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "artifact_availability": 0,
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints: the 41-point monthly series with summer gaps, the single institution, the unreported forecast-accuracy values, and the absence of any evaluation of the claimed decision-making benefits are never discussed as limits."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Descriptive institutional case study of teleconference platform adoption plus a textbook SARMA(1,0)(1,0)12 fit to a short monthly attendance series; formalism is standard but duplicated and error-prone, the decision-making claims are largely unsupported, no limitations are stated, and neither data nor code is available.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Narrative account of the Romanian Academy's adoption of a teleconference platform (stakeholders, adoption stages, a feature/price comparison table of five commercial platforms), followed by a SARMA model of the monthly number of participants in online meetings (April 2020 - August 2023) and a four-month forecast.\n**Level:** 2 (Low)\n**Rationale:** The case-study part is descriptive (Level 1 material). The quantitative part applies standard unit-root tests (ADF, PP, KPSS) and a standard seasonal ARMA model in EViews to a new series, which is an empirical study with basic statistics. No new method is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 (general SARIMA form, SAR/SMA/AR/MA lag polynomials, a second SARIMA block with distinct seasonalities s and s', three ADF regressions)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the conventional textbook statement of the model and tests the paper uses, which is acceptable 'basic equations' at Level 2; none of the theater patterns (set notation for lists, tuple definitions, Greek letters for configuration constants) appear, so no formalism flag is raised. The score is reduced below 80 for quality: equations (6)-(10) restate (1)-(5) almost verbatim to introduce a separate MA seasonality s' that the selected SARMA(1,0)(1,0)12 model (no MA terms) never uses; equation (5) labels the MA operator with the AR symbol; the text after (1) names the seasonal operators with the wrong symbols; and the fitted model is never written out in its specific form.\n\n### Issues\nRedundant and partly mislabelled equation block (6)-(10); the constraint \"p < 0.5s and q < 0.5s\" is stated without justification. Keyword 'Blockchain' is never discussed in the paper.\n\n---\n\n## Citation Analysis\n\nNo self-citations to prior publications among 21 references; the only author-related entry is [21], the paper's own online appendix. SCR effectively 0%. Reference quality is weak, however: Simon's 1960 management book [2] is cited for the terms 'sharing economy or gig economy'; [20] repeats the Kenney and Zysman title already given as [1]; most of [8]-[17] are vendor pricing pages and blog posts, several given implausible page ranges (e.g. a Webex pricing page 'pp. 15-21'); [13] attributes a guide to the 'IEE Computing Society'. These lower the score from the SCR-based band but do not meet any citation flag.\n\n---\n\n## Structural Analysis\n\nThe statistical section is supported by its tables (unit-root tests, coefficient estimates, DW and Jarque-Bera statistics), but much of the rest is assertion. Section 2 lists adoption stages and criteria without reporting which platform was chosen or how the comparison was scored, yet the conclusions state the evaluation used 'a scoring system or matrix'. The claims that the platform improved effectiveness, efficiency, collaboration and decision-making are not measured. Forecast accuracy is described as favouring static forecasts on several measures, but no values are given. The stated split into a 'before the platform' (April-August 2020) and 'after' period sits oddly with a series of online-meeting participants and is not analysed. Estimated CER around 0.4 (weak). No limitations are acknowledged.\n\nArtifacts: no code; the participant series is shown only as a figure. The online Appendix 1 holds the residual correlogram, not the data. Category none.\n\nNo instructions addressed to reviewers or automated assessors were found in the text.\n\n---\n\n## Conclusion\n\nA modest applied paper whose two halves are loosely connected: an institutional narrative about adopting teleconferencing and a routine time-series fit to a short attendance series. Formalism is proportionate in quantity but sloppy in execution. The main weaknesses are structural: the decision-making contribution named in the title is described rather than evidenced, key results (platform choice, forecast accuracy) are not reported, limitations are absent, and the data are not released."
+  }
+ ]
+}

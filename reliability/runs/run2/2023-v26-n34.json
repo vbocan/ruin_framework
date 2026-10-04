@@ -1,0 +1,70 @@
+{
+ "batch_id": "2023-v26-n34",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 26,
+  "issue": "3-4",
+  "year": 2023
+ },
+ "papers": [
+  {
+   "paper_id": "paun2023",
+   "paper": {
+    "title": "Infinite Spike Trains in Spiking Neural P Systems",
+    "authors": [
+     "Gheorghe Păun",
+     "Mario J. Pérez-Jiménez",
+     "Grzegorz Rozenberg"
+    ],
+    "abstract": "We initiate the study of spiking neural P systems associated with infinite sequences, by considering them as computability devices which generate infinite sequences of bits (1 indicates a step when a spike exits the system, and 0 indicates a step when the system does not send a spike to the environment), and as devices which process infinite sequence of bits (for instance, computing Boolean operations or other operations on two input sequences). For both the generating and the transduction case we introduce some basic notions illustrated by numerous examples, establish some basic properties, and formulate a number of research topics.",
+    "keywords": [
+     "Membrane Computing",
+     "Spiking Neural P Systems",
+     "Spike Trains",
+     "Formal Languages"
+    ],
+    "doi": null,
+    "pages": "251-275",
+    "source_file": "paper748.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 40,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 63.05,
+    "composite": 47.29,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the paper is purely theoretical (constructions and proofs about SN P systems), and the only URL is the third-party P Systems Web Page [14]",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "5 of 14 references (35.7%) include at least one of the authors: [4] Ionescu, Păun, Yokomori; [8] Păun; [9] Păun, Pérez-Jiménez, Rozenberg; [11] Rozenberg, Salomaa; [12] Rozenberg, Salomaa. SCR exceeds the 30% threshold. All five are topically central (the paper is an explicit continuation of [4] and [9], and [8], [11], [12] are the standard references for membrane computing, L systems and formal languages), so no relevance concern is raised; the flag is the mechanical consequence of the ratio in a short reference list."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Theoretical membrane-computing paper on SN P systems as generators and transducers of infinite binary sequences, with constructive results and an impossibility theorem for non-length-preserving morphisms; formalism is the subject matter and proportionate, but the self-citation ratio (5/14) exceeds the 30% threshold.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Spiking neural P systems treated as generators and transducers of infinite binary sequences: example generators, Boolean-function transducers, a tool-kit of sequence operations, a construction for any k-ary Boolean function, an impossibility result for morphisms that are not length preserving, and a construction for 2-block morphisms.\n**Level:** 4 (High)\n**Rationale:** The contribution is a set of computability results in a formal computing model, including a non-trivial impossibility proof (Theorem 2, a counting argument over configurations combined with the defect theorem). This is computability/expressiveness theory where formal notation is the medium of the result. It is not Level 5: no universality or undecidability is proved here, and the paper itself calls the established properties \"basic\".\n\n### Formal Elements\n- Definitions: 6 (inline, unnumbered: regular expressions and L(E), right derivative L/x, the SN P system construct, binary spike train bst/BST, SN P transducer, k-block morphism)\n- Theorems: 3\n- Proofs: 3\n- Equations: many (system specifications, rule families, spike-count arithmetic, the sequence f_ω)\n\n### Proportionality\nCalculated complexity: 6×2 + 3×3 + 3×4 = 33\nExpected range (Level 4): 30-80\nRatio: 0.41x upper bound\n\n**Assessment:** Proportionate. Set and string notation (V*, V^ω, syn ⊆ {1..m}×{1..m}, membership tests a^k ∈ L(E)) is the native language of the model; the rule semantics and the proofs cannot be stated precisely without it, so the Necessity Test passes.\n\n### Issues\n- The right derivative L/x is defined in Section 2 but never used afterwards (one orphan definition; well below the ORPHAN_DEFINITIONS threshold).\n- The proof of Theorem 2 contains a slip: having defined o as the maximal out-degree and bounded the per-step increase by m(o − 1), it then writes \"m(d − 1)(rk + s)\" for the total. The argument survives, but the slip is uncorrected.\n- Some claims are asserted rather than shown: \"The equality bst(Π4) = fω can be easily proved\", \"αj > αj+1 ... (easy to check)\", and the guided crossing-over transducer of Fig. 10 is presented without a correctness argument.\n- The text extraction renders the neuron/rule counts of Theorem 1 as \"2k + 2\" and \"2k rules\"; from the construction (2^{i−1} intermediate neurons per input) these are evidently 2^k quantities lost in extraction, not author errors.\n\n---\n\n## Citation Analysis\n\n14 references, 5 of which include an author of this paper ([4], [8], [9], [11], [12]), giving SCR = 35.7%. Every self-citation is directly relevant: the paper opens by declaring itself \"a direct continuation of [4]\" and of [9], and [8], [11], [12] are standard textbooks/handbooks in the area. No irrelevant self-citation and no citation-ring pattern. The ratio nonetheless exceeds 30%, which the specification treats as EXCESSIVE_SELF_CITATION at any concept level; the citation score is capped at 40. The reference list is short and dated (newest 2006) for a 2023 publication, and [4] lacks a year.\n\n---\n\n## Structural Analysis\n\nClaims are mostly backed by explicit constructions or proofs, though several are left as \"easy\" exercises and the more complex constructions (Figs. 3, 10, 12) are argued informally by tracing spike flow. There is no conclusion or limitations section, but limits are acknowledged inline: the anticipatory-output approach is set aside because \"we do not have an implementation of this second idea\", comparisons with classical families of infinite sequences are explicitly left open, and several research topics are formulated. No artifact exists or would be expected for a purely theoretical paper.\n\n---\n\n## Conclusion\n\nA competent, if preliminary, theoretical paper whose formal apparatus is entirely appropriate to its subject; the impossibility theorem for morphisms is its strongest result. Minor rigour issues (a variable slip in the proof of Theorem 2, unproved \"easy\" claims, an unused definition) do not undermine it. The only flag is the self-citation ratio, which arises from a short, dated reference list dominated by the authors' own foundational work rather than from padding."
+  }
+ ]
+}

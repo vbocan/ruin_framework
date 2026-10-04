@@ -1,0 +1,63 @@
+{
+ "batch_id": "2016-v19-n4",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 19,
+  "issue": 4,
+  "year": 2016
+ },
+ "papers": [
+  {
+   "paper_id": "dascalu2016",
+   "paper": {
+    "title": "Cellular Automata Hardware Implementations - an Overview",
+    "authors": [
+     "Monica Dascălu"
+    ],
+    "abstract": "Cellular automata model grew very popular decades ago with software applications like the Game of Life. From the computing theory's perspective, it is a fundamental model of massive parallelism and was believed to offer extremely efficient solutions for hardware implementations. This paper overviews scientific literature and presents existing implementations of cellular automata, either in general form or dedicated to specific applications. The model is still considered to be very interesting and was proved to be efficient for applications like modeling of complex phenomena and implementation of encryption systems and randomizers. However, the hardware versions of cellular automata are still belonging to the academic realm, as they did not reach the industry and are not available as commercial products.",
+    "keywords": [],
+    "doi": null,
+    "pages": "360-368",
+    "source_file": "monica@20dascalu.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.25,
+    "composite": 59.44,
+    "final": 54.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "The overview has no limitations section and does not acknowledge constraints of its own coverage (selection criteria for the surveyed implementations, period covered, absence of quantitative comparison)."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Short narrative survey of cellular automata hardware implementations with no formalism, modest and topically relevant self-citation, but thin analytical depth and no stated survey method or limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Narrative overview of hardware implementations of cellular automata (transputer-FPGA board, FPGA configuration generators, CAM and CEPRA machines, application-specific CA circuits).\n**Level:** 1 (Trivial)\n**Rationale:** The paper is a literature survey; the specification places surveys and literature reviews at Level 1. It proposes no algorithm, model, or proof.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper describes cellular automata entirely in prose and block diagrams; no formal element exists to fail the Necessity Test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThe sole author cites herself in 3 of 23 references ([1] a 1998 monograph on cellular automata for VLSI complexity reduction, [6] a 2009 book on cellular automata modelling and applications, [18] a 2007 chapter on a cellular-automata encryption system with evolutive key), an SCR of about 13%. All three are on cellular automata and their hardware or applications, directly relevant to the survey. Reference [22] (Ştefan) and [23] (Gheolbănoiu et al.) are from the author's home institution and on-topic (CA randomizers). No irrelevant self-citation or ring pattern. Several references have formatting defects (stray brackets, garbled page ranges such as 'pages 565574', a Wolfram Rev. Mod. Phys. paper dated 1983 with the wrong volume/year pairing), which suggest limited bibliographic care but not manipulation.\n\n---\n\n## Structural Analysis\n\nAs a survey, most factual claims about specific systems are attributed to citations (e.g. the 168x Game of Life speed-up from [9], CEPRA-8L generation rate from [13]). However, several broader assertions are left unsupported or weakly argued, e.g. that general CA chips were 'not implemented so far' and that ASIC efforts 'seemed to be abandoned', and the statement that 'all these recent applications are reported in scientific literature as implemented in FPGA'. The survey gives no search method, inclusion criteria, or comparative table, and the coverage of post-2010 work is sparse for a 2016 overview. Figures are reproduced from cited sources. No limitations are acknowledged. CER is judged adequate (roughly 0.5-1.0) given the citation density for system-specific claims.\n\nNo artifacts; as a literature overview there is nothing to release (relevant: false).\n\n---\n\n## Conclusion\n\nA brief, descriptive overview of cellular automata hardware with no formalism and appropriate, low self-citation. Its weakness is structural: no survey methodology, no systematic comparison, uneven currency of coverage, and no acknowledgment of the review's limits. It is a readable introduction to the field rather than a rigorous survey."
+  }
+ ]
+}

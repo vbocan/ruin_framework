@@ -1,0 +1,72 @@
+{
+ "batch_id": "2013-v16-n1",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 16,
+  "issue": 1,
+  "year": 2013
+ },
+ "papers": [
+  {
+   "paper_id": "ege2013",
+   "paper": {
+    "title": "Cohomology Theory for Digital Images",
+    "authors": [
+     "Ozgur Ege",
+     "Ismet Karaca"
+    ],
+    "abstract": "In this paper we propose a mathematical framework that can be used for defining cohomology of digital images. We state the Eilenberg-Steenrod axioms and the Universal Coefficient Theorem for this cohomology theory. We show that the Künneth formula doesn't hold. A cup product is defined and its main properties are proved.",
+    "keywords": [
+     "Digital image",
+     "digital simplicial cohomology group",
+     "Universal Coefficient Theorem",
+     "Künneth formula",
+     "cup product"
+    ],
+    "doi": null,
+    "pages": "10-28",
+    "source_file": "02-ozgur@20ege.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 80,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 64.5,
+    "composite": 48.38,
+    "final": 38.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "Counting numbered constructs: 6 definitions (2.3, 3.1, 3.2, 3.3, 3.8, 6.1) x2 = 12; 13 theorem-level statements (Theorems 3.4, 3.9, 4.1, 5.1, 5.2, 6.2-6.6 and Corollaries 2.2, 3.10, 6.7) x3 = 39; 7 proofs (3.4, 3.9, 6.2-6.6) x4 = 28; total 79, against a Level 3 upper bound of 40 (1.98x). The five Eilenberg-Steenrod axioms are stated without proof and are not counted; counting them would push the score past 2x. The notation is the paper's subject matter and passes the necessity test, so the flag reflects volume only.",
+    "NO_LIMITATIONS": "The conclusion restates results and gives no acknowledgment of constraints, open questions, or the cases (e.g. choice of adjacency, dimension) the results do not cover; several proofs are omitted as 'similar as in algebraic topology' without discussion of where the digital setting might differ."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Pure-mathematics paper transporting simplicial cohomology, the universal coefficient theorem and the cup product to digital images; the formalism is the subject matter and is necessary, but much is transcribed from classical algebraic topology, several proofs are omitted or carry internal contradictions, and no limitations are stated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Definition of simplicial cohomology groups for digital images (subsets of Z^n with kappa-adjacency), statement of the Eilenberg-Steenrod axioms, the universal coefficient theorem, a counterexample to the Künneth formula, and the cup product with its basic properties.\n**Level:** 3 (Medium)\n**Rationale:** The paper extends an existing theoretical framework (digital simplicial homology) to cohomology and proves properties of it. It is not merely applied; it is genuine mathematics. It is not Level 4-5: most results are classical algebraic-topology statements carried over with the digital adjacency index added, and the authors themselves omit several proofs because they are \"similar as in algebraic topology\". The genuinely digital content is the failure of excision, homotopy invariance and the Künneth formula, shown by small counterexamples.\n\n### Formal Elements\n- Definitions: 6 numbered (plus roughly a dozen inline definitions in the Preliminaries, recalled from the digital topology literature: adjacency, continuity, homotopy, simplexes, boundary maps)\n- Theorems: 10 numbered theorems, 3 corollaries, 5 axioms stated without proof\n- Proofs: 7 explicit proofs (Theorems 3.4, 3.9, 6.2-6.6); Theorem 5.2 is supported by Example 5.3; Theorems 4.1 and 5.1 are recalled from textbooks without proof\n- Equations: numerous; essentially all are mathematical content (cochain groups, coboundary maps, exact sequences, Ext/Tor computations)\n\n### Proportionality\nCalculated complexity: 79 (numbered definitions, theorems and corollaries, explicit proofs; axioms excluded)\nExpected range (Level 3): 10-40\nRatio: 1.98x upper bound\n\n**Assessment:** Elevated by count, but not theater. Every formal element is the object of study: one cannot state a cohomology theory, an exact sequence or a cup product in plain English, and nothing here is notation standing in for a programming operation. The necessity test passes throughout. The volume is high because the paper re-states a large amount of textbook material (Ext and Tor properties, the classical Künneth theorem, Eilenberg-Steenrod axioms) alongside its own results.\n\n### Issues\n- Correctness concerns that weaken the formal content rather than signal theater:\n  - Theorem 3.9 (excision fails): the first half computes H^{1,8}(X, A) = Z; the second half, meant to compute H^{1,8}(X - U, A - U), ends with \"and so we get H^{1,8}(X, A) = 0\", contradicting the earlier value and apparently mislabelling the group. The exact sequences written for q = 0, 1 also run in the homology direction in places.\n  - The homotopy-axiom paragraph claims the simple closed 8-curve X is 8-contractible, so H^{1,8}(X) = 0, while Example 3.7 gives H^{1,8}(X) = Z; the authors present this as the failure of homotopy invariance, but Example 3.5 computes cohomology of a single point, not of a contractible image, so the inference H^{1,8}(X) = 0 is not justified by the cited example. Corollary 3.10 is worded so that it reads as a universal negative (\"couldn't have isomorphic cohomology groups\"), which the single counterexample does not support.\n  - Example 5.3 treats the 2x2 product of two 2-adjacency intervals as a simple closed 4-curve; simple closed curves are defined in the Preliminaries for m >= 4 points, so this sits at the boundary of the definition and is not discussed.\n  - Proofs of Theorems 6.4 and 6.5 contain index slips (e.g. [v_{q+r}, ..., v_{p+q+r}]) and Theorem 6.5's proof ends after stating an identity without completing the sign argument; elements of cohomology groups and cochains are used interchangeably.\n  - The Ext and Tor property lists are garbled in places (products and sums transposed), and the sequence defining Ext ends in \"-> A -> 0\" after Hom(R, G), which is incorrect.\n  - Definition 6.1 and Theorem 4.1 are attributed to [26] (Prasolov) as though stated there for digital images; they are the classical statements.\n- No instructions addressed to an assessor or reviewer appear in the text.\n\n---\n\n## Citation Analysis\n\n29 references. Self-citations (Ege or Karaca as author): [1] Arslan, Karaca, Oztel; [8] Boxer, Karaca, Oztel; [19], [20], [21] Karaca and Ege. That is 5/29 = 17.2%, in the elevated 15-20% band. All five are on digital homology or topological invariants of digital images and are directly relevant (similarity well above 0.5); [1] in particular supplies the homology computations the paper builds on. The remaining references are standard algebraic topology texts (Hatcher, Munkres, Spanier, Rotman, Prasolov) and the digital topology literature (Boxer, Kong, Rosenfeld, Han, Gonzalez-Diaz, Real). References [14], [17] and [27] are listed but not cited in the text. No citation-ring pattern is visible.\n\n---\n\n## Structural Analysis\n\nFor a mathematics paper the evidence is the proofs. Claims in the abstract and conclusion map to theorems, examples and counterexamples, so the claim-evidence balance is adequate, but several results are asserted without proof (the axioms, Theorem 4.1) and some proofs given contain the errors noted above, which lowers the weight of the evidence. The introduction contains loose claims (e.g. that the fundamental group statement \"is really diffuse\") without support. There is no limitations section and no inline acknowledgment of scope, and the conclusion asserts that digital cohomology is \"required\" for cohomology operations without argument.\n\nArtifact availability: a purely theoretical paper with nothing to release; no code, data or link is mentioned. Category `none`, marked not relevant.\n\n---\n\n## Conclusion\n\nThis is a legitimate, if modest, piece of mathematics: it lifts simplicial cohomology to the digital-image setting and records which classical properties fail there. The formalism is entirely necessary to the subject and shows none of the theater patterns; its count is elevated only because much classical material is restated. The weaknesses are in rigour and presentation rather than proportionality: the excision proof contradicts itself, the homotopy-axiom argument relies on an unjustified step, several proofs are omitted or incomplete, and no limitations are acknowledged. Self-citation is elevated but topically appropriate."
+  }
+ ]
+}

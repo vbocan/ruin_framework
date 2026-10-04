@@ -1,0 +1,131 @@
+{
+ "batch_id": "2014-v17-n3",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 17,
+  "issue": 3,
+  "year": 2014
+ },
+ "papers": [
+  {
+   "paper_id": "saracevic2014",
+   "paper": {
+    "title": "Construction and Notation of Convex Polygon Triangulation Based on Ballot Problem",
+    "authors": [
+     "Muzafer H. Saračević",
+     "Predrag S. Stanimirović",
+     "Predrag V. Krtolica",
+     "Sead H. Mašović"
+    ],
+    "abstract": "In this paper we provide a new way for constructing and storing the convex polygon triangulations. The main motivation for the presented method is derived from two combinatorial problems: ballot problem and problem of lattice path. The method is derived upon the so-called movement through polygon. The movement is defined on ballot records and validity of the lattice path through the grid. We give two algorithms: Triangulation to ballot and Ballot to triangulation. Also, we give a method to make coding for a ballot record or the corresponding triangulation even more compact using a stack. All mentioned algorithms are implemented in the Java programming language.",
+    "keywords": [
+     "Triangulation of convex polygon",
+     "Catalan numbers",
+     "Ballot problem",
+     "Lattice path",
+     "Stacks"
+    ],
+    "doi": null,
+    "pages": "237-251",
+    "source_file": "03-msaracevic2014.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 35,
+    "structural_integrity": 50,
+    "artifact_availability": 70,
+    "intellectual_integrity": 24.75,
+    "composite": 36.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"Java applications for both methods can be downloaded from: http://muzafers.uninp.edu.rs/triangulation/Ballot.rar and http://muzafers.uninp.edu.rs/triangulation/Hurtado.rar\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (an encoding of convex-polygon triangulations by ballot sequences, a classical Catalan bijection, plus a stack-based compaction) carrying formal elements that fail the necessity test: Proposition 2.1 and Proposition 3.1 with proofs re-derive textbook Catalan-number counts (cited to Koshy [4]) that no implementation depends on; Definition 3.1 formalises cyclic vertex distance only to say whether a side is an outer edge; the ballot record, an ordered string, is written in set braces b = {b1, ..., b2n}.",
+    "EXCESSIVE_SELF_CITATION": "3 of 7 references ([5], [6], [7]) are by the authors, SCR = 43%. All three are on convex-polygon triangulation and topically related, so the issue is the ratio, not relevance.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgement; the conclusion lists only advantages, although Table 3 itself shows the Hurtado-Noy method is faster in the generation phase."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Ballot-sequence encoding of convex polygon triangulations with a stack-based compact form; the method is a known Catalan bijection dressed with re-proved textbook propositions, self-citation is high (3 of 7), but the Java implementations are linked.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Encoding and generating convex polygon triangulations through ballot records (Dyck words), with a stack-based compression of the record into a permutation (SVB) and an empirical CPU/memory comparison against the authors' implementation of the Hurtado-Noy method.\n**Level:** 2 (Low)\n**Rationale:** The correspondence between ballot sequences and triangulations of an (n+2)-gon is a classical Catalan-family bijection; the paper presents procedural algorithms for it without complexity analysis or correctness proof of the algorithms themselves. The evaluation is a timing and memory table. This is an application of known combinatorics to a storage task, not a new algorithm with proven properties.\n\n### Formal Elements\n- Definitions: 1 (Definition 3.1, cyclic distance d(p,q))\n- Theorems: 2 (Propositions 2.1 and 3.1)\n- Proofs: 2\n- Equations: about 5 (binomial counts, Segner recurrence, Cn = Tn+2)\n\n### Proportionality\nCalculated complexity: 1x2 + 2x3 + 2x4 = 16\nExpected range (Level 2): 0-15\nRatio: 1.07x upper bound\n\n**Assessment:** Slightly above range, and the elements fail the necessity test — the propositions restate standard Catalan results available in the cited monograph, and their proofs (especially that of Proposition 3.1, which counts diagonals and sides and then asserts the Catalan formula, deferring to [7]) do not establish anything the algorithms rely on.\n\n### Issues\n- Proposition 2.1 (\"Number of valid Ballot records (Rn) correspond to the Catalan number (Cn)\") is a textbook fact proven via Segner's recurrence.\n- Proposition 3.1's proof is not a bijective argument; it reasons from counts of marks A and B to the Catalan formula.\n- Definition 3.1 formalises \"adjacent vertices\" as min{|p-q|, v-|p-q|} = 1.\n- The ballot record is written as a set, b = {b1, ..., b2n}, although order is its whole content.\n- Section 5 refers to \"Alg. 3.1\", which does not exist (Algorithm 3 is meant).\n\n---\n\n## Citation Analysis\n\nSeven references, three of them by the authors ([5] Facta Universitatis 2012, [6] ROMJIST 2012, [7] IJCM 2014), SCR = 43%. All three concern convex-polygon triangulation and are relevant; [5] and [6] supply the Hurtado-Noy implementation and storage results reused in Table 2. The reference list is otherwise thin: no prior work on encodings of triangulations by Dyck words or on Catalan bijections beyond Koshy's monograph is cited, so the novelty claim is not positioned against the literature.\n\n---\n\n## Structural Analysis\n\nThe experimental section reports CPU times and memory for v = 5..16 and supports the stated storage advantage; it also honestly reports that Hurtado-Noy is faster in pure generation (negative HG - BG). The comparison of memory is between different output representations (diagonal vertex lists vs. SVB permutations), which favours the compact encoding by construction, and timings come from a single machine profile with no repetition or variance. The introduction's motivation claims are uncited. No limitations are discussed.\n\nArtifacts: the paper links two downloadable Java applications (Ballot.rar, Hurtado.rar) on an author-affiliated server. No input data is needed beyond n, so nothing further is to be deposited; categorised as `code`.\n\n---\n\n## Conclusion\n\nA modest applied-combinatorics paper: a known bijection between ballot sequences and triangulations, turned into procedural algorithms and a stack-based compact storage format, with a reasonable timing table and a linked implementation. At Level 2 the re-proved textbook propositions and the decorative definition and set notation trigger the formalism-theater rule, and three of seven references being self-citations exceeds the 30% threshold. No paper-text instructions addressed to reviewers were found."
+  },
+  {
+   "paper_id": "chitescu2014",
+   "paper": {
+    "title": "Sugeno Measures on the Code Space",
+    "authors": [
+     "Ion Chiţescu",
+     "Anca Plăviţu"
+    ],
+    "abstract": "One considers a finite set X (the alphabet), the code space X∞ of all sequences formed with elements (letters) from the alphabet X and B the Borel sets of X∞. A concrete representation of all Sugeno measures on B is given. This representation is, heuristically speaking, matricial, being inspired by the concrete representation of all probabilities on B.",
+    "keywords": [
+     "Borel sets",
+     "Code space",
+     "Monotone measure",
+     "Sugeno measure"
+    ],
+    "doi": null,
+    "pages": "289-301",
+    "source_file": "06-ichitescu2014.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 60,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 62.5,
+    "composite": 46.88,
+    "final": 31.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM",
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "Level 3 paper with formalism complexity 3 numbered definitions x2 + 7 lemmas/theorems x3 + 7 proofs x4 = 55, above the Level 3 upper bound of 40 but below 80. The formalism is the substance of a pure-mathematics paper and passes the necessity test; the flag records the count only.",
+    "ELEVATED_SELF_CITATION": "3 of 14 references ([3], [4], [5]) include the first author, SCR = 21%. [5] (lambda-measures with preassigned values) is directly related; [3] and [4] (Martin-Löf random sequences) are cited only as examples of fields where the code space matters and are marginally related.",
+    "NO_LIMITATIONS": "The closing section lists future directions (Choquet and Sugeno integrals, cellular automata) but acknowledges no limitation or restriction of the results."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Pure measure-theory paper giving a matrix-style representation of Sugeno measures on the Borel sets of the code space by composing known bijections; formalism is necessary and proofs are complete, with moderate self-citation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Representation of all normalised lambda-measures (Sugeno measures) on the Borel sigma-algebra of the code space X^N by families of 'lambda-distributions' indexed by finite words, and a global (surjective, non-injective) correspondence onto the union of all such measures.\n**Level:** 3 (Medium)\n**Rationale:** The paper proves new, if not deep, representation results in generalised measure theory. The main bijection T_lambda is obtained by composing Wang's classical bijection V_lambda (Sugeno measures from probabilities via h_lambda), the standard representation T_0 of probabilities on the code space, and a logarithm map L_lambda; the remaining results (atoms, intersection of all S_lambda equals the Dirac measures, non-injectivity of T) are short and elementary. This is proof of non-trivial properties of a mathematical structure, Level 3; nothing here reaches the complexity, safety or universality results of Levels 4-5.\n\n### Formal Elements\n- Definitions: 3 numbered (3.4, 3.6, 3.8), plus inline preliminary definitions (monotone measure, lambda-rule, lambda-measure, Sugeno measure, 0-distribution, prefix order, code space)\n- Theorems: 7 (Lemma 3.1, Theorems 3.2, 3.3, 3.5, Lemma 3.7, Theorems 3.9, 3.10)\n- Proofs: 7\n- Equations: numerous, all part of the definitions and proofs\n\n### Proportionality\nCalculated complexity: 3x2 + 7x3 + 7x4 = 55 (numbered definitions only)\nExpected range (Level 3): 10-40\nRatio: 1.4x upper bound\n\n**Assessment:** Elevated by count, but proportionate in kind — every definition is used in a subsequent theorem and every theorem is proved. There is no implementation for the notation to stand in for; set notation here is the native language of measure theory. No necessity-test failures.\n\n### Issues\nTypographical and statement defects rather than theater: Theorem 3.3's statement is garbled in the typeset text (\"write here S0 = M\" embedded in the formula); in the proof of Theorem 3.5 the product is written as \"(lambda+1) != 1\" where equality to lambda+1 is meant; Lemma 3.7's proof writes the product up to n instead of p; Theorem 3.2 is stated for an arbitrary algebra C while the lambda-measure condition is defined via countable unions inside C. None affects the main results.\n\n---\n\n## Citation Analysis\n\nFourteen references, mostly standard monographs (Halmos, Dinculeanu, Wang-Klir, Barnsley, Falconer, Shafer) and the original sources (Sugeno's thesis, Wang 1981). Three include the first author: [5] (Fuzzy Sets and Systems 2014, with the second author) is directly on lambda-measures and relevant; [3] and [4] (Calude and Chiţescu on Martin-Löf random sequences) are cited only to illustrate that the code space matters in random-sequence theory, a marginal connection. SCR = 21%, just inside the elevated band. No irrelevant self-citation or ring pattern.\n\n---\n\n## Structural Analysis\n\nAs a pure mathematics paper, claims are almost all theorem statements backed by proofs in the text; the introductory motivating claims about super- and subadditive measures are general and partially cited. No limitations are stated, and the scope (finite alphabets, normalised measures, lambda != 0 for the representation) is left implicit. The 'future work' section is two sentences.\n\nArtifacts: none, and none expected — the paper has nothing to release (`relevant: false`).\n\n---\n\n## Conclusion\n\nA short, competent representation result in generalised measure theory, built largely from the composition of known bijections. Formalism is heavy by count but entirely necessary and used; the medium flags reflect the formalism count, a self-citation ratio just over 20%, and the absence of any stated limitation. No paper-text instructions addressed to reviewers were found."
+  }
+ ]
+}

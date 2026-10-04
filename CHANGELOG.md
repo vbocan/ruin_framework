@@ -7,6 +7,22 @@ specification is versioned independently of the corpus analysis runs — the
 `analysis_version` field inside each batch JSON records which specification
 revision produced that file.
 
+## [Run ROMJIST_2026-10-04] — 2026-10-04
+
+A complete re-analysis of the corpus and its test–retest study, under the
+protocol in `reliability/`.
+
+- Run 1: all 421 analysable records (404 research papers) analysed with Claude
+  Opus 5.5 under specification 1.2.0, one independent agent per issue, over text
+  pre-extracted with `pdftotext -layout`.
+- Runs 2 and 3: a 30-paper sample (6 per concept level, seed 20261004)
+  analysed twice more, independently. Final score MAD 2.61, ICC(2,1) 0.92;
+  classification Fleiss κ 0.77, concept level 0.74, artifact category 1.00.
+- New: `scripts/finalize_run.py`, `reliability/extract_text.py`,
+  `draw_sample.py`, `analyze.py`, `pdf_manifest.py`.
+- The script defaults now point at the current run. The earlier run and its
+  artifact re-assessment are kept under `journal-analysis/ROMJIST_29.12.2025/`.
+
 ## [1.2.0] — 2026-10-04
 
 The artifact-availability component is re-assessed from the source PDFs, and

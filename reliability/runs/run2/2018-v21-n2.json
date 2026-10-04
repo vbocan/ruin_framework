@@ -1,0 +1,81 @@
+{
+ "batch_id": "2018-v21-n2",
+ "analysis_timestamp": "2026-10-04T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 21,
+  "issue": 2,
+  "year": 2018
+ },
+ "papers": [
+  {
+   "paper_id": "dontu2018",
+   "paper": {
+    "title": "Mechatronic Finger Structure with Pressure-Sensitive Conductive Layer",
+    "authors": [
+     "O. G. Donţu",
+     "A. Barbilian",
+     "C. Florea",
+     "I. Lascăr",
+     "L. Dobrescu",
+     "I. Sebe",
+     "R. Scarlet",
+     "C. Mihaila",
+     "C. Moldovan",
+     "M. Pantazica",
+     "D. Besnea",
+     "B. Grămescu",
+     "D. Dobrescu",
+     "V. Lazo",
+     "B. Fîrtat",
+     "A. Edu"
+    ],
+    "abstract": "In this paper a unified approach of a mechatronic hand enriched with a pressure sensitive layer is analyzed. New developments of advanced applications regarding the Additive Manufacturing (AM) have been investigated and implemented. The analyze starts with a finger physical implementation, using 3-D printing technology. Digital Light Processing (DLP) is the 3-D printing selected process for finger structure manufacture. Fused Deposition Modeling (FDM) is another additive process used for outer protective layer and for its mold manufacture. A pressure-sensitive layer of Velostat is inserted between the outer protective layer and the finger structure. The paper presents a simple and efficient prototype of a finger, using a cheap and sufficient accurate solution based on new materials. The finger manufacturing process begins with the design of three-dimensional model for the mold without any supplementary equipment and classic technologies. Starting from a finger mechanical structure with its three phalanges, it is developed by adding a pressure sensitive layer of Velostat, towards a future desired artificial skin. Its electrical properties recommend it as a first layer that covers the printed finger structure. Another outer protective layer is also added. This finger structure will be integrated in a designed hand system.",
+    "keywords": [
+     "Mechatronic system",
+     "artificial finger",
+     "pressure-sensitive layer",
+     "3D printing",
+     "Digital Light Processing",
+     "Fused Deposition Modeling"
+    ],
+    "doi": null,
+    "pages": "139-150",
+    "source_file": "paper587.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 88,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.05,
+    "composite": 57.04,
+    "final": 57.04
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Prototype description of a 3D-printed finger with a Velostat pressure layer; free of formalism and self-citation problems, but mostly background on additive manufacturing, with the sensor characterisation borrowed from a web source and the authors' own tests reported only qualitatively.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fabrication of a three-phalanx artificial finger by DLP 3D printing, with an FDM-printed mold for an outer protective layer and a Velostat sheet inserted as a pressure-sensitive layer.\n**Level:** 1 (Trivial)\n**Rationale:** The paper is a prototype description that combines off-the-shelf manufacturing processes (FDM, DLP, Replicator G, Creation Workshop) and a commercial material. No algorithm, model, or analysis is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper uses plain prose and figures throughout; nothing fails the Necessity Test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNine references. One self-citation: [2] (Moraru, Dontu, ..., Besnea) on the execution of dental prostheses by selective laser deposition, which shares two authors with this paper and is topically related (additive manufacturing), so it is relevant. SCR = 1/9, about 11%. References [8] and [9] are earlier ROMJIST and CAS papers by other Bucharest groups and share no authors. The reference list itself is thin: a vendor catalogue [4], a product data sheet [6], a degree thesis [5], and a master's dissertation web page [7] carry much of the technical content, and no peer-reviewed work on tactile sensing or prosthetic fingers is cited beyond [8] and [9]. No manipulation pattern.\n\n---\n\n## Structural Analysis\n\nMost of the text (Sections 1-2) is general background on additive manufacturing, FDM, and DLP, supported by textbook citations. The paper's own contribution is the fabricated finger, shown in photographs (Figs. 4, 7, 9). The Velostat characterisation in Figs. 10-13 is reproduced entirely from [7]. The authors' own repeated tests are described only in words: \"Not all of them were perfectly reproducible\", \"Velostat response has a strong dependence on stretching\", and a transient response of \"about one second\". No measurement, figure, or table backs these statements. Abstract claims of a \"simple and efficient prototype\" that is \"cheap and sufficient accurate\" are not supported by any cost, accuracy, or performance measurement. The claim-evidence ratio is estimated at about 0.4 (weak, but above the 0.33 threshold, because the fabrication claims are evidenced by photographs and the background claims by citations). Limitations are acknowledged inline: the handmade cavity \"could\" introduce dimensional changes, test reproducibility was imperfect, and further investigation is stated to be necessary. There is no dedicated limitations section.\n\nArtifact availability: no CAD models, print files, or measurement data are linked or claimed. The URLs in the references point to third-party material (vendor catalogue, data sheet, an external dissertation), not to the authors' own artifacts.\n\nNo instructions addressed to an assessor were found in the paper text.\n\n---\n\n## Conclusion\n\nAn early-stage prototype report with no formalism problems and a clean citation record. Its weakness is evidential: the work is largely a tutorial on two 3D-printing processes, the sensor behaviour is taken from an external web source, and the authors' own measurements, which they say differ from that source, are not shown. The finger has not been tested as a tactile sensor. The paper documents a fabrication exercise rather than an evaluated result."
+  }
+ ]
+}

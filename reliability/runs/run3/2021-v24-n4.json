@@ -1,0 +1,73 @@
+{
+ "batch_id": "2021-v24-n4",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 24,
+  "issue": 4,
+  "year": 2021
+ },
+ "papers": [
+  {
+   "paper_id": "matcovschi2021",
+   "paper": {
+    "title": "Invariant sets with arbitrary convex shapes in linear system dynamics",
+    "authors": [
+     "Mihaela Matcovschi",
+     "Marius Apetrii",
+     "Octavian Pastravanu",
+     "Mihail Voicu"
+    ],
+    "abstract": "A mathematical framework dedicated to flow-invariance study is proposed for continuous-time linear dynamics, with respect to general-shape contractive sets - defined by the class of proper C-sets (convex and compact sets, including the origin as an interior point), for which a constant-rate exponential decrease is considered. The main result provides a general algebraic characterization of flow-invariance, stated in terms of functions extending the concept of matrix measure (by using Minkowski functions, instead of vector norms, in the set description). A unifying point of view is created - able to connect several approaches to flow-invariance, separately reported in literature. This result is further exploited by set-embedding procedures that yield reformulations as optimization task - more reliable from the numerical perspective. Two examples are considered to illustrate how the flow-invariance criteria known for non-symmetrical polyhedrons, and symmetrical sets defined by weighted p-vector-norms, respectively, can be obtained as particular cases from our main result.",
+    "keywords": [
+     "continuous-time linear systems",
+     "invariant sets",
+     "Minkowski function",
+     "Lyapunov function"
+    ],
+    "doi": null,
+    "pages": "402-417",
+    "source_file": "paper701.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 80,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 69.5,
+    "composite": 52.12,
+    "final": 42.12
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the paper is purely theoretical (propositions, theorems and proofs) with no code, data or numerical experiments",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "Level 3 paper with formalism complexity 60 (6 definitions x2 + 8 theorem-like statements x3 + 6 proofs x4) against an upper bound of 40, i.e. 1.5x. All elements pass the Necessity Test; the flag is triggered by count alone, since the paper is a theory paper whose contribution is the formal results.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of the work's constraints. The conclusion restates contributions only; the abstract's claim that the optimization reformulations are 'more reliable from the numerical perspective' is never tested, and no computational example is given."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Rigorous control-theory paper unifying flow-invariance criteria for convex C-sets via Minkowski-function-based matrix measures; formalism is genuine and necessary but heavy for its level, self-citations are relevant, there are no limitations and several cross-referencing errors.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Algebraic characterization of positive (flow-)invariance of exponentially contracting convex C-sets for continuous-time linear systems, using the Minkowski gauge to generalize matrix measures, plus set-embedding reformulations as dual optimization problems; polyhedral sets and weighted p-norm balls are recovered as corollaries.\n**Level:** 3 (Medium)\n**Rationale:** The paper proves non-trivial properties of dynamical systems and substantively extends a theoretical framework (matrix measures, Lyapunov functions, invariant sets), which matches the Level 3 description. Invariance resembles a safety property and the paper is fully proof-based, so Level 4 was considered, but the results are an extension and unification of known criteria rather than new protocol or soundness guarantees; per the strict default the lower level was chosen.\n\n### Formal Elements\n- Definitions: 6 (Minkowski function (3), phi_C (4), eta_C (5); directional derivative, subdifferential and level sets in the Appendix (A-1)-(A-3))\n- Theorems: 8 (Propositions 1-3, Theorems 1-2, Corollaries 1-2, Lemma 1)\n- Proofs: 6 (Propositions 2 and 3, Theorems 1 and 2, Corollaries 1 and 2; Proposition 1 and Lemma 1 are cited from [9] and [21]; the derivation in Remark 1 was not counted)\n- Equations: about 70 numbered, plus (A-1)-(A-33)\n\n### Proportionality\nCalculated complexity: 60\nExpected range (Level 3): 10-40\nRatio: 1.5x upper bound\n\n**Assessment:** Elevated but justified - every definition is used in the theorems and every theorem is either the main result or a step towards it. The Necessity Test passes throughout: the gauge, the operator-norm-like phi_C and its directional derivative eta_C are the objects the results are about, and none of it can be replaced by plain English. The ELEVATED_FORMALISM flag follows mechanically from the count.\n\n### Issues\nNo formalism theater. There are, however, several internal inconsistencies that a careful referee would have caught: the proof of Theorem 1 invokes \"Proposition 3.(e)\" although Proposition 3 as stated has only parts a)-d) (the Appendix proves parts a)-g)); Corollary 2(b) refers to \"Theorem 4.1\" and Remark 4(b) to \"Corollary 5.3\", neither of which exists; the proof of (A-25) ends with \"(21) is proved\"; (A-8) ends with eta_C(Q2) where phi_C(Q2) is meant; the (ii)=>(iii) step of Theorem 1 uses strict inequalities where only non-strict ones follow. These do not appear to invalidate the results but weaken the rigour the paper relies on.\n\n---\n\n## Citation Analysis\n\n21 references. Self-citations: [2] (Voicu), [10] and [11] (Pastravanu, Matcovschi) and [16] (all four authors) - 4/21, SCR about 19%, in the elevated 15-20% band. All four are directly on topic: [2] introduced componentwise asymptotic stability (rectangular invariant sets), which the paper places in its historical lineage; [10] and [11] concern invariance and stability of interval and switching systems; [16] is the discrete-time counterpart of this very work. Topical similarity is high (>=0.7) in every case. The remaining references are the standard literature (Blanchini, Bitsoris, Kiendl et al., Vidyasagar, Rockafellar, Rakovic). No ring pattern observed.\n\n---\n\n## Structural Analysis\n\nThe claims are mathematical and backed by proofs or by citations to standard results, so the claim-evidence balance is strong (CER well above 1). The exception is the abstract's statement that the optimization reformulations are \"more reliable from the numerical perspective\", for which no numerical evidence is offered; the two \"examples\" are analytic specializations, not computations. There is no limitations discussion; the restriction to sufficient-only conditions in Corollary 2(a) is noted in Remark 4 as a property of the result, not as a limitation of the work. The cross-reference errors listed above lower the structural score. Nothing is available as an artifact, and nothing needs to be: the paper is pure theory (relevant: false).\n\n---\n\n## Conclusion\n\nA genuine theoretical contribution to set-invariance theory: it extends matrix-measure criteria to arbitrary convex contractive sets through Minkowski gauges and shows that classical polyhedral and p-norm criteria are special cases. The formalism is substantive and necessary; its volume exceeds the Level 3 band only because the whole paper is formal results. Self-citation is moderate and relevant. The main weaknesses are the missing limitations, the untested numerical-reliability claim, and a number of incorrect internal references and typographical slips in the proofs. No instructions addressed to reviewers or assessors were found in the text."
+  }
+ ]
+}

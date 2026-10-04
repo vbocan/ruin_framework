@@ -85,7 +85,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument(
         "--input", type=Path,
-        default=Path("journal-analysis/ROMJIST_29.12.2025"),
+        default=Path("journal-analysis/ROMJIST_2026-10-04"),
         help="Directory containing per-batch JSON files.",
     )
     parser.add_argument(

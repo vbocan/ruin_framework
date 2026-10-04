@@ -1,0 +1,66 @@
+{
+ "batch_id": "2010-v13-n4",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 13,
+  "issue": 4,
+  "year": 2010
+ },
+ "papers": [
+  {
+   "paper_id": "chesaru2010",
+   "paper": {
+    "title": "Discontinous-Time Comparator with State Saving",
+    "authors": [
+     "Valentin Chesaru",
+     "Cristian Neacşu",
+     "Claudius Dan",
+     "Mircea Bodea"
+    ],
+    "abstract": "This paper presents the design of a low power discontinuous time comparator that saves its state in a digital latch circuit when entering shut-down mode. The designed low power comparator can be used in any integrated circuit to decrease power consumption in shut-down mode. The design is based on a simple and efficient idea: while the comparator is in shut-down mode, its previous state is stored in a latch. This idea can be easily applied to any \"already designed\" discontinuous - time comparator.",
+    "keywords": [],
+    "doi": null,
+    "pages": "323-331",
+    "source_file": "01-chesaru.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.5,
+    "composite": 45.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "1 of 3 references is a self-citation (SCR = 33%): [1] Dan C., Continuous-Time Comparators (Editura Tehnica, 2005), authored by co-author Claudius Dan. The cited work is topically related (comparator design), but the ratio exceeds the 30% threshold; the very short reference list (3 items) makes the ratio sensitive to a single entry. Reference [1] is also never cited in the body text."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Short circuit-design note adding a D-latch to a hysteretic comparator so its state survives power-down; formalism is standard, necessary circuit equations, but evidence is limited to a few nominal SPICE simulations, the 'standard comparator' baseline is not described, and one of three references is a co-author's own book (SCR 33%).",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Analog/mixed-signal circuit design: a two-stage CMOS comparator with extrinsic hysteresis whose output is held in a D-latch when the comparator is powered down, so that the hysteresis state is preserved and shut-down current is near zero.\n**Level:** 2 (Low)\n**Rationale:** The contribution is the application of a standard building block (a transparent D-latch on the output, clocked by the enable signal) to a textbook two-stage amplifier used as a comparator (\"based on a classical two stage amplifier described in [2] with compensation circuit removed\"). There is no new algorithm, model, or proof; the paper itself calls it \"a simple and efficient idea\". It is a design-and-simulate study, so Level 2 rather than 1 only because some circuit sizing is performed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 9 (hysteresis voltage, threshold-voltage expressions for non-inverting and inverting extrinsic-hysteresis comparators, the resulting design values, and a power-ratio expression)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Equations (1)-(7) are the standard resistor-divider threshold formulas for hysteretic comparators and are actually used: equation (8) derives RF/RI = 15.5 and the threshold voltages from them, and RF = 155 kOhm is chosen from that ratio. A circuit designer needs these expressions to size the feedback network, so they pass the necessity test. Equation (9), eta = IQN*DEN/IQS ~ DEN, is a one-line ratio that could be stated in words but is a conventional engineering expression, not set-theoretic or definitional theater.\n\n### Issues\nNo formalism theater. Minor technical inconsistencies: equation (4) is written as VHyst = VthDown - VthUP, while equation (1) defines Vhist = VthUp - VthDown; and the inverting-comparator equations (5)-(6) are reproduced from textbook material without derivation or use. The background on inverting comparators (Fig. 2, eqs. 5-7) is not used by the designed (non-inverting) circuit. Equation (9) is asserted without stating how IQN relates to IQS in the general case.\n\n---\n\n## Citation Analysis\n\nThe reference list has only three entries: [1] a Romanian-language book on continuous-time comparators by C. Dan (a co-author), [2] Johns and Martin's analog IC design textbook, and [3] Maloberti's CMOS analog design book. The self-citation [1] is topically relevant (similarity well above 0.5), so it is not an irrelevant self-citation, but SCR = 1/3 = 33% exceeds the 30% threshold, which triggers EXCESSIVE_SELF_CITATION under the specification. The ratio is an artefact of an extremely thin bibliography rather than evident padding; notably [1] and [3] are never cited in the text at all (only [2] is). The paper cites no prior work on low-power, clocked, latched, or state-retention comparators, so novelty relative to the literature is not established.\n\n---\n\n## Structural Analysis\n\nThe claims are partly supported. The zero-shut-down-power claim is backed by a simulated shut-down current of 206 pA and the latch-delay claim by a simulated 1.5 ns delay (182 ns vs 180 ns response). However, broad claims are unsupported: that the technique \"can be used on any existing design\", \"can be adapted on any existing CMOS technology\", and has \"practically no impact\" on already-designed comparators rest on a single nominal simulation in one process. The 'standard comparator' column in Table 1 is never defined as a separate design. All results are nominal H-Spice simulations: no corner, temperature, or Monte Carlo analysis, no layout, no silicon measurement. The paper also mixes a 0.18 um 3.3 V process for the comparator with a D-latch \"from a standard 0.13 um digital library\" without comment. The design targets (response time 0.5 us, overdrive 20 mV) are met by wide margins in simulation, but the overdrive result explicitly neglects offset. Limitations are acknowledged inline only (\"Random offset will alter the result and overdrive voltage will have higher values\"; latch delay acceptable \"for most of today's applications\"), so NO_LIMITATIONS is not raised. Estimated CER around 0.5-0.6 (adequate-to-weak). The running header gives \"Number 3\" although the paper sits in the volume 13, issue 4 folder; this is recorded but does not affect the analysis.\n\nArtifact availability: no netlists, schematics files, or simulation decks are linked or offered; the paper only shows schematics as figures.\n\n---\n\n## Conclusion\n\nThis is a short, modest circuit-design note whose formalism is entirely appropriate: textbook threshold equations used to size the feedback resistors. Its weaknesses are evidential and bibliographic rather than formal. The validation is a handful of nominal simulations, generality claims outrun that evidence, and the related-work base is three textbooks, one written by a co-author. Under the specification the 33% self-citation ratio raises EXCESSIVE_SELF_CITATION, which is disqualifying; readers should note that this follows mechanically from a one-in-three reference list and the cited self-work is on-topic."
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "batch_id": "2014-v17-n1",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 17,
+  "issue": 1,
+  "year": 2014
+ },
+ "papers": [
+  {
+   "paper_id": "kong2014",
+   "paper": {
+    "title": "Small Universal Spiking Neural P Systems with Astrocytes",
+    "authors": [
+     "Yuan Kong",
+     "Keqin Jiang",
+     "Zhihua Chen",
+     "Jinbang Xu"
+    ],
+    "abstract": "Spiking neural P systems with astrocytes (SNPA systems, for short) are a class of distributed parallel computing devices inspired from the way neurons communicate by means of spikes, where also astrocytes are considered, having an excitatory or an inhibitory influence on synapses. Looking for small universal computing devices is a classical research topic in computer science. In this work, we investigate small universal SNPA systems as both devices computing functions and devices generating sets of numbers. Specifically, as devices of computing functions, a universal SNPA system (without delay and forgetting rules) using 57 neurons and 19 astrocytes is obtained; as generators of sets of numbers, a universal SNPA system (without delay and forgetting rules) using 54 neurons and 17 astrocytes is found. These improve previous results on SN P systems without astrocytes and show the role of these features.",
+    "keywords": [
+     "Membrane computing",
+     "Spiking neural P system",
+     "Astrocyte",
+     "Universality",
+     "Register machine"
+    ],
+    "doi": null,
+    "pages": "19-32",
+    "source_file": "02-ykong.pdf"
+   },
+   "concept_level": 5,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 72,
+    "artifact_availability": 0,
+    "intellectual_integrity": 85.25,
+    "composite": 63.94,
+    "final": 63.94
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Constructive computational-universality result for spiking neural P systems with astrocytes; formalism is the native language of the topic and well below the Level 5 range, citations are clean, and the proof is a sound module-by-module simulation of Korec's register machine, though the neuron-saving accounting for the generating case is only sketched and one instruction is transcribed inconsistently.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Construction of small universal spiking neural P systems with astrocytes (SNPA), both as function-computing devices (57 neurons, 19 astrocytes) and as number generators (54 neurons, 17 astrocytes), by simulating Korec's small universal register machine.\n**Level:** 5 (Very High)\n**Rationale:** The contribution is a proof of computational universality (Turing completeness) for a bounded-size device, which the specification places explicitly at Level 5. The result is incremental within the membrane-computing literature (the construction follows Paun and Paun's 2007 method with astrocytes added to cut neuron counts), but the kind of claim being established is a universality proof.\n\n### Formal Elements\n- Definitions: 2 (the deterministic register machine construct M = (m, H, l0, lh, I), and the SNPA system construct Pi = (O, sigma_1..sigma_m, syn, ast_1..ast_l, in, out)), plus informal definitions of configuration, computation, and result\n- Theorems: 2 (Theorem 1, computing case; Theorem 2, generating case)\n- Proofs: 1 explicit (Theorem 1); Theorem 2 is supported by a preceding argument rather than a labelled proof\n- Equations: a handful of encodings (input spike train 10^{n1-1}1..., output spike train 0^b 10^{r-1}1, universality condition phi_x(y) = M_u(g(x), y)) and the generated-set expression {n in N | phi_x(n) is defined}\n\n### Proportionality\nCalculated complexity: 14 (2x2 + 2x3 + 1x4)\nExpected range (Level 5): 60-150\nRatio: 0.09x upper bound\n\n**Assessment:** Proportionate. The tuple definitions and set notation are the standard model definitions of the field, and every element is used: the register-machine definition fixes what is simulated, the SNPA definition fixes the rules (thresholds, inhibitory/excitatory influence) on which each module's correctness argument depends. The necessity test passes: the size bounds and the simulation argument cannot be stated or checked without the model's precise semantics. Formalism is light for a Level 5 paper because the proof is constructive and carried largely by module figures.\n\n### Issues\nNone in terms of formalism theater. Minor rigour issues in the proof: (a) the group (1) listing writes l8 : (SUB(6), l9, l10) whereas Fig. 1 gives l8 : (SUB(6), l9, l0); (b) the savings for the generating case (\"5 for SUB-ADD instructions and 13 for SUB-SUB instructions\" and 10 astrocytes) are stated without the itemisation given for Theorem 1; (c) the correctness of sharing auxiliary neurons and astrocytes between SUB modules (Figs. 9 and 10) is asserted rather than argued, including the absence of interference when shared astrocytes see spikes from different modules.\n\n---\n\n## Citation Analysis\n\nNone of the four authors (Kong, Jiang, Chen, Xu) appears in the 19-item reference list; SCR = 0/19. References are the core works of the subfield: the original SN P systems paper, Korec's universal register machines, the SNPA paper that posed the open problem, and the prior small-universality results (84/76 and 67/63 neurons) that the paper improves on. Several citations go to the Pan / Paun group, which is the dominant group in the area, and all are topically central. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe paper's claims are the two theorems, and each is backed by an explicit construction: ADD, SUB, INPUT, OUTPUT, ADD-ADD, SUB-ADD and SUB-SUB modules are each described with step-by-step spike traces, and the neuron and astrocyte counts are derived arithmetically (78 to 57 neurons, 30 to 19 astrocytes). Claim-evidence balance is therefore good for the computing case and weaker for the generating case, where the counts are stated more tersely. One overstatement: the conclusion says the results \"show that astrocytes can improve the computing power of SN P systems\", whereas what is shown is a reduction in the number of neurons for an already universal model, not an increase in computing power. There is no limitations section; the conclusion lists open problems (whether more astrocytes could further reduce neurons, whether delays or forgetting rules help), which serves as a modest inline acknowledgement of the result's scope.\n\nNo artifact is linked or claimed. This is a pure theory paper with nothing to release, so the artifact category is recorded as not relevant.\n\n---\n\n## Conclusion\n\nA conventional, competent contribution to the small-universality line of membrane-computing research. Its formalism is exactly what the topic requires and far below the Level 5 expectation, and its citation practice is clean. The main weaknesses are in rigour of presentation rather than integrity: the module-sharing optimisations are asserted rather than proved non-interfering, the generating-case accounting is compressed, one instruction is transcribed inconsistently, and the conclusion slightly overstates what the result shows."
+  }
+ ]
+}

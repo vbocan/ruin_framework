@@ -1,0 +1,64 @@
+{
+ "batch_id": "2012-v15-n2",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 15,
+  "issue": 2,
+  "year": 2012
+ },
+ "papers": [
+  {
+   "paper_id": "alexandru2012",
+   "paper": {
+    "title": "Nominal Event Structures",
+    "authors": [
+     "Andrei Alexandru",
+     "Gabriel Ciobanu"
+    ],
+    "abstract": "We present the concept of \"event structures\" in the nominal framework of the Fraenkel-Mostowski model of set theory. Using specific techniques of nominal logic, we introduce and study the nominal event structures, providing some properties. The analogy between the results obtained by using the Fraenkel-Mostowski axioms and those obtained by using the Zermelo-Fraenkel axioms is discussed.",
+    "keywords": [],
+    "doi": null,
+    "pages": "79-90",
+    "source_file": "01-gciobanu2012.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 92,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.7,
+    "composite": 55.27,
+    "final": 50.27
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "Level 3 paper with formalism complexity 76 (12 definitions x2 + 8 theorem-like results x3 + 7 proofs x4), between the Level 3 upper bound of 40 and twice that bound (80). The formal elements are needed (the paper is a set-theoretic development and its results are proofs), but the volume is high relative to a contribution that transfers known definitions and a Tarski-style fixed-point result into the FM setting."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Short pure-theory paper that recasts elementary event structures, event structures and causality functions in the Fraenkel-Mostowski nominal setting and proves FM analogues of the glb existence and Tarski fixed-point results; formalism is necessary but heavy for a modest transfer contribution, citations are clean, and nothing needs releasing.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Reformulation of elementary event structures, event structures with conflict, and causality (monotone) functions inside the Fraenkel-Mostowski (nominal) model of set theory, with FM versions of a glb-existence result and Tarski-like fixed-point theorems.\n**Level:** 3 (Medium)\n**Rationale:** The paper proves non-trivial properties within an existing theoretical framework (nominal sets) and extends it to a known concept (Nielsen-Plotkin-Winskel event structures). It is not a type-system soundness, protocol-correctness, or complexity result, and the authors themselves describe the goal modestly: to show that event structures \"can also be formalized in the FM framework\". Level 4 was considered, since the formalism is the subject matter, but the specification says to default lower when uncertain; Section 2 is largely a recapitulation of Gabbay-Pitts material and the new results in Section 3 are adaptations of classical lattice arguments with an added finite-support check.\n\n### Formal Elements\n- Definitions: 12 (2.1-2.8, 3.1-3.4; Definition 2.2 lists the ten ZFA axioms and is counted once)\n- Theorems: 8 theorem-like results (Theorem 2.1, Corollary 2.1, Propositions 2.1-2.3, Theorems 3.1-3.3)\n- Proofs: 7\n- Equations: numerous inline set-theoretic formulas; examples 2.1 and 2.2 and Remarks 2.1, 3.1 not counted\n\n### Proportionality\nCalculated complexity: 76\nExpected range (Level 3): 10-40\nRatio: 1.9x upper bound\n\n**Assessment:** Elevated but necessary. Every definition is used later: support (2.4), FM-set (2.5), finitely supported subset (2.6), equivariance (2.7) and finitely supported function (2.8) are each invoked in the proofs of Theorems 3.1-3.3, and the Section 3 definitions are the objects of those theorems. Set notation here is the native language of the topic, not notation standing in for list operations, so the theater patterns of the framework do not apply. The count is high mainly because Section 2 re-derives standard nominal-set facts (existence of least support, S(pi.x) = pi(S(x)), the conjugation action on functions) that could have been cited from Gabbay-Pitts.\n\n### Issues\n- Some imprecision in the proofs. The proof of Theorem 2.1 frames the case split as \"a, b not in S1 n S2\" and then treats only mixed cases, and the transposition identity it uses is stated without verification. In Example 2.2 the claim that alpha-equivalent terms t and t' satisfy \"pi * t = pi * t'\" is wrong as written; they are alpha-equivalent after the permutation, not equal.\n- In the last part of the proof of Theorem 3.2, the step \"f(x) in D for each x in D\" is asserted without its one-line justification (x <= f(x) implies f(x) <= f(f(x))).\n- Theorem 3.2 is stated for \"a causality function\" where the FM-causality function of Definition 3.3 (finitely supported) is what the proof uses.\n- Each of Theorems 3.1 and 3.2 gives two alternative proofs of the same step (pi * D = D), which lengthens the paper without adding content.\n- No example of an actual nominal event structure (for instance, one arising from a nominal calculus) is given, so the motivation from fresh names and binding in the introduction is not carried through to the results.\n\n---\n\n## Citation Analysis\n\nEight references; one self-citation ([1], Alexandru and Ciobanu, nominal semantics of the piI-calculus, SYNASC 2011), giving SCR = 1/8 = 12.5%. It is directly relevant: the conclusion cites it as an earlier application of the same nominal techniques (similarity well above 0.5). The remaining references are the standard sources for the topic (Gabbay-Pitts, Pitts, Nielsen-Plotkin-Winskel, Tarski) and textbooks for group theory and the axiom of choice. No issues identified.\n\n---\n\n## Structural Analysis\n\nThis is a mathematics paper, and its claims are its theorems; each is accompanied by a proof, so the claim-evidence balance is adequate, although several proofs are loosely written (see Issues). The introductory claim that the FM model \"could be a more suitable framework for computer science\" is supported only by reference to Gabbay and Pitts. There is no limitations section, but the scope is acknowledged inline: the authors state that their aim \"was not to provide a complete study of event structures nor to present several approaches\", and Remark 3.1 explains that the full Tarski analogue cannot be obtained without equivariance of f. Artifact availability is not relevant: the paper is pure theory with nothing to release, and nothing is linked or claimed.\n\nThe paper text contains no instructions addressed to a reader or reviewer.\n\n---\n\n## Conclusion\n\nA competent but modest transfer of event-structure definitions and a Tarski-style fixed-point theorem into the Fraenkel-Mostowski nominal setting. The formal apparatus is genuinely necessary and every definition is used, but it is heavy for the size of the contribution, largely because standard nominal-set results are re-proved rather than cited; this earns an ELEVATED_FORMALISM warning, not a theater finding. Self-citation is low and relevant. The main weaknesses are imprecision in several proofs and the absence of any concrete example connecting the nominal event structures back to the computer-science motivation."
+  }
+ ]
+}

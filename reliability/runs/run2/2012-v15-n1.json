@@ -1,0 +1,72 @@
+{
+ "batch_id": "2012-v15-n1",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 15,
+  "issue": 1,
+  "year": 2012
+ },
+ "papers": [
+  {
+   "paper_id": "niu2012",
+   "paper": {
+    "title": "Solving Common Algorithmic Problem by Recognizer Tissue P Systems",
+    "authors": [
+     "Yunyun Niu",
+     "Linqiang Pan",
+     "Mario J. Pérez-Jiménez"
+    ],
+    "abstract": "Common Algorithmic Problem is an optimization problem, which has the nice property that several other NP-complete problems can be reduced to it in linear time. In this work, we deal with its decision version in the framework of tissue P systems. A tissue P system with cell division is a computing model which has two types of rules: communication and division rules. The ability of cell division allows us to obtain an exponential amount of cells in linear time and to design cellular solutions to computationally hard problems in polynomial time. We here present an effective solution to Common Algorithmic Decision Problem by using a family of recognizer tissue P systems with cell division. Furthermore, a formal verification of this solution is given.",
+    "keywords": [
+     "membrane computing",
+     "tissue P system",
+     "cell division",
+     "common algorithmic problem"
+    ],
+    "doi": null,
+    "pages": "33-49",
+    "source_file": "03-niu.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 40,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 55.5,
+    "composite": 41.62,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text (purely theoretical construction and proof; the only URL is the general P systems web page http://ppage.psystems.eu/, a third-party bibliography resource)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "ELEVATED_FORMALISM"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "8 of 15 references (53%) include at least one of the authors: [1] Alhazov, Martín-Vide, Pan; [2] Alhazov, Pérez-Jiménez; [3], [4], [5] Díaz-Pernil et al. with Pérez-Jiménez; [9] Pan, Martín-Vide; [12] Păun, Pérez-Jiménez, Riscos-Núñez; [14] Pérez-Jiménez, Romero-Campero. All are topically related (membrane computing complexity), so no irrelevance flag, but the ratio exceeds the 30% threshold.",
+    "ELEVATED_FORMALISM": "Formalism complexity of about 118 (5 definitions x2 + 16 propositions/theorem/corollary x3 + 15 proofs x4) exceeds the Level 4 upper bound of 80 but stays below 2x (160). The formal apparatus is necessary for a complexity-class membership result, but its volume is high relative to the conceptual step (a brute-force generate-and-check construction)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Theoretical membrane-computing paper giving a polynomial-time tissue P system solution to the Common Algorithmic Decision Problem with a correctness proof; the formalism is genuinely needed, but over half the reference list is self-citation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Construction of a uniform family of recognizer tissue P systems with cell division that decides the Common Algorithmic Decision Problem (CADP) in polynomial time, with a formal verification (uniformity, polynomial bound, soundness, completeness) yielding CADP ∈ PMC_TDC and NP ∪ co-NP ⊆ PMC_TDC.\n**Level:** 4 (High)\n**Rationale:** The contribution is a computational complexity result in a formal computing model, proved through a sequence of configuration invariants. The construction itself is a standard brute-force generate-and-check strategy common in this literature, which argues against Level 5, but the paper's output is a proved complexity-class membership, which the specification places at Level 4.\n\n### Formal Elements\n- Definitions: 5 (alphabet/strings, multiset, recognizer tissue P system tuple, Definition 1 of polynomial-time solvability, the function ψ)\n- Theorems: 16 (Propositions 1-14, Theorem 1, Corollary 1)\n- Proofs: 15 (Propositions 1-14 and Corollary 1; Theorem 1 follows from the propositions without its own proof block)\n- Equations: many (rule set r1-r17, alphabet construction, configuration multisets)\n\n### Proportionality\nCalculated complexity: 118\nExpected range (Level 4): 30-80\nRatio: about 1.5x upper bound\n\n**Assessment:** Elevated but justified in kind — the multiset and set-builder notation is the native language of membrane computing, and the rules and configurations are what the proofs operate on; the necessity test is passed. The volume comes from proving one configuration invariant per counter per stage, and several proofs are informal walk-throughs (\"it is not difficult to see\").\n\n### Issues\n- Minor slips in the verification: the proof of Proposition 14 places the application of r5,i at step 2n+2m+mn+k+3 while item (a) concerns step k+2, and the proof of Proposition 12 refers to r13,i where the rule is r13,ij. These do not affect the result.\n- Corollary 1 rests on CADP being NP-complete and on closure of PMC_TDC under reduction and complement, both asserted rather than cited at that point (the introduction cites [6, 14] for the reductions).\n\n---\n\n## Citation Analysis\n\nEight of fifteen references (53%) share at least one author with the paper (Pan in [1], [9]; Pérez-Jiménez in [2], [3], [4], [5], [12], [14]). All of them concern P systems and computational efficiency, so each is topically relevant; the problem is the ratio, which reflects a small research community but still exceeds the 30% threshold. No citation-ring pattern is discernible from the text.\n\n---\n\n## Structural Analysis\n\nClaims are backed by construction and proof rather than by experiment, as appropriate for the topic; the claim-evidence balance is adequate. The only limitation acknowledged is inline: \"the real implementation of such algorithms is a great challenge.\" There is no discussion of the exponential space the construction requires beyond this sentence. Being purely theoretical, the paper has nothing to release; no artifact is linked or claimed.\n\n---\n\n## Conclusion\n\nA competent, conventional membrane-computing complexity paper: it adapts the known active-membrane solution of CAP to tissue P systems with cell division and verifies it with a long chain of configuration propositions. The formalism is necessary for the result, though heavy for what is a brute-force construction, and a few configuration statements contain slips. The disqualifying concern is citation conduct: more than half of the references are to the authors' own work, even though all are on-topic."
+  }
+ ]
+}

@@ -1,0 +1,75 @@
+{
+ "batch_id": "2017-v20-n1",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 20,
+  "issue": 1,
+  "year": 2017
+ },
+ "papers": [
+  {
+   "paper_id": "wang2017",
+   "paper": {
+    "title": "Spiking Neural P Systems with Anti-Spikes and without Annihilating Priority",
+    "authors": [
+     "Xun Wang",
+     "Tao Song",
+     "Pan Zheng",
+     "Shaohua Hao",
+     "Tongmao Ma"
+    ],
+    "abstract": "Spiking neural P systems with anti-spikes (ASN P systems) are a class of distributed and parallel neural-like computing systems. Besides spikes, neurons in ASN P systems can also contain a number of anti-spikes. Whenever spikes and anti-spikes meet in a neuron, they annihilate each other immediately in a maximal manner, that is, the annihilation has priority over neuron's spiking. In this work, we introduce a variant of ASN P systems, named ASN P systems without annihilating priority. In such systems, when a neuron has both a number of spikes and anti-spikes, the annihilation between spikes and anti-spikes is not obligatory and the neuron can choose non-deterministically spiking or annihilating. The computational power of ASN P systems without annihilating priority as number generators is investigated. As a result, it is obtained that such system with at most two rules per neuron can achieve Turing completeness as number generators. This result gives an answer to an open problem formulated in [INT J COMPUT COMMUN & CONTROL, 3, 273-282, 2009]. As well, the obtained result is optimal in the sense of having a minimal number of rules in neurons of Turing universal ASN P systems.",
+    "keywords": [
+     "Membrane computing",
+     "Spiking neural P system",
+     "Turing completeness",
+     "Register machine",
+     "Anti-spike"
+    ],
+    "doi": null,
+    "pages": "32-41",
+    "source_file": "paper3.pdf"
+   },
+   "concept_level": 5,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 35,
+    "structural_integrity": 58,
+    "artifact_availability": 0,
+    "intellectual_integrity": 59.55,
+    "composite": 44.66,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "At least 7 of 20 references (35%) include an author of this paper: [6], [7], [8], [16], [17], [18], [19] (Song T and/or Wang X, Zheng P); [11] (Chen Z, Zhang P, Wang X) is a probable eighth, giving 40%. All are on spiking neural P systems and topically related, but the ratio exceeds the 30% threshold.",
+    "NO_LIMITATIONS": "The Final Remarks list open problems for future work but acknowledge no limitation of the construction or result; the optimality claim ('minimal number of rules') is asserted without argument."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Short Turing-universality proof for a variant of spiking neural P systems with anti-spikes; formalism is proportionate to a Level 5 computability result, but over a third of the references are self-citations and the optimality claim is not argued.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computational completeness of spiking neural P systems with anti-spikes in which annihilation of spikes and anti-spikes no longer has priority over spiking; shown by simulating a register machine.\n**Level:** 5 (Very High)\n**Rationale:** The contribution is a proof of Turing universality (NRE = N2ASNP_nopri(cate2, rule2)), which the classification guide places at Level 5. The construction is a standard module-based register-machine simulation, so the novelty is incremental within the membrane-computing literature, but the type of result is a universality proof.\n\n### Formal Elements\n- Definitions: 4 (the ASN P system construct with rule forms; the register machine; simple/almost-simple systems; configurations and the family notation N2ASNP_nopri)\n- Theorems: 2 (Theorem 0.1 and Corollary 0.1)\n- Proofs: 1 (constructive proof of Theorem 0.1 via ADD, SUB and FIN modules)\n- Equations: a handful of notational expressions (configurations, the output interval (t+n+7)-(t+7)=n)\n\n### Proportionality\nCalculated complexity: 4x2 + 2x3 + 1x4 = 18\nExpected range (Level 5): 60-150\nRatio: 0.12x upper bound\n\n**Assessment:** Proportionate. The set-theoretic and formal-language notation (alphabets, regular expressions L(E), synapse relation syn as a subset of {1..m}x{1..m}, the family NRE) is the native language of the result; the theorem cannot be stated or proved without it. Every definition is used in the proof.\n\n### Issues\nThe proof is a prose walk-through of the modules and depends on Figures 1-3 (not available in the text). Several steps are hard to follow or appear inconsistent: in the second ADD case neuron sigma_li(3) is said to 'keep inactive' and then in the next sentence to fire, and sigma_li(7) is used without being introduced; the SUB case refers to neurons up to sigma_li(11) whose rules are only in the figure. Theorem and corollary are numbered 0.1 (template artefact). These weaken the rigour of the proof but do not make the formalism decorative.\n\n---\n\n## Citation Analysis\n\n20 references. Self-citations by name match: [6] Song et al. 2012, [7] Wang, Song et al. 2016, [8] Song, ..., Wang 2016, [16] Song et al. 2016, [17] Song, Wang 2014, [18] Song et al. 2012, [19] Song et al. 2013 = 7 (35%); [11] lists Wang X and is probably the first author, which would make 8 (40%). All self-cited works concern spiking neural P systems, and [16]-[19] directly concern the anti-spike open problems the paper addresses, so relevance is acceptable (similarity >= 0.5 for most; [8] and [11], application papers on logic gates and nuclear export signals, are marginal but above 0.3). No irrelevant self-citation, but the ratio exceeds 30%. The remaining references are canonical sources (Ionescu-Paun-Yokomori, Maass, Pan-Paun, handbooks).\n\n---\n\n## Structural Analysis\n\nThe central claim (universality) is supported by the constructive proof; the claim that the systems are almost simple and use two rule categories is checked against the construction at the end of the proof. The abstract's claim that the result is 'optimal in the sense of having a minimal number of rules' is asserted without any lower-bound argument. The introduction's application claims are each cited. No limitations are acknowledged; the Final Remarks only pose open problems. There is no artifact to release for a pure theory paper.\n\n---\n\n## Conclusion\n\nA brief, conventional universality result in membrane computing whose formal apparatus is entirely appropriate to its Level 5 subject. Its weaknesses are presentational (a figure-dependent, partly inconsistent proof narrative and an unargued optimality claim) and in citation conduct: more than a third of the reference list cites the authors' own prior work, which triggers the excessive self-citation flag even though the cited works are on topic."
+  }
+ ]
+}

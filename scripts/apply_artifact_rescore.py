@@ -1,6 +1,6 @@
 """Write the artifact re-assessment into the batch JSONs.
 
-data/artifact_rescore.csv holds one judged row per research paper: the
+journal-analysis/ROMJIST_29.12.2025/artifact_reassessment/artifact_rescore.csv holds one judged row per research paper: the
 artifact category, whether the paper has anything to release, and the verbatim
 evidence the category rests on. This script copies each row into its paper's
 ``artifact_assessment`` block, sets ``scores.artifact_availability`` to the
@@ -15,7 +15,7 @@ Usage
 -----
     python scripts/apply_artifact_rescore.py \\
         --input journal-analysis/ROMJIST_29.12.2025 \\
-        --rescore data/artifact_rescore.csv
+        --rescore journal-analysis/ROMJIST_29.12.2025/artifact_reassessment/artifact_rescore.csv
 """
 
 from __future__ import annotations
@@ -38,7 +38,7 @@ ANALYSIS_MODEL = "claude-opus-4-5"
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--input", type=Path, default=Path("journal-analysis/ROMJIST_29.12.2025"))
-    ap.add_argument("--rescore", type=Path, default=Path("data/artifact_rescore.csv"))
+    ap.add_argument("--rescore", type=Path, default=Path("journal-analysis/ROMJIST_29.12.2025/artifact_reassessment/artifact_rescore.csv"))
     args = ap.parse_args()
 
     rows = {r["paper_id"]: r for r in csv.DictReader(args.rescore.open(encoding="utf-8"))}

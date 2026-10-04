@@ -1,6 +1,6 @@
 # RUIN Framework
 
-> Reproduces RUIN's evaluation of 406 ROMJIST research papers (2010–2025) — including the artifact-availability deficit (16% of papers share code or data; 5% release their own code) and the 2024 formalism-theater spike — from the open framework specification and per-paper JSON outputs.
+> Reproduces RUIN's evaluation of 404 ROMJIST research papers (2010–2025), run with Claude Opus 5.5 under specification 1.2.0, together with its pre-registered test–retest study, from the open framework specification and per-paper JSON outputs.
 
 Code, data, and specification accompanying:
 
@@ -26,11 +26,12 @@ RUIN (**R**igor, **U**tility, **I**ntegrity, **N**ecessity) shifts paper assessm
 │   ├── input/                          #   ROMJIST 2022 v25 n1 (paper708 = LifeTags++)
 │   └── output/                         #   RUIN analysis result for the same batch
 ├── journal-analysis/
-│   └── ROMJIST_29.12.2025/             # Full validation run: 415 records, of which
-│                                       #   406 research papers; 56 batches, one JSON
+│   ├── ROMJIST_2026-10-04/             # Current run: 421 records, 404 research papers,
+│   │                                   #   56 batches, one JSON per issue (Claude Opus 5.5)
+│   └── ROMJIST_29.12.2025/             # Earlier run (Claude Opus 4.5), superseded; one JSON
 │                                       #   per issue, 2010–2025
 ├── data/
-│   ├── ruin_scores.csv                 # One row per research paper (406 rows)
+│   ├── ruin_scores.csv                 # One row per research paper (404 rows)
 │   └── README.md                       #   Column dictionary, and what `doi` does not mean
 ├── scripts/
 │   ├── ruin_scoring.py                 # Canonical scoring rules — the sole authority
@@ -79,28 +80,25 @@ When you want to re-run RUIN against the ROMJIST corpus end-to-end — for examp
 
 4. **Aggregate.** Run `python scripts/aggregate.py --input journal-analysis/ROMJIST_{run_date}/` to regenerate tables, figures, and headline statistics for the new run.
 
-## Models and the artifact re-assessment
+## The current run and its reliability
 
-The judged fields of the ROMJIST run were produced in December 2025 with **Claude Opus 4.5** (`claude-opus-4-5`) under Claude Code. The run did not log its model at the time; every batch file now records it under `models`.
-
-The artifact-availability component was later **re-assessed** for every research paper, because the first run's provenance showed it crediting described but unreleased artifacts at the anchors for public code. The re-assessment is fully released:
+The results the manuscript reports come from `journal-analysis/ROMJIST_2026-10-04/`: every analysable file of the 2010–2025 corpus (421 records, 404 research papers), analysed on 2026-10-04 by **Claude Opus 5.5** (`claude-opus-5-5`) under specification 1.2.0, one independent agent per issue. The protocol was committed before the run and is in [`reliability/`](reliability/):
 
 | File | Contents |
 |------|----------|
-| `scripts/artifact_evidence.py` | Deterministic extraction from the source PDFs: every non-publication URL, every availability statement, every dataset mention |
-| `data/artifact_evidence.jsonl` | The extracted evidence, one record per paper |
-| `data/artifact_pass_a.csv`, `data/artifact_pass_b.csv` | Two independent classification passes (Claude Opus 5.5, `claude-opus-5-5`), each with quoted evidence |
-| `data/artifact_adjudication.csv` | Rulings on the 6 disagreements (agreement 400/406, Cohen's κ = 0.95), plus one paper whose PDF is no longer served |
-| `data/artifact_rescore.csv` | The final category per paper, written into the batch JSONs by `scripts/apply_artifact_rescore.py` |
+| `reliability/PROTOCOL.md` | Run conditions, sampling rule, metrics, fixed before any analysis |
+| `reliability/RUN_INSTRUCTIONS.md` | The exact instruction text every analysing agent followed |
+| `reliability/DEVIATIONS.md` | The one amendment (pre-extracted text input) and the files excluded as not being papers |
+| `reliability/pdf_manifest.csv` | SHA-256 of every source PDF and of its extracted text; the PDFs themselves are the journal's and are not redistributed |
+| `reliability/sample.csv` | The 30-paper test–retest sample, drawn from run 1 by `draw_sample.py` |
+| `reliability/runs/run2/`, `run3/` | Two further independent analyses of the sample |
+| `reliability/results.json` | Output of `analyze.py`: MAD, ICC(2,1), Fleiss κ, per-flag agreement |
 
-The category is the judgment and the score is its anchor (`ruin_scoring.ARTIFACT_ANCHORS`); `rescore.py --check` fails if the two disagree. The original score is kept in each paper's `artifact_assessment.original_score`.
+To reproduce from scratch: download the corpus with `tools/Download-ROMJIST.ps1`, check it against the manifest, run `reliability/extract_text.py`, analyse each issue with the published instructions, then `scripts/finalize_run.py`, `scripts/rescore.py --write`, and `reliability/analyze.py`.
 
-```bash
-python scripts/artifact_evidence.py --corpus /path/to/ROMJIST_corpus --input journal-analysis/ROMJIST_29.12.2025 --output data/artifact_evidence.jsonl
-python scripts/artifact_agreement.py --report     # agreement and disagreements
-python scripts/artifact_agreement.py              # writes data/artifact_rescore.csv
-python scripts/apply_artifact_rescore.py && python scripts/rescore.py --write && python scripts/rescore.py --check
-```
+### Earlier run
+
+`journal-analysis/ROMJIST_29.12.2025/` is the first corpus run (December 2025, Claude Opus 4.5, specification 2.0 as then numbered), kept for the record. Its artifact component was later re-assessed; the evidence and both passes are in its `artifact_reassessment/` folder. It is superseded by the current run and the manuscript does not report it.
 
 ## Worked example
 
@@ -108,7 +106,7 @@ python scripts/apply_artifact_rescore.py && python scripts/rescore.py --write &&
 
 ## Validation dataset
 
-`journal-analysis/ROMJIST_29.12.2025/` contains the per-batch JSON files for all 415 ROMJIST records published between 2010 and 2025, of which 406 are research papers and nine are editorials or unreadable PDFs. These files are the primary data behind the manuscript's results. Each JSON contains per-paper metadata, component scores (formalism, citation integrity, structural integrity, artifact availability, intellectual integrity, composite, final), triggered flags with evidence, classification verdict, and a complete provenance record.
+`journal-analysis/ROMJIST_2026-10-04/` contains the per-batch JSON files for all 421 ROMJIST records published between 2010 and 2025, of which 404 are research papers, 16 editorial records, and one an unreadable scan. These files are the primary data behind the manuscript's results. Each JSON contains per-paper metadata, component scores (formalism, citation integrity, structural integrity, artifact availability, intellectual integrity, composite, final), triggered flags with evidence, classification verdict, and a complete provenance record.
 
 For a flat, one-row-per-paper view of the same run see [`data/ruin_scores.csv`](data/README.md), whose README documents every column — including which are judged and which are derived, and why the `doi` column is not a record of DOI registration.
 

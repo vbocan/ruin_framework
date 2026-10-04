@@ -1,0 +1,127 @@
+{
+ "batch_id": "2018-v21-n3",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 21,
+  "issue": 3,
+  "year": 2018
+ },
+ "papers": [
+  {
+   "paper_id": "mahalingam2018",
+   "paper": {
+    "title": "Palindromic Properties of Two-Dimensional Fibonacci Words",
+    "authors": [
+     "K. Mahalingam",
+     "M. Sivasankar",
+     "K. Krithivasan"
+    ],
+    "abstract": "Combinatorial properties of 1D Fibonacci words is a well studied topic in Formal language theory. In the year 2000, Apostolico et.al. extended the concept of one dimensional Fibonacci words to two dimensional Fibonacci arrays and investigated the number of repetitions of some structures (squares, tandems). In this paper, we investigate the number of distinct Palindromic occurrences in any given Fibonacci array. We also investigate the number of palindromes in the conjugacy class of a Fibonacci array.",
+    "keywords": [
+     "Fibonacci arrays",
+     "Palindromes",
+     "Parikh vector",
+     "Conjugacy"
+    ],
+    "doi": null,
+    "pages": "267-277",
+    "source_file": "paper599.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 40,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.0,
+    "composite": 45.0,
+    "final": 40.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "DISPROPORTIONATE_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "DISPROPORTIONATE_FORMALISM": "Count-based trigger: 7 definitions, 12 theorem-type statements (4 theorems, 6 lemmas, 1 proposition, 1 corollary) and 9 proofs give 7x2 + 12x3 + 9x4 = 86, above twice the Level 3 upper bound (80). The notation is the subject matter of a combinatorics-on-words paper and passes the necessity test; at Level 3 the flag is recorded but does not disqualify.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgement of constraints; the conclusion only restates results and asserts relevance to pattern recognition, image processing and crystallography."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Combinatorics-on-words paper counting palindromes in 2D Fibonacci arrays; the formalism is native to the subject but heavy in count, several proofs are loose or absent, and the text has indexing errors and garbled statements.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Enumeration of 2D palindromic Fibonacci arrays, of distinct palindromic subarrays of a Fibonacci array f_{m,n}, and of palindromes in its conjugacy class, extending 1D results and the Apostolico-Brimkov construction.\n**Level:** 3 (Medium)\n**Rationale:** The paper proves non-trivial combinatorial properties of a known structure. It is not a complexity, protocol or universality result, so Level 4-5 is not warranted; it is clearly above an application or empirical study.\n\n### Formal Elements\n- Definitions: 7 (numbered Definitions 1-7: arrays, reverse/transpose, Fibonacci arrays, horizontal/vertical palindromes, palindrome types, cyclic rotation, conjugacy class)\n- Theorems: 12 (Theorems 1-4, Lemmas 1-6, Proposition 1, Corollary 1)\n- Proofs: 9 (Proposition 1, Lemma 2, Theorem 1, Lemmas 4-6, Theorems 2-4)\n- Equations: numerous inline expressions on Fibonacci numbers and index sets\n\n### Proportionality\nCalculated complexity: 86\nExpected range (Level 3): 10-40\nRatio: 2.15x upper bound\n\n**Assessment:** Disproportionate by count only. Every definition is used later (types of palindromes in Lemma 2 and Theorems 1 and 4; rotations in Theorems 3-4), and set notation over alphabets and index sets is the native language of formal language theory, so no element fails the necessity test. The count exceeds the Level 3 bound because the paper is a chain of small lemmas.\n\n### Issues\n- Lemma 1, on which most later proofs rest, is stated as an \"observation\" without proof.\n- The recurrence is misprinted as \"F(n) = F(n - 1) + F(n - 1)\".\n- Theorem 2's proof relies on Lemma 6, whose argument is informal and whose hypothesis (\"if any two rows ... are identical\") is not shown to hold in every case used.\n- Example 2 considers f_{3,4} but computes \"F(3) x F(5) = 3 x 5 = 15\", inconsistent with the theorem's F(m) x F(n).\n- Theorem 3 is garbled (\"Thenumber of distinct of fm,n\"), and the preceding sentence claims the count is \"less than or equal to\" F(m)F(n) while the theorem states exact values.\n- \"a ≠ b ≠ c ≠ d\" is used where pairwise distinctness is presumably meant.\n\n---\n\n## Citation Analysis\n\n25 references. Self-citations: [17] Kulkarni and Mahalingam (2D palindromes), [18] Kulkarni, Mahalingam and Sivasankar (combinatorial properties of Fibonacci arrays, an unpublished preprint), [23] Subramanian, Mahalingam et al. (2D Parikh matrices). SCR = 3/25 = 12%. All three are directly on topic (similarity well above 0.5). Reliance on an unpublished preprint [18] for the FibRep construction of f_{m,n} weakens verifiability. Reference [7] (Knuth-Morris-Pratt) is cited among Fibonacci-word sources, which is loosely relevant at best. No ring pattern observed.\n\n---\n\n## Structural Analysis\n\nIn a theoretical paper the evidence is the proofs. Most claims carry a proof, but the foundational Lemma 1 has none, the central Theorem 2 rests on an informal Lemma 6, and the example meant to illustrate Theorem 2 is mis-indexed. The closing claim that the results \"can support\" pattern recognition, image processing and crystallography is unsupported. No limitations are discussed. Claim-evidence balance is adequate rather than strong. Nothing to release as an artifact (pure theory).\n\n---\n\n## Conclusion\n\nA legitimate combinatorics-on-words contribution whose formal apparatus fits its subject; the DISPROPORTIONATE_FORMALISM flag reflects the element count rather than theater and does not disqualify at Level 3. The main weaknesses are rigor and editing: an unproved base lemma, a loose central proof, an inconsistent worked example and garbled theorem statements. No paper text was addressed to the reviewer."
+  },
+  {
+   "paper_id": "orellanamartin2018",
+   "paper": {
+    "title": "The Unique Satisfiability Problem from a Membrane Computing Perspective",
+    "authors": [
+     "David Orellana-Martín",
+     "Luis Valencia-Cabrera",
+     "Agustín Riscos-Núñez",
+     "Mario J. Pérez-Jiménez"
+    ],
+    "abstract": "Complexity class DP is the class of \"differences\" of any two languages in NP. It verifies that NP ∪ co-NP ⊆ DP ⊆ P^NP, where P^NP is the second level of the polynomial hierarchy, specifically, it is the class of languages decidable by a deterministic polynomial-time Turing machine having access to an NP oracle. The unique sastifiability problem (UNIQUE SAT) is a well known DP problem which has been proved to be co-NP-hard. In this paper, a uniform and polynomial time solution for the UNIQUE SAT problem is given by a family of polarizationless P systems with active membranes and division rules only for elementary membranes, without dissolution rules but using minimal cooperation and minimal production in object evolution rules.",
+    "keywords": [
+     "Complexity class DP",
+     "polarizationless P systems with active membranes",
+     "cooperative rules",
+     "UNIQUE SAT problem"
+    ],
+    "doi": null,
+    "pages": "288-297",
+    "source_file": "paper601.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 65,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 67.25,
+    "composite": 50.44,
+    "final": 40.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "4 of 16 references (25%) include an author of this paper: [5], [12], [14], [15]. All are topically relevant (P systems with active membranes, recognizer framework, the SAT and #SAT solutions adapted here).",
+    "NO_LIMITATIONS": "No limitations section or inline acknowledgement; the conclusions discuss an open problem in complexity theory but not the limits of this construction or the informality of its correctness argument."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Membrane-computing construction placing UNIQUE SAT in PMC for polarizationless P systems with minimal cooperation; formalism is proportionate and native, but soundness and completeness are argued only informally and the text contains internal inconsistencies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A uniform polynomial-time family of polarizationless recognizer P systems with active membranes, elementary division, no dissolution, and minimal cooperation/production that decides UNIQUE SAT, adapted from the authors' earlier SAT and #SAT solutions.\n**Level:** 3 (Medium)\n**Rationale:** The paper establishes membership of a problem in a membrane-computing complexity class through a new construction with resource and time bounds. That is close to a complexity result (Level 4), but the construction is an adaptation of [14] and [15] chiefly in the output stage, and correctness is argued informally; defaulting to the lower level, it is a novel algorithm with complexity analysis.\n\n### Formal Elements\n- Definitions: 7 (numbered Definition 1, the P system tuple; inline definitions of strings/languages, multisets, decision problems, complement problem, Cantor pairing, recognizer P systems, class DP)\n- Theorems: 1 (Theorem 1)\n- Proofs: 1\n- Equations: Cantor pairing function, the UNSAT-to-UNIQUE SAT reduction, the alphabet and rule schemata of the construction\n\n### Proportionality\nCalculated complexity: 21\nExpected range (Level 3): 10-40\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate. The tuple definition is the computing model itself, the rule schemata are the algorithm, and the Cantor pairing indexes the uniform family; none of it can be replaced by prose without losing the construction. Set notation is the field's standard language here.\n\n### Issues\n- The decisive step of Theorem 1, soundness and completeness, is stated to be one that \"can be informally deduced from the overview of the computations\"; no formal verification or simulation is given.\n- Section 4.1 asserts the system \"is deterministic\", while the Case 2 description has objects \"selected non-deterministically\"; the intended property is presumably confluence.\n- Leftovers from the #SAT construction: the system \"will answer how many truth assignments make true the input formula\".\n- Configuration descriptions say membrane 1 holds \"n copies of object αn\" although M1 contains a single α0; rule R.8 carries an unused index \"for 0 ≤ i ≤ n - 1\".\n- The reduction is described as a function \"from the set of instances of UNSAT to the set of instances of UNSAT\", and its image is not in CNF as written.\n\n---\n\n## Citation Analysis\n\n16 references. Self-citations: [5] Gutiérrez, Pérez-Jiménez, Riscos-Núñez et al. (power of dissolution), [12] Pérez-Jiménez et al. (recognizer membrane systems), [14] Valencia-Cabrera, Orellana-Martín et al. (the SAT solution adapted), [15] Valencia-Cabrera, Orellana-Martín et al. (#SAT). SCR = 4/16 = 25%, in the elevated band. Each is substantively used and on topic (similarity above 0.5), so no irrelevant self-citation. References [4] (Cormen et al.), [7] (Papadimitriou) and [8] (Păun 2000) appear in the list but are not cited in the text. No ring pattern observed.\n\n---\n\n## Structural Analysis\n\nThe paper has no introduction and opens with preliminaries. The construction is given in full and resource bounds are listed, which supports the uniformity and polynomial-bound parts of the theorem. The correctness part rests on a narrative overview containing inconsistencies, so the central claim is only adequately supported. No limitations are acknowledged. As a theoretical construction there is nothing it must release, although a simulator encoding of the family would have allowed checking; none is offered.\n\n---\n\n## Conclusion\n\nA standard-form membrane-computing complexity contribution with proportionate, necessary formalism. Its weaknesses are an informally argued correctness proof, several internal inconsistencies left over from the earlier constructions it adapts, a self-citation ratio in the elevated band (though every self-citation is relevant), and no discussion of limitations. No paper text was addressed to the reviewer."
+  }
+ ]
+}

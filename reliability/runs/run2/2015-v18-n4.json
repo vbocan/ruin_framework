@@ -1,0 +1,70 @@
+{
+ "batch_id": "2015-v18-n4",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 18,
+  "issue": 4,
+  "year": 2015
+ },
+ "papers": [
+  {
+   "paper_id": "volmer2015",
+   "paper": {
+    "title": "Detection of Magnetic Nanoparticles for Lab-on-a Chip Applications",
+    "authors": [
+     "Marius Volmer",
+     "Marioara Avram",
+     "Andrei Marius Avram"
+    ],
+    "abstract": "Detection of magnetic carriers used as labels for biosensing applications represent key features in lab-on-a-chip (LOC) devices. This paper presents a review of some experimental techniques used by us to characterize magnetic nanoparticles and to detect them using Permalloy based planar Hall effect sensors. We found that sensitivities better than 0.2x10^-3 emu/mV can be obtained for specific detection schemes. A freeware micromagnetic simulator, SimulMag, was used to complete the view on these experiments.",
+    "keywords": [
+     "Magnetic nanoparticles",
+     "Planar Hall effect sensors",
+     "Micromagnetic simulations",
+     "Lab-on-chip"
+    ],
+    "doi": null,
+    "pages": "343-355",
+    "source_file": "04-volmer.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 70,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.0,
+    "composite": 57.0,
+    "final": 52.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only link is to the third-party simulator SimulMag (http://math.nist.gov/oommf/contrib/simulmag/), which is not the authors' own code",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "3 of 15 references ([11], [12], [14]) are by the authors, SCR = 20%, at the lower boundary of the 20-30% band. All three are topically related (micromagnetic simulation and design of the same PHE sensor structures)."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Experimental review of planar Hall effect sensor characterization and magnetic nanoparticle detection; minimal, necessary formalism (one Langevin fit), measurement-backed claims, borderline self-citation, and no released data or code.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Characterization of disk-shaped Permalloy planar Hall effect (PHE) sensors, magnetic characterization of maghemite nanoparticles (ZFC-FC, VSM), and detection of the nanoparticles with the sensors under perpendicular magnetizing fields, supported by simulations in a third-party micromagnetic simulator.\n**Level:** 2 (Low)\n**Rationale:** An experimental device and materials study that applies established measurement techniques and a standard physical model (Langevin superparamagnetism) to a new sensor geometry and detection scheme. The abstract itself frames it as a review of the group's experimental techniques. No new algorithm, model, or proof is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 numbered (Langevin function, Eq. 1) plus inline proportionalities (U_PHE ~ I·M²·sin2θ, S ~ 1/(H_E+H_K)) and the particle-moment relation m_s = πd³M_S/6\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The Langevin function is the model actually fitted to the VSM data to extract the magnetic diameter (9.88 nm and 11.48 nm), so it passes the Necessity Test; the inline proportionalities are standard physics used to explain the sensitivity/linearity trade-off. Greek letters here denote physical quantities (angle, permeability), not decorated configuration parameters.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n15 references, 3 self-citations ([11], [12], [14], all Volmer and Avram), SCR = 20%. Each is directly relevant: [11] and [12] describe the structure design and micromagnetic setup reused for Fig. 8, and [14] is cited for the simulation showing nanoparticle retention in the coercive state. Topical similarity is high, so no irrelevant self-citation. The ratio sits exactly on the lower boundary of the elevated band, so ELEVATED_SELF_CITATION is raised, though the citations themselves are appropriate. Reference [14] is a conference paper dated October 2015, contemporaneous with this issue. The remaining references are to independent PHE/GMR sensor literature and are on topic.\n\n---\n\n## Structural Analysis\n\nThe paper has no separate methods or related-work section; Section 2 is labelled 'Results and discussion' and carries the experimental setup inline (Keithley instruments, 5 mA drive current, 35 nV p-p noise, averaging). Quantitative claims (sensitivity up to 6 µV/(Oe·mA), T_B = 252 K, detection sensitivities 1.456×10⁻⁴ to 3.88×10⁻⁴ emu/mV) are tied to specific figures. The micromagnetic agreement is stated only as 'good qualitative agreement', and repeatability rests on two field cycles per measurement with no error bars or statistics reported. The abstract's figure ('better than 0.2x10⁻³ emu/mV') and the conclusions' 'up 1.456x10⁻⁴ emu/mV' are numerically consistent but use 'better/high' loosely for what is a lower emu-per-mV value. Limitations are acknowledged inline in the conclusions ('The main limitation of our system ... comes from the relatively large dimension of the PHE sensors'). CER is adequate.\n\nArtifact availability: no data or code released or claimed. SimulMag is a third-party freeware simulator and does not count as the authors' artifact. Measurement data would be relevant to release.\n\nNo instructions addressed to reviewers or automated assessors were found in the text.\n\n---\n\n## Conclusion\n\nA modest, experimentally grounded device-physics paper with formalism that is proportionate and necessary: the single equation is the model actually fitted to the data. Claims are backed by measurements, though statistical treatment of repeatability is thin and the simulation comparison is qualitative only. The self-citation ratio lands on the 20% boundary with relevant citations, and nothing is released for reproduction."
+  }
+ ]
+}

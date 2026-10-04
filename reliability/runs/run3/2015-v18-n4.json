@@ -1,0 +1,70 @@
+{
+ "batch_id": "2015-v18-n4",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 18,
+  "issue": 4,
+  "year": 2015
+ },
+ "papers": [
+  {
+   "paper_id": "volmer2015",
+   "paper": {
+    "title": "Detection of Magnetic Nanoparticles for Lab-on-a Chip Applications",
+    "authors": [
+     "Marius Volmer",
+     "Marioara Avram",
+     "Andrei Marius Avram"
+    ],
+    "abstract": "Detection of magnetic carriers used as labels for biosensing applications represent key features in lab-on-a-chip (LOC) devices. This paper presents a review of some experimental techniques used by us to characterize magnetic nanoparticles and to detect them using Permalloy based planar Hall effect sensors. We found that sensitivities better than 0.2x10-3 emu/mV can be obtained for specific detection schemes. A freeware micromagnetic simulator, SimulMag, was used to complete the view on these experiments.",
+    "keywords": [
+     "Magnetic nanoparticles",
+     "Planar Hall effect sensors",
+     "Micromagnetic simulations",
+     "Lab-on-chip"
+    ],
+    "doi": null,
+    "pages": "343-355",
+    "source_file": "04-volmer.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 70,
+    "structural_integrity": 72,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.5,
+    "composite": 57.38,
+    "final": 52.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only URL, http://math.nist.gov/oommf/contrib/simulmag/ (ref. [13]), points to the freeware simulator SimulMag, which the paper presents as an existing third-party tool rather than as an artifact of this work",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "3 of 15 references ([11], [12], [14]) are by the authors (Volmer, Avram), an SCR of 20%, at the lower edge of the 20-30% band. All three concern micromagnetic simulation and design of the same Permalloy sensor structures and are topically relevant."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Experimental characterisation of Permalloy planar Hall effect sensors and maghemite nanoparticles, with detection experiments; formalism limited to one standard Langevin fit, self-citation at the 20% boundary, no released data or code.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Experimental characterisation of disk-shaped Permalloy planar Hall effect (PHE) sensors, VSM/ZFC-FC magnetic characterisation of bare and PEG-functionalised maghemite nanoparticles, and detection of the nanoparticles with the sensors under perpendicular magnetising fields, supported by micromagnetic simulations in an existing simulator.\n**Level:** 2 (Low)\n**Rationale:** The paper is self-described as a review of the authors' experimental techniques. It is an empirical measurement study: no new algorithm, model, or proof is proposed. The physics used (AMR/PHE dependence, Langevin superparamagnetism) is standard.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 numbered (the Langevin function fit, Eq. 1), plus inline proportionalities (U_PHE ~ I·M²·sin2θ, S ~ 1/(H_E+H_K)) and the particle-moment expression m_s = πd³M_S/6\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The Langevin function is the model actually fitted to the magnetisation data to extract the magnetic diameter (9.88 nm, 11.48 nm); it passes the necessity test. The inline proportionalities explain the measured sensitivity trends and are standard physics, not decoration. No set notation, tuple definitions, or decorative Greek-letter parameters.\n\n### Issues\nNone identified. Minor: the abstract reports sensitivities \"better than 0.2x10-3 emu/mV\" while the body computes 1.456x10-4 to 3.88x10-4 emu/mV; the conclusions phrase this as \"up 1.456x10-4 emu/mV\", so the direction of \"better\" is stated loosely.\n\n---\n\n## Citation Analysis\n\n15 references. Self-citations: [11] Volmer & Avram (J. Nanosci. Nanotechnol. 2012), [12] Volmer & Avram (Microelectron. Eng. 2013), [14] Volmer, Avram & Avram (CAS 2015). SCR = 3/15 = 20%, on the boundary between the elevated (15-20%) and high (20-30%) bands; treated as the start of the 20-30% band. All three are directly relevant: they supply the structure design and micromagnetic setup the paper relies on and the simulation of nanoparticle retention in the coercive state. The remaining references are standard, topical literature on PHE/GMR/MTJ biosensing (Freitas, Hansen, Kim groups). No irrelevant self-citation or ring pattern. Reference [13] (the SimulMag URL) is the tool used.\n\n---\n\n## Structural Analysis\n\nClaims are largely backed by measurements shown in Figs. 3-9 with stated conditions (currents, field ranges, noise level of ~35 nV p-p, integration time). Quantitative claims (T_B = 252 K, magnetic diameters, sensitivities, ~1.26 µg maghemite detected) are derived step by step from the reported curves. Weaker points: the simulation agreement is only qualitative and is done on a 2 µm disk while the sensors are 1 mm; repeatability is shown with two field cycles only; no error bars or statistical treatment; the claim that the coercive-state technique \"can be used for high sensitivity MNPs detection\" rests on a single non-repeating pulse behaviour. Limitations are acknowledged inline in the conclusions (\"The main limitation of our system ... comes from the relatively large dimension of the PHE sensors\"); no dedicated section.\n\nArtifact availability: no data deposit, no code. SimulMag is cited as freeware with a URL, but the paper presents it as an existing tool used for the work, not as software released with this paper; third-party tools do not count. Category `none`.\n\n---\n\n## Conclusion\n\nA modest, honest experimental report on sensor and nanoparticle characterisation, with formalism kept to the physics actually needed and properly used. The main weaknesses are the small experimental base (single sensor type, few cycles, no statistics), qualitative rather than quantitative simulation support, a self-citation ratio sitting exactly at 20%, and no released data. No formalism or citation-integrity concerns of a disqualifying kind; the paper text contained no instructions addressed to a reviewer."
+  }
+ ]
+}

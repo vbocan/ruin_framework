@@ -15,7 +15,7 @@ the source PDF, converts it to text with pdftotext (poppler), and records
       code, software, data, or supplementary material.
 
 It performs no scoring. The evidence file it writes is the input to the
-artifact re-assessment recorded in data/artifact_rescore.csv, whose categories
+artifact re-assessment recorded in journal-analysis/ROMJIST_29.12.2025/artifact_reassessment/artifact_rescore.csv, whose categories
 map to the five anchors through ruin_scoring.ARTIFACT_ANCHORS.
 
 PDFs are matched to records by title, because the downloader keeps the
@@ -25,7 +25,7 @@ Usage
 -----
     python scripts/artifact_evidence.py --corpus /path/to/ROMJIST_corpus \\
         --input journal-analysis/ROMJIST_29.12.2025 \\
-        --output data/artifact_evidence.jsonl
+        --output journal-analysis/ROMJIST_29.12.2025/artifact_reassessment/artifact_evidence.jsonl
 
 Requires pdftotext on PATH (Debian: apt-get install poppler-utils).
 """

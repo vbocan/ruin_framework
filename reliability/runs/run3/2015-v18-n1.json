@@ -1,0 +1,62 @@
+{
+ "batch_id": "2015-v18-n1",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 18,
+  "issue": 1,
+  "year": 2015
+ },
+ "papers": [
+  {
+   "paper_id": "petrica2015",
+   "paper": {
+    "title": "IxFIZZ: Integrated Functional and Fuzz Testing Framework based on Sulley and SPIN",
+    "authors": [
+     "Lucian Petrică",
+     "Laura Vasilescu",
+     "Ana Ion",
+     "Octavian Radu"
+    ],
+    "abstract": "Fuzzing has long been established as a way to automate negative testing of software components. While effective, existing fuzzing frameworks lack the necessary features to test stateful protocols in-depth. We propose using the modelling language Promela, and its interpreter SPIN, as an intuitive and generic way to describe protocol state machines, allowing the automatic generation of stateful fuzzing scripts for the popular Sulley fuzzing framework. Our approach involves the simulation of the Promela description in order for a set of valid protocol conversation sequences to be extracted. These sequences are then automatically modified by IxFIZZ, which inserts erroneous messages in the protocol conversation according to a set of heuristics. This approach also enables automatic analysis of test results against the protocol model and a tight integration of fuzzing with existing test-driven methodologies. We evaluated IxFIZZ against Linphone, a popular multi-platform SIP phone, to demonstrate the effectiveness of this approach, and compared the results to PROTOS, an established fuzzing framework for stateful network protocols. Our results indicate that IxFIZZ is able to detect more defects in the target software.",
+    "keywords": [],
+    "doi": null,
+    "pages": "54-68",
+    "source_file": "04-lpetrica.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 82.25,
+    "composite": 61.69,
+    "final": 61.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only links are to third-party tools (Sulley manual, Wireshark, fuzzers in refs [13]-[18], [29]), and the IxFIZZ generator, Promela SIP model and Sulley blocks are described but not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Tool paper that combines the SPIN model checker with the Sulley fuzzer to generate stateful protocol fuzzers. It uses no mathematical formalism and has no self-citations. Its evaluation is a single case study on Linphone, it is weak on quantitative comparison, and it releases no artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A framework (IxFIZZ) that simulates a Promela protocol model in SPIN, extracts a conversation state graph, and generates Sulley fuzzing scripts that add state-machine attacks (skip receive/send, random fields, replay, fast forward). A generated Promela fuzzer model is co-simulated to check DUT responses.\n**Level:** 2 (Low)\n**Rationale:** The contribution is mainly the integration of two existing tools (SPIN, Sulley), plus a heuristic graph-traversal procedure with attack counters. The traversal algorithm and the analysis-by-co-simulation idea lift it above a pure Level 1 integration. It is not a new algorithm with complexity or correctness analysis, so it does not reach Level 3.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\nThe only formal-looking content is code listings: Promela channel declarations, Sulley block and session snippets, and SPIN simulation output. These are implementation artefacts, not mathematical notation. The traversal algorithm is given in prose.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper describes its system in plain English and code, which suits its conceptual level. Nothing fails the Necessity Test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThe paper has 29 references and none are self-citations; no work by Petrică, Vasilescu, Ion or Radu appears. The references cover fuzzing (SPIKE, Sulley, PROTOS, SNOOZE, KiF, AutoFuzz), model checking (SPIN, Promela), SPIN-based test generation (Zhou et al.; Jürjens), SIP (RFC 3261; Zave's Promela model of SIP) and testing methodology. All are on-topic. Several entries are bare tool URLs and one is a Wikipedia list, which is weak sourcing but not an integrity problem. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe related-work section is substantive and states a clear gap: no prior stateful fuzzer pairs a SPIN-derived state machine with a fuzzer backend. The evaluation is one case study on two Linphone versions using a minimal SIP model (INVITE dialog plus OPTIONS/INFO, one UAC and one UAS, about 100 lines of Promela). It reports \"over ten thousand individual test cases\". Table 1 lists the defects found, which gives concrete evidence. The comparison with PROTOS is qualitative only: some parser bugs were also found by PROTOS, and the three state-machine issues were not. The paper gives no defect counts per tool, no run times, no coverage figures and no ablation of the attack types. That leaves the abstract's claim that IxFIZZ \"is able to detect more defects\" only partly supported. The paper also states that the defects were reported to the developers, but gives no bug identifiers.\n\nThere is no limitations section. Constraints are acknowledged inline: the SIP model is minimal, Sulley supports only TCP/UDP, and future work notes that writing Sulley blocks by hand is time-consuming. This is enough to avoid NO_LIMITATIONS. The claim-evidence balance is adequate (CER roughly 0.5-1.0).\n\nArtifacts: the IxFIZZ generator, the Promela SIP model, the Sulley blocks and the generated scripts are described and partly excerpted, but no link or availability statement is given. Sulley, SPIN, Linphone and PROTOS are third-party tools and do not count as the authors' own artifacts. Category: none.\n\nNo instructions addressed to reviewers or automated agents were found in the paper text.\n\n---\n\n## Conclusion\n\nThis is a clearly written Level 2 tool paper with no formalism theater: the method is explained in prose and code, which suits it. Its citations are clean and relevant. Its weaknesses are empirical and concern reproducibility. The evidence rests on one target application and a qualitative comparison with PROTOS, and nothing (tool, model or scripts) is released. Fuller quantitative reporting and a public release of the generator and the SIP model would make the paper's claims verifiable."
+  }
+ ]
+}

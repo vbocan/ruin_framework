@@ -1,0 +1,64 @@
+{
+ "batch_id": "2012-v15-n2",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 15,
+  "issue": 2,
+  "year": 2012
+ },
+ "papers": [
+  {
+   "paper_id": "alexandru2012",
+   "paper": {
+    "title": "Nominal Event Structures",
+    "authors": [
+     "Andrei Alexandru",
+     "Gabriel Ciobanu"
+    ],
+    "abstract": "We present the concept of \"event structures\" in the nominal framework of the Fraenkel-Mostowski model of set theory. Using specific techniques of nominal logic, we introduce and study the nominal event structures, providing some properties. The analogy between the results obtained by using the Fraenkel-Mostowski axioms and those obtained by using the Zermelo-Fraenkel axioms is discussed.",
+    "keywords": [],
+    "doi": null,
+    "pages": "79-90",
+    "source_file": "01-gciobanu2012.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 92,
+    "structural_integrity": 72,
+    "artifact_availability": 0,
+    "intellectual_integrity": 74.2,
+    "composite": 55.65,
+    "final": 50.65
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the paper is purely theoretical (definitions, propositions and proofs) and has no code or data to release",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "Level 3 paper with 12 definitions, 8 theorem-like statements (3 theorems, 3 propositions, 1 corollary plus Theorem 2.1) and 7 proofs: complexity 12x2 + 8x3 + 7x4 = 76, between the Level 3 upper bound of 40 and twice that bound (80). The formalism is the subject matter and passes the necessity test; the flag records proportionality only."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Short pure-theory paper transferring elementary event structures, causality functions and a Tarski-style fixed-point theorem into Fraenkel-Mostowski nominal sets; the formalism is necessary but heavy relative to a modest, largely routine adaptation, and Section 2 mostly restates known nominal-set background.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Reformulation of Nielsen-Plotkin-Winskel elementary event structures, event structures with conflict, and causality (monotone) functions inside the Fraenkel-Mostowski (FM) permutation model of set theory, with finitely supported analogues of the greatest-lower-bound property and the Knaster-Tarski fixed-point theorem.\n**Level:** 3 (Medium)\n**Rationale:** The paper extends an existing theoretical framework (nominal sets) to an existing concept (event structures) and proves properties of the result. The proofs are genuine but follow the classical ZF arguments closely, the extra work being to show that the constructed sets (lower bounds, post-fixed points) are finitely supported. It does not establish protocol safety, type soundness, complexity or undecidability results, so Level 4-5 is not warranted; defaulting low per the specification.\n\n### Formal Elements\n- Definitions: 12 (2.1-2.8, 3.1-3.4)\n- Theorems: 8 (Theorems 2.1, 3.1, 3.2, 3.3; Corollary 2.1; Propositions 2.1, 2.2, 2.3)\n- Proofs: 7\n- Equations: numerous set-theoretic and group-action expressions, all part of the proofs\n\n### Proportionality\nCalculated complexity: 76\nExpected range (Level 3): 10-40\nRatio: 1.9x upper bound\n\n**Assessment:** Elevated but justified in kind. Every formal element passes the necessity test: the set notation, permutation actions and support sets are the object of study, not stand-ins for list operations, and the definitions are used in the subsequent proofs (Definitions 2.4, 2.6, 2.7, 2.8 and 3.2 are invoked repeatedly). The bulk of the count comes from Section 2, which restates standard FM/nominal background (ZFA axioms, support, equivariance, finitely supported functions) largely available in Gabbay and Pitts; the original contribution is Section 3 (four definitions, three theorems). Definition 3.4 (FM-event structure with conflict) is introduced but no result is proved about it.\n\n### Issues\n- Theorem 2.1 and Corollary 2.1 state essentially the same result.\n- The proofs of Theorems 3.1 and 3.2 each give \"two methods\" for the same step, adding length without content.\n- The axiom list in Definition 2.2 is presented as a definition but is background, not a contribution.\nNo formalism theater patterns identified.\n\n---\n\n## Citation Analysis\n\nEight references, one self-citation ([1], the authors' nominal semantics of the piI-calculus at SYNASC 2011), giving SCR = 12.5%. The self-citation is directly relevant: it applies the same nominal techniques. The remaining references are the canonical sources (Gabbay and Pitts, Pitts, Nielsen-Plotkin-Winskel, Tarski, Rubin and Rubin). The bibliography is thin for related work: other nominal treatments of concurrency models are not discussed. No integrity concerns.\n\n---\n\n## Structural Analysis\n\nClaims are mathematical and are supported by explicit proofs; the motivational claim that FM is \"a more suitable framework for computer science\" is deferred to cited work rather than argued. The paper acknowledges its scope inline (\"Our aim was not to provide a complete study of event structures nor to present several approaches\"), which counts as an inline limitation. There is no related-work section, and no application or example of a nominal event structure is given, so the computational payoff of the transfer is left implicit. No artifacts are expected for a pure-theory paper.\n\nNo instructions addressed to an analyst or reviewer were found in the text.\n\n---\n\n## Conclusion\n\nA competent, compact piece of nominal set theory whose formalism is genuinely necessary but large relative to its modest original contribution: most of the formal apparatus restates known background, and the new results are faithful FM analogues of classical lattice-theoretic facts. The ELEVATED_FORMALISM flag reflects proportionality at Level 3, not decorative notation. The paper would be strengthened by a related-work discussion and by showing a use of the FM-event structures it defines."
+  }
+ ]
+}

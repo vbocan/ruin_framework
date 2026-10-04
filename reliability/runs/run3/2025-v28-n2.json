@@ -1,0 +1,69 @@
+{
+ "batch_id": "2025-v28-n2",
+ "analysis_timestamp": "2026-10-04T00:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 2,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "bonev2025",
+   "paper": {
+    "title": "Inclusion of Mechanical Stress Effects in a Compact MOSFET Model",
+    "authors": [
+     "Nikolay Bonev",
+     "Dirk Michael Nuernbergk",
+     "Christian Lang"
+    ],
+    "abstract": "The analog performance of integrated circuits relies on stable parameters of its transistors. Mechanical stress changes the electronic properties of silicon and therefore, also the device parameters. For circuit design a good model of these effects is needed for a predictable and reliable function of the circuits. This article extracts the changes of various MOSFET parameters under effect of mechanical stress. A compact description of the stress effects is derived by applying tensors of piezo coefficients. The deviations are included in the physically based compact EKV model. A comparison with measured data shows that the stress effects are modelled correctly within a 10 % error margin.",
+    "keywords": [
+     "EKV model",
+     "electron mobility",
+     "mechanical stress",
+     "MOSFET",
+     "parameter extraction",
+     "stress tensor",
+     "threshold voltage"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.02",
+    "pages": "138-149",
+    "source_file": "paper797.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.0,
+    "composite": 60.75,
+    "final": 60.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-04",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Empirical device-characterisation study applying the established piezo-coefficient tensor formalism to EKV parameters; its equations are standard and necessary device physics, but the evidence base is a single n-MOSFET geometry, the text contains several internal inconsistencies, and no measurement data are released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Measuring how in-plane mechanical stress (applied with a four-point bending bridge) shifts the mobility, threshold voltage and slope factor of a long-channel n-MOSFET in a 0.18 µm SOI process, extracting these with the established EKV constant-current method, and fitting the results to the standard cubic-crystal piezo-coefficient tensor (three independent coefficients) by least squares.\n**Level:** 2 (Low)\n**Rationale:** Every modelling ingredient is taken from prior work: the four-point bending stress formula [7], the simplified EKV equations and extraction procedure [6, 11], the piezo tensor with cubic symmetry [12], and tensor rotation [13]. The contribution is an empirical extraction and the insertion of linear stress sensitivities into an existing compact model. No new algorithm, model class or proof is proposed. This is the 'apply an existing method to new measurements' case, so Level 2.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 17 (bending-beam stress, EKV current/pinch-off/specific-current equations, extraction relations, mobility and threshold tensor models, 6x6 piezo matrix, in-plane stress substitution, stress-tensor rotation)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Each equation passes the necessity test: they are the physical relations an engineer actually needs to compute σ0 from the applied force, extract Is, VT0 and n from the measurements, and set up the over-determined linear system for µ11, µ12, µ44 and ν11, ν12, ν44. The tensor notation is the native and compact language of anisotropic piezo effects; it is not set or tuple notation standing in for programming constructs, and Greek symbols denote physical quantities rather than configuration parameters.\n\n### Issues\nNo formalism theater. Some notational and consistency defects lower the structural score rather than the formalism score:\n- Eq. (15) writes the threshold model multiplicatively (VT00 · lᵀ ΠV σ l), whereas Eq. (16) and the text ('absolute threshold voltage change') are additive (VT00 + ...).\n- 'only 4 of these, µ11, µ12 and µ44, are independent' lists three coefficients; three is correct for cubic symmetry.\n- The text cites a maximum applied stress of '60 GPa', while Figs. 6 and 7 are plotted to 60 MPa; the Table 1 column units (GPa⁻¹, µV/GPa) are consistent with MPa-scale stress, so 'GPa' in the text appears to be an error.\n- Table 2 calls µij 'components of the stress tensor' in the preceding text, conflating the piezo tensor with the stress tensor.\n\n---\n\n## Citation Analysis\n\n15 references, 2 self-citations ([1] Bonev and Hristov on packaging stress and a bandgap reference; [14] the same three authors' 2024 CAS paper on package-related stress extraction in 180 nm SOI). SCR = 2/15 ≈ 13%, within the normal band. Both are directly on topic (similarity well above 0.5); [14] is the immediate predecessor whose three-device coefficients this paper revises, and the paper explains the sign and magnitude differences. Remaining references are standard sources on strain physics, EKV extraction and piezoresistance. No ring pattern.\n\n---\n\n## Structural Analysis\n\nThe central claims (linear stress dependence; three fitted coefficients per parameter; model agreement within 10% for ID) are backed by Figs. 6-8 and Tables 1-2, and the least-squares residual E is reported for both coefficient sets. CER is adequate. The evidential base is narrow, however: one device size (W/L = 10/50 µm), one channel type, one temperature, and eight orientation/strip combinations giving eight constraints for three unknowns. The generalisation that the results 'are relevant for all transistor geometries without short-channel effects' is asserted rather than shown. The claim 'For the first time, we extract...' is not supported by a comparative literature review. The physical explanation of the threshold decrease (bandgap and density-of-states reduction) is attributed to [4] without being tested.\n\nLimitations are acknowledged inline rather than in a dedicated section: the test setup could not bias at very low currents (requiring a correction term), the threshold-voltage fit carries a 10% error attributed to extraction uncertainty, and short-channel, p-channel and other-temperature devices are left to future work. NO_LIMITATIONS therefore does not apply.\n\nArtifact availability: no measurement data, extraction scripts or model files are linked or claimed. The test chip and setup are described but described methods do not count as availability. The paper rests on measured data that could have been released, so the assessment is relevant.\n\n---\n\n## Conclusion\n\nA compact, honest piece of applied device characterisation. Its mathematics is the standard physics required to extract and model piezo coefficients and is proportionate to a Level 2 contribution; citation behaviour is clean. The weaknesses are structural: a single device geometry supports broad generalisations, several typographical and unit inconsistencies (GPa versus MPa, the multiplicative Eq. (15), 'four' independent coefficients) undermine confidence in the presentation, and no data are made available for reproduction. No flags are raised."
+  }
+ ]
+}
