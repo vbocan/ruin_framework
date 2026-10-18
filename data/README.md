@@ -1,6 +1,6 @@
 # Paper-level dataset
 
-`ruin_scores.csv` is the flat, one-row-per-paper view of the validation run. It
+`ruin_scores.csv` is the flat, one-row-per-paper view of the corpus run. It
 is generated from the batch JSONs in `journal-analysis/ROMJIST_2026-10-04/`,
 which remain the archive of record:
 

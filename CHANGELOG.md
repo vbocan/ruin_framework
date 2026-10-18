@@ -7,6 +7,26 @@ specification is versioned independently of the corpus analysis runs — the
 `analysis_version` field inside each batch JSON records which specification
 revision produced that file.
 
+## [Unreleased]
+
+No specification change.
+
+- **Section 4.6 and Table 5 reproduce from this repository.**
+  `scripts/classification_stability.py` (standard library only) recomputes the
+  double count of capped findings, the band distribution under alternative
+  scoring rules, band agreement across the test-retest runs, and the
+  self-citation ratios the model recorded; `aggregate.py` now writes
+  `table5_rule_sensitivity.csv` and `classification_stability.json` next to
+  Tables 1–4 for the corpus run. The manuscript's verification reads the same
+  module.
+- The README, `CITATION.cff`, and `framework/README.md` carry the paper's new
+  title and describe RUIN as an experimental screen; `framework/README.md` no
+  longer describes the superseded Opus 4.5 run, and "validation" wording that
+  implied an established validity is gone. `REPRODUCE.md` covers run 4 and
+  Table 5.
+- `aggregate.py` labels the `FORMALISM_THEATER` rate as such, not as
+  disproportionate formalism, which is a different flag.
+
 ## [1.2.1] — 2026-10-18
 
 Corrections to the specification text. No rule used to compute a published

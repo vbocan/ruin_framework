@@ -302,7 +302,7 @@ For each paper:
 
 ## Example: A Level 1 Paper Re-scored
 
-The case below is drawn from a published paper in the validation corpus,
+The case below is drawn from a published paper in the ROMJIST corpus,
 described structurally and without identifying it. What matters for the
 framework is the pattern, not the paper.
 

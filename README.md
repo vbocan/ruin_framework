@@ -1,12 +1,14 @@
 # RUIN Framework
 
-> Reproduces RUIN's evaluation of 404 ROMJIST research papers (2010–2025), run with Claude Opus 5.5 under specification 1.2.0, together with its pre-registered test–retest study, from the open framework specification and per-paper JSON outputs.
+> Reproduces RUIN's evaluation of 404 ROMJIST research papers (2010–2025), run with Claude Opus 5.5 under specification 1.2.0, together with a test–retest study whose protocol was fixed in advance and a retest of every capped paper, from the open framework specification and per-paper JSON outputs.
 
 Code, data, and specification accompanying:
 
-> Bocan V, Bălaș VE. RUIN: An Automated Framework for Assessing Intellectual Integrity and Reproducibility in Computer Science Publications. *Scientometrics* (submitted).
+> Bocan V, Bălaș VE. RUIN: A Language-Model-Assisted Screen for Formalism, Citation Practice, and Artifact Availability in Computer Science Publications. *Scientometrics* (submitted).
 
-RUIN (**R**igor, **U**tility, **I**ntegrity, **N**ecessity) shifts paper assessment from citation counting to content-level analysis along four dimensions: formalism proportionality, citation integrity, structural soundness, and artifact availability. The framework is encoded as a runtime-agnostic specification that an LLM agent executes against PDF papers to produce structured per-paper assessments.
+RUIN (**R**igor, **U**tility, **I**ntegrity, **N**ecessity) shifts paper assessment from citation counting to content-level analysis along four dimensions: formalism proportionality, citation integrity, structural soundness, and artifact availability. The framework is encoded as a runtime-agnostic specification that an LLM agent executes against the text of each paper to produce structured per-paper assessments, from which a script computes every score.
+
+RUIN is an experimental screen for assisted assessment, not a validated measure of integrity or quality. Its flags point a reader to specific passages with the evidence attached; its validity against expert judgment has not been established, several of its thresholds are design choices, and its labels are not findings about the conduct of any author.
 
 ## Repository layout
 
@@ -39,6 +41,7 @@ RUIN (**R**igor, **U**tility, **I**ntegrity, **N**ecessity) shifts paper assessm
 │   ├── rescore.py                      # Audits/repairs derived fields in the batch JSONs
 │   ├── export_scores.py                # Flattens the batch JSONs into data/ruin_scores.csv
 │   ├── aggregate.py                    # Reproduces published tables, figures, statistics
+│   ├── classification_stability.py     # Section 4.6 and Table 5 (called by aggregate.py)
 │   └── requirements.txt
 ├── CITATION.cff
 ├── CHANGELOG.md
@@ -50,7 +53,7 @@ RUIN (**R**igor, **U**tility, **I**ntegrity, **N**ecessity) shifts paper assessm
 
 ## Reproducing the published numbers (one command)
 
-The repository ships with every JSON file the manuscript's results are derived from. To regenerate Tables 3 and 4, Figure 4, and the headline statistics:
+The repository ships with every JSON file the manuscript's results are derived from. To regenerate Tables 1–5, Figure 4, and the headline statistics:
 
 ```bash
 pip install -r scripts/requirements.txt
@@ -61,18 +64,22 @@ Outputs land in `scripts/output/`:
 
 | Output | Manuscript reference |
 |--------|----------------------|
+| `tables/table1_classification.csv` | Table 1 — classification distribution |
+| `tables/table2_dimensions.csv` | Table 2 — dimension scores |
 | `tables/table3_flags.csv` | Table 3 — flag occurrences |
 | `tables/table4_yearly_scores.csv` | Table 4 — per-year means |
 | `figures/figure4_temporal.png` | Figure 4 — temporal trajectory |
+| `tables/table5_rule_sensitivity.csv` | Table 5 — bands under alternative scoring rules |
+| `tables/classification_stability.json` | Section 4.6 — the double count, rule and model sensitivity, recorded self-citation ratios |
 | `tables/headline_stats.json` | Mean final score (42.7), artifact availability (11.4), disqualified papers (148), formalism-theater rate (17.8%), annual-mean CV and regression |
 
-This is the path from the open dataset to every number in the Results section.
+This is the path from the open dataset to every number in the Results section except the citation analysis of Section 4.5, which needs a licensed Web of Science export (see `citations/`), and the run-4 retest, analysed by `reliability/capped/analyze.py`.
 
 ## Reproducing the full pipeline (from PDFs)
 
 When you want to re-run RUIN against the ROMJIST corpus end-to-end — for example to test an updated specification, a different LLM model, or to extend the corpus past 2025:
 
-1. **Download the corpus.** Run `tools/Download-ROMJIST.ps1` (60–90 min). This populates a folder of batch directories matching the validation layout described in `tools/README.md`.
+1. **Download the corpus.** Run `tools/Download-ROMJIST.ps1` (60–90 min). This populates a folder of batch directories matching the batch layout described in `tools/README.md`.
 
 2. **Load the framework specification.** Point your LLM runtime at `framework/` (or, if using Claude Code, the mirrored `.claude/skills/ruin-analysis/`). The four documents (`SKILL.md`, `flags.md`, `scoring.md`, `output-format.md`) together encode the nine-step protocol. See [framework/README.md](framework/README.md) for how to use the specification with non-Claude-Code runtimes.
 
@@ -84,7 +91,7 @@ When you want to re-run RUIN against the ROMJIST corpus end-to-end — for examp
 
 ## The current run and its reliability
 
-The results the manuscript reports come from `journal-analysis/ROMJIST_2026-10-04/`: every analysable file of the 2010–2025 corpus (421 records, 404 research papers), analysed on 2026-10-04 by **Claude Opus 5.5** (`claude-opus-5-5`) under specification 1.2.0, one independent agent per issue. The protocol was committed before the run and is in [`reliability/`](reliability/):
+The results the manuscript reports come from `journal-analysis/ROMJIST_2026-10-04/`: every analysable file of the 2010–2025 corpus (421 records, 404 research papers), analysed on 2026-10-04 by **Claude Opus 5.5** (`claude-opus-5-5`) under specification 1.2.0 (tag `spec-1.2.0`), one independent agent per issue. `framework/` now holds 1.2.1, which corrects the specification text without changing any rule used to compute a published score (see [CHANGELOG.md](CHANGELOG.md)). The protocol was committed before the run and is in [`reliability/`](reliability/):
 
 | File | Contents |
 |------|----------|
@@ -108,7 +115,7 @@ To reproduce from scratch: download the corpus with `tools/Download-ROMJIST.ps1`
 
 `samples/input/` describes a single batch (ROMJIST 2022, Volume 25, Issue 1) with one paper — Aiordachioae & Vatavu (2022), *LifeTags++* — that the manuscript discusses as a worked example of formalism theater. The PDF is the publisher's and is not redistributed; [`samples/input/papers/README.md`](samples/input/papers/README.md) gives its URL and SHA-256. The corresponding analysis output is in `samples/output/ROMJIST/2022-v25-n1.json`. Use this pair to inspect the framework's behaviour on a single, fully documented case before launching a full corpus run.
 
-## Validation dataset
+## Dataset
 
 `journal-analysis/ROMJIST_2026-10-04/` contains the per-batch JSON files for all 421 ROMJIST records published between 2010 and 2025, of which 404 are research papers, 16 editorial records, and one an unreadable scan. These files are the primary data behind the manuscript's results. Each JSON contains per-paper metadata, component scores (formalism, citation integrity, structural integrity, artifact availability, intellectual integrity, composite, final), triggered flags with evidence, classification verdict, and a complete provenance record.
 
@@ -124,18 +131,20 @@ If you use this framework or dataset, please cite both the paper and this reposi
 
 ```bibtex
 @article{bocan2026ruin,
-  title   = {{RUIN}: An Automated Framework for Assessing Intellectual Integrity
-             and Reproducibility in Computer Science Publications},
+  title   = {{RUIN}: A Language-Model-Assisted Screen for Formalism, Citation
+             Practice, and Artifact Availability in Computer Science Publications},
   author  = {Bocan, Valer and Bălaș, Valentina E.},
   journal = {Scientometrics},
   year    = {2026},
   note    = {Submitted}
 }
 
-@software{bocan2025ruin_repo,
-  title   = {{RUIN} Framework — Specification and Validation Dataset},
+@software{bocan2026ruin_repo,
+  title   = {{RUIN} framework: Specification, analysis pipeline, and {ROMJIST}
+             2010--2025 dataset},
   author  = {Bocan, Valer and Bălaș, Valentina E.},
-  year    = {2025},
+  year    = {2026},
+  version = {1.2.1},
   url     = {https://github.com/vbocan/ruin_framework}
 }
 ```

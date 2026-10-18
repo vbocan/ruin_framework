@@ -15,6 +15,11 @@ Outputs (written under --output):
     tables/headline_stats.json          Corpus-level statistics referenced in
                                         the manuscript body (means, CV,
                                         regression, Fisher's exact)
+    tables/table5_rule_sensitivity.csv  Bands under alternative scoring rules
+    tables/classification_stability.json
+                                        Section 4.6: the double count, rule
+                                        and model sensitivity, recorded
+                                        self-citation ratios (default run only)
     figures/figure4_temporal.png        Composite score and flag rate by year
 
 Every derived quantity comes from :mod:`ruin_scoring`, the single authority for
@@ -358,8 +363,8 @@ def plot_temporal(year_rows: list[dict], theater_by_year: dict, path: Path) -> N
 
     ax2 = ax1.twinx()
     color2 = "#d62728"
-    ax2.bar(years, theater, alpha=0.25, color=color2, label="Disproportionate formalism (%)")
-    ax2.set_ylabel("Disproportionate formalism rate (%)", color=color2)
+    ax2.bar(years, theater, alpha=0.25, color=color2, label="Formalism theater (%)")
+    ax2.set_ylabel("Formalism theater rate (%)", color=color2)
     ax2.tick_params(axis="y", labelcolor=color2)
     ax2.set_ylim(0, max(30, max(theater) + 5))
 
@@ -373,6 +378,9 @@ def plot_temporal(year_rows: list[dict], theater_by_year: dict, path: Path) -> N
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+
+DEFAULT_RUN = Path(__file__).resolve().parents[1] / "journal-analysis" / "ROMJIST_2026-10-04"
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
@@ -409,6 +417,15 @@ def main() -> None:
     write_json(headline, args.output / "tables" / "headline_stats.json")
     plot_temporal(year_rows, theater_by_year, args.output / "figures" / "figure4_temporal.png")
 
+    # Section 4.6 and Table 5 read the published judgments of the corpus run and
+    # the test-retest runs, so they are produced only for that run.
+    stability = None
+    if args.input.resolve() == DEFAULT_RUN:
+        import classification_stability as cs
+        stability = cs.compute(DEFAULT_RUN.parents[1])
+        write_json(stability, args.output / "tables" / "classification_stability.json")
+        write_csv(cs.table5_rows(stability), args.output / "tables" / "table5_rule_sensitivity.csv")
+
     print(f"Records loaded:      {total_records} across {len(batches)} batches")
     print(f"Non-research:        {headline['n_excluded_non_research']} (editorials, unreadable)")
     print(f"Research papers:     {len(papers)}")
@@ -416,12 +433,16 @@ def main() -> None:
     print(f"Mean artifact avail: {headline['means']['artifact_availability']}")
     print(f"Disqualified:        {headline['n_disqualified']}")
     print(
-        f"Disproportionate formalism: "
+        f"Formalism theater:   "
         f"{headline['formalism_theater']['corpus_rate_pct']}% corpus, "
         f"{headline['formalism_theater']['first_decade_2010_2019_rate_pct']}% in 2010-2019"
     )
     fisher = headline["formalism_theater"]["fisher_2024_vs_rest"]
     print(f"Fisher 2024 vs rest: OR = {fisher['odds_ratio']}, p = {fisher['p']:.2e}")
+    if stability:
+        b = stability["B"]
+        print(f"Table 5:             no cap moves {b['no_cap_no_penalty']['changed_band']} papers to "
+              f"another band; artifact weight 0.15 moves {b['artifact_015']['changed_band']}")
     print(f"Outputs written under {args.output.resolve()}")
 
 

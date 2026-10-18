@@ -9,7 +9,7 @@ cd D:\Repositories\ruin_framework\tools
 .\Download-ROMJIST.ps1
 ```
 
-Configuration block at the top of the script: `$StartYear`, `$EndYear`, `$OutputFolder`, `$RequestDelay`, `$SkipExisting`. Default range is 2010–2025 (the validation corpus).
+Configuration block at the top of the script: `$StartYear`, `$EndYear`, `$OutputFolder`, `$RequestDelay`, `$SkipExisting`. Default range is 2010–2025 (the ROMJIST corpus).
 
 ## Output layout
 

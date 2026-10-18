@@ -222,5 +222,5 @@ The four files in this directory are the complete specification:
 - [scoring.md](scoring.md) - scoring model and classification bands
 - [output-format.md](output-format.md) - JSON output schema
 
-The theoretical foundation and reporting of the validation study are in the
+The theoretical foundation and the reporting of the ROMJIST study are in the
 accompanying manuscript (see the main repository [README](../../../README.md)).

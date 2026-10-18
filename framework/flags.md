@@ -260,7 +260,7 @@ Trigger: upper_bound < formalism_score ≤ 2 × upper_bound
 
 ### A lifelogging system paper - SHOULD BE FLAGGED
 
-Drawn from a published paper in the validation corpus, described structurally
+Drawn from a published paper in the ROMJIST corpus, described structurally
 and without identifying it. What matters is the pattern, not the paper.
 
 **What it is:** Mobile app calling a hosted image-recognition API, storing
