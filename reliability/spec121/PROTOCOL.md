@@ -1,6 +1,6 @@
 # Run 5: the stated Necessity Test rule (specification 1.2.1)
 
-Fixed on 2026-10-19, before any analysis in this protocol was run. Results are
+Fixed on 2026-10-18, before any analysis in this protocol was run. Results are
 reported against this document; any deviation is recorded at the end of it.
 
 ## Why this run exists
@@ -23,9 +23,9 @@ a supplementary study and is reported as such.
 - every research paper that run 1 flagged `FORMALISM_THEATER` (72);
 - the 40 uncapped Level 1–2 controls of run 4.
 
-Run 4 analysed the same 112 papers under specification 1.2.0, one day apart from
-the corpus run's 1.2.0 judgments being fixed; comparing run 5 with run 4 on the
-same papers separates the effect of the rule from run-to-run variation.
+Run 4 analysed the same 112 papers under specification 1.2.0 on the same day;
+comparing run 5 with run 4 on the same papers separates the effect of the rule
+from run-to-run variation.
 
 ## Run 5
 
