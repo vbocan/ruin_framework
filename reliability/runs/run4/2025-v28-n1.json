@@ -1,0 +1,249 @@
+{
+ "batch_id": "2025-v28-n1",
+ "analysis_timestamp": "2026-10-18T03:52:01Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 1,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "milicevic2025",
+   "paper": {
+    "title": "Three-Position Temperature Control of a Nonlinear Process Model with Time Delay",
+    "authors": [
+     "Miroslav S. Milićević",
+     "Valentina M. Nejković"
+    ],
+    "abstract": "Analyses an automatic temperature-regulation loop containing a polarized relay (a three-position nonlinear element) and a transport delay with the describing-function (harmonic linearization) method. Because the self-oscillation parameters of this deliberately complex configuration cannot be obtained analytically and the graphical method is inaccurate, they are computed with an iterative numerical method implemented in purpose-written software.",
+    "keywords": [
+     "Control",
+     "descriptive function",
+     "numerical mathematics",
+     "software"
+    ],
+    "doi": null,
+    "pages": "17-28",
+    "source_file": "paper787.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 35,
+    "structural_integrity": 40,
+    "artifact_availability": 100,
+    "intellectual_integrity": 52.25,
+    "composite": 64.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "Reference [42]: \"Supplementary files of the paper ... Available: https://github.com/valentinanejkovic/milicevic1\"; the text states the computer program \"is given in Attachment 3 [42]\" and the CSMP simulation in Attachment 4; the plant parameters it runs on (T1 = 1s, T2 = 0.1s, T3 = 6s, T = 0.2s, Pg = 10kW, U = 220V, ...) are printed in Section 4.1.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "IRRELEVANT_SELF_CITATION",
+    "ELEVATED_SELF_CITATION",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "IRRELEVANT_SELF_CITATION": "Self-citation [35] (Milićević, Nejković, Tošić, an e-learning ecosystem based on social-network computing, YU INFO 2013) has no topical connection to relay temperature control or describing-function analysis (similarity well below 0.3). It is cited only inside the block \"[27–35] also helped\".",
+    "ELEVATED_SELF_CITATION": "Self-citations [27]-[35] (nine works by Milićević and/or Nejković) plus [42] (the authors' own supplementary repository): 10/42 = 23.8% (9/42 = 21.4% if [42] is excluded), inside the 20-30% band.",
+    "UNSUPPORTED_CLAIMS": "Claims of fast convergence, \"maximum accuracy\", \"high accuracy\", reliability, universality, and confirmation by CSMP simulation are asserted, but the paper reports a single value pair (A = 1.2 V, ω = 1.4 rad/s) read from a figure that is itself only in the external attachment; no iteration counts, error values, tables, or simulation comparison appear in the paper. About 11 claim sentences against 3 evidence sentences, CER ≈ 0.27."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Textbook describing-function analysis of a relay temperature loop solved by Newton iteration; formalism is proportionate and the program is linked, but results are deferred to the attachment and an unrelated self-citation disqualifies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Describing-function (harmonic linearization) analysis of a relay-based three-position temperature control loop with a magnetic amplifier and transport delay; the self-oscillation amplitude and frequency are found with a two-variable Newton iteration instead of the graphical intersection method.\n**Level:** 2 (Low)\n**Rationale:** The paper applies textbook tools to one specific plant: the relay describing function is taken from [1], the Mihailov criterion and the curve-intersection argument are standard, and the iteration (36)-(37) is Newton-Raphson for two equations taken from [18, 19]. No new algorithm, convergence analysis, or proof is offered; the contribution is the application and the accompanying program.\n\n### Formal Elements\n- Definitions: 0 formal (inline textbook framing of autonomous and non-autonomous systems, eqs. 1-3) (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 40 numbered (transfer functions, heat balance and its Laplace transform, characteristic equation, Newton iteration, partial derivatives)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the computation itself: the characteristic equation (32)-(34), the residual functions (38) and their derivatives (39)-(40) are exactly what has to be programmed, so they pass the necessity test. Eqs. (11)-(17) restate the describing-function and Mihailov method from textbooks, and eqs. (1)-(3) are generic forms of nonlinear differential equations; they frame the self-oscillation regime that the analysis targets and are not counted as necessity failures. No set notation, tuple definitions, or decorative definitions are present.\n\n### Issues\nNo formalism theater, but the derivations contain apparent errors: eq. (10) has the external temperature on both sides (\"θs = (θg + θs)/(T3 s + 1)\") where θ(s) is meant (correct in eq. 20); the Laplace transform in (8) leaves the constant terms without the 1/s factor; the abstract repeats words (\"the descriptive the descriptive function method\") and calls the describing function a \"descriptive function\". The formalism score is set at 75 rather than 80 for these slips.\n\n---\n\n## Citation Analysis\n\n42 references. Self-citations are [27]-[35], nine works by Milićević and/or Nejković, plus [42], the authors' supplementary repository: 10/42 = 23.8%, or 21.4% if [42] is treated as part of the paper. The text cites them as one block: \"The references and experiences of the author of this work given in [27–35] also helped.\"\n\nRelevance of each: [29] and [30] (microcomputer temperature and power regulation of induction-welding generators) are related; [27], [28], [31] (motor speed synchronization, flying-saw control, identification of systems without finite zeros) and [32] (an electrical-actuators book) are marginal control works; [33] and [34] (temperature distribution and preheating temperature in welding) are marginal thermal works; [35] (an e-learning ecosystem based on social-network computing) is unrelated, which raises IRRELEVANT_SELF_CITATION.\n\nOther concerns: eight references are works of one research group on tower-crane, servo, fuzzy and reinforcement-learning control ([21], [22], [24], [25], [37], [38], [40], [41]); each receives one descriptive sentence and none is used in the analysis. [26] (a buck converter in this journal) appears in the list but is never cited in the text, and [36], [39] (drone GUI, maglev train) are equally peripheral. A single paper gives no evidence of mutual citation, so no ring flag is raised, but the reference list reads as padded.\n\nScore: base 55 (SCR about 24%, padded list) minus 20 for one unrelated self-citation = 35.\n\n---\n\n## Structural Analysis\n\nThe paper itself contains almost no results. The one reported outcome, an intersection at A = 1.2 V and ω = 1.4 rad/s, is read from a figure placed in the external Attachment 2. The claims that the iteration \"converges quickly and the solution is found with few iterations\", gives \"maximum accuracy\", is reliable, applies to \"any system configuration\", and was confirmed by CSMP simulation are not supported by any iteration count, error value, table, or comparison in the text (CER ≈ 0.27, UNSUPPORTED_CLAIMS). Limitations appear inline only: harmonic linearization is acknowledged as approximate and error-introducing, and the authors concede that the component choice is dated. Persistent terminology problems (\"management\" for control, \"own oscillations\", \"net delay\") make the text hard to follow.\n\nArtifact availability: [42] links a GitHub repository with Attachments 1-4, including the iterative program (Attachment 3) and the CSMP simulation (Attachment 4). The inputs are the plant parameters printed in Section 4.1, so the code and the data it runs on are both public: code_and_data.\n\n---\n\n## Conclusion\n\nA modest applied control paper: a textbook describing-function model of a relay temperature loop, with the self-oscillation equations solved by Newton iteration rather than graphically. The mathematics is proportionate to the task and is what the program implements, though several equations contain slips. The contribution is thin because every result that would substantiate the accuracy and convergence claims sits outside the paper.\n\nOn citation conduct, the reference list combines a 21-24% self-citation ratio, one self-citation with no topical bearing (an e-learning paper), and a cluster of loosely related works from a single control group. The unrelated self-citation is disqualifying under the specification."
+  },
+  {
+   "paper_id": "aguerotrejo2025",
+   "paper": {
+    "title": "Randomness and One-way Functions",
+    "authors": [
+     "José Manuel Agüero Trejo",
+     "Cristian S. Calude"
+    ],
+    "abstract": "Proposes a randomised method that uses high-quality (quantum) randomness to find, within a fixed budget of function calls, inputs to a function believed to be one-way whose outputs contain given bit patterns; experiments with SHA-512 suggest that it finds more such inputs than lexicographic search.",
+    "keywords": [
+     "Algorithmic random string",
+     "Borel normality",
+     "experiment",
+     "program-size complexity",
+     "randomised search"
+    ],
+    "doi": null,
+    "pages": "29-38",
+    "source_file": "paper788.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 30,
+    "structural_integrity": 45,
+    "artifact_availability": 50,
+    "intellectual_integrity": 21.75,
+    "composite": 28.81,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "Conclusions: \"The data used in this article can be downloaded from the website https://tinyurl.com/4rtwmncv.\" No link to code implementing the Randomised search.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DISPROPORTIONATE_FORMALISM",
+    "THEOREMLESS_FORMALISM",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 contribution (a heuristic search tested empirically) carrying unnecessary formalism. Section 2 defines the pair encoding, description length, minimal description, Kolmogorov-Chaitin complexity K(x) and c-compressibility with counting arguments, none of which the algorithm or the experiment uses: K is incomputable, and the Randomised search only computes Borel-k frequencies and overwrites bits. The Section 5 argument invokes compressibility informally (\"with high probability, x′ is less compressible than y′\") with no step of the method depending on it.",
+    "DISPROPORTIONATE_FORMALISM": "Formalism complexity 14 definitions × 2 + 0 theorems × 3 + 2 inline proofs × 4 = 36, against a Level 2 upper bound of 15 (2.4×, above the 2× threshold of 30).",
+    "THEOREMLESS_FORMALISM": "14 inline definitions (more than 5) and no stated theorem, lemma, or proposition; the formal apparatus yields no formal result about the proposed search.",
+    "EXCESSIVE_SELF_CITATION": "Calude is an author of [1], [3], [4], [7], [8], [9], [10] (Agüero Trejo also of [3], [4]): 7/14 = 50%, above 30%. All seven are topically related (algorithmic randomness, Borel normality, quantum RNGs), so no relevance flag is raised."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A heuristic hash-preimage search framed by algorithmic-information-theory apparatus it never uses, supported by single-run counts and a bibliography that is half self-citation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A randomised search for inputs whose SHA-512 hash contains given bit patterns: inputs are drawn from a quantum random number generator, then repeatedly overwritten with a contiguous pattern while Borel-k normality is monitored; it is compared with lexicographic enumeration in one experiment.\n**Level:** 2 (Low)\n**Rationale:** The contribution is a heuristic search procedure plus a small empirical comparison. There is no complexity analysis, no bound on success probability, and no proof about the algorithm. The background on program-size complexity and Borel normality is textbook material from [7, 8]. Level 3 would require a new algorithm with analysis; the lower level applies.\n\n### Formal Elements\n- Definitions: 14 inline (pair encoding; description and its length; minimal description; K(x); c-compressibility; block alphabet and occurrence counts; Borel-m normality; Borel normality; Borel normality with accuracy (m, ε); pattern and index set with \"appears in\"; the length set L; the pattern-application function; the longest contiguous pattern; one-way function; band of randomness) (with constraints: 2, the accuracy bound in (2) and m ≤ log2 log2 |x|)\n- Theorems: 0 stated\n- Proofs: 2 inline counting arguments (existence of incompressible strings; the majority of strings are incompressible)\n- Equations: about 10 displayed\n\n### Proportionality\nCalculated complexity: 36\nExpected range (Level 2): 0-15\nRatio: 2.4x upper bound\n\n**Assessment:** Disproportionate, and it fails the necessity test. The finite Borel-normality test (2) is necessary, since it is the test the algorithm runs, and some notation for patterns is needed to state the procedure, though the pattern-application function is a bit-mask overwrite. Section 2 is not necessary: the pair encoding, description lengths, K(x), and the counting arguments are never operationalised, could be replaced by \"most strings are incompressible\", change nothing a programmer would build, and support no proof about the method.\n\n### Issues\nSeveral statements are mathematically wrong or confused. The first displayed identity sets #{x : K(x) > |x| − c} equal to b^n minus the same set's size. The probability of c-incompressibility keeps \"K(x) ≤ |x| − c\" in the numerator. The sum \"1 + 2 + · · · + b^{n−c}\" stands in for a geometric series. \"With probability one every sequence is Borel normal\" should read almost every sequence. The Borel-m normality definition omits the value of the limit. \"A normal distribution of outputs, that is, Borel-1 normality\" conflates a statistical distribution with Borel normality, and a finite output string f(x) is called Borel-1 normal. Champernowne's number is said to be normal in every base b. The experiment uses 512-bit inputs, while the method was illustrated with n = 600.\n\n---\n\n## Citation Analysis\n\n14 references, 7 of them self-citations: Calude is an author of [1], [3], [4], [7], [8], [9], [10], and Agüero Trejo of [3], [4]. SCR = 50%, so EXCESSIVE_SELF_CITATION is raised. Every self-citation is topically related ([1] and [10] on testing quantum randomness, [3] and [4] on the QRNGs used as the generator, [7] and [8] on Borel normality and algorithmic randomness, [9] on Turing machines and incomputability), so no relevance flag applies. The concern is concentration: the bibliography is short, and the normality testing, randomness, and generator claims rest almost wholly on the authors' own work. [10] is listed as \"Proeedings of the Royal Society A 82, 2010, paper 022102\", a volume and article number that match Physical Review A; the venue looks misreported.\n\nScore: capped at 40 for SCR above 30%; set at 30 given the 50% ratio.\n\n---\n\n## Structural Analysis\n\nThe central claim, which the introduction states as \"illustrates the superiority of the randomise method\", rests on Table 1: one run per pattern set, giving counts of valid strings within 5,000,000 SHA-512 calls. There are no repetitions, no variance, no significance test, and no account of how the starting point of the lexicographic enumeration affects its count. For T3 and T4 the margins (314 vs 361; 10,652 vs 11,236) are small enough that ordinary run-to-run variation could explain them. The theoretical justification in Section 5 is informal and leans on the incorrect identities noted above. The abstract and conclusion hedge (\"suggest\", \"may allow\"), but the introduction asserts \"a more efficient algorithm\". CER is about 0.5, weak. Limitations are acknowledged only inline (footnote 3; \"we do not know to what extent the quality of randomness is lost\"), with nothing on the limits of the experiment.\n\nArtifact availability: a shortened URL to the data is given; no code for the search is linked: data.\n\n---\n\n## Conclusion\n\nThe idea, that controlled manipulation of high-entropy inputs might find pattern-bearing hash outputs faster than enumeration, is stated with heavy algorithmic-information-theory apparatus that the method never uses, and several of the background derivations are incorrect. The contribution is a heuristic with single-run evidence of a small advantage.\n\nFormalism is disproportionate for a Level 2 contribution and fails the necessity test, and half the references are the authors' own. Both are disqualifying under the specification."
+  },
+  {
+   "paper_id": "serban2025",
+   "paper": {
+    "title": "Carbon Nano-Onions-Based Matrix Nanocomposite as Sensing Film for Resistive Humidity Sensor",
+    "authors": [
+     "Bogdan-Catalin Serban",
+     "Niculae Dumbravescu",
+     "Octavian Buiu",
+     "Marius Bumbac",
+     "Mihai Brezeanu",
+     "Cristina Pachiu",
+     "Cristina-Mihaela Nicolescu",
+     "Cornel Cobianu",
+     "Cosmin Romanitan",
+     "Vasilica Tucureanu"
+    ],
+    "abstract": "Reports preliminary relative-humidity measurements on a chemiresistive sensor whose sensing film is a 1:1 (w/w) nanocomposite of pristine carbon nano-onions and polyvinylpyrrolidone, drop-cast on a polyimide substrate with gold interdigitated electrodes. The film is characterised by SEM, AFM, FTIR, XRD and Raman spectroscopy. Resistance rises slowly with humidity below about 50% RH and steeply above it; the behaviour is attributed to hole depletion in the nano-onions by water molecules acting as electron donors and to swelling of the hydrophilic polymer, consistent with the hard-soft acid-base principle. Hysteresis improves after the first operating cycle.",
+    "keywords": [
+     "Carbon nano-onions",
+     "Hard Soft Acid Base theory",
+     "polyvinylpyrrolidone",
+     "resistive relative humidity sensor",
+     "swelling"
+    ],
+    "doi": null,
+    "pages": "77-88",
+    "source_file": "paper792.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 61.25,
+    "composite": 45.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Self-citations [17], [18], [19], [20], [21], [22], [23], [24], [27], [30], [31], [32] (all with Serban and/or co-authors Buiu, Cobianu, Dumbravescu, Bumbac, Nicolescu, Brezeanu, Pachiu, Romanitan): 12/32 = 37.5%, above 30%. All are topically related (carbon-nanomaterial chemiresistive and humidity sensors, percolation, HSAB for gas sensing), so no relevance flag is raised."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Competent preliminary characterisation of a nano-onion/PVP humidity sensor with proportionate formalism, disqualified by a 37.5% self-citation ratio; the claims of excellent performance lack comparative data.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fabrication and characterisation of a chemiresistive relative-humidity sensor with a carbon nano-onion / polyvinylpyrrolidone (1:1 w/w) film on a polyimide interdigitated transducer: SEM, AFM, FTIR, Raman and XRD of the film; resistance against RH over three cycles; a qualitative discussion of sensing mechanisms (p-type nano-onions with water as electron donor, polymer swelling breaking percolation paths, HSAB reasoning).\n**Level:** 2 (Low)\n**Rationale:** An empirical materials and device study. It proposes no algorithm, model, or proof; the mechanisms are argued qualitatively from the literature.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (sensitivity S = ΔR/ΔRH)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The single equation is the standard definition of sensor sensitivity, a basic equation that is acceptable at this level.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n32 references. Self-citations: [17]-[24], [27], [30], [31], [32], twelve works led by Serban or co-authored with Cobianu, Buiu, Dumbravescu, Bumbac, Nicolescu, Brezeanu, Pachiu and Romanitan. SCR = 12/32 = 37.5%, which raises EXCESSIVE_SELF_CITATION. All of them concern carbon-nanomaterial chemiresistive sensing, humidity sensors, percolation in polymer nanocomposites, or HSAB-based materials selection, so each is topically related and no relevance flag applies.\n\nThe concern is how they are used. The group's own work supports general statements where independent literature exists. Raman D, G and 2D band assignments are cited to the group's 2024 conference paper [24]. \"The holes in the CNOs structure can be viewed as hard acids\" is cited to an ethanol-sensor paper on carbon nanohorns [30]. CNO oxidation chemistry and CNO-based humidity detection are attributed to two of the group's abstracts at an \"International Paris Congress on Agriculture & Animal Husbandry\" [19], [20], a venue unrelated to the subject. [17], a resistive formaldehyde detector, is cited for \"gravimetric detection of formaldehyde\".\n\nScore: capped at 40 for SCR above 30%; set at 35 for the pattern of use.\n\n---\n\n## Structural Analysis\n\nEvidence for the material is reasonable: five characterisation techniques with figures, three adsorption-desorption cycles, and a stated ±5% cycle-to-cycle variation. The performance claims outrun it. \"Excellent RH sensing performance\" and \"a significant advantage over comparable RH sensors\" (power below 2 mW) come with no comparison table or numbers. The statement that sensitivity \"triples\" above 50% RH gives no values. There is no response or recovery time, no device-to-device repeatability, no long-term stability, and no data from the commercial reference sensor. Mechanism conclusions are argued qualitatively (\"it is clear that measured RH detection characteristics show that proton conduction does not play a dominant role\"). The threshold is 50% in the abstract but 55% for the first cycle in the text. CER is about 0.6, adequate. Limitations are acknowledged only minimally inline: the abstract frames the work as \"preliminary investigations\", and the XRD sample is noted to differ from the sensing structure. No limits of the sensor itself are discussed.\n\nArtifact availability: no measurement data or other material is offered; none.\n\n---\n\n## Conclusion\n\nA conventional, competently instrumented materials paper reporting a new nanocomposite sensing film and its humidity response. Formalism is minimal and proportionate. The weaknesses are the unsupported superlatives about performance and the single-device, single-condition evidence.\n\nCitation conduct is the decisive issue: twelve of thirty-two references are the group's own, several used for generic facts or cited from unrelated venues. The self-citation ratio above 30% is disqualifying under the specification."
+  },
+  {
+   "paper_id": "karadeniz2025",
+   "paper": {
+    "title": "Mobile Robot Environment Representation Through Fuzzy Signatures-Integrated Quadtrees",
+    "authors": [
+     "Ahmet Mehmet Karadeniz",
+     "Csaba Hajdu",
+     "László T. Kóczy"
+    ],
+    "abstract": "Presents an environment representation for mobile robots in which detected obstacle points are organised in a quadtree and annotated with fuzzy values derived from fuzzy rules on each axis, following the fuzzy-signature approach; traversing the tree and applying the rules reconstructs a grid used for A* path planning. A 0.1 m grid over a 20 m x 20 m area is reported, with inference taking about 0.5 ms and low memory use on an older PC.",
+    "keywords": [
+     "A* search algorithm",
+     "environment representation",
+     "fuzzy signatures",
+     "fuzzy systems",
+     "quadtrees",
+     "robotics"
+    ],
+    "doi": null,
+    "pages": "103-116",
+    "source_file": "paper794.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 55,
+    "structural_integrity": 50,
+    "artifact_availability": 70,
+    "intellectual_integrity": 31.75,
+    "composite": 41.31,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "Section 5: \"The software developed for this purpose is accessible for download from the Github repository\", footnote 1: https://github.com/robotlabor-nexus/fuzzy signatures (underscore likely lost in text extraction). Input obstacle points are not stated to be public.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 contribution (quadtree plus fuzzy membership values plus A*) carrying formalism that fails the necessity test: the recursive Cartesian-product definition of S(n) (eq. 1), the fuzzy signature function A: X → S(n) with nested-vector forms and a worked min/max aggregation example (eqs. 2-6) are reviewed but never used by the method, whose inference is a product-sum evaluation described only in words.",
+    "DECORATIVE_DEFINITIONS": "The \"position fuzzy signature class\" P = [x, y, Fx(x), Fy(y)] (eq. 7), restated as the node's \"(x, y, Fx(x), Fy(y)) 4-tuple\", is a formal definition of a record that could be replaced by \"each node stores the coordinates and the two axis memberships\"; removing it changes nothing a programmer would build.",
+    "ELEVATED_SELF_CITATION": "Self-citations [1] (own supplementary material), [4], [16], [17], [18], [19], [20], [21], [27] (Karadeniz, Hajdu and/or Kóczy): 9/32 = 28.1% (8/31 = 25.8% excluding [1]), inside the 20-30% band. All are topically related (fuzzy signatures, fuzzy robot control)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A quadtree-with-fuzzy-memberships map prototype wrapped in fuzzy-signature formalism it does not use; the code is public, but the evaluation is a single timing figure, and the paper's relation to the authors' near-identically titled 2021 conference paper is left unstated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** An environment representation for mobile robots: obstacle points are inserted into a point-centred quadtree, each node storing its coordinates and fuzzy memberships on the X and Y axes (five-term partitions NF, NN, D, PN, PF); a grid is reconstructed by product-sum inference over the tree, and A* is run on it.\n**Level:** 2 (Low)\n**Rationale:** The method combines existing components (quadtree, fuzzy membership functions, A*) and is demonstrated with a \"rudimentary Python-based implementation\". There is no new algorithm with analysis. It sits on the boundary with Level 1, a system combining existing components; Level 2 is used because a representation scheme is proposed, and the outcome does not depend on the choice.\n\n### Formal Elements\n- Definitions: 6 (recursive set S(n) as a Cartesian product, eq. 1; fuzzy signature A: X → S(n), eq. 2; fuzzy-signature values; aggregation operators @; fuzzy signature sets, eq. 6; position fuzzy signature class P, eq. 7) (with constraints: 1, membership-function domain confined to [0, 1])\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (including the A* cost f(n) = g(n) + h(n))\n\n### Proportionality\nCalculated complexity: 12\nExpected range (Level 2): 0-15\nRatio: 0.8x upper bound\n\n**Assessment:** Within the count range, but it fails the necessity test. Section 3.1-3.2 reviews the general theory of fuzzy signatures: nested vectors, a recursive Cartesian-product domain, and aggregation operators with a worked min/max example. None of it is used: the method's nodes hold a flat record, the hierarchical aggregation is never applied to the quadtree, and the inference that produces the grid in Section 5 is described only in prose. Eq. (7) and the \"(x, y, Fx(x), Fy(y)) 4-tuple\" are a tuple definition for a struct. The recursive Cartesian product S(n) is set notation for a nested list.\n\n### Issues\n\"The set S(n) is recursively established ... as the Cartesian product of its elements Si\" describes a nested array; P = [x, y, Fx(x), Fy(y)] describes the four fields stored per node. Algorithm 1 is the prose step list restated, and the grid inference, which is the operation actually evaluated, has no formal or pseudocode description.\n\n---\n\n## Citation Analysis\n\n32 references. Self-citations (Karadeniz, Hajdu, Kóczy): [1] (the authors' supplementary material), [4], [16], [17], [18], [19], [20], [21], [27]. SCR = 9/32 = 28.1%, or 25.8% without [1], which raises ELEVATED_SELF_CITATION. All are on fuzzy signatures, fuzzy rule bases, or fuzzy robot control, so they are topically related.\n\nPoints of concern:\n- [4] is the authors' 2021 conference paper \"Robot environment representation based on quadtree organization of fuzzy signatures\", the same idea under nearly the same title. It is cited only as one of the references of an introduction that has been moved to the supplementary file (\"The rest of the Introduction part is provided as a separate file in [1]\"). The present paper never states how it differs from [4], yet calls its technique \"novel\" and \"innovative\".\n- [6] appears in the list but is never cited; graph-based SLAM is attributed to [3].\n- [9], [10], [11], [12] (tower-crane modelling, cognition-process modelling, a fuzzy decision-support system, fuzzy regression) are offered as navigation and localisation techniques, a stretch for their content.\n\nScore: 55 (SCR in the 20-30% band, with the undisclosed overlap with [4]).\n\n---\n\n## Structural Analysis\n\nThe evaluation is a single paragraph. It reports a 0.1 m grid over 20 m × 20 m and inference in \"approximately 0.5 ms\" on an \"Intel Core Duo 2, 16 GB RAM\" PC. The number of points is unspecified (\"numerous input points\"), memory is never measured, and there is no baseline (occupancy grid, standard quadtree or octree map), no real robot or sensor data, and no dynamic obstacles. Claims of \"a significant contribution\", \"scalability and resource efficiency\", and \"a scalable and adaptable solution for complex robotic applications\" go well beyond this. CER is about 0.4, weak and near the threshold. Limitations are acknowledged inline: results are called \"preliminary\" and \"initial outcomes\", the implementation \"rudimentary\", and the future-work paragraph concedes that moving or vanishing obstacles are not handled. Moving the introduction to an external file is a structural oddity.\n\nArtifact availability: a GitHub repository with the authors' software is linked; the input data are not stated to be public: code.\n\n---\n\n## Conclusion\n\nThe paper proposes storing obstacle points in a quadtree with per-axis fuzzy memberships and evaluating a grid from it. This is a reasonable engineering idea, but it is presented through a review of fuzzy-signature formalism that the method does not use, and through a tuple definition of a node record. At Level 2 that is formalism theater under the specification, and it is disqualifying.\n\nThe evidence is a single timing figure without a baseline. The self-citation ratio is elevated, and the relation to the authors' near-identically titled 2021 conference paper is not disclosed. Publishing the code is the paper's main reproducibility strength."
+  }
+ ]
+}

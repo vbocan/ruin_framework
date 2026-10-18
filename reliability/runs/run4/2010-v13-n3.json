@@ -1,0 +1,65 @@
+{
+ "batch_id": "2010-v13-n3",
+ "analysis_timestamp": "2026-10-18T03:37:36Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 13,
+  "issue": 3,
+  "year": 2010
+ },
+ "papers": [
+  {
+   "paper_id": "giurgiu2010",
+   "paper": {
+    "title": "An implementation of the backtracking algorithm for multicore systems",
+    "authors": [
+     "Claudiu-Florin Giurgiu"
+    ],
+    "abstract": "The emergence of inexpensive parallel computers powered by multicore chips combined with high clock rates raises new challenges for software engineering. Since the performance improvements will not come from increased clock rates, high performance applications will need to be parallelized. In addition to operating system support, adjustments to existing software are required to maximize utilization of the computing resources provided by multicore processors. The ability of multicore processors to increase application performance depends on the use of multiple threads within applications. We will describe an algorithm that allows backtracking problems to be solved by means of such multicore systems. A multicore algorithm meant for backtracking problems and able to meet certain constraints is made of multiple search threads with concurrent operation and distinct processing parts of the solution space. The proposed algorithm is scalable.",
+    "keywords": [],
+    "doi": null,
+    "pages": "241-254",
+    "source_file": "cgiurgiu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 45.25,
+    "composite": 33.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (static depth-threshold split of textbook backtracking) whose central presentation is a set-based 'configuration' notation: two-row matrices of chosen values v1..vk-1 over used-value sets C1..Ck-1, with four transition rules drawn as matrix rewrites and repeated for the main thread. Each transition is already stated in English immediately before its matrix and again in the pseudocode, and no proof uses the notation; the termination argument ('one cannot reach twice the same configuration') is asserted, not derived from it.",
+    "UNNECESSARY_SET_THEORY": "The pseudocode tracks tried values with set operations, 'choose a value vk from Vk - Ck' and 'Ck = Ck U {vk}', with 'Ck != Vk' and 'Ck = phi' as loop tests. The paper itself concedes that each Ck 'can be represented only by value vk' and that the sets can be replaced 'by numbers': the operations are an integer counter increment and comparison. No mathematical proof depends on them."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Thread-per-prefix parallelisation of textbook backtracking at a fixed depth t, timed only on n-queens; a set-based configuration notation that restates the pseudocode triggers the formalism flags at Level 2, and the comparative and fault-tolerance claims are unmeasured.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Parallelising classical backtracking on a shared-memory multicore machine. A main thread enumerates valid prefixes x1..xt up to a fixed depth threshold t and starts one Pthreads worker per valid prefix; each worker runs ordinary backtracking on positions t+1..n and hands its solutions back. Evaluated on the n-queens problem (n = 15-18) on a dual AMD Opteron 280 (4 cores) and an Opteron 1218.\n**Level:** 2 (Low)\n**Rationale:** Static partitioning of a search tree at a fixed depth is a long-established way to parallelise depth-first search; the paper applies it with Pthreads and reports timings. There is no complexity analysis, no load-balancing scheme, no correctness or speedup bound, and no comparison against other parallel search techniques, so nothing lifts it to the novel-algorithm level. Defaulting low per the specification.\n\n### Formal Elements\n- Definitions: 4 inline (solution vector x = (x1..xn) with xi in finite set Vi; the Cartesian product V1 x ... x Vn as the space of possible solutions; Ck as the set of used-out values, Ck subset of Vk; the two-row 'configuration' notation)\n- Theorems: 0\n- Proofs: 0\n- Equations / formal displays: about 12 (f(n) = a^n remark, the efficiency formula time1/(c * time_c), set operations in three pseudocode listings, four configuration-transition rules, two main-thread transitions, initial/terminal configurations)\n\n### Proportionality\nCalculated complexity: 8\nExpected range (Level 2): 0-15\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate by count, but the Necessity Test fails. The problem statement (vector over finite domains, Cartesian product as search space) is the standard compact way to define a constraint search and passes. The rest does not: the used-value sets and their union/difference operations are, by the author's own admission, a single counter per position, and the configuration matrices re-draw in notation what the preceding English sentence and the pseudocode already say. None of it supports a proof; the claim that the process terminates because no configuration repeats is stated informally.\n\n### Issues\n- Pseudocode: \"choose a value vk from Vk - Ck\" and \"Ck = Ck U {vk}\"; then the paper notes each Ck \"can be represented only by value vk\" and that \"the elements shown above allow us to replace the sets in the algorithm by numbers\". The set apparatus is introduced and then reduced to an integer in the same section.\n- The four modifications (assign and advance, attempt failed, backtrack after failure, backtrack after solution) are each described in a full English sentence and then restated as a matrix rewrite; the main-thread variant repeats the pattern. A programmer implements the identical loop with or without these displays.\n- The three pseudocode listings are the same loop with different index bounds (1..n, 1..t, t+1..n); one parameterised listing would carry the whole contribution.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 19 references (SCR 5.3%): [16] Giurgiu, \"An implementation of the backtracking algorithm for distributed systems\" (Analele Universitatii de Vest din Timisoara, 2008). It is directly relevant (estimated similarity about 0.9): the same backtracking decomposition in a distributed setting, and the near-identical title suggests the present paper is its shared-memory counterpart. No irrelevant self-citation and no ring pattern.\n\nFive references ([1], [2], [17], [18], [19]) are vendor pages or tutorials (AMD and Intel product announcements, the Pthreads header specification, the LLNL Pthreads tutorial). The related-work core is distributed constraint satisfaction (ABT, AWC, DIBT, IDIBT, AAS; [3]-[12]), which is agent-based message passing rather than shared-memory search; literature on parallel depth-first search and work distribution, the closer prior art, is not cited. This is a coverage weakness rather than an integrity issue.\n\n---\n\n## Structural Analysis\n\nEvidence is confined to Figures 2-6 (number of secondary threads per n and t, and run times for n = 15-18 by t and core count), whose values are not reproduced in the text, plus one quoted figure: for n = 18 the run time falls \"from over 32 hours to about 8 hours, using a system with 4 cores\". There is a single benchmark, no repeated runs or variance, no compiler or OS details, and no baseline beyond the sequential version.\n\nSeveral claims have no measurement behind them: that the algorithm gives \"a much better control over the number of transmitted messages\" than agent-based approaches; that agent approaches need messages \"of figures of thousands\" for n = 8 (no citation or count); that the efficiency rise for t > 2 and n > 16 comes from \"more uniform threads\" (thread-time uniformity is never measured); and that the scheme \"allows a possibility of return in case of errors\", with recovery from a core malfunction by respawning the thread, which is neither implemented nor tested. The abstract's \"The proposed algorithm is scalable\" rests on two machines with at most four cores. Estimated CER about 0.45 (weak).\n\nThe design spawns one thread per valid prefix, so the thread count is set by the problem and t rather than by the number of cores, and load imbalance between prefixes is not addressed. Minor inconsistency: the text says Figure 2 refers to \"the problem given in example 3\", but only Example 1 exists.\n\nLimitations are acknowledged inline: small jobs give low efficiency because thread creation and communication dominate, and t > 2 is slower for n <= 16. No dedicated section.\n\nArtifact: the paper states that \"the multicore backtracking algorithm is implemented using C and Pthreads\" but gives no link or availability statement. The n-queens instances need no dataset. Category none.\n\n---\n\n## Conclusion\n\nThe engineering idea, a fixed-depth prefix split handed to worker threads, is sound and the reported near-linear speedup on four cores is plausible for n-queens, but the contribution is small: a standard decomposition with no analysis, one benchmark, and no comparison with existing parallel search methods. Most of the paper's length goes to a set-and-matrix configuration notation that restates the pseudocode and that the author reduces to integers in the same section, which at Level 2 triggers FORMALISM_THEATER and UNNECESSARY_SET_THEORY. The claims about message control relative to agent systems and about fault recovery are argued, not measured. No code is released. No instructions addressed to reviewers or automated assessors appear in the text."
+  }
+ ]
+}

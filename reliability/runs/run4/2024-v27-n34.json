@@ -1,0 +1,229 @@
+{
+ "batch_id": "2024-v27-n34",
+ "analysis_timestamp": "2026-10-18T03:51:43Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 27,
+  "issue": "3-4",
+  "year": 2024
+ },
+ "papers": [
+  {
+   "paper_id": "ulmamei2024",
+   "paper": {
+    "title": "An Approach for Implementing Electronic Image Stabilization Using an FPGA System",
+    "authors": [
+     "Andrei-Alexandru Ulmămei",
+     "Călin Bîră"
+    ],
+    "abstract": "This paper proposes an approach for the implementation of a low-power electronic (digital) image stabilization using an AMD/Xilinx Zynq UltraScale+ ZU7EV device (CPU+FPGA) with a custom Linux OS. The stabilization method is based on frame-to-frame motion detection (Harris Corner Detector, an iterative optical flow calculator combined with a 4:2:1 down-sampler an 1:2:4 up-sampler) and an affine transformation that applies the stabilization. The scientific contribution of this paper resides in a combination of the most recent software algorithms presented in literature and porting that new resulting algorithm into hardware with the achieved performance of more than 2.5x current state of the art, thus enabling stabilization at 4K-UHD resolution.",
+    "keywords": [
+     "Electronic image stabilization",
+     "Field Programmable Gate Array",
+     "System on Chip"
+    ],
+    "doi": null,
+    "pages": "267-280",
+    "source_file": "paper778.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 76.0,
+    "composite": 69.5,
+    "final": 69.5
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"Testing the main FPGA core was done by analyzing a small number of successive frames and observing in detail, the changes that take place over the output image, using [16] images.\" Reference list: \"[17] Optical Flow Dataset, [Online] Available https://vision.middlebury.edu/flow/data\". No link to the authors' HDL/HLS or software.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "FPGA port of a standard image-stabilization chain whose equations are needed for the implementation; the evaluation is thin, and the state-of-the-art claim is overstated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Implementation of electronic image stabilization on a Zynq UltraScale+ FPGA by chaining established algorithms: Harris corner detection, pyramidal Lucas-Kanade optical flow, an affine transform estimated from three point correspondences, and Kalman smoothing of the transform.\n**Level:** 2 (Low)\n**Rationale:** The authors place the contribution in \"a combination of the most recent software algorithms presented in literature and porting that new resulting algorithm into hardware\". Every algorithmic component is established; what is new is the hardware port and its throughput. That is an existing method applied on a new platform, not a new algorithm with analysis.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 15 numbered (affine transform in matrix form, the three-point linear system for the six coefficients, the Kalman state and observation models, predict and update steps, and the reconstruction of the rotation/translation matrix)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations specify what the hardware pipeline computes per frame: the coefficient system that is solved, the Kalman recursion, and the final transform matrix. A designer reproducing the core needs them, so they pass the Necessity Test. There are no formal definitions, tuples, set notation, or decorative Greek constants.\n\n### Issues\nNo theater. The equations are nonetheless an unreliable specification. In system (6) the Y1 and Y2 rows reuse a00 and a01 where a10 and a11 belong. The text claims that \"only the coordinate Xi ... is needed\" while the system uses both Xi and Yi. The matrices F, H, Q and R are said to be \"specified in the first iteration with null values\", which would make the Kalman filter degenerate (zero transition and zero observation matrices). Lucas-Kanade is attributed to Horn and Schunck [11].\n\n---\n\n## Citation Analysis\n\nNo self-citations: neither author appears among the 24 references (SCR 0%). The references are on topic: stabilization methods, earlier FPGA and DSP stabilizers, board and toolchain documentation.\n\nCitation accuracy is poor, however. The numbering in Table 4 and in the text is shifted against the reference list. Shirole is labelled [18], which is the MS-SSIM paper (Shirole is [19]), and Li [19], Shene [20], Yong-Jie [21] and Yabuki [22] are each off by one. \"Stefan [24]\" points to a paper whose first author is Bivolarski. The test images are credited to [16] (PYNQ) rather than [17] (the Middlebury optical-flow dataset), and [15] is cited for both U-Boot and PYNQ. These look like editing errors, not manipulation, and they cost a few points.\n\n---\n\n## Structural Analysis\n\nThe evidence is a latency and throughput table over five resolutions, a resource-utilisation table, a power estimate, one table of similarity metrics, and a throughput comparison with seven earlier systems. Claim-evidence balance is adequate (CER about 0.7).\n\nThe weak points are in what the evidence measures:\n- Stabilization quality is reported as PSNR/SSIM of the stabilized frames against the unstabilized originals. That measures similarity to the shaky input, not stability. There is no inter-frame fidelity measure and no comparison with a software stabilizer on the same sequences.\n- The abstract's \"more than 2.5x current state of the art\" holds only against the best FPGA entry in Table 4 (99.5 Mpix/s, a 2016 system). The ASIC entry is faster, and the compared systems date from 1996 to 2016.\n- The live-camera test mentioned in the conclusions is not reported.\n\nLimitations are acknowledged only inline: DIS cannot tell an unwanted vibration from a moving object, LUTs become the limiting factor at 8K, and a singular system falls back to the previous transform. There is no limitations section.\n\nArtifacts: no HDL, HLS or software is linked. The test frames come from the public Middlebury optical-flow dataset, which the reference list links; the text cites it as [16], evidently meaning [17]. The category is therefore data.\n\n---\n\n## Conclusion\n\nA competent engineering report on porting a known stabilization chain to a Zynq FPGA, with formalism that matches what is implemented. Its weaknesses are in the evaluation, not the formalism. Stabilization quality is measured in a way that does not test stabilization. The state-of-the-art comparison uses old systems and is overstated in the abstract. Reference-numbering errors make the comparison table hard to audit. No part of the hardware design is released."
+  },
+  {
+   "paper_id": "essiz2024",
+   "paper": {
+    "title": "Deep Learning-Based Prediction Models for the Detection of Vitamin D Deficiency and 25-Hydroxyvitamin D Levels Using Complete Blood Count Tests",
+    "authors": [
+     "Uğur Engin Eşsiz",
+     "Çiğdem İnan Acı",
+     "Esra Saraç",
+     "Mehmet Acı"
+    ],
+    "abstract": "Vitamin D (VitD) is an essential nutrient that is critical for the well-being of both adults and children, and its deficiency is recognized as a precursor to several diseases. In previous studies, researchers have approached the problem of detecting vitamin D deficiency (VDD) as a single \"sufficient/deficient\" classification problem using machine learning or statistics-based methods. The main objective of this paper is to predict a patient's VitD status (i.e., sufficiency, insufficiency, or deficiency), severity of VDD (i.e., mild, moderate, or severe), and 25-hydroxyvitamin D (25(OH)D) level in a separate deep learning (DL)-based models. An original dataset consisting of complete blood count (CBC) tests from 907 patients, including 25(OH)D concentrations, collected from a public health laboratory was used for this purpose. CNN, RNN, LSTM, GRU and Auto-encoder algorithms were used to develop DL-based models. The top 25 features in the CBC tests were carefully selected by implementing the Extra Trees Classifier and Multi-task LASSO feature selection algorithms. The performance of the models was evaluated using metrics such as accuracy, F1-score, mean absolute error, root mean square error and R-squared. Remarkably, all three models showed satisfactory results when compared to the existing literature; however, the CNN-based prediction models proved to be the most successful.",
+    "keywords": [
+     "25(OH)D level",
+     "classification",
+     "deep learning",
+     "feature selection",
+     "prediction",
+     "vitamin D deficiency"
+    ],
+    "doi": null,
+    "pages": "295-309",
+    "source_file": "paper780.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 85,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 39.75,
+    "composite": 29.81,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "No availability statement or link for code or data in the text. The dataset is \"An original dataset consisting of complete blood count (CBC) tests from 907 patients ... collected from a public health laboratory\" and is not deposited. The only link is the supplementary file: \"The block diagram and pseudo codes of the DL-based prediction models and parameter settings of the methods are given in the supplementary document of the paper [22].\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 application paper that restates textbook equations (1)-(15) for MSE training, the weight update, convolution, pooling, logistic output, RNN, GRU and autoencoder layers. The models were run from library code (\"developed using the Python Scikit Learn library [37] and TensorFlow [38]\"), not implemented from these equations, so the equations fail the Necessity Test. Eqs. (2)-(3) also present the learning rate and momentum as Greek constants (\"η and α are constant\").",
+    "NO_LIMITATIONS": "There is no limitations section and no inline acknowledgment of constraints. Single-laboratory retrospective data, the lack of external validation, and preprocessing applied before cross-validation all go unmentioned."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Standard deep-learning application to clinical blood-test data. The textbook equations of library layers are decorative, preprocessing leaks into cross-validation, and no code or data is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Prediction of vitamin D status, deficiency severity, and serum 25(OH)D level from routine blood tests of 907 patients. The models are off-the-shelf CNN, RNN, LSTM, GRU and autoencoder networks built in TensorFlow/scikit-learn, after MICE imputation, SMOTE oversampling, and ETC or multi-task LASSO feature selection.\n**Level:** 2 (Low)\n**Rationale:** A standard ML application: existing models trained on a new clinical dataset and compared on accuracy, F1, MAE, RMSE and R². No new model or algorithm is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 22 (MSE, weight update, convolution, pooling, logistic output, RNN, four GRU equations, autoencoder encoder/decoder and two losses, seven evaluation metrics)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Theater despite a zero count. Fifteen of the 22 equations, (1)-(15), are textbook descriptions of library layers and training procedures that the authors did not implement: \"All of the techniques described in the previous sections were developed using the Python Scikit Learn library [37] and TensorFlow [38]\". Each could be stated in a sentence, removing them changes nothing a programmer would build, and none supports a derivation. They fail the Necessity Test. The metric definitions (16)-(22) are basic equations and are acceptable.\n\n### Issues\n- Greek letters for configuration constants: eqs. (2)-(3) give \"where, w stands for weight, η and α are constant\", which presents the learning rate and momentum as formalism and never gives their values in the text.\n- The recaps contain errors that show they played no part in the work. Eq. (2) writes the weight itself, w(n), where the momentum update of the weight change belongs. Eq. (9) computes the update gate z_t with the reset-gate weights W_r. Eq. (6) omits the probability operator. The R² text calls y_i the predicted value and y_i' the observed one, which inverts the formula. The confusion matrix is called a \"complexity matrix\".\n\nAt Level 2, any unnecessary formal element triggers FORMALISM_THEATER under the zero-tolerance rule.\n\n---\n\n## Citation Analysis\n\nSelf-citations:\n- [21] (Eşsiz, Saraç: data-mining prediction of vitamin D deficiency in diabetic patients) is directly related; it is the stated motivation of the paper (similarity about 0.9).\n- [30] (Acı: CNN detection of abusive Turkish Instagram comments) is cited for the general claim that deep CNNs perform well outside image classification. The link is methodological only, so relevance is marginal (about 0.35).\n- [22] is this paper's own supplementary file and is not counted as prior work.\n\nSCR = 2/41 ≈ 4.9% (3/41 ≈ 7.3% if the supplement is counted). No self-citation falls below 0.3.\n\nA separate concern that no flag covers: the introduction's sentence \"In recent years, the development of high-precision prediction models has been a focus of research in various fields\" is supported by four references ([3], [4], [6], [11]). All four share one co-author who is not on the author list, and their topics are cognition-process modelling, k-means post-processing, reinforcement-learning servo control, and COVID-19 official statistics. None bears on vitamin D or clinical prediction. Further references to this journal and its sister series cover unrelated medical problems ([5], [7]). Mutual citation cannot be established from this paper alone, so CITATION_RING_INDICATOR is not raised. The padding costs points within the citation score.\n\n---\n\n## Structural Analysis\n\nResults are reported numerically for all three models, so the claim-evidence balance is adequate on its face (CER about 0.6). The evidence itself is compromised:\n- SMOTE and feature selection are applied to the whole dataset before 5-fold cross-validation (\"Before testing the models, missing data were imputed using the MICE algorithm, and the class imbalance problem was solved using the SMOTE algorithm\"). Synthetic minority samples and the selected features therefore leak into the test folds. This probably explains an R² of 0.978 for predicting a serum vitamin level from blood counts.\n- Table 1 reports calcium as 41.38 ± 544.22 mg/dL against a normal range of 8.8-10.6, which points to unhandled data errors.\n- The conclusion that \"all three models surpassed the performance of ML-based or statistics-based approaches previously suggested in the literature\" rests on no head-to-head comparison. The cited studies use other cohorts and other targets.\n\nThere is no limitations section and no inline acknowledgment of constraints.\n\nArtifacts: the supplementary file on Google Drive [22] holds diagrams, pseudocode and parameter tables. Neither code nor the patient dataset is released or offered. Pseudocode is description, not availability, so the category is none.\n\n---\n\n## Conclusion\n\nA routine applied deep-learning study whose methods section reproduces textbook equations of library components, with errors, and so falls under the zero-tolerance formalism rule. The more serious weakness is methodological. Oversampling and feature selection before cross-validation make the reported accuracies unreliable, the claim of superiority over prior work is never tested, no limitations are acknowledged, and nothing needed to reproduce the results is available."
+  },
+  {
+   "paper_id": "travin2024",
+   "paper": {
+    "title": "Statistical Computational Model of Fission Products Composition of Irradiated Nuclear Fuel and Their Contribution to Gas-aerosol Emissions of Nuclear Power Plants",
+    "authors": [
+     "Sergey Travin",
+     "Oleg B. Gromov",
+     "Gheorghe Duca",
+     "Radu-Emil Precup"
+    ],
+    "abstract": "Based on the assumption that the radionuclide composition of gas-aerosol emissions from nuclear power plants (NPPs) into the environment is determined by the composition of the fuel in the reactor (but not identical to it), an analysis of the probability of the occurrence of various isotopes in possible emissions is conducted in this paper. It is confirmed that the activity of nuclear fuel, and consequently the emissions, are determined by uranium fission fragments, proving that the decay rate of radionuclides is proportional to the probability of the appearance of radionuclides with certain mass numbers. It is also shown that there is no functional relationship between the mass yield of radionuclides and their atomic mass, as the variability (fluctuations) in the content of radionuclides in VVER-440 reactor fuel and consequently in NPP emissions reaches 20 orders of magnitude, which prevents the application of computational methods for processing the results. This paper proves that, in order to determine the yield of radionuclides from their observable activity, applying a Zipf-Mandelbrot type distribution in \"rank - size\" coordinates, it is possible to carry out the mathematical modeling based on the appropriate processing of the obtained results.",
+    "keywords": [
+     "Dose load",
+     "isotope",
+     "nuclear fuel",
+     "nuclear power plant gas-aerosol emission",
+     "radionuclide",
+     "uranium fission fragments"
+    ],
+    "doi": null,
+    "pages": "310-322",
+    "source_file": "paper781.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 0,
+    "structural_integrity": 35,
+    "artifact_availability": 50,
+    "intellectual_integrity": 40.75,
+    "composite": 43.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"As a source of initial data for subsequent analysis and systematization of emitted radionuclides, this paper starts with the handbook [11], where the radionuclide composition of spent nuclear fuel and the patterns of ongoing campaigns are presented quite fully.\" No code is linked.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "IRRELEVANT_SELF_CITATION"
+   ],
+   "flag_details": {
+    "IRRELEVANT_SELF_CITATION": "Four of the five self-citations have nothing to do with fission-product statistics (similarity about 0.05-0.1): [23] slime-mould tuning of fuzzy controllers for servo systems, [28] fuzzy control for telesurgery, [32] observation-process modelling in cognition, and [33] a fuzzy system for data streams. They sit in a metaheuristics aside and a future-work list, neither of which carries an argument."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Descriptive statistics of spent-fuel fission products with appropriate basic equations. Four unrelated self-citations disqualify the paper, and the proofs and model it claims are not delivered.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Statistical description of the fission-product composition of spent VVER-440 fuel, using data from a 1983 handbook. The authors convert activity to atom counts with the decay law, plot yield and activity against mass number, fit a two-Gaussian envelope, and observe a smooth rank-size curve. They pair this with a hypothesis that fuel composition determines NPP gas-aerosol emissions.\n**Level:** 2 (Low)\n**Rationale:** An empirical study with basic statistics on published data. There is no algorithm, no fit beyond two Gaussians, and no derivation. The rank-distribution model that the abstract promises is deferred to \"another paper\". Default low.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (emission product formula, decay law with activity and rate constant, atom count from activity, Gaussian peak)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The decay-law conversion (2)-(3) and the Gaussian (4) are used in the computations behind Figs. 3-5, and formula (1) generates the demonstration in Fig. 1. These are basic equations that do work, and none matches a theater pattern; the index i ∈ {1, 2} is ordinary notation, not set theory standing in for a list operation.\n\n### Issues\nNone of the theater kind. Formula (1) defines N_aerosol twice (the second entry should be N_fuel), and the symbol for the decay constant is missing from the variable list under (2). More seriously, the abstract and the conclusions say the paper \"proves\" that decay rate is proportional to fragment probability and that a Zipf-Mandelbrot treatment is possible. No proof appears, and no Zipf-Mandelbrot fit is given.\n\n---\n\n## Citation Analysis\n\nOf 33 references, 5 are self-citations. [5] is by Travin and Gromov, in a volume edited by Duca. [23], [28], [32] and [33] are co-authored by the corresponding author. SCR = 5/33 ≈ 15.2%.\n\nRelevance of each:\n- [5] radiocarbon dilution in NPP emissions: related (about 0.6).\n- [23] slime-mould tuning of interval type-2 fuzzy controllers for servo systems. It is cited as an example of metaheuristics that are \"popular recently\", in a paragraph which states that the paper itself used least squares. Unrelated (about 0.1).\n- [28] fuzzy control for telesurgical applications, cited as a future application domain: unrelated (about 0.05).\n- [32] observation-process modelling in cognition, cited for future \"cognition process modeling\": unrelated (about 0.05).\n- [33] online semi-supervised ensemble fuzzy system for data streams, cited for future \"data streams\": unrelated (about 0.05).\n\nFour self-citations below 0.3 trigger IRRELEVANT_SELF_CITATION, which disqualifies at any level. They appear in two passages that carry no argument. The first is the metaheuristics aside in Section 3 ([21]-[25]). The second is the closing future-work sentence ([26]-[33]), which proposes applying a fission-product analysis to human well-being, evolving systems, telesurgery, multi-agent path planning, piezoelectric finite elements, CPU provisioning, cognition and data streams. The third-party references in both passages are equally off-topic. Score: 80 (15-20% band) − 4 × 20 = 0. The paper alone cannot establish mutual citation, so CITATION_RING_INDICATOR is not raised.\n\n---\n\n## Structural Analysis\n\nThe evidence is six figures that re-plot handbook data, plus fitted Gaussian parameters with no goodness-of-fit. The claims go well beyond it:\n- The \"contribution to gas-aerosol emissions\" in the title is never tested against any emission measurement, and the conclusions themselves present the fuel-emission link as \"the following hypothesis\".\n- Validity for VVER-1000 and RBMK-1000 reactors is asserted without data.\n- The \"proof\" of proportionality is a steady-state argument plus a visual match to the envelope.\n- The Zipf-Mandelbrot claim in the abstract is deferred to future work.\n\nCER is weak (about 0.45). There are also text-quality problems. Two paragraphs, the passage on primary control of IRG and the \"spectrum of presence\" passage, appear twice almost verbatim on pp. 313-314. Fig. 2 is attributed to [9], which is a regulatory order. Ponomarev-Stepnoi is cited as [10] in the text but listed as [20]. Limitations are acknowledged inline: induced radioactivity is left aside, barrier permeability is deferred to a separate study, and Fig. 1 is declared demonstrative only.\n\nArtifacts: no code. The data come from a published handbook [11], a named public source, so the category is data.\n\n---\n\n## Conclusion\n\nA descriptive analysis from the physics domain whose few equations are basic and appropriate, but whose citation conduct disqualifies it. Four self-citations to the corresponding author's work on fuzzy control, telesurgery, cognition and data streams have no relation to fission-product statistics, and they appear in passages that serve no argument. Separately, the paper claims proofs and a model that it does not deliver, and its central emissions hypothesis goes untested."
+  },
+  {
+   "paper_id": "yalda2024",
+   "paper": {
+    "title": "Network Traffic Prediction Performance Using LSTM",
+    "authors": [
+     "Khirota Yalda",
+     "Diyar Jamal Hamad",
+     "Nicolae Tapus",
+     "Ibrahim Taner Okumus"
+    ],
+    "abstract": "As networks expand to support various applications involving text, audio, video, and images, data traffic increases correspondingly. Traffic classification, which identifies the origin of observed traffic, has multiple applications, including dynamic bandwidth allocation, traffic analysis, quality of service, and network security. Traditional network traffic classification methods like deep packet inspection rely on manually creating and maintaining communication profiles for various applications. However, these methods face challenges such as dynamic port changes and encrypted traffic. Machine Learning (ML) classifiers offer effective solutions to these issues, providing accurate network traffic classification. Due to these advancements, deep learning models are now utilized for network traffic classification and prediction. Long Short-Term Memory (LSTM) has emerged as a highly effective deep learning technique for addressing time series prediction challenges. This study aims to analyze the performance of forecasting network traffic using LSTM, with different activation functions and optimizers with Mean Absolute Error (MAE), Mean Absolute Percentage Error (MAPE), Mean Squared Error (MSE), Root Mean Squared Error (RMSE) and Coefficient of Determination (R-Squared) parameters as the model evaluation index. This demonstrates how these parameters impact network traffic forecasting performance.",
+    "keywords": [
+     "Activation function",
+     "LSTM",
+     "optimization algorithms",
+     "traffic prediction"
+    ],
+    "doi": null,
+    "pages": "336-347",
+    "source_file": "paper783.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 45,
+    "artifact_availability": 50,
+    "intellectual_integrity": 42.75,
+    "composite": 44.56,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The internet traffic dataset (in bits) from an ISP (https://www.kaggle.com/datasets/yjimmy/network-traffic-dataset/) is used for forecasting and analysis.\" No code is linked.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 configuration study that restates textbook equations for the LSTM (a peephole variant the Keras layer used does not implement), Adam, AdaGrad and SGD, although these components were called with library defaults (\"Calling functions such as Adam(), AdaGrad(), and SGD() without specifying parameters results in the algorithms using their default values\"). The Greek letters α, β1, β2, ϵ and η stand for the library's default hyperparameters. These equations fail the Necessity Test."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Default-settings sweep of activation functions and optimizers for an LSTM on one public dataset. The textbook LSTM and optimizer equations are decorative, and the evaluation has no baseline.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A grid comparison of three activation functions (ReLU, tanh, sigmoid) and three optimizers (Adam, AdaGrad, SGD) for a three-layer Keras LSTM that forecasts a public univariate internet-traffic series.\n**Level:** 2 (Low)\n**Rationale:** A configuration study of existing components run with default settings: \"Calling functions such as Adam(), AdaGrad(), and SGD() without specifying parameters results in the algorithms using their default values.\" Nothing new is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 (LSTM gates, sigmoid, tanh, ReLU, Adam, AdaGrad, SGD, MAE, MAPE, MSE, RMSE, R², mean)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Theater despite a zero count. Eq. (1) and eqs. (5)-(7) restate textbook definitions of library components that the authors called with their defaults. Each could be said in a sentence, removing them changes nothing about what was run, and none supports a derivation, so they fail the Necessity Test. The activation one-liners (2)-(4) and the metric definitions (8)-(13) are basic equations and would be acceptable on their own.\n\n### Issues\n- Greek letters for configuration parameters. The paper writes \"The hyperparameters β1 and β2 regulate the decay rates of the moment estimates. The learning rate is α\", then later lists their values: \"a common starting learning rate (α) is 0.001 ... Beta1 (β1) and Beta2 (β2) ... are typically 0.9 and 0.999, respectively, with (ϵ) at 1e-8\". These are the library defaults, that is, Adam().\n- Eq. (1) is the peephole LSTM (terms W_cf c_{t−1}, W_ci c_{t−1}, W_co c_{t−1}), which the Keras LSTM layer the authors used does not implement. The equation does not describe the model that was run.\n- The text around the equations is wrong in places. It says Adam \"maintains a constant learning rate for all weight updates throughout training while using adaptive rates for each parameter\". It says SGD \"adjusts each model parameter separately according to its own learning rate\". It says R² \"ranges from 0 to 1, with a negative result indicating the model's inability to fit the data\". And it lists R-squared among the loss functions minimised.\n\nAt Level 2, any unnecessary formal element triggers FORMALISM_THEATER under the zero-tolerance rule.\n\n---\n\n## Citation Analysis\n\nNo self-citations among the 21 references (SCR 0%). The references are on topic but often weak or misplaced:\n- LSTM is introduced through a stock-market application [10].\n- SGD is sourced to a review in \"PalArch's Journal of Archaeology of Egypt\" [17].\n- Pandas is sourced to a road-traffic forecasting paper [8], and that same Bloomington road-traffic study is presented as related work on network traffic.\n\nNo manipulation pattern.\n\n---\n\n## Structural Analysis\n\nTable 1 gives nine configurations × five metrics on a single 80/20 split of one dataset, so the claim-evidence balance is adequate (CER about 0.6). The weaknesses:\n- There is no baseline. Neither naive persistence nor ARIMA is tested, although the related work [9] reports ARIMA beating LSTM.\n- No variance is reported, despite \"repeating each model's execution multiple times\".\n- The conclusion's MAPE for ReLU-Adam (6.443) does not match Table 1 (6.95164).\n- The caption of Table 1, \"The SPR and external angle for various parameters\", belongs to another paper.\n- Errors on min-max-normalised data are described as measured in bits.\n- The paper claims \"high prediction accuracy and convergence for both training and testing datasets\", but no training results or curves are shown.\n- Adam's superiority is explained with generic textbook reasons that were never tested.\n- The conclusion cites \"the lack of publicly available datasets\" as a problem, while the study itself uses a public Kaggle dataset.\n\nLimitations are acknowledged inline: forecasts indicate only general accuracy, the Sigmoid-AdaGrad combination is unstable between runs, and datasets are scarce.\n\nArtifacts: no code. The Kaggle dataset is linked, so the category is data.\n\n---\n\n## Conclusion\n\nA sweep of library defaults, padded with textbook equations: an LSTM variant that was not used, and Greek-lettered default hyperparameters. That triggers the zero-tolerance formalism flag. The experimental contribution is thin: one split of one series, no baseline, no variance, and numbers that differ between the table and the conclusion."
+  }
+ ]
+}

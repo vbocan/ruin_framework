@@ -1,0 +1,240 @@
+{
+ "batch_id": "2016-v19-n4",
+ "analysis_timestamp": "2026-10-18T03:45:53Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 19,
+  "issue": 4,
+  "year": 2016
+ },
+ "papers": [
+  {
+   "paper_id": "gasanov2016",
+   "paper": {
+    "title": "The Computer Program for the Study of Nanoparticles in Basis of Slater Atomic Orbitals",
+    "authors": [
+     "Arzuman G. Gasanov",
+     "Faig G. Pashaev"
+    ],
+    "abstract": "In this work we describe the possibility of using of the simple computer program developed in Delphi Studio working undo MS Windows OS for carrying out the quantum mechanical calculation of electronic structure of nanoparticles. Theoretical methodology is described for realization of this simple computer. The numerous quantum mechanical calculations show that this computer program works correctly and it is useful for use in basis of Slater Atomic Orbitals (SAOs).",
+    "keywords": [
+     "Nanotechnology",
+     "Quantum mechanical calculation",
+     "Computer modeling"
+    ],
+    "doi": null,
+    "pages": "331-337",
+    "source_file": "gasanov.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 20,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 49.0,
+    "composite": 36.75,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the printed listing gives only declarations and signatures, with the routine bodies elided as '{ Text of procedures and functions }'",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 6/10 = 60%: references [1], [2], [3], [6], [7] and [8] all include Gasanov and/or Pashaev; only four references are by others.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment; the valence-only basis, single geometries and absence of any validation of the program go unmentioned."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Short software note implementing the Wolfsberg–Helmholz method over Slater orbitals; the formulas are the ones the program needs, but 60% of the references are self-citations, the correctness claim is unvalidated, and the program is not made available.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A Delphi program that applies the Wolfsberg–Helmholz (WH) semi-empirical molecular-orbital method, in a basis of Slater atomic orbitals, to three nanoparticles (Au16, Ag16, (CdS)9).\n**Level:** 2 (Low)\n**Rationale:** The method is an established semi-empirical scheme taken from the authors' earlier work and the literature; the contribution is an implementation of it and its application to three clusters. Nothing new is proved or derived. It is not Level 1 because the program does real numerical work (overlap integrals, the secular problem) rather than wiring existing services together.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 20 (8 numbered: the LCAO expansion, the secular equations, the H and S matrix elements, the effective Hamiltonian, Mulliken-type charges and overlap populations, a Clebsch–Gordan coefficient; plus unnumbered formulas for the binomial, g, K, d, A, B, Q and N auxiliary functions and for the band gap, ionisation potential, hardness, stability and emission wavelength)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — every formula that is implemented is one a programmer would need: each auxiliary function listed in Section 2 corresponds to a routine in unit DKBANTK (OVER, CLEBS, FS, GB, DLM, BS, ASN, AF, RC). Eq. (3) and Eq. (5) (the integral definition of H_pq and the effective one-electron Hamiltonian) are not computed by the program, since WH estimates H_pq from ionisation potentials. They define the quantity that Eq. (2) consumes, though, so I read them as ordinary domain exposition rather than decorative notation. This is the most borderline call for this paper.\n\n### Issues\nThe formula set is incomplete and partly garbled. The WH expression for the off-diagonal elements, the core of the method, is announced and then left out: \"Non-diagonal elements calculated using the expression given in Ref. [1, 2]:\" is followed directly by the next paragraph. The wavelength formula reads \"λ = c· / (1,6 · Eg) × 10^28 nm\" with Planck's constant missing from the numerator. In Table 1 the hardness column is labelled μ although the text defines η = ½Eg. The tabulated wavelength for (CdS)9 (0.5 μm) does not match its own band gap of 0.0998 eV: the paper's relation λ = hc/Eg gives about 12.4 μm. The Au16 and Ag16 entries (3.1 and 1.1 μm) are consistent. These are quality defects, not theater.\n\n---\n\n## Citation Analysis\n\nSix of the ten references include an author of this paper: [1] Maharramov, Ramazanov, Gasanov, Pashaev (silver nanoparticles in a Slater basis); [2] Ramazanov, Pashaev, Gasanov et al. (Chalcogenide Letters); [3] Pashaev, Gasanov, Mahmood (J. Nano Adv. Mat.); [6] Magerramov, Alieva, Pashaev, Gasanov et al. (Dyes and Pigments); [7] Pashaev, Gasanov (AICT 2009); [8] Pashaev (J. Math. Chem.). SCR = 6/10 = 60%, twice the 30% threshold. Only [4], [5], [9] and [10] are by others.\n\nThe self-citations are topically connected: semi-empirical calculations on nanoparticles and analytic overlap integrals over Slater orbitals. [6], a dyes-and-pigments paper cited for the independent-electron approximation, is the most distant, at about 0.4 similarity. That is marginal, not unrelated. References [2], [3], [6], [7] and [8] give no titles, so their relevance can be inferred only from the venue and the citing sentence. No IRRELEVANT_SELF_CITATION is raised. The problem is volume: the method's whole literature base is the authors' own output.\n\n---\n\n## Structural Analysis\n\nThe abstract claims that \"the numerous quantum mechanical calculations show that this computer program works correctly\", but no calculation is checked against a reference program, a published value or experiment. Table 1 lists the program's outputs for three clusters with no comparison. The material classifications in Section 3 (conductor/semiconductor/dielectric cut-offs, hardness above 1 eV, electrophile/nucleophile by the LUMO sign, stability by the sign of ΔE) are stated without citation. Background statements in the introduction are cited. Taken together, the claim-evidence ratio is about 0.4, weak but above the flag threshold. The paper acknowledges no limitations: valence-only basis, a single geometry per cluster, no validation.\n\nSection 2 prints the type and variable declarations and the function signatures, plus one driver procedure. The bodies of the computational routines are elided (\"{ Text of procedures and functions }\"), and no link or availability statement is given, so the program itself cannot be obtained. Production defects: the odd-page running head carries another paper's title (\"Using pressure sensors for motion detection\"), and the listing has a stray token (\"for p:=1 to nv do q\").\n\n---\n\n## Conclusion\n\nThis is a short software note on a standard semi-empirical method. Its formalism is proportionate, because the formulas are what the program computes, although the key WH off-diagonal formula is missing and one tabulated wavelength contradicts its own band gap. The paper is disqualified on citation conduct: 60% of the reference list is self-citation. Beyond that, the correctness claim has no validation, no limitations are acknowledged, and the program, whose bodies are elided from the listing, is not made available."
+  },
+  {
+   "paper_id": "ionescu2016",
+   "paper": {
+    "title": "Studies on the development of an inferential method for battery state of health assessment",
+    "authors": [
+     "Octavian Ionescu",
+     "Octavian Buiu",
+     "Bogdan Serban",
+     "Gabriela Ionescu"
+    ],
+    "abstract": "The latest developments in electric car industry are strongly correlated with technological advance achieved in the production of reliable energy storage devices. Currently, the Lithium Ion batteries cells are the most promising source of energy; however, the production of reliable packs of batteries is still a big challenge due to high number of cells used in a battery pack and the unpredictable aging behavior of these cells. Although there are direct methods of measuring state of health of battery cells, these methods cannot be practically applied to the battery packs due to their complexity thus the only possibility is to develop a much simple, inferential method. This paper is presenting the results of experimental research and studies conducted for establishing an inferential method for battery cell state of heath assessment by monitoring the difference of temperatures measured outside-inside battery. The proposed method is to measure and calculate the difference of the two temperatures and to correlate this result with the current delivered and thus deducing the state of health of battery.",
+    "keywords": [
+     "inferential method",
+     "temperature sensor",
+     "state of heath",
+     "lithium ion battery",
+     "energy storage",
+     "battery pack"
+    ],
+    "doi": null,
+    "pages": "310-320",
+    "source_file": "ionescu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 40,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 59.75,
+    "composite": 44.81,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "IRRELEVANT_SELF_CITATION",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "IRRELEVANT_SELF_CITATION": "[17] (Ionescu G., Ionescu O. et al., 'Wireless AIN sensor for condition based monitoring of industrial equipment') is cited, with the equally unrelated [16], as the source of the Li-ion cell energy-balance equations; estimated topical similarity about 0.2.",
+    "ELEVATED_SELF_CITATION": "SCR = 4/20 = 20% ([13], [14], [15], [17]), on the lower boundary of the 20-30% band, read inclusively."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Preliminary single-cell experiment linking inside-outside temperature difference to Li-ion ageing; the thermal model is attributed to an unrelated self-cited AlN sensor paper, the evidence is one cell and one ageing step read from figures, and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** An experimental study proposing to infer the state of health of a Li-ion (LiFePO4, A123 ANR26650M1B) cell from the difference between temperatures measured inside (thermocouple in the mandrel) and outside the cell, supported by a COMSOL thermal simulation.\n**Level:** 2 (Low)\n**Rationale:** The contribution is an empirical measurement campaign with descriptive analysis on one cell type; the simulation uses a standard thermal–electrochemical model in a commercial package. No new model or algorithm is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0); SOH and SOC are defined in plain prose, which is appropriate\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (energy balance (1), Newton-cooling boundary conditions (2a, 2b), reaction, reversible and ohmic heat terms (3)-(5))\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the governing equations of the simulated model, so a reader re-implementing the simulation needs them. They are also used to argue that the ohmic term links internal-resistance growth to temperature rise. They are not decorative, but their exposition is unreliable.\n\n### Issues\nThe symbol glossary misidentifies most quantities. C_P is called \"the concentration of electrolyte\" (it is a specific heat). σ_eff is called \"the effective thermal conductivity\" (in Eq. (5) it is the electronic conductivity of the solid). k_eff is called \"the concentration of the binary electrolyte in the liquid phase\" (it is the ionic conductivity). The liquid- and solid-phase potentials are swapped relative to the usual convention. The equations are attributed to [16, 17], two papers on aluminium-nitride films and sensors that contain no battery heat model (see below). The model was evidently not derived or checked by the authors, but it describes the simulation, so this counts against quality, not necessity.\n\n---\n\n## Citation Analysis\n\nFour of the twenty references include an author of this paper: [13], [14] and [15] (Serbanescu, Buiu, Ionescu O. N., Georgescu, Dumitru, on Li-ion parameter evaluation, cell balancing by SOH, and equivalent-circuit validation) and [17] (Ionescu G., Ionescu O., ..., \"Wireless AlN sensor for condition based monitoring of industrial equipment\"). SCR = 4/20 = 20%. That sits exactly on the boundary between the 15–20% and 20–30% bands. I read the flag condition \"SCR between 20-30%\" as inclusive.\n\n[13]-[15] concern Li-ion battery characterisation and are related (similarity 0.6 or more), although [13] and [14] are cited for \"remote vibration sensing devices developed for machine tools monitoring\", which their titles do not describe. [17] is cited, together with [16], as the source of the battery energy-balance equations: \"the energy balance – assuming an uni-dimensional model - is given by the following equations [16, 17]\". A wireless AlN sensor for industrial condition monitoring is a different subject from the thermal–electrochemical modelling of Li-ion cells. I estimate similarity at about 0.2, which triggers IRRELEVANT_SELF_CITATION. [16] (Dumitru, Morosanu, Sandu, Stoica, \"Optical and structural differences between RF and DC AlxNy magnetron sputtered films\") is equally off-topic. It is not a self-citation by name, but its first author co-authors [13]-[15] with two of this paper's authors. That pattern is worth noting, but nothing in the paper shows reciprocal citation, so no CITATION_RING_INDICATOR is raised. The appropriate sources for the model, Gu & Wang [19] and Kumaresan et al. [20], are in the list but cited only for the COMSOL model.\n\n---\n\n## Structural Analysis\n\nThe introduction is well referenced. The experimental evidence is thin: one cell, one ageing interval (0 to 200 cycles), internal resistance rising from 0.13 to 0.15 Ω, and an SOH decrease described only as \"a slight depreciation\". The inside-temperature differences (0.6, 0.9, 1.3 and 2.3 °C at 1C to 4C) are read off figures, with no repeat measurements or uncertainty. The key inference cites the wrong figure: \"As it could be seen in the figure 6, the increase of temperature is strongly correlated with the increase of internal resistance\". Figure 6 is the block diagram and photograph of the test setup, and no correlation is computed. The COMSOL validation is qualitative (\"it was considered that the output given by COMSOL model is close to the experiment\"). The conclusions' claims that the method is cheaper, needs less equipment and is \"quite easy to be implemented\" are unsupported, and sit oddly with a method that requires drilling each cell. The claim-evidence ratio is about 0.55, adequate on paper but carried by the cited background rather than by the results.\n\nLimitations are acknowledged inline: the need for thermal stability of the pack, the need for multiple measurements before a reliable inference algorithm, and other chemistries still to be tested. The single-cell sample is not acknowledged. No measurement data, simulation model files or code are released. COMSOL is a third-party tool.\n\n---\n\n## Conclusion\n\nThis is a plausible experimental idea reported as a preliminary single-cell observation. The modelling equations are proportionate to the paper's level but carelessly transcribed. The paper is disqualified on citation conduct: the battery heat-balance model is attributed to a self-cited paper on a wireless AlN sensor for industrial equipment. The evidence for the central correlation is one cell measured before and after one ageing step, read from figures, and nothing is released that would let the measurements be checked."
+  },
+  {
+   "paper_id": "milea2016",
+   "paper": {
+    "title": "Using pressure sensors for motion detection and actuation of remote manipulation devices",
+    "authors": [
+     "P.L. Milea",
+     "Monica Dascălu",
+     "C.O. Opriş",
+     "Eduard Franţi",
+     "M. Dumitrache",
+     "Cristian Ioan Stoica"
+    ],
+    "abstract": "Remote manipulation devices are used to extend the possibilities of human action over long distances or in environments inaccessible to man. In this paper we present an application to control a robotic arm with anthropomorphic effector, including a haptic feedback system, that provides the operator direct information on the interactions between effector and items handled by robotic arm. The system uses pressure sensors placed on the robotic hand palm and fingers connected and correlated with haptic actuators placed on the operator's control glove. Pressure information from the robotic hand is processed using a microcontroller development system, and then is transmitted to the operator's interface, where the specific vibration is generated using the haptic actuators. Experiments have shown that vibrations applied at different points of the palm and fingers of the operator were identified correctly most of the time, as sensations of pressure.",
+    "keywords": [
+     "pressure sensors",
+     "motion detection",
+     "haptic feedback",
+     "remote control"
+    ],
+    "doi": null,
+    "pages": "321-330",
+    "source_file": "milea.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 40,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 25.25,
+    "composite": 18.94,
+    "final": 18.94
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "IRRELEVANT_SELF_CITATION",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 prototype whose matrix apparatus (S, P, L, M, V) expresses a two-constant neighbour average; the flexion-dependent model of Eqs. (8)-(9) is explicitly not implemented ('made in simplified form, without taking into account ... the values provided by flexion sensors'), and the index notation of Eqs. (5) and (8) is inconsistent with Eqs. (1) and (4).",
+    "IRRELEVANT_SELF_CITATION": "[11] (Oltu, Voiculescu, Dascălu et al., 'Advanced Power Monitoring of an ARM Processor') is cited for data-glove processing on a microprocessor; power monitoring of an ARM processor is unrelated to haptic teleoperation (estimated similarity about 0.15).",
+    "ELEVATED_SELF_CITATION": "SCR = 3/14 = 21.4% ([2], [11], [14])."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Haptic-glove prototype built from commercial sensors and a microcontroller board; matrix notation dresses up a two-constant smoothing rule and an unimplemented flexion model, the evaluation is qualitative with no reported data, and one self-citation is off-topic.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A prototype teleoperation set-up: 19 commercial resistive pressure sensors (CZN-CP6) on an anthropomorphic robot hand, read by ATmega 2560 development boards and relayed over a serial link to 19 vibration actuators on the operator's glove.\n**Level:** 1 (Trivial)\n**Rationale:** The system combines off-the-shelf components (commercial sensors, an Arduino-class board, multiplexers, vibration motors). The only processing is a weighted average of neighbouring sensor readings followed by stepped actuator drive. It is a prototype description.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 12 (sensor matrix S (1), weighting matrices P (2) and L (3), V = L·M = L·S·P (4), element relations (5)-(6), general P (7), flexion-dependent v_ij (8), flexion-dependent L (9), simplified L (10), R = k/F (11), numeric P and L for a = 0.8, b = 0.1 (12))\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Disproportionate in substance, despite a zero count. The matrix apparatus (S, P, L, M, V and their products) describes a neighbour-weighted smoothing with two constants. One sentence would do: each actuator receives 0.8 of its own sensor plus 0.1 of each neighbouring sensor on the same finger, and adjacent fingers contribute with weight 0.1.\n\n### Issues\n- The flexion-dependent correlation of Eqs. (8)-(9), the most elaborate part of the formalism, is never implemented: \"The implementation presented was made in simplified form, without taking into account in these calculations the values provided by flexion sensors.\" Removing it changes nothing that was built, so it fails the Necessity Test outright.\n- The notation is internally inconsistent, a sign that it is not what the code does. Eq. (1) makes the row index of S the finger. Eq. (5), \"for the thumb\", then combines s00, s10 and s20, which by Eq. (1) are the first sensors of three different fingers. Eq. (8) is written in terms of s_ij although Eq. (4) defines V = L·M. The general L of Eq. (3) has a duplicated index (l03 appears twice in the first row).\n- Eq. (11) is introduced as approximating the variation \"as linear, defined by the function R = k/F\", which is inverse proportionality, not a linear law.\n\nAt Level 1 the zero-tolerance rule applies, so FORMALISM_THEATER is raised. No set notation and no formal \"Definition\" blocks are used.\n\n---\n\n## Citation Analysis\n\nThree of the fourteen references include an author of this paper: [2] (Milea, Dascalu, Franti et al., tele-replication of hand motions by a robotic hand), [14] (Dascalu, Milea, Franti et al., haptic feedback experiments for teleoperation) and [11] (Oltu, Voiculescu, Dascălu et al., \"Advanced Power Monitoring of an ARM Processor\"). SCR = 3/14 = 21.4%. [2] and [14] are direct predecessors of this work (similarity 0.8 or more). [11] is cited for \"Processing circuitry dedicated to data can be made [10] or can be made to the microprocessor [11]\" in a paragraph on data gloves. Power monitoring of an ARM processor has no topical connection to haptic teleoperation. I estimate similarity at about 0.15, which triggers IRRELEVANT_SELF_CITATION. In the same sentence, [10] (Maican, \"Minimum Spanning Tree Algorithm on Map Reduce One-Chip Architecture\", ROMJIST 2015) is also unrelated. It is not a self-citation by name, and it is in the same journal. Nothing in the paper shows reciprocity, so no CITATION_RING_INDICATOR is raised. Four of the fourteen references are vendor or product web pages (Honda ASIMO, CyberGlove, TME sensor, Arduino).\n\n---\n\n## Structural Analysis\n\nThe state-of-the-art section is adequately cited. The paper's own claims are hardly supported at all. The abstract states that \"Experiments have shown that vibrations applied at different points of the palm and fingers of the operator were identified correctly most of the time\", but Section 5 reports no identification trials, no counts and no rates. It contains only qualitative statements that \"The system was functioning fine\" and that after training the operator \"was able to command the robotic arm to manipulate objects\". The evaluation involves a single operator, and no measurement of any kind is reported. Design-section assertions are unsupported: the system \"solves the problem of adequacy of the force applied\", feedback \"may become reflex in a relatively short time\", and learned decisions come to be \"taken in spinal nerves, as conditional reflex\". The claim-evidence ratio is about 0.4, carried by the cited background. The simplification of the implemented weighting (no flexion input) is acknowledged inline, which counts as a minimal limitation statement. No code, firmware, schematics or data are released. The development board and sensors are third-party products.\n\n---\n\n## Conclusion\n\nThis is a hardware prototype report whose engineering content (sensor placement, multiplexing, stepped haptic drive) is described clearly enough. The mathematical layer adds an unimplemented flexion model and inconsistent matrix notation to what is a two-constant smoothing rule. The paper is disqualified on two counts: formalism theater at Level 1, and an off-topic self-citation. Its headline experimental claim has no reported data behind it."
+  },
+  {
+   "paper_id": "shukla2016",
+   "paper": {
+    "title": "Training Cellular Automata for Image Edge Detection",
+    "authors": [
+     "Anand Prakash Shukla"
+    ],
+    "abstract": "Cellular automata can be significantly applied in image processing tasks. In this paper, a novel method to train two dimensional cellular automata for detection of edges in digital images has been proposed and experiments have been carried out for the same. Training of two dimensional cellular automata means selecting the optimum rule set from the given set of rules to perform a particular task. In order to train the cellular automata first, the size of rule set is reduced on the basis of symmetry. Then the sequential floating forward search method for rule selection is used to select the best rule set for edge detection. The misclassification error has been used as an objective function to train the cellular automata for edge detection. The whole experiment has been divided in two parts. First the training was performed for binary images then it is performed for gray scale images. A novel method of thresholding the image by Otsu's algorithm and then applying the cellular automata rules for the training purpose has been proposed. It has been observed that the proposed method significantly decreases the training time without affecting the results. Results are validated and compared with some standard edge detection methods both qualitatively and quantitatively and it is found better in terms of detecting the edges in digital images. Also the proposed method performs much better in corner detection as compared to the standard edge detection methods.",
+    "keywords": [
+     "Cellular Automata",
+     "Training of Cellular Automata",
+     "Sequential Floating Forward Search Algorithm",
+     "Misclassification Error",
+     "Otsu's Algorithm",
+     "Corner Detection"
+    ],
+    "doi": null,
+    "pages": "338-359",
+    "source_file": "shukla.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 80,
+    "structural_integrity": 60,
+    "artifact_availability": 50,
+    "intellectual_integrity": 43.0,
+    "composite": 44.75,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "images from the University of South Florida data set which contains images along with manually generated ground truth edges [2] are considered",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 application of an existing rule-training procedure carrying unnecessary formal elements: the unused CA triplet A = (S, N, δ), the unused von Neumann neighbourhood (Eq. 1), and a restated textbook Otsu derivation (Eqs. 6-7, Algorithm 3).",
+    "UNNECESSARY_SET_THEORY": "Set-builder notation for a 3×3 pixel window (Eqs. 1-2) and set intersections with cardinalities for counting agreeing pixels in the objective (Eq. 5); no proof depends on these operations."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Applies Rosin's SFFS rule-selection procedure to cellular-automaton edge detection with Otsu binarisation; the tuple and set-builder notation is decorative at this level, and the superiority claims go beyond a table with small margins and under-reported exceptions.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Selecting cellular-automaton rules for edge detection: symmetry reduction of the 3×3 binary patterns to 51 rules, Sequential Floating Forward Search (SFFS) with a misclassification-error objective against Canny or ground-truth edges, and Otsu binarisation for grey-scale images.\n**Level:** 2 (Low)\n**Rationale:** The training procedure (symmetry-reduced rule set, SFFS, threshold decomposition) is Rosin's [18], which the paper describes at length in Section 2. The contribution applies it to edge detection, with Otsu's single threshold in place of full threshold decomposition. That is an existing method applied to a new task. The O(MN) complexity remark is asserted, not proved.\n\n### Formal Elements\n- Definitions: 5 (with constraints: 0): the CA triplet A = (S, N, δ); the von Neumann neighbourhood (Eq. 1); the Moore neighbourhood (Eq. 2); the misclassification error (Eq. 5); the weighted within-class variance (Eq. 6)\n- Theorems: 1 (the Pólya–Burnside counting lemma, Eq. 3, stated with a citation and applied in Eq. 4)\n- Proofs: 0\n- Equations: 7 numbered plus unnumbered Otsu class probabilities and means; 3 pseudocode algorithms\n\n### Proportionality\nCalculated complexity: 13\nExpected range (Level 2): 0-15\nRatio: 0.87x upper bound\n\n**Assessment:** Within range by count, but several elements fail the Necessity Test. The Burnside count (Eqs. 3-4) is legitimate, since it derives the 51-rule figure. Algorithms 1 and 2 are needed to implement the method. The misclassification error is needed as the objective, whatever its notation.\n\n### Issues\n- \"Mathematically, the cellular automata is defined by a triplet A = (S, N, δ)\". The tuple is never used again. This is the formal-tuple-for-a-structure pattern.\n- Eq. (1), the von Neumann neighbourhood {(x, y) : |x − x0| + |y − y0| ≤ r}, is defined and never used: only the Moore neighbourhood is used.\n- Eq. (2) uses set-builder notation for what the implementation treats as a 3×3 array window (\"3x3pattern(A[i,j])\" in Algorithm 1).\n- Eq. (5) expresses the objective through set intersections and cardinalities, |NE_o ∩ NE_T| + |E_o ∩ E_T|. The operation is a count of pixels where two binary images agree.\n- Eqs. (6)-(7) and Algorithm 3 restate Otsu's textbook derivation, which the method uses unchanged and could cite.\n\nAt Level 2 the zero-tolerance rule applies, so FORMALISM_THEATER is raised. UNNECESSARY_SET_THEORY is raised for Eqs. (1), (2) and (5): set-builder and intersection notation for a window and a pixel count, with no proof depending on it. No numbered \"Definition\" blocks are used, so DECORATIVE_DEFINITIONS is not raised.\n\n---\n\n## Citation Analysis\n\nFive of the thirty references are by the sole author: [21]-[25], Shukla with co-authors, on training cellular automata for noise filtering, morphological operations, and thinning and thickening. SCR = 5/30 = 16.7%. That is elevated but below the flag threshold. All five are on the same research line, CA rule training for image processing (similarity 0.7 or more), and are cited together in one sentence as related experiments. [23] gives no venue. The rest of the list covers the relevant prior work (Rosin, Sahota et al., Mitchell et al., Pudil et al., Canny, Otsu, Yasnoff et al.). No issues beyond mild self-citation.\n\n---\n\n## Structural Analysis\n\nThe quantitative evidence is Table 1: misclassification error on 10 University of South Florida images for LoG, Canny and the learned rule. The rule set beats Canny on 9 of 10 images, but it beats LoG on only 6 of 10. LoG is lower on 101.pgm (0.5301 vs 0.5336), 108.pgm (0.2444 vs 0.3005), 125.pgm (0.338195 vs 0.33845) and 126.pgm (0.2765 vs 0.2855). The text nevertheless treats 108.pgm as the single exception (\"for image 108.pgm the error using rule set is more than Canny and LoG operators\"), and concludes that performance is \"better than Canny and LoG operator\". Most margins are in the third decimal place, with no variance or significance test. Several abstract claims have no data behind them. The method \"significantly decreases the training time without affecting the results\", yet no timings are reported. It \"performs much better in corner detection\", yet this rests on visual inspection of Figure 9 with no corner metric. For binary images, Canny output is the training target, so the claim that the learned rule is \"superior\" to Canny rests on visual judgment alone. The learned rule turns a white pixel black when all eight neighbours are white, which is the classical inner-boundary extraction (a region minus its erosion). This is not noted. The claim that complexity is \"independent of the number of rules\" is not justified against Algorithm 1's per-rule matching. The overlap between the 12 training images and the 10 test images is not stated. The claim-evidence ratio is about 0.6, adequate.\n\nLimitations are acknowledged inline: the ground-truth images omit weak edges, and the results depend on the sensitivity of Otsu's threshold, which is left to future work. No code is released, and the 20 binary training images are not identified. The grey-scale results rest on a named, cited public benchmark: \"images from the University of South Florida data set which contains images along with manually generated ground truth edges [2] are considered\".\n\n---\n\n## Conclusion\n\nThis is a competent application of an existing CA rule-training procedure to edge detection. It is clearly described and partly quantified on a public benchmark, but its claims of superiority run ahead of a table whose margins are small and whose exceptions are under-reported. The paper is disqualified on formalism at Level 2: it carries an unused CA tuple definition, an unused von Neumann neighbourhood, and set-builder and intersection notation for what are an array window and a pixel count. Citation practice is sound."
+  }
+ ]
+}

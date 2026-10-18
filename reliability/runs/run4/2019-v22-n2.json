@@ -1,0 +1,179 @@
+{
+ "batch_id": "2019-v22-n2",
+ "analysis_timestamp": "2026-10-18T03:45:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 22,
+  "issue": 2,
+  "year": 2019
+ },
+ "papers": [
+  {
+   "paper_id": "mogniotte2019",
+   "paper": {
+    "title": "Analytical modelling of a lateral dual gate MESFET for integrated circuit in SiC",
+    "authors": [
+     "J.F. Mogniotte",
+     "C. Raynaud",
+     "M. Lazar",
+     "L. Michel"
+    ],
+    "abstract": "This paper presents a static analytical model derived from a lateral dual gate MESFET in SiC for which the gates have the particularity to be of different physical nature: the first gate is a Schottky barrier and the second gate is a bipolar junction. In order to build a design-kit dedicated to simulation, a spice model has been developed that includes an analytical model of the MESFET which takes into account especially the influence of the both gates on the channel conductivity. The model provides results with a good agreement with experimental measurements and continuous optimization processes allow having a better matching.",
+    "keywords": [
+     "SiC",
+     "analytical model",
+     "MESFET"
+    ],
+    "doi": null,
+    "pages": "103-110",
+    "source_file": "paper621.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 63.0,
+    "composite": 47.25,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 3/9 = 33% (> 30%): references [4], [5] and [8] are by the first author with co-authors of this paper. All three are on the same SiC dual-gate MESFET technology and topically relevant; the flag is raised on the ratio alone."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Necessary, proportionate device-physics equations for a dual-gate SiC MESFET model, validated only qualitatively against measurements. Three of nine references are self-citations (33%), all on-topic, and no model or data is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Static analytical (SPICE-oriented) model of a lateral 4H-SiC MESFET with two gates of different nature (a Schottky gate G1 and a buried bipolar-junction gate G2), compared with measured I-V characteristics.\n**Level:** 2 (Low)\n**Rationale:** The model is explicitly \"based on the dual gate JFET model proposed by H. Morel [9]\": a gradual-channel drift-current integration in which two depletion widths are subtracted from the channel height. Applying an established device-modelling method to a new device topology is Level 2. There is no new modelling method, no proof and no complexity or convergence analysis. Level 3 (new mathematical model with validation) was considered and rejected because the derivation is a textbook adaptation of an existing model.\n\n### Formal Elements\n- Definitions: 0 (no definition blocks; the normalised variables v, gamma1, gamma2, alpha, R_CH, V_p and X are introduced inline to shorten Eq. 8)\n- Theorems: 0\n- Proofs: 0\n- Equations: 14\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Every equation passes the necessity test: the depletion widths (1)-(3), the drift current and channel section (4)-(5), the integrated channel current (7)-(8), the blocking condition (9)-(13) and the series-resistance relation (14) are the model itself. The authors intend them to be coded in SPICE or VHDL-AMS, and removing them would leave nothing to implement. The Greek symbols are normalised physical quantities, not decorated configuration constants.\n\n### Issues\nNo formalism theater. Notation is careless in places: v and upsilon, V_ch and V_CH are used interchangeably; Eq. (9) divides by sqrt(V_P * alpha) although v and gamma2 are already normalised by V_P; Eq. (8) has unbalanced brackets. These are presentation defects, not unnecessary formalism.\n\n---\n\n## Citation Analysis\n\nNine references, three of which share authors with this paper: [4] (Mogniotte, Raynaud, Lazar et al., SiC MESFET-based power integrated circuits, 2018), [5] (Mogniotte, Raynaud, Lazar et al., SiC integrated circuits for smart power converters, ROMJIST 2017) and [8] (Mogniotte et al., integrated wide-band-gap power converter, CIPS 2012). SCR = 3/9 = 33%, above the 30% threshold, which raises EXCESSIVE_SELF_CITATION. All three are topically close: they concern the same device technology and its intended applications, and [4] holds the fabrication details the paper defers to. No relevance flag applies. The breach comes from a short reference list rather than heavy self-promotion. Reference [9], the model the paper builds on, comes from the same laboratory but shares no author. Only two references discuss SiC integrated circuits from other groups, and no prior dual-gate or SiC MESFET model is cited for comparison, so the positioning is thin. No citation-ring pattern is visible.\n\n---\n\n## Structural Analysis\n\nThe paper claims good agreement between model and measurement and supports it with three overlay figures (Figs. 3-5) and an extracted-parameter table, but reports no quantitative error. The best-fit parameters are said to be \"in very good agreement with technological values\", yet the fitted buried-layer doping N_A = 5e16 cm^-3 is ten times the 5e15 cm^-3 stated in Section 2, and the discrepancy is not discussed. The floating-G1 case is matched only after introducing an empirical coupling V_GS1 = 0.05 * V_GS2 + 1.8 with no physical justification. The abstract's statement that \"continuous optimization processes allow having a better matching\" is not demonstrated anywhere. The paper says it presents the dual-gate topology \"for the first time\", although the same group's [4] and [5] already describe dual-gate MESFET circuits. Limitations are acknowledged inline: the gap at low V_GS is attributed to model assumptions and contact resistance, the floating-gate case is flagged as poorly predicted, and the conclusion states that further improvement is needed. CER is judged adequate (about 0.6).\n\nNo model files, netlists or measurement data are released or offered. The equations appear in the text, but a description is not an artifact.\n\n---\n\n## Conclusion\n\nA short, competent device-modelling paper whose equations are necessary and proportionate: it adapts an existing dual-gate JFET model to a Schottky/bipolar dual-gate SiC MESFET. Its weaknesses are a self-citation ratio just above the 30% threshold (3 of 9 references, all relevant), a qualitative validation without error metrics, a fitted doping value that contradicts the stated technological value without comment, and no released model or data."
+  },
+  {
+   "paper_id": "baracu2019",
+   "paper": {
+    "title": "Microfabrication and experimental characterization of an Out-of-Plane MEMS switch",
+    "authors": [
+     "Angela Baracu",
+     "Raluca Müller",
+     "Rodica Voicu",
+     "Catalin Tibeica",
+     "Adrian Dinescu",
+     "Marius Pustan",
+     "Corina Birleanu"
+    ],
+    "abstract": "This paper presents an approach to improve the performance of a Micro-Electro-Mechanical (MEMS) switch with vertical movement, manufactured using surface micromachining technology. We focused on the investigations of the critical technological dimensions (gap, thickness of the arms) in order to obtain a released, stable mechanical structure and to avoid the stiction effect of the metallic shapes. Technological experiments, Scanning Electron Microscopy (SEM) investigations, CoventorWare and Comsol simulations were performed in order to investigate the electro-thermo-mechanical behaviour of the switch.",
+    "keywords": [
+     "MEMS switch",
+     "thermal actuator",
+     "microfabrication",
+     "sacrificial layer"
+    ],
+    "doi": null,
+    "pages": "124-134",
+    "source_file": "paper623.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.5,
+    "composite": 45.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 3/9 = 33% (> 30%): references [4], [5] and [6] share authors with this paper. All are relevant ([4] and [6] describe the same switch and supply reproduced figures); the flag is raised on the ratio alone."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Prototype MEMS-switch fabrication paper with commercial-FEM simulations and no formalism. The experimental characterization in the title amounts to SEM imaging, the reproducibility claims are unsupported, and three of nine references (33%) are self-citations to work on the same device.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design, surface-micromachining fabrication (photoresist sacrificial layer, aluminium structural layer) and finite-element simulation of an out-of-plane electro-thermally actuated MEMS switch.\n**Level:** 1 (Trivial)\n**Rationale:** The paper is a prototype description: a device geometry, a three-mask fabrication flow, optical and SEM images of the released structures, and coupled electro-thermo-mechanical simulations run entirely in commercial packages (CoventorWare, Comsol Multiphysics). It contributes no model, algorithm or analysis of its own. A Level 2 reading (a parameter study of gap thickness and drive voltage) was considered; the strict default to the lower level applies.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper uses no formal notation; material properties are given in a table and simulation results in figures.\n\n### Issues\nNone identified for formalism. The quantitative content has inconsistencies, though: the parametric sweep is said to cover \"the 1-200 V range\" while all results are reported in mV (25, 50, 200 mV); the reference temperature is given as 2 degrees C; and Table 1 prints the thermal conductivity of aluminium as 2.37e-8 pW/(um K), whereas 237 W/(m K) corresponds to 2.37e8 in those units.\n\n---\n\n## Citation Analysis\n\nNine references, three of which share authors with this paper: [4] (Pustan, Birleanu, Muller, Baracu et al., DTIP 2018, on the same out-of-plane thermally actuated switch), [5] (Baracu, Voicu, Muller, Pustan, Birleanu et al., fabrication of a chevron-type thermal actuator, 2015) and [6] (Baracu, Muller, Voicu, Pustan, Birleanu, Dinescu, \"Manufacture and investigation of a vertical MEMS switch\", International Semiconductor Conference 2018). SCR = 3/9 = 33%, above the 30% threshold, which raises EXCESSIVE_SELF_CITATION. All three are directly relevant (similarity well above 0.5). [4] and [6] describe the same device, and Figs. 3, 4 and 14 are reproduced from them with attribution. That overlap deserves notice: the journal paper appears to extend two 2018 conference papers on the same switch, and the text does not say what is new relative to them. Reference [8] is a bare website (www.asminternational.org), cited for the melting point of aluminium. No citation-ring pattern.\n\n---\n\n## Structural Analysis\n\nThe title promises \"experimental characterization\", but the only experimental evidence is optical and SEM imaging showing that the beams are released for both gap values. No electrical, thermal or mechanical measurement of actuation is reported, and the conclusion defers \"experimental measurements, which will be compared with different simulation results\" to future work. Several claims have no supporting data: that the process \"ensures a very high reproducibility of the developed structures, compared to conventional MEMS electro-thermal actuators\", that plasma release leads \"to enhanced reliability of the structures\", and the abstract's \"approach to improve the performance\" of the switch, whose performance is never measured. The simulation claims (actuation around 30 mV, displacement above 7 um, weak dependence on the convection coefficient) are supported by Figs. 6-12, and the two FEM tools agree. CER is judged about 0.6 overall: adequate for the simulations, weak for the fabrication claims. Limitations are acknowledged only weakly and inline: a simplified 3D model, results \"hard to compare\" with the literature because of different materials and geometry, and measurements left for future work.\n\nNo design files, simulation models or data are released. CoventorWare and Comsol are third-party tools and do not count as the authors' artifacts.\n\n---\n\n## Conclusion\n\nA fabrication-and-simulation report on a prototype MEMS switch, with no formalism, which suits its level. The main weaknesses are structural. The title overstates the experimental content, the reproducibility and reliability claims are unsupported, the units are inconsistent, and the overlap with the authors' own 2018 conference papers on the same device is not delineated. Three of nine references are self-citations (33%), all on-topic, which exceeds the 30% threshold."
+  },
+  {
+   "paper_id": "plesa2019",
+   "paper": {
+    "title": "Design of Over-Temperature Protection for Switched-Capacitor DC-DC Converter Based on Electro-Thermal Simulations",
+    "authors": [
+     "Cosmin-Sorin Plesa",
+     "Marius Neag",
+     "Cristian Mihai Boianceanu"
+    ],
+    "abstract": "This paper presents an over-temperature protection (OTP) circuit for a DC-DC converter based on switching capacitors (SC DC-DC). A two-steps design methodology was employed: a first-pass circuit was obtained by using standard, electrical-only simulations; next, electro-thermal simulations were employed to ascertain the best location of the thermal sensor and the resulting thermal coupling, thus allowing for the fine-tuning of the final circuit. The die temperature distribution was analyzed for two critical operational scenarios in order to identify the worst case and to provide design data for implementing a robust and precise OTP. The key electrical and electro-thermal simulation results are presented in some detail. Finally, results of measurement performed on the actual silicon are presented, to validate the design.",
+    "keywords": [
+     "Over-temperature protection",
+     "switched-capacitor DC-DC converter",
+     "controlled charging current",
+     "thermal shutdown",
+     "electro-thermal simulations"
+    ],
+    "doi": null,
+    "pages": "144-157",
+    "source_file": "paper625.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 72,
+    "artifact_availability": 0,
+    "intellectual_integrity": 66.0,
+    "composite": 49.5,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 4/13 = 31% (> 30%); 4/12 = 33% once the duplicated reference [7]/[9] is merged. References [2], [11], [12] and [13] share an author with this paper (Boianceanu or Plesa and Neag). All are relevant to the OTP topology or the electro-thermal co-simulation method; the flag is raised on the ratio alone."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Applied over-temperature-protection design with proportionate formalism and simulated and measured time-to-OTP within 1%. The self-citation ratio of 31% (4 of 13 references, all on-topic) exceeds the 30% threshold, and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design of an over-temperature protection (a comparator with hysteresis driven by a BJT temperature sensor) for a switched-capacitor DC-DC converter with controlled charging current. Electrical simulations give the first-pass sizing, electro-thermal co-simulation guides sensor placement, and the design is validated on silicon.\n**Level:** 2 (Low)\n**Rationale:** The OTP circuit is the standard thermal-shutdown topology used for LDOs (the authors' own [11]), adapted to an SC converter, and the two-step electrical/electro-thermal flow applies an existing co-simulation method ([12], [13]). This is a standard design pattern applied to a new context, with no new algorithm, model or proof.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The only equation, DeltaT = T_HOTSPOT - T_OTPSENSOR, names the thermal-coupling metric that Table 1 and Fig. 11 report. It is a basic equation of the kind Level 2 allows, not a theater pattern: there is no set notation, tuple definition or decorated parameter.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThirteen references, four of which share an author with this paper: [2] and [13] (Bajenaru, Boianceanu, Brezeanu et al., electro-thermal simulation of a linear regulator's protection circuits and of automotive high-power circuits), [11] (Plesa, Neag, Radoias, thermal-shutdown circuitry with hysteresis, 2017) and [12] (Pfost, Boianceanu et al., electrothermal simulation of DMOS self-heating, IEEE TED 2013). SCR = 4/13 = 31%. References [7] and [9] are the same Gregoire JSSC 2006 article listed twice; over twelve distinct works the ratio is 4/12 = 33%. Either way the ratio exceeds 30%, if narrowly, and raises EXCESSIVE_SELF_CITATION. All four self-citations are directly relevant: [11] is the OTP topology used, [12] and [13] are the co-simulation method on which the design step relies, and [2] is earlier electro-thermal analysis of protection circuits. The other references include a datasheet [3] and a patent [8]. No citation-ring pattern.\n\n---\n\n## Structural Analysis\n\nClaims are generally backed by evidence. The OTP thresholds come from a temperature sweep and a 500-run Monte Carlo simulation. Sensor placement is compared across three layout positions with temperature maps. Silicon measurements on three samples give T_HIGH of 173-176 degrees C and T_LOW of 158-161 degrees C against the 175/160 degrees C targets, and the simulated and measured time-to-OTP agree within 1% (780 ms vs 785 ms). The claim that this \"validate[s] the design methodology\" rests on that single test scenario and three samples, which is thin support for a methodological claim. Minor inconsistencies: Table 1's header reads T_START = -150 degrees C where the text says 150 degrees C, the Fig. 10 caption assigns the trace colours the other way round from the text, and two of the three samples are labelled S2. Constraints are acknowledged inline: electro-thermal results are hard to validate by direct measurement, co-simulation is costly, the mean-power simplification introduces up to 10 degrees C error in DeltaT, and the measurements were not taken in a low-EMI environment. CER is judged about 1.0.\n\nNo netlists, layout, simulation set-ups or measurement data are released (it is an industrial CMOS design), and nothing is claimed to be available.\n\n---\n\n## Conclusion\n\nA sound applied circuit-design paper with proportionate formalism (a single difference equation), a simulation-to-silicon comparison and candid inline acknowledgment of constraints. The self-citation ratio is just over the 30% threshold (4 of 13 references, or 4 of 12 once the duplicated entry is merged). All of these self-citations are on-topic, and most of them describe the co-simulation methodology the paper depends on. No artifacts are released."
+  }
+ ]
+}

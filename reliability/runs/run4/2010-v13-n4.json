@@ -1,0 +1,227 @@
+{
+ "batch_id": "2010-v13-n4",
+ "analysis_timestamp": "2026-10-18T03:39:49Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 13,
+  "issue": 4,
+  "year": 2010
+ },
+ "papers": [
+  {
+   "paper_id": "chesaru2010",
+   "paper": {
+    "title": "Discontinous-Time Comparator with State Saving",
+    "authors": [
+     "Valentin Chesaru",
+     "Cristian Neacşu",
+     "Claudius Dan",
+     "Mircea Bodea"
+    ],
+    "abstract": "This paper presents the design of a low power discontinuous time comparator that saves its state in a digital latch circuit when entering shut-down mode. The designed low power comparator can be used in any integrated circuit to decrease power consumption in shut-down mode. The design is based on a simple and efficient idea: while the comparator is in shut-down mode, its previous state is stored in a latch. This idea can be easily applied to any \"already designed\" discontinuous - time comparator.",
+    "keywords": [],
+    "doi": null,
+    "pages": "323-331",
+    "source_file": "01-chesaru.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 40,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 59.75,
+    "composite": 44.81,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 1/3 = 33%: reference [1], Dan C., Continuous-Time Comparators (2005), is by co-author Claudius Dan. The self-citation is topically relevant (comparator design); the ratio exceeds 30% because the reference list has only three entries."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Short simulation-only circuit note with functional, proportionate equations; one relevant self-citation in a three-item reference list exceeds the self-citation threshold, and the generality claims outrun the single simulated design.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A low-power hysteretic comparator that stores its last output in a D-latch while shut down, so that its bias network can be switched off; validated by H-Spice simulation in a 0.18 µm 3.3 V process.\n**Level:** 2 (Low)\n**Rationale:** The contribution is a simple optimisation of a standard circuit: a classical two-stage amplifier taken from [2] with its compensation removed, an extrinsic positive-feedback resistor pair, and a D-latch from a standard digital library placed in the loop. The authors call it \"a simple and efficient idea\". No new circuit theory or analysis is developed. Level 1 was considered, since the design combines existing blocks, but the circuit is sized against a specification and simulated, which places it at the low end of Level 2.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 9 (textbook threshold and hysteresis expressions for non-inverting and inverting extrinsic-hysteresis comparators, eqs. 1-7; the resulting resistor ratio and thresholds, eq. 8; a current ratio against the enable duty cycle, eq. 9)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. Eqs. 2-4 are used to size RF/RI = 15.5 and RF = 155 kΩ, which is exactly what a designer needs to build the circuit, so they pass the necessity test. Eq. 9 is a one-line ratio, a basic equation. None of the theater patterns occurs.\n\n### Issues\nNo formalism theater. Minor internal inconsistencies: eq. 1 defines the hysteresis as VthUp - VthDown while eqs. 4 and 7 give VthDown - VthUP, and the design values (VthDown = 1.76 V above VthUP = 1.55 V) fit only the second sign; eq. 7 for the inverting comparator is identical to eq. 4; eqs. 5-7 describe the inverting configuration, which the design never uses.\n\n---\n\n## Citation Analysis\n\nThree references. [1] Dan C., *Continuous-Time Comparators* (Editura Tehnica, 2005) matches co-author Claudius Dan; it is on comparator design and directly related to the paper (similarity about 0.8). SCR = 1/3 = 33%, above the 30% threshold, so EXCESSIVE_SELF_CITATION is raised. The ratio rests on one relevant citation in a three-item list; this is not padding of the usual kind, but the rule has no small-denominator exception. Only [2] is actually cited in the text; [1] and [3] are listed but never invoked. The introduction cites no prior work on low-power or state-retaining comparators, so the novelty of the latch technique is not positioned against the literature.\n\n---\n\n## Structural Analysis\n\nThe central claims are supported by simulation: response time (180 ns versus 182 ns with the latch, 1.5 ns added delay), normal-mode quiescent current (56.6 µA) and shut-down current (206 pA), with waveforms in Figs. 7 and 9 and the comparison in Table 1. The evidence is simulation only; there is no silicon measurement. The generalising claims, that the technique \"can be used on any existing design\", can be adapted to \"any existing CMOS technology\" and has \"practically no impact\" on already-designed comparators, rest on one simulated design. The specification in Section 2 (IQ = 75 µA, tr = 0.5 µs) is not reconciled with the simulated values, and Table 1 gives no shut-down current for the standard comparator, so the comparison it is meant to show is incomplete. Estimated CER about 0.6 (adequate). Inline limitations are present: random and systematic offsets were neglected in simulation and the authors note that \"Random offset will alter the result\"; the latch delay may require a faster latch for high-speed use.\n\nThe page header of the text reads \"Volume 13, Number 3, 2010, 323-331\", although the paper sits in the issue 4 folder and its page range fits just before paper 03 of this issue (pp. 342-349). This looks like a header typesetting error; it does not affect the assessment.\n\nArtifact availability: no netlists, schematic files or simulation data are linked or offered; H-Spice and the digital cell library are third-party. Category none.\n\n---\n\n## Conclusion\n\nA short circuit-design note whose formalism is functional and proportionate: the textbook equations size the feedback network, and the simulations support the claim that shut-down current falls to the picoampere range without affecting response time. The weaknesses are scope and positioning: a single simulated design, generalisations beyond it, no comparison with other low-power comparator techniques, and a three-item reference list of which two entries are never cited. The EXCESSIVE_SELF_CITATION flag is raised mechanically by one relevant self-citation out of three references; it reflects the size of the list rather than evidence of citation manipulation."
+  },
+  {
+   "paper_id": "cobianu2010",
+   "paper": {
+    "title": "Emerging All-Differential Chemical Sensing",
+    "authors": [
+     "Cornel Cobianu",
+     "Bogdan Şerban",
+     "Ion Georgescu",
+     "Ştefan Costea",
+     "Cazimir Bostan"
+    ],
+    "abstract": "It is the purpose of this paper to present a novel generic concept for low drift chemical sensing which is applicable at micro and nanometer scale, based on a new, all-differential approach. At micrometer level, our principle is explained by means of surface acoustic wave (SAW) chemical sensing, while at nano level, we are using the resonant sensing principle to develop our genuine differential concept. Unlike the traditional differential approaches based on functionalized sensing layer in the sensing loop, and on a uncoated surface in the reference loop, our all differential concept provides a better response subtraction between the two paths, as the sensing loop consists of a functionalized sensing layer, as before, but, the reference loop consists of a functionalized non-sensing layer, with the same ageing and humidity behavior as the sensing layer. Twinned electronic reading is used for both loops, and thus all the common mode signals are subtracted in the differential reading, assuring the minimum base line drift of the sensor. Preliminary results of all differential sensor eliminating the effects of humidity and temperature variations are shown for the SAW sensors, with the sensor signal kept independent of their changes. Finally, the application of the novel concept for the humidity sensing with all differential resonant nanosensor is presented.",
+    "keywords": [],
+    "doi": null,
+    "pages": "342-349",
+    "source_file": "03-cobianu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 35,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 55.5,
+    "composite": 41.62,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 4/10 = 40%: [4] Cobianu et al. (CAS 2009), [7] Cobianu and Georgescu (US 2010/0058834 A1), [8] Cobianu and Serban (US application 12/617,893) and [9] Cobianu, Serban and Mihaila (US application 12/895410). All are on topic; three are the authors' own patent filings for the concept presented."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Concept note on matched-reference differential chemical sensing with basic, proportionate equations; four of ten references are the authors' own, mostly patent filings, and the central claim of ageing-drift cancellation is untested.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A differential chemical sensor in which the reference loop carries a functionalised non-sensing layer matched in ageing and humidity behaviour to the sensing layer, instead of an uncoated surface; shown on SAW delay-line oscillators under temperature and humidity sweeps and proposed for resonant SOI-CMOSFET nanobeams through a list of hydrophilic/hydrophobic layer pairs.\n**Level:** 2 (Low)\n**Rationale:** The idea is a variation on the standard differential sensor (sensing loop minus reference loop): the uncoated reference element is replaced by a coated, non-sensing one. The paper reports two preliminary experiments and a materials proposal. There is no new model, algorithm or analysis.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (eq. 1, differential output as the difference of the two loop outputs with their drift terms; eqs. 2-3, its simplification for a constant reference output and equal drifts)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The three equations are a basic statement of common-mode cancellation and carry the paper's core argument, that matched drifts cancel in the difference. The Greek letter δ denotes a time-varying drift signal, not a configuration constant. None of the theater patterns occurs; at Level 2 basic equations of this kind are expected.\n\n### Issues\nNo formalism theater. The step to eq. 3 rests on accepting \"theoretically\" that the drift difference is approximately zero, which is the property the paper sets out to demonstrate. The experiments test temperature and humidity only, so the assumption is untested for ageing, the drift source the paper emphasises.\n\n---\n\n## Citation Analysis\n\nTen references, four of them self-citations by author-name matching: [4] Cobianu et al., CAS 2009 (cited for resonant SOI-CMOSFET devices); [7] Cobianu and Georgescu, US published application 2010/0058834 (low-drift chemical sensor array, i.e. this concept); [8] Cobianu and Serban, US application 12/617,893 (all-differential resonant nanosensor); [9] Cobianu, Serban and Mihaila, US application 12/895410 (differential resonant humidity sensor). All four are on topic (similarity 0.7 or higher), so IRRELEVANT_SELF_CITATION does not apply. SCR = 4/10 = 40%, above the 30% threshold, so EXCESSIVE_SELF_CITATION is raised. Three of the self-citations are the authors' own patent filings for the concept, two of them unexamined applications; they document priority but are not independent support. Six references ([1]-[5], [10]) omit article titles, which makes them hard to verify.\n\n---\n\n## Structural Analysis\n\nThe abstract and conclusions claim that the concept significantly reduces the effect of \"all common mode signals (temperature, humidity, ageing)\" and assures \"the minimum base line drift\". The evidence is Figs. 3 and 4: the SAW sensor's differential output stays flat over 20-60 °C and 15-50% RH. There are no ageing data, no exposure to a target gas (so it is not shown that the sensing loop keeps its sensitivity), no quantitative drift figures, no description of the layer materials used in the SAW experiment, and no side-by-side comparison with a classical uncoated-reference sensor. The resonant nanosensor section is a proposal (schematics taken from the patent applications and six candidate layer pairs) with no results, although the abstract says the application of the concept to humidity sensing \"is presented\". Estimated CER about 0.45 (weak, above the 0.33 flag threshold). There is no limitations section; the abstract calls the SAW results \"Preliminary\", and the drift cancellation is introduced as something \"we may theoretically accept\". These are minimal inline acknowledgments, enough to withhold NO_LIMITATIONS but not a discussion of constraints.\n\nArtifact availability: experimental hardware results; no data or design files are released. The cited patent documents describe the method but are neither a dataset nor code. Category none.\n\n---\n\n## Conclusion\n\nThe all-differential idea is clearly explained and the light formalism is appropriate to it. The paper is best read as a concept note: its strongest claim, cancellation of ageing drift, is untested, the sensing function itself is not demonstrated, and the nanoscale half is a proposal without data. The 40% self-citation ratio, most of it the authors' own patent filings on the same concept, raises the disqualifying EXCESSIVE_SELF_CITATION flag even though every self-citation is on topic."
+  },
+  {
+   "paper_id": "damaceanu2010",
+   "paper": {
+    "title": "Nanostructured Polyimide Films by UV Excimer Laser Irradiation",
+    "authors": [
+     "Mariana-Dana Damaceanu",
+     "Radu-Dan Rusu",
+     "Mihaela Olaru",
+     "Iuliana Stoica",
+     "Maria Bruma"
+    ],
+    "abstract": "Here we present a study of the polyimide films nanostructuring by KrF laser beam irradiation and the investigation of the mechanism of cone-like structure formation at two laser fluences, 57 and 240 mJ/cm2. These films were prepared from fluorinated poly(naphthyl-imide)s containing oxadiazole rings, by casting polymer solutions onto glass plates and gradually heating. Their morphology before and after laser ablation was investigated by using various techniques such as infrared spectroscopy (FTIR), atom force microscopy (AFM) and X-ray photoelectron spectroscopy (XPS).",
+    "keywords": [
+     "poly(naphthyl-imide)s",
+     "oxadiazole ring",
+     "laser irradiation",
+     "cone-like structure",
+     "carbon layer"
+    ],
+    "doi": null,
+    "pages": "368-377",
+    "source_file": "06-damaceanu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 58.75,
+    "composite": 44.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 5/13 = 38%: [3], [4], [7], [8] and [12] include Damaceanu, Rusu R.D. or Bruma as authors. [7], [8] and [12] are relevant; [3] and [4] (other polyimide families, cited only for general polyimide properties) are marginal at about 0.4 but not below 0.3.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of the study's constraints (two fluences, a single pulse count, XPS on polymer I only); interpretations are hedged but no limits are stated."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Experimental laser-ablation study of new polyimide films with no formalism and substantial measurement data, but five of thirteen references are self-citations, the FTIR conclusion contradicts the reported band changes, and no limitations are stated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** KrF excimer laser irradiation (248 nm, 30 pulses, 57 and 240 mJ/cm2) of cast films of two fluorinated poly(naphthyl-imide)s containing oxadiazole rings, characterised by FTIR, AFM and XPS, with thermal (TGA, DSC) and tensile data for the pristine films.\n**Level:** 2 (Low)\n**Rationale:** An experimental materials-characterisation study that applies established ablation and surface-analysis techniques to polymers synthesised in the authors' earlier work [7]. The contribution is empirical; no model or analysis is developed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (two data tables)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The argument is spectroscopic and morphological, and the paper uses no mathematical notation, which suits it.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThirteen references, five of them self-citations by author-name matching (Damaceanu, Rusu R.D., Bruma): [3] Damaceanu, Bacosca, Bruma et al. (siloxane-containing heterocyclic polyimides); [4] Sava, Burescu, Bruma (polyimides with pendant azobenzene groups); [7] Damaceanu, Rusu, Bruma, Rusanov (synthesis of these poly(naphthaleneimide)s); [8] Bruma, Damaceanu (oxadiazole polyimides, used for the thermal-stability comparison); [12] Sava, Bruma, Sadowski (XPS of polyphenylquinoxaline-imide-amides, used for spectral comparison). [7] and [8] are directly relevant and [12] is relevant as an XPS reference (about 0.5). [3] and [4] are marginal (about 0.4): they concern other polyimide families and are cited only in the general sentence on polyimide properties and applications (\"[2-4]\"), not for anything about laser processing. No self-citation falls below 0.3, so IRRELEVANT_SELF_CITATION does not apply. SCR = 5/13 = 38%, above the 30% threshold, so EXCESSIVE_SELF_CITATION is raised. Minor reference errors: [1] gives 1988 for Chem. Rev. volume 89, which is the 1989 volume, and the title of [6] is garbled (\"KrF3 pulsed laser\").\n\n---\n\n## Structural Analysis\n\nThe measurement evidence is substantial: Table 1 (thermal data), tensile ranges, FTIR band assignments and their changes after irradiation, AFM images with cone heights and periods (Figs. 1-3), and XPS compositions (Table 2, Fig. 4). The interpretation is weaker than the data:\n\n- The conclusions state that \"FTIR spectroscopy evidenced a decomposition of imide rings\", but Section 3 reports the opposite: decomposition \"should be correlated with a decrease of carbonyl bands\", and \"Instead\" the imide bands at 1784, 1716 and 1371 cm-1 grew after 240 mJ/cm2.\n- The same section says the unchanged oxadiazole bands \"proved the higher stability of oxadiazole ring compared with naphthyl-imide one\", although the imide bands did not decrease.\n- The cone mechanism is attributed to shielding by \"calcium- and phosphorous-containing\" impurities, but XPS detected C, N, O, F, Si, Na, Ca and S and no phosphorus.\n- The self-organisation explanation for the periodic structures is supported only by a citation to work on a different polymer [10].\n- XPS and the 240 mJ/cm2 AFM image cover polymer I only, and a single pulse count is used; the 57 mJ/cm2 XPS discussion cites peaks (about 293 eV for C-F, about 402 eV for N) that appear in no table or figure.\n\nEstimated CER about 0.8 (adequate), because most sentences report measurements, but the mechanistic claims in the abstract and conclusions are weakly supported. There is no limitations section and no acknowledgment of the study's constraints (two fluences, one pulse count, XPS on one polymer); interpretations are hedged (\"tentatively\", \"probably\", \"can be due to\"), but hedging is not a statement of limits. NO_LIMITATIONS is raised.\n\nArtifact availability: no spectra, AFM data or raw measurements are deposited or offered; MultiPak and the instruments are third-party. Category none.\n\n---\n\n## Conclusion\n\nA conventional experimental study with no formalism, as befits its subject, and a broad set of measurements. Its weaknesses are interpretive: the FTIR conclusion contradicts the reported band changes, the impurity-shielding mechanism names an element the XPS did not find, and no limits of the study are stated. Five of thirteen references are the group's own work, two of them only marginally related, which raises the disqualifying EXCESSIVE_SELF_CITATION flag."
+  },
+  {
+   "paper_id": "rusu2010",
+   "paper": {
+    "title": "Macromodel and Emulator of the Avalanche Gate-Controlled Diode Working in the Analog Regime",
+    "authors": [
+     "Adrian Rusu",
+     "Cristian Ravariu",
+     "Alexandru Rusu",
+     "Dragos Dobrescu",
+     "Mihai Craciun",
+     "Dan Cozma"
+    ],
+    "abstract": "This paper presents the simulation results of the gate-controlled diode, working in the analog regime. The aim of the paper is to find the device macromodel that provides an optimum linearity of the junction breakdown voltage versus the gate voltage, at a given current. The lateral pn junction is simulated in the breakdown regime and the gate voltage biases the MOS capacitor in deep depletion. Finally, linearity under 1% was accomplished, being in agreement with the theory. An emulator based on equivalent circuit was developed according to these simulations in order to be implemented in Spice-like programs.",
+    "keywords": [
+     "unconventional MOS device",
+     "gated diode breakdown",
+     "simulations",
+     "equivalent circuit"
+    ],
+    "doi": null,
+    "pages": "389-398",
+    "source_file": "08-rusu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 25,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 54.05,
+    "composite": 40.54,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 4/6 = 67%: [2], [3], [4] and [6] are by the first author (Rusu A.), [6] also by co-authors Dobrescu, Alexandru Rusu and Cozma. All concern the gate-controlled diode and are relevant; the only external references are a textbook and Grove et al. (1967)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Device-simulation parameter study and op-amp emulator for the gate-controlled diode with proportionate device-physics equations; four of six references are the first author's own, and the linearity figure and the emulator lack validation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Atlas device simulations of a lateral pn junction under a MOS gate (gate-controlled diode) in avalanche breakdown, sweeping oxide thickness (300, 30 and 15 nm), substrate doping (1e15 and 1e16 cm-3) and junction profile (uniform or Gaussian) to find structures whose breakdown voltage follows the gate voltage with unit slope; plus a three-op-amp (TL084) equivalent circuit that emulates the analog regime for Spice-like simulators.\n**Level:** 2 (Low)\n**Rationale:** A parameter study run with a commercial device simulator, explained with a textbook field-continuity argument (Grove et al. [5]), and accompanied by a simple op-amp circuit. This is a configuration and parameter-tuning study; there is no new model with validation or new algorithm.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 11 (eq. 1, the condition xox << W; eqs. 2-4, oxide field and displacement continuity giving the unit slope; eqs. 5-8, transfer characteristic and current relation; eqs. 9-11, emulator design relations VK0 = VZ, m = R2/R1 and R9 = R8 - RLA)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. Eqs. 2-4 carry the physical argument for the unit slope, and eqs. 9-11 are what one needs to build the emulator. The symbols ξ (electric field) and K (dielectric constant) are standard device-physics notation, not decorated configuration constants. All elements pass the necessity test.\n\n### Issues\nNo formalism theater. Minor: eqs. 5 and 6 restate each other; the discussion calls the scaled-device result \"in strong contradiction\" with eq. 1 and then attributes it to lateral fields, which eq. 3 assumes away, without naming that assumption as the cause.\n\n---\n\n## Citation Analysis\n\nSix references, four of them self-citations of the first author (Rusu A.), one of which ([6]) also includes co-authors Dobrescu, Alexandru Rusu and Cozma: [2] Rusu, Badila, Bulucea 2008 (generalised DC characteristics of gate-controlled diodes); [3] Rusu, Bulucea 2009 (gate-controlled diode for electronic circuits); [4] Rusu, Pietrareanu, Bulucea 1980 (reversible breakdown-voltage collapse in gate-controlled diodes); [6] Rusu, Dobrescu, Rusu Alex., Cozma 2009 (SPICE emulator for the breakdown mode). All are on the same device (similarity about 0.9), so IRRELEVANT_SELF_CITATION does not apply. SCR = 4/6 = 67%, far above the 30% threshold, so EXCESSIVE_SELF_CITATION is raised. The only external sources are a textbook (Sze and Ng) and Grove et al. (1967); the paper engages no other literature on gated-diode breakdown or its simulation. The text says \"The paper [4] has presented a such emulator\", but [4] is the 1980 breakdown-collapse paper; the emulator reference is presumably [6].\n\n---\n\n## Structural Analysis\n\nEvidence consists of simulated I-V curves (Figs. 3, 5, 7), transfer characteristics (Fig. 8), and Tables 1-2 with four (VG, Vj) points each. Several claims go beyond it:\n\n- \"Linearity under 1%\" (abstract and Section 2) is never defined. In Table 1 the endpoint line has slope 1.00 and the two intermediate points deviate from it by about 5 V, which is about 1% of the breakdown voltage but about 5% of the 98 V output span; the figure depends on an unstated metric.\n- The initial parameters were chosen \"to compare the simulation results with the performances of an earlier-made experimental structure [4]\", but no comparison with measured data is shown.\n- \"In order to validate the proposed theory, the simulations were extended\": the theory is Grove et al.'s, and the extension does not test it quantitatively.\n- The lateral-field explanation and the recommendation to keep the gate extension large over thin oxides are not simulated; there is no lateral-field extraction and no gate-extension sweep.\n- The emulator (Fig. 11) is presented with no Spice simulation or measurement of its behaviour, although the abstract says it \"was developed according to these simulations in order to be implemented in Spice-like programs\".\n\nEstimated CER about 0.5 (adequate to weak). Inline limitations are present: the emulator is \"dedicated to analog regime only\", and the gate voltage was capped at 30 V for thin oxides to avoid oxide breakdown.\n\nArtifact availability: Atlas is third-party; no input decks, meshes or emulator netlist are released or offered. Category none.\n\n---\n\n## Conclusion\n\nA modest simulation study with proportionate, purposeful equations: the field-continuity argument explains the unit slope, and the emulator relations are directly usable. Its evidence is thin for its claims: an undefined linearity figure, no measured comparison despite the stated intent, untested explanations for the loss of unit slope in scaled devices, and an emulator without results. Four of six references are the first author's own work on the same device, which raises the disqualifying EXCESSIVE_SELF_CITATION flag even though every self-citation is on topic."
+  }
+ ]
+}

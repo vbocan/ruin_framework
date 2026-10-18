@@ -1,0 +1,184 @@
+{
+ "batch_id": "2016-v19-n3",
+ "analysis_timestamp": "2026-10-18T03:45:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 19,
+  "issue": 3,
+  "year": 2016
+ },
+ "papers": [
+  {
+   "paper_id": "bunea2016",
+   "paper": {
+    "title": "W-Band receiver with Zero Bias Diode operated in the 23K - 295 K temperature range",
+    "authors": [
+     "A.C. Bunea",
+     "D. Neculoiu",
+     "A.M. Avram",
+     "A. Muller"
+    ],
+    "abstract": "In this paper we analyze the influence of extremely low temperatures on the operation performances of a hybrid integrated W-band (75 – 110 GHz) receiver based on a zero-bias GaAs diode. First, the zero-bias diode is investigated and modeled in the temperature range of operation. Then, a direct detection receiver consisting of a membrane supported folded slot antenna and a detection circuit based on a zero-bias diode is fabricated and characterized. The detection circuit is inserted in a cryogenic system and on-wafer measurements are performed in the temperature range 23 K – 295 K, in advanced vacuum conditions. The detection circuit is fed with a 1 kHz amplitude modulated W-band signal and both detected signal and i/v characteristic are compared for different temperatures. It is demonstrated that the receiver is capable of operating even at 23 K (−250.15 °C), when the diode is biased at +0.25 V.",
+    "keywords": [
+     "cryogenic",
+     "GaAs",
+     "i/v characteristic",
+     "receiver",
+     "space applications",
+     "W-band",
+     "zero-bias diode"
+    ],
+    "doi": null,
+    "pages": "226-238",
+    "source_file": "bunea.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 30,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.0,
+    "composite": 45.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "5 of 9 references ([4], [6], [7], [8], [9]) share authors with this paper (A.C. Bunea and D. Neculoiu are on all five; Avram and/or Muller on [6], [7], [9]), giving SCR = 55.6%, above the 30% threshold. All five are topically related W-band/millimetre-wave work, so IRRELEVANT_SELF_CITATION is not raised; [9] appears to be an undisclosed conference version of this same study."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Competent cryogenic characterization of a W-band zero-bias-diode receiver whose single diode equation is exactly what the parameter extraction needs; disqualified on citation conduct, with 5 of 9 references (56%) being the authors' own and almost no external literature engaged. No data released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Cryogenic (23-295 K) characterization of a hybrid W-band direct-detection receiver built around a commercial zero-bias GaAs beam-lead diode (MZBD-9161), with empirical extraction of exponential-law diode parameters across temperature.\n**Level:** 2 (Low)\n**Rationale:** The contribution is an empirical measurement campaign. A standard diode equation is fitted to measured i/v curves at several temperatures, and a receiver whose antenna and detector were designed in the authors' earlier work ([4], [6]) is tested in a cryostat. No new algorithm, model or proof is proposed; the paper itself says the exponential-law model is used because no physically based low-temperature model is available.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (the exponential diode law, Eq. 1)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the single equation is the model whose parameters (IS, N) are extracted from the measurements by a least-squares fit of the semi-logarithmic straight-line region; removing it would remove the method. It passes the Necessity Test.\n\n### Issues\nNone identified in the formalism. Minor reporting inconsistency: the room-temperature ideality factor of D2 is given as 14.9 in Section 2 and as 15 in the discussion of Figure 7.\n\n---\n\n## Citation Analysis\n\nFive of nine references are self-citations (SCR 5/9 = 55.6%): [4], [6], [7], [8] and [9] all include A.C. Bunea and D. Neculoiu, and [6], [7] and [9] add Avram and/or Muller. All five are topically related (W-band and millimetre-wave receivers, membrane-supported folded slot antennas, a Doppler sensor, a 77 GHz antenna), so none falls below 0.3 similarity and IRRELEVANT_SELF_CITATION is not raised; [8], an LTCC patch antenna for automotive radar, is the most distant (estimated similarity about 0.4) and is cited only for the detection measurement technique.\n\nThe ratio is nonetheless far above the 30% threshold. Apart from two space-systems textbooks, an interconnect textbook and one radar paper, the reference list consists of the group's own work, and no external literature on the low-temperature behaviour of Schottky or zero-bias diodes is cited, even though the paper asserts that no physically based low-temperature model exists. Reference [9] (same four authors, IEEE CAS 2016, on a hybrid integrated W-band direct detection receiver operated in cryogenic conditions) appears to be a conference version of this study; the text cites it only as one of the places where the characterization technique was used and does not state the overlap.\n\n---\n\n## Structural Analysis\n\nThe measurement claims are backed by figures (i/v curves from 295 K to 23 K, extracted N and IS versus temperature, simulated and measured S11, detected voltage versus frequency, detected signal at 295 K and 23 K), so the claim-evidence balance is adequate (CER estimated in the 0.5-1.0 band). Weaker points: the abstract says the detected signal is compared for different temperatures, but RF detection results are shown only at 295 K and 23 K and at a single 94 GHz carrier; responsivity or noise at cryogenic temperature is not quantified; the claim that the extracted model can be used to optimize receiver performance is not demonstrated; and the absence of a physically based low-temperature model in the literature is asserted without citation.\n\nLimitations are acknowledged only inline: the layer and doping structure of the diode is unknown (an industrial secret), which forces purely measurement-based modelling, and mismatch at low temperature reduces the signal amplitude and requires a +0.25 V bias at 23 K. There is no dedicated limitations section, but the inline acknowledgment is sufficient to withhold NO_LIMITATIONS.\n\nArtifact availability: no measurement data, extracted parameter tables beyond the values quoted in the text, or CST model files are offered. Category `none`.\n\n---\n\n## Conclusion\n\nA modest, competent experimental paper whose formalism is not a concern: one textbook equation, used for exactly the parameter extraction it reports. The record is disqualified on citation conduct alone. Five of nine references are the authors' own; all are relevant, but together they leave the paper with almost no engagement with external work on cryogenic diode behaviour, and the likely conference precursor [9] is cited without the overlap being disclosed.\n\nReleasing the measured i/v and detection data would have been straightforward and would make the temperature-dependent parameter extraction checkable."
+  },
+  {
+   "paper_id": "gheorghe2016",
+   "paper": {
+    "title": "Advanced Calibration Method, with Thermal Compensation, for 3-Axis MEMS Accelerometers",
+    "authors": [
+     "Marius Gheorghe"
+    ],
+    "abstract": "This paper presents an extension of [1], by the same author, on an advanced body reference frame calibration method for 3-axis MEMS accelerometers using the total field approach. The extension consists in improving the calibration method by removing restrictions imposed on the positioning apparatus, providing a detailed comparison between several sensor frame error models, and providing additional details on the suggested thermal model with a study of its performance in the thermal compensation of MEMS accelerometers. As mentioned in [1], the proposed method solves the misalignment between the sensor reference frame and body reference frame without known stimuli, unlike prior work by other authors. Thermally compensated body reference frame calibrations are an absolute must in demanding applications such as inertial navigation and directional drilling.",
+    "keywords": [
+     "3-axis accelerometer",
+     "calibration",
+     "body frame",
+     "error model",
+     "MEMS",
+     "microsensors",
+     "sensor frame",
+     "thermal compensation",
+     "thermal modeling",
+     "total field"
+    ],
+    "doi": null,
+    "pages": "255-268",
+    "source_file": "gheorghe.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.5,
+    "composite": 58.88,
+    "final": 58.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Practical extension of the author's own MEMS accelerometer body-frame calibration method; the equations are what an implementer needs and self-citation is normal, but simulation results are not shown, the method comparison rests on one sensor presented only graphically, and no code or data are released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Body-reference-frame calibration of 3-axis MEMS accelerometers in three steps (total-field sensor-frame calibration, Z-axis alignment, X-axis alignment), each solved by Gauss-Newton least squares, followed by third-order polynomial thermal modelling of the calibration coefficients. The paper is an extension of the author's CAS 2016 conference paper [1].\n**Level:** 2 (Low)\n**Rationale:** The method combines standard ingredients: a symmetric orthonormalization error model, Euler-angle rotation matrices, Gauss-Newton nonlinear least squares and polynomial fitting. The improvement over [1] is to solve the body-axis accelerations az and ax as additional unknowns instead of averaging the readings. No convergence, identifiability or error-propagation analysis is given, so the paper does not reach Level 3; it is a refinement of an existing method, the author's own.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0 (Section 2.6 gives an informal equivalence argument through QR decomposition, not a stated proof)\n- Equations: 24\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations are the error models, rotation matrices, cost functions and polynomial model a programmer must implement to reproduce the calibration. The Greek letters ϕ, θ and ψ are the physical rotation angles being solved for, not configuration constants, and Eqs. 3-6 restate other authors' error models so they can be compared. Every element passes the Necessity Test; none of the theater patterns (set notation for lists, tuple definitions, decorative Greek parameters) occurs.\n\n### Issues\nNo formalism theater. Technical slips: (a) with the row-vector convention declared in Section 2.1 and R_Z as printed in Eq. 12, the X component of U_ZA R_Z is X cos ψ + Y sin ψ, whereas Eq. 20 and the cost function in Eq. 21 use X cos ψ − Y sin ψ, the column-vector result; (b) Eq. 7 is stated for models i = 1-3 but then lists a fourth matrix M4; (c) Section 2.6 asserts that the orthogonal factors Qi are rotation matrices, which holds only when det Qi = +1, a condition the argument does not establish. None of these changes the substance of the method, but (a) would mislead an implementer who follows the equations literally.\n\n---\n\n## Citation Analysis\n\nTwo of fifteen references are self-citations (SCR 2/15 = 13.3%): [1], the conference paper this work extends, and [15], an accepted paper extending the method to magnetometer-accelerometer alignment. Both are directly relevant, and the extension relationship to [1] is disclosed in the abstract and the introduction, which is good practice. No ring or padding pattern.\n\nCitation hygiene has minor faults. The known-stimuli prior work is attributed to [7], [9], [10] and [11], but [7] is the IEEE inertial-sensor terminology standard, while [8], a known-stimuli tilt-sensor calibration, is never cited in the text, which suggests a numbering slip. The QR decomposition is referenced to a university course handout [13] rather than a standard text.\n\n---\n\n## Structural Analysis\n\nThe comparative claims rest on an experiment in which one SCA3100-D04 accelerometer was calibrated by the proposed method, a sensor-frame-only method and a known-stimuli method, with a 0.1° leveling error introduced on purpose, and the three were compared on total-field and inclination error (Figs. 6-7); the thermal model was examined on 28 IMUs at five temperatures. CER is estimated in the adequate band. Weaknesses: the simulation study in SciLab is summarized as having proven the method robust, with no simulation results shown; the experimental comparison is reported only in figures, without numerical error values, and on a single device; the headline improvement over [1], removing the need for accurate relative positioning, is argued but not tested, since the experiment perturbs leveling, not relative position; and suitability for field calibration and efficient microcontroller implementation are asserted without evaluation.\n\nLimitations are acknowledged inline for the thermal model: the polynomials are phenomenological rather than physical, fourth-order fits pass exactly through five temperature points and swing between them, and a wider temperature study may be needed to choose the order and the reduced temperature set. NO_LIMITATIONS is therefore not raised, although the calibration procedure's own constraint (the rotation axes must keep a constant angle to gravity) is stated as a requirement rather than discussed as a limitation. The author's industrial affiliation is stated and the employer is acknowledged for facilitating the work; there is no competing-interest statement.\n\nArtifact availability: the method was prototyped in SciLab, but no code, calibration data or IMU thermal data are linked or offered. Category `none`.\n\n---\n\n## Conclusion\n\nA practically useful engineering extension whose mathematics is what an implementer needs, with honest disclosure of its relation to the author's earlier conference paper and a normal self-citation profile. No flags are raised.\n\nThe evidence is thinner than the claims: simulation results are not shown, the comparison between methods rests on one sensor presented only graphically, and the improvement claimed over [1] is not isolated experimentally. The sign inconsistency between Eq. 12 and Eq. 20 should be corrected, and releasing the SciLab prototype would let readers check it directly."
+  },
+  {
+   "paper_id": "istrate2016",
+   "paper": {
+    "title": "Scaling the graphene-silicon heterojunctions: fabrication and characterization",
+    "authors": [
+     "Anca-Ionela Istrate",
+     "Monica Veca",
+     "Florin Nastase",
+     "Angela Baracu",
+     "Raluca Gavrila",
+     "Florin Comanescu",
+     "Vasilica Tucureanu",
+     "Adrian Dinescu",
+     "Titus Sandu"
+    ],
+    "abstract": "The current work presents the fabrication and characterization of graphene-silicon heterojunctions with various contact areas. First, we transferred the graphene from copper to Si and SiO2 substrates using Electrochemical Delamination and then we processed and characterized the transferred graphene. Second, we manufactured graphene-Si heterojunctions with several contact areas made by opening windows of various sizes in Si. Microscopy and spectroscopy analysis confirms the successful graphene transfer which is also revealed by a relative high carrier mobility of 2327 cm2/V·s measured in a field effect transistor configuration. We test the quality of graphene-Si Schottky contacts by measuring the I-V characteristics of heterojunctions established within Si windows with linear sizes ranging from up to 70 µm to down to 6 µm. All our structures exhibit rectifying I-V curves behavior from which we were able to extract junction parameters like the ideality factor, the barrier height and the series resistance. This work provides a route to engineer graphene-based devices like Schottky diodes and field effect transistors (FETs) by relatively simple procedures.",
+    "keywords": [
+     "Graphene",
+     "Carbon materials",
+     "Electrochemical delamination",
+     "Raman",
+     "Atomic force microscopy",
+     "Diodes",
+     "Field-effect transistor",
+     "Electrical properties"
+    ],
+    "doi": null,
+    "pages": "282-294",
+    "source_file": "istrate.tex.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 85,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.5,
+    "composite": 56.62,
+    "final": 56.62
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Routine graphene/n-Si Schottky junction fabrication and characterization study with standard, necessary extraction equations and a low self-citation ratio; weakened by internal inconsistencies, a printed FET width that makes the headline mobility uncheckable, no device statistics, and no released data.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Transfer of CVD graphene from copper to Si and SiO2/Si by electrochemical delamination, and fabrication and electrical characterization of graphene/n-Si Schottky junctions in 6-70 µm square windows and of a back-gated graphene FET.\n**Level:** 2 (Low)\n**Rationale:** An experimental fabrication and characterization study that applies established procedures (electrochemical delamination [17], [19]; FTIR, Raman, AFM and SEM; transconductance mobility extraction; Cheung and Cheung parameter extraction) to a new set of window sizes. No new model or algorithm is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 (field-effect mobility, transconductance and oxide capacitance, Eqs. 1-4; thermionic-emission diode law and the Cheung and Cheung functions, Eqs. 5-10)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — each equation is the textbook relation used to extract a reported number (mobility, ideality factor, barrier height, series resistance); without them the extraction could not be reproduced. All pass the Necessity Test.\n\n### Issues\nNo formalism theater. Notational slips: Eq. 8 is printed as dV/D(lnI); Eq. 9 omits q from ηkT/q; Table 1 labels the ideality factor µ although the text uses η. More consequential, the FET width is printed as W = 1 µm. With gm = 22.3 µS, L = 60 µm and Cox = 11.5 nF/cm2, Eq. 1 would then need a drain bias of about 50 V to give the reported 2327 cm2/V·s, so W is probably a unit slip; the drain bias used is not stated, and the headline mobility cannot be checked from the text.\n\n---\n\n## Citation Analysis\n\nTwo of 41 references are self-citations (SCR 2/41 = 4.9%). [19] (six of the nine authors, CAS 2016) is the direct precursor of this work, and the change of oxide thickness relative to it is disclosed.\n\n[22] (Plugaru, Sandu, Plugaru) is a first-principles and variable-range-hopping conductivity study of Al/Ti/Mn-doped ZnO. It is cited for the statement that, as in wide-bandgap semiconductors, p-doping occurs naturally in graphene while n-doping is harder. Its topical similarity to graphene/Si junctions is marginal (estimated 0.3-0.4): it concerns semiconductor doping, which is what the sentence invokes, so it is not judged irrelevant and IRRELEVANT_SELF_CITATION is not raised. It is nonetheless a weak and convenient source for the claim, and for ZnO the familiar doping asymmetry runs the other way (n-type easy, p-type hard). Recorded as a marginal self-citation warning.\n\nOther hygiene faults: [36] is listed but never cited in the text; [14] has no title; [31] is truncated mid-title; and Section 3.4 benchmarks the measured mobility against silicon MOSFETs at 100 cm2/V·s [27], a weak comparison for graphene.\n\n---\n\n## Structural Analysis\n\nEach characterization step is backed by a figure or table (FTIR spectrum, Raman spectrum with I2D/IG and 2D FWHM, AFM and SEM images, FET output curves, diode I-V curves, Table 1), so the claim-evidence balance is adequate overall (CER estimated in the 0.5-1.0 band). Several statements, however, outrun the evidence or contradict each other:\n\n- the FTIR discussion interprets peaks at 3650, 1242 and 1064 cm−1 that are not among the peaks listed from Figure 2;\n- the claim that the copper foil is free of graphene after transfer, and hence reusable, rests on a Raman analysis that is not shown;\n- the mobility is said to exceed other reported values in Section 3.4 but to be comparable with the literature in the conclusions, and the introduction quotes 2000-4000 cm2/V·s for supported graphene;\n- Schottky contacts are reported as successful down to 6 µm, yet the discussion infers that the graphene cannot make reliable contact below 6 × 6 (printed in mm), although no smaller windows were made;\n- the decrease of barrier height with window size is attributed to several candidate causes (surface impurities, ripples, PMMA residue, non-conformal contact), none of which is tested;\n- the number of devices measured per window size, and any spread, are not reported.\n\nLimitations are acknowledged inline: the authors note that a full characterization would require temperature-dependent I-V measurements and that their parameters are estimates from room-temperature curves, and future optical work is outlined. There is no dedicated limitations section, but NO_LIMITATIONS is not raised.\n\nArtifact availability: no data or analysis files are offered; the home-made transfer system is described elsewhere [19]. Category `none`.\n\n---\n\n## Conclusion\n\nA routine experimental device paper whose ten equations are the standard extraction relations it needs, with a clean self-citation profile apart from one marginal citation to the last author's ZnO work. No flags are raised.\n\nIts weaknesses are structural rather than formal: internal inconsistencies (FTIR peak assignments, the mobility comparison, the smallest-window inference), a printed FET width that prevents checking the headline mobility, and no device statistics. Reporting device counts and releasing the I-V data behind Table 1 would make the scaling claim checkable."
+  }
+ ]
+}

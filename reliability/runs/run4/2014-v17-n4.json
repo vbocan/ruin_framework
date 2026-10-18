@@ -1,0 +1,243 @@
+{
+ "batch_id": "2014-v17-n4",
+ "analysis_timestamp": "2026-10-18T03:40:02Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 17,
+  "issue": 4,
+  "year": 2014
+ },
+ "papers": [
+  {
+   "paper_id": "giangu2014",
+   "paper": {
+    "title": "Development and Experimental Results on LTCC Packages for Acoustic Wave Sensing Devices",
+    "authors": [
+     "I. Giangu",
+     "V. Buiculescu",
+     "F. Bechtold",
+     "G. Konstantinidis",
+     "K. Szacilowski",
+     "A. Stefanescu",
+     "K. Pilarczyk",
+     "A. Stavrinidis",
+     "P. Kwolek",
+     "G. Stavrinidis",
+     "J. Mech",
+     "A. Müller"
+    ],
+    "abstract": "Novel LTCC packages intended for acoustic wave sensing devices chip assembly are proposed in this paper. A single assembly operation was required for both structure models based on DuPont 9K7 \"green\" tapes, after layout design and interactive 3-D electromagnetic optimization processes. Due to LTCC manufacturing technology, a large number of package structures containing cavities, inner vertical and horizontal interconnects, pads for inner components' assembly and external signal connections was manufactured. Surfaces acoustic wave (SAW) resonators and film bulk acoustic resonator (FBAR) structures have been used with very good results as temperature and, respectively, humidity sensing devices. Input and output signal ports have been define as coplanar transmission line (CPW) configuration for a good impedance matching to the measuring system. Linear behavior of the frequency shift vs. temperature and, respectively, relative humidity was evidenced. Although certain temperature sensitivity reduction is observed, an improved dynamic range of the return loss response is noticed for packaged SAW devices, favorable for subsequent signal processing and temperature value extracting. Very small and complex RF packages, with SMT compatible and solderable AgPt pinout and two different levels of Au pads for Au wire bonding inside the cavity intended to provide handling protection after wire bonding are the main outcome of this paper.",
+    "keywords": [
+     "Acoustic wave sensors",
+     "Coplanar transmission line",
+     "Low temperature co-fired ceramic (LTCC) package",
+     "Surface mount assembly"
+    ],
+    "doi": null,
+    "pages": "320-339",
+    "source_file": "02-igiangu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 50,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 66.5,
+    "composite": 49.88,
+    "final": 44.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "Nine of 31 references carry the name of at least one present author ([14], [15], [18], [19], [20], [26] Müller; [21] eight of the present authors; [27] Buiculescu, Bechtold, Giangu, Müller; [31] Giangu et al., the CAS 2014 paper on the same packages): SCR = 9/31 = 29.0%. Two further entries, [16] and [17] (Neculoiu D. et al.), come from the same GaN SAW/FBAR line of work but print no further names and are not counted; if either includes a present author the ratio would exceed 30%. All self-citations are on-topic."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Applied LTCC packaging design for GaN SAW/FBAR sensors whose few equations are all working equations; self-citation ratio of 29%, a reference list out of step with the in-text citations, sensor results shown but not quantified, and nothing released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design, 3-D electromagnetic simulation, fabrication and characterisation of two six-layer LTCC (DuPont 9K7) packages for GaN-based SAW temperature sensors and FBAR humidity sensors.\n**Level:** 2 (Low)\n**Rationale:** The contribution is an engineering package design built from standard LTCC technology and manufacturer design rules, optimised in a commercial solver (CST Microwave Studio), followed by a lumped-element extraction and sensor characterisation. No new algorithm, model or theory is proposed; the design is a standard technology applied to a new device class.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (series inductance from reactance, relative error, shunt-capacitance condition, Rsh = 1/G, absolute and normalised sensitivity)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Every equation produces a reported number (LS = 2.0085 nH, Csh = 0.05851 pF, Rsh1 = 392.2 Ω and Rsh2 = 335.6 Ω, the error rows of Table 4) or defines the sensitivity read from the measured slopes. All pass the Necessity Test.\n\n### Issues\nNone in the formalism. Editorial defects: two figures are labelled \"Fig. 3\"; the reference numbering drifts after [22] — the in-house design rules of Table 2 are attributed to [23], a microstrip-to-stripline transition paper (the VIA electronic design rules are [24]), the via-inductance statement is attributed to [22], the CST software page, and the sensor-sensitivity statement in Section 4 to [25], the DuPont layout guidelines. Entries [7], [13], [24] and [26] are never cited in the text.\n\n---\n\n## Citation Analysis\n\n31 references. Nine carry the name of at least one present author: [14], [15], [18], [19], [20] and [26] (Müller), [21] (eight of the twelve present authors), [27] (Buiculescu, Bechtold, Giangu, Müller) and [31] (the authors' CAS 2014 paper on the same packages). SCR = 9/31 = 29.0%, inside the elevated band. Two further entries, [16] and [17], are \"Neculoiu D. et al.\" papers on AlN/GaN SAW and FBAR resonators from the same research line (Neculoiu co-authors [15], [18] and [19] with Müller); their author lists are truncated, so they are not counted, but either one including a present author would push the ratio past 30%. All self-citations are topically close — the same GaN/AlN SAW and FBAR devices that the packages host, and earlier reports of these packages — with similarity of 0.7 or more, so no irrelevant self-citation is found. [26] is listed but never cited.\n\n---\n\n## Structural Analysis\n\nThe design claims are supported by simulation output (Tables 3 and 4, Figs. 7, 10 and 12) and the sensor claims by measurement (Figs. 14 and 16). The sensor results are reported only graphically: no sensitivity value appears in the text, and the \"very good results\" of the abstract are not quantified. Novelty claims (\"no LTCC package has been reported in literature so far\"; \"probably the first low-cost mixed metal technology RF package on DuPont 9K7 commercial LTCC tape in Europe\") are asserted without supporting evidence. Constraints are acknowledged inline: the sensitivity decrease of the SAW device after packaging, the 17% spread between the two extracted Rsh values, distortion of the resonant response by package reactances, and technological limits that prevent further optimisation of the FBAR package. There is no limitations section.\n\nNo layouts, simulation models or measurement data are offered. CST Microwave Studio is third-party software and does not count as an artifact.\n\n---\n\n## Conclusion\n\nA competent applied packaging paper in which the small amount of mathematics is all working mathematics. Its weaknesses are bibliographic and presentational: a self-citation ratio just under the 30% threshold, with two unresolved \"et al.\" entries from the same group; a reference list whose numbering no longer matches the in-text citations; and sensor results that are plotted but not quantified. Nothing is released that would let a reader reproduce the simulations or the measurements."
+  },
+  {
+   "paper_id": "biziitu2014",
+   "paper": {
+    "title": "Integrated Dual-chain Dickson Charge Pump optimized for Resistive Loads",
+    "authors": [
+     "Florin Bîzîitu",
+     "Mihai-Ioan Serban",
+     "Cristian Murtaza"
+    ],
+    "abstract": "The proposed circuit is a dual-chain Dickson type charge pump making use of both active and passive charge transfer switches in order to achieve a compromise between power efficiency, circuit complexity and device reliability. The charge pump is capable of sourcing up to 500 µA at 10 V output voltage for supplying the error amplifiers of two NMOS Low Drop Out (LDO) linear regulators as part of a high integration automotive IC.",
+    "keywords": [
+     "Dickson charge pump",
+     "NMOS LDO",
+     "RC oscillator"
+    ],
+    "doi": null,
+    "pages": "372-388",
+    "source_file": "05-fbiziitu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 55,
+    "structural_integrity": 68,
+    "artifact_availability": 0,
+    "intellectual_integrity": 70.25,
+    "composite": 52.69,
+    "final": 47.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "Two of seven references are the first author's own: [4] Biziitu, CAS 2013 (the precursor dual-chain Dickson charge pump) and [7] Biziitu, Serban, Murtaza, CAS 2014, whose title is nearly identical to this paper. SCR = 2/7 = 28.6%. Both are on-topic; [7] is never cited in the text. The ratio is driven by a very short bibliography rather than by padding."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Industrial charge-pump design with standard, necessary circuit equations, corner simulations and silicon validation on three samples; self-citation ratio of 28.6% on a seven-item reference list that includes an uncited conference version of the same work.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** An integrated dual-chain Dickson charge pump for the error amplifiers of NMOS LDO regulators in an automotive BCD process, combining active and bulk-biased passive charge-transfer switches, dynamic PMOS bulk switching, break-before-make capacitor drivers, and an RC oscillator whose capacitor type matches the pumping capacitors.\n**Level:** 2 (Low)\n**Rationale:** The circuit assembles known building blocks — the Dickson multiplier [1], Wu and Chang's active switches [5], Favrat's bulk switching [2], the Gariboldi oscillator [3] and the team's own dual-chain design [4] — and its novelty is a design trade-off plus a capacitor-matching technique, validated by corner simulation and measurement. No new algorithm or theory is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (Dickson output voltage, oscillator bias current, capacitor swing, clock period TCLK = 2RC)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Each equation is first-order circuit analysis used to size the design (N = 3, M = 2, fCLK ≈ 16 MHz) or to explain why the oscillator frequency depends only on RC. All pass the Necessity Test.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSeven references. Two are self-citations: [4], Biziitu's CAS 2013 dual-chain charge pump (\"A very similar approach was used by our design team in [4]\"), and [7], a CAS 2014 paper by the same three authors whose title is nearly identical to this one and appears to be its conference version. SCR = 2/7 = 28.6%, in the elevated band. Both are directly on topic (similarity about 0.9), so no irrelevant self-citation arises; [7], however, is never cited in the text. The ratio is a product of a very thin bibliography — six external sources, the most recent from 2006 — rather than of citation padding, but a circuit paper comparing itself against prior topologies would be expected to engage more of the literature.\n\n---\n\n## Structural Analysis\n\nClaims are backed by evidence of three kinds: corner simulations over 48 process-voltage-temperature cases (Fig. 13) with a correlated versus uncorrelated capacitor comparison (Table 1); a simulated comparison with three published topologies at equal total pumping capacitance (Figs. 14 and 15); and test-chip measurements (output impedance of 2.103 kΩ and 4.254 kΩ at the two clock frequencies, oscillator and ground currents, Fig. 16). The reverse-recovery test offered as proof of channel conduction in the bulk-biased NMOS diodes is described only qualitatively, with no data shown. Power efficiency is named in the abstract as one of the goals of the compromise, yet no efficiency figure is reported, only a ground current of about 2.8 mA while sourcing 500 µA.\n\nLimitations are acknowledged inline: \"Unfortunately because only three samples were measured, no statistical data related to the performance of the circuit is available\", and the pumping gap to Ker's more complex topology is stated as an accepted trade-off. No limitations section.\n\nNothing is released; this is an industrial design, and schematics, netlists and measurement data are not offered.\n\n---\n\n## Conclusion\n\nA sound industrial circuit-design paper with proportionate, working equations, thorough corner simulation and limited silicon validation. The weaknesses are a seven-item bibliography whose self-citation share sits just under 30% — one of the two being an uncited conference version of the same circuit — an unquantified efficiency claim, and a characterisation on three samples that the authors themselves concede."
+  },
+  {
+   "paper_id": "boldeiu2014",
+   "paper": {
+    "title": "Dielectric Sensing with Back-Gated Nanowires",
+    "authors": [
+     "George Boldeiu",
+     "Victor Moagar-Poladian",
+     "Titus Sandu"
+    ],
+    "abstract": "Extensive numerical calculations show that the capacitance of back-gated nanowires with various degrees of dielectric embeddings is accurately described with an effective dielectric constant as long as the difference between the dielectric thickness and the gate-nanowire distance is held constant. This is valid for dielectrics with permittivities ranging from simple air to water. However, due to screening the scaling is not valid if the dielectric lies down well below the nanowire. Moreover, when only the dielectric thickness varies the capacitance characteristics are S-shaped with three distinct regions, of which only the first two can be used for dielectric sensing. The first region is almost linear while the middle region, with a span of two diameters around the center of the nanowire, is the most sensitive.",
+    "keywords": [
+     "semiconductor nanowire",
+     "capacitance",
+     "field effect transistor",
+     "carrier mobility",
+     "dielectru sensing"
+    ],
+    "doi": null,
+    "pages": "405-416",
+    "source_file": "07-tsandu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 35,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 59.25,
+    "composite": 44.44,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Seven of 23 references are by the present authors: [11] (conference version of this study), [17] (the authors' capacitance method), and five plasmonics papers by Sandu — [15], [16], [18], [20], [21]. SCR = 7/23 = 30.4%, above the 30% threshold. The five plasmonics papers support background sentences (optical-frequency boundary conditions, polarizability of finite cylinders, shape effects on higher excitation modes) and bear on none of the ANSYS results; they are judged marginal (similarity about 0.3-0.4) rather than unrelated, so IRRELEVANT_SELF_CITATION is not raised, but they are what carries the ratio past 30%."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Numerical nanowire back-gate capacitance study with proportionate physics; seven of 23 references are self-citations (30.4%), five of them plasmonics papers only marginally related, which triggers the disqualifying excessive-self-citation flag.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A finite-element (ANSYS) parametric study of the back-gate capacitance of a cylindrical nanowire above a ground plane for varying dielectric thickness and permittivity (εr = 3.9, 10, 81), fitted to the closed-form cylinder-over-plane formula with an effective permittivity, and a discussion of its use for liquid-level and proximity sensing.\n**Level:** 2 (Low)\n**Rationale:** A numerical parameter sweep of a known electrostatic configuration with a commercial solver. The findings are empirical scaling observations (constant t − h gives an effective-permittivity scaling; S-shaped capacitance versus thickness), not a new model with proofs or a new algorithm.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (drain current, field-effect mobility, cylinder-over-plane capacitance, bipolar coordinates, capacitance integral, Lamé coefficients, and the resulting closed form)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Equations (1)-(3) state why the back-gate capacitance matters for mobility extraction and give the functional form to which the numerical results are fitted. Equations (4)-(7) re-derive the textbook Eq. (3) in bipolar coordinates (\"which is just Eq. (3)\") and play no part in the ANSYS computations that produce the results, so they are redundant exposition. They are, however, genuine physics of the problem — a coordinate transformation and a derivation — rather than notation dressing up a simple operation, and they are not counted as a Necessity Test failure. No quality bonus is given for the redundancy.\n\n### Issues\nMinor errors in the formal text: the Lamé coefficients are said to belong to \"the transformation (5)\" where (4) is meant; \"the ratio R/t from Fig. 1 is t/R = cosh(η0)\"; and the optimum t/R = 10-11 is read \"by inspecting Fig. 5\" where Fig. 6 holds the curves.\n\n---\n\n## Citation Analysis\n\n23 references, of which 7 are by the present authors. [11] is the authors' CAS 2014 conference paper on the same study (\"Some of the present results have been previously reported\") and [17] is their electrostatic-capacitance method; both are directly relevant (similarity about 0.9). The remaining five — [15], [16], [18], [20], [21] — are Sandu's papers on localized surface plasmon resonances of metallic nanoparticles, nanoantenna dimers and nanospheres. They are cited for background statements: that metals at optical frequencies obey the Laplace equation with different boundary conditions, that the polarizability of finite cylinders has explicit expressions, and that shape changes alter \"higher excitations modes\". These share the quasi-static Laplace and boundary-integral formalism with the present problem, so they are assessed as marginal (about 0.3-0.4) rather than unrelated, and IRRELEVANT_SELF_CITATION is not raised. None of them bears on the paper's results, which come from ANSYS.\n\nSCR = 7/23 = 30.4%, above the 30% threshold, so EXCESSIVE_SELF_CITATION applies. Without the plasmonics cluster the ratio would be 2/18.\n\n---\n\n## Structural Analysis\n\nThe claims rest on numerical results (Figs. 4-6) with one external check: the authors obtain εeff = 0.58 εSiO2 against 0.57 in [9]. Numerical accuracy is addressed by tuning the finite-box FEM to within 0.5% of the infinite-boundary-element solution. The sensing application, which gives the paper its title, is argued from simulation alone: there is no experiment, no estimate of measurable capacitance changes against noise, and no discussion of fabrication. The simplifying assumptions — a passivated nanowire surface and a fully wetting liquid — are stated, and this is the only inline acknowledgment of constraints. No limitations section.\n\nThe ANSYS scripts used for the repeated calculations are mentioned but not released, and no computed data are deposited. ANSYS itself is third-party software.\n\n---\n\n## Conclusion\n\nA physically sensible numerical study with proportionate formalism; the bipolar-coordinate derivation is redundant but legitimate. The paper falls on citation conduct: seven of its 23 references are the authors' own, and five of those are plasmonics papers attached to background sentences that the results do not depend on. That pushes the self-citation ratio past 30% and triggers the disqualifying flag. The sensing claim in the title remains a simulation-based proposal without experimental support."
+  },
+  {
+   "paper_id": "banu2014",
+   "paper": {
+    "title": "High Temperature Compensated Voltage Reference Integrated Circuits on 4H-SiC Material",
+    "authors": [
+     "Viorel Banu",
+     "Philippe Godignon",
+     "Mihaela Alexandru",
+     "Josep Montserrat",
+     "Xavier Jordà",
+     "José Millán"
+    ],
+    "abstract": "This work demonstrates a functional fabricated high temperature compensated Voltage Reference (VR) integrated circuit on 4H-SiC material. The study starts with an experimental analysis on the feasibility on silicon carbide (SiC) of the widely used bandgap reference concept both with Schottky and bipolar diodes. Then an original solution is proposed for a special finger type MESFET. Our approach of the MESFET design overcomes the typical embedded drain leakage of finger type MESFET. This device design was specially developed for using in analog schematics on SiC. Further, an original VR schematic is proposed avoiding the bandgap reference topology and accordingly avoiding an operational amplifier (OpAmp), which is not yet developed on SiC. The performed measurements on the fabricated integrated circuits show a temperature coefficient (TC) comparable to the normal bandgap voltage references on silicon but this SiC circuit is able to work up to 300°C, compared to 125°C for silicon or 200°C for SOI (silicon on insulator). A very important progress of our work is the integration of the presented circuit on the same SiC chip with a power lateral MESFET. Additionally, the circuit contains a linear temperature sensor useful for over temperature protection.",
+    "keywords": [
+     "integrated circuit",
+     "bandgap reference",
+     "silicon carbide",
+     "SiC",
+     "voltage reference",
+     "high temperature",
+     "thermal compensated",
+     "power",
+     "MESFET"
+    ],
+    "doi": null,
+    "pages": "417-432",
+    "source_file": "08-vbanu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 61.25,
+    "composite": 45.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Ten of 25 references are by the present authors: [1], [2], [15], [25] (Alexandru et al., with Banu, Godignon, Jordà, Montserrat, Millán), [11], [12], [13], [14], [24] (Banu et al.) and [16] (Godignon et al.). SCR = 10/25 = 40%. All are on-topic (the same SiC MESFET technology, earlier versions of this voltage reference, the bandgap feasibility studies reused in Section 2), but [24] and [25] are never cited in the text."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "SiC MESFET voltage reference with proportionate textbook bandgap equations and real high-temperature measurements; 10 of 25 references are self-citations (40%), two of them uncited, which triggers the disqualifying excessive-self-citation flag.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Analog integrated circuits on 4H-SiC: a bandgap-reference feasibility test with an external op-amp, a finger-type MESFET whose residual leakage channel is suppressed by a metal-oxide overlap, an op-amp-less voltage reference combining complementary quadratic temperature dependences, its monolithic integration with a power MESFET, and an on-chip temperature sensor, measured up to 250°C.\n**Level:** 2 (Low)\n**Rationale:** Device and circuit engineering within an existing in-house technology. The voltage reference schematic is new, but its principle — cancelling complementary temperature coefficients — is standard, and the contribution is validated experimentally rather than analytically. No algorithm, model or proof is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (Shockley diode equation, its forward-bias simplification, diode voltage, VPTAT = (nkT/q) ln M, VBG = VD2 + K·VPTAT)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The five equations are the textbook bandgap principle, used to explain the feasibility measurement in Section 2 and the expected reference level near the 4H-SiC bandgap. They pass the Necessity Test.\n\n### Issues\nNone in substance. \"eq. (4) simplifies to\" should read eq. (1), and the MESFET double pinch-off is referred to \"(Fig. 1)\" where Fig. 2 is meant.\n\n---\n\n## Citation Analysis\n\n25 references, of which 10 are by the present authors: [1], [2], [15] and [25] (Alexandru et al., co-authored with Banu, Godignon, Jordà, Montserrat and Millán), [11], [12], [13], [14] and [24] (Banu et al.), and [16] (Godignon et al.). SCR = 10/25 = 40%, above the 30% threshold, so EXCESSIVE_SELF_CITATION applies. Topically the self-citations are all close (similarity 0.7 or more): the same planar SiC MESFET technology, earlier conference versions of this voltage reference ([11], [12]), and the bandgap feasibility studies ([13], [14]) that Section 2 summarises. No irrelevant self-citation is found.\n\nTwo problems sit alongside the ratio. [24] and [25], both self-citations, are listed but never cited in the text. And two in-text attributions point at the wrong entries: the integrated power MESFET is credited to [9], Hedayati et al.'s bipolar op-amp, where [24] (the authors' power-MESFET integration paper) fits; and the Bepi Colombo-qualified Schottky contact is credited to [10], Valle-Mayorga et al.'s NMOS regulator, where [16] fits. Correcting these would not change the ratio.\n\n---\n\n## Structural Analysis\n\nThe circuit claims are supported by measurement: reference voltages of 4.9, 5.4 and 5.5 V with TCs of 15, 33 and 23 ppm/°C over 25-250°C on three chips, PSRR of -35 dB, supply regulation of 7.6 and 16.9 mV/V, temperature-sensor correlation R = -0.99979, and current consumption from 25°C to 300°C, with comparisons to Si Zener diodes, SiC Zener diodes [22] and Si bandgap references [23]. The abstract's claim that the circuit \"is able to work up to 300°C\", and the comparison \"at a much higher temperature range, up to 300°C\", go beyond the 250°C range over which the temperature coefficient was measured; only the supply current is reported at 300°C, and the introduction itself speaks of 250°C \"and even beyond\". Results rest on three chips, without statistics. Limitations are acknowledged inline: the offset between simulated and measured output levels, the 20 dB PSRR discrepancy attributed to parasitic coupling, poor regulation with the external high-voltage JFET, and \"The main limitation of the MESFETs schematic is the barrier sensitive gate leakage\". No limitations section.\n\nA SPICE model library was built from measured device parameters but is not released, and no measurement data are offered.\n\n---\n\n## Conclusion\n\nA genuine experimental contribution to analog SiC integrated circuits with proportionate textbook formalism and concrete high-temperature measurements. It is disqualified on citation conduct: ten of 25 references are the authors' own, two of them uncited, and two in-text attributions point to the wrong sources. The headline 300°C operating claim also outruns the 250°C range of the temperature-coefficient measurements."
+  }
+ ]
+}

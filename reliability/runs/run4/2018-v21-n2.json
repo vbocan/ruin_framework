@@ -1,0 +1,128 @@
+{
+ "batch_id": "2018-v21-n2",
+ "analysis_timestamp": "2026-10-18T03:44:23Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 21,
+  "issue": 2,
+  "year": 2018
+ },
+ "papers": [
+  {
+   "paper_id": "stefan2018",
+   "paper": {
+    "title": "IT Driven Distributed Consensus for an Integrated Globalized World",
+    "authors": [
+     "Gheorghe M. Ştefan",
+     "Răzvan Mihai"
+    ],
+    "abstract": "The blockchain technology, BCT, will provide one of the main web-tool of the future, featured with what will be the true peer-to-peer relation, free of the third part, dysfunctional and problem maker term. In the same time, Artificial Intelligence, comes out from the last AI winter with an irrepressible openness for socially requested applications. Both, are ready to support dramatic changes in how our complex and dynamic world is governed. The decision mechanism, at any level in our society, can be improved by the use of the last information technologies, ITs. The main malfunctions of our world are reviewed in order to correlate them with the possible solutions provided by the emergent ITs. The BCT is presented and its use in the making decision process investigated. The impact on the foreseen iDemocracy, iConsensus and iGovernance is evaluated.",
+    "keywords": [
+     "blockchain",
+     "distributed consensus",
+     "distributed ledgers",
+     "leaderless democracy",
+     "iDemocracy",
+     "iConsensus",
+     "iGovernance"
+    ],
+    "doi": null,
+    "pages": "114-128",
+    "source_file": "paper585.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 30,
+    "artifact_availability": 0,
+    "intellectual_integrity": 39.0,
+    "composite": 29.25,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 position paper. The weighted-vote sketch wraps a normalised dot product and column sums in matrix notation. It writes a list of text articles in list-of-lists notation, D = ((A1), ..., (Am)) and DC = (((P1')(K1')) ...), and states the wallet initial values as formulas (VWi = 1, OWj = 0). All of it can be said in plain English and none of it supports a proof or bound. The notation is also internally inconsistent: Ck uses R(D) instead of R'(D), and V0 is written O+ x C.",
+    "UNSUPPORTED_CLAIMS": "Estimated CER well below 0.33. Sweeping claims about NGOs, politicians, a \"parasitic\" political class and AI-based administration reducing bureaucratic dysfunction rest on no data. The evidence is about a dozen quotations from popular books, and the proposed voting mechanism is neither implemented nor evaluated."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Opinion essay on blockchain-enabled democracy whose sketched weighted-vote scheme puts simple weighted-sum arithmetic in inconsistent matrix and list notation, formalism theater at Level 1. Its social and political claims are largely unsupported, and nothing is implemented or evaluated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Position essay on the malfunctions of representative democracy and globalisation, followed by a sketch of blockchain-based voting: one-voteCoin-per-voter ballots, a competence-weighted multi-article vote (\"Weighted iVote\"), and an iterative comment-and-revote loop (\"iiVote\").\n**Level:** 1 (Trivial)\n**Rationale:** Roughly three quarters of the text is socio-political commentary. The technical part describes a proposed system assembled from an existing technology (wallets and coin transfers on a blockchain) plus a weighted tally. It has no implementation, no protocol specification, no security or correctness argument, and no evaluation. That makes it an architecture or prototype description, which is Level 1. Read generously as a weighted-voting design it would be Level 2, and the formalism judgment below would be the same.\n\n### Formal Elements\n- Definitions: 0 numbered (about a dozen symbolic objects introduced inline: VW_i / OW_j, D, R_i, P_k, R(D), R'(D), C_k, O+/O-/O0, V+/V-/V0, Omega(D), gamma(D), delta(D), the extended D list and DC)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 15 displayed or inline expressions\n\n### Proportionality\nCalculated complexity: 0 (definitions x 2 + theorems x 3 + proofs x 4, numbered elements)\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate by count, but the formal elements fail the Necessity Test. The weighted-vote section presents a few simple operations in matrix and list notation. Everything it specifies fits in two English sentences: normalise each article's requested competences to sum to one and take the dot product with the voter's self-declared competence profile. Then multiply the voter's agree / disagree / undecided marks by that weight and sum over voters.\n\n### Issues\n- `D = ((A1), ..., (Am))` \"where Ai ... is a text\", and later `DC = (((P1')(K1')) ... ((Pm')(Km')))`, put list-of-lists notation on \"a decision is a list of articles, each with its parameters and keywords\". This is formal notation for a data structure.\n- `VWi = 1 for i = 1, ..., K` and `OWj = 0 for j = 1, ..., N` restate \"each voter starts with one coin and the option wallets are empty\".\n- The 3 x m matrix Omega(D) is the column-wise sum of the voters' vote vectors. gamma(D) and delta(D) are ratios of those sums.\n- The notation is internally inconsistent:\n  - `Ck = R(D) x PkT` uses the unnormalised R(D), not the R'(D) just introduced.\n  - The components of Pk are written p_i while the text indexes them by attribute j.\n  - `V0 = O+ x C` should use O0.\n  - The symbol x means an element-wise product in the V vectors and a matrix product in Ck.\n  - The claim that the most competent voter obtains Ck = [1, ..., 1] holds only for the normalised R'.\n  - The reading of delta(D) does not follow from its definition. A large competence-weighted share of agree votes is said to mean that articles \"are not enough clearly stated\".\n- None of these elements supports a proof or a bound. Under the Level 1-2 zero-tolerance rule this is `FORMALISM_THEATER`.\n- No set operations are applied to lists; the only membership expressions declare a value domain, [0,1] or {0,1}. `UNNECESSARY_SET_THEORY` is therefore not raised.\n- There are no \"Definition N\" blocks, so `DECORATIVE_DEFINITIONS` is not raised. The inline objects are not counted as definitions, so `DISPROPORTIONATE_FORMALISM` is not raised either.\n\n---\n\n## Citation Analysis\n\nThe paper has 17 references and one self-citation, [6], Stefan's \"Cyber-Physical Society - iDemocracy\" (2012). It treats the same theme of IT-supported democracy, so its topical similarity is high (about 0.8). SCR = 1/17, about 6%. Co-author Mihai is not cited.\n\nThe reference base is weak rather than manipulated:\n- Most technical sources are trade books and Kindle editions, some cited by \"Kindle Locations\" ([10], [11], [16], [17]). The rest are a magazine article [12] and campaign or project websites ([9], [15]).\n- None of the peer-reviewed literature on blockchain voting or end-to-end verifiable e-voting is cited.\n\nThe two-author paper refers to its own earlier work in the first person singular (\"In [6] I commented\"). No citation-ring pattern.\n\n---\n\n## Structural Analysis\n\nThe paper consists overwhelmingly of assertion. It makes sweeping empirical and normative claims with no supporting evidence, among them:\n- NGOs are not \"what they claim to be\".\n- The political class has \"evolved into a parasitic element\".\n- Politicians are \"generally low level performers from media or from the law system\".\n- \"AI-based administration will reduce the current dysfunctional bureaucratic practices\".\n\nThe evidence offered amounts to about a dozen quotations from popular books. The proposed voting scheme is not implemented, simulated or analysed. Its central weakness goes unaddressed: each voter computes their competence weights from a self-declared profile (\"under his responsible control\") and the weighted ballot is then sent anonymously, so nothing stops a voter from inflating their own weight. Coercion resistance and verifiability are not addressed either. Estimated CER is well below 0.33.\n\nSome limitations of the proposal are acknowledged inline:\n- the iterative loop \"is not always convergent\";\n- the iVote approach \"is not always a good solution provider\";\n- delegated votes may be \"consolidated in the hands of a limited group\".\n\n`NO_LIMITATIONS` is therefore not raised.\n\nArtifacts: the paper describes or links no code, data or prototype. Its URLs point only to third-party sites and cited references. It reports no implementation and no data, so there is nothing to release (relevant: false).\n\nNo instructions addressed to reviewers or automated assessors were found in the text.\n\n---\n\n## Conclusion\n\nThis is an opinion essay with a sketched voting mechanism, not a contribution that can be assessed on evidence. The weighted-vote section wraps trivial weighted-sum arithmetic in matrix and list notation. That notation is inconsistent in several places and supports no formal result. At Level 1 this is formalism theater, which disqualifies the paper.\n\nIndependently of the formalism, the claims about society, politics and technology are largely unsupported. Self-citation is low and relevant, but the reference base relies on popular books rather than the research literature."
+  },
+  {
+   "paper_id": "liu2018",
+   "paper": {
+    "title": "Intelligent Optimization on Correlation Entropy Matter-element Model of Innovation and Reform Pilot Area",
+    "authors": [
+     "Zhenyuan Liu",
+     "Renyan Mu",
+     "ShuHua Hu",
+     "Li Wang",
+     "Lijun Wang"
+    ],
+    "abstract": "In this paper, the correlation entropy matter element model, which is used to evaluate comprehensive competitiveness of innovation and reform pilot area, is Intelligent optimized. After analyzing the connotation of “regional strategy” of Chinese innovation evolutionary path, we build a comprehensive competitiveness evaluation system of the pilot area by combining internal relations and differences among the comprehensive innovation and reform pilot area, the national high-tech Development Zone, and the indigenous innovation demonstration zone. Through using composite correlation entropy matter-element model of grey correlation, this paper evaluates development of eight regions (those are Beijing-Tianjin-Hebei, Sichuan, Anhui, Guangzhou, Shanghai, Wuhan, Xi’an, Shenyang etc.) from four dimensions of support vector ability, innovation ability, social contribution, export earning power, and comprehensive competitiveness of the eight regions is ranked. Finally, countermeasures and suggestions are proposed for advantages and shortcomings of the eight pilot zones.",
+    "keywords": [
+     "Chinese innovation evolutionary path",
+     "regional strategy",
+     "comprehensive innovation and reform pilot area",
+     "innovation-driven"
+    ],
+    "doi": null,
+    "pages": "153-171",
+    "source_file": "paper589.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 78,
+    "structural_integrity": 45,
+    "artifact_availability": 50,
+    "intellectual_integrity": 38.55,
+    "composite": 41.41,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "It depends on publication data from “China Torch Statistical Yearbook 2015”, “China Statistical Yearbook of science and technology 2015”, “China Statistical Yearbook 2015” and regional data of official website, in which D6, D7, D8, D9, D10, D11 and other qualitative indicators originate from “China City Competitiveness Report 2015”.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 application of a standard entropy and grey relational evaluation. Equations (1), (5) and (8) present the zones x indicators data matrix, its normalised copy and the weight row as \"matter elements\". No extension-theory operation uses them, and removing the framing changes nothing in the computation, so this is formal notation for data structures. The printed scoring formula (9), an entropy of each zone's profile, also did not produce Table 3, whose composite scores are a linear weighted sum of the four dimension scores."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 application of entropy-weighted grey relational ranking to eight Chinese pilot regions, presented in matter-element notation the computation does not need (formalism theater). The printed scoring formula does not match the reported results, and the weight table is incomplete and mislabelled.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** The paper ranks China's eight \"comprehensive innovation and reform pilot areas\" on a 36-indicator competitiveness index. The method chains min-max normalisation, grey relational coefficients and entropy weights into a \"composite correlation entropy matter-element\" score.\n**Level:** 2 (Low)\n**Rationale:** It applies an existing multi-criteria evaluation recipe to a new set of regions using one year of statistics. The recipe is entropy weighting combined with grey relational analysis, written in matter-element notation. No new algorithm is proposed and no property of the method is analysed. Despite the title, nothing is optimised: the \"optimization of the index calculation value\" is dimensionless normalisation.\n\n### Formal Elements\n- Definitions: 0 numbered (inline: the composite matter element R_mn, the weight matter element R_wj, the compound matter element R_mH, and the index sets J+, J-, J_interval)\n- Theorems: 0\n- Proofs: 0\n- Equations: 9 numbered, plus about 3 inline (k_j = 1 - F_j, w_j = k_j / sum k_j, P(w_j mu_ij))\n\n### Proportionality\nCalculated complexity: 0 (numbered definitions, theorems and proofs)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate by count. The normalisations (2)-(4), the grey relational coefficient (6) and the entropy (7) are the method's basic equations, which is acceptable at Level 2. The matter-element apparatus around them fails the Necessity Test.\n\n### Issues\n- Equations (1), (5) and (8) are data tables written as \"matter elements\":\n  - (1) is the zones x indicators value matrix, which the paper calls the \"N dimensional complex matter element of M pilot zones\".\n  - (5) is the same matrix after normalisation.\n  - (8) is a row of weights under column labels.\n- No extension-theory operation (correlation function, extension transformation) appears anywhere, so \"matter element\" is only a name for a matrix. Removing the framing changes nothing in the computation. This is formal notation for data structures, and at Level 2 it triggers `FORMALISM_THEATER`.\n- `J+ = {benefit index}`, `J- = {cost index}` and `J_interval` are set notation that only labels which columns are benefit, cost or interval indicators. They are case labels rather than set operations on lists, so `UNNECESSARY_SET_THEORY` is not raised, but they add to the decorative character of the presentation.\n- The formal apparatus is also careless:\n  - \"M=3, N=36\" is stated for eight zones.\n  - Indices i and j are used inconsistently across (2)-(6), and equation (4) is garbled.\n  - Equation-editor residue is printed in the text: \"Text above / Text below\" inside (7), and \"construct the sequence @GRF\".\n  - The paper states that \"The bigger the entropy is, the more information the index obtains\". This inverts the information-theoretic meaning, although the weighting k_j = 1 - F_j follows the usual convention.\n- The more substantive problem is that the reported results were not produced by the printed formula:\n  - Equation (9) defines each zone's score H_i as the entropy of its weighted indicator profile. That entropy measures how even the profile is, not how high it is, yet the paper says \"The bigger the value is, the better\".\n  - The comprehensive scores in Table 3 are the B-level weighted sum of the four dimension scores. For Shanghai, 0.3099 x 0.6661 + 0.2991 x 0.5205 + 0.2224 x 0.6137 + 0.1686 x 0.6931 = 0.6155. The same sum gives 0.5973 for Beijing-Tianjin-Hebei (0.5974 printed) and 0.4333 for Shenyang.\n  - The paper never shows how the dimension scores themselves were obtained.\n  - The displayed formalism is therefore not the computation that was performed.\n\n---\n\n## Citation Analysis\n\nThe reference list has 19 numbered entries, one of them a duplicate: [6] and [9] are the same Basile (2011) paper. Co-author ShuHua Hu appears in three references:\n- [12] Wang and Hu (2011);\n- [14] Xie and Hu (2013);\n- [16] Hu, Wang and Deng, cited in the text as \"Hu Shuhua (2009)\" but listed as 2011.\n\nSCR is 3/19, about 15.8% (3/18, about 16.7%, once the duplicate is removed), in the elevated 15-20% band. All three self-citations bear directly on the paper's subject, national high-tech zones and indigenous innovation demonstration zones. The paper states that its index system builds on the Wang Song and Xie Jialong models, so similarity is about 0.8. `IRRELEVANT_SELF_CITATION` is not raised.\n\nBibliographic care is poor:\n- In-text numbers [18] and [19] are swapped relative to the list. \"Ahmed R(2016) ... [19]\" points to Lv et al., and \"Kangjuan Lv (2016) ... [18]\" points to Ahmed et al.\n- Several works are discussed by author and year with no reference number.\n- Ahmed et al., a paper on simulation-model size, is cited for a claim about regional index systems to which it is only tangential.\n\nNo citation-ring pattern can be detected from the text.\n\n---\n\n## Structural Analysis\n\nThe results consist of weight and score tables computed from named statistical yearbooks. The indicator values themselves are not reported, so the computation cannot be checked. The tables and the text also disagree in several places:\n- Table 2 labels social contribution \"B1\" (it is B3) and lists its indicators as D12-D15, D12, D13, D29 and D30 instead of D23-D30.\n- Table 2 gives no weights for D31-D36.\n- The text gives innovation capacity a weight of 0.5314, which is the weight of C4 within B2; Table 2 gives B2 0.2991.\n- The text gives Shanghai's carrier score as 0.661, while the table has 0.6661.\n- The text's social-contribution ordering omits Xi'an and puts Beijing-Tianjin-Hebei ahead of Shenyang, the reverse of Table 3.\n- The abstract lists \"Guangzhou\", while the results use Guangdong.\n\nThe paper has no sensitivity analysis, no robustness check of the weights, and no comparison with any alternative ranking. The policy prescriptions in Sections 4.2-4.3 go beyond what the scores show, for example that industrial upgrading \"is the only way\" for Guangdong. The claim that the indicators \"scientifically and effectively measure\" competitiveness is asserted rather than shown. Estimated CER is about 0.4: weak, but above the 0.33 threshold.\n\nConstraints are acknowledged only inline and thinly. The paper says the statistical criteria are \"relatively inadequate\", that one indicator's provincial data \"is missing, so based on the national standard\", and in the conclusion that it is \"a theoretical exploration\". That is enough to withhold `NO_LIMITATIONS`.\n\nArtifacts: the computation was done in MATLAB 7.0, a third-party tool, and no code is linked or claimed. The data come from named public statistical sources: the China Torch Statistical Yearbook 2015, the China Statistical Yearbook of Science and Technology 2015, the China Statistical Yearbook 2015 and the China City Competitiveness Report 2015. Some also come from unnamed \"regional data of official website\". Category: `data`.\n\nNo instructions addressed to reviewers or automated assessors were found in the text.\n\n---\n\n## Conclusion\n\nThis is a routine Level 2 application of entropy-weighted grey relational evaluation to eight Chinese pilot regions. It is presented in \"matter-element\" and \"intelligent optimization\" vocabulary that the computation does not need. The matter-element matrices are relabelled data tables, which at this level raises `FORMALISM_THEATER` and the disqualification cap.\n\nThe more serious problem is internal consistency. The printed scoring formula (9) did not produce Table 3, the weight table is incomplete and mislabelled, and the text contradicts the tables in several places. Self-citation is elevated but relevant. The underlying sources are public, but neither the computed indicator values nor the code are available."
+  }
+ ]
+}

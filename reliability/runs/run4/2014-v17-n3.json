@@ -1,0 +1,74 @@
+{
+ "batch_id": "2014-v17-n3",
+ "analysis_timestamp": "2026-10-18T03:39:32Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 17,
+  "issue": 3,
+  "year": 2014
+ },
+ "papers": [
+  {
+   "paper_id": "saracevic2014",
+   "paper": {
+    "title": "Construction and Notation of Convex Polygon Triangulation Based on Ballot Problem",
+    "authors": [
+     "Muzafer H. Saračević",
+     "Predrag S. Stanimirović",
+     "Predrag V. Krtolica",
+     "Sead H. Mašović"
+    ],
+    "abstract": "In this paper we provide a new way for constructing and storing the convex polygon triangulations. The main motivation for the presented method is derived from two combinatorial problems: ballot problem and problem of lattice path. The method is derived upon the so-called movement through polygon. The movement is defined on ballot records and validity of the lattice path through the grid. We give two algorithms: Triangulation to ballot and Ballot to triangulation. Also, we give a method to make coding for a ballot record or the corresponding triangulation even more compact using a stack. All mentioned algorithms are implemented in the Java programming language.",
+    "keywords": [
+     "Triangulation of convex polygon",
+     "Catalan numbers",
+     "Ballot problem",
+     "Lattice path",
+     "Stacks"
+    ],
+    "doi": null,
+    "pages": "237-251",
+    "source_file": "03-msaracevic2014.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 40,
+    "structural_integrity": 55,
+    "artifact_availability": 70,
+    "intellectual_integrity": 27.75,
+    "composite": 38.31,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "Java applications for both methods can be downloaded from: http://muzafers.uninp.edu.rs/triangulation/Ballot.rar and http://muzafers.uninp.edu.rs/triangulation/Hurtado.rar",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (procedural formulation of the classical ballot-sequence/triangulation/stack-permutation correspondence, no complexity or correctness analysis) with formalism complexity 16 (1 definition, 2 propositions, 2 proofs), above the Level 2 bound of 15, and with an element that fails the Necessity Test: Proposition 2.1 and its proof re-derive the textbook result that ballot records are counted by the Catalan number, already obtained as Eq. (2) and attributed to [4]; nothing later depends on it. The bijection the method actually needs (Algorithms 1 and 3 mutually inverse) is asserted but not proved.",
+    "EXCESSIVE_SELF_CITATION": "SCR = 3/7 = 42.9% (> 30%): references [5], [6] and [7] are by the authors. All three are on convex polygon triangulation and are used substantively (baseline implementation, reused Hurtado-Noy storage figures, fuller treatment of Proposition 3.1), so no irrelevant self-citation is raised; the ratio is inflated by a seven-item bibliography with only four external sources."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Procedural restatement of the classical correspondence between convex-polygon triangulations, ballot records and stack permutations, with released Java code; at Level 2 it re-proves a textbook Catalan count while leaving the needed bijection unproved, cites itself in 3 of 7 references, and reports storage-share figures that do not follow from its own timing table.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Encoding triangulations of a convex (n+2)-gon as ballot records (balanced A/B sequences) through a \"movement through the polygon\", the inverse decoding, and a further stack-based recoding of each ballot record as a stack permutation (SVB), with a timing and memory comparison against the Hurtado–Noy generation method.\n**Level:** 2 (Low)\n**Rationale:** The correspondence between triangulations, ballot sequences, lattice paths and stack permutations is the classical Catalan-family bijection, which the authors themselves source to Koshy [4] and Even [1]. The paper's contribution is a procedural formulation of that correspondence (Algorithms 1–4) and a Java implementation. No algorithm receives a complexity analysis, and the property the encoding rests on, that Algorithms 1 and 3 are mutually inverse, is asserted in the introduction (\"We give two mutually inverse algorithms\") and illustrated on the pentagon but never proved. Level 3 was considered, since this is combinatorial algorithm design, but Level 3 requires a novel algorithm with complexity or correctness analysis and neither is present; an existing combinatorial correspondence applied to triangulation storage is Level 2, and the specification says to default lower when uncertain.\n\n### Formal Elements\n- Definitions: 1 (Definition 3.1, circular distance between vertex indices)\n- Theorems: 2 (Propositions 2.1 and 3.1)\n- Proofs: 2\n- Equations: 4 numbered, about 6 unnumbered (binomial identities, d(p, q), m = v(v − 3)/2, a = b = v − 2)\n\n### Proportionality\nCalculated complexity: 1×2 + 2×3 + 2×4 = 16\nExpected range (Level 2): 0-15\nRatio: 1.07x upper bound\n\n**Assessment:** Slightly above the Level 2 bound, and one element fails the Necessity Test.\n\n- **Proposition 2.1** (\"Number of valid Ballot records (Rn) correspond to the Catalan number (Cn)\") and its proof fail. The result is a textbook fact, attributed to [4], and the paper has already derived it three lines earlier as Eq. (2) by subtracting the invalid records of Eq. (1). The proof then re-derives it a second way through Segner's recurrence, and as written it is incomplete: the split \"The first i pairs can be correctly grouped in Ri ways and the remaining n − i − 1 pairs in Rn−i−1 ways\" is asserted without the first-return decomposition that justifies it. Nothing later in the paper depends on the proposition. A sentence with the citation would carry the same content, and removing it changes nothing a programmer would build.\n- **Proposition 3.1** is treated as a marginal pass, because it at least addresses the paper's own construction. Its proof, however, only counts symbols (a = b = n) and then reuses Eq. (1)–(2), which presumes, without showing, that the records produced by moving through a triangulation are exactly the valid ballot records. The resulting count, Tv = Cv−2, is classical and is already stated as Eq. (4). The formalism therefore proves the known count and leaves unproved the bijection that the encoding actually needs.\n- **Definition 3.1**, d(p, q) = min{|p − q|, v − |p − q|}, passes. Algorithm 3 uses it operationally (d = 1 means outer edge, d > 1 means diagonal), and the formula is essentially the code, even though it formalises no more than \"the endpoints are adjacent vertices\".\n- **Notation.** The ballot record is written \"b = {b1, . . . , b2n}\", with set braces around an ordered string that has repeated symbols. This is a notational slip, and no set operation is performed on it, so `UNNECESSARY_SET_THEORY` is not raised.\n\n### Issues\n`FORMALISM_THEATER` is raised on both arms of the Level 1-2 rule: the formalism count of 16 exceeds the Level 2 bound of 15, and Proposition 2.1 with its proof is an unnecessary formal element. The paper's problem is not the volume of notation. It is that the formal effort goes to re-proving textbook Catalan counts, while the paper-specific claims (bijectivity of Algorithms 1/3 and 4, and the correctness of step 2.2.1, \"If there are two successive characters B in b then return for one more node back\") rest only on worked pentagon examples.\n\n---\n\n## Citation Analysis\n\nThe paper has seven references, three of them self-citations: [5] (Saračević, Stanimirović, Mašović, Biševac), [6] and [7] (Stanimirović, Krtolica, Saračević, Mašović). SCR = 3/7 = 42.9%, above the 30% threshold, so `EXCESSIVE_SELF_CITATION` applies and the citation score is capped at 40. All three self-citations are on convex polygon triangulation and Catalan numbers (topical similarity about 0.9), and all are load-bearing: [5] documents the Hurtado–Noy implementation used as the baseline, [6] (published earlier in ROMJIST) is the source of the Hurtado–Noy storage figures reused in Table 2, and [7] is cited for a fuller treatment of Proposition 3.1. `IRRELEVANT_SELF_CITATION` is therefore not raised, and there is no evidence of a citation ring. The high ratio comes partly from a very short bibliography: four external works (two books, Gupta et al., and Hurtado–Noy) and no engagement with the wider literature on encoding, ranking, or generating triangulations and other Catalan objects.\n\n---\n\n## Structural Analysis\n\nThe empirical claims (lower total time when storage is included, and large memory savings) are backed by Tables 2 and 3, so the claim–evidence balance is adequate (CER estimated at about 0.7). Support is weaker than the tables suggest, for these reasons:\n\n- **Uncontrolled baseline.** The Hurtado–Noy storage results \"are given in [6] and a part of them is shown in Table 2\". Part of the baseline therefore comes from an earlier study, not a controlled side-by-side run. Timings are single runs from the NetBeans profiler on one Core 2 Duo laptop, with no repetitions or variance, and the Hurtado–Noy row for v = 16 is blank without explanation.\n- **Table 3 does not match Table 2.** The storage-share columns cannot be reproduced from the times in Table 2. HS equals (Hall − HG)/Hall exactly at v = 5, 7, 10, 11, 12 and 14, but not at v = 6, 8, 9, 13 and 15 (at v = 13, Table 2 gives 69.83% against 59.83% printed). BS matches (Ball − BG)/Ball only at v = 5. For v ≥ 6 the printed BS exceeds the largest storage share Table 2 allows (at v = 9: 8.79% printed against 4.76% computed), so the stated range \"from 8% up to 12%\" is not supported by the paper's own times. The qualitative ordering BS < HS does survive.\n- **Generation-time claim contradicted.** The conclusion claims \"In this way we can achieve a better time for generating the triangulations\", but no disk-I/O experiment is reported, and Table 3 shows the ballot method slower in the generation phase at every v (HG − BG reaches −119.84 s at v = 15).\n- **Compactness argument.** The \"twice shorter\" SVB coding halves the number of symbols, but a ballot record packs into 2n bits, whereas n values from {1, …, n} need more bits each. The reported BO of 12,752 Kb for 2,674,440 triangulations at v = 16 is about 4.8 bytes per triangulation, against 3.5 bytes for a bit-packed 28-symbol ballot record. Compactness is shown only against Hurtado–Noy's diagonal-vertex lists.\n- **Algorithm specification.** Algorithm 2 tests every one of the v(v − 3)/2 diagonals against the path, and its condition \"intersects with only one part of the path\" is underspecified. The BG phase cites a non-existent \"Alg. 3.1\". The input phase BI presupposes the full list of ballot records, so how those are enumerated, which is the core of generating all triangulations, is not described.\n- **Limitations.** There is no limitations section. The comparison openly reports that Hurtado–Noy \"gives better results if we take into account the time required for generating a triangulation\", and this is counted as an inline acknowledgment, but the conclusion lists only advantages.\n- **Artifacts.** The paper gives two specific .rar links on the first author's institutional server for the Java applications of both methods, which counts as the authors' own code. Inputs are generated from v and involve no external dataset, and the measured timings are not deposited. The paper does not say whether the archives contain source code or only binaries.\n\nNo instructions addressed to a reviewer or an automated assessor were found in the text.\n\n---\n\n## Conclusion\n\nThis is a clearly illustrated, procedural restatement of the classical correspondence between convex-polygon triangulations, ballot sequences and stack permutations, with an implementation and a downloadable program. At Level 2 it re-proves a textbook Catalan count already derived in the preceding equation, and the formalism count sits just above the Level 2 bound. Together these raise `FORMALISM_THEATER`, while the one property the method depends on, the mutual inversion of the encoding and decoding algorithms, is left unproved. The self-citation ratio of 43% (3 of 7 references) independently raises `EXCESSIVE_SELF_CITATION`, though every self-citation is on topic and used substantively.\n\nThe experimental section supports the memory advantage over the Hurtado–Noy storage format. It is weakened by a baseline drawn partly from earlier work, single uncontrolled timings, storage-share figures that do not follow from the paper's own Table 2, and a conclusion about generation time that the tables contradict. The released Java applications are the paper's main reproducibility asset."
+  }
+ ]
+}

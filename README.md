@@ -23,7 +23,7 @@ RUIN (**R**igor, **U**tility, **I**ntegrity, **N**ecessity) shifts paper assessm
 │   ├── Download-ROMJIST.ps1            # ROMJIST corpus downloader
 │   └── README.md
 ├── samples/                            # Single-batch worked example
-│   ├── input/                          #   ROMJIST 2022 v25 n1 (paper708 = LifeTags++)
+│   ├── input/                          #   ROMJIST 2022 v25 n1 (paper708 = LifeTags++, download)
 │   └── output/                         #   RUIN analysis result for the same batch
 ├── journal-analysis/
 │   ├── ROMJIST_2026-10-04/             # Current run: 421 records, 404 research papers,
@@ -95,6 +95,8 @@ The results the manuscript reports come from `journal-analysis/ROMJIST_2026-10-0
 | `reliability/sample.csv` | The 30-paper test–retest sample, drawn from run 1 by `draw_sample.py` |
 | `reliability/runs/run2/`, `run3/` | Two further independent analyses of the sample |
 | `reliability/results.json` | Output of `analyze.py`: MAD, ICC(2,1), Fleiss κ, per-flag agreement |
+| `reliability/capped/` | Run 4: protocol, sample, and results of a supplementary retest of all 148 capped papers and 40 uncapped controls |
+| `reliability/runs/run4/` | The run-4 analyses |
 
 To reproduce from scratch: download the corpus with `tools/Download-ROMJIST.ps1`, check it against the manifest, run `reliability/extract_text.py`, analyse each issue with the published instructions, then `scripts/finalize_run.py`, `scripts/rescore.py --write`, and `reliability/analyze.py`.
 
@@ -104,7 +106,7 @@ To reproduce from scratch: download the corpus with `tools/Download-ROMJIST.ps1`
 
 ## Worked example
 
-`samples/input/` contains a single batch (ROMJIST 2022, Volume 25, Issue 1) with one paper — Aiordachioae & Vatavu (2022), *LifeTags++* — that the manuscript discusses as a worked example of formalism theater. The corresponding analysis output is in `samples/output/ROMJIST/2022-v25-n1.json`. Use this pair to inspect the framework's behaviour on a single, fully documented case before launching a full corpus run.
+`samples/input/` describes a single batch (ROMJIST 2022, Volume 25, Issue 1) with one paper — Aiordachioae & Vatavu (2022), *LifeTags++* — that the manuscript discusses as a worked example of formalism theater. The PDF is the publisher's and is not redistributed; [`samples/input/papers/README.md`](samples/input/papers/README.md) gives its URL and SHA-256. The corresponding analysis output is in `samples/output/ROMJIST/2022-v25-n1.json`. Use this pair to inspect the framework's behaviour on a single, fully documented case before launching a full corpus run.
 
 ## Validation dataset
 

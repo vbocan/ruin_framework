@@ -1,0 +1,123 @@
+{
+ "batch_id": "2012-v15-n3",
+ "analysis_timestamp": "2026-10-18T03:40:01Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 15,
+  "issue": 3,
+  "year": 2012
+ },
+ "papers": [
+  {
+   "paper_id": "ilie2012",
+   "paper": {
+    "title": "An efficient 3D Visual Speech Synthesis Framework for Romanian Language Logopedics use",
+    "authors": [
+     "Mihai Daniel Ilie",
+     "Cristian Negrescu",
+     "Dumitru Stanomir"
+    ],
+    "abstract": "In this paper, we propose a 3D facial animation model for simulating visual speech production in the Romanian language. To our best knowledge, this is the first study dedicated to 3D visual speech synthesis for the Romanian language. The model is also capable to generate complex emotion activity for the virtual actors during the speech. Using a set of existing 3D key shapes representing various facial expressions, fluid animations describing facial activity during speech pronunciation are provided, taking into account several Romanian language coarticulation effects. A novel mathematical model for defining efficient viseme coarticulation functions is provided. The 3D tongue activity could be closely observed in real-time while different words are pronounced in Romanian. The framework proposed in this paper is designed for helping people with hearing disabilities learn how to articulate correctly in Romanian and also it works as a training-assistant for Romanian language lip-reading. The efficiency of our method was successfully proven by tests made on various logopedics specialists, deaf students and deaf lip-reading instructors from a special school for people with hearing disabilities in Bucharest, Romania.",
+    "keywords": [
+     "visual speech synthesis",
+     "Romanian language",
+     "logopedics",
+     "lip-reading",
+     "viseme animation",
+     "3D facial animation",
+     "coarticulation"
+    ],
+    "doi": null,
+    "pages": "229-245",
+    "source_file": "03-mdilie.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.0,
+    "composite": 33.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the closest passage is a deployment aim, not an availability statement: \"The aim of our project is to make the visual speech simulation application proposed in this paper available for as many special schools for deaf people in Romania as possible\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with one formal element that fails the Necessity Test: the head mesh written as the tuple M = (V, T), with V a finite set of vertices and T a set of triangles. It is a formal tuple description of an ordinary data structure, stated in plain English in the same sentence and never used again. Under the zero-tolerance rule one such element suffices; it is the only one in the paper, and the equations that carry the method (4, 6, 7) are necessary."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 Romanian visual-speech animation system built on blendshapes and a new viseme weight curve; a single orphaned tuple notation for the head mesh triggers FORMALISM_THEATER under the zero-tolerance rule, the lip-reading evaluation is reported as one average without sample sizes or a baseline model, and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Blendshape-based 3D facial animation for Romanian visual speech: a hand-modelled set of 25 Romanian visemes, hand-tuned timing rules per phonetic context, a piecewise cosine/sine viseme weight curve, emotion and eye-blink overlays, and a lip-reading evaluation at a school for the deaf.\n**Level:** 2 (Low)\n**Rationale:** The machinery is the standard morph-target method (a linear blend of key shapes) driven by dominance-style weight curves in the Cohen-Massaro lineage, applied to a new language. What is new is a curve shape (eq. 6) and empirically chosen timing and magnitude parameters for Romanian coarticulation. There is no complexity analysis, no proof, and no model validated in the Level 3 sense. Emotion masking and non-linear interpolation are taken from the authors' earlier papers [19, 20].\n\n### Formal Elements\n- Definitions: 1 inline (the head mesh written as M = (V, T)) (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 numbered. (1)-(3) quote prior dominance and kernel functions in the related-work section, (4) is the blendshape sum, (5) a weight-sum constraint, (6)-(7) the proposed viseme curve and its normalised time. There is also a seven-line pseudocode block for the four key moments of each viseme.\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Proportionate in count. Equations (4), (6) and (7) pass the Necessity Test: they are what a programmer would implement. Equations (1)-(3) are basic equations quoted from prior work, and (5) is a one-line constraint on the weights. The pseudocode is an algorithm listing, although its content is thin (see Structural Analysis).\n\n### Issues\nThe introduction states: \"The 3D head is regarded as a discrete domain mesh M = (V, T), where V is a finite set of vertices in 3D space and T is the set of triangles that describe the way vertices are linked to one another.\" This is a tuple-of-sets description of an ordinary data structure, a vertex array and a triangle index array. The same sentence already says it in plain English, M, V and T never appear again, and removing them changes nothing a programmer would build. Under the zero-tolerance rule for Level 1-2 papers this single element triggers FORMALISM_THEATER. It is the only instance: the rest of the paper's mathematics is necessary. It does not trigger UNNECESSARY_SET_THEORY (no set operations are used) or DECORATIVE_DEFINITIONS (there are no numbered Definition blocks).\n\n---\n\n## Citation Analysis\n\n20 references, 2 self-citations (SCR 10%): [19], on automatic masked morphing for 3D facial animation, and [20], on circular interpolation for morphing 3D facial animation (same three authors, 2011). Both are used directly, [19] for the emotion masks of Section 4 and [20] for the non-human interpolation of Section 5, and both are topically close to this paper (similarity well above 0.5). The rest of the list is the expected background: Parke, Cohen-Massaro, Ekman, coarticulation studies for other languages, and Romanian phonetic and lip-reading references. One oddity: Romanian-specific coarticulation effects are attributed to [18], the orthographic and orthoepic dictionary of the Romanian Academy, which supports the syllabification step but is not an obvious source for coarticulation. No issues of citation conduct.\n\n---\n\n## Structural Analysis\n\nThe paper makes strong claims (\"The efficiency of our method was successfully proven\", \"the first study\", \"very satisfying results, proving its efficiency\", \"efficient viseme coarticulation functions\") against a thin evidential base; the claim-evidence ratio is roughly 0.5. The evaluation is one aggregate figure, \"a total average of 87.13% recognition rate for the virtual 3D actor we used and around 85% for real human speaker tests\", with no number of observers, words or trials, no dispersion, and no comparison against an existing coarticulation model such as Cohen-Massaro. The abstract mentions tests on deaf students, but no student data are reported. The text also says recognition \"increased significantly\" after training on the virtual actor, which leaves open whether the virtual and the human speakers were equally unfamiliar to the observers. \"Efficient\" is never measured: there are no timing or frame-rate figures. Reproducibility is weak: the core of the coarticulation model, the quantities q1, q2, q3 and the functions f and g for each phonetic context, is given for one case only (semivowel o before a).\n\nLimitations are acknowledged inline only: lip-reading results \"vary from one person to another\", the first-sight effect is discussed, and further studies with more lip-readers are planned.\n\nNo artifact. The implementation uses Qt and OpenGL, which are third-party tools. The only related passage is a deployment aim, \"The aim of our project is to make the visual speech simulation application proposed in this paper available for as many special schools for deaf people in Romania as possible\", which states a dissemination goal rather than availability to readers, so the category is `none`.\n\n---\n\n## Conclusion\n\nA useful applied contribution at Level 2: a Romanian viseme set built with logopedics specialists, a simple and implementable viseme weight curve, and a working teaching tool. The mathematics that carries the method is proportionate and necessary. Under the specification's zero-tolerance rule, however, the single unused tuple notation for the head mesh is a theater pattern at this level and disqualifies the paper; the flag rests on that one sentence alone. Independently of the flag, the evaluation is under-reported and the coarticulation rules are not specified well enough to be reproduced."
+  },
+  {
+   "paper_id": "shi2012",
+   "paper": {
+    "title": "An Efficient RSA-Based Remote User Authentication Scheme",
+    "authors": [
+     "Wenbo Shi",
+     "Yitao Chen"
+    ],
+    "abstract": "Password authentication has been adopted as one of the most commonly used solutions in network environment to protect resources from unauthorized access. Recently, Awasthi et al. proposed an efficient RSA-based remote user authentication scheme. In this paper, we will point out that Awasthi et al.’s scheme is vulnerable to a privileged insider attack, a password guessing attack and an impersonation attack. To improve the security, we also propose a new RSA-based remote user authentication scheme. The analysis shows our scheme could overcome the weaknesses in Awasthi et al.’s scheme and has better performance than their scheme.",
+    "keywords": [
+     "Authentication",
+     "Smart card",
+     "RSA"
+    ],
+    "doi": null,
+    "pages": "266-276",
+    "source_file": "05-ychen.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 95,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.5,
+    "composite": 55.12,
+    "final": 50.12
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "Level 3 paper with formalism complexity 42 (6 theorems x 3 + 6 proofs x 4) against an upper bound of 40, i.e. 1.05x, inside the 1-2x elevated band. The six theorems carry proofs of two to four sentences of informal reasoning, without a formal adversary model or reduction."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Concrete, verifiable attacks on Awasthi et al.’s RSA smart-card authentication scheme and an improved scheme whose six informal theorems push formalism just past the Level 3 bound; no self-citations, an operation-count performance comparison with minor bit-count errors, and nothing to release.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Cryptanalysis of Awasthi et al.'s RSA-based smart-card remote user authentication scheme (privileged-insider, offline password-guessing and impersonation attacks), and a modified scheme that masks a card identifier with a hashed password and RSA-encrypts a nonce, with informal security arguments and an operation-count performance comparison.\n**Level:** 3 (Medium)\n**Rationale:** The paper designs a new, if incremental, protocol and analyses its properties, and the impersonation attack is a genuine algebraic result (the extended Euclidean algorithm on e and f(IDi, Tc)). It does not reach Level 4: the security guarantees are asserted without a formal adversary model, a reduction, or protocol-logic or tool-based verification, so they are not established in the Level 4 sense. When uncertain between 3 and 4, the lower level is taken.\n\n### Formal Elements\n- Definitions: 0 (a three-symbol cost notation Th, Tm, Te for Table 3 and an informal two-item adversary model, neither counted as a formal definition) (with constraints: 0)\n- Theorems: 6\n- Proofs: 6\n- Equations: the protocol steps (RSA key generation, modular exponentiations, hashes, XOR), one numbered derivation (1) verifying the impersonation attack, and the storage and communication bit-count sums\n\n### Proportionality\nCalculated complexity: 42\nExpected range (Level 3): 10-40\nRatio: 1.05x upper bound\n\n**Assessment:** Elevated. The protocol mathematics and the attack derivations pass the Necessity Test: they are the scheme itself and the evidence that the attacks work. The count is pushed over the bound by six Theorem/Proof pairs whose proofs are two to four sentences of informal reasoning; Theorem 1, for instance, rests on \"the adversary could not generate the message since he does not the server's secret d\". Packaging these arguments as theorems signals a rigour they do not have. At Level 4 the same count would be 0.53x the bound and proportionate.\n\n### Issues\n- The proofs are informal and partly imprecise. Theorem 1 attributes the adversary's failure to not knowing d, whereas the quantity the adversary lacks is CIDi; the case of an adversary holding a stolen card is argued only in Theorem 4.\n- No formal model (random oracle, BAN-type logic, or automated verification) underpins any theorem.\n\n---\n\n## Citation Analysis\n\n11 references and no self-citations: neither W. Shi nor Y. Chen appears in the list ([11] is by He, Wu and J. Chen). SCR 0%. The list is small but on topic: the line of timestamp-based RSA smart-card schemes (Lamport, Yang-Shieh, Chan-Cheng, Fan et al., Shen et al., Yoon et al., Liu et al., Awasthi et al.) and the two power-analysis papers that justify the card-extraction assumption. [11], a note on an elliptic-curve password scheme, is used twice to support general claims about how users choose and reuse passwords. Yang et al. is mentioned in the introduction without its reference number [2]. No issues of citation conduct.\n\n---\n\n## Structural Analysis\n\nThe cryptanalysis is well supported: each attack is given as an explicit procedure, and the verification equation (1) of the impersonation attack checks out, as does the password-guessing step h_i^e = g^pw_i mod n. Support for the improved scheme is weaker: informal theorem arguments and operation counts, with no implementation. The claim-evidence ratio is around 1. The performance section contains accounting slips. Awasthi et al.'s communication cost is summed to 4384 bits with a 160-bit term, although every item exchanged in that scheme other than the identifier, e and the timestamps is a 1024-bit value, so the competitor's cost is understated; the scheme's own Si, a hash output XORed with a hash, is counted at 1024 bits; and Table 3 treats exponentiation with the 32-bit e and with the 1024-bit d as the same Te. These errors run in both directions and do not overturn the qualitative conclusion. The review of Awasthi et al.'s scheme also uses Ti and Tc for the same timestamp.\n\nA limitation is acknowledged inline in the conclusion: \"the proposed scheme needs a true random number generator in order to work. This implies an additional cost for each user.\"\n\nNo artifact. The paper is analytical (protocol design, hand cryptanalysis, operation counts) and has nothing to release, so `relevant` is false.\n\n---\n\n## Conclusion\n\nA typical cryptanalysis-and-repair paper in the smart-card authentication literature. The attacks on Awasthi et al.'s scheme are concrete and correct as presented, and the replacement scheme is plausible, but its security rests on six informal arguments labelled as theorems, which lifts the formal count just above the Level 3 bound and earns ELEVATED_FORMALISM. Citation conduct is clean, and the performance comparison holds qualitatively despite the bit-count errors."
+  }
+ ]
+}

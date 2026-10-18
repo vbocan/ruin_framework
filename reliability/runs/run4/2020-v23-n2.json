@@ -1,0 +1,179 @@
+{
+ "batch_id": "2020-v23-n2",
+ "analysis_timestamp": "2026-10-18T03:44:53Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 23,
+  "issue": 2,
+  "year": 2020
+ },
+ "papers": [
+  {
+   "paper_id": "ravariu2020",
+   "paper": {
+    "title": "New steps for advancing the Nothing On Insulator Triode 3nm gap and preliminary expanded technology",
+    "authors": [
+     "Cristian Ravariu",
+     "Dan E. Mihaiescu",
+     "Alina Morosan",
+     "Vlad Placinta"
+    ],
+    "abstract": "This paper presents new steps of the Nothing On Insulator (NOI) device advancing. From the simulations point of view, a better swing is accomplished by shorter vacuum gap and the transistor replacement by triode. The actual simulated NOI-Triode with 3nm gap possesses lower swing versus the previous NOI-Triode of 14nm gap. Functional simulations prove the current density vectors from Source to Drain with substantial Gate leakage current. Comparisons with similar vacuum nanotransistors of other authors reveal similar ID-VDS and ID-VGS curves, with superior currents for the actual NOI-Triode 3nm gap. A preliminary technology, based on laser ablation by MALDI technique, produced a gap of 10µm in ABS-conductor micro-wires deposited on glass substrate. An accurate NOI architecture was accomplished, but at expanded sizes, defined by the laser spot resolution.",
+    "keywords": [
+     "Microelectronics",
+     "Electronic Packaging",
+     "Nanotechnology",
+     "Simulations"
+    ],
+    "doi": null,
+    "pages": "127-139",
+    "source_file": "paper643.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.0,
+    "composite": 45.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 10/23 = 43.5%: references [6]-[9], [13], [14], [19] and [21]-[23] all include C. Ravariu, with Mihaiescu, Morosan or Placinta on four of them. Most are on the NOI device line and relevant; [22] and [23] are marginal, cited for fabrication steps."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "TCAD simulation of a 3 nm-gap vacuum NOI-Triode plus a preliminary 10 µm laser-ablated test structure. The formalism is minimal and necessary, but 10 of 23 references are self-citations, and the simulated device is credited with superiority over measured devices from other groups.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** TCAD (Silvaco Atlas) simulation of a Nothing On Insulator vacuum nano-triode scaled from a 14 nm to a 3 nm gap, compared against published measurements of other vacuum nanotransistors, plus a preliminary \"expanded\" test structure (3D-printed ABS-conductor wires on ITO glass, 10 µm gap cut by MALDI laser ablation).\n**Level:** 2 (Low)\n**Rationale:** The contribution is a geometric scaling and re-simulation of the authors' own device in a commercial simulator, with standard parameter extraction. No new model, algorithm or proof is proposed; the physics (Fowler-Nordheim tunnelling, interface traps) is taken from the simulator's built-in models. This is a parameter/configuration study.\n\n### Formal Elements\n- Definitions: 3 inline (the VT extraction convention at ID = 10% of ID,max, Eq. 1; the standard subthreshold-swing definition, Eq. 2; the VD-ON convention, Eq. 3)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 numbered, plus one inline transconductance approximation gm = ΔID/ΔVG\n\n### Proportionality\nCalculated complexity: 6\nExpected range (Level 2): 0-15\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate. The three conventions fix how the reported VT, SS and VD-ON values are read off the curves; without them the numbers in Sections 4-5 could not be reproduced, so they pass the necessity test. No set notation, tuples, or decorative Greek symbols.\n\n### Issues\nNone in the formalism. Internal inconsistencies elsewhere: the Conclusions give \"ID/IG =10 in the drive-ON regime\" while Section 4 reports ID/IG = 20 at VG,max = -10 V; the VD-ON values are said to be extracted \"from Fig. 7\" although the output characteristics are in Fig. 8.\n\n---\n\n## Citation Analysis\n\nTen of the 23 references carry at least one of the four authors: Ravariu appears in all ten ([6]-[9], [13], [14], [19], [21]-[23]), Mihaiescu in [21]-[23], Morosan in [22]-[23], Placinta in [14]. SCR = 10/23 = 43.5%.\n\nRelevance: [6]-[9], [13], [14], [19] and [21] form the NOI device line this paper extends and are directly related (similarity well above 0.5). [22] (nanocomposites for electron-transfer applications) and [23] (organic thin-film transistors with an Fe3O4/PABA core-shell film) are cited for the MALDI ablation step and the polystyrene coating protocol of the preliminary fabrication; they are marginal (about 0.4) but cited for a method actually used, so they are not treated as unrelated.\n\nReference [12] (a double-gate tunnel FET paper) is cited as the source from which \"The simulated technology for the actual NOI-Triode of 3nm gap was adapted\"; this looks like a mis-citation for [14] or [21]. The 13 external references cover the main vacuum-nanoelectronics groups, so the literature base is adequate apart from the self-citation weight. No evidence of a citation ring.\n\n---\n\n## Structural Analysis\n\nMost quantitative claims are tied to a simulation figure, so the claim-evidence balance is adequate. Weaknesses: (i) the advantages claimed over other devices compare an idealised simulation (7 × 10^20 cm^-3 doping, n.poly contacts chosen \"to offer zero-resistive contacts\") against fabricated, measured hardware, e.g. a simulated ION of about 0.02-0.1 A against a measured 22 µA; the authors concede that the high current \"is based on the high level of doping concentration\" but still present the comparison as superiority; (ii) the \"for the first time\" saturation finding rests on simulation alone; (iii) generalising statements such as \"In the close future, all nano-devices will suffer from this issue\" are unsupported; (iv) the fabricated structure has a 10 µm gap and \"provides a null Drain current\", so no electrical result is reported for it.\n\nLimitations are acknowledged inline (the 3 nm gap is not yet manufacturable, the gate-leakage drawback, the laser-spot limit, \"The work is in progress\"), with no dedicated section.\n\nArtifacts: no simulation input decks, structure files or data are offered; Silvaco Atlas/Athena is third-party software.\n\n---\n\n## Conclusion\n\nA device-simulation report with minimal, necessary formalism. Its main problem is citation conduct: 43.5% of the bibliography is the authors' own work, which triggers the excessive self-citation rule even though most of those works are on the same device family. The structural case is weakened by comparing simulated results against measured devices of other groups and by a preliminary fabrication step that produced no working device. Nothing is released for reproduction."
+  },
+  {
+   "paper_id": "marinca2020",
+   "paper": {
+    "title": "New Extraction Method of the Bipolar Transistor Model Parameters Used in Bandgap Voltage References",
+    "authors": [
+     "Stefan Marinca",
+     "Mircea Bodea",
+     "Angelica Stiglet",
+     "Bogdan Baron"
+    ],
+    "abstract": "A new extraction method of the critical model parameters affecting temperature variation of the bandgap type voltage reference is presented. According to the new method, the two model parameters describing the linear and non-linear temperature dependence of the bandgap type voltage references are extracted from the raw data of the reference voltage vs. temperature and not from direct measurements of the bipolar transistor.",
+    "keywords": [
+     "bipolar transistor",
+     "base-emitter voltage",
+     "model parameters",
+     "bandgap voltage reference",
+     "temperature variation",
+     "silicon based temperature sensor"
+    ],
+    "doi": null,
+    "pages": "176-187",
+    "source_file": "paper646.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 35,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 58.0,
+    "composite": 43.5,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 5/14 = 35.7%: [9], [10], [12], [13] and [14] are by S. Marinca (four of them patents). [9] and [10] are the same entry printed twice; merged, SCR is 4/13 = 30.8%, still above 30%. All are topically related."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Two-temperature method for extracting VG0 and XTI from bandgap-reference measurements, applied to 16 LDO samples. The equations are the method and are needed, but 5 of 14 references are the first author's own (one duplicated), and the accuracy claim rests on a partial error analysis with no ground-truth comparison.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A procedure for extracting two bipolar-transistor model parameters (extrapolated bandgap voltage VG0 and saturation-current temperature exponent XTI) from the output voltage of a first-order compensated bandgap reference measured at two temperatures, instead of from direct base-emitter voltage measurements at three accurately known temperatures; applied to 16 production LDO samples.\n**Level:** 2 (Low)\n**Rationale:** The method is an algebraic rearrangement of the textbook Vbe(T) expression ([4]-[6]) under the zero-TC balance condition: solve two equations for two unknowns. It is a modest, practical improvement on existing extraction methods ([1]-[3]) without a new model, algorithm with complexity analysis, or proof.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 30 (circuit and device equations, the derivation of Eqs. 18-25, the slope correction 26-27, and the error estimates 11-12 and 28-29)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the method: Eqs. (24)-(25) are exactly what an engineer would code to extract XTI and VG0, and the sensitivity expressions (11)-(12) and (29) carry the paper's accuracy argument. None fails the necessity test, and there is no set notation, tuple definition, or decorative symbol.\n\n### Issues\nTypesetting errors in two key formulas: Eq. (20) prints ln(kT/q) where consistency with Eqs. (21) and (23) requires ln(T/T0), and Eq. (28) prints ln(ΔT0/T0) where ln((T0+ΔT0)/T0) is needed. A reader implementing from the printed formulas would obtain wrong values.\n\n---\n\n## Citation Analysis\n\nFive of the 14 entries are by the first author: [9], [10], [12] (with Bodea), [13], [14]. SCR = 5/14 = 35.7%. [9] and [10] are the same entry printed twice (identical title and patent numbers), which inflates the count; merging them gives 4/13 = 30.8%, still above the 30% threshold.\n\nAll self-citations concern voltage references, PTAT generators, Early-voltage compensation or a silicon temperature sensor, so each is topically related (similarity above 0.5); four of the five are patents. Other bibliographic defects: [11] (Kalb) and [13] (Marinca) carry the same US patent number 9285820; [4] has no venue or year; [7] and [8] are never cited in the text. No evidence of a citation ring.\n\n---\n\n## Structural Analysis\n\nThe derivation is complete, but the central empirical claim is not tested. The statement that errors are \"smaller with more than one order of magnitude\" rests on a sensitivity analysis limited to the effect of ΔT0 on Vref(T0) at the zero-TC point; it does not carry temperature error through the T1/T0 and kT0/q terms in the denominator of Eq. (24), and the authors defer \"A more detailed error analysis\" to another paper. The silicon results (Figs. 9-10, 16 LDOs) show only the spread of the extracted values; they are not compared with parameters extracted from the same devices by a conventional three-temperature method or with foundry model values, so accuracy is asserted rather than measured. The novelty claim \"the first method based on two temperature measurements\" has no supporting survey.\n\nSection 6 (\"Errors\") gives a dedicated discussion of the method's error sources: PTAT nonlinearity from the reverse Early effect, collector-current temperature variation, and bandgap narrowing.\n\nArtifacts: no measurement data or extraction script is offered.\n\n---\n\n## Conclusion\n\nA concise analog-design note whose mathematics is proportionate and necessary, marred by typesetting errors in two of its key formulas. Citation conduct triggers the excessive self-citation rule: more than a third of a short bibliography is the first author's own patents and papers, and one of those entries is duplicated. The accuracy advantage is argued analytically from a partial error model and not checked against a reference extraction on the same silicon."
+  },
+  {
+   "paper_id": "bonteanu2020",
+   "paper": {
+    "title": "A comparison between the Gm based implementations of voltage mode and current mode capacitance multipliers",
+    "authors": [
+     "Gabriel Bonteanu",
+     "Arcadie Cracan",
+     "Ioan Alexandru Nica",
+     "Stefan Viorel Savinescu"
+    ],
+    "abstract": "A comparison between two Gm based implementations of capacitance multipliers, one following a voltage mode perspective and another one following a current mode perspective is performed. The transconductor based circuit solution for voltage mode capacitance multiplication employs the Miller effect around a voltage amplifier implemented as a transconductance amplifier paired with another transconductor acting as a load. The current mode multiplier used as reference in the comparison uses the same components and is built around a typical current mirror by substituting the MOS transistors with transconductance amplifiers. For both structures the ratio of the two transconductances defines the multiplication factor. Due to the transconductance tunability, the multiplication factor is adjustable in a wide range. The results show an important advantage of the voltage mode multiplier with regards to the low frequency behavior in comparison to a current mode Gm-based implementation, recommending the voltage mode circuit for frequency compensation applications. A first order low-pass filter is implemented as an application of the two described architectures using discrete Gm integrated circuits.",
+    "keywords": [
+     "MOS capacitor",
+     "capacitance multiplier",
+     "adjustable capacitor",
+     "transconductance amplifier"
+    ],
+    "doi": null,
+    "pages": "204-220",
+    "source_file": "paper648.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 64.25,
+    "composite": 48.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 2/5 = 40%: [3] and [4] are by Bonteanu and Cracan. Both are the direct predecessors of this work and highly relevant; the ratio is high because the bibliography has only five entries."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Small-signal comparison of voltage-mode and current-mode Gm-based capacitance multipliers, backed by 0.18 µm simulation and discrete LM13700 measurements. The derivations are necessary and consistent, but 2 of only 5 references are self-citations, and the text has editorial defects (a foreign figure caption, a truncated sentence, a duplicated paragraph).",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Comparison of two existing Gm-based capacitance multipliers, a current-mode one built from a current mirror and the authors' earlier voltage-mode Miller-type circuit, by small-signal input-impedance analysis (ideal and non-ideal transconductors), 0.18 µm CMOS simulation, and a discrete LM13700 low-pass-filter implementation.\n**Level:** 2 (Low)\n**Rationale:** Both circuits are taken from prior work ([2], [3]); the contribution is a standard nodal analysis and an empirical comparison. No new circuit principle, algorithm or proof is introduced.\n\n### Formal Elements\n- Definitions: 3 inline notational shorthands (Cpi, Eq. 14; go and Cpv, Eqs. 32-33), plus the intermediate α and β of Eqs. (23)-(24) and (42)-(43)\n- Theorems: 0\n- Proofs: 0\n- Equations: 57 (nodal equations, impedance derivations, equivalent-model parameters, potentiometer and LPF models used for curve fitting)\n\n### Proportionality\nCalculated complexity: 6\nExpected range (Level 2): 0-15\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate. The derivations yield the equivalent models (Figs. 7 and 10) on which the paper's conclusion rests, namely that the voltage-mode structure lacks the parallel go1 resistance, and Eqs. (51)-(57) are the model actually fitted to the measurements. Every shorthand is used immediately afterwards. The Greek α and β are algebraic intermediates, not configuration constants. Nothing fails the necessity test.\n\n### Issues\nEq. (32) writes go = go1//go2, while the later comparison of denominators (gm2 + go1 + go2) treats go as the sum of the two output conductances; the notation is confusing, though the result is consistent.\n\n---\n\n## Citation Analysis\n\nThe bibliography has only five entries, two of them by the first two authors: [3] (Bonteanu, Cracan, Goras) and [4] (Bonteanu, Cracan, Bozomitu). SCR = 2/5 = 40%.\n\nBoth self-citations are directly relevant (similarity above 0.5): [3] introduced the voltage-mode circuit under comparison and [4] supplies the current-mode non-ideal analysis followed in Section 5a. The ratio is high mainly because the reference list is very short for a topic with a substantial literature (active capacitance multipliers, Miller compensation, tunable OTAs); the flag follows mechanically from the >30% rule rather than from any sign of padding. No evidence of a citation ring.\n\n---\n\n## Structural Analysis\n\nClaims are well supported: each theoretical prediction (wider capacitive region and higher parallel resistance for the voltage-mode circuit, slightly larger tuning range for the current-mode one) is checked by simulation (Figs. 12-13) and by measurement (Figs. 17-24). The authors state that Figs. 23-24 show a selected subset of points and that the selection is conservative for their conclusion. The \"poorer dynamic range\" trade-off is stated as an expectation but not measured, and the reported low-frequency gain difference (-6.03 dB vs -6.05 dB) is too small to carry weight on its own; the roughly 10x input-resistance ratio is the substantive evidence.\n\nEditorial defects: the caption of Fig. 4 reads \"Linear polarization: (a) vertical (V) and horizontal (H); (b) slant (S) polarization\", which belongs to another paper; Section 3 breaks off mid-sentence (\"to implement the \"G\"\"); a whole paragraph on source degeneration is repeated verbatim in Section 6.\n\nLimitations are acknowledged inline (the dynamic-range trade-off and limited voltage swing that restrict the voltage-mode circuit to low-swing compensation nodes), with no dedicated section.\n\nArtifacts: no netlists, PCB files or measurement data are offered; the AMS 0.18 µm PDK and the LM13700 are third-party.\n\n---\n\n## Conclusion\n\nA sound, if modest, circuit-comparison paper in which the analysis is necessary and agrees with both simulation and measurement. It is flagged for excessive self-citation because two of its five references are the authors' own; both are the immediate predecessors of this work, so the problem is a thin bibliography rather than irrelevant citation. Careless editing (a foreign figure caption, a truncated sentence, a duplicated paragraph) and the absence of released material weaken the paper."
+  }
+ ]
+}

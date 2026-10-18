@@ -1,0 +1,186 @@
+{
+ "batch_id": "2025-v28-n3",
+ "analysis_timestamp": "2026-10-18T03:52:20Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 3,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "zavadskas2025",
+   "paper": {
+    "title": "Intelligent Expert Systems Using Molecular Fuzzy Genetic Algorithms and Multi-Objective Particle Swarm Optimization for Circular-Oriented Project Investments",
+    "authors": [
+     "Edmundas Kazimieras Zavadskas",
+     "Hasan Dinçer",
+     "Serhat Yüksel",
+     "Serkan Eti"
+    ],
+    "abstract": "Circular-oriented project investments promote sustainable growth by enhancing resource efficiency and minimizing waste. There is a significant gap in the literature to identify key variables that influence the performance of these investments. This gap can cause inappropriate decisions by investors and policymakers, as well as inefficient resource utilization by businesses. To address this missing gap, this study aims to identify the key indicators influencing circular-oriented project investments by introducing a novel decision-making model. The proposed model integrates the information gain technique for project prioritization, Q-learning for expert evaluation, genetic algorithms for criteria weighting, and swarm optimization for alternative ranking. The main contribution of this study is that molecular fuzzy sets are considered by combining molecular geometry and fuzzy logic. These sets offer a more advanced uncertainty modeling capability than traditional fuzzy sets. The application of genetic algorithms in criteria weighting provides a significant contribution to the literature. By making a global optimization, more appropriate calculations can be performed for criteria weighting. The findings denote that emission reduction and financial performance are the most crucial criteria for the performance improvements of these projects. Moreover, waste-to-energy plants and urban mining initiatives are found as the most significant project alternatives.",
+    "keywords": [
+     "Circular-oriented projects",
+     "genetic algorithms",
+     "molecular fuzzy sets",
+     "swarm optimization"
+    ],
+    "doi": "10.59277/ROMJIST.2025.3.02",
+    "pages": "260-273",
+    "source_file": "paper807.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 85,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 42.25,
+    "composite": 31.69,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the expert ratings and project-factor values are printed in Tables 1 and 3 but not deposited, and no code is linked or claimed",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 application whose equations include elements that fail the Necessity Test: textbook single-point crossover spelled out as vector slicing and concatenation (Eqs. 21-24), one cumulative sum stated twice (Eqs. 18-19), a linear expert-matrix update labelled Q-learning (Eqs. 3-5), and a molecular-geometry normalisation (Eq. 10) whose constant divisor cancels in the row normalisation of Eq. (12), so the choice of geometric 'shape' cannot affect the weights or the ranking.",
+    "UNNECESSARY_SET_THEORY": "The GA population is written as a set, P = {w1, w2, ..., wn} (Eq. 14), immediately after the same object is written as a vector w = [w1, ..., wn] (Eq. 13), and a particle position, an ordered vector, is written as a set Xi = {xi1, ..., xin} (Eq. 30). Both are arrays; no proof depends on the set reading."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 hybrid fuzzy decision model whose equations restate textbook GA and PSO steps, write arrays as sets, and centre on a molecular-geometry normalisation that cancels algebraically, which also empties the reported robustness check; self-citation is low and on topic, no comparison with other methods is made, and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Hybrid fuzzy multi-criteria decision model (entropy-based information-gain screening of projects, an expert-opinion update the authors call Q-learning, genetic-algorithm criterion weighting, and particle-swarm ranking) applied to selecting circular-economy project investments, using the 'molecular fuzzy sets' of the authors' earlier work [19].\n**Level:** 2 (Low)\n**Rationale:** Every component is an existing technique (information gain, single-point-crossover GA, the standard PSO velocity update, the authors' own molecular fuzzy numbers) applied to a new decision domain and illustrated with the ratings of three experts. There are no theorems, proofs, or complexity or convergence results. The closest specification example is fuzzy logic applied to supplier selection.\n\n### Formal Elements\n- Definitions: 0 (no formal definition blocks)\n- Theorems: 0\n- Proofs: 0\n- Equations: 33 numbered\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate by count, but several elements fail the Necessity Test.\n\n### Issues\n- Eq. (14) writes the GA population as a set, P = {w1, w2, ..., wn}, directly after Eq. (13) writes the same thing as a vector w = [w1, ..., wn]; the symbol w then stands for both an individual and a weight. Eq. (30) writes a particle position, an ordered vector, as a set Xi = {xi1, ..., xin}. These are arrays.\n- Eqs. (21)-(24) spell out single-point crossover as slicing and concatenating two parent vectors, which in code is one line; Eq. (24) also labels the second offspring O1. Eqs. (18) and (19) state the same cumulative sum twice.\n- Eqs. (3)-(5), presented as Q-learning, contain no states, actions, or Q-values. Since RD - PD = (r + p)(Qk - Qo), the update is a single linear step between the lead expert's matrix and the others; the label is a misnomer.\n- The molecular-geometry normalisation of Eq. (10), named as the main contribution, divides every angle by one constant (θmax, π, 2π/3, π/2, 2π/5 or π/3). Eq. (12) then divides each reciprocal by its row sum, so the constant cancels exactly and all six 'shapes' give identical weights; Eq. (29) does the same for the ranking. The robustness check of Tables 7 and 10, where rankings are identical across shapes F2-F6, is therefore guaranteed by the algebra and is not evidence of 'consistency and validity'. The constants also do not match the geometries they are named after (the tetrahedral angle is about 109.5°, not π/2; the octahedral angle is 90°, not π/3).\n- Eq. (16) has sums without bounds, and Eq. (27) is malformed ('(Nij − wi, wj)^2').\n\nIn a Level 2 paper these decorative or erroneous elements trigger `FORMALISM_THEATER`; the set notation for arrays triggers `UNNECESSARY_SET_THEORY`. No proof depends on any of them.\n\n---\n\n## Citation Analysis\n\nTwo of 21 references are self-citations (9.5%): [1] (Shahbaz, Dinçer, Yüksel, Jiao; circular-economy renewable energy projects assessed with fuzzy decision making) and [19] (Shen, Liu, Yüksel, Dinçer; the molecular fuzzy decision model on which the method is built). Both are directly on topic.\n\nSeveral other references are tangential to the statements they support: [15] (hospital bed occupancy) and [16] (a conference preface) are cited for the claims that criterion weights should be set with decision-making, AI and optimisation techniques and that fuzzy numbers must be chosen carefully; [17] (multi-UAV path planning) is cited for the entropy measure; [20] (wind-turbine design by GA) for GA weighting. The paper alone cannot establish a mutual-citation pattern, so no ring flag is raised; the score is set at the lower edge of the normal band for these tangential references.\n\n---\n\n## Structural Analysis\n\nThe numerical example can be followed through Tables 1-10, but its inputs are the linguistic ratings of three experts (weighted 0.5/0.25/0.25 by years of experience) and a project-factor table (Table 1) whose source is not stated. The claims that molecular fuzzy sets give 'a more advanced uncertainty modeling capability' than classical fuzzy sets and that GA weighting improves on CRITIC or AHP are never tested: no comparison with any other method is reported. The GA stage reports four mutated offspring and takes the one with the lowest final fitness, so the advantage of global optimisation is not shown. The policy recommendations (carbon taxes, public-private collaboration) go beyond what the analysis can support. Editorial errors weaken traceability: Table 3 is captioned 'The IGs for the Project Factors' but holds opinion matrices, the captions of Tables 9 and 10 are swapped, and the text points to a 'Table 17' that does not exist. One inline limitation (reliance on expert evaluation) is given in the conclusions. Estimated CER about 0.5.\n\nNo code, data, or availability statement.\n\n---\n\n## Conclusion\n\nA Level 2 application of existing optimisation and fuzzy techniques to a project-selection problem. Its formal apparatus restates textbook GA and PSO steps, writes arrays as sets, calls a linear update Q-learning, and centres on a molecular-geometry normalisation that cancels algebraically, which also makes the reported robustness check a tautology. Self-citation is low and relevant, though several references are tangential. The formalism flags disqualify the paper, and the evaluation offers no comparative evidence for the advantages claimed."
+  },
+  {
+   "paper_id": "milicevic2025a",
+   "paper": {
+    "title": "Design of a Microcomputer for Controlling a Servo System for Cutting Steel Pipes",
+    "authors": [
+     "Miroslav S. Milićević",
+     "Valentina M. Nejković"
+    ],
+    "abstract": "This paper deals with the problem of automatic regulation of cutting steel pipes and profiles. The process of making steel pipes and profiles starts from the steel strip by shaping in the forming section, induced longitudinal welding, and finally cutting. It is necessary to cut to a pre-selected length while in motion, which does not disturb the process of continuous operation of the production line. The existing cutting system created problems in the accuracy of product cutting lengths, insufficient synchronization of cutting tools and products, etc. After identifying the problem and analyzing the system, the design of a microcomputer-based control system was initiated to ensure precise regulation of the product cutting process, the final stage of the technical line for seam pipe production.",
+    "keywords": [
+     "Cutting steel pipes",
+     "design",
+     "microcomputer",
+     "regulation",
+     "servo system"
+    ],
+    "doi": "10.59277/ROMJIST.2025.3.03",
+    "pages": "274-285",
+    "source_file": "paper808.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 75,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 68.25,
+    "composite": 51.19,
+    "final": 46.19
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "[32] 'Supplement files for work: Design of a Microcomputer for Controlling a Servo System for Cutting Steel Pipes: https://github.com/valentinanejkovic/milicevic-romjist2024/blob/main/New%20attachment.pdf' - a PDF of figures P1-P7 (process flow, state diagram, schematics); the assembler program and the cut-length measurements are not linked or claimed",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no acknowledgment of the limits of the new controller or of its evaluation; shortcomings are discussed only for the old cutting system."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Engineering description of an Intel 8080-based flying-saw controller with necessary, proportionate control equations, but the headline accuracy gain (below 1 mm against up to 50 mm) is asserted without any measurement, no limitations are stated, and a block of off-topic citations is added with an explicit statement that citing them benefits their authors.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design of an Intel 8080-based microcomputer controller for a hydraulic flying saw that cuts welded steel pipe in motion, with a classical second-order model of the servo drive and an analog process-model feedback loop that compensates for drift in static gain.\n**Level:** 2 (Low)\n**Rationale:** The contribution is an engineering system built from existing components (8080, 8224, 8228, 8255, 8111 and 8702 chips, D/A converters, a commercial servo valve) together with textbook modelling and stability analysis of the drive. There is no new algorithm, theorem, or proof. Level 1 (a system combining existing components) was considered, but the dynamic modelling is real engineering analysis rather than a component inventory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 18 numbered, plus five unnumbered op-amp circuit relations\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equation of motion, the flow balance, the Laplace transforms, the transfer functions and the op-amp relations are what is needed to size the servo loop and choose component values; they pass the Necessity Test.\n\n### Issues\nNo theater. There are notation errors: Eq. (7) gives k = C0n/(α0 s) and Eq. (10) has S²τ where the Laplace variable s is meant; Eq. (15) uses Wp for W2; the compression modulus is β in Eq. (3) and β1 in the text; Fig. 1 is cited both as the cutting-system block diagram and as the servo block diagram derived from Eqs. (4)-(5). The stability claim (Mihailov criterion, 65° phase margin) is stated without derivation.\n\n---\n\n## Citation Analysis\n\nThree of 42 references are self-citations (7.1%): [29] and [30] (the first author's 1984 and 1979 papers on the same flying-saw controller) and [31] (a book on electric actuators). All are on topic. [32], the authors' supplementary PDF, is treated as supplementary material rather than as a cited work.\n\nReferences [33]-[43] (eleven entries, seven of them with [third-party author] as an author, four in this journal or the Proceedings of the Romanian Academy) concern PI-fuzzy control, tower cranes, reinforcement learning, teaching optimisation, vehicle steering and maglev levitation. The paper says they gave ideas for future improvements rather than for this design, and justifies them by benefit: 'Citation of this literature will in practice benefit the authors of the paper', adding that the works of these authors 'are numerous and noted'. This is a block of off-topic citations that is justified by benefit rather than by use. The paper alone does not show mutual citation, so no ring flag is raised, but the citation-integrity score is lowered from the normal band.\n\n---\n\n## Structural Analysis\n\nThe design is described in detail (memory organisation, subroutine sizes and execution times, interrupt priorities, component values), and the timing budget supports the claim that the microcomputer has slack between outputs. The central outcome claim is not supported: Section 4 states that the total cut-length error is below 1 mm against up to 50 mm for the old system, with no measurement procedure, sample, data, or figure. Right-angle cuts, reduced downtime, higher productivity and higher income are likewise asserted without evidence. Much of the design (process flow, state diagram, model schematic, I/O coupling, interrupt hardware) is only in the external attachment [32]. The paper gives no date for the work; its components (8080 processor, 8702 EPROM) and the author's 1979 and 1984 papers on the same controller point to a historical system, and the conclusion presents it 'for the purpose of pedagogical presentation'. No limitation of the new system or its evaluation is acknowledged. Estimated CER about 0.4.\n\nThe GitHub link [32] holds a PDF of figures; neither the assembler program nor any measurement data is released.\n\n---\n\n## Conclusion\n\nA competent but dated engineering description whose control-theoretic equations are necessary and proportionate. Its weaknesses are evidential and bibliographic: the headline accuracy improvement is asserted without data, no limitations are stated, and a large block of off-topic citations is included with an explicit statement that citing them benefits their authors. No disqualifying flag applies."
+  },
+  {
+   "paper_id": "precup2025",
+   "paper": {
+    "title": "Problem Setting for Trajectory Planning and Cruise Control of a Connected Autonomous Electric Bus in Intersection Scenarios with Human-Driven Vehicles to Optimize Energy, Comfort and Tracking",
+    "authors": [
+     "Radu-Emil Precup",
+     "Claudia-Adina Bojan-Dragos",
+     "Kun Gao",
+     "Shaohua Cui"
+    ],
+    "abstract": "This paper proposes a two-stage design approach to ensure reduced energy consumption, improved passenger comfort, and trajectory tracking in the context of an intersection crossing scenario involving a Connected Autonomous Electric Bus (CAEB) and a set of Human-Driven Vehicles (HDVs). The dynamic models of the CAEB and HDVs are defined considering that the movement is in a straight line and using three lanes of the road. In the first stage of the design approach, the discrete-time trajectory planning of the CAEB is performed, which involves the segmentation of the trip into road segments, and the trajectory planning is performed at the level of road segments in discrete time. A novel formula to calculate the length of a road segment is proposed. In this paper a new complete and transparent model is also proposed to compute the signal of traffic lights. An objective function is defined so that it can be minimized in an appropriate optimization problem, which aims to reduce the energy consumption of the CAEB and improve passenger comfort by forcing the CAEB to reduce the frequency of the increments of lane changing. The trajectory planning generates three reference inputs that are used by the cruise controllers designed in the second stage, where the original and simple trigonometric position and speed profiles are defined. In this stage of the design approach, the controllers are designed to ensure trajectory tracking in the framework of a continuous-time optimization problem that aims to reduce energy consumption and improve passenger comfort by minimizing an objective function that considers energy consumption and tracking performance of the CAEB cruise control system. Open-loop simulation results are presented, compared, and discussed for four simulation scenarios.",
+    "keywords": [
+     "Electric vehicles",
+     "energy consumption",
+     "human-driven vehicles",
+     "optimization",
+     "trajectory planning",
+     "trajectory tracking"
+    ],
+    "doi": "10.59277/ROMJIST.2025.3.05",
+    "pages": "299-312",
+    "source_file": "paper810.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 15,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 15.25,
+    "composite": 11.44,
+    "final": 11.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "[5] 'Supplementary Material of the Paper ... Available: http://www.aut.upt.ro/~rprecup/2025RomjistSupplementaryMaterial.pdf' - derivations, parameter tables and figures; the simulation 'was performed in Matlab & Simulink with details given in [5]', but no model files, code, or data are linked or claimed",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "IRRELEVANT_SELF_CITATION",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 problem-setting paper with elements that fail the Necessity Test: parameter records written as sets (Eqs. 1-3), a six-case piecewise 'novel formula' for the indication of a fixed-period traffic light (Eq. 4), and a fourfold rewriting of the objective that moves a positive constant outside the arg min (Eq. 13), which is wrong as written.",
+    "UNNECESSARY_SET_THEORY": "Ordered trajectories and time sequences are written as sets built with set-builder notation and union, e.g. {kDs | k = 1...Ns-2} ∪ {S} (Eqs. 17-18; likewise Eqs. 15, 16, 22, 23). This is list concatenation written as set union, and the set reading discards the order a trajectory needs. No proof depends on these operations.",
+    "IRRELEVANT_SELF_CITATION": "[15] (evolving fuzzy models for myoelectric prosthetic-hand control, similarity about 0.15) and [16] (tensor-product model transformation for pendulum-cart control, about 0.2) are self-citations cited only as the inspiration for a raised-cosine speed profile; their topics are unrelated to bus trajectory planning, and the profile is already attributed to [3] and [14].",
+    "ELEVATED_SELF_CITATION": "6 of 21 references (28.6%) are self-citations ([3] via co-author K. Gao, [6], [15], [16], [17], [20]), excluding the authors' own supplementary material [5]; counting [5] would give 7/22 (31.8%)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Problem-setting paper that formulates but does not solve a bus trajectory-planning and cruise-control problem adapted from existing work; parameter records and ordered trajectories are written as sets and unions, every result sits in an externally hosted supplement, and self-citation is elevated, with two self-citations unrelated to the topic.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Formulation, not solution, of two optimal-control problems for a connected autonomous electric bus crossing a signalised three-lane intersection among human-driven vehicles: segment-wise discrete trajectory planning with lane-change indices, followed by continuous-time cruise control, with raised-cosine reference profiles and a piecewise traffic-light indicator.\n**Level:** 2 (Low)\n**Rationale:** The vehicle models and the problem structure are adopted from [2]-[4] and the authors' own [6], with a modified objective and constraints. The paper states that neither optimisation problem is solved. There are no theorems, proofs, or convergence or complexity results. A new mathematical model with validation would be Level 3; here there is no validation.\n\n### Formal Elements\n- Definitions: 5 inline (route set Or, traffic-light set Ot, surrounding-vehicle set Os, state vector x, input vector u); no numbered definitions\n- Theorems: 0\n- Proofs: 0\n- Equations: 27 numbered in the paper, with about 78 more (S1-S78) in the external supplement\n\n### Proportionality\nCalculated complexity: 10\nExpected range (Level 2): 0-15\nRatio: 0.67x upper bound\n\n**Assessment:** Within range by count, but several elements fail the Necessity Test.\n\n### Issues\n- Eqs. (1)-(3) define parameter records as sets: Or = {S, DCz, Dlz, Nl, Dω, vmax, vmin}, Ot = {S, Ts, Iin, Tg, Tr}, Os = {Nsv, i, sx,ij, sy,ij, vs,ij, Ls,ij}. These are structs of named quantities, and no set operation is ever applied to them.\n- Eqs. (17)-(18) define the optimal longitudinal and lateral trajectories as sets built with set-builder notation and union, for example {kDs | k = 1...Ns-2} ∪ {S}. A trajectory is an ordered sequence, so the set reading is wrong as well as unnecessary; Eq. (18) unions in the whole set {-Dω, 0, Dω} as the final lateral position. Eqs. (15), (16), (22) and (23) likewise write ordered sequences as sets.\n- Eq. (4), presented as a 'novel formula' and, in the abstract, a 'complete and transparent model' for the traffic-light indication, is a six-case piecewise function (relying on definitions S2-S5 in the supplement) for a fixed-period green/red signal that one modular expression or one English sentence describes.\n- Eq. (13) rewrites the objective of Eq. (12) four times and moves a positive constant outside the arg min; scaling changes the minimum value, not the minimiser, so '(ζt + ζePb) arg min' is wrong as written. The lane-change penalty coefficient appears both as ζ and as ς.\n- Eq. (7) reduces Eq. (6) to ṡx = vs for vehicles driving straight along their lanes.\n\nThe kinematic model (5), the state and input vectors, the objectives (10) and (12) and the constraints (14) and (27) are legitimate in a problem-setting paper. The set-based records and trajectories fail the Necessity Test; at Level 2 they trigger `FORMALISM_THEATER` and `UNNECESSARY_SET_THEORY`. No proof depends on these operations.\n\n---\n\n## Citation Analysis\n\nOf the 21 references other than [5] (the authors' own supplementary material, treated as part of the paper rather than as a cited work), six are self-citations: [3] (co-author K. Gao), [6], [15], [16], [17] and [20], an SCR of 28.6%, in the elevated band. Counting [5] would give 7/22 = 31.8%; the band depends on this convention.\n\n[3] and [6] are directly on topic. [15] (evolving fuzzy models for myoelectric prosthetic-hand control, similarity about 0.15) and [16] (tensor-product model transformation for a pendulum-cart system, about 0.2) are cited only as the inspiration for a raised-cosine speed profile ('trigonometric membership functions of fuzzy sets'), a profile the paper already attributes to [3] and [14]; both are unrelated to bus trajectory planning. [17] (a survey of fuzzy control for mechatronics, cited for the same purpose) and [20] (tower-crane control, cited in future work) are marginal, at about 0.3. The future-work sentence also cites [19] (finite elements for piezoelectric shells), [21] (maglev levitation) and [22] (mobile-robot path planning), three of them from this journal, as sources of algorithms to be integrated, which is a weak connection. Reference [1] is the web page of the funded project to which the authors belong.\n\n---\n\n## Structural Analysis\n\nThe paper itself contains no results. The literature review and motivation ('comprehensively detailed in [5]'), all figures, the parameter tables, most derivations (S1-S78) and the discussion of the four simulation scenarios are in an external PDF on a personal web page; Section 5 lists the scenario parameters and the numbers of supplementary figures, nothing more. The text states that neither optimisation problem is solved and that the simulations use random control inputs in open loop, so they cannot show the reduced energy use, comfort or tracking claimed in the abstract and conclusions, where the approach is said to have 'a big potential for practical applications' and to 'result in smooth trajectories, lower power consumption'. Cross-references are wrong in places: Uopt and Vopt are cited as (14) and (15) instead of (15) and (16), the trajectories as (22)-(23) instead of (17)-(18), and 'a separate set of 9 figures' is Figs. S9-S16, which is eight. An inline limitation is stated (offline trajectory planning needs accurate traffic information), and the unsolved, open-loop status is stated candidly. Estimated CER about 0.4 within the paper.\n\nThe simulations were run in Matlab & Simulink, but no model files or code are linked; the supplement holds derivations, parameter tables and figures, not code or data.\n\n---\n\n## Conclusion\n\nA problem-setting paper that formulates, but does not solve, a trajectory-planning and cruise-control problem adapted from existing work. Its formal apparatus mixes a legitimate optimal-control formulation with parameter records and ordered trajectories written as sets and unions, an elaborate indicator for a fixed-period traffic light, and an arg-min manipulation that is wrong as written. All evidence lies outside the paper, and the benefits claimed are not demonstrated. Self-citation is elevated (28.6%) and includes two self-citations unrelated to the topic. The formalism flags and the irrelevant self-citation flag disqualify the paper."
+  }
+ ]
+}

@@ -1,0 +1,230 @@
+{
+ "batch_id": "2024-v27-n2",
+ "analysis_timestamp": "2026-10-18T03:49:34Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 27,
+  "issue": 2,
+  "year": 2024
+ },
+ "papers": [
+  {
+   "paper_id": "antonescu2024a",
+   "paper": {
+    "title": "FFT on a Heterogeneous System with a General-Purpose Map-Scan Accelerator",
+    "authors": [
+     "Mihai Antonescu",
+     "Mihaela Maliţa"
+    ],
+    "abstract": "This paper presents a use-case and evaluation for a custom general-purpose Map-Scan Accelerator using multiple Fast Fourier Transform (FFT) implementations. FFT computing is part of the \"Spectral Methods\" class of problems and qualifies to be accelerated because it is computationally intensive, of average complexity and widely used as one of the backbone algorithms in modern computing. In order to achieve the desired throughput or latency, different parameters are used for testing, regarding both the accelerator hardware and the FFT. Evaluation is done in simulation, targeting FPGA implementation. FFT is shown to work efficiently on our architecture, either latency or throughput (and in some circumstances, both by a smaller amount) can be improved linearly or even supralinearly compared to a single-core solution. Accelerations obtained vary between ∼ 0.5 × p and ∼ 1.5 × p where p is the number of accelerator cores.",
+    "keywords": [
+     "FFT",
+     "general-purpose accelerator",
+     "heterogenous computing",
+     "map-scan accelerator",
+     "parallelism"
+    ],
+    "doi": null,
+    "pages": "123-136",
+    "source_file": "paper766.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 40,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 62.25,
+    "composite": 46.69,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "The only author-deposited link is the supplementary material [27]: \"Supplementary material of the paper ... [Online] https://drive.google.com/file/d/1ECA9tcI8YBevY-2wAvjW7lCTfOtOQQ8G/view?usp=sharing\". The text describes it as tables (\"Results from GPU and FPGA implementations found in literature are summarized in [27], Table 1\"; additional estimations \"are presented in [27], Table 2\"), not the accelerator's assembly code, simulator, or simulation data. No code or data availability statement.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "9 of 27 references (33.3%) include an author of this paper: [2], [4], [6], [7], [14], [22], [23] (Maliţa), [5] (Antonescu), and [27] (the paper's own supplementary material). Excluding [27], the ratio is 8 of 26 (30.8%). Both exceed the 30% threshold. All self-citations concern the same accelerator lineage and are topically related, so no relevance flag is raised."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simulation study of FFT data layouts mapped onto the authors' Map-Scan accelerator. Its light formalism is proportionate, but more than 30% of its references are the authors' own work, which disqualifies it under the citation rules.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Mapping several FFT data organisations (horizontal, vertical, square and rectangular layouts, plus a rotation-based matrix transpose) onto the authors' general-purpose Map-Scan accelerator, evaluated in simulation of a 64-cell machine.\n**Level:** 2 (Low)\n**Rationale:** The algorithms are known: radix-2 butterflies, and the four-step scheme that splits the butterflies around a transpose. The contribution is their adaptation to one specific architecture plus an empirical evaluation of throughput and latency. There is no new algorithm with proof. Level 3 was considered because of the asymptotic analysis of the transpose, but that analysis is brief, and the specification defaults to the lower level when uncertain.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: none numbered. There are inline asymptotic statements (O(n log p), O(p/log p), O(p)), the M_mp memory matrix with horizontal vectors H_i and vertical vectors V_j, and two pseudocode listings.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The M_mp / H_i / V_j notation names the memory layout on which Sections 3.2 and 4 depend, and the asymptotic statements carry the latency and throughput argument. Both pass the necessity test. The braces in \"{data, destination, function, enable}\" informally list the fields of a network input; they are not a formal tuple definition.\n\n### Issues\nSome asymptotic statements are loose or garbled. The Discussion gives the speed-ups as \"Horizontal setup: √n, Vertical setup: 1.5 (with increased throughput), Square setup with n = p × p samples: n\", which matches neither the O(p/log p) and O(p) bounds derived in Section 3 nor the measured tables. This is not a formalism-theater pattern, but it weakens the analytical part.\n\n---\n\n## Citation Analysis\n\nNine of 27 references (33.3%) include an author of this paper: Maliţa on [2], [4], [6], [7], [14], [22] and [23], Antonescu on [5], and both on [27], which is the paper's own supplementary material. Without [27] the ratio is 8/26 (30.8%). Either count is above the 30% threshold. The self-citations are topically relevant, with similarity of 0.5 or more. They document earlier versions of the same Map-Reduce/Map-Scan architecture, its use on other workloads, a power estimate, and an earlier FFT mapping ([22]). The relevance is genuine, but the bibliography leans heavily on one group, and more so once [3] and [8], by close collaborators who are not authors here (Ştefan, Popescu), are included. External FFT-acceleration literature amounts to a few GPU/FPGA papers and two surveys. EXCESSIVE_SELF_CITATION applies; it is a citation-conduct flag and disqualifies at any concept level.\n\n---\n\n## Structural Analysis\n\nThe quantitative claims (throughput accelerations up to about 1.5 × p, latency accelerations, cycle counts) rest on the simulation results in Tables 1-5. The supralinear speed-up is explained, not merely asserted: control is decoupled from execution, and transfers overlap with computation. It is, however, measured against a mono-core baseline that has no such decoupling. The comparison with CPU, GPU and Xilinx IP is frequency-scaled. The authors note that their fixed-point arithmetic favours their own result and expect roughly a 3× slowdown in floating point. Two statements have no evidence behind them: that the design \"would be much more energy efficient\" than the GPU, and that \"the architecture is completely scalable\". Constraints are acknowledged inline: the evaluation is simulation only, there is no SDK or toolchain for hardware evaluation, missing samples are not covered, transfers are excluded from the kernels, and comparison with ASIC GPUs is called \"inappropriate\". Estimated CER is about 0.7.\n\nArtifacts: the accelerator's assembly programs and simulator are not released. The Google Drive link in [27] holds supplementary tables (a literature comparison and further estimates), not code or the data behind the simulations. The FFTW/cuFFT benchmark [25] and the Xilinx IP [26] are third-party.\n\n---\n\n## Conclusion\n\nA competent, narrowly scoped evaluation of one architecture, with light formal content that is proportionate and useful. Reproducibility is limited, because none of the authors' code or simulator is available. The paper is disqualified on citation conduct: more than 30% of the reference list is the authors' own work. Those citations are relevant, but they dominate the bibliography at the expense of external literature on FFT acceleration."
+  },
+  {
+   "paper_id": "serban2024",
+   "paper": {
+    "title": "Some Considerations about the Sensing Mechanisms and Electrical Response of Carbon Nanohorns–based Gas Sensors",
+    "authors": [
+     "Bogdan-Catalin Serban",
+     "Octavian Buiu",
+     "Niculae Dumbravescu",
+     "Mihai Brezeanu",
+     "Cornel Cobianu",
+     "Marius Bumbac",
+     "Mihaela Nicolescu"
+    ],
+    "abstract": "This paper aims to analyze the sensing mechanisms involved in the resistive detection of relative humidity, ethanol vapors, oxygen, ozone, ammonia, hydrogen sulfide, and hydrogen using carbon nanohorns (pristine and functionalized) and their nanocomposites/nanohybrids as sensing layers. Different alternative mechanisms are considered and discussed: decreasing holes in the carbonaceous component at the interaction with moisture, protonic conduction (Grotthuss mechanism), and swelling. The hard-soft acid-base (HSAB) theory's role is also highlighted as a valuable tool for understanding the essential interaction of nanocarbon materials with water molecules. The role of each constituent of the sensing layer is interpreted based on their chemical and physical properties and mutual interactions. For each tandem sensing layer – gas detected, the dominant sensing mechanism is associated with the electrical response of the sensor.",
+    "keywords": [
+     "Carbon nanohorns (CNHs)",
+     "gas sensor",
+     "Hard Soft Acid Base (HSAB) theory"
+    ],
+    "doi": null,
+    "pages": "137-150",
+    "source_file": "paper767.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 30,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 53.75,
+    "composite": 40.31,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "20 of 48 references (41.7%) include at least one author of this paper: [3], [11], [20]-[29], [31]-[35], [42]-[44]. All are in nanocarbon materials or gas sensing, and none is far enough off-topic for IRRELEVANT_SELF_CITATION. However, [31] and [32] (surface-acoustic-wave devices) are cited as support for Pearson's HSAB classification, which they do not establish, and [34]-[35] are never cited in the text.",
+    "NO_LIMITATIONS": "There is no limitations section and no statement of the review's own constraints, such as how studies were selected, the reliance on the authors' own experiments, or the untested status of the proposed mechanisms. Hedges about individual mechanisms (\"it is plausible to assume\") concern the chemistry, not the paper's limits."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Narrative review of the sensing mechanisms of carbon-nanohorn resistive gas sensors, built largely on the authors' own experiments. Formalism is not a problem, but the self-citation ratio is 42%, the reference numbering is broken, and no limitations are stated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Qualitative review of the mechanisms proposed for resistive sensors of humidity, O2, H2S, H2, ethanol, NH3 and O3 that use carbon nanohorns and their composites: electron donation to p-type oxidized nanohorns, Grotthuss proton conduction, polymer swelling, p-n heterojunctions, and HSAB interactions.\n**Level:** 1 (Trivial)\n**Rationale:** A literature review and interpretive synthesis with no algorithm, model or proof. It is a materials-chemistry paper, not a computer-science one. The level reflects the formal and conceptual demands of the contribution, not the difficulty of the chemistry.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 chemical reaction equations (oxygen ionosorption and ethanol oxidation) and one sensitivity expression, S = ΔR/ΔRH, in Table 1\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The reaction schemes are the field's standard notation for the oxygen-ion mechanism and carry stoichiometric information that prose would blur. The sensitivity ratio is the quantity reported in Table 1. Neither matches a theater pattern.\n\n### Issues\nNo formalism issues. There are content errors. The HSAB principle is misstated as \"strong bases prefer to interact with strong acids, soft bases prefer strong acids\"; the principle pairs hard with hard and soft with soft. Section 8 says the ozone sensor's resistance increased, then that O3, as an electron acceptor, leads \"to lowering its resistance\". Table 1 gives no sensitivity value for CNHox.\n\n---\n\n## Citation Analysis\n\nTwenty of 48 references (41.7%) include at least one author: [3], [11], [20]-[29], [31]-[35] and [42]-[44]. Much of this follows from the paper's purpose, since it reinterprets the authors' own experimental programme. The ratio still exceeds 30%, so EXCESSIVE_SELF_CITATION applies, and it disqualifies at any concept level. Relevance varies:\n\n- Most self-citations are the primary experiments being reinterpreted (high similarity).\n- [3] (synthesis of ZnO–graphene nanohybrids) supports a passing mention of graphene.\n- [31] and [32] (surface-acoustic-wave CO2 sensing, and an overview of SAW devices) are marginal (about 0.4). They are cited with Pearson [30] for the statement that \"Pearson classified Lewis acids and bases as soft, hard, and borderline\", which they do not support.\n- [34] and [35] (percolation threshold in PVP–CNHox) are listed but never cited in the text.\n\nThe reference apparatus is also faulty. The text cites [48, 49], [51] and [54], but the list ends at [48]. [36], [37] and [39] are never cited; [39] appears to be the In2O3–CNH paper that the text calls [54]. The caption of Fig. 2 attributes the data to [22], while the text attributes them to [20].\n\n---\n\n## Structural Analysis\n\nEach mechanistic explanation is argued from cited experimental observations, mostly the authors' own. To its credit, the paper says when a candidate mechanism predicts the wrong direction of resistance change. Many statements are qualitative and promotional (\"outstanding properties\", \"excellent solutions\"), and the choice of dominant mechanism for each case is asserted, not tested. Estimated CER is about 0.5. There is no limitations section and no account of the review's scope or method, for example how studies were selected or whether results from outside the authors' group were considered. A review of this kind has nothing to release; it reuses published measurements.\n\n---\n\n## Conclusion\n\nA narrative review that is reasonable in substance but relies heavily on the authors' own prior experiments. More than two-fifths of the references are self-citations; two are never cited in the text, and two are cited for a claim they do not support. Broken reference numbering and several internal contradictions add to the concerns. Formalism is not an issue. The self-citation ratio is disqualifying under the framework's citation rules."
+  },
+  {
+   "paper_id": "taskin2024",
+   "paper": {
+    "title": "Real-Time Low Energy Indoor Positioning System to Efficient Use of Operating Theaters with Medical Asset and Staff Tracking",
+    "authors": [
+     "Deniz Taşkın",
+     "Cem Taşkın",
+     "Selçuk Yazar",
+     "Alkin Çolak"
+    ],
+    "abstract": "Efficient use of operating theaters would benefit hospitals financially as well as reducing the waiting time required for surgery. The aim of this study is to determine the frequency of use of the operating theatres and the amount of waste time in the use of those rooms for the different surgical branches. For this study, \"intelligent transmitters with low energy consumption\" will be placed on the operating tables, the patient's stretcher and on the all working staff. Intelligent transmitters with low energy consumption will communicate over ISM (Industrial Scientific Medical) band. By analyzing the data obtained after 6 months period; the workload of the operation theatres will be determined for the different surgical branches. With the system developed in this study, operating theater efficiency and personnel performance were examined by calculating \"insufficient time\" (planned time - busy time) or \"overused time\" (participated time - planned time). The results obtained with the approach in this study showed that 23.7% of the time was saved. Since the average two-year number of surgeries at Trakya University Research Hospital is around 15,000, this improvement could boost clinical quality improvement initiatives by increasing the more efficient use of operating rooms.",
+    "keywords": [
+     "Bluetooth low energy",
+     "indoor positioning",
+     "management service organizations",
+     "medical Internet of Things",
+     "operating theater information systems"
+    ],
+    "doi": null,
+    "pages": "151-165",
+    "source_file": "paper768.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 55,
+    "structural_integrity": 35,
+    "artifact_availability": 30,
+    "intellectual_integrity": 28.0,
+    "composite": 28.5,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "claimed",
+    "relevant": true,
+    "evidence": "\"Open source BLE gateway platform and tailor-made portable BLE beacons with a service life of more than two years.\" This is listed as a contribution, but no repository or link to the code is given. The only link, the supplementary material [28] at https://personel.klu.edu.tr/dosyalar/kullanicilar/selcukyazar/dosyalar/dosya ve belgeler/supplement material romjist.docx, holds figures and the descriptive-statistics table, not code or the tracking data.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 system-integration paper. Equations (1)-(2) restate the abstract's plain subtractions, \"planned time - busy time\" and \"participated time - planned time\", as TM = X̃PT − (Σ BSTn + Σ PWBTm) and T = COV(USTSDepth, TM)(USTSDepth, TM). Equation (1) uses n and m as both index and upper bound and adds stretcher time to personnel time. Equation (2) yields a covariance, not an overused or insufficient time, and repeats its pair of arguments. Neither formula is needed for, or usable in, implementing the reported calculation, so both fail the necessity test."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "BLE beacon and gateway deployment that tracks stretchers and staff in operating theatres. A Level 1 integration paper whose two efficiency formulas are ill-formed decoration, whose results sit in supplementary material, and whose reference list is padded and partly irrelevant.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A university-hospital deployment of off-the-shelf BLE beacons (TI CC2541) and smart wristbands, with AR9331-based Linux gateways that log RSSI to an MSSQL database and ASP.NET and Flutter applications that report how long stretchers and staff spend in each operating theatre.\n**Level:** 1 (Trivial)\n**Rationale:** The system combines existing components (BLE advertising, gateways, a database, web and mobile reporting) and computes durations by subtraction. There is no positioning algorithm, since presence is inferred from which gateway hears a tag, and no novel method.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (efficiency time formulas), plus a notation glossary and one pseudocode listing\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0.0x upper bound\n\n**Assessment:** The count is low, but the necessity test fails. The abstract defines the quantities in plain words: \"planned time - busy time\" and \"participated time - planned time\". Equation (1), TM = X̃PT − (Σ_1^n BST_n + Σ_1^m PWBT_m), adds a median and two summations to this. The summations use n and m as both index and bound, and the formula adds stretcher time to personnel time without explanation. Equation (2), T = COV(USTSDepth, TM)(USTSDepth, TM), names a covariance as a time and repeats its arguments; the reported calculation cannot be implemented from it. The gateway pseudocode, by contrast, is a reasonable description of the implementation.\n\n### Issues\nEquations (1) and (2) are decorative and incoherent. Under the zero-tolerance rule for Levels 1-2 they raise FORMALISM_THEATER. No set-theory or Definition-block patterns are present.\n\n---\n\n## Citation Analysis\n\nSelf-citation is low: 2 of 34 references (5.9%), or 1 of 33 without the supplement. They are [26], the authors' BLE greenhouse sensor node, which is cited for battery life and is related to this paper's topic, and [28], the paper's own supplementary material.\n\nThe rest of the reference list is a concern. Two generic paragraphs in the Introduction cite work with no bearing on BLE positioning in operating theatres:\n\n- an extended Kalman filter for a strip-winding system [13]\n- neural-network modelling of biomonitoring data [14]\n- diagnosis of Parkinson's disease from spiral tests [15]\n- modelling of the observation process in cognition [16]\n- tensor-product model transformation for tower cranes [17]\n- fuzzy AHP for start-up equity financing [18]\n\nFour of these six share an author, and [16]-[18] appear in the text only as an unresolved \"[?]\".\n\nOther citations do not support the statements they are attached to:\n\n- [21] (backscatter radio for computational RFIDs) for BLE's superiority over RFID and Wi-Fi\n- [24] (secure short-packet communications) for BLE's security features\n- [27] (a path-loss model for underground sensor networks) for the reporting system\n\nNo flag in the catalogue covers padding with non-self citations, and mutual citation cannot be established from this paper alone, so CITATION_RING_INDICATOR is not raised. The citation score is reduced for the irrelevant references.\n\n---\n\n## Structural Analysis\n\nMost of the substantive results are outside the paper. The descriptive statistics (Table 1), the device pictures and the efficiency figures (Figs. 2-7) are in a supplementary Word file.\n\n- **Headline claim.** \"23.7% of the time was saved\" rests on one sentence reporting savings in two departments after hospital management restricted their allocated time. No baseline, method or uncertainty is given.\n- **Data period.** It is reported three ways: April 1 to September 30, 2018 (six months), \"the three-month period\", and \"the last two months\".\n- **Battery life.** The calculation is wrong: 230 mAh at 0.0120742 mA gives about 19,000 hours, not \"approximately 71.000 hours\".\n- **Location accuracy.** It is never measured, although Table 2 has a column for it.\n- **Aspirational claims.** The system \"is expected to revolutionize OR management practices\", \"can prevent actions such as infant abduction\" and \"sets the stage for a transformative shift in healthcare practices\".\n- **Ethics statement.** It says the article \"does not contain any studies with human participants\", yet staff were tracked with wristbands under ethics-committee approval.\n\nSignal interference and multipath are acknowledged inline as constraints. Estimated CER is about 0.4: weak, but above the flag threshold.\n\nArtifacts: an \"Open source BLE gateway platform\" is listed as a contribution, but no repository or link is given, so its availability is only claimed. The tracking data are not shared.\n\n---\n\n## Conclusion\n\nA practical hospital deployment with potentially useful operational findings, but little of the evidence is in the paper itself. On a Level 1 integration paper, the two ill-formed efficiency formulas trigger disqualification under the zero-tolerance rule. The paper is further weakened by inconsistent reporting, an arithmetic error, a padded and partly irrelevant reference list, and an open-source claim without a link."
+  },
+  {
+   "paper_id": "brezeanu2024",
+   "paper": {
+    "title": "Improved Serial Peripheral Interface Controller Based on Scan Architecture",
+    "authors": [
+     "Ionelia-Bianca Brezeanu",
+     "Silviu Isari",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "A high performance, digital serial controller having a self-test-based architecture is presented. A standard architecture able to achieve the targeted functionality was modified in order to contain the test mode circuitry for testability improvements. After the importance of creating digital architectures adapted for testability is underlined, we present the high frequency serial controller for analog switches. This block was adjusted for test reasons and implemented into a 3 V CMOS technology. The block is integrated together with input-output pad structures forming an entire chip structure for which the layout was implemented. Based on schematic design simulations, timing checks and defects analysis, the proposed architecture is confirmed.",
+    "keywords": [
+     "Coverage",
+     "design for testability",
+     "digital controller",
+     "scan insertion",
+     "test mode"
+    ],
+    "doi": null,
+    "pages": "241-251",
+    "source_file": "paper776.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.5,
+    "composite": 58.88,
+    "final": 58.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Implementation report of scan insertion into the authors' earlier SPI controller in 65 nm CMOS, with a tool-reported fault coverage of 98.54%. Claims are modest, there is no formalism and self-citation is low, but no artifacts are released and the evaluation rests on simulation and tool estimates only.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Redesign of the authors' earlier 55 MHz SPI controller for analog-switch chips using standard full-scan design for testability. Flip-flops are replaced by scan cells forming one chain, a test controller detects a test-mode entry command, and existing pins are multiplexed as scan input, output, enable and clock. The design is implemented in 65 nm CMOS, laid out with its pad ring, and assessed with commercial ATPG tools.\n**Level:** 2 (Low)\n**Rationale:** A standard design pattern (internal scan) applied to a specific block through commercial synthesis and ATPG flows, with no new algorithm or model. Level 1 was considered; Level 2 was chosen because the paper designs a circuit rather than integrating existing services.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The paper uses no formal notation, and it defines controllability and observability in plain language.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo of 19 references (10.5%) are self-citations, and both are directly relevant: [6], an earlier SPI-controlled multi-channel switch, and [7], the conference paper on the standard controller that this work extends. The rest of the list is thin for a journal paper: three vendor datasheets, lecture slides ([9], [12]), a tool manual ([11]) and textbooks. The DFT research that is cited ([13]-[16], [18], [19]) is relevant to scan design and test coverage. No citation-conduct issues.\n\n---\n\n## Structural Analysis\n\nThe claims are modest and backed by tool output. Of 2334 faults, 2006 are detected, 299 likely detected, 1 is ATPG-untestable and 28 are undetected. TetraMax confirms 98.54% coverage with 29 patterns. The area is 4333 equivalent gates, against 811 for the original design.\n\nThe weaknesses are in the comparisons and the missing evidence:\n\n- The comparison with the earlier design is confounded: it spans two technologies (180 nm and 65 nm), and the original's defect count was obtained indirectly.\n- The coverage comparison with [18] and [19] is between unrelated circuits.\n- The paper calls the design \"self-test\", although it is scan-based test, not built-in self-test.\n- The 55 MHz target is said to be kept, but no timing or post-layout results are reported for the scan version, and there is no silicon measurement.\n\nTwo limitations are acknowledged inline: coverage stops short of 100% because the user-mode function had to be preserved in a small design, and scan adds area. Estimated CER is about 0.6.\n\nArtifacts: no RTL, netlist, test patterns or scripts are released, which is unsurprising for an industrial (onsemi) design, and there is no availability statement.\n\n---\n\n## Conclusion\n\nA clear but incremental engineering report on standard scan insertion into an existing controller. It uses no unnecessary formalism, cites relevant prior work in moderation, and keeps its claims close to its tool results. It is weakened by a confounded comparison with the original design, missing timing evidence for the scan version, a thin scholarly reference base, and the absence of any artifact."
+  }
+ ]
+}

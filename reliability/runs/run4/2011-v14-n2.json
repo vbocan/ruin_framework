@@ -1,0 +1,113 @@
+{
+ "batch_id": "2011-v14-n2",
+ "analysis_timestamp": "2026-10-18T03:38:54Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 14,
+  "issue": 2,
+  "year": 2011
+ },
+ "papers": [
+  {
+   "paper_id": "cojan2011",
+   "paper": {
+    "title": "A Matching Network Free Approach in Designing Inductorless Low Noise Amplifiers with Programmable Gain for FM-Radio Receivers",
+    "authors": [
+     "Radu Adrian Cojan",
+     "Cristian Murtaza"
+    ],
+    "abstract": "In this paper an approach in designing Low Noise Amplifiers suitable for usage in FM-Radio receivers without a matching network is presented. The LNA presented in this paper is implemented in a standard 60 nm RF process. The matching network-free approach is meant to minimize the overall PCB cost of the FM Radio Receiver. In order to eliminate the matching network the input impedance of the LNA is designed to be in accordance with the antenna impedance. The presented LNA has a total gain of 27 dB, programmable in 1 dB-step, in the FM-Radio bandwidth. The noise figure of the LNA is 2 dB, its P1dB is -27 dBm and the current consumption is 3mA.",
+    "keywords": [],
+    "doi": null,
+    "pages": "112-122",
+    "source_file": "02-rcojan.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.0,
+    "composite": 57.0,
+    "final": 57.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Short analog circuit design note: a resistive-load, two-stage programmable-gain LNA whose cascode input stage uses a Miller capacitor to bring the input impedance near 200 Ohm so that no antenna matching network is needed. Formalism is minimal and appropriate, but the central matching claim rests on a single simulated impedance plot, reported figures disagree between sections, and only P1dB and IIP3 are measured.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design of an inductorless, resistive-load programmable-gain LNA for FM-radio receivers in a 60 nm RF CMOS process, with a cascode input stage whose input impedance is lowered by a Miller capacitor to about 200 Ohm so that the headphone-cable antenna can be connected without a matching network.\n**Level:** 2 (Low)\n**Rationale:** The contribution is the application of standard circuit techniques (cascode stage, Miller-effect impedance reduction, a gain stage taken from Hu et al. [2], thermometric bias-current gain control) to a cost-driven design target. No new circuit theory, analysis method or proof is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 2, both inline and unnumbered (G = gm1 * RB; Vref = Vdd/2)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The two relations are the ordinary gain expression of a resistively loaded stage and the common-mode reference choice; both pass the Necessity Test. If anything the paper is under-formalised: the key design step, sizing the Miller capacitor C2 so that the input impedance falls by an order of magnitude to 200 Ohm, is stated without the impedance relation that would justify the sizing, which is why no quality bonus is given.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThree references, none by the authors (SCR 0/3). The bibliography is very thin for a journal paper: there is no related-work discussion, the sentence \"Recently Programmable Gain Low Noise Amplifiers (PGLNAs) in CMOS processes have been studied\" carries no citation, reference [1] (Razavi) is never cited in the text, and no published FM-band LNA is used for comparison. No citation-manipulation pattern is present.\n\n---\n\n## Structural Analysis\n\nThe structure is Introduction, Circuit design, Simulation results, Measurement results, Conclusions (two sections are both numbered 3). Evidence is mostly simulation plots (SpectreRF) for gain, gain steps, noise figure, P1dB and IIP3, plus one measurement figure for P1dB and IIP3.\n\nClaim-evidence problems:\n- The headline claim, that the LNA needs no matching network, is supported only by the simulated input-impedance plot of the cascode with the Miller capacitor (Fig. 5). The authors themselves report antenna impedances of 30-300 Ohm depending on the cable shape, yet neither input impedance nor gain or noise figure is measured or simulated against that source-impedance spread.\n- Figures disagree across the paper: Section 2 reports a simulated noise figure of 2.7 dB at 3.1 mA, while the abstract, Fig. 9 discussion and conclusions give 2 dB at 3 mA; the abstract gives P1dB -27 dBm, the simulation -26.64 dBm, the measurement -30 dBm. The conclusion calls the simulated -26.64 dBm \"very good\" and omits the measured -30 dBm, which only just meets the stated -30 dBm requirement.\n- The measurement setup is validated only by the rule of thumb that IIP3 exceeds P1dB by about 10 dB. Noise figure and gain are not measured.\n- \"In general, an LNA with a reasonable Noise Figure ... has a current consumption between 5 and 8 mA\" is asserted without a source and is the only basis for the implied efficiency advantage.\n\nOverall the CER is in the adequate range (roughly 0.5-0.7): most numerical claims point to a figure, but the central novelty claim and the comparative claims are weakly supported.\n\nLimitations are acknowledged inline: the unequal amplitudes at the two pseudo-differential outputs (\"The disadvantage of this approach is that the amplitudes of the signals seen at the Vout n and Vout p outputs are not equal\") and the restricted measurements (\"Due to the fact that the FM receiver chip has but one test pin, measurements can be performed on a limited number of parameters\"). No NO_LIMITATIONS flag.\n\nArtifacts: no netlists, layout, simulation files or measurement data are made available or claimed; the design is in an industrial process. Category none.\n\n---\n\n## Conclusion\n\nA brief, honest engineering note with appropriate (indeed minimal) formalism and no citation concerns. Its weakness is evidential rather than formal: the matching-network-free claim that gives the paper its title is demonstrated by one simulation, the measured results cover only linearity, and the numbers reported for noise figure, current and P1dB are inconsistent between sections. No flags are raised; the paper would be strengthened by measured input impedance and noise figure across the reported antenna-impedance range and by a comparison with the FM-band LNA of [2]."
+  },
+  {
+   "paper_id": "ilie2011",
+   "paper": {
+    "title": "Circular Interpolation for Morphing 3D Facial Animations",
+    "authors": [
+     "Mihai Daniel Ilie",
+     "Cristian Negrescu",
+     "Dumitru Stanomir"
+    ],
+    "abstract": "In this paper, we present a novel shape interpolation method that gives very good results for mesh morphing 3D facial animations. Our method interpolates vertices using circle arcs, thus generating, in a preprocessing algorithm, a specific circle center in 3D cartesian space for each pair of vertices. The arc is more or less accentuated, depending on the coordinates which the algorithm chooses for the circle center. These are calculated depending on the relation between the two vertex normals that correspond to the initial vertex and target vertex, and thereby a novel vertex normal weighting method is presented. The efficiency of our algorithm was tested on several facial animation examples with most dissimilar geometries and with very different features, and the results verify the fact that our method gives undoubtedly better results than linear interpolation does, avoiding the undesired and unnatural shrinkage problem which occurs in the latter case. Moreover, our method strikes significantly better computational costs as compared to other non-linear shape interpolation methods developed so far, which is a major advantage.",
+    "keywords": [
+     "Circular Interpolation",
+     "Vertex Normals",
+     "3D Facial Animations",
+     "Morphing",
+     "Blend Shapes"
+    ],
+    "doi": null,
+    "pages": "131-148",
+    "source_file": "04-mdilie.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 45.95,
+    "composite": 34.46,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with an element that fails the Necessity Test. Equations (14)-(16) define linear interpolation per coordinate as a two-branch piecewise function, 'xPi + t(xPi' - xPi) if xPi < xPi'' and 'xPi - t(xPi - xPi') otherwise', repeated for y and z. The two branches are algebraically identical, so the case split is vacuous: the three numbered equations restate p + t(q - p), which a programmer writes as one lerp call and which removing would not change. The rest of the paper's equations are operational analytic geometry needed to implement the method; the flag rests on this single decorative construct."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Heuristic mesh-morphing method that moves each vertex along a circle arc whose centre is derived from a new cross-mesh vertex-normal weighting, with the transformation plane chosen by a volume criterion. Most equations are operational geometry, but a vacuous piecewise restatement of linear interpolation triggers FORMALISM_THEATER at Level 2; evaluation is visual on a few meshes, the speed comparison uses other papers' reported times, and Eq. (13) is incorrect as printed.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Shape interpolation for blend-shape (morph-target) facial animation in which each vertex travels on a circle arc instead of a straight line. Arc centres come from intersecting per-vertex normals computed with a new weighting that combines initial and target meshes; non-\"directory\" vertices copy the arc angle of the nearest directory vertex; the transformation plane is chosen from a candidate list by comparing the mid-morph volume with the average of the end volumes.\n**Level:** 2 (Low)\n**Rationale:** The method modifies the trajectory step of an existing technique (linear blend-shape interpolation) with a geometric heuristic assembled from elementary operations: face normals, weighted averages, line intersection, the circle through two points with a given central angle, and a signed-volume sum. It has no complexity analysis, convergence argument or proof of any property (for example volume preservation), and it is validated visually on a handful of meshes. A Level 3 reading is possible since the algorithm is new, but Level 3 asks for novel algorithms with analysis, and the specification says to default lower when uncertain. At Level 3 the flag below would be recorded without capping.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 21 numbered\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate by count; one Necessity Test failure. Equations (1)-(2) (signed mesh volume by triple products, face normal) and (3)-(4) (standard vertex-normal weightings, given as background) are textbook but specify what is computed. Equations (5)-(6), the new weighting by relative area and by the normalised angle between initial and target face normals, are the paper's contribution and are needed to reproduce it. Equations (7)-(13) and (17)-(19) construct the circle centre, radius and arc point and are likewise operational, if roundabout: the system (18)-(19) amounts to projecting the linear-interpolation point radially onto the circle. Equations (20)-(21) are an average and a minimum. The finite set D of candidate planes with elements Dk is set vocabulary for a list, but no set operations are applied, so it is not counted.\n\n### Issues\n- Equations (14)-(16) fail the Necessity Test. Each defines linear interpolation of one coordinate as a piecewise function whose two branches, xPi + t(xPi' - xPi) and xPi - t(xPi - xPi'), are the same expression; the condition xPi < xPi' selects nothing. Three numbered equations thus dress up p + t(q - p) as a case analysis. It could be said in plain English, removing it would not change the implementation, and it supports no proof. At Level 2 this triggers FORMALISM_THEATER under the zero-tolerance rule.\n- Equation (13) is wrong as printed: with r = MP / sin(theta/2) from Eq. (12), r >= MP, so CM = sqrt(MP^2 - r^2) is imaginary; the intended relation is sqrt(r^2 - MP^2). This is a correctness error, not theater, but it means the centre construction cannot be implemented from the text as written.\n- Equation (21) returns the minimum volume difference, while the text treats it as \"the volume that is the closest to VRef\" and then as the selected plane; an argmin is meant.\n- The interpolation in (17)-(19) does not move the vertex at constant angular speed along the arc; the paper does not discuss this.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 22 references (SCR about 4.5%): [4], the authors' 2011 ICFCC paper on automatic masked morphing for 3D facial animation, cited in a group [2, 3, 4, 5] for the advantages of morph-target over muscle-based animation. The topic is closely related (similarity well above 0.5). The remaining references cover the mesh-morphing literature appropriately (Sederberg and Gao, Alexa, Sheffer and Kraevoy, Xu et al., Yan et al.). Minor attribution slips: [18] is introduced as \"Hu [18]\" although its first author is Yan Han-Bing, and [11] has the garbled author name \"Liua Li-Gang\". No manipulation pattern.\n\n---\n\n## Structural Analysis\n\nThe paper states strong claims: results \"undoubtedly better\" than linear interpolation, \"significantly better computational costs\" than other non-linear methods, real-time morphing, and suitability for \"any major commercial 3D animation software package\". The evidence is four qualitative figure comparisons (elephant trunk, horse-to-giraffe head, twisting rod, tongue), one volume-over-time plot for the elephant, the statement that morphing takes under 20 ms per intermediate shape with a preprocessing step of a few seconds, and Table 1 of preprocessing times, whose contents are not present in the extracted text. There is no objective error measure besides volume, no comparison with any non-linear method on the same meshes, and the speed advantage is argued from other papers' reported times (22 s per shape for [17], 55 minutes per sequence for [18]) with no hardware or mesh sizes stated for either side. Only the tongue and horse-giraffe examples are facial, although the method is presented as one for facial animation. CER is in the adequate range (about 0.5-0.8), but the comparative claims are overstated relative to the evidence.\n\nLimitations are acknowledged only inline and weakly, in the conclusion: extending the method to general animations by splitting the mesh \"should raise the computational time\", and \"more research could be done to reduce the complexity of the algorithm and to improve its visual results\"; Section 3 also concedes that linear interpolation is acceptable for similar shapes. This is enough to avoid NO_LIMITATIONS.\n\nArtifacts: no code, meshes or animations are released or claimed, and the test models are not identified. Category none.\n\nNo embedded instructions to reviewers were found in the text.\n\n---\n\n## Conclusion\n\nThe idea of curving vertex trajectories according to how face normals rotate between the source and target meshes is reasonable and cheap, and most of the paper's 21 equations do real work in specifying it. Under the specification, however, the paper is a Level 2 heuristic, and its restatement of linear interpolation as a vacuous three-equation case split fails the Necessity Test, which raises FORMALISM_THEATER and sets the formalism score to 0. Independently of the flag, the paper contains an incorrect formula for the centre distance (Eq. 13), validates its quality claim only visually and its speed claim only against other papers' published timings, and offers no artifacts for reproduction."
+  }
+ ]
+}

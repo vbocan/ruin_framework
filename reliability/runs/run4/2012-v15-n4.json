@@ -1,0 +1,130 @@
+{
+ "batch_id": "2012-v15-n4",
+ "analysis_timestamp": "2026-10-18T03:40:08Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 15,
+  "issue": 4,
+  "year": 2012
+ },
+ "papers": [
+  {
+   "paper_id": "stanimirovic2012",
+   "paper": {
+    "title": "Block Method for Convex Polygon Triangulation",
+    "authors": [
+     "Predrag S. Stanimirović",
+     "Predrag V. Krtolica",
+     "Muzafer H. Saračević",
+     "Sead H. Mašović"
+    ],
+    "abstract": "In this paper, the block method for convex polygon triangulation is presented. The method is based on the usage of the previously generated triangulations for polygon with smaller number of vertices. In the beginning, we establish some relations between the triangulations of the polygons having the consecutive number of vertices. Using these relations, we decompose the triangulation problem into subproblems which are themselves smaller instances of the starting problem. The recursion with memoization is used to avoid repeating the calculation of results for previously processed inputs. The corresponding algorithm is developed and implemented.",
+    "keywords": [
+     "Convex polygon triangulation",
+     "Catalan numbers",
+     "Recursion",
+     "Memoization",
+     "Divide & Conquer algorithms"
+    ],
+    "doi": null,
+    "pages": "344-354",
+    "source_file": "04-pstanimirovic.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.7,
+    "composite": 33.52,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the appendix prints partial excerpts only: \"Some interesting parts of the code are presented in Appendix.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with three formal elements that fail the necessity test: the set-notated index-value list L in (3) and (4), recurrence (2) with the undefined term rest(R_n), and a two-solver Dolan-Moré performance profile that restates Table 1, where the block method is faster at all 11 sizes.",
+    "UNNECESSARY_SET_THEORY": "L = {(s, i_s), s = 1, ..., l} is set notation for an array of vertex labels; eliminating an ear and \"decreasing by one the first pair members\" of the following pairs is ordinary list deletion. No proof depends on it."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 refinement of the Hurtado-Noy triangulation-enumeration algorithm with set notation for a plain list and a redundant performance profile; the Step 4 description does not produce all triangulations beyond n = 6, and the printed code is not runnable.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Generating the full set of triangulations of a convex n-gon from the stored triangulations of the (n−1)-gon: each stored triangulation is duplicated and completed in two ways, the remaining rows are filled separately, and running time is compared with the Hurtado–Noy algorithm.\n**Level:** 2 (Low)\n**Rationale:** The paper presents the method as an acceleration of the Hurtado–Noy algorithm it restates as Algorithm 1. It offers no complexity analysis and no proof that the output is complete; the evidence is a timing table. A refinement of an existing enumeration method evaluated empirically is a simple optimization of an existing method (Level 2). Level 3 would require a genuinely novel algorithm with complexity analysis.\n\n### Formal Elements\n- Definitions: 2 (Definition 2.1, the circular distance d(i, j); an inline definition of a closed vertex, or ear) (with constraints: 1, d(i, j) restricted to i, j ∈ {1, …, m})\n- Theorems: 1 (Proposition 1.1)\n- Proofs: 1 (an informal geometric argument)\n- Equations: 8 (Catalan count (1), the Catalan recurrence, recurrence (2), the list forms (3) and (4), the distance formula, the performance ratio r_{p,s}, the performance profile ρ_s(τ))\n\n### Proportionality\nCalculated complexity: 2×2 + 1×3 + 1×4 = 11\nExpected range (Level 2): 0-15\nRatio: 0.73x upper bound\n\n**Assessment:** Proportionate in quantity, but three elements fail the necessity test, and at Level 2 the zero-tolerance rule applies.\n\nNecessity test, element by element:\n- Catalan count (1) and the recurrence C_n = (4n−2)/(n+1) C_{n−1}: necessary. They fix the table dimensions (row_n = C_{n−2}) and justify T_n > 2T_{n−1}.\n- Proposition 1.1 and its proof: necessary. It is the correctness basis for duplicating every T_{n−1} row. The proof shows two extensions per triangulation; \"exactly\" and the disjointness of the extensions are left implicit.\n- Definition 2.1: passes, marginally. The one-line formula is what the ear test in Algorithms 2 and 3 computes.\n- Recurrence (2), T_n = 2T_{n−1} + rest(R_n): fails. Neither rest() nor R_n is defined anywhere; the equation says no more than Algorithm 4's \"T_n − 2T_b rows\".\n- (3) and (4), L = {(1, 1), (2, 2), …, (n, n)} and L = {(s, i_s), s = 1, …, l}: fails. The text calls L \"a list of ordered pairs\" but writes it in set braces. The first component of each pair is only the element's current position, and the second step of Algorithm 2 (\"Decrease by one the first pair members in the pairs following the eliminated one\") is the re-indexing that any list deletion performs. A programmer keeps an array of vertex labels and removes an element from it.\n- Performance profile ρ_s(τ) = (1/n_p) size{p ∈ P : r_{p,s} ≤ τ}: fails. The Dolan–Moré profile exists to compare many solvers over many problems. With two solvers, and the block method faster at every one of the 11 sizes in Table 1, it says only that the block method was fastest in every case, which the Speedup column already shows. t_{p,s} is also introduced as \"the number of iterations\" although the metric used is CPU time.\n\n### Issues\nThree of the eight equations fail the necessity test, and one of them is the set-notation-for-a-list pattern the specification lists as automatic theater. At Level 2 this raises FORMALISM_THEATER and UNNECESSARY_SET_THEORY regardless of the low count. The legitimate core (the Catalan count, Proposition 1.1 and the distance formula) is small and would stand without the rest.\n\n---\n\n## Citation Analysis\n\nNine references, one self-citation: [8] (Saračević, Stanimirović, Mašović, Biševac), an implementation study of convex polygon triangulation in Java, C++ and Python, cited to justify the choice of Java. It is directly relevant (similarity high). SCR = 1/9 = 11%. The other references (Chazelle; Chazelle and Palios; Garey et al.; Hurtado and Noy; Sen-Gupta et al.; Koshy; Cormen et al.; Dolan and Moré) are standard and on topic. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe speedup claim is backed by Table 1, a single timing per n on one laptop configuration, whose Speedup column is arithmetically consistent with the two timing columns, and by the performance profile. The correctness claim is not backed. As written, Step 4.1 fills the remaining rows with one fan triangulation (all diagonals ending at n) plus the C(n−3, n−4) = n−3 combinations of n−4 diagonals ending at vertex n, that is n−2 rows. The number required is T_n − 2T_{n−1}: 4 for n = 6, which matches the worked example, but 14 for n = 7, against the 5 the description yields. Triangulations in which vertex n carries between 2 and n−5 internal diagonals are not accounted for, yet Table 1 reports the full Catalan counts up to n = 16. No check that the output is complete and free of duplicates is reported.\n\nThe Java fragments in the appendix do not close the gap. As extracted, contains() calls this.contains() with no base case, and Block() uses an undeclared variable n1, so the excerpts are not a runnable implementation of Algorithm 4. Limitations are acknowledged inline: RAM is exhausted for n > 16, and including disk I/O at larger n is expected to make \"the performance difference of two algorithms blurry\". The drop in speedup at n = 14 and 15 is not discussed.\n\nArtifacts: no repository, link or availability statement. The appendix prints partial code excerpts only, which count as description, not availability.\n\n---\n\n## Conclusion\n\nThe paper's genuine idea, reusing each (n−1)-gon triangulation twice as justified by Proposition 1.1, needs only the Catalan count and that proposition. Around it sit a set-notated index–value list for what is an array, a recurrence with an undefined term, and a performance profile restating a table in which one method wins every row. At Level 2 that triggers the zero-tolerance formalism rule and the cap.\n\nThe more serious problem for a reader is that the description of Step 4 does not generate the full set of triangulations beyond n = 6, so the reported timings cannot be tied to the algorithm as published, and the printed code cannot be run to check them."
+  },
+  {
+   "paper_id": "franti2012",
+   "paper": {
+    "title": "Personalized Support System for The Patients with Forearm Amputations",
+    "authors": [
+     "Eduard Franti",
+     "Lucian Milea",
+     "Monica Dascalu",
+     "Marius Moga",
+     "Catalin Florea",
+     "Adrian Barbilian",
+     "Mihail Teodorescu",
+     "Paul Schiopu",
+     "Florin Lazo",
+     "Mark Eduard Pogarasteanu"
+    ],
+    "abstract": "This paper presents a system for assisting patients with amputated hands. Using this system, they can define and implement custom motion algorithms of mobile elements of the artificial hand they use. The system includes a virtual environment simulation, configuration and personalized assistance, a virtual reality glove and hardware components for signal processing. The patient who has one amputated hand, can load in the virtual environment, using a special glove (virtual reality glove) positioned on the healthy hand, simple or even complex sets of movements which are realized by the natural movements of the healthy hand. These sets of movements are loaded in the virtual environment of personalized assistance which then generates, through transformations and extrapolations, motion algorithms “in the mirror” for the virtual prosthesis (from the virtual environment) and then, they are loaded into the patient’s artificial hand. Thus, the system enables forearm prosthesis users to define complex custom motions they need to conduct different specific activities that they are supposed to realize, in which they need the help of the artificial hand.",
+    "keywords": [],
+    "doi": null,
+    "pages": "368-376",
+    "source_file": "06-efranti.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 30,
+    "structural_integrity": 30,
+    "artifact_availability": 0,
+    "intellectual_integrity": 52.0,
+    "composite": 39.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Three of seven references (43%) are by the authors: [5] (Franti, Schiopu), [6] (Moga, and Milea cited as P.L. Milea) and [7] (Milea, Dascalu). All are topically related, but the ratio exceeds 30%.",
+    "UNSUPPORTED_CLAIMS": "Claims of custom movement definition, faster learning and optimal actuator placement rest on no reported measurement; the section titled \"Experimental tests and measurements made with the prosthesis\" reports none; the introductory statistics are unsourced or attributed to a reference that cannot support them. CER is roughly 0.2."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 1 prototype description of a VR-glove-driven prosthesis training system: no formalism, but 43% self-citation, a misattributed opening statistic, and effectiveness claims without any reported measurement.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A rehabilitation set-up for forearm amputees. A commercial virtual-reality glove on the healthy hand records movements, a virtual environment mirrors them onto a virtual prosthesis, and the resulting motion sequences are loaded into an experimental mechanical prosthesis.\n**Level:** 1 (Trivial)\n**Rationale:** A system architecture assembled from existing components (the P5 Glove and DG5 VHand gloves, a virtual environment described in the authors' earlier paper [5], a mechanical prosthesis), described as a prototype. No algorithm, model or method is specified; even the \"transformations and extrapolations\" that produce the mirrored motion are named but not described.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. A system description with no formal apparatus. The paper says motion was first \"described by movement equations\" but shows none.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSeven references, three of them self-citations: [5] (Franti, Stefan, Schiopu et al.), the modular software environment the system builds on; [6] (Milea P.L., Stefan, Moga et al.), a hardware and software package for training locomotor-disabled patients; and [7] (Zafiu, Milea, Oltu, Dascalu), a modelling and control system for prosthesis configuration and testing. All three belong to the same project line and are topically close (similarity high), so none is irrelevant, but SCR = 3/7 = 43%, above the 30% threshold. [7] is the only support offered for the claim that the custom movements are implemented on none of the prostheses on the market.\n\nOther citation problems: the World Health Organization estimate of 11.2 million people with hand amputations at the end of 2011 is attributed to [1], a 2008 study of limb-loss prevalence in the United States, which cannot support it. References [2], [3] and [4] are never cited in the text. The figures on Romanian patients (five of more than 55 000 able to buy a myoelectric hand, prices from 20 000 euro, over 90% of patients of modest means) have no source.\n\n---\n\n## Structural Analysis\n\nClaims far outrun evidence. The paper states that the system lets amputees define complex custom movements and upload them to the prosthesis, that patients learn to use the artificial hand \"more quickly and efficiently\", and that the experiments \"led to finding the optimal position of the engine components\", but it reports no measurement of any kind: no number of patients or sessions, no accuracy, latency (beyond the 60 fps scene update), success rate or comparison. Section 8, titled \"Experimental tests and measurements made with the prosthesis\", contains no measurement. The four figures are illustrative. CER is roughly 0.2.\n\nLimitations: a single inline sentence acknowledges that a mechanical prosthesis is constrained by its fixed dimensions and by the number, layout and performance of its actuators. The limits of the paper's own evaluation are not discussed.\n\nArtifacts: the software environment, the motion-algorithm library and any recorded glove data are neither linked nor claimed to be available.\n\n---\n\n## Conclusion\n\nA Level 1 prototype description with no formalism, so the formalism component is clean. The problems lie in citation and evidence. Three of the seven references are the authors' own, which raises EXCESSIVE_SELF_CITATION and disqualifies at any level; the opening statistic is attributed to a source that cannot support it; and the effectiveness claims rest on no reported data.\n\nThe paper reads as a project report rather than a research paper with an evaluation. A version that reported the patients involved, the movements transferred and how well the prosthesis reproduced them would be assessable; this one is not."
+  }
+ ]
+}

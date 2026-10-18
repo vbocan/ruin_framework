@@ -1,0 +1,298 @@
+{
+ "batch_id": "2015-v18-n3",
+ "analysis_timestamp": "2026-10-18T03:46:32Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 18,
+  "issue": 3,
+  "year": 2015
+ },
+ "papers": [
+  {
+   "paper_id": "diazpernil2015",
+   "paper": {
+    "title": "Recognizer P Systems with Antimatter",
+    "authors": [
+     "Daniel Díaz-Pernil",
+     "Artiom Alhazov",
+     "Rudolf Freund",
+     "Miguel A. Gutiérrez-Naranjo",
+     "Alberto Leporati"
+    ],
+    "abstract": "In this paper, we consider recognizer P systems with antimatter and the influence of the matter/antimatter annihilation rules having weak priority over all the other rules or not. We first provide a uniform family of P systems with active membranes which solves the strongly NP-complete problem SAT, the Satisfiability Problem, without polarizations and without dissolution, yet with division for elementary membranes and with matter/antimatter annihilation rules having weak priority over all the other rules. Then we show that without this weak priority of the matter/antimatter annihilation rules over all the other rules we only obtain the complexity class P.",
+    "keywords": [],
+    "doi": null,
+    "pages": "201-217",
+    "source_file": "01-diazpernil.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 66.75,
+    "composite": 50.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "16 of 30 references (53%) include at least one of the five authors (Alhazov, Díaz-Pernil, Freund, Gutiérrez-Naranjo, Leporati). All are on membrane computing, antimatter or P-system complexity and are topically related, but the ratio exceeds the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Proportionate complexity-theory paper (uniform SAT solution and a characterization of P for P systems with antimatter); disqualified only by a 53% self-citation ratio, although every self-citation is on topic.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Computational complexity of polarizationless recognizer P systems with active membranes and matter/antimatter annihilation rules: a uniform polynomial-time solution of SAT when annihilation has weak priority over all other rules, and a characterization of P when it does not.\n**Level:** 4 (High)\n**Rationale:** The contributions are complexity-class results (Theorem 1: NP is contained in PMC for AM0 -d,+e,+ant; Theorem 2: PMC for AM0 -d,+ne,+ant without priority equals P). Proving computational complexity results is the Level 4 anchor. No universality, undecidability or hardness assumption is established, so Level 5 is not warranted.\n\n### Formal Elements\n- Definitions: 8 inline (rule types (a0)-(g0) with their semantics, with and without priority; decision problem; polynomial encoding; soundness and completeness; uniform and semi-uniform solvability classes PMC_R and PMC*_R; the dependency graph G = (V, E); the set Delta_Pi) (with constraints: 8)\n- Theorems: 2 (plus Remark 1)\n- Proofs: 2 (the explicit family Pi with its Generation / Input Processing / Checking / Output rule groups and step-by-step explanation, establishing Theorem 1; a formal proof of Theorem 2)\n- Equations: about 10 (pairing function, cod(phi), the alphabet O, class inclusions, the V_L / V_R / E definitions)\n\n### Proportionality\nCalculated complexity: 8 x 2 + 2 x 3 + 2 x 4 = 30\nExpected range (Level 4): 30-80\nRatio: 0.38x upper bound\n\n**Assessment:** Proportionate. The formalism is the subject matter: membrane-rule notation, set-builder definitions of the alphabet and of the input encoding, and the dependency-graph construction are needed to state and prove the complexity bounds, and none could be replaced by plain English without losing the precision the proofs depend on.\n\n### Issues\nNo formal element fails the Necessity Test. Minor presentation slips: rule C6 carries the range \"1 <= i <= m\" although no index i occurs in it; the correctness of the SAT family is argued by step counting rather than by an explicit invariant; and the step from SAT to all of NP (closure of the class under polynomial-time reductions) is left implicit. The proof of Theorem 2 states that it \"follows the one already exhibited in [9]\" and relies on [14] for the polynomial bounds on building the dependency graph and Delta_Pi.\n\n---\n\n## Citation Analysis\n\n16 of 30 references (53%) carry at least one of the authors: Alhazov [1-6, 10, 11, 22], Díaz-Pernil [9-11], Freund [1-3, 9-11], Gutiérrez-Naranjo [8-11, 14, 15], Leporati [9, 16-18]. Every one concerns membrane computing, antimatter in P systems, or SAT solutions and complexity classes for P systems, so all are topically related (similarity >= 0.5) and none is irrelevant. The ratio nonetheless exceeds 30%, which raises EXCESSIVE_SELF_CITATION. The five authors cover most of the groups active on this narrow topic, which explains the ratio without changing it. Citation integrity is held at the 40 cap. No citation-ring pattern is evident from the text.\n\n---\n\n## Structural Analysis\n\nAs a theory paper its claims rest on constructions and proofs (CER well above 1.0), and the literature overview of Sections 2-3 is densely cited. Limitations are acknowledged inline: the conclusion notes that the recognizer-system definition used is \"quite restrictive\" and that other definitions could change the picture, and the two models are said to correspond only to \"presumably\" different classes (conditional on P != NP). The introduction states that the paper combines the results of [9] and [10], two 2015 workshop and conference papers by overlapping author sets, so its contribution over those is largely consolidation. No software or data is involved; nothing is available or claimed, and nothing needs to be (artifact relevance: false).\n\n---\n\n## Conclusion\n\nA competent, correctly scoped complexity-theory paper whose formal apparatus is proportionate to its Level 4 results. The only flag is mechanical: more than half of the references carry an author's name, all of them on topic. EXCESSIVE_SELF_CITATION is a citation-conduct flag that disqualifies at any level, so the paper will be capped regardless of the quality of its formalism. The formalism score is not zeroed, because no formalism-family flag applies.\n\nNo instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "wang2015a",
+   "paper": {
+    "title": "Decision Tree Models Induced by Membrane Systems",
+    "authors": [
+     "Jun Wang",
+     "Juan Hu",
+     "Hong Peng",
+     "Mario J. Pérez-Jiménez",
+     "Agustín Riscos-Núñez"
+    ],
+    "abstract": "This paper focuses on an application of membrane systems to solve classification problems. Decision tree technique has been widely used to construct classification models because such models can closely resemble human reasoning and are easy to understand. A novel membrane computing-based decision tree induction algorithm is developed in this paper. An extended tissue membrane system with tree-like objects is considered as the computing framework, in which each object in cells expresses a feasible decision tree and the transformation-communication mechanism is applied to deal with the tree-like objects. The extended tissue membrane system with tree-like objects can efficiently induce a best decision tree model for a given data set. The proposed decision tree induction algorithm is evaluated on some data sets and compared with two classical methods.",
+    "keywords": [
+     "Membrane computing",
+     "Tissue membrane systems",
+     "Data classification",
+     "Decision tree"
+    ],
+    "doi": null,
+    "pages": "228-239",
+    "source_file": "03-jwang.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 35,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 24.75,
+    "composite": 31.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"ten real-life data sets from UCI repository [42] have been selected in the experiment\"; reference [42] gives http://www.ics.uci.edu/mlearn/MLRepository.html. No link to the authors' code and no availability statement.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper. The tissue P system construct Pi = (w1, ..., wq, R1, ..., Rq, R', i0), with w_i = {T_ij | j = 1, ..., n} and communication rules (i, T1/T2, j) and (i, T/lambda, 0), restates a multi-population genetic algorithm that the pseudocode already specifies completely; it fails the Necessity Test.",
+    "DECORATIVE_DEFINITIONS": "The construct (1) is a formal tuple for q populations of trees and their genetic operators. Removing it would change nothing a programmer builds, and it is never referenced in any argument or proof.",
+    "EXCESSIVE_SELF_CITATION": "24 of 43 references (56%) include an author (Wang J., Peng H., Pérez-Jiménez M.J., Riscos-Núñez A.).",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints; the conclusion only states that the comparison results \"demonstrate the usefulness of the proposed algorithm\"."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Evolutionary decision-tree induction presented as a tissue P system: a decorative construct definition at Level 2, 56% self-citation, and an evaluation without variance, protocol or limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Decision-tree induction by an island-style evolutionary search framed as a tissue P system: each cell holds a population of trees (initialised by C4.5 on random data subsets), evolved by roulette selection and subtree-exchange crossover and mutation, with trees exchanged between cells.\n**Level:** 2 (Low)\n**Rationale:** The method is genetic-programming evolution of decision trees with a multi-population migration scheme, an existing evolutionary technique (compare the GDT-MA baseline [43]) applied under a membrane-computing label. No complexity analysis, convergence argument or theoretical property is offered. Applying an existing algorithm in a new framing is Level 2.\n\n### Formal Elements\n- Definitions: 1 (the construct Pi = (w1, ..., wq, R1, ..., Rq, R', i0) of equation (1), including the communication-rule forms (i, T1/T2, j) and (i, T/lambda, 0)) (with constraints: 1)\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (the construct (1); the fitness J(T) = C(T) - v(S(T) - 1) of equation (2))\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Proportionate in volume, but the construct fails the Necessity Test, which at Level 2 is decisive.\n\n### Issues\n- The construct (1) is a formal tuple definition for what is a set of q tree populations plus genetic operators. Its component \"w_i = {T_ij | j = 1, 2, ..., n}\" is set-builder notation for an array of n trees, and the rules (i, T1/T2, j) and (i, T/lambda, 0) are notation for swapping two individuals between populations or exporting one. Could it be said in plain English? Yes: \"q sub-populations of n trees; after each generation trees migrate between sub-populations and the best is kept\". Would a programmer need it? No: the pseudocode of Section 3 is complete without it, and the construct is never used again. Does it enable a proof? No proof exists. This raises FORMALISM_THEATER and DECORATIVE_DEFINITIONS.\n- The fitness function (2) defines what is optimised and passes the test.\n- The set notation is not used for any set operation, so UNNECESSARY_SET_THEORY is not raised.\n\n---\n\n## Citation Analysis\n\n24 of 43 references (56%) include one of the authors (Wang J. [16, 18-26, 32, 34-39]; Peng H. [18-22, 24-26, 32-39]; Pérez-Jiménez M.J. [7, 10, 11, 14, 15, 19, 21, 23, 24, 26, 28, 36-39]; Riscos-Núñez A. [36, 38, 39]; [16] matched on the name \"Wang J.\"). The membrane-clustering self-citations [32-39] are directly relevant. A large block is cited only in a list of application areas for membrane computing: fault diagnosis of power systems [21-23], image thresholding and segmentation [24-26], ecosystem modelling [28], small universal SN P systems and time-free SAT solutions [10, 11]. These are marginally related to decision-tree induction (similarity 0.3-0.5): same umbrella field, different problem. None is judged unrelated (< 0.3), so IRRELEVANT_SELF_CITATION is not raised, but the ratio far exceeds 30% and raises EXCESSIVE_SELF_CITATION. Citation integrity is set at 35: the 40 cap, less a margin for the list-style padding.\n\n---\n\n## Structural Analysis\n\nThe evaluation uses ten UCI datasets, averages over 10 runs, and compares with C4.5 and GDT-MA. No standard deviations, significance tests, or train/test or cross-validation protocol are reported, and the source of the baseline figures is not stated. Most accuracy differences are a few tenths of a percentage point (Pima 74.8 against 74.6 and 74.2; German 74.1 against 74.2), well within plausible run-to-run variance. The abstract's claim that the system \"can efficiently induce a best decision tree model\", and the repeated claim of finding a \"global optimal decision tree\", are unsupported: no running time is measured and an evolutionary search guarantees no optimum. CER is adequate for the narrow claim of comparable accuracy with smaller trees and weak for the broader ones. No limitation is acknowledged anywhere, which raises NO_LIMITATIONS. Typographical slips (\"CRAT\" for CART, \"C.5\" for C4.5 in the pseudocode, \"Blance-Scale\") suggest light editing. Artifacts: the datasets are public UCI datasets cited with a URL [42]; no code is released or claimed, so the category is data.\n\n---\n\n## Conclusion\n\nA Level 2 application of tree-based evolutionary search wrapped in membrane-computing notation. The tissue-P-system tuple and its set-builder population notation state nothing the pseudocode does not, which triggers the formalism-family disqualification at Level 2; the 56% self-citation ratio disqualifies independently. The experimental support is thin (no variance, no protocol, no limitations) for what are marginal accuracy differences.\n\nNo instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "wang2015b",
+   "paper": {
+    "title": "Fault Section Estimation of Power Systems with Optimization Spiking Neural P Systems",
+    "authors": [
+     "Tao Wang",
+     "Sikui Zeng",
+     "Gexiang Zhang",
+     "Mario J. Pérez-Jiménez",
+     "Jun Wang"
+    ],
+    "abstract": "An optimization spiking neural P system (OSNPS) provides a novel way to directly use a P system to solve optimization problems. This paper discusses the practical application of OSNPS for the first time and uses it to solve the power system fault section estimation problem formulated by an optimization problem. When the status information of protective relays and circuit breakers read from a supervisory control and data acquisition system is input, the OSNPS can automatically search and output fault sections. Case studies show that an OSNPS is effective in fault sections estimation of power systems in different types of fault cases: including a single fault, multiple faults and multiple faults with incomplete and uncertain information.",
+    "keywords": [
+     "Membrane computing",
+     "optimization spiking neural P system",
+     "fault section estimation",
+     "power systems",
+     "fault diagnosis"
+    ],
+    "doi": null,
+    "pages": "240-255",
+    "source_file": "04-twang1.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 35,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 23.5,
+    "composite": 17.62,
+    "final": 17.62
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper. Definition 1 (an ESNPS tuple with spike alphabet O = {a}, neurons sigma_i = (1, R_i, P_i) and synapse set syn = {(i, j) | ...}) describes what Algorithm 1 itself implements as one Bernoulli sampling step, \"B = rand() < PR\"; it fails the Necessity Test.",
+    "DECORATIVE_DEFINITIONS": "Definition 1 is recalled from [18] and never used in any argument; the authors' own implementation bypasses it.",
+    "EXCESSIVE_SELF_CITATION": "13 of 31 references (42%) include an author (Wang T., Zhang G., Pérez-Jiménez M.J., Wang J.)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Application of an existing SN P optimizer to power-system fault section estimation: a decorative recalled definition at Level 2, 42% self-citation with a misattributed comparison table, unreported parameters and faulty pseudocode.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Applying the optimization spiking neural P system (OSNPS) of [18], a population of rule-probability vectors sampled into binary strings and adjusted by a guider, to power-system fault section estimation, formulated as 0-1 minimisation of the error function E(S) taken from [30].\n**Level:** 2 (Low)\n**Rationale:** Both the optimiser (OSNPS, [18]) and the problem formulation (objective (1) from [30], protection logic from [19, 22]) come from prior work; the contribution is applying the one to the other on a standard test system. Applying an existing algorithm to a new domain is Level 2.\n\n### Formal Elements\n- Definitions: 1 (Definition 1, the ESNPS tuple Pi = (O, sigma_1, ..., sigma_m+2, syn, I0), recalled from [18]) (with constraints: 1)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 25 (objective (1); 21 expected-status formulas in Table 4; the expanded E(S) of the Case 1 example)\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Proportionate in volume; Definition 1 fails the Necessity Test, which at Level 2 is decisive.\n\n### Issues\n- Definition 1 formalises the ESNPS with a singleton spike alphabet O = {a}, neurons with firing and forgetting rules and their probabilities, a synapse set \"syn = {(i, j) | (i = m+2 and 1 <= j <= m+1) or (i = m+1 and j = m+2)}\", and an output set. Operationally it is a vector of m Bernoulli probabilities emitting one bit each per step, and the paper's own Algorithm 1 implements it exactly so, in a single line: \"generate dematrix B according to rule probability matrix PR: B = rand() < PR\". Plain English suffices, a programmer does not need the definition (the authors' implementation does without it), and it supports no proof. This raises FORMALISM_THEATER and DECORATIVE_DEFINITIONS. The learning rate is also given a Greek symbol, Delta, a configuration constant whose value is never reported.\n- The objective (1) and the Table 4 expected-status formulas are domain modelling needed to evaluate E(S), and they pass the test.\n- syn and I0 use set notation without set operations, so UNNECESSARY_SET_THEORY is not raised.\n\n---\n\n## Citation Analysis\n\n13 of 31 references (42%) include an author: Wang T. [6, 12-14, 16, 17, 19]; Zhang G. [2, 4, 6, 14, 16-19]; Pérez-Jiménez M.J. [2, 6, 7, 10, 12-14, 16-19]; Wang J. [12, 13, 15, 19]. Most are fuzzy or optimisation SN P system papers and SN P fault-diagnosis papers, directly relevant. [10] (GPU simulation of SN P systems) and [4] (differential evolution with tissue P systems for manufacturing optimisation) are marginal but within the field. No self-citation is unrelated, so IRRELEVANT_SELF_CITATION is not raised; the ratio exceeds 30% and raises EXCESSIVE_SELF_CITATION. Beyond the ratio, Table 6 labels the compared methods \"FL [15]\", \"GA [23]\", \"FDSNP [13]\" and \"GATS [21]\", while the text attributes the same results to [26], [22], [19] and [30]. Table and text disagree on every source. In the reference list [15] and [13] are the authors' own SN P papers, [23] is a fuzzy Petri net paper, and [21] is an SN P theory paper with no fault-diagnosis results, so at least the GA and GATS labels are misattributed and two of the four table labels point to self-citations. Citation integrity is set at 35: the 40 cap, less a margin for the misattribution.\n\n---\n\n## Structural Analysis\n\nThe evaluation consists of three fault cases on a standard 28-section test system from [19, 22], whose diagnoses are compared with those reported in prior papers. None of the OSNPS parameters (H, m, Delta, the learning probabilities pa_j, the iteration limit) is reported, and there are no repeated runs, success rates or running times; the correctness of the Case 3 result is established by appeal to [19] and [30]. The text announces a test of \"effectiveness and superiority\", but no superiority is examined. Algorithm 1 contains errors that would prevent a faithful re-implementation: the inner while loop never increments j; line 29 reads \"Gjbest == Pijt + Delta\", a comparison with the wrong target; and line 31 tests b_j inside the global-learning branch. The Case 1 example maps nine circuit-breaker variables to five labels, and its expansion of E(S) has unbalanced brackets and terms \"(1 + s2)\" where |1 - s2| is meant. Table 3 is titled \"main protections\" but lists backup protections. CER is adequate for the narrow claim that the method reproduces known diagnoses on three cases. Limitations are acknowledged only inline, as future work on \"superiority\" and on large-scale grids, so NO_LIMITATIONS is not raised. The test system is reproduced as a schematic and the case inputs are tabulated, but description is not availability; no code or data is linked or claimed, so the category is none.\n\n---\n\n## Conclusion\n\nA Level 2 application paper whose formal centrepiece, the recalled ESNPS definition, is shown to be unnecessary by the authors' own one-line implementation. That disqualifies at Level 2, and the 42% self-citation ratio disqualifies independently. The evaluation is three illustrative cases without reported parameters, and both the pseudocode and the worked example contain errors.\n\nNo instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "he2015",
+   "paper": {
+    "title": "Fault Diagnosis of Metro Traction Power Systems Using A Modified Fuzzy Reasoning Spiking Neural P System",
+    "authors": [
+     "Yangyang He",
+     "Tao Wang",
+     "Kang Huang",
+     "Gexiang X. Zhang",
+     "Mario J. Pérez-Jiménez"
+    ],
+    "abstract": "This paper presents the application of a modified fuzzy reasoning spiking neural P systems (MFRSN P system, for short) to fault diagnosis of metro traction power supply systems. In MFRSN P systems, three types of neurons are used to represent operation information of protection devices including protective relays and circuit breakers; a reasoning algorithm associated with MFRSN P systems is introduced to fulfill fault reasoning; fault diagnosis rules for metro traction power supply systems and their MFRSN P systems are described. Case studies show the feasibility and effectiveness of the presented method.",
+    "keywords": [
+     "Membrane computing",
+     "probabilistic fuzzy reasoning spiking neural P system",
+     "metro traction power supply system",
+     "fault diagnosis"
+    ],
+    "doi": null,
+    "pages": "256-272",
+    "source_file": "05-twang2.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 40,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 27.75,
+    "composite": 20.81,
+    "final": 20.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper. Definition 1 (an SN P tuple with singleton spike alphabet O = {a}, firing rules E/a^theta -> a^beta, syn a subset of {1..m} x {1..m}, in and out subsets of {1..m}) plays no role in the matrix reasoning algorithm that is actually implemented; it fails the Necessity Test.",
+    "DECORATIVE_DEFINITIONS": "Definition 1 could be replaced by \"a directed graph of proposition and rule nodes carrying values, thresholds and certainty factors\"; it is never used in a proof, and its firing condition refers to an undefined n.",
+    "EXCESSIVE_SELF_CITATION": "12 of 29 references (41%) include an author (Wang T., Zhang G.X., Pérez-Jiménez M.J.)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Modified fuzzy reasoning SN P system for metro traction power fault diagnosis: a decorative SN P tuple definition at Level 2, 41% self-citation, and three illustrative cases without any baseline comparison.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fault diagnosis of metro traction power supply systems with a modified fuzzy reasoning spiking neural P system (MFRSN P): fuzzy production rules of three kinds (General, And, Or) compiled into a graph of proposition and rule neurons and evaluated by a matrix-based forward-propagation algorithm.\n**Level:** 2 (Low)\n**Rationale:** The FRSN P system of [15], functionally a fuzzy reasoning Petri net with matrix propagation, is applied to a new power-system domain with a small modification (one additional rule-neuron type, and without the synapse weights of [22]). An existing technique applied to a new domain is Level 2.\n\n### Formal Elements\n- Definitions: 4 (Definition 1, the MFRSN P system tuple; the three matrix operators: weighted sum, weighted mean, and a max-product operator whose glyph is lost in the text extraction) (with constraints: 4). The three fault-diagnosis rule templates of Section 3.2 are counted as domain rules and the nine vectors and matrices of Section 3.3 as variable declarations, not as definitions.\n- Theorems: 0\n- Proofs: 0\n- Equations: about 10 (rule truth-value formulas, operator definitions, the delta and theta update equations), plus the worked matrices of Case 1\n\n### Proportionality\nCalculated complexity: 4 x 2 = 8\nExpected range (Level 2): 0-15\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate in volume; Definition 1 fails the Necessity Test, which at Level 2 is decisive.\n\n### Issues\n- Definition 1 casts the model as an SN P tuple Pi = (O, sigma_1, ..., sigma_m, syn, in, out) with a singleton spike alphabet O = {a}, firing rules \"E/a^theta -> a^beta\" with firing condition \"E = {a^theta, theta > lambda_i}\", syn a subset of {1, ..., m} x {1, ..., m}, and in, out subsets of {1, ..., m}. What is implemented is the matrix algorithm of Section 3.3 over a directed graph of nodes holding values in [0, 1]; the spike alphabet and the rule-form notation play no part in it. The definition is also loose: the firing condition requires the neuron to receive \"at least n spikes\", with n undefined. Plain English, or the matrix algorithm itself, suffices; the definition changes nothing a programmer builds and no proof uses it. This raises FORMALISM_THEATER and DECORATIVE_DEFINITIONS.\n- The rule truth-value formulas and the three operators define the computation and pass the test. The thresholds (lambda = 0.1) are configuration constants with Greek names, a minor instance of the same pattern.\n- syn, in and out use set notation without set operations, so UNNECESSARY_SET_THEORY is not raised.\n\n---\n\n## Citation Analysis\n\n12 of 29 references (41%) include an author: Wang T. [10, 14, 15, 18, 20-22]; Zhang G.X. [8, 12, 14, 18, 20-23]; Pérez-Jiménez M.J. [3, 8, 10, 14, 15, 18, 20-22, 26]. The FRSN P fault-diagnosis papers [14, 15, 18, 20-22] are the direct basis of the work. The others sit in a blanket \"[7-29]\" citation for SN P systems being \"a hot topic\", which also sweeps in [23] (differential evolution with tissue P systems for manufacturing optimisation), not an SN P paper; it is marginal but within the field. No self-citation is unrelated, so IRRELEVANT_SELF_CITATION is not raised; the ratio exceeds 30% and raises EXCESSIVE_SELF_CITATION. Citation integrity is held at the 40 cap.\n\n---\n\n## Structural Analysis\n\nThe evaluation consists of three hand-built cases on small sub-networks, with fault confidence computed by the reasoning algorithm. Case 1 is fully worked; for Cases 2 and 3 only intermediate vectors and final values are given, and the initial vectors and matrices are omitted. No other diagnosis method is compared; the authors defer this (\"verifying the performance superiority of MFRSN P systems compared with other classical diagnosis methods is now in progress\"), which is the inline limitation acknowledgment, so NO_LIMITATIONS is not raised. Thresholds (0.1) and certainty factors (0.975, 0.95, 0.9) are set \"according to the experience\"; the decision threshold of 0.5 is asserted without justification, and Cases 2 and 3 are declared faulty at confidences of 0.597 and 0.573, close to it. The worked example departs from the algorithm: the algorithm's Step 4 uses \"B2 (+) theta_g\" while the example uses \"B2 (+) delta_g\", and theta_1 is listed with 13 entries for 14 proposition neurons. The claims of \"feasibility and effectiveness\" are supported only as far as three illustrative cases can support them (CER adequate). The contribution over [15] and [22] is incremental. No code or data is linked or claimed, so the category is none.\n\n---\n\n## Conclusion\n\nAn incremental Level 2 application of fuzzy reasoning SN P systems to a new power-system domain. The SN P tuple definition decorates a matrix propagation algorithm that does not use it, which disqualifies at Level 2, and the 41% self-citation ratio disqualifies independently. The evaluation is illustrative rather than comparative.\n\nNo instructions addressed to reviewers or automated assessors were found in the text."
+  },
+  {
+   "paper_id": "zhang2015",
+   "paper": {
+    "title": "On String Languages Generated by Numerical P Systems",
+    "authors": [
+     "Zhiqiang Zhang",
+     "Tingfang Wu",
+     "Linqiang Pan",
+     "Gheorghe Păun"
+    ],
+    "abstract": "Numerical P systems are a class of P systems inspired both from the structure of living cells and from economics. Usually, they are used as devices for computing sets of numbers. In this work, we consider numerical P systems as language generators: symbols are associated with numbers (portions of the “production value”) sent to the environment. The generative capacity of such systems is investigated, both for the standard and the enzymatic form of numerical P systems, having as a reference the families of languages in the Chomsky hierarchy.",
+    "keywords": [
+     "bio-inspired computing",
+     "membrane computing",
+     "numerical P system",
+     "Chomsky hierarchy",
+     "universality"
+    ],
+    "doi": null,
+    "pages": "273-295",
+    "source_file": "06-zzhang.pdf"
+   },
+   "concept_level": 5,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 40,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 64.75,
+    "composite": 48.56,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "7 of 17 references (41%) include Gh. Păun. All are foundational references for the model studied (SN P and numerical P systems, the standard monograph and handbook), but the ratio exceeds the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Proportionate formal-language study of numerical P systems as string generators, including an RE characterization; some proofs are deferred or inconsistent, and it is disqualified only by 41% self-citation of the field's foundational works.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Numerical P systems (non-enzymatic, enzymatic and purely enzymatic, in the one-parallel mode) used as string-language generators, with the generated families compared against FIN, REG, CF and RE.\n**Level:** 5 (Very High)\n**Rationale:** Theorem 13 shows that purely enzymatic numerical P systems in the lambda mode characterise RE, a universality result obtained by register-machine simulation; the remaining results are formal-language inclusion and separation results, and Theorem 1 establishes decidability of membership for the restricted mode. Proving computational universality is the Level 5 anchor.\n\n### Formal Elements\n- Definitions: 14 inline (strings and alphabets; Chomsky grammars; language families; val_q; register machines and their deterministic, generating and accepting modes; the numerical P system construct; repartition semantics with the unitary portion (1); div, lost, carry and stop; enzymatic programs; purely enzymatic systems; evolution modes; the out-variable string semantics; L_res and L_lambda; the family notation) (with constraints: 14)\n- Theorems: 15 (Theorem 14 bundles five recalled corollaries)\n- Proofs: 10 (Theorems 3, 5, 6, 7, 8, 9, 11, 12, 13 and 15; Theorems 2, 4 and 10 follow from Examples 1-3, Theorem 1 from an inline argument, Theorem 14 by extension)\n- Equations: numerous (programs, production functions, generated languages)\n\n### Proportionality\nCalculated complexity: 14 x 2 + 15 x 3 + 10 x 4 = 113\nExpected range (Level 5): 60-150\nRatio: 0.75x upper bound\n\n**Assessment:** Proportionate. The definitions are needed to state the language families precisely, the constructions are the proofs, and set-builder notation for languages such as {b1^n b2^(n+1) | n >= 1} is the native language of formal language theory.\n\n### Issues\nNo formal element fails the Necessity Test. Proof quality is uneven: the construction for Theorem 11 is given but its verification is \"left as an exercise to the reader\"; Theorem 13 imports the register-machine simulation programs from [4] \"without any change\", so their functioning is not described; and the proof of Theorem 15 refers to a program \"2x1 -> 1|y2 + 1|out\" that is absent from Fig. 11, switches between y1 and y2 and between t <= n and t <= n+1, and ends the computation by sending out 0 (the fin convention) although the theorem is stated for hal and the paper says enzymatic systems never halt. Theorem 1's recursiveness argument is given informally in the text. These lower the quality bonus to zero.\n\n---\n\n## Citation Analysis\n\n7 of 17 references (41%) include an author, all through Gh. Păun ([1-3, 10-12, 15]): the founding papers on spiking neural P systems and numerical P systems, the standard monograph and handbook of membrane computing, string languages of SN P systems, and the power of enzymatic numerical P systems. These are the canonical references for the model studied (similarity >= 0.5), and none is irrelevant. The ratio still exceeds 30% and raises EXCESSIVE_SELF_CITATION; here the threshold penalises a co-author who founded the field and its central models. Citation integrity is held at the 40 cap. No citation-ring pattern is evident.\n\n---\n\n## Structural Analysis\n\nClaims rest on constructions and proofs (CER above 1.0). Open problems and the limits of the results are acknowledged throughout: \"We do not know whether\" the inclusions for small parameters are proper, \"we were not able to also obtain a result of the form RE = ...\" for non-enzymatic systems, and the CS case \"remains open\"; the concluding remarks gather these. This is inline acknowledgment rather than a dedicated limitations section. A pure theory paper; no artifact is needed (artifact relevance: false).\n\n---\n\n## Conclusion\n\nA substantive Level 5 formal-language paper with formalism proportionate to its universality and separation results, weakened by a deferred proof, an imported construction and an internally inconsistent final proof. It is disqualified only because 41% of its references carry the name of a co-author whose foundational works any paper on these models must cite. The formalism score is not zeroed, because no formalism-family flag applies.\n\nNo instructions addressed to reviewers or automated assessors were found in the text."
+  }
+ ]
+}

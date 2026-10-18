@@ -1,0 +1,296 @@
+{
+ "batch_id": "2025-v28-n2",
+ "analysis_timestamp": "2026-10-18T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 2,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "bunea2025",
+   "paper": {
+    "title": "Measurement of Electromagnetic Feedthrough in Spin Wave Based Microwave Multiport Devices",
+    "authors": [
+     "Alina-Cristina Bunea",
+     "Florin Ciubotaru",
+     "Fanfan Meng",
+     "Christoph Adelmann",
+     "Ovidiu-George Profirescu",
+     "Dan Neculoiu"
+    ],
+    "abstract": "Multiport radio-frequency (RF) input devices are designed to handle multiple signals simultaneously. These devices typically consist of multiple input ports that can receive different RF signals and combine them into a single output or distribute them to multiple outputs. For example, in wave computing, majority gates use an odd number of inputs and one output. This paper investigates the electromagnetic feedthrough of a 3-input/1-output majority gate layout based on spin waves (SWMGs) and U-shaped microwave spin-wave transducers. The paper addresses the challenges of electromagnetic feedthrough by exploring shielding techniques to understand and improve the performance of the SWMG. As a tradeoff in complexity and performance, the unshielded layout is optimized and fabricated on a 500 nm Yttrium Iron Garnet (YIG) film. Measurements of scattering (S-) parameters demonstrate spin wave propagation at 8 GHz for a 200 mT magnetic bias field, with reduced electromagnetic coupling. Furthermore, the study includes an analysis of the effective permittivity and loss tangent of Gadolinium Gallium Garnet (GGG) substrate, critical for accurate electromagnetic modeling of the device.",
+    "keywords": [
+     "GGG",
+     "majority gate",
+     "S-parameters",
+     "spin wave",
+     "YIG"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.01",
+    "pages": "125-137",
+    "source_file": "paper796.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 62.5,
+    "composite": 46.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the S-parameter measurements and the CST Microwave Studio models are shown only as figures",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Ten of the 26 references ([5], [7], [8], [9], [10], [11], [12], [21], [23], [24]) share at least one author with this paper (mostly F. Ciubotaru and C. Adelmann; [21] is the authors' own CAS 2024 paper), giving SCR = 38.5%, above the 30% threshold. The ratio stays above 30% (9/26 = 34.6%) even if the ~100-author roadmap [7] is excluded. All ten self-citations are on spin-wave devices, majority gates or transducers and are topically relevant, so no IRRELEVANT_SELF_CITATION is raised."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Experimental characterisation of electromagnetic feedthrough in a spin-wave majority-gate layout, with five standard and necessary extraction equations; formalism is proportionate, but 10 of 26 references are self-citations (38.5%), all topically relevant, which triggers the excessive self-citation rule. No data or models are released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design, fabrication and on-wafer S-parameter characterisation of a 3-input/1-output spin-wave majority gate layout with U-shaped inductive transducers, focusing on direct electromagnetic feedthrough with and without ground-loop shielding, plus extraction of GGG substrate permittivity from CPW line measurements.\n**Level:** 2 (Low)\n**Rationale:** The contribution is an empirical device study: existing transducer geometries are laid out, fabricated, measured and compared, and a known two-line method is used to extract effective permittivity. No new algorithm, model or proof is proposed. Level 2 (empirical study / configuration study) rather than Level 1 because physical design and measurement are involved.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (propagation constant from two-line S-parameters (1)-(4), effective permittivity (5))\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Equations (1)-(5) are the actual extraction formulas applied to the measured data to obtain the effective permittivity in Fig. 4; removing them would remove the method. They pass the necessity test.\n\n### Issues\nNone identified in the formalism. The text-extracted form of Eq. (1) is garbled by the PDF conversion, but its role is clear.\n\n---\n\n## Citation Analysis\n\nSelf-citations counted by author-name overlap: [5] (Adelmann, Ciubotaru), [7] (roadmap with Adelmann, Ciubotaru among ~100 authors), [8], [9], [10] (Ciubotaru, Meng, Adelmann), [11], [12], [21] (all six authors, CAS 2024), [23], [24]. SCR = 10/26 = 38.5%. Every self-citation concerns spin-wave computing, majority gates or inductive transducers, so topical similarity is high (>=0.5) throughout; the problem is the share, not the relevance. The pattern reflects a co-author group (IMEC) that is central to this sub-field, but the rule is applied as specified. Minor bibliographic defects: [6] carries a LaTeX artefact (\"textbf109(8)\"), [25] has a malformed DOI link and [26] a doubled scheme (\"http://https://\").\n\n---\n\n## Structural Analysis\n\nClaims are tied to measured S-parameter plots (Figs. 8, 12) and an EM simulation (Fig. 9); the claim-evidence balance is adequate. Limitations are acknowledged inline: the GGG model agrees with measurement \"up to 18 GHz and the model for the GGG material parameters needs improvements for higher frequencies\", and the risk of parasitic spin waves from shield currents is discussed. Several weaknesses: Sections 2 and 3 largely restate the authors' CAS 2024 paper [21] (the GGG extraction is attributed to [21] and the shielding result is said to be \"in agreement with those presented in [21]\"), and the page carrying Fig. 8 reproduces a conference footer (\"CAS 2024 International Semiconductor Conference, Oct. 9 - 11, 2024, Sinaia, Romania\"), suggesting a figure taken from a presentation. The claimed \"clear improvement of up to 10 dB\" compares the YIG device near 7.3 GHz with the earlier GGG-only test structures, so the effect of the tapered contacts is confounded with substrate and frequency. The conclusion's feedthrough range (-37...-47 dB) does not exactly match the body (-36, -42, -48 dB). No measurement data, layouts or simulation models are released; the artifact category is none.\n\n---\n\n## Conclusion\n\nA competent experimental device paper whose few equations are necessary and whose results are supported by measurement. It is weakened by heavy overlap with the authors' own conference paper and a confounded headline comparison. Under the specification it is disqualified by an excessive self-citation ratio (38.5%), even though each self-citation is relevant; readers should weigh that flag as a share-of-references signal from a dominant research group rather than citation padding."
+  },
+  {
+   "paper_id": "alabdullah2025",
+   "paper": {
+    "title": "Impact of Scaling and Interface Roughness on Drain Current in Nanosheet and Nanowire FETs: A 3D Monte Carlo Analysis",
+    "authors": [
+     "Murad Alabdullah",
+     "Natalia Seoane",
+     "Antonio García-Loureiro",
+     "Karol Kalna"
+    ],
+    "abstract": "A 3D finite-element Monte Carlo simulation toolbox, incorporating Schrödinger equation-based quantum corrections, is employed to analyze the performance of nanosheet (NS) and nanowire (NW) field-effect transistors (FETs), which emerged as promising candidates for sub-3 nm CMOS technology. The study investigates the impact of scaling gate length and oxide thickness, increase in source/drain doping concentration, and interface roughness on these architectures. Results indicate that NS-FETs achieve higher ON currents than NW FETs. However, scaling the gate length below 12 nm reduces the drain current in both devices with a ⟨110⟩ channel orientation—by 9.4% in NS and 7.7% in NW. To understand this decline, valley population and average electron velocity are examined. Scaling dielectric thickness has a smaller effect on NW-FETs with 12 nm and 10 nm gate lengths compared to NS-FETs. In contrast, changes in maximum doping concentration have a greater impact on NW than NS, due to better electrostatic control and increased carrier injection resulting from reduced source/drain resistance. A back-scattering effect is observed in the 12 nm and 10 nm gate length devices, particularly NWs, but it can be mitigated by increasing doping concentration. Interface roughness significantly degrades drain current (IDD), with a more pronounced impact on NWs. Their smaller surface-to-volume ratio and stronger quantum confinement increase sensitivity to roughness variations, as most carriers are closer to the surface, leading to more scattering events. On the contrary, NSs, despite interface roughness, benefit from a larger conductive cross-section, maintaining higher effective mobility in the device channel.",
+    "keywords": [
+     "Gate-All-Around",
+     "Monte Carlo",
+     "nanosheet",
+     "nanowire",
+     "scaling"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.06",
+    "pages": "185-196",
+    "source_file": "paper801.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 30,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.0,
+    "composite": 45.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the simulator is described only as \"state-of-the-art, in-house developed, 3D ensemble Monte Carlo (MC) device simulations\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Ten of the 23 references ([6], [8], [11], [13], [14], [15], [16], [17], [18], [20]) share at least one author with this paper (Kalna, García-Loureiro, Seoane, Alabdullah), giving SCR = 43.5%, well above the 30% threshold. All of them concern the same simulation toolbox or GAA/nanowire devices and are topically relevant, so no IRRELEVANT_SELF_CITATION is raised; [18] is the authors' CAS 2024 paper on the same comparison."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Parameter study of nanosheet and nanowire FETs with an existing in-house 3D Monte Carlo simulator, free of unnecessary formalism and validated against published IBM data; 10 of 23 references are self-citations (43.5%), all relevant, which triggers the excessive self-citation rule. The simulator is not released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Simulation study of n-type gate-all-around nanosheet and nanowire FETs (12 nm and 10 nm gate length, two channel orientations) using the group's existing 3D finite-element ensemble Monte Carlo toolbox with Schrödinger-equation quantum corrections, sweeping gate length, EOT, source/drain doping and interface-roughness RMS height.\n**Level:** 2 (Low)\n**Rationale:** The method (the toolbox, its quantum corrections and scattering models) is taken from the authors' earlier work; the paper applies it to a set of parameter variations and interprets the outputs (valley populations, average velocities). This is a configuration/parameter study, Level 2. No new model or algorithm is introduced.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 numbered equations\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper uses no formal apparatus; parameters (RMS height, correlation length, Gaussian doping parameters) are stated as physical quantities, not decorative notation.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSelf-citations by author overlap: [6] (all four authors), [8] (Kalna), [11], [13], [14], [15], [16], [17], [18] (CAS 2024 version of this comparison), [20]. SCR = 10/23 = 43.5%. All concern the Swansea/Santiago simulation toolbox, its validation, or nanoscale GAA devices, so topical similarity is high; the toolbox validation claim (\"validated in many previous studies [16], [17], [6], [18]\") rests entirely on self-citations. The share exceeds the 30% threshold by a wide margin.\n\n---\n\n## Structural Analysis\n\nThe toolbox is validated against experimental I-V data from a published IBM nanosheet device (Fig. 2), and each quantitative claim in Section 3 is tied to a figure, so the claim-evidence balance is adequate. Limitations are acknowledged only inline and only about the design space (\"achieving such high MDC levels remains a significant technological challenge\"; higher doping comes \"at the cost of a lower VT, higher leakage current, increased scattering, and greater heat dissipation\"); the simulator's own assumptions are not discussed. Inconsistencies: the abstract speaks of \"sub-3 nm\" technology and Section 2 of \"sub-2 nm\" nodes; the abstract attributes NW roughness sensitivity to a \"smaller surface-to-volume ratio\" while the conclusions say \"higher surface-to-volume ratio\" (the latter is physically correct); the conclusions report a VT shift from 0.29 V to 0.16 V and greater NW resilience to subthreshold degradation, neither of which is shown in the results. The back-scattering effect named in the abstract is only asserted in Section 3.1. No code, input decks or simulation outputs are released; the artifact category is none.\n\n---\n\n## Conclusion\n\nA clearly reported simulation study with appropriate (essentially absent) formalism and a credible validation step, but a modest conceptual contribution beyond the authors' prior work and several abstract-conclusion inconsistencies. The citation profile is dominated by the authors' own group (43.5%), which disqualifies the paper under the specification even though the cited works are relevant."
+  },
+  {
+   "paper_id": "dumitru2025",
+   "paper": {
+    "title": "Design Space Exploration of Current-Starved Ring Oscillators Based on Graphene Nanoribbons",
+    "authors": [
+     "Florin-Silviu Dumitru",
+     "Nicoleta Cucu-Laurenciu",
+     "Alexandru Mihai Antonescu",
+     "Sorin Cotofana",
+     "Marius Enachescu"
+    ],
+    "abstract": "Graphene is well-suited for ultra-low-power (ULP) nano-electronics due to its exceptional characteristics like ballistic transport and its ability to engineer structures featuring a geometry-induced bandgap. Identifying the conditions necessary for achieving the maximum level of performance and of power-efficiency frequently requires a design space exploration (DSE). By means of calibration and external regulation of the supply voltage, the ULP graphene-nanoribbon (GNR) ring oscillator presented in this paper is capable of exceeding the performance of its 7 nm FinFET counterpart both in terms of maximum frequency and of power-efficiency. Under nominal supply voltage conditions we achieve a 1.89× higher output frequency while simultaneously reducing the power consumption by 553.8× and achieving a 812× higher power efficiency. After performing a DSE and leveraging both externally-applied supply voltage modulation and output frequency calibration we achieved a 4.81× higher maximum output frequency operation mode and a 242× higher maximum power-efficiency operation mode when configuring both blocks for peak performance for each mode.",
+    "keywords": [
+     "Current-starved",
+     "design space exploration",
+     "GNR",
+     "graphene",
+     "ring oscillator"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.07",
+    "pages": "197-209",
+    "source_file": "paper802.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 60,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 68.8,
+    "composite": 51.6,
+    "final": 46.6
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text for the authors' own code or simulation setup; the only code link, \"https://nanohub.org/resources/19564\", is to S. Datta's third-party MATLAB codes [31]",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "Eight of the 32 references ([3], [6], [7], [8], [9], [10], [12], [30]) share at least one author with this paper (Cucu-Laurenciu, Cotofana, Dumitru, Enachescu), giving SCR = 25%, inside the 20-30% band. [3], [7], [10], [12] and [30] supply the devices, DAC and conference version this paper builds on; [6], [8], [9] (GNR synapses and spiking neurons) are cited only as a list of GNR applications and are marginal (similarity about 0.4-0.5) but not unrelated."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation-based design and supply/calibration sweep of a GNR current-starved ring oscillator against a 7 nm FinFET version, using textbook equations proportionately; self-citation is elevated (25%) and the headline ratios mix favourable endpoints. Nothing of the authors' own is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** An 8-stage current-starved ring oscillator built from previously published GNR device geometries and a previously published GNR 5-bit DAC, simulated in a Spectre/MATLAB NEGF co-simulation and compared with a 7 nm FinFET counterpart, followed by a two-dimensional sweep of supply voltage and DAC code.\n**Level:** 2 (Low)\n**Rationale:** A standard circuit topology (current-starved ring oscillator) is realised with existing devices and an existing simulation framework; the design space exploration is a parameter sweep. The only new modelling step, adding quantum capacitance to the existing conductance computation, is stated rather than developed. Level 2.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (Landauer conductance (1), quantum capacitance (2), ring-oscillator frequency, power and delay (3)-(5), current-starved frequency (6))\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. All six are standard textbook relations; (1)-(2) describe what the simulator computes and (6) is used to interpret the frequency drop at high VDD (\"aligns with the prediction from Equation 6\"). None matches a theater pattern.\n\n### Issues\nNotational errors rather than theater: the quantum capacitance is labelled \"Cins\" in the sentence introducing it, and the equivalent permittivity is written \"µeq\". The parallel-plate capacitance equation is described but not shown.\n\n---\n\n## Citation Analysis\n\nSelf-citations by author overlap: [3], [6], [7], [8], [9], [10], [12], [30]; SCR = 8/32 = 25%. The paper explicitly builds on [7] (GNR structures), [10] (DAC) and [12] (the CAS 2024 conference version, whose nominal-supply results are reused), and [3]/[30] supply the comparison data and the geometry figure; these are directly relevant. [6], [8], [9] are cited together as examples of GNR synapses and neurons, a marginal relation. Bibliographic errors: Dirac's 1928 paper [15] is given as \"Physical Review 117(778)\" (it appeared in Proc. R. Soc. A), and [17] carries the placeholder \"year, 2007\".\n\n---\n\n## Structural Analysis\n\nResults are simulation-only and presented in Figs. 5-7 and Tables 2-4; the claim-evidence balance is adequate. The headline ratios select endpoints inconsistently: 1.89x (88.4/46.7 GHz) and 553.8x (321.2/0.58 µW) use the upper ends of the ranges in Table 2, while 812x (113.7/0.14 GHz/µW) uses the lower ends; the upper-end efficiency ratio is about 376x. The introduction claims \"three orders of magnitude lower power consumption\", which 553.8x does not reach. Design drawbacks are acknowledged inline (quiescent current of the current DAC, the \"pronounced non-linear characteristic\" of frequency versus DAC code), but process variation, temperature and GNR fabrication feasibility are not evaluated. The co-simulation framework and GNR models are not released; the only link is to third-party MATLAB codes, which do not count. Artifact category: none.\n\n---\n\n## Conclusion\n\nA modest incremental design study, an extension of the authors' conference paper, with appropriate and necessary formalism. Its main weaknesses are optimistic and inconsistently derived headline figures, the absence of variability analysis for a single-ended oscillator, and an elevated self-citation share; it carries a medium-severity flag only."
+  },
+  {
+   "paper_id": "calinescu2025",
+   "paper": {
+    "title": "An Area-Optimized Digitally-Assisted DAC Employing a Matrix-Based DEM Scheme",
+    "authors": [
+     "Alex Calinescu",
+     "Traian Antonovici",
+     "Marius Enachescu"
+    ],
+    "abstract": "The Dynamic Element Matching (DEM) technique’s role is to mitigate mismatch issues in complex, matrix-based systems. Previous work employing a matrix-based random DEM scheme demonstrated enhanced linearity and spectral characteristics in the Digital to Analog Converter’s (DAC) thermometric decoded section. This paper presents the design of an area-optimized, DEM-assisted 9-bit segmented DAC. The optimal segmentation level for area-performance is initially established. Subsequently, to mitigate area constraints from the integral nonlinearity (INL) requirement and improve spectral performance, we utilize the matrix-based DEM engine from prior research. The proposed 9-bit DAC, implemented in a commercial 180 nm CMOS process, achieves a total harmonic distortion (THD) of -79 dB and a spurious-free dynamic range (SFDR) of 79 dB, resulting in 8× and 16× improvements in SFDR and THD, respectively, over its non-DEM counterpart.",
+    "keywords": [
+     "DAC",
+     "DEM",
+     "digital controller",
+     "DNL",
+     "INL",
+     "mismatch",
+     "THD",
+     "SFDR"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.08",
+    "pages": "210-222",
+    "source_file": "paper803.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 78,
+    "citation_integrity": 60,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.95,
+    "composite": 49.46,
+    "final": 44.46
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the controller is \"implemented using RTL description in SystemVerilog\" and the sizing comes from MATLAB models, neither of which is released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "Three of the 13 references ([1], [5], [6]) share an author with this paper (Enachescu; Calinescu and Antonovici in [6]), giving SCR = 23.1%, inside the 20-30% band. All three are relevant: [1] on DAC segmentation, [5] a DEM controller, and [6] the matrix-based DEM engine this paper reuses."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation-level design of a 9-bit segmented current-steering DAC that reuses the authors' matrix DEM engine, with standard and mostly necessary DAC equations; self-citation is elevated (23%), and the paper has many broken cross-references and figures that do not reconcile. Nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Choosing the segmentation level of a 9-bit current-steering DAC by an area-linearity trade-off (after Lin and Bult), then adding a matrix-based random DEM engine from the authors' earlier conference paper, implemented as LFSR-based row/column shufflers in SystemVerilog and evaluated by Monte Carlo and spectral simulation in a 180 nm process.\n**Level:** 2 (Low)\n**Rationale:** Both the segmentation methodology ([2]) and the DEM engine ([6]) are existing; the paper applies them to a specific design point. This is a standard design methodology applied to a new instance, Level 2.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 17 (DAC output sums (1), (5), (7); area models (2), (6), (8), (9), (15), (17); DNL/INL variance (3), (4), (10), (11), (16); DEM mismatch and averaging (12)-(14))\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The area and DNL/INL equations are standard and are actually used to generate the segmentation trade-off in Fig. 5, so they pass the necessity test. Equations (12)-(14) are expository (the average of two mismatched elements); they could be said in a sentence but are basic equations of the kind tolerated at Level 2, not one of the theater patterns.\n\n### Issues\nCross-references are broken: \"as shown in 2.1.3..\" and \"as predicted by 2.1.3..\" point to a section number where an equation is meant, and \"According to (), DNL spikes appear\" has an empty reference. Section 2.1.3 cites Fig. 3a for the DNL curves (they are in Fig. 3b) and says 100 DACs while the caption says 30.\n\n---\n\n## Citation Analysis\n\nSelf-citations: [1] (Dumitru, Ilie, Enachescu), [5] (Calinescu, Enachescu), [6] (Calinescu, Antonovici, Enachescu); SCR = 3/13 = 23.1%. All three are on DACs or DEM and are relevant; [6] is the immediate predecessor whose engine is reused. The reference list is short (13 items) for a DAC design paper, which magnifies the ratio.\n\n---\n\n## Structural Analysis\n\nThe MATLAB predictions are checked against MC simulations, and the DEM ON/OFF comparison is quantified in Table 1, so claim-evidence balance is adequate for the core result. However, all results are simulations, while the abstract's \"implemented in a commercial 180 nm CMOS process, achieves\" reads as a silicon result. The \"8x and 16x\" improvements are power ratios of the 9 dB and 12 dB gains in Table 1. Several figures do not reconcile: the conclusions give 3.14 mA at 1.8 V, but the reported controller (3.42 mW) and current sources (184 µW) imply about 2 mA; the stated active area of 12999 µm2 differs from the sum of the reported parts (7466 + 3469 + 1908 = 12843 µm2); the maximum DNL/INL of 0.75/0.57 LSB in the conclusions does not appear in the results. Section 3 specifies cells switching at 1.6 MHz, but Section 4.3 states the DEM engine limits the DAC to 1.56 MHz and the spectral test runs at 1 MHz. Constraints are acknowledged only inline (the 1.56 MHz limit, the passive-area overhead). No RTL, MATLAB scripts or simulation data are released; artifact category none.\n\n---\n\n## Conclusion\n\nA small incremental design paper whose equations are standard and largely necessary, but whose presentation is careless: broken equation references, figure and count mismatches, and summary numbers that do not follow from the reported components. Self-citation is elevated, and the result is simulation-only though framed as an implementation."
+  },
+  {
+   "paper_id": "medinceanu2025",
+   "paper": {
+    "title": "GaN Bootstrapped Logic Gates Analytical Modeling and Design Insights",
+    "authors": [
+     "Paul-Catalin Medinceanu",
+     "Marius Enachescu"
+    ],
+    "abstract": "Following recent advancements, Gallium Nitride (GaN) technology continues to garner interest as a promising solution for future power electronics applications. Due to the variety of devices available in a monolithic GaN process, the development of digital circuits requires different topologies compared to CMOS technologies. This paper presents the analysis and design of logic gates from the bootstrapped family. Analytical equations for the static and dynamic parameters of an inverter are introduced. When compared to simulation results, these equations achieve a maximum error of 23.9% for static parameters and 33.3% for dynamic parameters. Additionally, different implementation details, such as developing other logic functions or enhancing the circuit behavior at system level, are proposed.",
+    "keywords": [
+     "Bootstrapped",
+     "DCFL",
+     "digital",
+     "GaN",
+     "gallium",
+     "gates",
+     "HEMT",
+     "inverter",
+     "logic",
+     "LSI",
+     "MSI",
+     "nitride",
+     "RTL",
+     "VLSI"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.10",
+    "pages": "233-244",
+    "source_file": "paper805.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 83.0,
+    "composite": 62.25,
+    "final": 62.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the SPICE testbenches and the \"Verilog-A-based device model\" are not released",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "First-order analytical design equations for a GaN bootstrapped inverter, checked against SPICE across twelve sizings; the equations are the contribution and are proportionate, self-citation is low (1/24), and results are well tabulated, though derivations are mostly omitted and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Hand-analysis design equations for the bootstrapped GaN HEMT inverter: static equations (sizing, logic levels, power) carried over from the authors' CAS 2024 paper, plus new rise/fall time and propagation-delay approximations derived with a linear load-current assumption, validated against SPICE simulations of twelve inverter sizings in a 200 V GaN process.\n**Level:** 2 (Low)\n**Rationale:** The equations are first-order square-law hand calculations obtained by the textbook method of Hodges et al. applied to a known topology (the bootstrapped inverter from a patent). This is an established analysis method applied to a new circuit; by the default-to-lower rule it is Level 2 rather than a new mathematical model at Level 3.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 15 (bootstrap capacitor sizing (1)-(2), sizing ratio (3), logic levels (4)-(7), power (8), timing (9)-(13), minimum input frequency (14), percentage error (15))\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The design equations are the contribution and are evaluated numerically against simulation in Table 2; a designer would use them to size devices. Eq. (2) is a rule of thumb and Eq. (15) a percentage error, both trivial but not decorative.\n\n### Issues\nNone in the sense of theater. Only the derivation of (9)-(10) is outlined; (11)-(13) are \"similarly derived\" without steps, so their particular coefficients (e.g. 1.5, 3 and 2 in (12)-(13)) cannot be checked from the paper. Eq. (14) for the minimum input frequency is not validated anywhere in the results.\n\n---\n\n## Citation Analysis\n\nOne self-citation, [13] (Medinceanu and Enachescu, CAS 2024), which supplies the static equations and measurement method; SCR = 1/24 = 4.2%, normal and relevant. One attribution error: the text says the HEMT's challenges and principles \"were discussed in this previous work [12]\", but [12] is a patent by de Rooij et al., not the authors' work (probably [13] was meant). Several references are press releases, a datasheet and patents, which is acceptable for the industrial context described.\n\n---\n\n## Structural Analysis\n\nClaims are well supported: Table 2 sets theoretical against simulated values for every parameter and sizing, and the stated maxima (23.9% static, 33.3% dynamic) match the table. Limitations are acknowledged inline: the authors note that the VOL error \"is considerable\" but small in absolute terms, that the timing approximations give \"values of the correct magnitude\" rather than precise ones, that initial high transitions are slewed, and that the static-current reduction of [24] slows tR. Unacknowledged limits: validation is against simulation with a device model only (the Verilog-A model is mentioned first in the conclusions), not against silicon, and the low-frequency behaviour promised in the introduction is covered only by the untested Eq. (14). The description of fmax as \"the mean of tPLH and tPHL\" is imprecise; the tabulated values correspond to the reciprocal of that mean. Nothing is released; artifact category none.\n\n---\n\n## Conclusion\n\nA modest but honest extension of the authors' conference paper: the formalism is the substance of the contribution, is checked systematically against simulation with transparently reported errors, and the citation profile is clean. It would be stronger with full derivations, validation of the fmin relation, and silicon or at least process-corner data. No flags are raised."
+  }
+ ]
+}

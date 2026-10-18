@@ -1,0 +1,263 @@
+{
+ "batch_id": "2023-v26-n1",
+ "analysis_timestamp": "2026-10-18T03:51:02Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 26,
+  "issue": 1,
+  "year": 2023
+ },
+ "papers": [
+  {
+   "paper_id": "chen2023",
+   "paper": {
+    "title": "A Frequent Construction Mining Scheme Based on Syntax Tree",
+    "authors": [
+     "Bob Chen",
+     "Weiming Peng",
+     "Jihua Song"
+    ],
+    "abstract": "Natural language processing (NLP) is one of the main research directions in artificial intelligence. One of the goals of NLP is to identify various semantic information in the text. Currently, the mainstream semantic recognition tasks focus more on using the semantic information of each word in the text to perform semantic analysis of the entire sentence. The research on semantics in cognitive linguistics indicates that semantics is determined by both the words contained in the sentence and the arrangement of the words. Linguists refer to permutations and combinations containing certain semantic information as constructions. Since the construction plays an essential role in semantic information, identifying various constructions in text is a crucial work of semantic recognition tasks. Based on this background, the main works performed in this paper are as follows: 1) The definition and program representation of constructions and the corresponding constraints in NLP tasks are proposed. 2) A frequent construction mining algorithm is proposed to extract frequent structures that meet the construction requirements in the grammar structure tree. Based on the above works, the corresponding construction database can be extracted for the specified natural language corpus, which is helpful for more effective text semantic analysis.",
+    "keywords": [
+     "Construction",
+     "data mining",
+     "semantic recognition",
+     "sequential pattern mining"
+    ],
+    "doi": null,
+    "pages": "3-20",
+    "source_file": "paper729.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 45.95,
+    "composite": 46.96,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "The Leipzig Corpora Collection was utilized as the original corpus. [...] The corpus can be downloaded from https://corpora.uni-leipzig.de/.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "THEOREMLESS_FORMALISM"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "This is a Level 2 paper, and some of its formal elements fail the necessity test. Definition 4 (phrase structure tree) and Definition 6 (support) restate textbook concepts in numbered Definition blocks. Definition 7 introduces the Greek-letter threshold ξ and the pattern symbol α for the minimum-support parameter, and neither symbol appears again; the method and experiments say 'minimum support', MaxGap and MaxRepeat.",
+    "DECORATIVE_DEFINITIONS": "The paper has seven numbered 'Definition N' blocks, and no theorem or proof refers to any of them. Definitions 4 and 6 are standard notions from parsing and pattern mining (the Stanford Parser output tree, the support count). Removing them would not change what a programmer builds.",
+    "THEOREMLESS_FORMALISM": "7 definitions and 0 theorems."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A PrefixSpan variant for mining syntactic constructions from parse trees. The definition apparatus is light, but numbered definitions of standard concepts and an unused Greek-letter threshold trigger the Level 2 zero-tolerance rule. The evaluation never checks whether the mined patterns are constructions. The corpus is public; no code is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Mining frequent 'constructions' (form-meaning patterns made of constants and empty slots) from Stanford Parser phrase-structure trees. Each tree is split into 'tree sequences' (expanded or merged splitting), and a PrefixSpan variant is run that records the number of skipped items as gap counts. MaxGap and MaxRepeat filters and slot-filler probabilities complete the method.\n**Level:** 2 (Low)\n**Rationale:** The algorithmic contribution is a modification of PrefixSpan: an intervalItemCount field in the pseudo-projection plus two filtering thresholds, applied to parser output. There is no complexity analysis, no correctness argument and no theoretical property, and the efficiency experiment only compares against PrefixSpan. This is a simple extension of an existing method to a new domain, which is Level 2 rather than 3.\n\n### Formal Elements\n- Definitions: 7 (numbered Definitions 1-7: construction, constant, empty slot, phrase structure tree, tree sequence, support, frequent construction)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (the only notation is Support(α), database S and threshold ξ inside Definitions 6-7)\n\n### Proportionality\nCalculated complexity: 14\nExpected range (Level 2): 0-15\nRatio: 0.93x upper bound\n\n**Assessment:** The count is within the Level 2 range, but some elements fail the necessity test. The definitions are mostly prose glossary entries. Definitions 1, 2, 3 and 5 introduce the paper's own vocabulary, and Sections 4-5 use it, so the definitions are not orphaned. Definitions 4 and 6 restate standard concepts. Definition 7 decorates the minimum-support parameter with ξ and α, and neither symbol is used again.\n\n### Issues\n- 'Definition 4: Phrase structure tree' formalises a textbook object that the paper takes directly from the Stanford Parser.\n- 'Given the minimum support threshold ξ, if the support of the construction α in the corpus is not lower than ξ, the sequence α is called a frequent construction': a Greek letter names a configuration value that the rest of the paper calls 'minimum support'.\n- Definition 6 makes support 'the proportion of a sequence in the database S'. The worked example, however, sets 'The minimum support is 2', and Table 1 reports absolute counts (e.g. 571151). The one quantitative definition is therefore inconsistent with how it is used.\n- Seven definitions and no theorem. The apparatus is light, and the flags rest on the zero-tolerance rule for Level 1-2 papers rather than on heavy notation.\n\n---\n\n## Citation Analysis\n\nThe paper has 31 references, and none includes Chen, Peng or Song, so the SCR is 0/31. The references fit the topic: construction grammar, frequent subgraph and sequential pattern mining, constituency parsing and syntax-aware neural models. The bibliography has quality problems. gSpan is attributed to 'X.-F. YAN and J.-W. HANY' (it is Yan and Han), FS3 appears in the text as 'FS', several author names are garbled ('GARCA-HERNNDEZ', 'ytkow'), and reference [3] is titled 'TThe mechanisms'. No self-citation or ring pattern.\n\n---\n\n## Structural Analysis\n\nThe evidence consists of construction counts against minimum support (Fig. 6), a top-10 support table, anecdotal sentence examples (the 'a+NN parallel construction'), and running time and memory against PrefixSpan (Figs. 7-9). No annotated sample or linguistic ground truth tests whether the mined patterns are constructions. Two claims go unbacked: 'the precise mining of frequent constructions is achieved', and 'All these structures have been studied in cognitive linguistics, which is consistent with the experimental results', which is uncited. The corpus description contradicts itself: '1,000,000 natural sentences', '2.900 million sentences were filtered out for experimental analysis' and 'the original corpus contains 290,000 natural sentences'. Estimated CER is about 0.6. There is no limitations section. Inline, the paper concedes that merged splitting still increases running complexity and that gap processing slows the algorithm, and it lists efficiency as future work.\n\nArtifacts: the Leipzig news corpus is named and linked. Neither the mining code nor the extracted construction database is released.\n\n---\n\n## Conclusion\n\nThe paper poses a reasonable problem, mining gapped syntactic patterns as candidate constructions, and adapts PrefixSpan in a plausible way. Its formal layer adds nothing: numbered definitions restate standard notions, and a Greek-letter threshold is introduced and never used. At Level 2 this triggers the formalism flags under the zero-tolerance rule. The bigger weakness is the evaluation. The paper counts patterns and times the algorithm, but never shows that what it mines are constructions in the linguistic sense, and its corpus figures are inconsistent. No paper text was addressed to the assessor."
+  },
+  {
+   "paper_id": "abramov2023",
+   "paper": {
+    "title": "New Opportunities Model for Monitoring, Analyzing and Forecasting the Official Statistics on Coronavirus Disease Pandemic",
+    "authors": [
+     "Sergey M. Abramov",
+     "Sergey Travin",
+     "Gheorghe Duca",
+     "Radu-Emil Precup"
+    ],
+    "abstract": "At the beginning of 2020, it became obvious that the coronavirus disease 2019 (COVID-19) pandemic will have a fairly significant scale and duration. There was an unmet need for the analysis and forecast of the development of events. The forecast was needed to make the managerial decisions in terms of knowledge on the dynamics of the pandemic, considering and analyzing the incoming official statistics about the pandemic, modeling and predicting the behavior of this statistics. Due to the objective and subjective factors, the available statistics is far from the unknown true data regarding the pandemic. Therefore, strictly speaking, it was necessary to model and predict not the dynamics of the pandemic, but the dynamics of the official (i.e. government) statistics on the pandemic. This paper proposes a new model, referred to as the new opportunities model, to monitor, analyze and forecast the government statistics on COVID-19 pandemic. A modeling approach is offered in this regard. The modeling approach is important as it answers simple questions on what awaits us in the near future, which is the current phase of the pandemic and when all this will be over. The new opportunities model is applied to three different countries in terms of area, economy and population, namely Russia, Romania and Moldova, plus the Campania region in Italy, and proves to be efficient over other similar models including the classical Susceptible-Infected (SI) model.",
+    "keywords": [
+     "Coronavirus disease 2019 pandemic",
+     "new opportunities model",
+     "official statistics",
+     "optimization",
+     "parabolic regression",
+     "prediction"
+    ],
+    "doi": null,
+    "pages": "48-63",
+    "source_file": "paper732.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 0,
+    "structural_integrity": 35,
+    "artifact_availability": 50,
+    "intellectual_integrity": 8.75,
+    "composite": 19.06,
+    "final": 19.06
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "[31] Official Coronavirus Cases in Russia. Accessed: Sep. 15, 2021. [Online]. Available: https://www.worldometers.info/coronavirus/country/russia. (likewise [32]-[34] for Romania, Moldova and Italy); supplementary material of figures only at http://www.aut.upt.ro/∼rprecup/Supplementary material ROMJIST.doc",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "IRRELEVANT_SELF_CITATION",
+    "ELEVATED_SELF_CITATION",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "This is a Level 2 paper: an SI logistic curve is fitted by parabolic regression in the phase plane and re-fitted on a recent window when residuals exceed a threshold. The paper writes the daily statistics table as a set, S = {(ti, Vi, Hi, Di) | i = 0...m}, the fitting window as {(ti, Vi, vVi) | i = m − L + 1 ... m}, and iteration over three columns as Γ ∈ {V, E, S}. No derivation needs any of these.",
+    "UNNECESSARY_SET_THEORY": "Set-builder notation stands for an array of daily records (eq. 1) and for a slice of its last L rows (eq. 11), and the membership Γ ∈ {V, E, S} stands for a loop over three variables (eq. 4). No proof depends on these sets.",
+    "IRRELEVANT_SELF_CITATION": "At least eight self-citations have nothing to do with forecasting COVID-19 statistics: [9] evolving fuzzy models of shape memory alloy actuators, [13] tower crane modelling, [14] fuzzy signatures, [15] observation processes in cognition, [19] a chemistry book on compounds for drug development, [25] and [26] slime mould tuning of fuzzy servo controllers, and [28] particle filter-PSO for fuzzy servo systems. They fill a generic survey of data-driven modelling and metaheuristics, and the paper uses neither approach ('This paper uses the second approach').",
+    "ELEVATED_SELF_CITATION": "10 of 35 references (28.6%) include an author of this paper. This count excludes [36], the paper's own supplementary material; including it gives 11 of 36 (30.6%).",
+    "UNSUPPORTED_CLAIMS": "The abstract, introduction and conclusions claim the model 'proves to be efficient over other similar models', 'exhibits very good performance, i.e. high prediction accuracy' and shows 'superior performance'. The conclusions add that later pandemic data 'further confirms the very good performance'. The paper reports no error metric, no back-test of earlier forecasts and no comparison with any model except the plain SI fit failing on Russian data. All results (Table 1, Figs. 9-21) sit in an external .doc [36] and are described only qualitatively. Estimated CER is about 0.25."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "SI-curve forecasting of official COVID-19 statistics. The paper writes its data table in set notation, carries eight off-topic self-citations, and claims a superiority it never measures. The data come from public worldometers pages, and the results are only in an external supplementary document.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Forecasting official COVID-19 case counts. The logistic solution of the SI model, V(t) = 0.5N[1 + tanh(k(t − τ))], is fitted through a parabola in the (V, dV/dt) phase plane, and a new parabola (a 'new opportunity') is fitted on the most recent window whenever the data leave the current one.\n**Level:** 2 (Low)\n**Rationale:** The model is the textbook logistic curve, and the method is polynomial regression plus a residual threshold for re-fitting. It contains no new algorithm, proof or analysis, so it applies an existing method to a new dataset.\n\n### Formal Elements\n- Definitions: 2 (inline: the dataset S in eq. 1, 'current opportunity' in eqs. 11-13)\n- Theorems: 0\n- Proofs: 0\n- Equations: 15 numbered\n\n### Proportionality\nCalculated complexity: 4\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** The count is proportionate, but some elements fail the necessity test. The logistic ODE (6), its solution (8), the τ formula (10) and the fit criterion (12)-(13) are legitimate and necessary. The set-builder dataset definitions and the Γ ∈ {V, E, S} membership are not.\n\n### Issues\n- S = {(ti, Vi, Hi, Di) | i = 0...m} is a table of daily rows, and {(ti, Vi, vVi) | i = m − L + 1 ... m} is its last L rows.\n- Γ ∈ {V, E, S} is used to say 'for each of the three series'. The velocity notation is also inconsistent: the text calls the velocity of S plain 'Si' instead of vSi.\n- Equation (5) is labelled 'the SI model' but is the SIR system (it has dR/dt).\n- The modelling steps are named 'Step LO1', then NO2-NO4. Step NO2 says relation (9) gives τ, but (9) lists example parameter values and τ comes from (10).\n- The error threshold is declared as 'ε > 1' with no justification. The conclusions say the model needs one parameter set by hand.\n\n---\n\n## Citation Analysis\n\nThe paper has 36 references. Excluding [36], the paper's own supplementary material, 10 of 35 include an author (Precup: [9], [13], [14], [15], [17], [25], [26], [28]; Duca: [17], [19]; Abramov and Travin: [35]), an SCR of 28.6%. Including [36] gives 30.6%. Only [35], the authors' earlier COVID-19 forecasting paper for Russia, is closely related, and [17] (neural-network modelling of biomonitoring data) is marginal. The others concern actuators, tower cranes, fuzzy signatures, cognition, drug-development chemistry and servo-controller tuning. They are cited in a sweeping introduction on data-driven modelling and metaheuristic optimisation, but the paper uses neither: it fits an analytical solution by regression.\n\nThe external citations in the same introduction are just as far off-topic: finite-difference financial pricing [1], bifurcations of piecewise-linear maps [2], data-stream clustering [3], [4], student result prediction [6], a PSO tuning a hybrid-vehicle classifier [27], and string-theory and harmony-search metaheuristics [29], [30]. This pattern fits citation exchange within a community. However, mutual citation cannot be seen from one paper, so CITATION_RING_INDICATOR is not raised.\n\n---\n\n## Structural Analysis\n\nThe paper's only in-text evidence is a synthetic SI example (Figs. 2-4) and the failure of the plain SI fit on Russian data (Figs. 5-7). The 'Experimental Results' section narrates 13 figures and a table that are all 'given in [36]', a Word document on a personal web page, and it reports forecasts, not their accuracy. No forecast is checked against what happened later, and no competing model besides SI is run, yet the paper repeatedly claims superiority. The conclusions acknowledge one limitation, a parameter that must be set manually, and the text concedes that official statistics differ from true incidence.\n\nArtifacts: the data sources are public worldometers country pages, linked in [31]-[34]. No code is provided. The supplementary .doc holds result figures, not software.\n\n---\n\n## Conclusion\n\nThe paper fits logistic curves piecewise to official case counts. The idea is simple and transparently explained by a ball-flight analogy, but it is presented with set-builder notation for what are data tables. The citation profile is the larger problem: a broad, off-topic introduction carries eight unrelated self-citations and a further run of unrelated external ones. The central performance claims rest on no reported measurement, and the results themselves are outside the paper. No paper text was addressed to the assessor."
+  },
+  {
+   "paper_id": "gaiseanu2023",
+   "paper": {
+    "title": "Information: From Cognitive-Sentient Exploration of Reality to Predictive Big Data Assisted Informational Era",
+    "authors": [
+     "Florin Gaiseanu"
+    ],
+    "abstract": "In this article it is shown that information is a concept not only useful and used for the communication systems and data operation, but also for the understanding of the matter non-living and living structuration. On this basis it is described the Informational Model of Consciousness and the functions and operability of the Informational System of the Human Body, allowing to define and understand the Cognitive-Sentient Exploration of Reality used as a tool by our predecessors to create some archaic models of the universe and human, remained up to date as references from philosophic point of view, and still operating nowadays in the creative sciences and arts fields in our informational era. Introducing the concept of information-related matter, it was possible to explain the informational processes in human body and eukaryotic/prokaryotic cells, the basic units of life, and to show that in the living entities an informational system operating similarly with that of the human can be identified and defined as Informational System of the Living Structures. The predictive properties of the Cognitive-Sentient Exploration of Reality is nowadays assisted by the predictive big data analysis, helping in various scientific domains where a high quantity of data was accumulated, including in the bioengineering field and human health, particularly for the prediction of the evolution of COVID-19 cases in the world, with examples for Romania, Spain and USA. Multiple applications involving artificial intelligence and the informational models of human and living structures for a healthy society are mentioned, in particular in neurosciences, biosciences and bioengineering. The priority of the Romanian concepts on information and the important contribution of the Romanian informational science oriented to understand the brain functions/operability and applications in biomedical field is highlighted.",
+    "keywords": [
+     "Applications",
+     "artificial intelligence",
+     "cognitive-sentient exploration of reality",
+     "information",
+     "informational era",
+     "informational model of consciousness",
+     "informational model of living structures",
+     "informational system of the human body",
+     "predictive big data analysis"
+    ],
+    "doi": null,
+    "pages": "78-99",
+    "source_file": "paper734.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 0,
+    "structural_integrity": 25,
+    "artifact_availability": 50,
+    "intellectual_integrity": 6.25,
+    "composite": 17.19,
+    "final": 17.19
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "95% confidence data captured from three countries, i.e. Romania, Spain and USA in the period 05/16-06/02/2020 collected from [61], are represented in Fig. 3 and compared with the predicted results given by a learning machine based on ARIMA model.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "DISPROPORTIONATE_FORMALISM",
+    "THEOREMLESS_FORMALISM",
+    "EXCESSIVE_SELF_CITATION",
+    "IRRELEVANT_SELF_CITATION",
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "This is a Level 1 conceptual essay. It writes lists of components as sums: ISHB = (CASI + CDC + IES + MIS + GTS + IGG + IC), OIS = CAS + CDC + IES, PIS = MIS + GTS + IGG, I = (Iknow + Iwant + Ilove + Iam + Icreate + Icreated + Ibelieve) and ISLS = (...). It also writes reaction-style relations: '\"Ortomatter\" + \"Informatter\" => Structured Matter' and '(A + B) + I <=> (AB(I))'. The '+' denotes no operation, and each relation is a sentence listing parts.",
+    "DECORATIVE_DEFINITIONS": "Six formula-form definitions are introduced as 'defined by the relation': ISHB (eq. 5), OIS, PIS, the mapping of components to cognitive centres, the self 'I' (eq. 6) and ISLS (eq. 7). None enters any derivation, computation or proof, and each could be replaced by 'the system comprises seven components'.",
+    "DISPROPORTIONATE_FORMALISM": "6 definitions × 2 = 12 against a Level 1 upper bound of 5 (2.4×). Counting the many verbal 'defined as' statements (thought, info-creational field, IRSS, IMPCP, informed matter, information itself) would raise this further.",
+    "THEOREMLESS_FORMALISM": "Six formula-form definitions and further verbal ones; 0 theorems.",
+    "EXCESSIVE_SELF_CITATION": "55 of 80 references (68.8%) are by the sole author.",
+    "IRRELEVANT_SELF_CITATION": "Eight self-citations on silicon microfabrication have nothing to do with an informational model of consciousness: [65] capacitive pressure sensor characterisation; [67]-[71] boron diffusion, self-limiting etching, pull-in voltage and process stress in silicon sensors; [78] and [79] impurity diffusion in silicon and polysilicon. A paragraph on boron diffusion from BBr3 and BN sources, inserted into the AI-applications section, exists only to carry [67]-[71].",
+    "UNSUPPORTED_CLAIMS": "The paper says the informational model allows one 'to solve the mind-body relation problem', explains the nature-nurture problem, and achieves 'unification under the concept of information of all theories of psycological and behavior science'. These claims rest only on the author's own earlier papers. The one computation is an exponential fit to 18 days of COVID-19 counts, described as an ARIMA 'learning machine', with no error measure. Several citations point to the wrong source. The 13-model, 187-country comparison is attributed to [59] (the author's paper on consciousness), not [61]. A time-series accuracy methodology is attributed to [56] (the author's paper on plants). The AR equation cites [60], and the first ARIMA proposal is credited to [63], a 2020 arXiv preprint.",
+    "NO_LIMITATIONS": "The paper acknowledges no limitation of its informational models. Its one caveat, that relation (4) is 'only a schematic convenient representation', concerns notation, not the validity of the model."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Conceptual essay on the author's informational model of consciousness. It writes lists of components as sums, and 69% of its references are self-citations, including unrelated silicon-microfabrication work. Its sweeping claims rest only on the author's own papers, and its one computation is a minor exponential fit to COVID-19 counts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A philosophical and conceptual account of information as a constituent of matter and life. It covers the author's Informational Model of Consciousness, the Informational System of the Human Body (seven components mapped to brain areas and to 'cognitive centres' such as Iknow and Iwant), and its extension to cells and plants. It then surveys AI and big data for COVID-19, with an exponential fit to case counts for Romania, Spain and the USA.\n**Level:** 1 (Trivial)\n**Rationale:** The paper is descriptive and review-like. It proposes no algorithm, makes no testable quantitative model and proves nothing; its 'models' are taxonomies of named components.\n\n### Formal Elements\n- Definitions: 6 formula-form (ISHB, OIS, PIS, the cognitive-centre mapping, I, ISLS), plus many verbal 'defined as' statements\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 numbered (Shannon's log2 N, three reaction-style relations, three component sums, three standard AR/MA/ARIMA forms)\n\n### Proportionality\nCalculated complexity: 12\nExpected range (Level 1): 0-5\nRatio: 2.4x upper bound\n\n**Assessment:** Disproportionate and decorative. Equation (1) and the ARIMA forms (8)-(10) are standard results quoted from the literature, and the paper never uses them in a computation. In the other relations, '+', '=>' and '<=>' stand for 'consists of', 'leads to' and 'is exchanged with'.\n\n### Issues\n- 'The Informational System of the Human Body can be therefore defined by the relation [36]: ISHB = (CASI + CDC + IES + MIS + GTS + IGG + IC)' is a list written as a sum.\n- The explanation of eq. (2)-(3) swaps the roles of its terms: it calls Ortomatter and Informatter both the inert substrate and, a line later, Ortomatter the 'active agent'.\n- Section 5 presents ARIMA equations and says the predictions come from 'a learning machine based on ARIMA model'. The reported results, however, are exponential lines (Cro = 16671×exp(0.01349×t), etc.).\n\n---\n\n## Citation Analysis\n\nThe paper has 80 references, and 55 are by the sole author (68.8%). Most concern the author's informational model across philosophy, gerontology, neurology, psychiatry, biotechnology and plant biology, all published in 2017-2022. They relate to the essay's theme, but they are its only support. Eight self-citations on silicon pressure sensors, boron diffusion, etching, pull-in voltage and polysilicon impurity diffusion ([65], [67]-[71], [78], [79]) are unrelated. A dedicated paragraph places them inside the AI-for-healthcare discussion. Several citations land on the wrong reference, in each case the author's own unrelated papers ([56], [59], [60]) where external sources are described. External sources form a minority: Hameroff and Penrose, Radin (parapsychology), Shannon, Szilard, Schrödinger, Shapiro, and Ismail et al. for COVID-19 time series.\n\n---\n\n## Structural Analysis\n\nThe essay makes very large claims: solving the mind-body problem, explaining near-death and extrasensory phenomena, and unifying psychology. It offers no empirical test, prediction or falsifiable statement of its own. Evidence for the model consists of citations to the author's earlier papers. The brain-area mapping is asserted, not shown. The COVID-19 example fits three exponentials to 18 days of data taken from a cited study and reports no error. The paper discusses no limitation. The conclusion also asserts the 'priority importance' of Romanian contributions on an international scale without evidence.\n\nThe paper is a research-style article (abstract, sections, references), not an editorial. It appears to derive from a presentation at the Romanian Academy acknowledged in the text.\n\nArtifacts: the only data are COVID-19 counts collected from a cited publication [61]. No code is provided, and the conceptual models have nothing to release.\n\n---\n\n## Conclusion\n\nThe paper uses equation-like notation to lend a taxonomic, philosophical framework the look of a formal model. Two-thirds of its references are to the author's own work, including unrelated microfabrication papers, and several in-text citations point to the wrong source. Its strongest claims have no support beyond self-reference. It falls outside what the formalism and evidence criteria can credit. No paper text was addressed to the assessor."
+  },
+  {
+   "paper_id": "milicevic2023",
+   "paper": {
+    "title": "Development of Microcomputers and Motor Control Software for Steel Pipe Cutting Units",
+    "authors": [
+     "Miroslav Milićević",
+     "Valentina Nejković"
+    ],
+    "abstract": "This paper designs the system for automatic regulation of the flying cut-off device for the moving pipe. For the main drive, there are introduced the direct-current motor, reductor, gear and gear-lathe, which is rigidly connected with cut-off device. The speed is regulated by the three-phase thyristor regulator which supplies the DC motor. For the process automation, a microcomputer is designed. On the basis of the projected hardware microcomputer, a software support is offered. The task for the newly projected system is to ensure improved accuracy of the cutting and increase the automation level.",
+    "keywords": [
+     "hardware",
+     "length",
+     "microcomputer",
+     "motor",
+     "pipe",
+     "regulation",
+     "software",
+     "speed"
+    ],
+    "doi": null,
+    "pages": "100-117",
+    "source_file": "paper735.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 0,
+    "structural_integrity": 50,
+    "artifact_availability": 70,
+    "intellectual_integrity": 44.5,
+    "composite": 50.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "subprograms and main program are developed in a symbolic language for this type of microcomputers and they are presented in https://github.com/valentinanejkovic/romjist2022/blob/main/SorceCode-Asembler.asm",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "IRRELEVANT_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "16 of 40 references (40%) include Milićević or Nejković: [14]-[16] and [22]-[34].",
+    "IRRELEVANT_SELF_CITATION": "Reference [34], an e-learning ecosystem based on social-network computing, is cited among the 'new theoretical and scientific results' that suggest a fuzzy controller. References [32] and [33], on temperature distribution and cooling time in arc welding, are cited only to show that the authors 'constantly follow and contribute to welding and thermia'. Neither topic bears on DC-motor control of a flying saw."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Engineering design of a DC-motor and 8-bit microcomputer controller for a flying saw. The motor dynamics are standard and necessary to the design. 40% of the references are self-citations, including unrelated e-learning and welding papers, and the claimed accuracy gain is never measured. The assembler source is linked on GitHub.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A flying cut-off saw for welded steel pipes, re-engineered from a hydraulic drive to a separately excited DC motor with an antiparallel thyristor regulator. The controller is an 8-bit Intel-family microcomputer (8224/8228/8205/8255, 2708 EPROM), programmed in assembler.\n**Level:** 2 (Low)\n**Rationale:** The paper is a system design built from existing components, sized with textbook DC-motor dynamics: linearised transfer functions, inverse Laplace transforms of step and ramp responses, and inertia and torque budgets. It applies a standard engineering analysis to a specific plant, without any new algorithm or theory.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 35 numbered (motor ODEs, transfer functions, partial fractions, time responses, and parameter values or numerical results)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate, and the equations pass the necessity test. The motor model and the Laplace analysis carry the design decision. A voltage step gives a peak rotor current of about 1450 A (6.7× nominal), while 0.3 s and 0.6 s ramps limit it to 210 A and 177 A. This justifies ramp control and the choice of thyristor rating, and English alone could not establish those bounds. The Greek symbols (ω, ξ/ϑ, τ) are standard physical quantities used in the derivations.\n\n### Issues\nNo formalism theater. The notation is sloppy, however. The damping symbol changes from ξ (eq. 6) to ϑ (eq. 29). Eq. (23) has sin 0.614836t, while eq. (28) uses 28.52 rad/s for the same motor. Eq. (35) omits dt from the integral. The text refers to 'block scheme in Fig. 5 are presented in Fig. 6' where Fig. 5 is a current plot. The value J0 = 0.2846 lacks units.\n\n---\n\n## Citation Analysis\n\nThe paper has 40 references, and 16 include an author (40%). Most self-citations are 1979-1986 Yugoslav conference and journal papers by Milićević on pipe-line automation, the flying saw and microcomputer control ([14], [16], [22], [25], [26], [28]), plus his 1981 M.Sc. thesis [16]. These are on-topic and are the actual basis of the work. Others are marginal: induction-welding generator control [23], [24], flow measurement [15], identification without finite zeros [27]. Unrelated are [34] (an e-learning ecosystem) and [32], [33] (thermal processes in arc welding), cited for no technical content. The non-self references [35]-[40] (PI-fuzzy control, a buck converter, a tower crane, vehicle-steering MPC, Q-learning servo control) are cited as a block to 'foresee the possibility of applying fuzzy controller'. They are loosely control-related, but nothing in the paper uses them. No mutual-citation pattern is observable, so no ring flag. Most remaining references are 1960s-1980s vendor bulletins and handbooks.\n\n---\n\n## Structural Analysis\n\nThe calculations support the narrow design claims: the motor is adequate, ramp control limits the current, and acceleration takes 665 ms. The headline claims go unmeasured: 'improved accuracy of the cutting', a system 'much more precise', 'working life cycle is much longer and maintenance is less and cheaper', and fewer accidents. No length-error data, no comparison with the hydraulic system and no field results are reported, and 'According to dynamic analysis' the configuration is adequate, but that analysis is not shown. Estimated CER is about 0.45. Inline, the paper concedes that the system may be stable in one installation and oscillatory in another, and that the authors' patented regulators are out of scope. The hardware and references suggest the paper reports work done in the early 1980s.\n\nArtifacts: the assembler source is linked on the second author's GitHub. There is no data, because the results are analytical.\n\n---\n\n## Conclusion\n\nThe paper is a competent but dated engineering write-up. Its mathematics is necessary and proportionate, and it releases its controller source. Its weaknesses are the absence of any measured improvement and a citation profile heavy with the first author's own decades-old work. That profile includes off-topic self-citations to e-learning and welding papers, and their inclusion triggers the citation-conduct flags. No paper text was addressed to the assessor."
+  }
+ ]
+}

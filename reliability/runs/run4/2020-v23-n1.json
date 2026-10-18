@@ -1,0 +1,74 @@
+{
+ "batch_id": "2020-v23-n1",
+ "analysis_timestamp": "2026-10-18T12:00:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 23,
+  "issue": 1,
+  "year": 2020
+ },
+ "papers": [
+  {
+   "paper_id": "serban2020",
+   "paper": {
+    "title": "Optimization of Sensing Layers Selection Process for Relative Humidity Sensors",
+    "authors": [
+     "Bogdan Catalin Serban",
+     "Octavian Buiu",
+     "Nicolae Dumbravescu",
+     "Cornel Cobianu",
+     "Viorel Avramescu",
+     "Mihai Brezeanu",
+     "Marius Bumbac",
+     "Cristina Mihaela Nicolescu"
+    ],
+    "abstract": "Electronic devices designed for environmental monitoring have gained an increasing importance in the last years. Parameters such as relative humidity (RH), temperature, pressure, acceleration and speed, measured by devices such as RH, temperature, pressure, and motion sensors, are at the core of the efforts for improving the environmental conditions. The employment of such devices in complex sensing systems enable their use in IoT (Internet of Things) applications, which is of paramount importance for an in-time and appropriate reaction to adverse environmental phenomena. Given all these, the need to design sensors with improved sensing performance, such high sensitivity, reduced cross-sensitivity and low response time, emerges. The aim of this paper is to introduce the Hard-Soft Acid Base (HSAB) concept as a valuable investigative tool to explain, to a certain extent, the increased sensitivity and selectivity experimentally demonstrated by different used metal oxides (MOX) and their nanocomposites to relative humidity. Based on literature data, six different case-studies of RH detection by sensing layers employing metal oxides and related composites, are highlighted and investigated in terms of HSAB theory. To support the thesis that the HSAB principle can be a useful criterion and can be taken in account when either selecting a suitable gas sensing layer (in particular, for RH detection) or optimizing his functional response, we will build our argumentation on three reasons: 1) strong RH detection capabilities of MOX layers classified as hard acids according to the HSAB theory; 2) strong ethanol, ammonia and trimethylamine detection capabilities of MOX layers classified as hard acids; 3) the significant role played by dopants classified as hard acids in the performance of MOX-based RH sensing layers.",
+    "keywords": [
+     "Humidity Sensor",
+     "Metal Oxide",
+     "Hard Soft Acid Base"
+    ],
+    "doi": null,
+    "pages": "93-104",
+    "source_file": "paper640.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.0,
+    "composite": 45.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "31 of the 97 reference entries include at least one author of this paper (SCR = 32.0%, above the 30% threshold): [7]-[12], [14]-[18], [32]-[34] and [37]-[53]. Most are patents of the first author's group. Seventeen consecutive self-citations ([37]-[53]) are attached to a single sentence listing gases detected with HSAB-designed layers, eight of them ([37]-[44]) for carbon dioxide alone. Entries [10] and [12] are the same patent (EP 3217167B1) listed twice; removing the duplicate still leaves SCR = 30/96 = 31.3%."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Qualitative literature-based argument that Pearson's HSAB principle explains the humidity sensitivity of metal-oxide sensing layers; no formalism, appropriately, but a self-citation ratio of 32% driven by stacked patent self-citations, post-hoc case selection without counter-examples, and nothing to release.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A position/review paper arguing that Pearson's Hard-Soft Acid-Base (HSAB) principle can guide the choice of metal-oxide (MOX) sensing layers for relative-humidity sensors, illustrated by literature cases grouped into six layer types (A-F), plus supporting examples on other hard-base analytes and hard-acid dopants.\n**Level:** 1 (Trivial)\n**Rationale:** The contribution is a qualitative reinterpretation of published experimental results under an existing chemical concept. No new algorithm, model, measurement, or experiment is presented; the paper is a literature survey with an interpretive thesis, which the specification places at Level 1.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (the only numbers are reported literature values such as a charge/volume ratio of 1.11 for Li+ versus 0.28 for Au3+; chemical formulae are not formal apparatus)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The argument is conveyed entirely in prose and a classification table (Table 1, examples of hard, borderline, and soft acids and bases), which is the right register for a qualitative concept. No element fails the Necessity Test.\n\n### Issues\nNone identified in the formalism. The conclusions themselves note that the HSAB link would need quantitative backing (\"more in-depths calculations regarding electronegativity, HOMO and LUMO energy levels and local hardness are necessary\"), which the paper does not provide.\n\n---\n\n## Citation Analysis\n\nThe reference list has 97 entries, of which 31 include at least one author of this paper (Serban, Buiu, Cobianu, Brezeanu, Avramescu, Bumbac, Nicolescu), giving SCR = 32.0%. The self-citations fall into four blocks:\n\n- [7]-[12]: the group's humidity-sensor patents, cited for \"principles and methods ... for measuring RH\". Topically related (similarity high), but six patents of one group stand in for a general statement about the measurement literature, and [10] and [12] are the same European patent listed twice with different years.\n- [14]-[18]: polymer and nanocarbon humidity-sensing layers (patents and conference papers). Related.\n- [32]-[34]: quantum-dot functionalization and TiO2 functionalization patents/papers, cited as examples of HSAB use in other fields. Topically distant from humidity sensing but relevant to the paper's HSAB thesis; judged marginal (about 0.3-0.5), not below the 0.3 threshold.\n- [37]-[53]: seventeen consecutive self-citations (mostly US/EP patents, plus three ROMJIST papers, [37], [39], [47]) attached to one sentence listing gases sensed with HSAB-designed layers; eight are given for carbon dioxide alone. Each is on HSAB-based gas sensing and so related, but the stacking far exceeds what the sentence needs and is the main driver of the ratio.\n\nNo self-citation was judged unrelated (<0.3), so `IRRELEVANT_SELF_CITATION` is not raised. No evidence of a mutual-citation ring. The remaining 66 references are external and appropriate (Pearson's HSAB papers, and the primary reports for each sensing case). The reference list also has formatting defects (a doubled \"[8] [8]\" label, author names fused with initials).\n\n---\n\n## Structural Analysis\n\nThe descriptive sentences are backed by citations to the primary experimental reports, but the paper's central claims are interpretive and stronger than the evidence offered: that the Lewis interaction \"plays a major role ... and decisively influences the sensor performance\", and that the hard-acid/water interaction \"triggers all types of sensing processes\". These rest on post-hoc reinterpretation of cases chosen because they fit the thesis. There is no stated literature-selection procedure, no systematic search for MOX layers that contradict the prediction (one contrast, Au3+ versus Li+ dopants, is the only negative case), and no quantitative hardness or electronegativity descriptor tested against sensor performance. The claim-evidence ratio is estimated at about 0.7 (adequate) when counting cited literature results as evidence, while the evidence speaks to sensor performance rather than to the HSAB causal claim.\n\nOther weaknesses: the title promises an \"optimization\" of the selection process, but no selection procedure, criterion, or optimisation is defined; headings D and E are identical although E's examples (ZnO-based layers, Zn2+ being borderline in Table 1) have only one hard-acid component, which the text does not reconcile with the thesis; ZrO2 is listed twice in the case-A list.\n\nLimitations are acknowledged inline in the conclusions (other factors such as grain size, porosity, surface area, deposition method, and temperature also influence sensing; further calculations are needed), so `NO_LIMITATIONS` is not raised.\n\nArtifact availability: the paper reports no experiments of its own and has nothing to release; no code, data, or availability statement appears. Category `none`, recorded as not relevant.\n\nNo instructions addressed to an assessor or reviewer were found in the paper text.\n\n---\n\n## Conclusion\n\nA short qualitative review that applies an established chemical principle to explain published humidity-sensor results. Formalism is absent and appropriately so. The paper's main integrity problem is citation conduct: almost a third of its references are the authors' own, mostly patents, concentrated in stacked blocks, notably seventeen consecutive self-citations behind one sentence. That exceeds the 30% threshold and triggers `EXCESSIVE_SELF_CITATION`, which disqualifies at any concept level.\n\nThe scientific argument is plausible as a heuristic but is supported by selected confirming cases rather than a systematic test, and the title's promise of an optimised selection process is not delivered. The paper is useful as a pointer to HSAB as a lens for sensing-layer choice, not as a demonstration that it predicts performance."
+  }
+ ]
+}

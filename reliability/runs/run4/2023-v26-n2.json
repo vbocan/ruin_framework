@@ -1,0 +1,248 @@
+{
+ "batch_id": "2023-v26-n2",
+ "analysis_timestamp": "2026-10-18T03:49:38Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 26,
+  "issue": 2,
+  "year": 2023
+ },
+ "papers": [
+  {
+   "paper_id": "yurtkan2023",
+   "paper": {
+    "title": "Student Success Prediction Using Feedforward Neural Networks",
+    "authors": [
+     "Kamil Yurtkan",
+     "Ahmet Adalier",
+     "Umut Tekgüç"
+    ],
+    "abstract": "Machine learning algorithms have been used in the last decade to predict human behavior. In education, the student’s behavior, and accordingly, their success prediction is also applicable in parallel with the developments in machine learning algorithms and the increased availability of the datasets. The datasets include the observations, which the machine can learn to predict student behavior. By this analysis, given the background information about a student, the features representing a student sample, and the student’s possible performance may be estimated. This study’s motivation is to predict a student’s possible performance to give guiding service. This paper proposes a novel approach for predicting student success by using conventional feed-forward neural networks. The algorithm selects the most informative features based on the variances and uses those features to represent a student sample. The approach is tested on the Experience-API (X-API) dataset collected from Kalboard 360 e-learning system. There are 480 samples in total, with 16 features. It is shown that the improved approach achieves comparable results around 91.95% acceptable predictions by only using behavioral attributes and 93.17% acceptable prediction rates without the feature selection process, respectively.",
+    "keywords": [
+     "data mining and analysis",
+     "educational data mining",
+     "feature selection",
+     "feed-forward neural networks",
+     "information content",
+     "natural computing",
+     "pattern recognition",
+     "student performance",
+     "student success prediction",
+     "variance"
+    ],
+    "doi": null,
+    "pages": "121-136",
+    "source_file": "paper736.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 100,
+    "intellectual_integrity": 46.5,
+    "composite": 59.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"The Matlab code and the dataset of the algorithm can be accessed via the following link: https://github.com/umuttekgucbau/StdSuccessPredictionFNN.\" The dataset is also public: https://www.kaggle.com/aljarah/xAPI-Edu-Data [35].",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper. Equations (2)-(5) restate a feature vector and a data matrix in array notation, twice each (17 and 4 features), and convey only that each student is a row of integer features. They fail all three necessity questions: they could be said in plain English, they change nothing in the implementation, and they enable no proof."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 ML application: a default Matlab feed-forward network with variance-threshold feature selection on xAPI-Edu-Data. Decorative feature-vector and matrix equations trigger FORMALISM_THEATER. Code and data are linked, but the headline finding about behavioural features is an artefact of unscaled variances, and the comparison table mixes accuracy definitions.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Predicting a student's grade category on the public xAPI-Edu-Data set with a Matlab feed-forward neural network at default settings, after keeping only the attributes whose variance exceeds the mean variance.\n**Level:** 2 (Low)\n**Rationale:** A standard ML application: an off-the-shelf classifier trained on a public dataset, preceded by a variance-threshold filter, which is a textbook filter method. The \"novel approach\" claimed in the abstract is that filter; no new algorithm, model or analysis is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 numbered: the gradient-descent update (1), the feature vectors before and after selection (2)-(3), and the data matrices before and after selection (4)-(5). Inline notation for the training set, X = (x1, y1), ..., (xN, yN), and the membership (xi, yi) ∈ X.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate by count, but four of the five equations fail the Necessity Test.\n\n### Issues\n- Equations (2)-(5) write out an array and a two-dimensional array twice each: \"FV_j = [f1 f2 f3 ... fk1]\" and \"FM = [FV1; FV2; ...; FVn1]\", then again with k2 and n2 for the reduced feature set. All they convey is that each student is a row of 17 (after selection, 4) integer features. That can be said in plain English, removing the equations changes nothing a programmer would build, and no derivation rests on them. This is the \"it's an array\" pattern, and at Level 2 it triggers `FORMALISM_THEATER` under the zero-tolerance rule.\n- Equation (1), the plain gradient-descent update with \"the learning rate α\", is textbook material. The network was run \"with the default settings on Matlab\", shown only as a screenshot (Fig. 7), so the equation does not specify what was actually trained. It is counted as a basic equation rather than a failure, but it adds nothing.\n- The set-membership notation is ordinary ML shorthand and involves no set operations, so `UNNECESSARY_SET_THEORY` is not raised.\n\n---\n\n## Citation Analysis\n\nThere is one self-citation among 45 references (SCR 2.2%): [36], Yurtkan et al. on feature selection for 3D facial expression recognition. It is cited for the within-/between-class variance principle behind the selection step. Similarity is marginal (about 0.4): the two papers share a feature-selection theme but not a domain. It stays above the irrelevance threshold.\n\nTwo clusters of off-topic third-party citations deserve a record. Neither involves self-citation, and mutual citation cannot be established from this paper, so no flag is raised.\n\n1. [6], [7], [9], [10] and [11] are cited as examples of the growth of \"prediction methods\" and \"machine learning approaches\". Their topics are observation-process modelling for cognition, fuzzy models of shape-memory-alloy actuators, functional verification, k-means post-processing, and grey-wolf-optimised reinforcement learning.\n2. [37]-[42] are six papers by Vinayakumar and co-authors on botnet detection, stock prices, air quality, network traffic and rainfall. They support two generic statements: that feature visualisation matters, and that \"parameter settings play a role in the performance of the neural network\".\n\nNeither cluster bears on student success prediction. References [14] and [15] are not visibly cited in the text, which reads \"[13, 16]\". Because of this padding, the score sits at the bottom of the ≤15% band.\n\n---\n\n## Structural Analysis\n\nPer-run tables (Tables 3-6) back the headline figures of 93.17% and 91.95% \"acceptable\" predictions. Several claims built on them are not supported.\n\n- **Scale, not information, drives the feature selection.** Variances are computed on unnormalised features, so the four numerical count attributes (e.g. raisedhands) necessarily outrank attributes quantised to 2-14 levels. That is why the \"most informative features\" turn out to be the behavioural ones. The authors themselves concede the observation \"is not supporting a fact and appears to be a delusion\", yet they keep it as the main contribution.\n- **The comparison in Table 7 mixes metrics.** The method's 91.95% counts a prediction as correct if it is exact or one grade off. The two baselines report exact accuracy (73.8% and 76.07%). On exact prediction the method reaches 56.8%, below both, so \"comparable rates\" is not supported.\n- **The target is unclear.** GradeID is named as the target and the task as \"a ten-class classification problem\". Yet the dataset section speaks of \"eight different grades\", and Fig. 2 gives 8 output units. In the public xAPI-Edu-Data description, GradeID is the school grade level the student is enrolled in, and Class (L/M/H) is the performance label. If so, the network predicts the student's school year, not their success. Fig. 2 also gives an input dimension of 17 before selection, though only 16 attributes are said to be inputs, which leaves open whether the target was itself in the unselected input vector.\n- **The reporting is inconsistent.** 480 samples are split into 440 + 41. \"10-fold cross-validation\" is described alongside ten random 90/10 re-splits. Table 1 lists attributes but is captioned \"Comparison of the proposed approach with other similar ones\".\n\nA dedicated Limitations subsection (8.1) earns the dedicated-section credit, although it discusses only feature extraction in deployment and closes by saying the limitations \"are minimized\". CER is judged weak (roughly 0.4-0.5).\n\nArtifacts: code and data are linked, \"The Matlab code and the dataset of the algorithm can be accessed via the following link: https://github.com/umuttekgucbau/StdSuccessPredictionFNN\", and the underlying dataset is a public Kaggle set [35].\n\n---\n\n## Conclusion\n\nThis is a routine application of a default Matlab neural network to a public educational dataset, framed as a novel variance-based feature selection approach. The decorative vector and matrix equations (2)-(5) trigger `FORMALISM_THEATER` at Level 2, which disqualifies the paper under the framework. The substance has further problems. The central finding about behavioural features is an artefact of unscaled variances, the baseline comparison mixes different accuracy definitions, and the identity of the prediction target is doubtful. On the positive side, code and data are linked."
+  },
+  {
+   "paper_id": "mortazavi2023",
+   "paper": {
+    "title": "Detecting Images with Adult Content Using SURF and Haar Wavelet",
+    "authors": [
+     "Mohammad Mortazavi T.",
+     "Omid Mahdi Ebadati E.",
+     "Dang N. H. Thanh",
+     "Tudor Barbu"
+    ],
+    "abstract": "Detecting images with adult content is one of the necessary and challenging problems in the fields of machine learning and machine vision. It can be used for a variety of applications such as content filtering and censoring, and user tracking, and banning. In this work, a framework for detecting nudity and adult content in digital images by using the SURF algorithm and Haar wavelet is developed. The proposed method is divided into online and offline modules. Each process that has a high time consumption is implemented in the offline module. Therefore, it can increase the speed of implementation of the model. For the proposed method, 899 images are used, in that, 402 images contain adult content, and 497 images have no adult content. 300 features of each image are extracted to create a bag of features (BOF), and they were used for the training by using a support vector machine (SVM). The results showed that the proposed method achieved an accuracy of 89.3%, a sensitivity of 86.2%, and a specificity of 92.03% for the classifier. The proposed framework provides an effective solution for detecting images and/or videos containing adult content from the internet environment.",
+    "keywords": [
+     "adult content",
+     "Haar wavelets",
+     "machine learning (ML)",
+     "machine vision",
+     "nudity detection",
+     "speeded up robust features (SURF)",
+     "support vector machines"
+    ],
+    "doi": null,
+    "pages": "137-150",
+    "source_file": "paper737.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.0,
+    "composite": 33.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "No availability statement or link in the text. The positive images were collected by the authors: \"There are not any datasets of pornography images, so the pornography images are taken from different websites.\" Only 101 of the 899 images come from the public Caltech-101 set.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper. Equations (6)-(13) re-derive the SVM primal, Lagrangian and dual from textbook material for a MATLAB SVM with a polynomial kernel, where the only settings that matter are the kernel and C. Nothing later uses them, and they contain transcription errors (e.g. eq. 10 \"w = Σ αi yi = 0\", eq. 12 \"φ(xi + b)\").",
+    "NO_LIMITATIONS": "There is no limitations section, and no inline acknowledgment of any constraint on the method, the self-collected data or the evaluation."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 application of SURF and Haar-wavelet histograms with an SVM to a self-collected image set. An unused, partly erroneous textbook SVM derivation triggers FORMALISM_THEATER. The paper reports no train/test protocol, its data counts are inconsistent, it acknowledges no limitations and it releases no artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Binary classification of images as adult or non-adult. The features are histograms of SURF interest points (whole image and 2×2 sub-images) and a histogram of one-level Haar diagonal coefficients, fed to a polynomial-kernel SVM in MATLAB.\n**Level:** 2 (Low)\n**Rationale:** Every component already exists: SURF, the Haar transform, histogram bag-of-features and the SVM. The contribution is their combination on a self-collected dataset. The \"online and offline modules\" simply mean that feature extraction and training happen before classification. This is a standard ML application.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 numbered, plus an inline Gaussian kernel, a margin derivation and Haar matrices. The numbered equations cover:\n  - the SURF Hessian and descriptor (1)-(2);\n  - the Haar averages, coefficients and mother wavelet (3)-(5);\n  - the SVM vectors, hard-margin primal, Lagrangian, stationarity conditions, dual, and soft-margin primal and dual (6)-(13);\n  - the evaluation metrics (14).\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate by count, but the SVM block fails the Necessity Test.\n\n### Issues\n- **The SVM derivation is unused.** Equations (6)-(13) re-derive the support vector machine from the hard-margin primal through the Lagrangian to the soft-margin dual, which is textbook material [31]. The paper trains an SVM in MATLAB with a degree-3 polynomial kernel. The only facts an implementer needs are the kernel and C, and one sentence gives them. Removing the eight equations would change nothing a programmer builds, and nothing later depends on them. At Level 2 this triggers `FORMALISM_THEATER`.\n- **The derivation is also wrong in places.** The errors suggest it was transcribed rather than used:\n  - (10) reads \"w = Σ αi yi = 0\";\n  - (12) places the bias inside the feature map, \"φ(xi + b)\";\n  - (13) gives the constraints as \"Σ vi αi > 0\" and \"0 < αi < C\" instead of an equality and closed bounds;\n  - the step introducing α = b − 1 and β = b + 1 opens with \"With saving of generality\";\n  - the variable ρ in (3)-(4) is never defined (\"Given a dataset contains elements\").\n- **The SURF equations restate published work.** Equations (1)-(2) restate the published SURF detector and descriptor [27], and the reader does not need them to call it. They are noted but not counted separately.\n- **The metric definitions are fine.** Equation (14) gives standard definitions, which is acceptable.\n\n---\n\n## Citation Analysis\n\nNone of the 38 references is a self-citation (SCR 0%). Several references are off-topic or mis-attributed:\n\n- [12], on predicting students' final GPA (ROMJIST), and [15], a wavelet SVM for sleep EEG, are cited as sources for classification models. [15] is given as \"Science and Technology 23(3)\", apparently the same ROMJIST issue as [12].\n- [6], on grouped neural networks for model predictive control, supports a statement about k-means colour segmentation.\n- [30], on stock price prediction, supports the SVM formulation.\n- Table 2 attributes \"Pornographic Image Recognition via Weighted Multiple Instance Learning\" to [16]. That title belongs to [17]; [16] is a different 2007 paper on web-page classification.\n\nThese errors look careless rather than self-serving, and no flag applies. They place the score at the bottom of the ≤15% band.\n\n---\n\n## Structural Analysis\n\n- **No evaluation protocol.** The main claim is 89.3% accuracy, 86.2% sensitivity and 92.03% specificity. It rests on a single contingency table (Table 1), and the paper never says how the data were split. The text says only \"After training by SVM with the polynomial kernel, the results of the accuracy of the proposed method are presented in Table 1\". No held-out set, cross-validation or repetition is mentioned, so the figures may be resubstitution accuracy.\n- **The data counts do not add up.** 763 web images plus 101 Caltech images make 864, not 899. Table 1's column totals (422 positive, 477 negative) contradict the stated 402/497 split. The row sums do match 402/497. This suggests the FP and FN cells are transposed, since the reported sensitivity and specificity are computed from the columns.\n- **The comparison is not like for like.** Table 2 sets the method against figures that other authors obtained on other datasets. It cannot support the claim that the method \"can compete with other similar state-of-the-art methods\".\n- **\"Large\" is overstated.** The claim that the method \"was tested on a large dataset\" refers to 899 images.\n- **No limitations.** The paper acknowledges no limitations of the method or the evaluation. Its only caveat, that feature-extraction time grows with the number of images, is presented as solved by the offline module. `NO_LIMITATIONS` is raised.\n\nCER is judged weak (roughly 0.4).\n\nArtifacts: neither code nor data is released. The authors collected the positive images from websites: \"There are not any datasets of pornography images, so the pornography images are taken from different websites\". Only 101 negatives come from the public Caltech-101 set, too few for the results to rest on public data.\n\n---\n\n## Conclusion\n\nThe paper combines standard SURF, Haar-wavelet histogram and SVM components and applies them to a private, self-collected image set. A long textbook SVM derivation, partly mistranscribed and never used, triggers `FORMALISM_THEATER` at Level 2 and disqualifies the paper under the framework. Independently of that, the evaluation protocol is not reported, the data counts do not reconcile, no limitations are discussed, and nothing is released."
+  },
+  {
+   "paper_id": "onet2023",
+   "paper": {
+    "title": "A Blended On-Campus and At-Home Approach to Laboratories on Electronic Circuits",
+    "authors": [
+     "Raul Onet",
+     "Marius Neag",
+     "Albert Fazakas",
+     "Paul Miresan",
+     "Gabriel Petrasuc",
+     "Iulian Sularea",
+     "Alessandro Battigelli",
+     "Michael Murray",
+     "Martin Hill"
+    ],
+    "abstract": "This paper presents a blended approach to organizing laboratories for undergraduate Bachelor-level courses on electronics circuits and systems. The main idea is to combine on-campus laboratory sessions with at-home experiments performed individually by each student as homework. This way, students can enjoy the advantages of both on-campus and at-home experimental work while avoiding most of their limitations. An essential prerequisite is to provide each student with a portable laboratory kit. Such a kit was developed by the authors with the Erasmus+ project Home Electronics Laboratory Platform (HELP). The HELP laboratory kit comprises of a portable signal generator & measurement instrument and an electronic board developed specifically for this purpose, which includes several functional blocks alongside the usual breadboard for assembling circuits with discrete components. The paper describes the HELP kit in some detail, then the results of an experiment designed to assess the impact of using it. An administrative unit of 18 third-year students was split randomly in two equal-size groups, one that had only traditional on-campus lab classes while the other nine students were given HELP kits and followed the proposed blended on-campus and at-home approach for their lab classes. All students received end-of-semester marks for both laboratory activity (as an average of four tests and homework completion) and a written exam (solving four problems on circuit analysis). The group that used HELP kits performed substantially better than their counterparts, both in respect to laboratory – average lab mark almost two points (out of ten) higher – and written exam – average exam mark over one point higher. These results indicate that the blended on-campus and at-home approach to laboratory classes helped improve the overall learning experience for students, with positive impact not only on their lab performance but on their understanding of electronic circuits, as well.",
+    "keywords": [
+     "assessment of laboratory work",
+     "electrical engineering education",
+     "home electronics laboratory",
+     "online learning",
+     "portable electronic laboratory kits"
+    ],
+    "doi": null,
+    "pages": "167-180",
+    "source_file": "paper740.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.2,
+    "composite": 60.9,
+    "final": 55.9
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "No availability statement or link in the text for design files, firmware or data. The only link is the project home page, \"[13] https://international.utcluj.ro/help-home-electronics-laboratory/\", and the paper does not say it hosts any artifact.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "The paper discusses the limitations of prior approaches and of the earlier kit, but acknowledges none of its own study: nine students per group, a single cohort, no significance testing, and grading by assessors who knew each student's group."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Level 1 engineering-education case study of a portable electronics lab kit. It uses no formalism and its self-citations are relevant. Its claims of educational impact rest on 9 versus 9 students with no statistical test, it acknowledges none of the study's limitations, and it releases no design files or data.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** An engineering-education case study with three parts:\n- a portable lab kit: a commercial Hantek 2D72 handheld instrument plus a custom USB-powered board carrying supplies, a power amplifier, DC references and a clock generator;\n- a blended on-campus/at-home way of organising the lab;\n- a comparison of grades between two groups of nine students.\n\n**Level:** 1 (Trivial)\n**Rationale:** The kit is a prototype assembled from catalogue parts (a CUI DC-DC converter, a Microchip MIC2033 current limiter, standard op-amp stages). The pedagogical part is descriptive, with a small comparison of marks. No algorithm or model is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The paper works in prose, block diagrams, schematics and a comparison table, which suits its content.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo of the 18 references are self-citations (SCR 11.1%):\n- [10] (O'Mahony, Hill, ..., Murray, Onet, Neag) describes the 2020 MTU take-home kit that this board upgrades.\n- [12] (all nine authors) is the 2022 conference paper that introduced the HELP kit and its questionnaire.\n\nBoth are directly relevant (similarity ≥0.8). Reference [13] is the project's web page at the authors' university and is not counted as a publication. The remaining references are on topic: remote labs, take-home labs and datasheets.\n\nThe paper does not make its relation to [12] clear. Both the questionnaire (Table 2) and the responses in Fig. 6 are referenced to [12]. The paper does not say whether the responses reported here are new or reuse the earlier cohort's data.\n\n---\n\n## Structural Analysis\n\nSchematics, a photograph and a feature and cost comparison (Table 1) support the description of the kit well. The claims about educational impact go further than the evidence.\n\n- **No statistics, very small sample.** Two groups of nine students are compared using box plots alone. Yet the text says the HELP group \"obtained significantly better grades\", and the conclusion is causal: the approach \"helped improve the overall learning experience ... with positive impact ... on their understanding of electronic circuits\". No statistical test is reported.\n- **Confounded assessment.** Lab marks combine written tests with marks for homework, and the HELP group's homework was different (hands-on rather than simulation). Graders knew which group each student belonged to.\n- **Inconsistencies.**\n  - The abstract and the conclusion report an \"average lab mark almost two points ... higher\", while Section 5.2 refers to the median.\n  - Fig. 6's caption refers to \"the questionnaire listed in Table 1\", but the questionnaire is in Table 2.\n  - The 2020 instrument is called both Hantek 2D42 and Hantek 2D72.\n- **One good control.** The authors compare the same two groups' grades in two other courses taught conventionally and find small or no differences. This partly addresses differences in prior ability, and it is to their credit.\n\nThe paper discusses the limitations of take-home labs in general and of the earlier kit. It acknowledges none of the limitations of this study: the sample size, the single cohort, the absence of significance testing, the grading by assessors who knew each student's group. `NO_LIMITATIONS` is raised. CER is judged adequate (roughly 0.6).\n\n**Artifacts:** no design files, firmware, bill of materials or grade data are released or offered. The only link is the project home page (\"https://international.utcluj.ro/help-home-electronics-laboratory/\", [13]), and the paper does not say that any artifact is hosted there. The schematics in Fig. 4 are simplified descriptions; under the specification, a description does not count as availability.\n\n---\n\n## Conclusion\n\nThe paper gives a clear description of a portable electronics lab kit and of a sensible blended lab model, and appropriately uses no formalism. Its evidence for educational impact is weak. It compares nine students with nine others and runs no statistical test. Its causal wording is stronger than that comparison can support, and it acknowledges none of the study's limitations. No hardware design files or data are released."
+  },
+  {
+   "paper_id": "beydoun2023",
+   "paper": {
+    "title": "SiC Plasma and Electrochemical Etching for Integrated Technology Processes",
+    "authors": [
+     "Nour Beydoun",
+     "Mihai Lazar",
+     "Xavier Gassmann"
+    ],
+    "abstract": "This paper reports research on deep etching of silicon carbide (SiC) to achieve isolated deep trenches in the same thick SiC substrates. This paper combines both plasma etching and electrochemical etching on p-type SiC above n-type SiC layers. Uniform and smooth plasma etched surfaces of SiC were obtained upon using Ni masks with significant thicknesses deposed by electroplating. This step allowed to etch unprotected SiC up to 30 µm. Selective conductive electrochemical etching allows to obtain a higher etched thickness of silicon carbide substrates. The p-type layer will be inert and act as a stop layer, whereas, the n-type layer will be corroded. Finally, this paper obtains deep etching reaching around 80 micrometers, which opens the perspectives to start fabrication of vertical power-integrated SiC devices.",
+    "keywords": [
+     "APTES",
+     "etching",
+     "ICP",
+     "Ni electroplating",
+     "plasma",
+     "RIE",
+     "SiC"
+    ],
+    "doi": null,
+    "pages": "238-246",
+    "source_file": "paper746.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 62.5,
+    "composite": 46.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Five of the nine references ([1]-[5]) include an author of this paper, an SCR of 55.6%, well above 30%. All are on topic. The ratio is driven by a very short bibliography that leaves out most of the work by other groups on deep SiC etching."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 experimental study of deep etching in SiC, with no formalism. Five of its nine references (55.6%) are self-citations, which raises EXCESSIVE_SELF_CITATION even though all are on topic. The plasma-etch depths are reported inconsistently, the electrochemical parameters are omitted, and no data are released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Experimental semiconductor process work on deep etching of 4H-SiC, by two routes:\n- ICP/RIE plasma etching through an electroplated Ni mask, whose adhesion is improved by APTES functionalisation and Pd activation;\n- selective electrochemical etching of n-type SiC, using a p-type layer to stop the etch.\n\n**Level:** 2 (Low)\n**Rationale:** The paper applies existing techniques and reports the depths and surface morphologies they produce:\n- APTES/Pd activation, taken from [7, 8];\n- RIE parameters, taken from the authors' earlier work [1-4];\n- selective electrochemical etching, after Shor et al. [6].\n\nIt is an empirical process-adaptation study and proposes no model or algorithm. Level 2 fits better than Level 1, whose examples are software integrations. The choice does not affect the outcome, because the paper contains no formalism.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The paper is purely experimental and uses no mathematical notation.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nFive of the nine references are self-citations (SCR 55.6%):\n- [1], [2], [3] and [4] are by Lazar and co-authors, on RIE of SiC, trenching, masking materials and vertical terminations;\n- [5] is by all three authors: the conference paper that introduced the electroplated Ni mask.\n\nEvery self-citation is on topic. [1], [2], [4] and [5] are directly relevant (similarity ≥0.8). [3], on dielectric-filled vertical terminations for HVDC SiC devices, is related (about 0.5).\n\nThe ratio is high mainly because the bibliography is so short: nine references, only four of them by other groups. That is thin for a paper claiming to extend the state of SiC deep etching, and other groups' work on deep SiC etching is almost entirely absent.\n\nUnder the specification, an SCR above 30% raises `EXCESSIVE_SELF_CITATION`, caps the citation score at 40, and disqualifies the paper at any level. The score is set below the cap because the ratio is far above the threshold.\n\n---\n\n## Structural Analysis\n\nSEM images and profilometer traces support the plasma-etching results. The reporting, however, is thin and in places contradicts itself.\n\n- **The plasma-etch depths contradict one another.** Three figures are given, and they cannot all be right:\n  - Section 3.2 reports 12 µm after 30 min, a rate of 0.4 µm/min.\n  - The text and caption of Fig. 6 say that two 30-min steps gave a \"∼ 3 µm etched thickness\".\n  - The abstract and conclusion claim \"around 30 µm by applying two 30 min plasma etching process\".\n- **The electrochemical step cannot be reproduced from the paper.** It omits the KOH concentration, the current density or pulse parameters, the etch time, the thickness of the p-type layer and the etched area. The headline depth rests on a single profile (Fig. 8). The introduction states it as \"superior to 80 µm\" and the abstract as \"around 80\".\n- **Nothing is replicated.** Every result comes from a single sample, with no repeat runs and no measure of variability.\n\nThe authors do acknowledge three weaknesses inline:\n- the trench profiles are jagged because the resist is thick;\n- electrochemical etching is non-directional and leaves a porous surface;\n- isolating vertical devices would need more than 100 µm.\n\nThese acknowledgments are enough to avoid `NO_LIMITATIONS`. CER is judged adequate (roughly 0.7).\n\n**Artifacts:** no data (SEM images, profilometer traces) or process files are released, and none are offered.\n\n---\n\n## Conclusion\n\nThe paper is a short experimental report. It combines an electroplated Ni mask with improved adhesion, used for ICP/RIE, with selective electrochemical etching, and reaches about 80 µm in SiC. It contains no formalism, so the formalism component is proportionate.\n\nThe paper is nonetheless disqualified by an excessive self-citation ratio: self-citations make up more than half of a nine-item bibliography, even though every one is on topic. The quantitative reporting has two further problems. Its figures for plasma-etch depth contradict each other, and it omits the electrochemical process parameters needed to reproduce the main result."
+  }
+ ]
+}

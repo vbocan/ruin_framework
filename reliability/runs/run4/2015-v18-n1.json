@@ -1,0 +1,171 @@
+{
+ "batch_id": "2015-v18-n1",
+ "analysis_timestamp": "2026-10-18T03:40:28Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 18,
+  "issue": 1,
+  "year": 2015
+ },
+ "papers": [
+  {
+   "paper_id": "sys2015",
+   "paper": {
+    "title": "On the Interpretation of Results from the NIST Statistical Test Suite",
+    "authors": [
+     "Marek Sýs",
+     "Zdeněk Říha",
+     "Vashek Matyáš",
+     "Kinga Márton",
+     "Alin Suciu"
+    ],
+    "abstract": "NIST Statistical Test Suite is an important testing suite for randomness analysis often used for formal certifications or approvals. Documentation of the NIST STS gives some guidance on how to interpret results of the NIST STS but interpretation is not clear enough or it uses just approximated values. Moreover NIST considers data to be random if all tests are passed yet even truly random data shows a high probability (80%) of failing at least one NIST STS test. If data fail some tests the NIST STS recommends the analysis of different samples. We analysed 819200 sequences (100 GB of data) produced by a physical source of randomness (quantum random number generator) in order to interpret results computed without analysing any additional samples. The results indicate that data can be still considered random for the significance level α = 0.01 if they fail less than 7 NIST STS tests, 7 tests of uniformity of p-values (100 sequences) or 10 tests of proportion of passing sequences. We have also defined a more accurate interval of acceptable proportions computed with a new constant (2.6 instead of 3) for which 1000 sequences can be considered random if they fail less than 7 tests of proportion.",
+    "keywords": [
+     "NIST STS",
+     "statistical randomness testing",
+     "hypothesis testing"
+    ],
+    "doi": null,
+    "pages": "18-32",
+    "source_file": "02-msys.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 74,
+    "artifact_availability": 50,
+    "intellectual_integrity": 84.7,
+    "composite": 76.02,
+    "final": 76.02
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"We have analysed 100 GB of data (downloaded from [8]) produced by a physical source of randomness\"; [8] \"QRNG Service. https://qrng.physik.hu-berlin.de\". The authors' optimised NIST STS implementation [5] is cited but not linked.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Empirical calibration of NIST STS result interpretation on quantum-generator data; the formalism is minimal and necessary and self-citation is low and relevant, but several numbers disagree between sections, including the headline single-sequence threshold.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Empirical calibration of how NIST STS results should be read. The authors run the 188 default NIST STS tests on 819,200 sequences from a quantum random number generator, tabulate how often truly random data fails i tests under each of the suite's interpretation procedures (single-sequence p-values, uniformity of p-values, proportion of passing sequences), and propose replacing the constant 3 with 2.6 in the interval of acceptable proportions.\n**Level:** 2 (Low)\n**Rationale:** An empirical study with basic statistics. The corrected constant comes from the normal approximation of a binomial (2.6 is close to the two-sided 99% normal quantile), and the main results are frequency tables obtained by running an existing test suite on existing data. There is no new algorithm, model, or proof.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0 (three numbered \"Remarks\" restate known facts, Remark 1 cited to [9]; nothing is proved)\n- Proofs: 0\n- Equations: 6 (uniform p-value probability, NIST interval (1), proposed interval (2), binomial probability (3), its cumulative sum, binomial expectation for 188 independent tests)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. Every equation is used to compute an interval or probability that the paper then reports and interprets. α is the significance level, the quantity the whole paper is about, not a decorated configuration constant.\n\n### Issues\nNone in the formalism.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 11 references (9%): [5] Sýs and Říha, \"Faster Randomness Testing with the NIST Statistical Test Suite\" (LNCS 8804, 2014), the optimised implementation used to run every experiment. Directly relevant. The rest are NIST SP 800-22, the competing batteries (Diehard, Dieharder, TestU01), the two prior dependency analyses ([6], [7]), a statistics paper on p-values, and tool or reference URLs. Reference [2] (Diehard) is listed but never cited in the text. No concerning patterns.\n\n---\n\n## Structural Analysis\n\nClaims are mostly backed by the authors' own computed tables (Tables 3-5) or by the NIST documentation; CER estimated at or above 1.0. The reporting has inconsistencies a reader must resolve:\n- Section 5 says the sequence length \"was set to 100000 bits which corresponds to 819200 analysed sequences\", while the Conclusion says \"819200 sequences of 1000000 bits\"; only the latter matches 100 GB of data.\n- Section 5.1 concludes a sequence is non-random \"if it fails 8 or more NIST STS tests\", which matches Table 3, but the Conclusion says \"7 or more\" and the abstract \"less than 7\".\n- The interval \"[0.9805,0.9994]\" is attributed to the new formula (2), but these are the bounds of formula (1); formula (2) gives roughly [0.9818, 0.9982], which is what the 982/998 bounds used next correspond to.\n- Table 5's caption speaks of \"uniformity tests\" although the table reports proportion tests; Table 2's caption attributes the illustrative data to a \"biased\" generator without explanation.\n\nLimitations are acknowledged inline: formula (2) is accurate only for large k, the tester must check the new interval by hand because the NIST report marks only the old one, and additional samples are still needed to separate anomaly from non-randomness. The use of a single physical generator as the reference for \"truly random\" data is not discussed.\n\nArtifacts: the input data come from a named, linked public service (the Humboldt University QRNG, [8]). The optimised NIST STS implementation is cited ([5]) but not linked, and the computed reference tables are not deposited. Category data, with the caveat that the service produces fresh output on demand, so the exact 100 GB analysed cannot be retrieved.\n\n---\n\n## Conclusion\n\nA practical, clearly motivated study whose formalism is exactly what the problem requires: binomial and normal-approximation arithmetic used to produce reference thresholds. Self-citation is low and relevant. The main weaknesses are editorial rather than conceptual: several numbers disagree between sections, including the headline single-sequence threshold, and the reference distribution rests on one generator. The thresholds are useful to practitioners once those inconsistencies are corrected."
+  },
+  {
+   "paper_id": "cucu2015",
+   "paper": {
+    "title": "The SpeeD Grammar-based ASR System for the Romanian Language",
+    "authors": [
+     "Horia Cucu",
+     "Andi Buzo",
+     "Corneliu Burileanu"
+    ],
+    "abstract": "This paper describes the grammar-based automatic speech recognition system for the Romanian language developed by the Speech and Dialogue Research Group. The paper links to previous work for the issues related to large vocabulary speech recognition and focuses on the specific optimization work done for several closed-vocabulary, grammar-based speech recognition tasks. Among the specific problems approached, of particular interest is the informal pronunciation modelling of Romanian two-digit numbers. The paper proposes solutions for within-word and cross-word pronunciation modelling of numbers and reports significant relative improvements of the speech recognition word error rates.",
+    "keywords": [],
+    "doi": null,
+    "pages": "33-53",
+    "source_file": "03-hcucu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 40,
+    "structural_integrity": 72,
+    "artifact_availability": 70,
+    "intellectual_integrity": 64.8,
+    "composite": 66.1,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"The proof-of-concept system presented in this paper is available online\", footnote 4: \"SpeeD grammar-based ASR system: http://speed.pub.ro/speech-to-text\". A hosted service; source, models, grammars and evaluation corpora are not released.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "5 of 16 references (31.3%) include at least one of the authors: [1], [2], [4], [12], [15]. Just above the 30% threshold (7 of 18 in-text citation instances, 39%). All five are topically related to the SpeeD ASR system the paper extends, so no irrelevant self-citation is involved; the flag follows from the ratio alone."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Engineering report on a grammar-based extension of a Romanian ASR system, with minimal and necessary formalism and informative tuning tables (tuned on the evaluation data); the self-citation ratio of 31% narrowly crosses the excessive threshold although every self-citation is relevant.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Extension of the SpeeD group's CMU Sphinx-4 based Romanian LVCSR system with JSGF rule grammars for six closed-vocabulary tasks (numbers, dates, cities, forenames, surnames, yes/no); tuning of three decoder parameters (word insertion probability, out-of-grammar probability, relative beam width) on newly recorded task corpora; and modelling of informal pronunciations of Romanian two-digit numbers through extra dictionary entries and underscore-joined compound words.\n**Level:** 2 (Low)\n**Rationale:** The system is assembled from an existing toolkit (Sphinx-4, SRILM, LIUM) and the group's existing LVCSR system. The contributions are grammar design, a parameter-tuning study, and a lexicon-level pronunciation fix evaluated on in-house data. No new algorithm is proposed. It sits at the top of Level 1 / bottom of Level 2; the systematic tuning study and the evaluated modelling change place it at Level 2.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (the standard WER formula)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The JSGF listing in Fig. 1 is the decoder's actual input, that is, the implementation itself rather than notation standing in for it, so it passes the necessity test. The \"W = w1, w2, ..., wn\" shorthand in the background section is prose notation and is not used as formal apparatus.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nFive of 16 references include at least one of the three authors: [1] Cucu, PhD thesis (2011); [2] Cucu, Besacier, Burileanu, Buzo (SPECOM 2011); [4] Cucu, Buzo, Petrica, Burileanu, Burileanu (COMM 2014); [12] Cucu, Buzo, Besacier, Burileanu (Speech Communication 2014); [15] Buzo, Cucu, Petrica, Burileanu (COMM 2014). SCR = 5/16 = 31.3%, just above the 30% threshold; counting in-text citation instances instead gives 7 of 18 (39%).\n\nAll five are topically related: they document the LVCSR system this paper extends, its noise-robust features, its automatic phonetization tool (used here for the grammar vocabularies), and its speaker-diarization module. [15] is the most peripheral, since diarization plays no role in the grammar-based system, but it describes the same system and is not unrelated. No self-citation falls below 0.3 similarity, so IRRELEVANT_SELF_CITATION does not apply. The pattern is that of a group documenting its own platform rather than padding, but the ratio exceeds the specification's threshold, so EXCESSIVE_SELF_CITATION is raised and the citation score is set at the cap of 40.\n\n---\n\n## Structural Analysis\n\nThe experimental claims are backed by Tables 4-7 (CER around 1.0), and the discussion of why WIP behaves differently across grammars is reasoned from the grammar structure. Weaknesses:\n- Decoder parameters are tuned on the same task corpora on which results are reported; there is no held-out set, so the reported optimum WERs are optimistic.\n- The corpora are small (4 to 14 speakers; 480 utterances for Cities) and relative improvements are called \"significant\" without any significance test.\n- WERs above 100% on out-of-grammar utterances (up to 890%) are reported without stating what the reference transcription of out-of-grammar speech is.\n- Minor slips: the third setup of Table 7 points to Table 1 for the 20-99 numbers (they are in Table 2); the final numbers experiment uses WIP=1E-20 while Tables 5 and 6 fix WIP=1E-10, without comment.\n\nLimitations are acknowledged inline: \"there is still room for improving the recognition of informally pronounced numbers\", the 64k-word decoder limit, and future work on numbers in continuous speech. No dedicated section.\n\nArtifacts: the paper links the authors' own hosted system (\"available online\", http://speed.pub.ro/speech-to-text). Source code, acoustic models, grammars, and the evaluation corpora are not released. Category code on the strength of the specific link to the authors' tool, although it is a hosted service rather than downloadable source.\n\n---\n\n## Conclusion\n\nA competent engineering report: the formalism is minimal and fully necessary, the pronunciation-modelling idea is simple and its effect on informally spoken numbers is large (WER from 22.5% to 8.2%), and the tuning tables are informative. Methodologically, tuning on the evaluation data and the absence of significance testing limit how far the numbers generalise. The paper is disqualified under the framework not for its content but because the self-citation ratio (31.3%) crosses the 30% threshold by a narrow margin, even though every self-citation is relevant."
+  },
+  {
+   "paper_id": "zene2015",
+   "paper": {
+    "title": "Efficient Hardware Implementation of Snapshotting Algorithms for NoC Applications",
+    "authors": [
+     "Andrei Zene",
+     "Claudiu-Teodor Chirap",
+     "Octavian Creţ",
+     "Lucia Văcariu"
+    ],
+    "abstract": "The NoC domain has known a big development lately, acquiring an ever growing importance in the context of hardware miniaturization. However at this point it is still hard to observe and / or debug what is going on inside the chip, be it for debugging purposes or for long-running processes like computational biology simulations which could gain a great improvement when ran on an FPGA chip. Therefore, this paper proposes hardware implementations of three of the most important snapshot algorithms: Lai-Yang, Li et al. and Mattern, which could be used in order to achieve observability on a long-running process physically implemented on an FPGA target. The setup is based on the layers architecture, making it easy to separate the snapshot algorithm from the application or the intercommunication network. The intercommunication network was generated using the CONNECT NoC generator and the snapshots are sent to a PC via UART for displaying. The algorithms were compared from three points of view: operating frequency, throughput and resource usage. Based on the obtained results, we show that the Mattern algorithm is the best candidate for an effective hardware implementation (both from the resource usage and speed points of view).",
+    "keywords": [
+     "FPGA",
+     "NoC debugging",
+     "network-on-chip",
+     "snapshot algorithms",
+     "observability",
+     "computational biology"
+    ],
+    "doi": null,
+    "pages": "79-92",
+    "source_file": "06-ocret.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 46.5,
+    "composite": 34.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (existing snapshot algorithms implemented on an FPGA) with formal elements that fail the necessity test: Eqs. (1)-(3) define the global state and its consistency in set notation, are restated in plain English immediately afterwards, and are never used in the design, a proof, or the evaluation.",
+    "UNNECESSARY_SET_THEORY": "Eq. (1) aggregates node and channel states with n-ary set union (GS = {∪LSi, ∪SCij}) and Eqs. (2)-(3) use set membership for \"recorded in node i's state\"; in the implementation this is the list of state, counter and transit messages the initiator collects. No proof depends on these operations."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "FPGA comparison of three existing snapshot algorithms with useful measurements, but a decorative set-theoretic restatement of global-state consistency that nothing later uses triggers the Level 2 zero-tolerance formalism flags, and the biological-simulation framing is never evaluated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** VHDL implementations on a Xilinx Kintex-7 FPGA of three published non-FIFO snapshot algorithms (Lai-Yang, Li et al., Mattern), layered over a NoC generated with the third-party CONNECT tool, with snapshots sent to a PC over UART; the three are compared by throughput, operating frequency, and LUT/FF usage on a 16-node mesh. The motivation is observability of FPGA-based biological simulations.\n**Level:** 2 (Low)\n**Rationale:** Existing algorithms implemented on a new platform and compared empirically, which is exactly the \"applies existing algorithm to new domain\" case. No new algorithm, proof, or complexity analysis is offered.\n\n### Formal Elements\n- Definitions: 3 inline (the send/recv message events, the global state GS, the consistency condition) (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (Eqs. (1)-(3))\n\n### Proportionality\nCalculated complexity: 6\nExpected range (Level 2): 0-15\nRatio: 0.4x upper bound\n\n**Assessment:** Within the count range, but the elements fail the necessity test, which is decisive at Level 2.\n\n### Issues\n- Eq. (1) writes the global state as GS = {∪ LSi, ∪ SCij}, an n-ary set union over node and channel states. The very next sentence restates it in English: \"the global state of the system is the set that contains each node's local state and the states of the channels that link those nodes.\" In the implementation this is the collection of STATE, COUNTER, and TRANSIT messages the initiator gathers and forwards over UART.\n- Eqs. (2)-(3) express consistency with set membership, exclusive-or, and conjunction, e.g. send(mij) ∈ LSi → recv(mij) ∈ LSj ⊕ mij ∈ SCij. The following paragraph again restates both conditions in plain English.\n- Nothing later uses these elements: there is no proof, no check that captured snapshots satisfy (2)-(3), and no connection to the state machines or the measurements. The VHDL would be identical without them.\n- The notation is loose: SCij denotes both the channel and the channel's state.\n\nNecessity test: could it be said in plain English? Yes, and the paper does so. Would a programmer need it? No. Does it enable a proof or bound? None is attempted. Under the Level 1-2 zero-tolerance rule this raises FORMALISM_THEATER, and the set union and membership standing in for collecting per-node records raise UNNECESSARY_SET_THEORY. Mitigating context: the block restates a standard textbook definition from [5] rather than inventing notation, and it occupies about half a page of background.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 13 references (7.7%): [11] Chirap and Creţ, \"A flexible communication method for multi-FPGA based designs\" (FPGAworld 2013), cited for scaling the NoC across several FPGAs. Relevant.\n\nTwo non-self citations in the last sentence of the conclusion are topically mismatched: [12] (Nedezki, Julean, Kerekes, \"Study of the workspace for parallel manipulator 3RUU\") is cited for \"artificial life\", and [13] (Darabant, Cretu, Darabant, \"Magnetic stimulation of the spinal cord: Experimental results and simulations\") for \"biological simulations\". Neither concerns FPGA simulation of biological systems. They are not self-citations (\"Cretu M.\" is not the co-author Creţ), so no self-citation flag applies, and a citation ring cannot be established from a single paper. They read as courtesy citations, and the citation score is placed at the bottom of the SCR ≤15% band for that reason.\n\n---\n\n## Structural Analysis\n\nThe measured results (Tables 1-3) support the central finding that Mattern's algorithm is cheaper and faster than the two memory-based alternatives, and the explanation (no message logs in BRAM) is sound. Several other claims lack evidence:\n- \"showing their direct applicability in the field of biological simulations\": no biological workload was run; the test state is a message counter.\n- \"A generic infrastructure has been developed to allow a fast and automatic implementation of snapshotting for any network-on-chip\": only CONNECT networks were tested.\n- \"the usage overhead added by the snapshot algorithm is not significant\": no baseline resource figures for the NoC or an application are given.\n- CONNECT was chosen for its small footprint \"compared to the NoCs generated by other NoC generators\": no data or citation.\n\nThe no-snapshot throughput is \"computed theoretically\", and the Lai-Yang/Li figures reflect a send-rate limit the authors imposed to protect BRAM, so the 30 KB/s versus 600 MB/s contrast is partly a property of the test setup. The text announces \"three performance indicators\" and then lists four. CER estimated around 0.6.\n\nLimitations are acknowledged inline: the UART bottleneck, the 16-node comparison forced by the memory needs of Lai-Yang and Li, the 128-node synthesis ceiling, and the NoC ceasing to work at 100% load. No dedicated section.\n\nArtifacts: no code, bitstreams, or the C# console tool are released; CONNECT is a third-party generator and does not count as the authors' code. Category none.\n\n---\n\n## Conclusion\n\nA useful engineering comparison with clearly reported measurements and a sensible layered design that decouples the snapshot logic from the network. Two problems stand out. The set-theoretic restatement of global-state consistency in Section 2.1 is decorative at this level and is never used, which under the framework's zero-tolerance rule for Level 1-2 papers disqualifies the paper. More substantively, the biological-simulation framing that dominates the abstract and introduction is not evaluated at all, and two of the closing citations do not support the claims they are attached to."
+  }
+ ]
+}

@@ -1,0 +1,241 @@
+{
+ "batch_id": "2022-v25-n1",
+ "analysis_timestamp": "2026-10-18T03:51:05Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 25,
+  "issue": 1,
+  "year": 2022
+ },
+ "papers": [
+  {
+   "paper_id": "nejkovic2022",
+   "paper": {
+    "title": "Application of Fuzzy Analytic Hierarchy Process to Inductive Steel Tube Welding",
+    "authors": [
+     "Valentina M. Nejković",
+     "Miroslav S. Milićević",
+     "Goran Janaćković",
+     "Miroljub Grozdanović"
+    ],
+    "abstract": "The paper presents the methods for the measurement and improvement of energy parameters and quality of high-frequency inductive steel tube welding. This improvement is shown through lessened energy and power consumption and increased weld quality. The key welding quality and energy efficiency indicators are obtained by group fuzzy analytic hierarchy process, including five experts in the assessment, based on the three groups of welding process characteristics and eleven indicators. Based on the selected key indicators and the results of the practical analysis, the new impeder with Fluxtrol magneto-dielectric material is designed and developed. The function of the impeder is to transfer and convert electromagnetic energy into heating energy in the best possible way. Practical results prove the quality and efficiency of the proposed solution.",
+    "keywords": [
+     "automation",
+     "fuzzy analytic hierarchy",
+     "fuzzy systems",
+     "hierarchy process",
+     "reasoning",
+     "welding"
+    ],
+    "doi": null,
+    "pages": "3-19",
+    "source_file": "paper703.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 60,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 64.25,
+    "composite": 48.19,
+    "final": 43.19
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "7 of 27 references (25.9%) are self-citations: [7], [8], [10], [13] (Milićević et al. on HF inductive welding and impeders), [11], [12] (Nejković and Milićević on welding thermal processes) and [25] (Grozdanović and Janaćković, the fuzzy AHP procedure reused here). All are topically related; [11] and [12] are marginal."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Textbook group fuzzy AHP applied to welding indicators, followed by an industrial impeder comparison. The formalism is proportionate, but the expert weights are computed wrongly, text from an unrelated manuscript has been pasted in, and the tables are mislabelled. Broad productivity and cost claims go unsupported.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Group fuzzy AHP ranking of eleven welding-process indicators by five experts, followed by an industrial comparison of a ferrite impeder with a new impeder built from Fluxtrol A magneto-dielectric in high-frequency inductive steel tube welding.\n**Level:** 2 (Low)\n**Rationale:** The decision method is standard group fuzzy AHP (expert weighting, weighted geometric aggregation, geometric-mean fuzzy weights, a CCI consistency check), taken from the cited literature [25-27] and applied to a new domain. The engineering part is an empirical comparison of impeder materials. Neither part proposes a new algorithm or model.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (expert weights, Eq. 1; aggregated fuzzy judgment matrix, Eq. 2; fuzzy weights, Eq. 3; mean aggregated weight, Eq. 4)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The four equations are the operational definition of group fuzzy AHP: anyone reproducing the ranking needs them, and they let a reader check the reported weights. The paper introduces no definitions, theorems or proofs.\n\n### Issues\n- The operand vectors of Eq. 1 are written in set braces (\"Γ = {γ1, . . . , γm} is the vector (or set) of weights\"; \"B = {2, 1, 1, 1, 2}\"). This is loose notation for indexed vectors. No set operation or set-theoretic argument is built on it, and the equations it serves are needed, so it was not counted as a Necessity Test failure.\n- Eq. 1 is applied incorrectly. With B = {2, 1, 1, 1, 2} and C = {2, 2, 1, 1, 1} the products are 4, 2, 1, 1, 2, which give weights 0.4, 0.2, 0.1, 0.1, 0.2. The paper reports Γ = {0.4, 0.1, 0.1, 0.1, 0.2}, which sums to 0.9 and breaks its own constraint that the weights sum to 1.\n- The fuzzy arithmetic behind Eq. 3 (division of triangular fuzzy numbers) is not stated; the paper refers to [25-27] for it.\n\n---\n\n## Citation Analysis\n\nSeven of 27 references are self-citations (SCR 25.9%):\n- [7], [8], [10], [13]: Milićević et al. on HF inductive welding and impeders, directly relevant.\n- [25]: Grozdanović and Janaćković, the fuzzy AHP procedure reused here, directly relevant.\n- [11], [12]: Nejković and Milićević on temperature distribution in welding and on arc-welding preheating. They are cited within the range [7-12] for \"improving impeder by increasing the electric energy efficiency\", which neither paper addresses. Their topical similarity is marginal (about 0.4) rather than unrelated.\n\nNo self-citation falls below 0.3. The SCR is in the 20-30% band.\n\nTwo non-self citations, [16] (tensor-product model transformation for tower cranes) and [17] (signatures in expert systems), support a generic sentence about the popularity of fuzzy systems and have nothing to do with welding or AHP. A single paper cannot show a mutual-citation pattern, so no ring indicator is raised.\n\n---\n\n## Structural Analysis\n\n**Evidence for the claims.** The energy-saving claims (above 40%, up to about 45%) rest on production curves in Figures 2-9, which are not visible in the text extraction, and on Table 7. Table 7 (24.3 vs 58.1 kWh/t for the FA and TDK ferrite impeders) supports a saving of that size. Several other claims have no evidence in the paper:\n- a production-velocity rise \"by up to 90%\";\n- \"total financial savings are huge\";\n- the inductive method surpassing the contact method, \"confirmed by experimental results\";\n- the FAHP tool making it possible to find the most economical welding process \"without prior experiments\".\n\nThe link between the FAHP ranking and the impeder design is asserted, not shown. The impeder results come from 17 years of tests, and the ranking is never used to choose something that is then evaluated. No statistics, repetitions or measurement uncertainty are reported. The estimated CER is about 0.5.\n\n**Editorial defects.**\n- Two paragraphs in Section 5.2 describe the redesign of a mine control system (\"functions of coal transportation to the surface\") and have no connection to welding.\n- Section 6.2 is garbled: one sentence fragment is repeated three times.\n- Sections 6 and 7 have the same title.\n- Table 1 omits indicator c4.\n- Table 6 repeats the caption of Table 5, and its row labels do not match the indicators (c1 is labelled as tube diameter, and two rows are labelled a1).\n- The text sends the reader to Table 7 for the FAHP ranking, but Table 7 is the impeder comparison.\n\n**Limitations.** These are acknowledged only inline: the chosen magneto-dielectric trades lifetime for permeability, the first materials tried saved no power, and excessive weld temperature is named as an unsolved operational problem.\n\n**Artifacts.** No code, data or measurement records are made available. The individual expert judgment matrices are not given either; only the aggregated matrices are printed.\n\n---\n\n## Conclusion\n\nAn applied engineering paper that pairs a textbook group fuzzy AHP with an industrial comparison of impeder materials. The formalism suits the task, but the expert weights are computed wrongly. The structure is damaged by text pasted from an unrelated manuscript, a garbled section and mislabelled tables.\n\nTable 7 gives some support to the energy-saving claim. The broader claims about productivity, cost and the predictive value of the FAHP tool have none. A quarter of the references are the authors' own, all on related topics."
+  },
+  {
+   "paper_id": "musala2022",
+   "paper": {
+    "title": "Implementation of Semi-Static and Differential Null Convention Logic Gates Using CNTFET Technology",
+    "authors": [
+     "Sarada Musala",
+     "P. Vijaya Lakshmi",
+     "K. Kumar Lokesh",
+     "Avireni Srinivasulu",
+     "Cristian Ravariu"
+    ],
+    "abstract": "This paper aims to implement NULL Convention Logic gates using CNTFET technology. NCL is a clockless technique to solve timing problems, and CNTFET is a low-power technology in comparison to the others. Hence high performance and efficient circuits with low power and low delay can be obtained by combining the two techniques. In terms of power, latency, power delay product, and transistor count, various asynchronous NULL Convention Logic (NCL) gates semi static, and differential have been implemented using CNTFET technology and is compared with the existing CNTFET based NCL static gates, based on the observations gates suitable for adder design is identified. Differential NCL gates have low power and better PDP when compared to both static and semi-static NCL gates. The number of transistors used for differential NCL logic gates are minimum equivalent to semi-static logic and are lesser than static NCL gates. All the simulations are carried out using CNTFET 32nm technology in cadence virtuoso tool and the results obtained prove that the CNTFET based differential logic gates are efficient enough in terms of delay, power consumption and PDP.",
+    "keywords": [
+     "NCL Logic",
+     "logic gates",
+     "CNTFET",
+     "low power",
+     "low delay"
+    ],
+    "doi": null,
+    "pages": "47-57",
+    "source_file": "paper706.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 55,
+    "structural_integrity": 40,
+    "artifact_availability": 50,
+    "intellectual_integrity": 61.25,
+    "composite": 58.44,
+    "final": 48.44
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"Figs 8-34 show the simulation results of the semi-static and differential mode NCL gates implemented in cadence with virtuoso platform with a supply voltage of 0.9 V. All these figures are saved in webpage [24].\" [24] https://drive.google.com/file/d/1zBP6Wim-V6PEQIQDIMeHQ0yxnGWcx6Ux/ (simulation output figures deposited by the authors; no netlists or numeric data)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "6 of 24 references (25.0%) include co-authors Srinivasulu, Musala (Sarada M.) or Lakshmi: [13], [14], [15], [16], [21], [22]. All but [13] are clearly related; [13] (optical OR/AND gates) is cited for CNTFET density and is marginal. The authors' own figure deposit [24] is not counted.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints. The missing simulation set-up, the absent adder results, and the lower delay of the static gates in the authors' own Table 2 are not discussed."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "A simulation study porting known NCL gate styles to CNTFET, with minimal and appropriate formalism. The tables support the power and transistor-count results, but the paper's own delay data contradict its speed claims, the adder claim is unsupported, and the method is under-specified.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Transistor-level implementation of the 27 NCL threshold gates in semi-static and differential styles with a 32 nm CNTFET model, compared by simulation against static CNTFET NCL gates on delay, power, PDP and transistor count.\n**Level:** 2 (Low)\n**Rationale:** The semi-static and differential NCL gate structures come from the CMOS literature [2, 8, 9] and are re-implemented in another device technology with an existing device model [11]. The contribution is a simulation comparison, not a new circuit principle or algorithm.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (the Boolean output functions of TH12 and THxor0, each stated once for the semi-static and once for the differential version)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The Boolean expressions state the set function each gate implements, which is the standard specification of a logic gate and is needed to build one. They repeat Table 1 but are not decorative.\n\n### Issues\nEqs. 2 and 4 are introduced for a gate \"with A, B inputs\" but use four inputs (A, B, C, D). Otherwise none identified.\n\n---\n\n## Citation Analysis\n\nSix of 24 references (SCR 25.0%) include co-authors Srinivasulu, Musala (Sarada M.) or Lakshmi:\n- [14], [15]: CNTFET adder and ternary gates, directly related.\n- [21], [22]: DCVSL circuits, directly related.\n- [16]: single-stage 3-input XOR, related logic-gate design.\n- [13]: modified optical OR and AND gates, cited as support for \"CNTFETs are high-density [13, 14]\". An optical-gate paper cannot support that statement. It shares only the broad topic of logic-gate design with this paper, so it is judged marginal (about 0.3) rather than unrelated, and IRRELEVANT_SELF_CITATION is not raised.\n\nReference [24] is the authors' own deposit of figures and is not counted as a citation. The SCR is in the 20-30% band.\n\nCitations are placed loosely elsewhere too. The statement about cross-coupled inverters cites [9-12], three of which are CNTFET device papers, and \"differential [7]\" points to Muller's 1963 book rather than to a differential NCL design.\n\n---\n\n## Structural Analysis\n\n**Speed.** The paper's own data contradict its central speed claim. In Table 2 the static CNTFET gates have the lowest delay for 24 of the 27 gates (TH12, for example: 5 ps static, 45 ps semi-static, 10 ps differential), and the semi-static gates are the slowest for 26 of the 27. Yet the abstract says the differential gates are \"efficient enough in terms of delay\", and the conclusion says \"these gates are very efficient in terms of speed and power compared to the existing designs and are also efficient in comparison to CNTFET based NCL static logic too\".\n\n**Power and transistor count.** The tables do support these claims. The differential style has the lowest power for 25 of the 27 gates, with an unexplained 1248 pW outlier for TH34W32, and Table 3 supports the transistor-count comparison.\n\n**Unsupported or unspecified.**\n- The gates are said to suit adder design, and \"half and full adder circuits that confirm the prediction\" are mentioned, but no adder is shown.\n- The simulation set-up is not reported: CNT diameter or chirality, number of tubes, load, input patterns, and how delay and power were measured.\n- The low-power advantage of CNTFET over CMOS is taken from the literature; the paper has no CMOS baseline.\n- Robustness to PVT variation is claimed without any analysis.\n\nThe estimated CER is about 0.45.\n\n**Presentation.** Presentation is careless. All four circuit figures carry the caption \"CNTFET based TH12 Semi-Static NCL gate\". The PDP figure is cited as Figure 35 but captioned Fig. 8. The text refers to Sections II-V, which do not exist under those numbers. No limitations are acknowledged.\n\n**Artifacts.** The simulation waveforms (Figs 8-34) are deposited on Google Drive [24]. The netlists and numeric results are not. The Stanford CNFET model [11] is a third-party tool.\n\n---\n\n## Conclusion\n\nA simulation study that ports two known NCL gate styles to CNTFET technology, with minimal and appropriate formalism. The tables support the power and transistor-count comparisons. The claimed speed advantage is contradicted by the paper's own delay data, the adder claim is unsupported, and the method is under-specified. A quarter of the references are self-citations, one of them attached to a claim it cannot support."
+  },
+  {
+   "paper_id": "aiordachioae2022",
+   "paper": {
+    "title": "LifeTags++: A Multi-User, Multi-Device, and Multi-Perspective System for Recording and Abstracting Visual Life with Tag Clouds",
+    "authors": [
+     "Adrian Aiordăchioae",
+     "Radu-Daniel Vatavu"
+    ],
+    "abstract": "We present LifeTags++, a multi-user multi-perspective lifelogging and life abstraction system designed to automatically record, extract, process, and store visual concepts from a wide range of video camera devices and systems, including personal mobile and wearable devices, video cameras worn on the body, and public IP video cameras from the environment. Other features of LifeTags++ include integration with mobile crowdsensing to accept queries and deliver notifications about specific concepts of interest entered by users. We present technical details regarding the design and engineering of LifeTags++ as a distributed, cloud-based software architecture accommodating mobile and wearable devices and public ambient video cameras. Also, we report the results of an evaluation study with a dataset of 18,780 visual concepts extracted from a number of nearly 1,000 snapshots captured from three video cameras simultaneously recording the life of a user from three different perspectives: egocentric eye-level provided by a pair of video camera glasses, egocentric back view with a wearable clip-on camera, and exocentric ambient from a public IP camera. Our results show the benefits of employing multi-perspective life abstraction for creating rich lifelogs of visual concepts. Based on our results, we present opportunities for future lifelogging systems that employ mobile devices, wearable cameras, and personal robots in the form of drones in conjunction with ambient sensing and computing infrastructure.",
+    "keywords": [
+     "Mobile",
+     "distributed systems",
+     "cloud computing",
+     "Lifelogging",
+     "Smartglasses",
+     "Camera glasses",
+     "Image processing",
+     "Smart wearables",
+     "Assistive vision"
+    ],
+    "doi": null,
+    "pages": "80-91",
+    "source_file": "paper708.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 55,
+    "structural_integrity": 60,
+    "artifact_availability": 70,
+    "intellectual_integrity": 34.25,
+    "composite": 43.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"Our implementations in the form of node.js, HTML/JavaScript, and Java for Android applications together with a sample of snapshots are available from http://www.eed.usv.ro/mintviz/projects/MintVizAwardingParticipationH2020.\" Only a sample of snapshots is deposited, not the 939 snapshots and extracted concepts behind the reported counts.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 system (an Android app and a node.js server calling Clarifai and storing results in Firebase) that formalises its tag clouds in set-builder notation, \"CT = {ci = (wi, fi, Ωi) | i = 1..n}\". Every formal element fails the Necessity Test.",
+    "UNNECESSARY_SET_THEORY": "Union (Eq. 2, CT1 ∪ CT2 ∪ CT3) stands for merging tag lists and summing frequencies by word, and set difference with nested non-membership (Eqs. 3-4) stands for filtering one list by the words absent from others. No proof depends on these operations.",
+    "ELEVATED_SELF_CITATION": "9 of 33 references (27.3%) are self-citations: [2], [3], [4], [5], [21], [22], [28], [29], [30]. The lifelogging and LifeTags works are directly related; [28], [29] and [30] are marginal."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A Level 1 system integration of cloud vision and storage services with several cameras, with released code and a small descriptive evaluation. Set-theoretic notation dresses up list merging and filtering, and Eq. 2 even misnames the operation it describes.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A lifelogging system. An Android app collects snapshots from camera glasses, a clip-on camera and a public IP camera. A node.js server sends each snapshot to the Clarifai recognition service, stores the returned concepts in Firebase, notifies users about concepts of interest, and the results are shown as tag clouds. The evaluation counts concepts from one walk recorded by the three cameras.\n**Level:** 1 (Trivial)\n**Rationale:** The system combines existing services (Clarifai, Firebase) with mobile and wearable devices and displays what they return, and the evaluation is descriptive counting. This is the API-integration and data-display case of Level 1.\n\n### Formal Elements\n- Definitions: 2 inline, not numbered (the tag cloud CT as a set, and each concept as a tuple ci = (wi, fi, Ωi))\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (Eq. 1, set-builder definition of a tag cloud; Eq. 2, union of m tag clouds with summed frequencies; Eqs. 3-4, set differences through non-membership)\n\n### Proportionality\nCalculated complexity: 4\nExpected range (Level 1): 0-5\nRatio: 0.8x upper bound\n\n**Assessment:** The count is within range, but the formalism is disproportionate in kind: every formal element fails the Necessity Test.\n- A tag cloud is a list of (word, frequency, context) records.\n- Eq. 2 is a merge that groups records by word and adds their frequencies.\n- Eqs. 3-4 filter one list by the words missing from the others.\n\nEach is a few lines of code (a dictionary merge, a list filter), each formula could be replaced by one English sentence, and no proof or bound depends on any of them.\n\n### Issues\n- \"A cloud of tags CT is formally defined as a set composed of concepts ci\", followed by \"CT = {ci = (wi, fi, Ωi) | i = 1..n}\": set-builder notation for an array of records.\n- \"By representing tag clouds as sets, specific operations can be applied ... such as union or intersection of tag clouds\", with CT1 ∪ CT2 ∪ CT3 used for combining lists.\n- Eq. 2 is not a set union: it merges tuples with the same word and sums their frequencies, so the set operator misdescribes the operation it is meant to formalise.\n- Eqs. 3-4 express \"concepts detected by the glasses but missed by the ambient camera\" as a set difference with nested set-builder membership. The index bound \"i = 1..|CT1 − CT3|\" and the expression for n* mix cardinality notation with the difference operator.\n\nThese are the patterns of set notation for lists and set operations for list operations. At Level 1 they raise FORMALISM_THEATER and UNNECESSARY_SET_THEORY. The inline definitions are not numbered \"Definition N\" blocks, so DECORATIVE_DEFINITIONS is not raised separately.\n\n---\n\n## Citation Analysis\n\nNine of 33 references (SCR 27.3%) include Aiordăchioae or Vatavu:\n- [2], [3], [4], [5]: the authors' lifelogging and LifeTags work, directly related.\n- [21]: security threats of camera glasses, related.\n- [22]: configurable mediated vision for smart eyewear, related through smartglasses.\n- [28]: motor-impaired users' preferences for smart wearables, marginal; cited in passing for future directions.\n- [29]: a position paper on assistive vision and crisis management, marginal; cited in passing as a lifelogging application.\n- [30]: a gesture-design tool for smart rings, marginal; it supports only the sentence listing smart rings among wearables.\n\nNone is judged unrelated: all lie in wearable or smart-eyewear interaction, with similarity of about 0.3-0.4 for the marginal ones. The SCR is in the 20-30% band.\n\n---\n\n## Structural Analysis\n\n**Evaluation.** One volunteer on one outdoor walk produced 939 snapshots, and the results are descriptive counts of distinct concepts per camera and per combination of cameras. These counts support the main claim, that combining perspectives yields more distinct concepts (Figure 4 and the text: for example, 57 concepts are shared between the 99 and 89 distinct concepts of the two egocentric cameras).\n\n**Not evaluated.** The multi-user operation, the drone perspective (shown by a single illustrative snapshot) and the crowdsensing notifications are claimed but not tested.\n\n**Numerical oddities.** Two figures sit oddly with the stated method:\n- 18,780 concepts from 939 snapshots is exactly 20 per snapshot. That fits a fixed-length concept list better than the stated 85% confidence filter.\n- 311 distinct concepts in 939 snapshots is one new concept every three snapshots, not every three and a half as stated.\n\nThe estimated CER is about 0.6.\n\n**Limitations.** The limitations of the study itself (one participant, one session, no user study) are not discussed. The only acknowledgment is inline: the extended functionality \"demands revisiting the privacy and security implications\".\n\n**Artifacts.** The authors link their node.js, HTML/JavaScript and Android code together with a sample of snapshots. The full set of 939 snapshots and the concepts extracted from them, on which the reported counts rest, are not deposited. Recognition depends on the third-party Clarifai service.\n\n---\n\n## Conclusion\n\nA system-integration paper that extends the authors' LifeTags prototype to several cameras. For a Level 1 contribution the engineering and the small evaluation are reasonable, and the code is linked. The set-theoretic formalisation of tag clouds, however, is decorative notation for list operations, and in Eq. 2 it misnames the operation it describes. At Level 1 this disqualifies. More than a quarter of the references are the authors' own."
+  },
+  {
+   "paper_id": "mosteanu2022",
+   "paper": {
+    "title": "Machine Learning and Robotic Process Automation Take Higher Education One Step Further",
+    "authors": [
+     "Narcisa Roxana Moşteanu"
+    ],
+    "abstract": "Machine learning and digitization have been around for several years, but their use has become a necessity with the Covid-19 pandemic. Lockdown forced us to work remotely overnight, to use digital networks to communicate, make payments, learn all sectors of activity were forced to adapt to the digital age in one night. Digitization and involvement of machine learning become a necessity with the Covid-19 pandemic. This paper shows how artificial intelligence can be used to improve the effectiveness of teaching, research, and study plan, by adapting the new communication technologies and students' needs to achieve the course learning outcomes in a virtual environment. The paper proposes three ways of using artificial intelligence in higher education, namely physical robot at the entrance of the campus to guide the visitors, robotic process automation to assist admission and registration process, and robotic process automation to aid professors in student's evaluation process and improve the academic study plan.",
+    "keywords": [
+     "Machine learning",
+     "robotic process automation",
+     "higher education"
+    ],
+    "doi": null,
+    "pages": "92-99",
+    "source_file": "paper709.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 55,
+    "structural_integrity": 30,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.75,
+    "composite": 45.56,
+    "final": 25.56
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "3 of 11 references (27.3%) are the author's own: [1], [2], [11]. All are related (online teaching with AI, digital campus).",
+    "UNSUPPORTED_CLAIMS": "No data, interview findings, implementation or evaluation are reported, yet the paper asserts that the proposals will have \"a positive impact and will not lead to job reduction\" and that it \"offered an in-depth exploration\". The estimated CER is well below 0.33."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "An organisational proposal for robots and RPA in a university, with no technical content and no empirical evidence. Its claims are almost entirely unsupported, and several citations do not match the statements they accompany.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A proposal for three uses of AI in a university: a fixed robot that guides campus visitors, robotic process automation for admission and registration, and RPA or machine learning for grading assessments. It comes with a roadmap (Table 1) and a six-month implementation timeline (Table 2).\n**Level:** 1 (Trivial)\n**Rationale:** A position and planning paper. Nothing is designed in technical detail, implemented or evaluated; existing technologies are combined at the level of organisational process.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper has no formal notation.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThree of 11 references (SCR 27.3%) are the author's own:\n- [1], [2]: online teaching of finance and business with AI, the study this paper says it continues.\n- [11]: a digital campus.\n\nAll three are related. The SCR is in the 20-30% band.\n\nSeveral third-party citations do not support the statements they are attached to:\n- [4], a paper on reforming a finance course, is cited for the interpretative qualitative research method.\n- [8], a guide to Understanding by Design (its first author's name given as \"Grant W.\"), is cited for AI-based personalisation of education.\n- [6] is dated 2020, but volume 10 of Qualitative Health Research appeared in 2000.\n\nThe reference list is short for the scope the paper claims.\n\n---\n\n## Structural Analysis\n\n**Method and evidence.** The paper names an interpretative qualitative method and says it continues a study based on interviews with 100 students and professors [1, 2]. It reports no data, interview findings or analysis, and Section 2, \"Research methodology and preliminary results\", contains no results. The proposals are not implemented, prototyped, costed or evaluated.\n\n**Unsupported assertions.** Examples:\n- \"Implementing AI within the university will have a positive impact and will not lead to job reduction\".\n- \"This study offered an in-depth exploration\".\n- Automated grading \"will make the process more transparent\".\n\nNone of these has evidence in the paper. The estimated CER is well below 0.33.\n\n**Limitations.** A short dedicated \"Limitations\" paragraph is present: data were difficult to collect, and repetitive tasks still have to be identified for piloting. The conclusion also notes unresolved ethical and security concerns about automated grading.\n\n**Artifacts.** Nothing is made available, and the paper has nothing that would need releasing: no implementation and no data analysis (relevant: false).\n\n---\n\n## Conclusion\n\nAn organisational proposal for AI and RPA in higher education, with no technical content and no empirical evidence. The paper has no formalism that could be disproportionate. Its claims, however, are almost entirely unsupported, and several citations do not match the statements they accompany. Over a quarter of the references are the author's own, all on related themes."
+  }
+ ]
+}

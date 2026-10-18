@@ -1,0 +1,131 @@
+{
+ "batch_id": "2019-v22-n1",
+ "analysis_timestamp": "2026-10-18T03:45:11Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 22,
+  "issue": 1,
+  "year": 2019
+ },
+ "papers": [
+  {
+   "paper_id": "ravariu2019",
+   "paper": {
+    "title": "Technological aspects and simulation results for the Nothing On Insulator device developed into a planar technology",
+    "authors": [
+     "Cristian Ravariu",
+     "Elena Manea",
+     "Catalin Parvulescu",
+     "Florin Babarada",
+     "Alina Popescu",
+     "Dan E. Mihaiescu",
+     "Daniela Istrati"
+    ],
+    "abstract": "This paper presents the simulations results of a planar variant of Nothing On Insulator device starting from Si-surface preparation till the fine oxide configuration of few nanometers. A dry oxidation at lower temperature is a better process to a higher temperature in a time under 1min. But the final experimental technological tests find the best solution - relatively high temperature, acceptable time of 5-8 min, but dilution of the O2 fluids in the furnace adding N2 in a suitable ratio. The functionality of the planar variant p-NOI was tested by Atlas simulations in two cases: (i) a p-NOI structure with 10nm SiO2 when it is compared to a standard simulated MOSFET from Atlas and (ii) a p-NOI structure with SiO2/HfO2 stack when it is compared with an insulator stack with similar composition of one of the lasts generation fabricated MOSFET. The conduction mechanism obeys to the Fowler-Nordheim’s law. The current flow from source to drain occurs in absence of an inversion channel. A similar investigated device by other authors is a fabricated MIM (Metal-Insulator-Metal) structure, which is compared with the actual p-NOI simulation. The simulations fit over the experimental picked points from different resources.",
+    "keywords": [
+     "Tunneling device",
+     "nanoelectronics",
+     "simulations",
+     "technological steps"
+    ],
+    "doi": null,
+    "pages": "57-68",
+    "source_file": "paper618.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 35,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 55.5,
+    "composite": 41.62,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (the only URL, reference [15], is a third-party Silvaco example: https://www.silvaco.com/examples/tcad/section34/example1/index.html)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Seven of 18 references ([4], [7], [8], [9], [10], [13], [16]) are by the first author, several with co-authors of this paper: SCR = 7/18 = 38.9% > 30%. All are on the NOI device line and topically relevant, so the flag rests on the share alone."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Zero-formalism TCAD and process study of a planar NOI tunnelling device, disqualified by a 38.9% self-citation ratio; functional claims rest on simulations compared by eye with digitised literature points, with no electrical test of the fabricated device and several internal inconsistencies in the process description.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Process simulation (Silvaco Athena), a fabrication flow, and device simulation (Silvaco Atlas with its built-in Fowler-Nordheim model) of a planar Nothing-On-Insulator (p-NOI) tunnelling device, plus ellipsometry and AFM characterisation of one thin-oxide wafer.\n**Level:** 2 (Low)\n**Rationale:** The work applies commercial TCAD tools and their built-in tunnelling models to a device variant and reports the resulting curves. It proposes no new physical model, algorithm or analysis; it is an empirical simulation-and-process study.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (the Fowler-Nordheim law is invoked by name only)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — there is no formal apparatus at all. If anything the paper is under-specified: neither the Fowler-Nordheim expression nor the model parameters used in Atlas (barrier height, effective mass, mesh beyond one sentence) are given, so the simulations cannot be re-run from the text. That is a reproducibility gap, not formalism theater.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSeven of the 18 references are by the first author, most with co-authors of this paper: [4], [7], [8], [9] (Ravariu alone), [10] and [13] (Ravariu, Mihaiescu), and [16] (Ravariu, Manea, Parvulescu, Babarada, Popescu et al.). SCR = 7/18 = 38.9%, above the 30% threshold, so EXCESSIVE_SELF_CITATION is raised. All seven concern the NOI / p-NOI device line and are topically on point (similarity well above 0.5), so IRRELEVANT_SELF_CITATION is not raised: the problem is the share, not the relevance. The NOI concept itself rests on the first author's conference paper [7], and the comparison of p-NOI with NOI at 2 nm is delegated to a self-citation ([13], \"performed elsewhere\"). References [17] and [18] appear in the list but are never cited in the text.\n\n---\n\n## Structural Analysis\n\nThe functional claims rest entirely on simulation. A structure is fabricated (Fig. 5, optical micrograph), but no electrical measurement of it is reported; the only experimental data are the ellipsometry thickness map (5.586-6.287 nm) and AFM roughness of one oxidised wafer. The \"comparisons with experimental picked points\" use points digitised from other groups' published devices ([12], [14]) and are judged by eye (\"quite similar\", \"a good agreement\"); no error metric is given. The conclusion that the Fowler-Nordheim mechanism \"was firmly demonstrated\" is circular: the simulator's FNORD model is switched on and produces the current, and switching it off gives \"a noisy almost-null current\". That shows which simulator model was active, not the conduction physics of a real device.\n\nInternal inconsistencies weaken the process claims. The same recipe (800 °C, 5 min, O2:N2) yields \"an oxide of 3,6nm\" in Section 3 and a 6 nm target in Section 6; the abstract speaks of oxidation \"in a time under 1min\" while Section 2 uses 5 min at 625 °C; source and drain swap positions between Section 2 and Section 4; a gate voltage VG = 10 V is quoted for the gateless two-terminal p-NOI (Fig. 10); and the final paragraph of Section 5 is repeated almost verbatim in Section 6. The process-choice claim that higher temperature with N2 dilution makes the oxide grow \"slower, cleaner and sharper\" is asserted without comparative data. Claim-evidence balance is nevertheless adequate (CER about 0.55), because most simulation statements point to a figure.\n\nLimitations are acknowledged inline only: the paper concedes that realising a 1.39 nm-SiO2 p-NOI \"is challenging for the actual technology\" and reports oxide non-uniformities of up to 3 nm. There is no dedicated limitations section.\n\nArtifacts: none. Simulation decks, process files and the digitised comparison points are not released. The only URL in the paper ([15]) is a third-party Silvaco example, which does not count as the authors' code.\n\n---\n\n## Conclusion\n\nA short device-technology report with no formalism problem: zero formal elements is proportionate for a TCAD application study. Its weaknesses lie elsewhere. The self-citation share (38.9%) exceeds the disqualifying threshold even though every self-citation is relevant, and the structural evidence is thin — simulated curves compared by eye with digitised literature points, no electrical test of the fabricated device, and several internal inconsistencies in the process description. EXCESSIVE_SELF_CITATION disqualifies at any concept level."
+  },
+  {
+   "paper_id": "bancioiu2019",
+   "paper": {
+    "title": "Efficiency Optimizations for Koller and Sahami’s Feature Selection Algorithm",
+    "authors": [
+     "Camil Băncioiu",
+     "Maria Vințan",
+     "Lucian Vințan"
+    ],
+    "abstract": "This article describes and evaluates four optimizations for Koller and Sahami’s Feature Selection algorithm, significantly reducing the time it requires to complete. The optimizations exploit the Information Theory concepts used by the algorithm, its inherent data parallelism and the fact that much of the calculations it performs are redundant. Each proposed optimization was carefully evaluated, showing significant efficiency gains. In particular, a decomposition of conditional mutual information is shown to reduce the time required to calculate its primary heuristic and can be potentially applied to other algorithms which calculate conditional mutual information.",
+    "keywords": [
+     "Feature Selection",
+     "Koller and Sahami’s Algorithm",
+     "Markov Blankets",
+     "Conditional Mutual Information",
+     "Data Parallelism",
+     "Caching Techniques",
+     "Computation Reuse"
+    ],
+    "doi": null,
+    "pages": "85-99",
+    "source_file": "paper620.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 88,
+    "structural_integrity": 75,
+    "artifact_availability": 100,
+    "intellectual_integrity": 49.55,
+    "composite": 62.16,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"This implementation has been published online [16] under the GPL 3 license.\" [16]: https://github.com/camilbancioiu/MBFF; data: \"The documents in the dataset and their assignments to classes were extracted from the Reuters Corpus Volume 1 [15].\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (optimisations of an existing algorithm) with three formal elements that fail the Necessity Test: eq. (4) set-builder notation for selecting the K features with the lowest γ, eq. (6) set difference for removing the lowest-δ feature from the current subset, and eq. (19) a tuple-valued function definition for a worker process’s return value.",
+    "UNNECESSARY_SET_THEORY": "Eq. (4) uses the nested {Fj | Fj ∈ G and i ≠ j and card({Ft | ...}) < K} for what the paper itself calls \"the best subset of K features Fj from G, when sorted by the γ heuristic\"; eq. (6) uses Gr = Gr−1 − {Fi | argmin(δ(C, Fi, MBi))} to remove one element from a list. No proof depends on either."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Well-evidenced engineering optimisations of the Koller-Sahami feature filter with released code and public data, disqualified because a Level 2 paper writes a top-K selection, a list removal and a function return as set-builder and tuple formalism.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Four engineering optimisations of Koller and Sahami's Markov-blanket feature filter: rewriting its γ heuristic as a sum of joint entropies so that terms can be shared and cached (Gamma Decomposition), a persistent store of removed features, a process-pool parallel map over features within an iteration, and a cache of approximate Markov blankets across iterations. Evaluated by wall-clock timing on one RCV1 subset.\n**Level:** 2 (Low)\n**Rationale:** A simple optimisation of an existing method. The identity γ = I(Y;A|B) is taken from Brown et al. [18], and its expansion into joint entropies is the textbook chain rule; the other three optimisations are memoisation, caching and data parallelism. There is no complexity analysis, no new selection algorithm, and no proof of a non-trivial property.\n\n### Formal Elements\n- Definitions: 10 inline (γ eq. 1, D_KL eqs. 2-3, aMB eq. 4, δ eq. 5, KS eq. 6, I(A;B) eq. 8, H(A) eq. 9, H(A|B) eq. 10, I(A;B|C) eq. 11, subprocess eq. 19) (with constraints: 3 — aMB, KS, subprocess)\n- Theorems: 1 unlabelled (the entropy decomposition of γ, eq. 18); the identity of eq. 12 is cited from [18], not proved here\n- Proofs: 1 unlabelled (the derivation chain, eqs. 13-18)\n- Equations: 19 numbered\n\n### Proportionality\nCalculated complexity: 27 (10×2 + 1×3 + 1×4)\nExpected range (Level 2): 0-15\nRatio: 1.8x upper bound\n\n**Assessment:** Disproportionate for the level, though below the 2× threshold for DISPROPORTIONATE_FORMALISM. Part of the apparatus passes the Necessity Test: the definitions of γ and δ fix what is being computed, and the decomposition (13)-(18) is the actual content of the Gamma Decomposition — it tells a programmer which terms are symmetric in A and B and which are independent of Y, so removing it would change the implementation. The standard entropy and mutual-information definitions are textbook material but serve that derivation.\n\n### Issues\nThree elements fail the Necessity Test:\n- **Eq. (4), aMB:** a nested set-builder expression, {Fj | Fj ∈ G and i ≠ j and card({Ft | Ft ∈ G and t ≠ i and t ≠ j and γ(C,Fi,Ft) < γ(C,Fi,Fj)}) < K}, for what the paper itself immediately restates as \"the best subset of K features Fj from G, when sorted by the γ heuristic\" — sort by γ and take the first K. Set notation for a filtered, sorted list.\n- **Eq. (6), KS:** Gr = Gr−1 − {Fi | argmin(δ(C, Fi, MBi))} — set difference for removing the lowest-δ feature from a list, with a malformed set-builder (argmin standing in as the predicate). In code this is one call: remove min(G, key=delta) from G.\n- **Eq. (19), subprocess:** a formal function-to-tuple definition for a worker that returns (feature, blanket, δ) — a function signature in mathematical dress.\n\nNo proof depends on eqs. (4), (6) or (19); the only derivation in the paper (13-18) uses none of them. At Level 2 these trigger FORMALISM_THEATER and UNNECESSARY_SET_THEORY, and the formalism score is 0 under the disqualifying-flag rule. ORPHAN_DEFINITIONS is not raised because the definitions are used in the derivation or the algorithm. THEOREMLESS_FORMALISM is not raised despite more than five inline definitions, because the apparatus does produce a derived result (eq. 18) with a step-by-step derivation, and that result is what the implementation uses. DECORATIVE_DEFINITIONS is not raised: there are no \"Definition N\" blocks, and eq. (19) is already covered under FORMALISM_THEATER.\n\n---\n\n## Citation Analysis\n\nTwo self-citations among 18 references: [2] (Băncioiu and Vințan, ICSTCC 2017, the earlier experiment run with the same implementation and dataset) and [16] (the authors' MBFF repository). SCR ≈ 11%. Both are directly relevant. The reference list has hygiene problems: [5] and [11] are the same FLAIRS 2003 paper listed twice, although the text describes [11] as a four-algorithm comparison and [5] as the IAMB paper; and [1] is dated 1995 in the list but 1996 in the text. No citation-manipulation pattern.\n\n---\n\n## Structural Analysis\n\nThe efficiency claims are well supported: per-class wall-clock tables for Phase 1 with and without Gamma Decomposition (Table 1), for Phase 2 with In-iteration Parallelism (Table 2) and with the Iteration Cache (Table 3), and cache hit rates (Table 4). The headline figure checks out: (05:56:57 + 00:46:12)/7 ≈ 00:57:36 against (13:37:14 + 140:27:30)/7 ≈ 22:00:41, i.e. 4.36%. The paper reports honestly that Gamma Decomposition changes γ values at floating-point precision and thereby the removal order of weak features. CER ≥ 1.\n\nWeaknesses: each configuration ran once per class on one machine and one dataset, with no repetitions or variance; the 4.36% combines two separately measured optimisations rather than a measured joint run (the optimisations \"were experimentally evaluated one at a time\"); the Removed Features Database is not evaluated at all; there is no complexity analysis of any optimisation; and the claim that the Iteration Cache \"should provide efficiency gains regardless of the dataset\" generalises from a single 628-document subset. Minor: n denotes the number of features in Section 3 and the number of documents in Section 4, and Markov blankets are attributed to information theory rather than to probabilistic graphical models.\n\nLimitations are acknowledged inline: KS only approximates Markov blankets and has been superseded; the cache \"will not be as effective\" when weak features correlate with many others; OS-level core mapping may have been imperfect. There is no dedicated limitations section.\n\nArtifacts: code_and_data. The implementation is linked (\"This implementation has been published online [16] under the GPL 3 license\", https://github.com/camilbancioiu/MBFF) and the data is drawn from the public RCV1 corpus [15]. The exact selection of the 628-document, 2,645-word, 7-class subset is not described in the text, so the dataset is identified but its subset is not.\n\n---\n\n## Conclusion\n\nAn honestly reported engineering paper: the optimisations are real, the timing evidence is tabulated per class, and both code and data are available. Its formal presentation is out of proportion to its contribution. Alongside the one derivation that matters, the paper writes a top-K selection, a list removal and a function return as set-builder and tuple formalism, which a Level 2 contribution does not need. Under the specification's zero-tolerance rule this triggers FORMALISM_THEATER and UNNECESSARY_SET_THEORY, and the score is capped despite strong artifact availability."
+  }
+ ]
+}

@@ -1,0 +1,278 @@
+{
+ "batch_id": "2022-v25-n34",
+ "analysis_timestamp": "2026-10-18T03:50:58Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 25,
+  "issue": "3-4",
+  "year": 2022
+ },
+ "papers": [
+  {
+   "paper_id": "teodorescu2022",
+   "paper": {
+    "title": "A Comparative Lexical Analysis of Three Romanian Works – The Etymological Metalepsis Role and Etymological Indices",
+    "authors": [
+     "Horia Nicolai Teodorescu",
+     "Speranta Cecilia Bolea"
+    ],
+    "abstract": "We introduce an etymological perspective in computational linguistic and apply it for the analysis of literary works with self-biographic content. Our hypothesis is that etymological mixtures used by an author may be a powerful stylistic device. We propose and investigate in the frame of computational linguistics the notion of “etymological metalepsis”; we argue that this device is used by some writers for conveying a sense of the historical frame that their works depict, the specificities of the local context, and even of the sentiments assumed and conveyed by the writer. Three works are analyzed and contrasted from the standpoint of the proposed stylistic device reflecting the etymological mixture used by the author, based on a semi-automated lexicographic analysis and the etymology of the most frequent words. Stylometric indices are suggested in relation with the etymological metalepsis. We also use tools of computational linguistics to elucidate and validate literary critical elements previously published on these oeuvres.",
+    "keywords": [
+     "computational linguistic",
+     "etymology",
+     "style",
+     "stylistic device",
+     "stylometric indices",
+     "Zipf law"
+    ],
+    "doi": null,
+    "pages": "275-289",
+    "source_file": "paper722.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 33.5,
+    "composite": 25.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 empirical study whose formal apparatus contains elements that fail the necessity test: Eq. (2) writes a filtered count as membership in L ∩ T, the 'etymologic vector' V_e0(N) = (n_10, ..., n_l0) is a tuple of counts that is never used again, and the index I_e'(N,T) of Eq. (4) is defined but never computed.",
+    "UNNECESSARY_SET_THEORY": "Eq. (2), 'n_{h,T} = count(w), w ∈ L ∩ T, rank(w) ≤ N', uses set intersection and membership for what is a filter-and-count over the top-N frequency list. L is a set of language labels and T a text, so the intersection is not even well-formed; no proof depends on it.",
+    "ELEVATED_SELF_CITATION": "5 of 19 references ([1]-[5]) are by one or both authors (SCR 26.3%), all on the authors' related stylometric segmentation work. [18] is by a different Teodorescu (M. Teodorescu) and is not counted."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Exploratory stylometric study of loanword use in three Romanian works; ill-formed set notation and unused formal objects trigger the formalism-theater rule at Level 2, and self-citation is elevated but topical.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Stylometric comparison of three Romanian interwar works (two memoirs and one novel) through the etymology of their most frequent non-stopwords. The paper proposes \"etymological metalepsis\" as a stylistic device and loanword-ratio and entropy indices to measure it.\n**Level:** 2 (Low)\n**Rationale:** The computational contribution is to count manually etymologised loanwords among the 250-300 most frequent words, form ratios and a Shannon entropy, and fit straight lines to cumulative counts. That is an empirical study with basic statistics. No new algorithm or model is validated.\n\n### Formal Elements\n- Definitions: 0 numbered (6 indices introduced inline through equations: I_e, I_ew, I_e', the etymologic vector V_e0, E_w,T, E_0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 numbered, plus about 6 inline (the harmonic-number and Zipf-Mandelbrot argument and the fitted lines)\n\n### Proportionality\nCalculated complexity: 0 (no formal definitions, theorems, or proofs)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate by count, but several elements fail the necessity test. The ratio indices of Eqs. (1) and (3) and the word-level entropy are basic equations, acceptable at this level, and they are what Tables 4 and 5 report. The elements below are not.\n\n### Issues\n- Eq. (2), \"n_{h,T} = count(w), w ∈ L ∩ T, rank(w) ≤ N\", writes a filtered count (occurrences of top-N words whose origin is language h) as membership in the intersection of a set of language labels L with a text T. The intersection is not well-formed, and the operation is a filter-and-count over a frequency list: set notation standing in for a list operation.\n- The \"etymologic vector\" V_e0(N) = (n_10, ..., n_l0) is a tuple of counts, which is an array. It is defined and never used again.\n- The weighted index I_e'(N,T) of Eq. (4) is defined but never computed. Two different word-level entropies are defined, Eq. (5) and a garbled Eq. (6); Table 5 follows the second and Eq. (5) is never evaluated.\n- The authors call the near-linear growth of cumulative loanword occurrences with N (Fig. 6) \"surprising\" and conclude that loanword use \"is not random, but a stylistic device\". The harmonic-number argument does not support this. A cumulative count over a narrow rank window is close to linear under most rank distributions, and no null model or reference corpus is computed.\n\nThese are among the patterns that the zero-tolerance rule names for Levels 1-2 (set notation for list operations, a tuple definition for a data structure), hence FORMALISM_THEATER and UNNECESSARY_SET_THEORY.\n\n---\n\n## Citation Analysis\n\nFive of 19 references ([1]-[5]) are by one or both authors (SCR 26.3%). All concern stylometric analysis and stylistic text segmentation of memoir texts, and the paper presents itself as adding to those tools, so they are topically related (similarity at least 0.5). The ratio still falls in the 20-30% band. [18] is by M. Teodorescu, a different person whom the acknowledgement thanks for the basic idea of the study. It is not counted as a self-citation, and it is relevant to the claim it supports (departures from Zipf's law). Reference [19] (Montemurro, arXiv cond-mat/0104066) carries the title of [18], \"Machine learning methods for strategy research\", which is a reference-list error. [17] cites Wolfram|Alpha for the harmonic-number asymptotics.\n\n---\n\n## Structural Analysis\n\nThe descriptive statistics (Tables 1-5) support the narrower claim: La Medeleni uses more, and more varied, frequent loanwords than the two memoirs. The stronger claims go further. The paper says the statistics \"proved\" a deliberate stylistic device, and the abstract says the work will \"validate\" published literary criticism. These rest on three works and on manual etymology assignment by one author. No statistical test is run, and no reference corpus supplies the \"normal\" etymological index from which, by the method's own definition, departure is to be measured. Limitations are acknowledged inline: putting adverbs in the stopword list \"remains a disputable decision\", excluding French and Italian loans is conceded to be disputable, the device is hard to translate, and the analysis should be extended to 500 words. No code, frequency lists, or etymology annotations are released; the TTL parser link points to a third-party tool.\n\n---\n\n## Conclusion\n\nAn exploratory computational-stylistics study with a plausible idea and modest descriptive evidence. Its formal presentation contains an ill-formed set notation for a counting step, an unused tuple \"vector\", an unused index, and two inconsistent entropy definitions. At this concept level that triggers the formalism-theater rule. Self-citation is elevated but topical. The claims of proof and validation go beyond what descriptive counts over three texts can support."
+  },
+  {
+   "paper_id": "madani2022",
+   "paper": {
+    "title": "UV Effect on the Dielectric Properties of Al2O3/TiO2 Doped PVC",
+    "authors": [
+     "Lakhdar Madani",
+     "Kamel Salim Belkhir",
+     "Abdelkrim Zebar",
+     "Saad Belkhiat"
+    ],
+    "abstract": "Poly-vinylchlorid (PVC) is a material strongly used as cable insulation sheaths. Its dielectric properties are susceptible to be deteriorated under the Ultraviolet (UV) radiation effect. In this paper, films of PVC have been doping with alumina and titanium dioxide. The influence of Al2O3 and TiO2, on the dielectric properties of PVC before and after being exposed to 300 h of UV irradiation were studied. FTIR spectroscopy and scanning electron microscopy were used as characterization techniques. Dielectric characteristics were measured using an impedance analyzer. Volume resistivity and average breakdown voltage have been analyzed. Experimental results showed well that Al2O3/TiO2 as nano-fillers improved the dielectric properties of PVC and reduced ageing due to UV irradiation. Volume resistivity decreased and breakdown voltage increased with ceramic content.",
+    "keywords": [
+     "Al2O3/TiO2 doped PVC",
+     "breakdown voltage",
+     "UV ageing",
+     "volume resistivity"
+    ],
+    "doi": null,
+    "pages": "322-337",
+    "source_file": "paper725.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 72.25,
+    "composite": 54.19,
+    "final": 49.19
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints, despite a single 300 h exposure in an improvised chamber without humidity control, single measurements per dielectric curve, and unreported Weibull parameters."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Experimental study of UV ageing in Al2O3/TiO2-filled PVC; formalism is proportionate and self-citation low, but the text contradicts its own resistivity and breakdown tables and acknowledges no limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Experimental study of how 10 wt% Al2O3 and TiO2 fillers affect the permittivity, loss index, volume resistivity, and breakdown voltage of PVC cable insulation before and after 300 h of UV exposure, with FTIR and SEM characterisation.\n**Level:** 2 (Low)\n**Rationale:** Materials characterisation of four formulations with standard instruments and descriptive comparison. No model or algorithm is proposed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Eq. (1), the two-parameter Weibull distribution, is the standard tool for breakdown data, although the fitted scale and shape parameters are never reported. Eq. (2) is a mixing relation imported from the authors' earlier paper [1] with none of its symbols defined. The text says the data are \"consistent with\" it, but no fit is shown. It is a borrowed domain equation left unexplained, not notation dressing up a simple idea, so it is treated as an evidential gap rather than formalism theater.\n\n### Issues\nNone identified as theater. Eq. (2) is undefined and unused.\n\n---\n\n## Citation Analysis\n\nTwo of 46 references are self-citations (SCR 4.3%): [1] (Madani, Belkhiat et al., XLPE/BaTiO3) and [28] (Berrag, Belkhiat, Madani, PVC/BaTiO3). Both concern the dielectric behaviour of filled polymers and are relevant. Citation accuracy is poor in places. [22], cited as the standard for the breakdown tests, is IEC 60240-1, which covers infra-red emitters for industrial heating. The text attributes [7] to \"John A. et al.\", although its first author is Mergos. [12], on the size dependence of breakdown strength, is cited for UV screening by inorganic fillers. [30], on TiO2-doped ZnO gas sensors, is cited for FTIR ketone and ester bands. These are accuracy problems, not citation manipulation.\n\n---\n\n## Structural Analysis\n\nThe text contradicts its own tables at several points:\n- It states that volume resistivity \"decreases for all the samples after UV ageing, except for sample 3\", and the discussion later says \"except the samples 3 and 4\". Table 2 shows sample 2 rising from 1.59 to 8.11 and sample 4 from 1.84 to 2.18, while sample 3 falls from 6.12 to 1.69 (x10^14).\n- The abstract and discussion say breakdown voltage increases with ceramic content, but Table 3, and the discussion itself, put samples 3 and 4 below pure PVC before ageing.\n- The ageing time is given as both 300 h and 250 h.\n- The permittivity description refers to a \"sample 5\" that does not exist.\n- Table 4 omits sample 4.\n- Breakdown values mix decimal conventions (\"21,008\" and \"15,2\" beside \"24.2\").\n\nThe Weibull analysis of 25 specimens per case yields no parameters or confidence intervals, and each dielectric curve is a single measurement. The conclusion that longer ageing leads to water absorption was not tested. No limitations are acknowledged, and no data are released.\n\n---\n\n## Conclusion\n\nA routine characterisation study with proportionate formalism and negligible self-citation. Its headline claims are weakly supported by its own measurements and in places contradicted by them, and it acknowledges no limitations."
+  },
+  {
+   "paper_id": "arican2022",
+   "paper": {
+    "title": "An RGB-D Descriptor for Object Classification",
+    "authors": [
+     "Erkut Arican",
+     "Tarkan Aydin"
+    ],
+    "abstract": "One of the main and active research areas in computer vision is the object detection which has various applications including image retrieval, video surveillance, robotics, etc. The main problem of object detection is, detecting instances of semantic objects of predefined classes (such as pedestrians, faces, or cars) in 2D images and videos. As 2D images of the objects include information about object appearance, most of the methods rely on pattern detection algorithms using appearance-based or feature-based techniques. Although the availability of 3D image data by using inexpensive depth cameras has made the problem more tractable, many researchers still tend to use similar concepts applied to the 2D instance problem. In this paper, we aim to develop a 3D descriptor that exploits the information in 3D data to address the many difficulties associated with object detection. This method adds depth information to Bag of Visual Words’ feature extraction part which is a novel approach in the literature. The proposed 3D descriptor eliminates the disadvantages of brightness-based problems and improves the structure with depth information. This improvement gives better accuracy results compared to the original method providing a rational and useful method for 3D object detection.",
+    "keywords": [
+     "3D descriptor",
+     "bag of visual words",
+     "computer vision",
+     "depth image",
+     "object detection",
+     "RGB-D"
+    ],
+    "doi": null,
+    "pages": "338-349",
+    "source_file": "paper726.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 76.0,
+    "composite": 69.5,
+    "final": 69.5
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"RGB-D Object Dataset [31] is used in this paper. It is a Kinect Style dataset and it has 300 common household objects which are categorized into 51 categories.\" No code is linked or claimed.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Fusion of RGB and depth SURF features within bag-of-visual-words; formalism is proportionate, self-citation low and topical, and the dataset public, but the method is compared only with an in-house baseline and the claims are overstated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** SURF descriptors computed on the RGB image are combined element-wise with SURF descriptors computed at the same keypoints on a Gaussian-smoothed, normalised depth image. The result feeds a standard bag-of-visual-words pipeline (k-means with K = 20, polynomial-kernel SVM), evaluated on 10-, 20-, and 30-category subsets of the RGB-D Object Dataset.\n**Level:** 2 (Low)\n**Rationale:** Existing algorithms (SURF, BoVW, k-means, SVM) are applied to depth images with a simple fusion rule. There is no complexity analysis and no new model.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Eq. (3), the element-wise fusion NFV = SFV ⊙ e(DFV), defines the contribution and is needed, although the operator e(.) is never explained. Eq. (1), generalised filtering, and Eq. (2), the bilateral-filter closeness kernel, are background from cited works. The method itself uses a plain Gaussian filter with σ = 8, so neither equation enters it. They are standard basic equations that go unused, not decorative notation for a simple idea.\n\n### Issues\nNone identified as theater. Eqs. (1)-(2) are unused background.\n\n---\n\n## Citation Analysis\n\nThree of 32 references ([10]-[12]) are by the two authors (SCR 9.4%), all earlier conference and journal versions of the same RGB-D descriptor line (\"A new descriptor for 3D object detection using RGB-D\", \"3D object detection using a new descriptor with RGB-D\"), so they are relevant. The paper says these \"provided the first insights\" but does not say how the present descriptor differs from them, which leaves the novelty claim unclear relative to the authors' own work. The remaining references are standard literature on feature detectors and 3D recognition.\n\n---\n\n## Structural Analysis\n\nThe gains are measured against the authors' own BoVW baseline (upright and non-upright SURF) on random 10-, 20-, and 30-class subsets, averaged over five runs with no variance reported. The per-category win counts stated in the text match the tables. The claims go beyond this evidence. The paper calls the method a \"novel contribution\", says it \"eliminates the disadvantages of BoVW\", and says it suits \"3D object detection\", yet only classification is evaluated and no other RGB-D descriptor is run on the same splits. Table 3 lists published 51-category results, which are not comparable with 10-30 class subsets, and at 30 classes the method (66.2%) falls well below them. The text calls Table 1 the 10-label detail table (it is Table 2) and refers to bold best values that are not marked. One limitation is acknowledged inline: visually similar categories such as food can and soda can are confused. The public RGB-D Object Dataset [31] is used; no code is released.\n\n---\n\n## Conclusion\n\nA simple and plausible descriptor-fusion idea, evaluated against one in-house baseline. Formalism is proportionate and self-citation is low and topical. The evidence supports an improvement over plain BoVW on subsets of a public dataset, but not the broader claims of novelty or of solving 3D detection."
+  },
+  {
+   "paper_id": "ucgun2022",
+   "paper": {
+    "title": "Test Platform and Graphical User Interface Design for Vertical Take-Off and Landing Drones",
+    "authors": [
+     "Hakan Ucgun",
+     "Irfan Okten",
+     "Ugur Yuzgec",
+     "Metin Kesler"
+    ],
+    "abstract": "We present a novel test system for pre-flight control and test of Vertical Take-Off and Landing (VTOL) drones. This system includes a test platform consisting of nested circles in three different dimensions, a graphical user interface, and wireless communication modules. Thanks to this proposed test platform, basic axis tests (yaw, pitch, roll, elevation) can be done before the flight of a VTOL multi rotor drone, thus the problem or crash will be obstructed in the flight of a VTOL multi rotor drone. In addition to this test platform, we present a graphical user interface (GUI) for sending the test commands and receiving values from all sensors on the VTOL multi rotor drone board. The graphical analysis of all data, such as motor rpm value, velocity, angular value, etc., can be observed by the proposed test GUI. Also, the desired flight control parameters can be sent via a graphical interface to the VTOL multi rotor drone’s board on the test platform. The wireless communication modules have been used between the VTOL multi rotor drone board and the computer consisting of the test GUI. In this study, the test system designed for VTOL multi rotor drone is given in detail. To show the performance of the UAV test system, some pre-flight tests are represented for the VTOL multi rotor drones with six rotors.",
+    "keywords": [
+     "drone",
+     "flight control",
+     "GUI",
+     "test system",
+     "unmanned aerial vehicle",
+     "VTOL"
+    ],
+    "doi": null,
+    "pages": "350-367",
+    "source_file": "paper727.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 85,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.0,
+    "composite": 56.25,
+    "final": 56.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Prototype gimbal-style test rig and MATLAB GUI for multirotor pre-flight tuning; formalism is proportionate and self-citation relevant, but the evidence is qualitative and covers two axes, the work overlaps the authors' 2016 papers, and a cluster of tangential citations is unexplained.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A three-ring, gimbal-like test rig with counterweight and pulleys for pre-flight testing of multirotor drones, plus a MATLAB GUI that exchanges sensor data and PID parameters with an AeroQuad flight board over XBee. It is demonstrated with pitch and roll tests on a hexacopter.\n**Level:** 1 (Trivial)\n**Rationale:** A prototype description of a mechanical rig and a data-display GUI built from existing components: an open-source flight board, XBee modules, and MATLAB. The PID gains are tuned by trial and error.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (the test set-point signals: step, two-level step, sinusoid)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The three set-point signals, written with unit-step functions and a sine, specify the experiment's inputs and are restated in prose. That is the standard minimal way to state test inputs in control engineering, not notation standing in for program structure. The pilot-command and state symbols in the description of the control block diagram are labels, not formalism, and the pseudocode for the test software is a plain case statement.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo of 28 references are self-citations (SCR 7.1%). [10] (2016) describes a test platform for rotary-wing UAVs by Yüzgeç, Ökten, Üçgün, Kesler et al., and [11] (2016) a GUI for flight tests by the same four authors. Both are directly relevant and appear to describe the same platform and GUI: Figs. 3, 8, and 9 are reproduced from [11]. That bears on the \"novel\" claim rather than on citation integrity. Six references ([23]-[28]), three of them published in this journal, are cited in a single paragraph on general control approaches. They include fuzzy-control and iterative-feedback-tuning papers, a sliding-mode controller for a DFIG wind-energy system, and power control in wireless sensor networks. None bears on the test rig and none is used later. No self-citation or mutual pattern can be established from the text, so no citation flag is raised, but the tangential cluster lowers the citation score. Ömürlü et al. [12] are referred to as \"mrl and his friends\".\n\n---\n\n## Structural Analysis\n\nThe evidence is qualitative: plots of pitch and roll responses for a single set of PID gains. No quantitative metrics are given (overshoot, settling time, tracking error), the rig is not compared with any other, and there is no free-flight check that gains tuned on the rig carry over to flight. The abstract and conclusion claim yaw and altitude tests and say that crashes \"will be obstructed\", but only pitch and roll results are shown and nothing is measured about crashes. The 60 cm limit on altitude travel is acknowledged inline. No design files, GUI code, or logged data are released; the AeroQuad board is third-party open source.\n\n---\n\n## Conclusion\n\nA practical engineering prototype described with appropriate formality and low, relevant self-citation. The weaknesses are evidential. The paper does not set out what is new relative to the authors' 2016 papers, the results are qualitative and cover two axes, and the paragraph of tangential control-theory citations is unexplained."
+  },
+  {
+   "paper_id": "popescu2022",
+   "paper": {
+    "title": "Improvements in Data Transfer for a MapReduce Accelerator",
+    "authors": [
+     "George-Vlăduț Popescu"
+    ],
+    "abstract": "This paper presents a way to improve data transfer for a MapReduce Accelerator designed for parallel data processing and integrated into a heterogeneous computing system. The proposed solution is a new module called the Data Transfer Engine, integrated into the structure of the Accelerator. This module takes over the tasks related to data transfer, separating the data processing and data transfer flows, thus reducing the total execution time of a program. Two algorithms for processing large matrices were proposed to evaluate the improvement in the total execution time brought by the Data Transfer Engine. These algorithms are based on a custom linear algebra library used to run basic matrix operations on the target Accelerator.",
+    "keywords": [
+     "Data Transfer Engine",
+     "heterogeneous computing",
+     "improved data transfer",
+     "MapReduce Accelerator"
+    ],
+    "doi": null,
+    "pages": "368-380",
+    "source_file": "paper728.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 64.25,
+    "composite": 48.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "4 of 11 references ([8]-[11]) are co-authored by the sole author (SCR 36.4%, above 30%). All four concern the same MapReduce accelerator and are topically relevant; the ratio reflects a very short reference list."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Data transfer engine that overlaps I/O with computation in an FPGA MapReduce accelerator; formalism is proportionate and the simulated gains modest and well scoped, but 4 of 11 references are self-citations (SCR 36%), which triggers the disqualifying self-citation rule.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A Data Transfer Engine added to an FPGA MapReduce accelerator so that moving data lines through the I/O shift-register chain overlaps with computation, using double buffering and priority arbitration for memory access. It is evaluated in simulation on tiled large-matrix addition and multiplication.\n**Level:** 2 (Low)\n**Rationale:** A standard design pattern, decoupling transfer from compute with double buffering, applied to a specific accelerator. There is no new algorithm and no complexity analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (block-wise element-wise operation and block multiplication)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Eqs. (1)-(2) are textbook block-matrix identities. They define the tiling that the two test programs implement (Figs. 7-8), so they are basic equations tied directly to the implementation.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nFour of 11 references ([8]-[11]) include the author (SCR 36.4%). That is above the 30% threshold, so EXCESSIVE_SELF_CITATION applies mechanically and disqualifies. All four concern the same heterogeneous MapReduce accelerator and its programming environment, so they are topically relevant (similarity at least 0.5), and the ratio is driven by a very short reference list. The other seven references are vendor whitepapers and overviews of the Xeon Phi, NVIDIA GPUs, and the TPU. The paper cites no prior work on DMA engines, double buffering, or overlapping communication with computation in accelerators, which is its actual subject.\n\n---\n\n## Structural Analysis\n\nThe claims are modest and match the evidence. Simulated cycle counts show a reduction of about 35% for tiled addition and up to 22% for multiplication on a 16-cell array, with a plausible explanation for the smaller gain (memory-access priority). The conclusions call the results \"preliminary\", and the text states when no gain is possible: a single call, or calls whose data share a memory area. Several things are missing: absolute cycle counts in the text (they appear only in figures), the FPGA resource and clock-frequency cost of the new module, measurement on the PYNQ-Z2 hardware rather than in simulation, and comparison with a conventional double-buffered DMA design. No HDL, library, or simulation setup is released.\n\n---\n\n## Conclusion\n\nA clear hardware design note with proportionate formalism and modest, well-scoped claims. The framework disqualifies any paper whose self-citation ratio exceeds 30%, whatever the topical relevance. Here the ratio comes from an 11-item reference list dominated by the author's own work on the same accelerator. The more substantive weakness is the absence of related work on overlapping transfer with computation."
+  }
+ ]
+}

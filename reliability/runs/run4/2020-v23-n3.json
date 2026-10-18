@@ -1,0 +1,70 @@
+{
+ "batch_id": "2020-v23-n3",
+ "analysis_timestamp": "2026-10-18T03:45:40Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 23,
+  "issue": 3,
+  "year": 2020
+ },
+ "papers": [
+  {
+   "paper_id": "dragomir2020",
+   "paper": {
+    "title": "Sparse Matrix-Vector Multiplication on a Map-Reduce Many-Core Accelerator",
+    "authors": [
+     "Voichiţa Dragomir",
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "Our proposal for accelerating the computation of Sparse Matrix Vector Multiplication is a Map-Reduce Accelerator as part of a heterogenous computer. We prove that both, structured and unstructured sparse matrices are efficiently multiplied with a dense vector approach using a parallel accelerator structured as a linear array of cells loop connected, through a log-depth reduction network, with a controller. The specific algorithms are presented and their implementation is compared with the of-the-shelf solutions. The main advantages of our architectural proposal, compared with the GeForce GTX 280 GPU which is implemented in the same technological node, are: (1) it provides the means to use 5 ÷ 12× more computation out of the peak computational power, (2) it performs the computation with 2.5× less energy.",
+    "keywords": [
+     "sparse matrix",
+     "matrix-vector multiplication",
+     "unstructured sparse matrix",
+     "structured sparse matrix",
+     "heterogenous computing"
+    ],
+    "doi": null,
+    "pages": "262-273",
+    "source_file": "paper662.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 35,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 56.3,
+    "composite": 42.23,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text for the authors' SpMV programs, simulator, or data; the assembly programs are printed in the paper only, and the author-owned links are a documentation manual ('Simulation Manual for Configurable MapReduce Accelerator, Available at: http://users.dcae.pub.ro/~gstefan/2ndLevel/teachingMaterials/ypoSpec1.pdf') and a project history page (http://users.dcae.pub.ro/~gstefan/2ndLevel/connex.html), neither of which is code or data",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "3 of 7 references (SCR 43%) are by the co-author Gh. M. Ştefan: [3] the simulation manual of the MapReduce accelerator, [4] the CA1024 Hot Chips presentation, and [7] the Connex project page. All three are topically relevant (they document the architecture the paper programs), so no IRRELEVANT_SELF_CITATION is raised, but the ratio exceeds the 30% threshold. The denominator is small: the remaining four references are a Tom's Hardware review, an NVIDIA technical report, a TechPowerUp specification page and NVIDIA seminar slides, and two of them ([5], [6]) are never cited in the text."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Maps COO- and band-format SpMV kernels onto the authors' map-reduce accelerator and compares analytic cycle counts with published GPU figures; formalism is light and proportionate, but three of seven references are self-citations (SCR 43%), the evaluation is analytic only, and the headline ratios disagree between abstract, body and conclusion.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Programming sparse matrix-vector multiplication (unstructured matrices in COO format, banded matrices stored by diagonals) on an existing linear-array map-reduce accelerator (MRA) from the authors' earlier work, with cycle-count estimates and a comparison against a GeForce GTX 280.\n**Level:** 2 (Low)\n**Rationale:** The accelerator and its instruction set are prior work ([3], [4], [7]). The contribution is the mapping of standard SpMV schemes (COO gather-multiply-scatter, per-column predicated multiply followed by per-row reduction, diagonal-wise multiply-and-shift for band matrices) onto that machine, plus instruction-count timing formulas. No new algorithmic idea is proved correct or bounded beyond counting loop iterations, so this is an optimisation/porting study of known methods rather than a Level 3 algorithmic contribution.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0); the use coefficient α_ARCH = used FLOPS/sec / peak FLOPS/sec is introduced inline as a ratio, not as a definition block\n- Theorems: 0\n- Proofs: 0 (the abstract says \"We prove that both, structured and unstructured sparse matrices are efficiently multiplied\", but no proof appears)\n- Equations: about 14 (the α ratio, the three reduction operators redAdd/redMax/redMin written as guarded sums or maxima, b = u + d + 1, six execution-time formulas such as T_SpMV(n, q) = 8 + n + 36q, T(n) = 13n + 8 and T_SpMV(b) = 1.5b²n/p + 19.5bn/p + 7b + 9, and the α ratios used in the comparisons), plus register-transfer descriptions of the instruction semantics and two worked 8×8 examples\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The notation is of the kind a programmer of this machine needs: register-transfer statements (e.g. GLSHIFT : accVect[i] <= (i==0) ? 0 : accVect[i-1]) are executable semantics, the guarded reduction sums describe what the REDUCE network returns, and the timing formulas are the quantitative results of the paper. The α coefficient was checked against the Greek-letters-for-configuration pattern: it is a single utilisation ratio, used throughout as the comparison metric, i.e. a basic equation, not a decorated parameter. The one set-like expression (x ∈ {0, 1} in the scan description) states that a bit is 0 or 1 and is not set notation standing in for list operations.\n\n### Issues\nNo formalism theater identified. The weakness is the opposite one: the timing formulas are stated without derivation, and the α values used in the comparison (\"αMRA = 12/37 → 32%\", αMRA = 50% for b = 3 and 20% for b = 27) are not traced to those formulas or to a stated peak rate for the 1024-cell, 65 nm implementation.\n\n---\n\n## Citation Analysis\n\nSeven references. Three are by the co-author Gh. M. Ştefan ([3] simulation manual of the accelerator, [4] CA1024 Hot Chips talk, [7] Connex project page), giving SCR = 3/7 ≈ 43%. Each is directly relevant: they are the only documentation of the architecture being programmed and of the silicon implementation whose energy figure (10 GFLOP/sec/Watt) is used. The ratio nonetheless exceeds 30%, so EXCESSIVE_SELF_CITATION applies under the specification; with only seven references the ratio is driven by the thinness of the bibliography rather than by padding.\n\nThe non-self references are weak as scholarly support: a hardware review website [1], a GPU specification page [5], NVIDIA seminar slides [6], and one technical report, Bell and Garland [2], which supplies all GPU performance numbers. References [5] and [6] are listed but never cited in the text. There is no related-work discussion of other SpMV accelerators, FPGA or systolic designs, or later GPU formats, so the comparison rests on a single 2008 GPU baseline.\n\n---\n\n## Structural Analysis\n\nThe paper is short (12 pages) and goes directly from the architecture description to the kernels; there is no related-work section and no evaluation methodology. Evidence for the performance claims is analytic: cycle counts read off assembly listings for kernels that fit in the array (n ≤ p, q ≤ p), compared with measured GPU throughput on real matrices from [2]. No SpMV program is reported as run on silicon or on the simulator, and no benchmark matrices are used. Estimated CER is about 0.5 (weak to adequate): the timing formulas and listings support the cycle counts, but the step from cycle counts to the α percentages is not shown.\n\nThe headline numbers are internally inconsistent. The abstract claims \"5 ÷ 12× more computation out of the peak\", Section 3.1.4 gives αMRA/αGT200 = 50 for the unstructured case, and Section 3.2.4 gives 19.23 to 5.12 for the band case. Energy is \"2.5× less\" in the abstract and Section 3.1.4 but \"2.4× less\" in the conclusion. The introduction quotes 15 GFLOPS (1.6% of peak) for the GPU on unstructured matrices from [2], while Section 3.1.4 uses 6 GFLOP/s (0.65%). The two different unstructured kernels share the name spmvUnstrucKernel, and the abstract's \"We prove\" overstates what is an instruction count.\n\nLimitations are acknowledged inline only: the SPMD kernel \"is meaningful only if there are much more than one nonzero element for each line/column\", and for the SPMD use case \"we do not have meaningful data yet\". No dedicated limitations section.\n\nArtifacts: the assembly programs are printed in the paper but nothing is released. The linked simulation manual [3] is documentation, not code, and no matrix data or simulator is made available. Category `none`.\n\n---\n\n## Conclusion\n\nA concise systems paper that shows how SpMV kernels for unstructured and banded matrices can be expressed on the authors' map-reduce accelerator, with plausible instruction-count arguments that the array can keep a larger fraction of its peak busy than a 2008 GPU. Its formal content is light, appropriate to the level, and mostly executable. The weaknesses are evidential: the comparison is between analytic cycle counts and measured GPU numbers, the derivation of the reported utilisation figures is not shown, and the summary figures differ between abstract, body and conclusion.\n\nOn citation conduct, three of seven references are the co-author's own; they are relevant, but the ratio of 43% triggers EXCESSIVE_SELF_CITATION, which the scoring code treats as disqualifying at any level. A broader bibliography, a measured or simulated evaluation on standard matrix collections, and released kernels and simulator would address most of these concerns. The paper text contains no instructions addressed to reviewers or to automated assessors."
+  }
+ ]
+}

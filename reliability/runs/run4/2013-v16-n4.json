@@ -1,0 +1,177 @@
+{
+ "batch_id": "2013-v16-n4",
+ "analysis_timestamp": "2026-10-18T03:40:53Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 16,
+  "issue": 4,
+  "year": 2013
+ },
+ "papers": [
+  {
+   "paper_id": "garg2013",
+   "paper": {
+    "title": "A Secure Image Based Watermarking for 3D Polygon Mesh",
+    "authors": [
+     "Hitendra Garg",
+     "Suneeta Agarwal"
+    ],
+    "abstract": "The proposed watermarking algorithm is based on geometrical properties of 3D mesh. The vertices of 3D mesh surface are categorized into flat, peak and deeper region. We first compare the perceivable distortion due to watermark insertion in the vertices of deep surfaces and the vertices belonging to either flat or peak surfaces. Our comparative analysis shows that insertion of watermark in deeper surface have less distortion in comparison to watermark insertion in flat and peak surfaces. In view of the fact, these vertices are categorized into three mutually exclusive groups. The first group (S1) is composed by the vertices of deeper area. For obtaining the vertices of second group (S2), the vertex normal is represented in IEEE-754 representation and nth bit of mantissa is considered as '1'. The third set (S3) contains the remaining vertices. The vertices from S1 and S2 are selected for watermark embedding according to the secure code, which is obtained from hash function applied over the secure image (I). The vertices of S3 remain intact. The watermark embedding is done by re-positioning the selected vertices from their original positions according to the category they belong to. The robustness is assessed against different distortion and distortion-less attacks. The subjective (MoS) and objective (Hausdorff distance, RMS) assessment of watermarked object are also done to measure the extend of similarity between original object and watermarked object.",
+    "keywords": [
+     "Original 3D mesh (O)",
+     "Watermark 3D mesh (Ow)",
+     "Mean Curvature",
+     "Hausdorff distance",
+     "RMS distance",
+     "Objective measurement",
+     "Subjective measurement",
+     "MD5"
+    ],
+    "doi": null,
+    "pages": "287-303",
+    "source_file": "03-hitendragarg.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 47.0,
+    "composite": 47.75,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "The Author would like to thank Stanford 3D Scanning Repository for providing 3D Model for experimental purpose.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 heuristic watermarking scheme. Section 3.2 introduces the mesh as G ≡ (V,F) with set-builder notation V = {Vi ∈ R3 | 1 ≤ i ≤ N}, F = {Fj | 1 ≤ j ≤ M} and a circular edge set E={{i,j}|i,j ∈ I,{i,j}} is an edge}. None of V, F or E is referenced again in the algorithm, the equations or the evaluation. The mesh is a vertex array and a face array; the notation can be said in plain English, changes nothing a programmer would build, and supports no proof."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Heuristic 3D mesh watermarking that combines a published mean-curvature operator, an MD5 hash of a secure image and radial vertex displacement, evaluated on six meshes against smoothing, subdivision and simplification. Unused set-builder notation for the vertex, face and edge lists triggers formalism theater at Level 2. There are no self-citations, and some of the test meshes come from a named public repository. The text contains technical inaccuracies, and its comparison with the baseline is not quantified.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Non-blind, spatial-domain watermarking of 3D polygon meshes. Vertices are split into three groups by discrete mean curvature (the operator of Meyer et al. [17]) and by one mantissa bit of the IEEE-754 vertex normal; an MD5 hash of a secure image selects which vertices of the first two groups are displaced radially from the centre of gravity (ρ′ = ρ + W).\n**Level:** 2 (Low)\n**Rationale:** The scheme assembles existing components (a published curvature operator, a standard hash, radial displacement in spherical coordinates as in vertex-norm schemes such as [10]) into a heuristic. There is no complexity analysis, no proof, and the evaluation is purely empirical. This is a simple combination of existing methods, not a new algorithm with analysed properties.\n\n### Formal Elements\n- Definitions: 0 numbered, 4 inline (G ≡ (V,F); V = {Vi ∈ R3 | 1 ≤ i ≤ N}; F = {Fj | 1 ≤ j ≤ M}; the edge set E)\n- Theorems: 0\n- Proofs: 0\n- Equations: 12 (eq. 1 displacement; eqs. 2–5 Cartesian/spherical conversion; eqs. 6–8 Hausdorff distance; eq. 9 RMS; eq. 10 MoS; eqs. 11–12 scaling invariance)\n\n### Proportionality\nCalculated complexity: 8\nExpected range (Level 2): 0-15\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate by count, but one block fails the necessity test. The coordinate-conversion and metric equations are ordinary and needed to state the method and its evaluation. The set-builder description of the mesh is not: V, F and E never reappear, and the edge definition is circular. It defines an edge as a pair {i,j} that is an edge.\n\n### Issues\n- Section 3.2: \"V= {Vi ∈ R3 | 1 ≤ i ≤ N } ... F= {Fj | 1≤ j ≤ M} ... E={{i,j}|i,j ∈ I,{i,j}} is an edge}\" is notation for a vertex array and a face array, copied from the background literature and unused afterwards. This triggers FORMALISM_THEATER under the Level 1-2 zero-tolerance rule. No set operation stands in for a list operation, so UNNECESSARY_SET_THEORY is not raised.\n- Technical inaccuracies outside the formal apparatus. The paper states \"The cryptographic hash function (MD5) produces 32 words of 8 bits i.e. 256 bit hash code\", but an MD5 digest has 128 bits. The \"Bit Error Rate\" is defined as the ratio of correctly detected bits, which is a detection ratio, not an error rate. The S2 bit is the nth mantissa bit in the abstract and Section 3.2 but the 5th in Algorithm 1. W1 is formed from \"initial 10 to 50 bits\" with no fixed value. The binning step that moves vertices from S1 to S3 is ambiguous as written.\n\n---\n\n## Citation Analysis\n\nThe paper has 24 references and no self-citations: neither Garg nor Agarwal appears in the reference list (SCR 0%). The references cover 3D mesh watermarking, perceptual mesh-quality metrics and the tools used (MeshLab, Metro), all relevant to the topic. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe experimental section reports four tables over six meshes (Armadillo, Duck, Bunny, Cow, Dragon, Nefertiti): Hausdorff distance, RMS, MoS, correlation and area change without attack, and robustness under smoothing, subdivision and simplification. These numbers back most of the robustness claims. Several claims have no supporting data. Robustness to rotation, translation, scaling and vertex reordering is asserted (\"In RST attack, we are able to retrieve 100% of watermark information\") with no table. The comparison with Cho et al. [10], which claims lower RMS error and no staircase artefacts, gives no baseline numbers or figures. The number of student observers behind the MoS values is not reported. The claim-evidence ratio is estimated at about 0.6 (adequate).\n\nThere is no limitations section. Constraints are acknowledged inline: the watermark is \"distorted to some extend\" by distortion attacks, and the Cow and Nefertiti models are singled out as sensitive. The non-blind design, which needs the cover object for authentication, is presented as a strength rather than a constraint.\n\nArtifacts: no code is released. Three of the six meshes (Armadillo, Bunny, Dragon) are standard models from the Stanford 3D Scanning Repository, which the acknowledgment names. The sources of Duck, Cow and Nefertiti are not identified, and the secure image is the standard Lena picture. MeshLab and Metro are third-party tools and do not count as the authors' artifacts. The category is data, but only part of the data is public.\n\n---\n\n## Conclusion\n\nThis is a heuristic, empirically evaluated mesh watermarking scheme of low conceptual complexity. Its formal apparatus is small, but the set-builder notation for the mesh is decorative and unused, which triggers the Level 2 formalism-theater disqualification. Citation conduct is clean. The evaluation is reasonably broad across attacks and models, but its quality is undermined by factual slips (MD5 digest length, the definition of BER), loosely specified algorithm parameters, and a qualitative comparison with the main baseline that gives no numbers."
+  },
+  {
+   "paper_id": "mao2013",
+   "paper": {
+    "title": "Ordering Trees by Sum-Connectivity Indices",
+    "authors": [
+     "Jianshu Mao",
+     "Bo Zhou"
+    ],
+    "abstract": "The sum-connectivity index of graph G is defined as the sum of the weights of the edges of G, where the weight of an edge uv of G is (dG(u) + dG(v))^(-1/2) with dG(u) being the degree of vertex u in G. We determine the n-vertex trees with the fourth for n ≥ 7, the fifth for n ≥ 10, the sixth, and the seventh for n ≥ 11 maximum sum-connectivity indices, and the n-vertex trees with the fourth, the fifth, the sixth, and the seventh for n ≥ 8, and the eighth for n ≥ 13 minimum sum-connectivity indices.",
+    "keywords": [],
+    "doi": null,
+    "pages": "351-364",
+    "source_file": "07-bozhou.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 40,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 56.75,
+    "composite": 42.56,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "ELEVATED_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "6 of the 10 references include the second author B. Zhou ([1], [2], [3], [8], [9], [10]), so SCR = 60%. All six concern the sum-connectivity index itself and are topically central: [10] introduced the index and holds the first-three orderings this paper extends, and [1] supplies Lemma 8. The flag follows from the ratio threshold; no self-citation is irrelevant.",
+    "ELEVATED_FORMALISM": "Level 3. Seven inline definitions, 12 lemma/theorem statements (10 lemmas, 6 of them quoted from [1] and [10], and 2 theorems) and 6 proofs give complexity 7×2 + 12×3 + 6×4 = 74 against an upper bound of 40 (1.85x). Counting only the paper's own statements still gives 56 (1.4x). Every element passes the necessity test; the elevation reflects the lemma density of a pure extremal-graph-theory paper, not decoration.",
+    "NO_LIMITATIONS": "The paper has no discussion, conclusion or limitations section. It ends at the proof of Theorem 2 and says nothing about cases left open, such as orderings beyond the eighth or values of n below the stated thresholds."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Incremental extremal graph theory: the trees with the 4th to 7th largest and 4th to 8th smallest sum-connectivity index, proved by case analysis and calculus-based transformation lemmas. The formalism is all necessary, though elevated by count at Level 3. Six of ten references are self-citations by the second author. All six are directly relevant, but the 60% ratio triggers the disqualifying self-citation flag.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Extremal chemical graph theory. The paper orders n-vertex trees by the sum-connectivity index χ(G) = Σ over edges uv of (d(u) + d(v))^(-1/2), identifying the trees with the fourth to seventh maximum and the fourth to eighth minimum values. The first three in each direction were determined in [10].\n**Level:** 3 (Medium)\n**Rationale:** The paper proves non-trivial extremal properties of a graph invariant through case analysis on pendant paths, a transformation lemma proved with second-derivative and mean-value arguments, and monotonicity lemmas. It is an incremental extension of an established result within an existing framework, with no complexity-theoretic, protocol or verification content that would justify Level 4. Following the default-lower rule, it is placed at Level 3.\n\n### Formal Elements\n- Definitions: 7 inline (Randić index R(G), sum-connectivity index χ(G), pendant path, neighbourhood N_G(u), the trees Tn(n1,n2,n3), Sn,p and Tn,a)\n- Theorems: 12 statements (Lemmas 1–10, of which Lemmas 1, 3, 7, 8, 9 and 10 are quoted from [1] or [10] without proof; Theorems 1 and 2)\n- Proofs: 6 (Lemmas 2, 4, 5 and 6; Theorems 1 and 2)\n- Equations: about 40 displayed derivations and inequalities\n\n### Proportionality\nCalculated complexity: 74\nExpected range (Level 3): 10-40\nRatio: 1.85x upper bound\n\n**Assessment:** Elevated by count, but substantively proportionate. Every definition is used in a lemma or theorem, every lemma is invoked in the proofs of Theorems 1 and 2, and the theorems are the paper's contribution. Nothing could be replaced with plain English without losing the result. ELEVATED_FORMALISM is raised because the count condition is met. It reflects how lemma-dense the paper is, not decorative notation.\n\n### Issues\nNo decorative formalism. Minor presentation problems:\n- In the extracted text several conditions have lost their equality signs (\"n1 + n2 + n3 − 5\" where n1 + n2 + n3 = n − 5 is meant; \"Case 2. p − 2\" and \"Case 3. p − 3\" where p = n − 2 and p = n − 3 are meant). These may be extraction artefacts.\n- The proof of Lemma 4 sums over N_G(u) where N_H(u) is meant.\n- Lemma 6 is proved for f1 only (\"The proof for the other three cases is similar\").\n- Several orderings rest on \"direct calculation\" with no values shown.\n- The concluding combination step in the proof of Theorem 1 attaches the sixth-maximum value to \"n ≥ 9\", while Theorem 1(iii) and Case 3.2 require n ≥ 11.\n\n---\n\n## Citation Analysis\n\nThe paper has 10 references. Six include the second author, B. Zhou: [1] Du, Zhou, Trinajstić; [2] Lučić, Trinajstić, Zhou; [3] Lučić et al. (survey); [8] Wang, Zhou, Trinajstić; [9] Xing, Zhou, Trinajstić; [10] Zhou, Trinajstić. That gives SCR = 6/10 = 60%, well above the 30% threshold. All six are on the sum-connectivity index itself, so topical similarity is high (above 0.8). [10] defines the index and holds the results being extended, and [1] supplies Lemma 8. No self-citation is irrelevant, and no mutual citation on unrelated topics is visible. The frequent co-author Trinajstić appears in seven references, which is ordinary collaboration in a small subfield.\n\nThe EXCESSIVE_SELF_CITATION flag is raised because the specification makes it a function of the ratio alone. The ratio comes from a short reference list in a niche the second author's group largely created, not from padding. Anyone interpreting this paper's disqualification should keep that distinction in mind.\n\n---\n\n## Structural Analysis\n\nEvery claim in the paper is a lemma or theorem that is either proved or cited, so the claim-evidence ratio is well above 1.0. The paper has no introduction-style motivation beyond the descriptor literature, and no discussion, conclusion or limitations section. It does not say what remains open, such as higher orderings or small n outside the stated ranges. NO_LIMITATIONS is therefore raised.\n\nArtifacts: this is a purely theoretical paper with nothing to release (category none, relevant false).\n\n---\n\n## Conclusion\n\nThis is a competent, incremental contribution to extremal graph theory. Its formal apparatus is the content: lemma-dense enough to exceed the Level 3 count bound, but without decoration. The proofs are careful case analyses with a few typographical slips and some steps left to \"direct calculation\". The paper's standing under the framework is decided by citation conduct: six of ten references are the second author's own work. All of them are relevant, but the ratio triggers the disqualifying self-citation rule."
+  },
+  {
+   "paper_id": "bansal2013",
+   "paper": {
+    "title": "Distributed Scheduling on Utility Grids",
+    "authors": [
+     "Sunita Bansal",
+     "Chittaranjan Hota"
+    ],
+    "abstract": "Grid computing aggregates the power of widely distributed resources and provides non-trivial services to the users. Resource management and scheduling play a crucial role in Grid computing environment. It becomes more challenging in Utility Grids, where consumer wants to pay minimum amount and providers want to earn maximum amount. Many existing scheduling approaches are dedicated to either single criterion or multi-criteria. Existing multi-criteria systems give weight to each criterion according to its relative importance. Users need not worry about the choice of these criteria. These algorithms are less efficient in terms of time complexity and memory utilization. In this paper, we propose an efficient distributed scheduling algorithm on Utility Grids based on Technique for Order Preference by Similarity to Ideal Solution (TOPSIS). We have introduced a new parameter called Processing Element (PE) weight. The objective of this parameter is to select the resource that carves out smallest possible free PE cluster that satisfies the user requirements. User and system defined weights are used to select resource and evaluate the performance of the algorithm. The GridSim toolkit with standard workload model is used to simulate the Grid environment. The simulation results show that our algorithms perform better over existing approaches in terms of user satisfaction and number of application failures.",
+    "keywords": [
+     "Cost-time",
+     "Failure",
+     "Parallel Applications",
+     "TOPSIS",
+     "Utility Grids"
+    ],
+    "doi": null,
+    "pages": "373-392",
+    "source_file": "09-sbansal.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.5,
+    "composite": 33.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "THEOREMLESS_FORMALISM"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 combination of the MCT/MET heuristics with TOPSIS. The lists of resources, time slots and applications are written as sets (R = {rj, rj+1 ... , rm}, TS = {tk, tk+1, . . . , tp}, A = {ai, ai+1, . . . , an}). The records are written as tuples (ai = (ali, api, adi, asi, aηi, aδi), rj = (rcj, rsj, rpj, rbj, rtj), tsk = (tsk, tfk, tpk)), and the user and system weights get Greek letters (η, δ, γ). This notation supports no derivation. It describes structs and configuration parameters that plain English or a field list would state equally well.",
+    "THEOREMLESS_FORMALISM": "Six formal inline definitions (three sets and three tuples in Section 4.1, plus a 15-symbol notation table) and no theorem, lemma or proposition. The formal apparatus produces no formal result."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Online resource-broker heuristics (EMCT, EMET) that rank grid resources with TOPSIS over time, cost and leftover processing elements, simulated in GridSim. Set and tuple notation for plain records triggers formalism theater at Level 2. The headline claim of beating existing approaches is never tested, because only the two proposed variants are compared. Self-citation is negligible, and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Scheduling of rigid parallel jobs by a resource broker on an economy (utility) grid. Two heuristics, EMCT and EMET, extend the Minimum Completion Time and Minimum Execution Time heuristics of Braun et al. [6]. They rank candidate resources with TOPSIS [12] over three criteria: time, cost, and a \"PE weight\" for the free processing elements left in the chosen time slot. The heuristics are evaluated in GridSim with the Lublin and DAS-2 workload models.\n**Level:** 2 (Low)\n**Rationale:** The paper applies an existing multi-criteria decision method to resource selection inside existing list-scheduling heuristics. It gives no complexity analysis, although it claims efficiency, and no proofs. This is a straightforward application of an existing method to a new setting.\n\n### Formal Elements\n- Definitions: 6 inline (sets R, TS and A; tuples ai, rj and tsk), plus a 15-symbol notation table and the TOPSIS decision matrix D\n- Theorems: 0\n- Proofs: 0\n- Equations: 12 (eqs. 1–4 elementary execution, response, cost and transfer-time formulas; eqs. 5–11 standard TOPSIS; eq. 12 average user satisfaction)\n\n### Proportionality\nCalculated complexity: 12\nExpected range (Level 2): 0-15\nRatio: 0.8x upper bound\n\n**Assessment:** Within range by count, but the system model fails the necessity test. The sets and tuples in Section 4.1 describe records and lists: an application is a record with length, required PEs, input size, submission time and two weights. The Greek letters name user and system weight parameters. None of this notation is used in a derivation or proof. The elementary formulas (eqs. 1–4) and the TOPSIS steps (eqs. 5–11) are basic equations that state the method, and are acceptable at this level.\n\n### Issues\n- Section 4.1: \"a set of resource providers R = {rj , rj+1 ... , rm }\" and \"Each application is characterized by ai = (ali , api , adi , asi , aηi , aδi )\" are set notation for lists and tuple definitions for data records. Together with Greek letters for weights, this triggers FORMALISM_THEATER under the Level 1-2 rule. No set operation stands in for a list operation beyond ordinary pseudocode iteration, so UNNECESSARY_SET_THEORY is not raised.\n- The TOPSIS steps contain errors. Algorithm 2 step 7 says \"Return the resource that has minimum C (i )\", whereas TOPSIS selects the alternative with the largest relative closeness C+ = R−/(R− + R+) to the ideal solution. Equations 7–8 index the ideal solutions over alternatives i rather than criteria j. Algorithm 1 step 20 (\"res ← ai\") reverses the assignment.\n- Eq. 12 is named \"user satisfaction\", yet the text says \"The objective is to minimize the user benefit because less user satisfaction is better\". The metric is a weighted cost, and the paper uses \"satisfaction\" and \"benefit\" interchangeably for it.\n\n---\n\n## Citation Analysis\n\nThe paper has 28 references and one self-citation: [10] Bansal and Hota, on refinement scheduling heuristics for heterogeneous computing. It is cited for two-phase scheduling heuristics, a related topic (similarity about 0.6). SCR = 1/28 ≈ 3.6%. The other references cover grid scheduling heuristics, economic grid scheduling, workload models and multi-objective metaheuristics, all relevant. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe simulation results (Figures 3–14) support claims about how EMCT and EMET compare with each other, and about the effect of the PE weight on failures and on the cost metric. The headline claims are not supported. The abstract states that \"our algorithms perform better over existing approaches in terms of user satisfaction and number of application failures\", but no existing approach is simulated. None of the cost-time algorithms reviewed in Section 2 (Buyya et al. [7], Garg et al. [3], Ang et al. [9]) is run as a baseline. The assertions that existing multi-criteria methods \"are less efficient in terms of time complexity and memory utilization\" and that the proposed algorithms \"involve less overhead and lead to more efficient resource allocation than other optimal resource allocation approaches\" have no measurement or analysis behind them. The title stresses distributed scheduling, but no multi-broker behaviour is modelled or evaluated. Results are averaged over ten trials with no variance reported. The claim-evidence ratio is estimated at about 0.4 (weak): above the flag threshold, but the central comparative claim is unsupported.\n\nLimitations are acknowledged inline. The system model states its assumptions (fixed prices, mutual trust, rigid PE requirements), and the conclusion notes that concurrent execution of dependent jobs \"could not be addressed in the current work\".\n\nArtifacts: no code or data is released. GridSim is a third-party toolkit. The workloads are generated synthetically from published statistical models (Lublin and Feitelson [8]; the DAS-2 model of Li et al. [21]), and neither the generated workloads nor the simulation code is provided. The resource tables are a description of the setup, not an artifact.\n\n---\n\n## Conclusion\n\nThis is a low-complexity scheduling contribution: two greedy heuristics that rank resources with TOPSIS. Its system model dresses plain records in set and tuple notation that supports no result, which triggers the Level 2 formalism-theater disqualification and the theoremless-formalism penalty. The more serious weakness is evidential. The paper claims superiority over existing approaches and lower overhead, but its evaluation compares only its own two variants, and the TOPSIS description contains a selection-rule error. Citation conduct is clean."
+  }
+ ]
+}

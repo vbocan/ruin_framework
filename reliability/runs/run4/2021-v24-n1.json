@@ -1,0 +1,121 @@
+{
+ "batch_id": "2021-v24-n1",
+ "analysis_timestamp": "2026-10-18T03:46:49Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 24,
+  "issue": 1,
+  "year": 2021
+ },
+ "papers": [
+  {
+   "paper_id": "coste2021",
+   "paper": {
+    "title": "Programmable Capacitor Multiplier Based on Gm-cell with Two Outputs – Topology, Circuit Implementations and Applications",
+    "authors": [
+     "Paul Coste",
+     "Paul Martari",
+     "Marius Neag",
+     "Marina Ţopa",
+     "Vlad Ionescu"
+    ],
+    "abstract": "This paper introduces a novel circuit topology for programmable capacitance multipliers implemented with linear transconductors (Gm cells), along with several circuit implementations and applications. Starting from a fairly well-known architecture, that employs two Gm cells, the proposed topology only requires one transconductor core. It is particularly well suited to high-linearity transconductors, such as the Kwan-Martin and Welland circuits, but simple differential pairs can also be used to implement it. In fact, circuit implementations based on all three transconductor types are demonstrated in the paper. Mathematical analysis and parametric simulations were performed in order to assess the impact non-idealities inherent to circuit implementation may have on the proposed topology. It was found that the finite value of an output resistance was the main performance limiting factor for the capacitance multiplier. Therefore, a compact implementation for active cascoding of current mirrors was used in subsequent circuit implementations. The usefulness of the proposed capacitance multiplier was demonstrated on three applications, designed in a standard 0.18µm CMOS technology: a triangular waveform generator with signal frequency programmable between 2.67kHz and 21.4kHz; a fully differential lossy integrator, with the pole frequency programmable between 75kHz and 575kHz, and the decoupling capacitor of a fully-integrated LDO, with the equivalent value of 100pF derived from a 5pF placed capacitance.",
+    "keywords": [
+     "Microelectronics",
+     "capacitor multiplier",
+     "linear transconductor",
+     "active cascode",
+     "triangular wave generator",
+     "programmable pole frequency",
+     "capacitorless LDO"
+    ],
+    "doi": null,
+    "pages": "4-27",
+    "source_file": "paper677.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.25,
+    "composite": 58.69,
+    "final": 58.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Analog CMOS capacitance-multiplier design whose circuit equations are the ordinary analysis needed to size the designs; self-citation is moderate and on topic, but validation is simulation-only, several numbers are internally inconsistent, and no design files are released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Analog CMOS circuit design: a current-mode capacitance multiplier that replaces the two Gm cells of a known architecture with a single transconductor core feeding two current outputs in a 1:K ratio, implemented with Kwan-Martin, Welland and degenerated-differential-pair cores and demonstrated in three simulated applications (triangle-wave generator, fully differential Gm-C single pole, capacitorless LDO).\n**Level:** 2 (Low)\n**Rationale:** The contribution is a structural simplification of an existing topology (the two-Gm-cell multiplier of [8]) built from established techniques: binary-weighted programmable current mirrors, active cascodes (gain boosting, [12]) and common-mode control after [14]. There is first-order small-signal analysis but no new theory, algorithm or proof, and validation is by simulation. Under the strict default this is an improvement of an existing method (Level 2) rather than a new model with validated theory (Level 3).\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 19 numbered (input impedance, pole and zero pulsations, ideal limits, transconductance and output-resistance expressions, oscillation frequency, filter transfer function, bias relations)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are ordinary circuit analysis and pass the necessity test: Eqs. (5)-(9) identify Rout2 and the gain A_VV0 as the parameters that limit the usable frequency range, which is what motivates the active-cascode implementations of Figs. 8 and 11, and Eqs. (17) and (19) are used directly to size the designs (Cequivalent of 150-1200 pF from a 75 pF placed capacitor; Gm4 = 184 µS for Cplaced = 25 pF). There is no set notation, no tuple definition and no 'Definition N' block.\n\n### Issues\nMinor only. Eqs. (15)-(16) state trivial bias relations (a source-drain voltage equals VDD minus a node voltage) that could be prose, but this is conventional circuit notation, not a theater pattern. Eq. (13) as printed adds GmOTA and RoOTA where a product would be expected (possibly an extraction artifact). Typographic slips such as 'Cpalced'.\n\n---\n\n## Citation Analysis\n\n17 references, three of which include authors of this paper: [1] Coste, Martari, Neag and Ionescu, 'Capacitor Multiplier with One Transconductor Cell' (CAS 2019); [11] Neag, Kovács, Onet and Ţopa, a Gm-cell variable-gain amplifier that supplies the programmable current mirror of Fig. 8; [15] Răducan and Neag, the high-slew-rate capacitorless LDO used as the host circuit in Section 3.c. SCR = 3/17 = 17.6%, inside the 15-20% elevated band and below the 20% flag threshold. All three are directly on topic (similarity about 0.8 or higher), so no relevance flag applies.\n\nOne transparency point: [1] appears to be the authors' own earlier conference presentation of the same one-transconductor topology, yet it is cited only generically ('a capacitance multiplier that can be integrated [1-3]') and the paper calls the topology novel without stating what is new relative to [1]. The remaining references are standard sources (Kwan-Martin, Welland, Bult-Geelen, Rincon-Mora) and competing multipliers. Bibliographic slip: [12] (Bult and Geelen, JSSC 25(6)) is dated 2004, whereas volume 25 of that journal is from 1990.\n\n---\n\n## Structural Analysis\n\nThe claims rest on simulation results: four parametric sweeps of the ideal model (Figs. 3-6), frequency responses of two transistor-level implementations with stated ±10° phase ranges (Figs. 10 and 13), a table per application (Tables 1-4) and a comparison with prior multipliers (Table 5). The claim-evidence balance is adequate (CER about 0.8).\n\nWeaknesses: all evidence is schematic-level simulation in 0.18 µm CMOS, with no silicon measurement, process corners, Monte Carlo mismatch or noise analysis, even though immunity to Gm1/Gm2 mismatch is one of the advantages claimed over [8]. Several figures disagree with each other: the integrating current is 5 µA in Section 3.a but 1 µA in the conclusions; the supply step is 1.4-1.8 V in the text but 1.4-1.6 V in the caption of Table 4; Table 3 labels the 327/359 mV peak-to-peak variations as 'overshoot', while the text gives the overshoots as 214/182 mV. The conclusion that the triangle generator 'compares favorably to data reported recently for similar circuits' has no supporting comparison.\n\nLimitations: no dedicated section, but inline acknowledgments are present. The conclusions state that the effective frequency range is limited mainly by the output resistance and capacitance of the high-gain mirror branch, Table 5 is said to present 'only simulation results, not data obtained by measurements', and the standard LDO is conceded to be better on peak-to-peak load-transient variation.\n\nArtifact availability: no netlists, schematic files, simulation decks or waveform data are linked or offered. The circuits are described in detail, but description is not availability.\n\n---\n\n## Conclusion\n\nA competent analog-design paper whose formalism is the ordinary circuit analysis needed to dimension the circuits; formalism is proportionate and self-citation is moderate and topical. The main weaknesses are structural: validation by nominal simulation only, several internal numerical inconsistencies, an unexplained relationship to the authors' own 2019 conference paper on the same topology, and no released design artifacts."
+  },
+  {
+   "paper_id": "yapicipehlivan2021",
+   "paper": {
+    "title": "A Novel Multiplicative Fuzzy Regression Function with A Multiplicative Fuzzy Clustering Algorithm",
+    "authors": [
+     "Nimet Yapici Pehlivan",
+     "Ismail Burhan Turksen"
+    ],
+    "abstract": "Possible structures of the system which is composed of various input and output variables are described by Fuzzy System Modeling(FSM). Traditional FSM approaches such as fuzzy rule-based systems and fuzzy regression functions have high ability to ensure approximating the real-world systems. Fuzzy Functions with Least squares Estimation(FF-LSE) is proposed by Turksen [1] for development of fuzzy system models. In the FF-LSE method, Improved Fuzzy Clustering(IFC) is used to find membership values in regression and classification type datasets, separately. In this study, we propose a novel FSM approach, namely Multiplicative Fuzzy Regression Function(MFRF), which is constructed based on a new Multiplicative Fuzzy Clustering(MFC) algorithm. In the MFC algorithm, membership values are initially computed by Fuzzy c-Means Clustering(FCM) algorithm, then additional transformations of the membership values are used to generate multiplicative fuzzy functions(MFFs) for each cluster. The additional transformations of the membership values together with input variables are used by the Least Squares Estimation to form Multiplicative Fuzzy Regression Functions for each cluster identified by Multiplicative Fuzzy Clustering. Computational complexity of the proposed MFRF method is discussed and its performance is examined using several experiments on Concrete Compressive Strength dataset. Performance of the proposed MFRF is compared to FF-LSE and classical LSE approaches.",
+    "keywords": [
+     "Fuzzy Systems",
+     "Databases and Information Systems",
+     "Data Mining and Analysis"
+    ],
+    "doi": null,
+    "pages": "79-98",
+    "source_file": "paper681.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 35,
+    "structural_integrity": 45,
+    "artifact_availability": 50,
+    "intellectual_integrity": 55.5,
+    "composite": 54.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"the Concrete Comprehensive Strength dataset taken from UCI Machine Learning Repository\"; reference [30]: https://archive.ics.uci.edu/ml/datasets/Concrete+Compressive+Strength. The MATLAB implementation is neither linked nor offered.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "11 of 31 references (SCR = 35.5%) include co-author I.B. Turksen: [1], [8], [16], [17], [18], [19], [20], [21], [24], [25], [31]. Most are topically related fuzzy-function or fuzzy-clustering work, but three cluster-validity papers ([16], [17], [21]) are cited in a list although the paper uses no validity index, and [20], [24] and [31] are only marginally related; the ratio exceeds the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Incremental variant of FF-LSE with proportionate formalism and a candid null result, undermined by 35.5% self-citation to the second author, test-set hyperparameter selection, duplicated and inconsistent table entries, and an announced complexity analysis that is absent.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fuzzy system modelling: a variant of Turksen's Fuzzy Functions with Least Squares Estimation (FF-LSE) in which membership values, or transforms of them, from a modified Improved Fuzzy Clustering step multiply the input matrix instead of being appended to it as extra columns; evaluated against FF-LSE and ordinary least squares on the UCI Concrete Compressive Strength dataset.\n**Level:** 2 (Low)\n**Rationale:** MFC keeps the IFC objective function and update equations and changes only how the regressor built from memberships is formed; MFRF changes only how memberships enter the least-squares design matrix. This is a small modification of existing methods followed by an empirical comparison on one dataset. The abstract states that computational complexity 'is discussed', but no complexity analysis appears anywhere in the text, and there is no convergence result. Strict default: Level 2.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 23 numbered (Eqs. 1-16 in the body; Eqs. 17-23 in the appendix restate FCM and IFC from earlier work), plus four hypothesis statements for the Mann-Whitney test\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The objective function, membership and centre updates, least-squares estimator and membership-weighted output (Eqs. 1-5, 12-14) are what an implementer needs to reproduce the method. The symbols c and m are the standard FCM cluster count and fuzzifier and enter the update equations as exponents, so they are not decorative Greek letters for configuration constants. R² and RMSE (Eqs. 15-16) are standard metrics. There is no set notation for lists, no tuple definition and no 'Definition N' block, so no formalism-family flag applies.\n\n### Issues\nNot theater, but the formal content is careless. The 'multiplicative input matrix' (Eq. 2, and again in Eqs. 11, 13 and 14) is written as 'µ + µ² + ... + e^(µ^m)', an undefined series that is a sum of transforms, so the MFC regressor is a single summed column and nothing in MFC is actually multiplicative. Eq. (4) is presented as the solution of the constrained problem (1) without derivation and uses β̂_i inside the j-th term of the sum. Both algorithms stop on 'If t = iter and ΔJ < ε', which makes the tolerance ε irrelevant. The Mann-Whitney hypotheses are written as equality of means of the ten R² (or RMSE) values, which is not what that rank test assesses, and the ten splits are shared by both methods, so a paired test would fit the design better.\n\n---\n\n## Citation Analysis\n\n31 references, 11 of which include co-author I.B. Turksen: [1], [8], [16], [17], [18], [19], [20], [21], [24], [25], [31]. The first author appears in none. SCR = 11/31 = 35.5%, above the 30% threshold, hence EXCESSIVE_SELF_CITATION.\n\nRelevance of each self-citation: [1] (FF-LSE) and [8] (IFC) are the methods being modified and are essential (similarity about 0.9). [18], [19] and [25] concern fuzzy functions and are closely related (about 0.7). [16], [17] and [21] are cluster-validity indices; they appear in an introductory list of validity indices although the paper uses none (c and m are chosen by grid search), so they are related in topic but not in use (about 0.5). [20] (forecasting the Shanghai and CRB commodity indexes) and [24] (decision making with imprecise parameters) are applications of fuzzy functions, marginal (about 0.4). [31] (an ontological and epistemological perspective of fuzzy set theory) is cited for 'more details on the FCM algorithm', marginal (about 0.35). None falls below 0.3, so IRRELEVANT_SELF_CITATION is not raised; the problem is concentration, not topic.\n\nBibliographic slip: the text attributes [26] to Zadeh and [27] to Takagi and Sugeno, while the list has them the other way round.\n\n---\n\n## Structural Analysis\n\nThe empirical claims are backed by R² and RMSE over ten random 80/20 splits (Tables 3-8) and a Mann-Whitney U test (Table 6), and the paper reports its outcome candidly: MFRF is 'comparable, although not superior to the FF-LSE approach', and no difference is significant on the test data. CER is adequate (about 0.6).\n\nProblems: (i) the complexity discussion announced in the abstract is absent. (ii) 'Optimal' c* and m* are reported separately for the testing sets and differ from the training values (Table 3; per-split values in Table 8), which indicates that hyperparameters were selected on test data; this biases every test-set comparison and is consistent with MFRF-M1's test R² (73.69%) exceeding its training R² (68.05%). (iii) In Table 8, rows S3 and S4 are identical for both FF-LSE and MFRF across all six models while their LSE baselines differ (52.90 vs 45.10), which points to a copy error. (iv) Table 5 gives FF-LSE test RMSE of about 5.4-6.2 together with lower R² than MFRF at RMSE about 7.5-8.6, which is implausible on the same test splits, and it conflicts with Table 3 (FF-LSE test RMSE 6.81-8.16). (v) Table 4 contains NaN entries for FF-LSE-M6. (vi) The explanation that complex models do worse 'due to computational difficulties for the MFRF' is not investigated. (vii) Evaluation uses a single dataset, although the text says 'For Benchmark datasets ... from each dataset'. The text also says MFRF 'is more suitable than the FF-LSE' for models M2-M6 on test data on the strength of averages that the significance tests do not support.\n\nLimitations: no limitations section. Constraints are acknowledged only inline: the method is not superior to FF-LSE, it does worse on more complicated models, and future work will apply it to other datasets. That is enough to avoid NO_LIMITATIONS, but only just.\n\nArtifact availability: the data is a named public UCI dataset with its URL given as reference [30]. The authors' MATLAB implementation is not released or offered, and MATLAB itself is third-party.\n\n---\n\n## Conclusion\n\nAn incremental variant of FF-LSE whose equations are proportionate to its content, reported with an honest null result. The evaluation has methodological defects (hyperparameters chosen on test data, duplicated and inconsistent table entries, a single dataset), the announced complexity analysis is missing, and 35.5% of the references are to the second author. That crosses the disqualifying self-citation threshold even though most of the cited works are topically related."
+  }
+ ]
+}

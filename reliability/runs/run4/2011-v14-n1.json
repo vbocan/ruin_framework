@@ -1,0 +1,180 @@
+{
+ "batch_id": "2011-v14-n1",
+ "analysis_timestamp": "2026-10-18T03:39:16Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 14,
+  "issue": 1,
+  "year": 2011
+ },
+ "papers": [
+  {
+   "paper_id": "zhang2011",
+   "paper": {
+    "title": "A membrane-inspired approximate algorithm for traveling salesman problems",
+    "authors": [
+     "Gexiang Zhang",
+     "Jixiang Cheng",
+     "Marian Gheorghe"
+    ],
+    "abstract": "This paper proposes a membrane-inspired approximate algorithm to solve traveling salesman problems, which is a well-known and extensively studied NP-complete combinatorial optimization problem. The algorithm combines P systems with ant colony optimization, called ACOPS. ACOPS uses the pheromone model and pheromone update rules defined by ant colony optimization algorithms, and the hierarchical membrane structure and transformation/communication rules of P systems. First, the parameter setting of ACOPS is discussed. Second, extensive experiments are conducted and statistical analysis are investigated. It is shown that ACOPS is superior to Nishida's membrane algorithms and its counterpart ant colony optimization algorithms, in terms of the quality of solutions and the number of function evaluations.",
+    "keywords": [],
+    "doi": null,
+    "pages": "3-19",
+    "source_file": "01-mgheorghe.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 65,
+    "artifact_availability": 100,
+    "intellectual_integrity": 37.25,
+    "composite": 52.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"The programs for all the experiments can be available in [6].\" [6] http://staffwww.dcs.shef.ac.uk/people/M.Gheorghe/ ; \"All the TSP benchmarks are available in [5].\" [5] http://www.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/tsp/",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 hybrid metaheuristic (an island-model ant colony system) carrying the formal P system tuple Π = (V, T, µ, w1, …, wm, R1, …, Rm, i0) and membrane/multiset notation (µ = [0 [1 ]1 … [m ]m ]0, w1 = A1 A2 … AM1) for splitting the ants into sub-colonies. Neither is instantiated or needed to implement the algorithm, which Fig. 3 and Eqs. (1)-(7) fully specify.",
+    "DECORATIVE_DEFINITIONS": "The cell-like P system definition (Section 2.2) is a tuple definition reproduced from the literature. No ACOPS rule is written in its a → v form and no proof uses it, so removing it would not change what a programmer builds.",
+    "ELEVATED_SELF_CITATION": "7 of 28 references ([11]-[13], [25]-[28]) include an author of this paper: SCR 25%. All are on membrane algorithms and topically related.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints; the conclusion mentions only future application to engineering problems. Anomalies in the results (p = 0.0861 marked significant; tours shorter than the known optima) are not discussed."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Island-model ant colony system presented in P-system vocabulary. The experiments, statistical tests and code link are sound, but at Level 2 the formal P system definition and multiset notation do no algorithmic work, and self-citation is elevated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Hybrid metaheuristic for the symmetric TSP (ACOPS): an ant colony system (ACS) runs independently in m sub-colonies (\"elementary membranes\"), the best ant of each forms a further colony in a \"skin membrane\", and the best ant there feeds pheromone back to the sub-colonies.\n**Level:** 2 (Low)\n**Rationale:** The algorithm recombines an existing metaheuristic (ACS, with its equations taken from the ACO literature) with the authors' earlier one-level membrane structure. In programming terms it is an island-model ACS with a migration step. There is no complexity analysis, convergence argument or proof, so it does not meet the Level 3 criterion of a novel algorithm with analysis; defaulting low.\n\n### Formal Elements\n- Definitions: 3 inline (the TSP as sets C and D; the cell-like P system tuple Π = (V, T, µ, w1, …, wm, R1, …, Rm, i0) with rule syntax a → v, v ∈ (V × {here, out, in})*; the ACOPS \"P system-like framework\" with µ = [0 [1 ]1 … [m ]m ]0 and multisets w1 = A1 A2 … AM1, …)\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 numbered (ACS transition rule and probability, local and global pheromone updates, random iteration count, gmax formula)\n\n### Proportionality\nCalculated complexity: 6\nExpected range (Level 2): 0-15\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate in count, but the Necessity Test fails. Equations (1)-(7) are the algorithm and a programmer needs them. The P system apparatus is not needed: the tuple Π is reproduced from the membrane-computing literature and never instantiated. No rule of the form a → v is ever written for ACOPS, whose \"rules\" are described in English as tour construction and pheromone updates. The framework specification µ = [0 [1 ]1 … ]0 with w1 = A1 A2 … AM1 says \"split the M ants into m sub-colonies\". Removing it would not change the implementation, which Fig. 3 and Eqs. (1)-(7) specify completely.\n\n### Issues\n- A formal tuple definition of a computation model the algorithm does not implement (Section 2.2), and membrane-bracket and multiset notation for partitioning an array of ants (Section 2.4).\n- In Eq. (7), N is described as \"the total number of ants\", while everywhere else N is the number of cities and M the number of ants.\n- The set notation for the TSP (D = {dij | i, j ∈ {1, …, N}, i ≠ j}) is the conventional problem statement and is not counted as a failure.\n\n---\n\n## Citation Analysis\n\n28 references, 7 of them self-citations ([11], [12], [13], [25], [26], [27], [28]; each includes Zhang, and four also include Gheorghe or Cheng): SCR 25%. Reference [6] is Gheorghe's staff home page, given as the location of the programs, and is treated as an artifact link rather than a citation (counting it gives 28.6%, the same band). Every self-citation concerns membrane algorithms (P-system-based evolutionary, quantum-inspired, memetic and PSO variants) and is cited in the related-work survey of exactly that line, so topical relevance is high (≥0.5) and none is irrelevant. The rest of the list cites the ACO originators (Dorigo, Blum), the competing Nishida membrane algorithms and the Păun foundations of membrane computing, which is appropriate.\n\n---\n\n## Structural Analysis\n\nThe claims of superiority over ACS and over Nishida's algorithm are backed by tables over 20 and 8 TSPLIB instances, 20 runs each, a t-test per instance and Wilcoxon and Friedman tests across instances. The claim-evidence balance is good (CER ≥ 1). Reporting problems weaken it. lin105 is marked significant (+) at p = 8.61e-2 against the stated 0.05 level, so the reported count of 16 significant differences should be 15. Several ACOPS best tours are shorter than the listed optima (ulysses16 73.99 vs 74, pr144 58535.22 vs 58537, tsp225 3904.46 and 3899.6 vs 3916). That points to unrounded Euclidean distances rather than TSPLIB's integer convention, which makes the comparison with the optima, and possibly with Nishida's published figures, not like for like. The Nishida comparison also relies on NoFE equivalents that the authors computed from iteration counts. No limitations are acknowledged; the conclusion mentions only future application to engineering problems.\n\nArtifacts: the paper states that the programs and detailed results are at the third author's staff home page [6], and the benchmarks are TSPLIB, linked at [5]. The link goes to a personal home page rather than a repository, but it is printed as the route to the code, and the data are a named public benchmark set.\n\n---\n\n## Conclusion\n\nACOPS is a reasonable piece of applied metaheuristics, with a careful parameter study, appropriate statistical testing, and a pointer to its code and data. Its membrane-computing framing, however, rests on notation that does no algorithmic work. The formal P system definition and the membrane and multiset notation describe an island-model ACS that could be stated without them, and is in fact implemented without them. At Level 2 this is formalism theater under the framework's zero-tolerance rule.\n\nSelf-citation is elevated but topically sound. The results tables contain inconsistencies that the paper leaves unexplained: a non-significant p-value marked significant, and tours shorter than the known optima."
+  },
+  {
+   "paper_id": "hadjkhalifa2011",
+   "paper": {
+    "title": "Transportation Process of Containers BPMN-Modeling and Transformation into ACTIF Model",
+    "authors": [
+     "Ismahène Hadj Khalifa",
+     "Abdelkader El Kamel",
+     "Pascal Yim"
+    ],
+    "abstract": "In this paper, we propose to model the transportation process of containers in the Nord-Pas de Calais Region (France). Based on the BPMN (Business Process Modeling Notation) approach, it allows deriving a comprehensive vision of the process and a friendly-user interface of the logistics chain for the analysis and the decision making. Furthermore, ACTIF (Aide à la Conception de systèmes de Transports Interopérables en France), a modeling approach proposed by the French Transportation Ministry, appears to be an interesting alternative approach since it assures the interoperability between the transport systems in France. Hence, we propose a model transformation procedure of the BPMN-model into an ACTIF model.",
+    "keywords": [
+     "Model Driven Architecture",
+     "BPMN model",
+     "ACTIF model",
+     "Model Transformation"
+    ],
+    "doi": null,
+    "pages": "67-80",
+    "source_file": "05-hadjkhalifa.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.5,
+    "composite": 58.88,
+    "final": 58.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Descriptive BPMN case study with a one-table element mapping to ACTIF. It uses no formalism and no self-citation, but the transformation result is announced and never shown, and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A BPMN model of container road post-transport at a multimodal platform (Delta 3, Dourges, Nord-Pas de Calais), and a proposed element mapping from a BPMN metamodel to the French ACTIF transport-architecture metamodel in TOPCASED/ATL.\n**Level:** 1 (Trivial)\n**Rationale:** Process modelling with an existing notation and tool (Intalio Designer), metamodels drawn in existing tooling, and a one-table correspondence between element types. There is no algorithm and no mathematical model.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper uses no formal notation; concepts are described in prose, tables and diagrams, which suits the contribution.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n23 references, none by any of the three authors: SCR 0%. The list is dominated by OMG and BPMN specifications, project websites and consortium white papers (TOPCASED, ACTIF), with a few peer-reviewed sources (ATL, MDA components, the GRAI-to-UML transformation). It is relevant to the topic but thin on scholarly literature about model transformation or logistics process modelling. One in-text citation (\"White, 2007\") is in author-year form and corresponds to [15]. No integrity concerns.\n\n---\n\n## Structural Analysis\n\nMost of the paper (Sections 2-4) is background on MDA, GRAI-GIM, UML, ACTIF and BPMN. The contribution is a BPMN diagram (Fig. 2), two metamodels (Figs. 3-4), a source model (Fig. 5) and the element mapping in Table 1. The five-step transformation procedure lists \"Step 5: Result\", but no result is presented: neither the ATL rules nor the generated ACTIF model appears, so the conclusion's statement that the diagram was transformed rests on the mapping table alone. The abstract's claim of a comprehensive vision and a user-friendly interface for decision making is not evaluated, and the assertion that the ACTIF model does not respect task synchronization and cannot be implemented is unsupported. The claim-evidence balance is weak (estimated CER 0.33-0.5). Limitations are acknowledged inline: Data Stores and Standards have no BPMN counterpart, so information is lost in the transformation, and the execution (BPEL) aspect is deferred to future work.\n\nArtifacts: none. The only links are to third-party tools (the TOPCASED download page and the ATL transformation zoo); the authors' metamodels, ATL rules and models are not released.\n\n---\n\n## Conclusion\n\nA modest industrial case study. Its notation-free presentation is proportionate to a Level 1 contribution, and its citations raise no concern. Its weakness is structural. The transformation that gives the paper its title is specified as an element mapping but never executed in the text, there is no validation with the stakeholders or against the ACTIF reference, and nothing is released that would let a reader rebuild the models."
+  },
+  {
+   "paper_id": "darabant2011",
+   "paper": {
+    "title": "Clustering methods in data fragmentation",
+    "authors": [
+     "Adrian Sergiu Darabant",
+     "Laura Darabant"
+    ],
+    "abstract": "This paper proposes an enhanced version for three clustering algorithms: hierarchical, k-means and fuzzy c-means applied in horizontal object oriented data fragmentation. The main application is focusing in distributed object oriented database (OODB) fragmentation, but the method applicability is not limited to this research area. The proposed algorithms produce fragments for an OODB database based on the analysis of inter-class relationships and user queries (applications) running on the system. Each class extension is clustered and the quality of resulting fragments is then evaluated and compared between the proposed algorithms and with results obtained from other object-oriented fragmentation techniques. Numerical experiments on different databases show an average improvement in query processing time of 17-30%. The test scenarios take in account different database sizes. The methods are applied to a small, medium and large database in order to verify their scalability.",
+    "keywords": [
+     "data clustering",
+     "object-oriented databases",
+     "fragmentation",
+     "distributed database"
+    ],
+    "doi": null,
+    "pages": "81-97",
+    "source_file": "06-adriandarabant.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 40,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 26.5,
+    "composite": 19.88,
+    "final": 19.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "DECORATIVE_DEFINITIONS",
+    "DISPROPORTIONATE_FORMALISM",
+    "THEOREMLESS_FORMALISM",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 application of standard clustering algorithms with formal elements that fail the Necessity Test: set-builder notation for filtered lists, a query tuple, and set notation for matrices. The text restates each of them in plain English.",
+    "UNNECESSARY_SET_THEORY": "Agg(Oi, Fj) = {Om | Om ∈ Fj, Oi references Om}, MetComplex(C) = {mi | mi complex method of C}, Pred(C′) ⊇ Pred(C), and F = F − {Fu*, Fv*} ∪ {Fnew} express list filtering, inheritance and list replacement; no proof depends on them.",
+    "DECORATIVE_DEFINITIONS": "A query is defined as the tuple q = (Target class, Range source, Qualification clause) and never used as a tuple afterwards; removing it changes nothing a programmer would build.",
+    "DISPROPORTIONATE_FORMALISM": "17 inline definitions, 0 theorems, 0 proofs: complexity 34 against a Level 2 upper bound of 15 (2.3x, above the 2x threshold).",
+    "THEOREMLESS_FORMALISM": "More than five definitions (17) and no theorem, lemma or proposition.",
+    "EXCESSIVE_SELF_CITATION": "5 of 16 references ([12]-[16]) have the first author as first author: SCR 31.3% > 30%. All are topically related, but they carry the feature model and two of the three algorithms."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Textbook clustering algorithms applied to OODB fragmentation under heavy set-builder notation, with self-citation just above 30%. The abstract claims a query-time improvement that the experiments do not measure.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Horizontal fragmentation of object-oriented databases by clustering object feature vectors (query predicates, attribute links, method links) with modified hierarchical agglomerative, k-means and fuzzy c-means algorithms.\n**Level:** 2 (Low)\n**Rationale:** Three standard clustering algorithms are applied to a database-design problem, with heuristic changes: semantic centroid initialisation, min-similarity tie-breaking, merging of coincident fuzzy clusters, and restarts. The feature encoding comes from the authors' earlier papers [12], [15], [16]. There is no complexity analysis or proof; the announced \"scalability proof/experiment\" is an experiment only.\n\n### Formal Elements\n- Definitions: 17 inline (path expression, query tuple q, Q, Pred, Pred(C), Inst(C), OCM(C), CVM(C), Agg(Oi, Fj), ad_i, wad_i, MetComplex(C), SetCRef(m, C), SetORef(m, Oi, CR), md_i, wmd_i, and the extended vectors with EOCM/ECVM). The further defined quantities sim_E/sim_M, cluster similarity, H(F) and FPE/FEM/FER are counted as equations.\n- Theorems: 0\n- Proofs: 0\n- Equations: 14 numbered, plus formulas inside the three algorithm listings\n\n### Proportionality\nCalculated complexity: 34\nExpected range (Level 2): 0-15\nRatio: 2.3x upper bound\n\n**Assessment:** Disproportionate: above twice the Level 2 bound, with no theorem or proof for the apparatus to serve. Part of it is needed: the significance factor (6), the fragment-evaluation measure (12)-(14) and the fuzzy c-means updates are specifications a programmer would use. Much of the rest restates in set-builder notation what the text then says in a sentence.\n\n### Issues\n- Set-builder notation for filtered lists: Agg(Oi, Fj) = {Om | Om ∈ Fj, Oi references Om} (\"the objects of Fj that Oi references\"); MetComplex(C) = {mi | mi complex method of C}; SetCRef and SetORef likewise; Pred(C) = {p ∈ Pred | p is a conditional on an attribute of C or of its parent}; Pred(C′) ⊇ Pred(C) to say that a subclass inherits its parent's predicates.\n- Set operations for list manipulation in the listings: F = F − {Fu*, Fv*} ∪ {Fnew} in the hierarchical algorithm says \"replace the two merged clusters by their union\".\n- A tuple definition of a query, q = (Target class, Range source, Qualification clause), which is never used as a tuple afterwards.\n- OCM(C) and CVM(C) are written as sets {aij, 1 ≤ i ≤ |Inst(C)|, …} for what are matrices.\n- The similarity measures (7) divide a Euclidean or Manhattan distance by |Inst(C)| and are asserted to lie in [0, 1]. The normalisation is not justified, since the vector dimension is not |Inst(C)|.\n\n---\n\n## Citation Analysis\n\n16 references, 5 of them self-citations ([12]-[16], all with A. S. Darabant as first author): SCR 31.3%, above the 30% threshold. All five concern OODB fragmentation (k-means and fuzzy clustering for fragmentation, fragmentation ordering, hierarchical clustering with complex class relationships), so topical relevance is high and none is irrelevant. The concern is concentration. The vector-space model and two of the three algorithms already appear in those earlier papers, so a third of the reference list and much of the method are the authors' own prior work, and the advance over [15] and [16] is not stated precisely. The external literature (Karlapalem, Ezeife and Barker, Bellatreche, Savonnet, Baião) is the relevant OODB fragmentation work of the 1990s; apart from the authors' own papers, nothing after 1998 is cited.\n\n---\n\n## Structural Analysis\n\nThe abstract claims an average improvement in query processing time of 17-30%. The evaluation, however, measures a cost model (FPE: irrelevant local accesses plus remote accesses) on unspecified \"experimental databases\" with 10-50 unspecified queries; query processing time is never measured. Results appear only in Figs. 4-5, and the text reports \"an almost 30% gain\" for fuzzy clustering, so the 17-30% range cannot be traced. The baselines (centralised, fully replicated, and Ezeife and Barker's method) are sensible. The claim-evidence balance is adequate to weak. Limitations are acknowledged inline: update operations are not modelled although they penalise replication, fuzzy c-means needs multiple restarts and runs much longer, the objective has saddle points, and right-derived fragmentation is assumed.\n\nArtifacts: none. No code is offered, and the test databases and query sets are neither described in detail nor released.\n\n---\n\n## Conclusion\n\nThe paper addresses a real design problem, and its fuzzy-clustering variant with fine-grained replication is a reasonable idea. As a contribution, though, it applies textbook clustering algorithms to a feature encoding the authors published earlier. At Level 2 the notation is out of proportion: seventeen inline definitions, much of them set-builder notation for filtered lists and set operations for list updates, with no theorem for them to support. Self-citation is just above the 30% threshold, and the headline query-time improvement in the abstract is not what the experiments measure."
+  }
+ ]
+}

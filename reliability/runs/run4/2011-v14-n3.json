@@ -1,0 +1,323 @@
+{
+ "batch_id": "2011-v14-n3",
+ "analysis_timestamp": "2026-10-18T03:40:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 14,
+  "issue": 3,
+  "year": 2011
+ },
+ "papers": [
+  {
+   "paper_id": "ravariu2011",
+   "paper": {
+    "title": "Arguments for The NOI Nanotransistor Affiliation to The FETs Family",
+    "authors": [
+     "Cristian Ravariu",
+     "Adrian Rusu"
+    ],
+    "abstract": "The paper argues that the Nothing On Insulator (NOI) vacuum-tunnelling nanotransistor, derived from ultrathin SOI structures, belongs to the field-effect transistor family, because the gate modulates the carrier concentration in the source/drain islands and hence the tunnelling drain current. It also introduces a threshold drain-source voltage, extracted from the zero of the third-order derivative of the output characteristic, that separates two conduction regions.",
+    "keywords": [
+     "SOI devices",
+     "Field Effect Transistors",
+     "modeling",
+     "simulation"
+    ],
+    "doi": null,
+    "pages": "203-211",
+    "source_file": "01-ravariu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 30,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 56.25,
+    "composite": 42.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Nine of nineteen references (47%) include an author of the paper: [2], [4], [5], [6], [9], [12], [13], [14], [15]. Most concern the NOI device or SOI films; [9] (macro-model of an avalanche gate-controlled diode) is only marginally related and is cited in a bundle for the statement that the NOI device was first proposed."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simulation-only device-modelling paper with proportionate physics but an ad hoc tunnelling model, a 47% self-citation ratio, and bundled citations to unrelated papers from the same journal.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Analytical and TCAD-simulation arguments that the proposed Nothing-On-Insulator (NOI) vacuum-tunnelling nanostructure behaves as a field-effect transistor, plus a \"threshold drain-source voltage\" read from the zero of the third derivative of simulated I-V curves.\n**Level:** 2 (Low)\n**Rationale:** The paper applies standard device electrostatics (a one-dimensional Poisson integration for an n+ film on oxide, which yields the textbook gate-voltage versus surface-potential relation) and a Fowler-Nordheim-like tunnelling expression to a structure the authors proposed earlier, and checks them with a commercial simulator (Atlas). No new mathematical method or proof is offered; the threshold-extraction rule is taken from the authors' own earlier work [6].\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0 (a \"Non-Linear Electrical Conduction Theorem\" is invoked from [6], neither stated formally nor proved here)\n- Proofs: 0\n- Equations: 4\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The Poisson equation, its first integral and the carrier-density expression are the physical content of the argument and pass the necessity test. The Greek symbols (beta = q/kT, the Fermi potential, permittivities) are standard physical quantities, not decorated configuration constants.\n\n### Issues\nNo formalism theater. The weaknesses are in modelling quality: in model (1) the constants A and B are deferred to [12], VdsT enters as a multiplicative constant whose value comes from the third-derivative zero crossing rather than from the model, and the text says the expression was chosen to give a function with oblique asymptotes, i.e. to suit the extraction rule. Eq. (3) is the standard MOS surface-potential relation; what is new is only its application to the n+ island.\n\n---\n\n## Citation Analysis\n\nNine of nineteen references (47%) include one of the two authors: [2], [4], [5], [6], [9], [12], [13], [14], [15]. Most concern the NOI device or SOI films and are related to the topic. [9] (macro-model and emulator of an avalanche gate-controlled diode) and [13] (illumination generation rate in a nano-SOI film) are marginal; [9] is cited in the group [6-10] supporting the statement that the NOI transistor was first proposed, which it does not address. No self-citation was judged clearly unrelated (below 0.3), so IRRELEVANT_SELF_CITATION is not raised; the ratio alone exceeds 30%.\n\nA second pattern concerns citations that are not self-citations. [3], [7], [8], [10] and [16]-[19] are mostly papers from this journal or by local colleagues on unrelated subjects: graphene quantum capacitance, CMOS linearity, an analog-simulation symmetry essay, a multi-level simulator for artificial societies, an RF band-pass filter, UWB channel capacity, and an electro-thermal micro-actuator. They are cited in bundles for generic statements (for example, that simulations help to establish macro-models) and for the claimed origins of the NOI device. This looks like citation padding toward the venue. A reciprocal pattern cannot be established from this paper alone, so CITATION_RING_INDICATOR is not raised, but the padding lowers the citation score below the cap.\n\n---\n\n## Structural Analysis\n\nThe central claim, that the NOI device belongs to the FET family, rests on an analytical gate-control argument and a handful of simulated operating points. No fabricated device or measurement is reported, and the agreement between eq. (4) and the simulated average electron concentrations is asserted rather than quantified. The wording of the abstract and conclusions (the analysis \"proves\" and \"demonstrates\" FET affiliation) outruns this evidence. The only constraint acknowledged is that model (1) is acceptable only near VdsT, which counts as an inline limitation, so NO_LIMITATIONS is not raised.\n\nNo code, simulation deck or data is released or offered; Atlas and Origin are third-party tools and do not count as the authors' artifacts.\n\n---\n\n## Conclusion\n\nA short device-modelling paper whose mathematics is proportionate to its physics, but whose evidence is simulation-only and whose central tunnelling model is fitted to its own extraction rule. Citation conduct is the main problem: nearly half the references are self-citations, and a further group of unrelated papers from the same journal is cited in bundles for generic statements. The self-citation ratio alone triggers a disqualifying flag."
+  },
+  {
+   "paper_id": "serban2011",
+   "paper": {
+    "title": "CO2 Sensing Layers for SAW/BAW Devices",
+    "authors": [
+     "Bogdan Şerban",
+     "A. K. Sarin Kumar",
+     "Mihai Brezeanu",
+     "Cornel Cobianu",
+     "Octavian Buiu",
+     "Cazimir Bostan",
+     "Nicolae Varachiu",
+     "Ştefan Costea"
+    ],
+    "abstract": "The paper compares amino-group polymer coatings for CO2 detection with surface and bulk acoustic wave devices, selected according to two chemical principles: hard-soft acid-base (HSAB, Lewis) theory and Bronsted-Lowry theory. New frequency-shift and sensitivity measurements for emeraldine, 4-sulfocalix[4]arene-doped polyaniline and a polyaniline-carbonic anhydrase matrix (PACA) are compared with previously reported results for polyallylamine, polyethyleneimine and their amino-carbon-nanotube nanocomposites.",
+    "keywords": [],
+    "doi": null,
+    "pages": "222-231",
+    "source_file": "03-serban.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.5,
+    "composite": 45.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Nine of twenty-four references (37.5%) include an author of the paper: [6]-[14], four of which are patents or patent applications ([8], [11], [13], [14]). All are on topic, and the HSAB side of the comparison rests entirely on the group's own earlier results [7], [9]."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Empirical comparison of CO2-sensitive coatings whose general conclusion rests on a few single measurements across different device types and concentration ranges, with a 37.5% self-citation ratio.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Comparison of amine-based CO2-sensitive coatings for SAW/BAW sensors selected by HSAB (Lewis) reasoning versus Bronsted-Lowry (proton-transfer) reasoning, with new frequency-shift measurements for undoped and calixarene-doped emeraldine and a polyaniline-carbonic anhydrase composite.\n**Level:** 2 (Low)\n**Rationale:** An empirical materials comparison. The selection principles are established chemistry; no model, algorithm or quantitative theory is developed.\n\n### Formal Elements\n- Definitions: 0 (sensitivity is defined inline as the normalised frequency shift)\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (a chemical reaction equation for tertiary amines with CO2 and water)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The single reaction equation and the reaction schemes in the figures are the chemistry under discussion.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNine of twenty-four references (37.5%) include an author of the paper: [6]-[14]. Four of them are patents or patent applications held by the group ([8], [11], [13], [14]). All are topically related (CO2 sensing with SAW devices, calixarene-doped polyaniline, carbonic-anhydrase layers), so no self-citation is irrelevant. The concern is dependence rather than relevance: every result on the HSAB side of the comparison (PAA, PEI and the amino-carbon-nanotube composites) is taken from the authors' earlier work [7], [9], so the paper's comparison is between two sets of the group's own measurements. The external references are appropriate textbooks and chemistry papers. The ratio exceeds 30%.\n\n---\n\n## Structural Analysis\n\nThe headline conclusion, that HSAB is a better selection principle than Bronsted-Lowry theory, is drawn from very few data points: two polyaniline layers measured on a BAW device under a 100% CO2 swing, one PACA layer on a SAW delay line between 390 and 2500 ppm, and previously reported SAW results for the HSAB-selected layers. Device type and concentration range differ between the groups. The authors note that SAW devices are usually more sensitive than BAW devices but then set the confound aside, and the claim that PACA would be at least an order of magnitude more sensitive than emeraldine under a 100% swing is an extrapolation, not a measurement. There is no experimental section: film thickness, deposition method, device frequencies, humidity, number of repeats and measurement uncertainty are not given.\n\nInline acknowledgments exist (the protonation mechanism is still debated; PAA and PEI suffer cross-sensitivity to acidic gases and humidity; earlier small-molecule coatings had poor stability), so NO_LIMITATIONS is not raised. Measurement data appear only as figures; nothing is deposited or offered.\n\n---\n\n## Conclusion\n\nA short experimental communication that adds three new coating measurements to the group's earlier SAW results and draws a general methodological conclusion from them. Formalism is appropriate. The evidence is thin for the strength of the conclusion, the comparison is confounded by device type and concentration range, and methods are not reported. The self-citation ratio, inflated by patent filings, exceeds the disqualifying threshold although every self-citation is on topic."
+  },
+  {
+   "paper_id": "neacsu2011",
+   "paper": {
+    "title": "A Continuous Chaos Generator Using Harmonic Oscillator Circuit",
+    "authors": [
+     "Cristian Neacşu",
+     "Valentin Chesaru",
+     "Claudius Dan",
+     "Mircea Bodea"
+    ],
+    "abstract": "The paper presents a continuous-time chaos generator built from a simple harmonic oscillator with an amplitude-control loop, and shows chaotic behaviour and a strange attractor through a mathematical model solved with dedicated software, Spice simulation and a hardware implementation.",
+    "keywords": [],
+    "doi": null,
+    "pages": "232-241",
+    "source_file": "04-neacsu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 80.5,
+    "composite": 60.38,
+    "final": 55.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints: the paper does not discuss parameter sensitivity, component tolerances, the range of validity of the diode and multiplier models, or how the generator compares with existing chaotic circuits; the conclusion is a single descriptive sentence."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Competent application of standard nonlinear-dynamics analysis to a new oscillator circuit, with consistent simulation, SPICE and hardware evidence but a three-item reference list and no stated limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Chaotic oscillation in a harmonic (Wien-type RC) oscillator whose amplitude is stabilised by a nonlinear feedback loop with a multiplier and a diode detector. The paper derives the state equations, locates and classifies the fixed point, computes the divergence, and shows phase portraits, Poincare sections, an LTSpice spectrum, the largest Lyapunov exponent versus the control parameter, and an oscilloscope capture.\n**Level:** 2 (Low)\n**Rationale:** The standard toolkit of nonlinear dynamics (state-space model, Jacobian linearisation, eigenvalue classification, Poincare sections, Lyapunov exponent by synchronisation from [3]) is applied to a new circuit. No new analytical method, theorem or proof is offered.\n\n### Formal Elements\n- Definitions: 0 formal (the Lambert W function and the divergence are recalled as standard definitions)\n- Theorems: 0\n- Proofs: 0\n- Equations: 17 (circuit equations 1-6, canonical state-space form 7-9, fixed-point conditions 10-11, Jacobian 12-14, eigenvalues 15-16, divergence 17)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The ODE model and its linearisation are the analysis itself, and each piece is used: the Jacobian and eigenvalues feed the table and the fixed-point classification. The Lambert W function is needed to write the diode-detector state equation explicitly. No set notation, tuple definitions or decorative symbols.\n\n### Issues\nMinor errors rather than theater: eq. (14) is said to follow from eq. (5) where eq. (8) is meant; the symbol VF in the Jacobian is never defined; the stated parameter range (SV from 4 to 8 V) does not match the table, which starts at 2.8 V; the \"dedicated software\" used for numerical integration is not named, nor are the integration method and step.\n\n---\n\n## Citation Analysis\n\nThree references, none by the authors (self-citation ratio 0%). There is no integrity concern, but the bibliography is very thin for a field with a large literature on minimal chaotic circuits. Only one circuit paper (the Colpitts bifurcation study) is cited, and the paper makes no comparison with existing chaos generators, although its introduction frames the contribution against them.\n\n---\n\n## Structural Analysis\n\nThe claim, that the circuit becomes chaotic over part of the SV range, is supported by several independent lines of evidence: the eigenvalue analysis, simulated phase portraits and Poincare sections with fractal-looking substructure, an LTSpice broadband spectrum, the largest Lyapunov exponent versus SV, and a hardware oscilloscope trace. The hardware build is not described (multiplier and multiplexer parts, supply, tolerances), Lyapunov values appear only in a figure, and the simulated and measured behaviour are not compared quantitatively. No limitations are stated anywhere and the conclusion is a single sentence, so NO_LIMITATIONS is raised.\n\nNothing is released: neither the \"dedicated software\" model nor the SPICE netlist is linked or offered.\n\n---\n\n## Conclusion\n\nA modest but internally consistent circuit paper: the mathematics is exactly what the analysis needs, and the chaos claim is backed by simulation, SPICE and hardware. Its weaknesses are presentational and contextual: a three-item bibliography, no positioning against existing chaotic oscillators, unreported numerical and hardware details, and no discussion of limitations."
+  },
+  {
+   "paper_id": "rusu2011",
+   "paper": {
+    "title": "Programmable Low Pass Filter Using the Gated Diode in Breakdown Collapse Regime",
+    "authors": [
+     "Alexandru Rusu",
+     "Dragoş Dobrescu",
+     "Corneliu Burileanu",
+     "Adrian Rusu"
+    ],
+    "abstract": "The paper presents a single-stage unity-gain follower built from a CMOS gated diode biased in breakdown in common-cathode configuration, with high input and low output impedance. The maximum input frequency for an undistorted output depends on the bias current, so the circuit is proposed as a programmable low-pass filter. The diode is characterised to place the bias in the region where the gain is close to one.",
+    "keywords": [
+     "Gated Diode",
+     "Breakdown",
+     "Common Cathode",
+     "Small Signal"
+    ],
+    "doi": null,
+    "pages": "242-250",
+    "source_file": "05-rusu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 40,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 59.75,
+    "composite": 44.81,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Two of five references (40%) include an author of the paper: [1] (Rusu A., Badila M., Rusu Al.) and [3] (Rusu A., Bulucea C.). Both are directly on the gated diode in breakdown and are relevant; the ratio is high mainly because the reference list has only five entries."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Empirical characterisation of a gated diode used as a unity-gain follower; the low-pass-filter claim and the derived frequency relation are not reconciled with the eye-judged measurements, and two of five references are self-citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A CMOS gated diode biased in the breakdown-collapse regime in common-cathode configuration, where the anode voltage tracks the gate voltage with slope close to one, used as a single-stage unity-gain follower; the maximum undistorted input frequency is measured against bias current and the circuit is proposed as a programmable low-pass filter.\n**Level:** 2 (Low)\n**Rationale:** Empirical device characterisation (DC sweeps, C-V measurements) and a simple circuit application, with an elementary charge-balance explanation. No model or method of any complexity is developed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: about 6, unnumbered (a power-law fit for fmax, I = dQ/dt, C = Q/V and its time derivative, the derivative of a sine, and the resulting fmax = I/(2 pi A C))\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are textbook physics used to derive a design relation; they are basic equations of the kind Level 2 allows, not a theater pattern.\n\n### Issues\nThe derivation is a large-signal slew-rate limit: it predicts fmax proportional to bias current and inversely proportional to signal amplitude. The fitted law has exponent 1.56 on the current and is given without units, and the discrepancy with the linear prediction is not discussed. A slew-rate limit that depends on amplitude is not a linear low-pass filter, and no transfer function or attenuation curve is measured. These are gaps between model, data and claim, not unnecessary formalism.\n\n---\n\n## Citation Analysis\n\nTwo of five references (40%) are self-citations: [1] (gated diode in breakdown-collapse regime as an oxide test vehicle, which is also the source of Fig. 2) and [3] (gate-controlled diode circuits). Both are directly relevant. The remaining references are a gated-diode amplifier paper, a semiconductor-physics textbook and an analog-filter textbook. The ratio exceeds 30% because the bibliography is so short; there is no sign of padding, but the rule is applied as written.\n\n---\n\n## Structural Analysis\n\nDC and capacitance characterisation are reported with named instruments, and the follower is demonstrated on an oscilloscope. The maximum frequency, however, is judged by eye from oscilloscope traces, which the authors themselves acknowledge, and the power-law fit is described as extrapolated from these points. The amplitude test in Fig. 10 supports the charge-limited explanation qualitatively, but the capacitance in the collapse regime could not be measured, so the derived formula is never checked numerically. The conclusions say the diode was \"fully characterised\" and a programmable low-pass filter \"was implemented\"; neither is shown, since no filter response is measured.\n\nSeveral limitations are acknowledged inline (visual measurement error, the 4 MHz bandwidth of the buffer, the unmeasured collapse-regime capacitance, an unexplained dip at 3 uA left for further study), so NO_LIMITATIONS is not raised. Measurement data appear only as figures; nothing is released.\n\n---\n\n## Conclusion\n\nA small experimental paper with honest inline caveats and proportionate mathematics, but its headline claim of a programmable low-pass filter is not substantiated: what is measured is an amplitude-dependent slew limit judged by eye, and the fitted current dependence contradicts the derived linear relation without comment. Two of the five references are self-citations, which crosses the disqualifying ratio on a very short bibliography."
+  },
+  {
+   "paper_id": "stanescu2011",
+   "paper": {
+    "title": "Adjustable LDO with External Control Technique for Current Limit",
+    "authors": [
+     "Cornel Stănescu",
+     "Radu Iacob",
+     "Cristian Dincă",
+     "Ovidiu Profirescu"
+    ],
+    "abstract": "The paper presents an adjustable CMOS low-dropout regulator whose current limit is set by the user through an external resistor, using a dedicated block that generates the reference current for the current-protection circuit from the 1.25 V reference. The block draws 5 to 25 uA; the regulator delivers up to 300 mA continuous load current, draws 100 uA, has a 200 mV dropout at 300 mA and a fast transient response.",
+    "keywords": [],
+    "doi": null,
+    "pages": "251-258",
+    "source_file": "06-stanescu.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 25,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 59.0,
+    "composite": 44.25,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "All three references (100%) are earlier conference papers first-authored by C. Stănescu ([1]-[3]); they describe the LDO techniques reused here and are relevant, but the paper cites no external work at all."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Industrial circuit note on an LDO with an externally set current limit, supported by simulation and silicon measurements, but citing only the first author's own earlier papers and offering no comparison with existing designs.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A CMOS low-dropout regulator (0.5 um, 16 V process) in which a two-stage op-amp buffer copies the 1.25 V reference onto an external resistor; the resulting current, mirrored down, sets the reference of the existing current-limit comparator. HSPICE simulations and silicon measurements of line regulation, current limit and load transients are reported.\n**Level:** 1 (Trivial)\n**Rationale:** The contribution combines standard analog blocks (voltage buffer, current mirrors, replica-current comparator) and attaches them to an LDO whose techniques are taken from the authors' earlier papers. Under the strict default this is a system built from existing components; no model or method is developed.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (Ohm's law with a numerical example, and the minimum input voltage as a sum of three voltage drops)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Both equations are elementary design relations that a circuit designer would use directly (the external-resistor current and the input headroom). Neither matches a theater pattern.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThe reference list has three entries, all CAS conference papers first-authored by C. Stanescu (one with the present co-authors) on earlier LDO designs; the self-citation ratio is 100%. They are relevant, since the LDO reuses their techniques, so no self-citation is irrelevant. The paper, however, does not cite a single external source and does not position its externally programmable current limit against prior current-limit or adjustable-limit regulator designs, so a reader cannot judge novelty. The ratio is far above 30%.\n\n---\n\n## Structural Analysis\n\nSimulation and measurement are reported for the same quantities and agree qualitatively (\"almost exactly as the simulated graphs\"); measured line regulation is better than simulated. The one large discrepancy, a short-circuit current with no external resistor about twice the expected value, is acknowledged and left for further analysis with a plausible cause suggested; this counts as an inline limitation. Missing are the number of measured samples, spread and accuracy of the programmed limit, its temperature behaviour, and any comparison table with other LDOs. The claim that the technique is \"fully functional\" is moderately supported for a single operating point.\n\nNo schematics, netlists or measurement data are released or offered; the design is proprietary industrial work.\n\n---\n\n## Conclusion\n\nA competent industrial circuit note with appropriate, minimal mathematics and real silicon results. Its weaknesses are the absence of any external literature or comparison, which leaves the novelty unestablished, and a reference list consisting entirely of the first author's own papers, which triggers the disqualifying self-citation flag even though each citation is on topic."
+  },
+  {
+   "paper_id": "giacomozzi2011",
+   "paper": {
+    "title": "A Flexible Fabrication Process for RF MEMS Devices",
+    "authors": [
+     "F. Giacomozzi",
+     "V. Mulloni",
+     "S. Colpo",
+     "J. Iannacci",
+     "B. Margesin",
+     "A. Faes"
+    ],
+    "abstract": "The paper describes the RF MEMS fabrication platform developed and optimised at FBK (Italy) for switches, passive components and complex RF circuits from sub-GHz to above 100 GHz. It reports the main process features, modifications required for specific devices such as dielectric-less RF MEMS switches, and briefly presents examples of fabricated devices and their performance.",
+    "keywords": [
+     "RF-MEMS",
+     "fabrication process"
+    ],
+    "doi": null,
+    "pages": "259-268",
+    "source_file": "07-giacomozzi.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 61.25,
+    "composite": 45.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Five of seven references (71%) include an author of the paper: [2], [3], [4], [6], [7] (Mulloni, Giacomozzi, Margesin, Colpo). All report process studies or devices made on the FBK platform and are relevant; only a textbook [1] and one switch-design paper [5] are external."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Descriptive report of a laboratory RF MEMS process with detailed recipe parameters and a catalogue of devices, largely supported by the group's own earlier work and with several qualitative performance claims.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Description of FBK's eight-mask RF MEMS surface-micromachining process (polysilicon bias lines and dimples, Ti/TiN/AlSi underpass, LTO dielectric, floating Cr/Au metal, baked photoresist spacer, two electroplated gold layers, plasma release), its extension modules (backside metallisation, second implant, TMAH etching, quartz substrates, post-processing on GaN and SOI wafers, dielectric-less electrodes with stoppers), and examples of fabricated switches, switching matrices, phase shifters and filters.\n**Level:** 1 (Trivial)\n**Rationale:** A technology-platform description and device catalogue. It contributes engineering know-how but no model, algorithm or analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper uses no formal notation at all, which suits its descriptive content.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nFive of seven references (71%) include an author of the paper: [2] (stress control during release), [3] (micromachined filters), [4] (dielectric charging), [6] (RF MEMS matrices) and [7] (K-band phase shifters). Every one reports work done on this platform and is cited where that work is shown, so none is irrelevant. The external literature is limited to a standard textbook [1] and the boosted capacitive-switch design [5]. The paper does not compare its process with other RF MEMS processes, which a platform paper would normally do. The ratio exceeds 30%.\n\n---\n\n## Structural Analysis\n\nThe process flow is described with concrete parameters (temperatures, thicknesses, implant dose, sheet resistance, equipment), which supports the descriptive claims well. Device performance is supported unevenly: the cantilever switch, the capacitive shunt switch (4.55 pF down, 21 fF up) and the SPDT have figures or numbers; other statements are qualitative (\"switches gave good results in terms of RF performances\") or unsupported in the text (capacitive switches up to 200 GHz). The dielectric-charging comparison is described qualitatively for short cycling and relies on [4] for long-term stress. Yield, wafer-to-wafer uniformity and reproducibility, central to a claim of a flexible production platform, are not reported.\n\nConstraints are acknowledged inline (only partial planarisation with the resist spacer, reduced isolation of series switches at high frequency, dielectric charging as a critical issue), so NO_LIMITATIONS is not raised. The detailed recipe makes the process easier to reproduce but is description, not an obtainable artifact; no data are released.\n\n---\n\n## Conclusion\n\nA useful, plainly written process report with no formalism and adequate descriptive detail. Its evidential base for device performance is thin and partly delegated to the group's earlier papers, and it does not position the platform against other RF MEMS processes. Five of seven references are self-citations, all on topic, which crosses the disqualifying ratio."
+  }
+ ]
+}

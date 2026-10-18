@@ -1,0 +1,288 @@
+{
+ "batch_id": "2012-v15-n1",
+ "analysis_timestamp": "2026-10-18T03:41:15Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 15,
+  "issue": 1,
+  "year": 2012
+ },
+ "papers": [
+  {
+   "paper_id": "cabarle2012",
+   "paper": {
+    "title": "Improving GPU Simulations of Spiking Neural P Systems",
+    "authors": [
+     "Francis George C. Cabarle",
+     "Henry N. Adorna",
+     "Miguel A. Martínez-del-Amor",
+     "Mario J. Pérez-Jiménez"
+    ],
+    "abstract": "Presents an improved GPU (CUDA) simulator for spiking neural P systems based on their matrix representation, with two-level parallelism and synthetic benchmark systems; reports up to a 2.31x speedup over the CPU version.",
+    "keywords": [
+     "Membrane computing",
+     "spiking neural network",
+     "Spiking Neural P systems",
+     "GPU computing",
+     "CUDA"
+    ],
+    "doi": null,
+    "pages": "5-20",
+    "source_file": "01-cabarle.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 35,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 26.0,
+    "composite": 19.5,
+    "final": 19.5
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (the simulators snpcpu-sim and snpgpu-sim are named but not linked; the only URL, http://ppage.psystems.eu/, is a general P systems resource website)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "DISPROPORTIONATE_FORMALISM",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 engineering paper (porting an existing matrix-based SNP simulator to the GPU) whose formal elements fail the necessity test. Definitions 5-7 recast the breadth-first enumeration of configurations as unions of sets S and C; Lemma 2 proves that Algorithm 1 computes those sets by restating its steps; and Theorem 1 \"follows directly from Lemma 2\". None of them changes what a programmer would build.",
+    "DECORATIVE_DEFINITIONS": "Definitions 5 (reachable configuration), 6 (set of all spiking vectors) and 7 (set of all reachable configurations) describe the visited list of a breadth-first search. They serve only Lemma 2 and Theorem 1, which themselves restate Algorithm 1.",
+    "DISPROPORTIONATE_FORMALISM": "7 definitions, 3 theorem-level statements (Lemma 1, Lemma 2, Theorem 1) and 3 proofs give 7x2 + 3x3 + 3x4 = 35, above 30, twice the Level 2 upper bound of 15.",
+    "EXCESSIVE_SELF_CITATION": "10 of 26 references (38%) share an author with the paper: [1], [2], [3], [4], [5], [7], [8], [16], [18], [24]. All are on related topics ([7], GPU motif finding, only marginally), but SCR exceeds 30%. [5] is never cited in the text."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Incremental GPU port of a matrix-based SNP system simulator (2.31x speedup on synthetic benchmarks), wrapped in set-valued definitions and a correctness theorem that only restates the algorithm; 38% self-citation; no code released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** GPU (CUDA/PyCUDA) implementation of a simulator for spiking neural P systems without delay, built on the matrix representation of Zeng et al. [24] and the authors' earlier simulators [1, 2], benchmarked on synthetic complete-graph SNP systems.\n**Level:** 2 (Low)\n**Rationale:** The computational core (C_{k+1} = C_k + S_k · M_Π) and the matrix representation come from prior work. The contribution is an engineering extension: spiking vectors are enumerated on the host, the matrix update for all of them is evaluated in parallel on the device, and a speedup is measured. That is a simple optimization of an existing method. The simulated object is a formal model, but the paper proves nothing new about it.\n\n### Formal Elements\n- Definitions: 7 (Definitions 1-4 restated from [12, 19, 24]; Definitions 5-7 new), plus an inline preliminaries block on free monoids and regular expressions\n- Theorems: 3 (Lemma 1, Lemma 2, Theorem 1); three unproved Observations not counted\n- Proofs: 3\n- Equations: 4 numbered (example matrix, transition equation, bound on q, global-memory bound)\n\n### Proportionality\nCalculated complexity: 7×2 + 3×3 + 3×4 = 35\nExpected range (Level 2): 0-15\nRatio: 2.33x upper bound\n\n**Assessment:** Disproportionate. Definitions 1-4 and Equation (2) pass the necessity test, since they are what the kernel computes. Lemma 1 (q is the product over neurons of the larger of the spiking and forgetting rule counts) is a simple counting remark, but it sizes the thread grid, and Equation (4) is a useful memory estimate. The remaining elements fail.\n\n### Issues\n- Definitions 6 and 7 define S and C as unions over all reachable configurations, and the proof of Lemma 2 says elements are added \"by the union operation\". In code these are the visited lists of a breadth-first search.\n- Lemma 2's proof narrates the steps of Algorithm 1 and contains no argument that could fail. Theorem 1 (\"Algorithm 1 simulates the computation of an SNP system\") is proved by \"follows directly from Lemma 2\". The correctness claim is asserted rather than established.\n- Inconsistencies: Algorithm 1 is said to load its inputs in \"step I\" though that is step 0; the proof of Lemma 2 assigns the set updates to step II; one figure reference renders as \"Figure ??\".\n- UNNECESSARY_SET_THEORY was considered. The unions used for list accumulation match the pattern, but the flag excludes operations a proof depends on, and Lemma 2's proof formally does, so it is not raised. FORMALISM_THEATER and DECORATIVE_DEFINITIONS cover the same elements.\n\n---\n\n## Citation Analysis\n\nTen of 26 references (38%) share at least one author with the paper: [1], [2] and [7] (Cabarle, Adorna), [3], [4] and [24] (Martínez-del-Amor and/or Pérez-Jiménez), and [5], [8], [16] and [18] (Pérez-Jiménez). Most are on topic for P-system simulation (earlier GPU simulators, the matrix representation, P-Lingua). [7] (motif finding on GPUs) is cited only as a source for the GPU hierarchy figure; its relevance is marginal (about 0.4) but not below 0.3. [5] is in the reference list but never cited in the text. The ratio exceeds 30%. In a small research community a high ratio is partly structural, but the specification makes no exception for that.\n\n---\n\n## Structural Analysis\n\nThe one quantitative claim, a 2.31x GPU speedup for the 16-neuron benchmark, is supported by Fig. 5, but the evidence is thin: four synthetic complete-graph benchmarks, one GPU, no repetitions or variance, and a baseline that is the authors' own sequential version of the same algorithm rather than an optimized CPU implementation. The paper attributes the modest speedup to host-device transfers and notes that the other steps of Algorithm 1 still run on the CPU, which counts as an inline acknowledgment of limitations. No code or benchmark files are released. The simulators are named (snpcpu-sim, snpgpu-sim) but not linked.\n\n---\n\n## Conclusion\n\nA competent but incremental engineering paper: moving the matrix update of an existing SNP simulator onto the GPU gives a 2.31x speedup on synthetic inputs. At Level 2 its formal apparatus fails the necessity test and exceeds twice the expected formalism budget. That apparatus consists of set-valued definitions for a breadth-first search and a lemma and theorem that restate the algorithm. The self-citation ratio of 38% is a second, independent disqualifying finding. The technical core (Definitions 1-4, Equations 2-4) is sound and would suffice on its own."
+  },
+  {
+   "paper_id": "jebasingh2012",
+   "paper": {
+    "title": "Constructing Non-Periodic Tiling Patterns with P System",
+    "authors": [
+     "Stephen Raj Jebasingh",
+     "Thamburaj Robinson",
+     "Atulya K. Nagar"
+    ],
+    "abstract": "Introduces geometric operations (rotation, relabeling, path rewriting, scaling) into tissue-like parametric tile pasting P systems to generate non-periodic tiling patterns, and discusses the number of tile types needed and the generative power under different operations.",
+    "keywords": [
+     "P systems",
+     "Pasting system",
+     "Two dimensional pattern"
+    ],
+    "doi": null,
+    "pages": "21-32",
+    "source_file": "02-jebasingh.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 45,
+    "citation_integrity": 30,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 38.5,
+    "composite": 28.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text (theoretical paper)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "9 of 19 references (47%) are self-citations: [5], [6], [8], [14], [15], [16], [17], [18], [19], all with T. Robinson as an author. They are topically related (pasting systems, P systems for pattern generation), but SCR exceeds 30%, and [8], [15] and [17] are never cited in the text.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment. The conclusion names only future work (a comparison with self-assembly P systems), although two theorems are unproved and a strict inclusion is only asserted."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Incremental variant of the authors' own tile-pasting P system shown on three constructions; formal results are thin (two theorems unproved, a strict inclusion asserted without argument), the examples contain specification errors, and self-citation is 47%.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A variant of the authors' tissue-like parametric tile pasting P system (t-PTPPS, introduced in their [6]) with further geometric operations (path rewriting; scaling with edge relabeling). It is illustrated by three constructions (alternate boat sequence, self-similar triangle tiling, chair tiling), followed by four statements about tile-type counts and language-family inclusions.\n**Level:** 3 (Medium)\n**Rationale:** The contribution is a new variant of a formal generative model, which belongs to the \"new mathematical models\" band. No complexity, universality or hierarchy result of substance is proved, so the higher levels do not apply. The section titled \"Complexity and Efficiency Results\" counts tile types and contains no computational complexity analysis.\n\n### Formal Elements\n- Definitions: 5 (the t-PTPPS construct; the rotation, edge-relabeling, path-rewriting and scaling-with-relabeling operations), plus inline notions (maximal and completely maximal parallelism, extended systems, language notation)\n- Theorems: 4\n- Proofs: 2 (Theorems 1 and 4); Theorems 2 and 3 have none\n- Equations: rule schemata and three fully specified example systems\n\n### Proportionality\nCalculated complexity: 5×2 + 4×3 + 2×4 = 30\nExpected range (Level 3): 10-40\nRatio: 0.75x upper bound\n\n**Assessment:** Proportionate in volume. The system construct and the example rule sets are the subject matter and pass the necessity test, since without them there is no model. One element fails.\n\n### Issues\n- Theorem 1 (with rotation a t-PTPPS needs fewer tile types than without) is a plain-English observation, that rotated copies need not be stored as separate tiles, dressed in set notation (P, S, Σ = P ∪ S). The proof only shows that rotation can stand in for stored rotated copies. The strict \"less than\" fails for patterns whose tiles need no rotated copies. Counted as one necessity-test failure.\n- Theorems 2 and 3 are stated without proof. The inclusions would be trivial if the extra operations are optional, but the paper does not say so.\n- Theorem 4 claims a strict inclusion. Its proof is a one-sentence assertion that the Example 2 pattern cannot be generated with rotation alone.\n- The examples contain errors that block reproduction. In Example 1 the relabeling sets µ1, µ2, µ3 are attached to the wrong rules. In Example 2, R(2,4) rewrites a membrane-1 pattern held in membrane 2, and T14 is defined twice. The reference cited for Wang's tiling ([9]) is a paper by Kari.\n\n---\n\n## Citation Analysis\n\nNine of 19 references (47%) are self-citations. T. Robinson is an author of all nine ([5], [6], [8], [14], [15], [16], [17], [18], [19]), and Jebasingh and Nagar of several. All concern pasting systems or P systems for pattern generation, so none is topically irrelevant. Three of them ([8], [15], [17]) are never cited in the body, and six of the 19 references are uncited overall. The ratio exceeds 30%.\n\n---\n\n## Structural Analysis\n\nThe generative claims rest on three worked constructions with figures. There is no proof that each system generates exactly the patterns shown. The formal results are largely asserted: two theorems are unproved and one rests on a single sentence. No limitations are acknowledged; the conclusion names only a future comparison with self-assembly P systems. As a theoretical paper it has nothing to release.\n\n---\n\n## Conclusion\n\nThe paper adds two more geometric operations to its authors' own model and demonstrates the result on three patterns. Its notation is the native language of the subject and proportionate in volume. Against that, the formal results are thin and partly unproved, and the examples carry specification errors. Nearly half the reference list is self-citation, which disqualifies the paper under the specification."
+  },
+  {
+   "paper_id": "niu2012",
+   "paper": {
+    "title": "Solving Common Algorithmic Problem by Recognizer Tissue P Systems",
+    "authors": [
+     "Yunyun Niu",
+     "Linqiang Pan",
+     "Mario J. Pérez-Jiménez"
+    ],
+    "abstract": "Gives a polynomial-time solution to the decision version of the Common Algorithmic Problem using a uniform family of recognizer tissue P systems with cell division, together with a formal verification of the solution.",
+    "keywords": [
+     "membrane computing",
+     "tissue P system",
+     "cell division",
+     "common algorithmic problem"
+    ],
+    "doi": null,
+    "pages": "33-49",
+    "source_file": "03-niu.pdf"
+   },
+   "concept_level": 4,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 40,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 56.75,
+    "composite": 42.56,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text (theoretical paper; the only URL, http://ppage.psystems.eu/, is a general P systems web page)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "4 definitions, 16 theorem-level statements (Propositions 1-14, Theorem 1, Corollary 1) and 15 proofs give 4x2 + 16x3 + 15x4 = 116, between the Level 4 upper bound (80) and twice that bound (160). The elements pass the necessity test, since they form the step-by-step soundness and completeness verification; the flag records the volume, not theater.",
+    "EXCESSIVE_SELF_CITATION": "8 of 15 references (53%) share an author with the paper: [1] and [9] (Pan); [2], [3], [4], [5], [12] and [14] (Pérez-Jiménez). All are topically relevant (P-system solutions to hard problems, tissue P systems with cell division, the earlier CAP solution), but SCR exceeds 30%."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Sound tissue P system solution to the Common Algorithmic Decision Problem, built with the field's standard technique and verified step by step; the formalism is voluminous but necessary; 53% self-citation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A uniform family of recognizer tissue P systems with cell division (communication and division rules only, no polarizations) that decides the Common Algorithmic Decision Problem in a number of steps linear in n, m and k. The paper formally verifies uniformity, polynomial boundedness, soundness and completeness, and a corollary places NP ∪ co-NP in PMC_TDC.\n**Level:** 4 (High)\n**Rationale:** The paper proves that a problem belongs to a complexity class defined over a computing model, which is the \"prove computational complexity results\" band. The technique is standard in the field: 2^n cells are generated by division, then counters drive the checking. That keeps it at 4 rather than 5.\n\n### Formal Elements\n- Definitions: 4 (multiset, recognizer tissue P system with cell division, Definition 1 on polynomial-time solvability, the encoding function ψ), plus preliminaries on alphabets and strings\n- Theorems: 16 (Propositions 1-14, Theorem 1, Corollary 1)\n- Proofs: 15 (Propositions 1-14 and Corollary 1; Theorem 1 is said to follow from the preceding discussion)\n- Equations: the rule set r1-r17, resource counts, configuration multisets\n\n### Proportionality\nCalculated complexity: 4×2 + 16×3 + 15×4 = 116\nExpected range (Level 4): 30-80\nRatio: 1.45x upper bound\n\n**Assessment:** Elevated in count but necessary. Each proposition fixes the configuration at a given step, and soundness and completeness rest on that chain. This is the verification the field expects. No element fails the necessity test.\n\n### Issues\n- The proof of Proposition 1 is explicitly informal (\"we will informally go through the stages\"), and Theorem 1 has no proof of its own.\n- Copy-paste and typographical traces: Proposition 10 speaks of \"clauses\" B1, ..., Bα (a residue of a SAT solution); subset lists read \"{s1, s1, ..., sn}\"; the proof of Proposition 12 cites rule r13,i where r13,ij is meant.\n- Superscripts in the rule set were lost in text extraction (e.g. b_i/b_{2i+1}). The overview confirms the intended doubling, so this is not held against the paper.\n\n---\n\n## Citation Analysis\n\nEight of 15 references (53%) include an author of this paper: L. Pan in [1] and [9], and M. J. Pérez-Jiménez in [2], [3], [4], [5], [12] and [14]. All are on P-system solutions to hard problems, tissue P systems with cell division, or the earlier CAP solution with active membranes, and all are topically relevant. The high ratio partly reflects the size of the community. It still exceeds the 30% threshold.\n\n---\n\n## Structural Analysis\n\nClaims are backed by proofs and explicit step counts, so the balance of claim to evidence is strong. The conclusion acknowledges that implementing such systems is a challenge and contrasts the result with the earlier active-membrane solution [14]. As a theoretical paper it has nothing to release.\n\n---\n\n## Conclusion\n\nA careful, conventional complexity result in membrane computing: tissue P systems with cell division solve CAP in linear time, and the verification is complete if laborious. The formalism is the substance of the paper and is warranted at Level 4. The ELEVATED_FORMALISM signal is triggered by the count and reflects the field's step-by-step verification style, not theater. Under the specification the decisive finding is the 53% self-citation ratio."
+  },
+  {
+   "paper_id": "li2012",
+   "paper": {
+    "title": "A Modified Estimation of Distribution Algorithm for Digital Filter Design",
+    "authors": [
+     "Yuquan Li",
+     "Gexiang Zhang",
+     "Jixiang Cheng",
+     "Xiangxiang Zeng",
+     "Marian Gheorghe",
+     "Susan Elias"
+    ],
+    "abstract": "Proposes a modified estimation of distribution algorithm that uses centro-individual sampling and fuzzy C-means clustering, compares it with other EDAs on benchmark functions, and applies it to the design of four types of digital IIR filters.",
+    "keywords": [
+     "Modified EDA",
+     "Centro-individual sampling",
+     "Fuzzy C-means clustering",
+     "Digital IIR filter",
+     "Numeric optimization"
+    ],
+    "doi": null,
+    "pages": "50-62",
+    "source_file": "04-li.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 77.25,
+    "composite": 70.44,
+    "final": 65.44
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The 23 functions from [24], denoted as f1, f2, ..., f23, are applied to conduct the experiments.\" The public benchmark suite of Yao et al. [24], further functions from [7], and filter specifications from [19]; no code link or availability statement.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment. The conclusion restates the gains and names future work only, although the results show HPBILc ahead on f3, f8 and f9, and the Table 2 comparison runs mEDA with clustering disabled."
+   },
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Modest EDA variant (per-parent Gaussian sampling plus fuzzy C-means clustering) evaluated on standard benchmarks and four IIR filter designs; proportionate formalism, but baselines are copied from the literature, there is no ablation, and no limitations are stated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A modified estimation of distribution algorithm (mEDA). Each parent serves as the mean of a Gaussian from which one child is sampled (\"centro-individual sampling\"). After a fixed fraction of the generations, the population is split by fuzzy C-means into clusters that evolve separately. The method is evaluated on 27 benchmark functions and on four IIR filter designs.\n**Level:** 2 (Low)\n**Rationale:** Two existing techniques, Gaussian sampling around each parent and fuzzy C-means clustering, are combined inside an evolutionary algorithm and assessed empirically. There is no convergence or complexity analysis. That is a simple modification of an existing method.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 numbered (sampling rule, FCM objective, IIR transfer function, four designed filters), plus the standard FCM membership and centre updates\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Equation (1) is the method, the FCM equations are the standard algorithm, and the transfer function defines the design problem, so all pass the necessity test. Set braces are used for vectors (σ = {σ1, ..., σs}, the parameter set X). This is conventional notation for quantities in those equations, with no set operations, and is not treated as theater.\n\n### Issues\n- The splitting ratio is defined as Rs = t/Gm and then used in the test t < Rs·Gm, which makes the definition circular. In practice Rs is a constant (0.25).\n- The band-stop filter in Eq. (7) is labelled HBP, like the band-pass filter in Eq. (6), and Eq. (6) is garbled.\n\n---\n\n## Citation Analysis\n\nTwo of 29 references (7%) are self-citations, both by G. X. Zhang. [29], a survey of quantum-inspired evolutionary algorithms, is cited among works showing that EDAs attract attention; its relevance is marginal (about 0.4). [28], on IIR filter design, is never cited in the text. [26] and [27] are by Q. F. Zhang, a different author. The referencing is careless. The 1996 introduction of EDAs is attributed to [1], a fuzzy-clustering survey, when the 1996 paper is [15]. The benchmark details are referred to [23] where [24] is meant. Several entries ([5], [8], [16], [27], [28]) are uncited.\n\n---\n\n## Structural Analysis\n\nResults are reported as mean ± standard deviation over 30 runs, and the comparison with HPBILc carries Wilcoxon and Friedman tests. However, every baseline figure is copied from earlier papers rather than re-run under the same conditions. The Table 2 comparison runs mEDA with clustering disabled (Nc = 1, Rs = 1), and no ablation separates the contributions of CIS and FCMC. The diversity argument for CIS rests on one illustrative figure. The abstract's claim to outperform the compared algorithms overstates Table 1, where HPBILc is better on f3, f8 and f9 (and marginally on f17). No limitations are acknowledged. No code is released; the benchmark suites and filter specifications are public and cited.\n\n---\n\n## Conclusion\n\nA modest, reasonably reported metaheuristic paper with proportionate mathematics and a low self-citation ratio. Its weaknesses are in the evaluation rather than the formalism: baselines taken from the literature, no ablation, careless referencing, and no stated limitations. Without released code, reproducibility rests on the public benchmark definitions."
+  },
+  {
+   "paper_id": "muniyandi2012",
+   "paper": {
+    "title": "Modeling Hormone-induced Calcium Oscillations in Liver Cell with Membrane Computing",
+    "authors": [
+     "Ravie Chandren Muniyandi",
+     "Abdullah Mohd. Zin"
+    ],
+    "abstract": "Models hormone-induced calcium oscillations in liver cells as a membrane computing system, simulates it with the Gillespie algorithm and checks its properties with the PRISM probabilistic model checker, comparing the outcome with an ODE model.",
+    "keywords": [
+     "membrane computing",
+     "hormone induced calcium oscillations",
+     "Gillespie algorithm",
+     "PRISM"
+    ],
+    "doi": null,
+    "pages": "63-76",
+    "source_file": "05-muniyandi.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 80,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 71.25,
+    "composite": 53.44,
+    "final": 53.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text for the authors' own model or PRISM files; the only tool link is third-party: \"Multicompartment Gillespie simulator in C : http://www.dcs.shef.ac.uk/ marian/PSimulatorWeb/PSystemMF.htm\" [18]",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Application of an existing membrane-computing modelling framework, a third-party Gillespie simulator and PRISM to a published ODE model of calcium oscillations; proportionate notation, but the evidence is qualitative and the claimed superiority over ODEs is not demonstrated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A published two-variable ODE model of hormone-induced calcium oscillations in liver cells (Somogyi and Stucki [12]) is recast as a three-compartment stochastic P system with five rules. The system is simulated with an existing multi-compartment Gillespie simulator, and reaction activity is checked with PRISM rewards, following the first author's thesis framework [11].\n**Level:** 2 (Low)\n**Rationale:** An existing modelling framework, an existing simulator and an existing PRISM translation [21] are applied to one more biological case. There is no new algorithm or theory.\n\n### Formal Elements\n- Definitions: 1 (the system tuple HCOLC = (V, µ, ω, R) with its membrane structure, alphabet and initial multisets)\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 ODEs reproduced from [12], five kinetic rewriting rules, PRISM reward declarations\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Proportionate. The five rules and their kinetic constants are the model that is simulated and translated to PRISM. The tuple corresponds directly to the simulator's input: compartments, objects, initial multisets and rules. The membrane-computing formalism is the representation the paper sets out to evaluate, not decoration. The Greek parameters come from the source ODE model.\n\n### Issues\n- Modelling choices are not justified. The influx rule CaE[ ]C → [CaC]C consumes an extracellular object, although the ODE term γ is a constant source. The initial multisets hold one object per compartment, carrying ODE concentrations over as molecule counts. The paper itself attributes its failure to separate experiments C and D to reusing the continuous-model parameters unchanged.\n- In Section 5, process R2 is called translocation from ER to cytosol, though it was defined as cytosol to ER. The Experiment B result is attributed to Figure 3, which shows Experiment A.\n\n---\n\n## Citation Analysis\n\nFour of 25 references (16%) are self-citations: [11] (the first author's thesis) and [15], [22] and [24] (Muniyandi and Zin). All belong to the same modelling-and-verification pipeline and are directly relevant. [15], a 2011 conference paper comparing membrane computing with ODEs on the same liver-cell process, appears to be a precursor of this paper, and the overlap is not discussed. The ratio is in the 15-20% band, below the 20% flag threshold.\n\n---\n\n## Structural Analysis\n\nThe evidence is qualitative. Simulated trajectories (Fig. 2) and reward plots (Figs. 3-5) are compared by eye with the ODE results of [12], with no quantitative measure and no repeated stochastic runs. The \"model checking\" consists of cumulative reward plots; no CSL property is stated or checked. The abstract's claim that membrane computing is a better approach than ODEs is not demonstrated. Limitations are acknowledged inline: the model cannot distinguish experiments C and D, and stochastic parameters still have to be chosen properly. The simulator linked in [18] is third-party, and the authors' model and PRISM files are not released.\n\n---\n\n## Conclusion\n\nAn application paper with proportionate notation and moderate, relevant self-citation. Its weaknesses lie in the evidence: the comparison is qualitative only, no property is formally verified despite the model-checking framing, the authors' own results call some modelling choices into question, and no model files are released."
+  }
+ ]
+}

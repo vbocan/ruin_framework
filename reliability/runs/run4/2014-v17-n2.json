@@ -1,0 +1,278 @@
+{
+ "batch_id": "2014-v17-n2",
+ "analysis_timestamp": "2026-10-18T03:41:51Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 17,
+  "issue": 2,
+  "year": 2014
+ },
+ "papers": [
+  {
+   "paper_id": "bira2014",
+   "paper": {
+    "title": "Transpose-MapReduce Applications on Connex Architecture",
+    "authors": [
+     "Călin Bîra",
+     "Liviu Gugu",
+     "Mihaela Maliţa",
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "The MapReduce architecture and the associated programming model defined for the one-chip Connex organization gets an important additional feature: the associated data vectors can be organized as a two-dimension arrays of vertical and horizontal vectors which are managed by the transpose operation in order to maximize the degree of parallel execution. Thus, a one-chip Map-Reduce engine is able to perform easy additional intra vector operations by transforming the horizontal vectors, involved in Map operations, in vertical vectors using the transpose operation. We propose the Transpose-MapReduce high-level architecture supported by a fine grain cellular structure – the Connex system already implemented in silicon. It is structured in three sub-architectures: the data processing, data transfer and inter-cell communication architectures. A simulator written in SCHEME is used to write and evaluate few meaningful algorithms: AES encryption, FFT, Batcher’s merge-sort.",
+    "keywords": [],
+    "doi": null,
+    "pages": "150-176",
+    "source_file": "cbira2014.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 30,
+    "structural_integrity": 60,
+    "artifact_availability": 70,
+    "intellectual_integrity": 59.5,
+    "composite": 62.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"MALIŢA M., GUGU L., BÎRA C., Connex Simulator, posted at: http://www.anselm.edu/internet/compsci/Faculty Staff/mmalita/HOMEPAGE/research.html\" (ref. [8]); \"The algorithms designed for the previous three functions are evaluated on programs tested on Connex Simulator [8] written in Dr.Racket\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 7/11 = 64%. References [2], [6], [7], [8], [9], [10] and [11] each include at least one of the four authors (Bîra, Gugu, Maliţa, Ştefan). All are topically relevant (the Connex chip, its simulator, the conference version of this paper), so no IRRELEVANT_SELF_CITATION, but the ratio is more than twice the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Architecture note mapping AES, FFT and Batcher sort onto the Connex SIMD array through transposes overlapped with transfers; notation is light and proportionate and the simulator is linked, but 7 of 11 references are self-citations and the speed-ups rest on hand-counted baselines.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A functional high-level architecture (CHLA, simulated in Scheme) for the authors' Connex linear SIMD cellular engine, split into data-processing, data-transfer and inter-cell-communication sub-architectures, and the mapping of AES, a 16-sample FFT and Batcher's merge sort onto it by transposing horizontal vectors into vertical ones and overlapping transfer/transpose with computation through two flag-synchronised threads.\n**Level:** 2 (Low)\n**Rationale:** The algorithms are existing ones (AES, radix-2 FFT, Batcher's network) and the hardware is the authors' existing Connex engine; the contribution is a data-layout and double-buffering technique applied to three kernels. The complexity remarks (O(log p), O(n), O(y^2)) are informal estimates rather than derived bounds, so Level 3 is not justified under the default-low rule.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 20 display expressions (twiddle factors, the butterfly assignments of Figs. 4-5, timing relations such as t_FFT = 2 × t_COMP), plus Scheme listings in the text and two appendices\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The angle-bracket notation S = <s0, ..., sn-1>, V = <v0, ..., vm-1, ix> and v_i = <x_i0, ..., x_i,p-1> describes the two memory domains as the arrays they are and is used throughout to explain horizontal versus vertical vectors and what the transpose does; it is the vocabulary of the data layout, not set theory standing in for list operations. The butterfly equations and twiddle constants specify the FFT computation actually programmed. Shorthands such as \"Test ∈ {Lt, Gt, Eq, ...}\" and \"t_trans ∈ O(p)\" add no apparatus. No element fails the necessity test.\n\n### Issues\nNone identified for formalism. The scaling statements are loose, e.g. \"From O(n log n), for the sequential execution, we are now at O(n), obtaining an O(log n) acceleration with p cells\", and the conclusion that the three algorithms \"proved to be accelerated at least linearly\" rests on simulator runs of 16-element examples, not on any proof.\n\n---\n\n## Citation Analysis\n\nSeven of the eleven references (64%) include at least one author: [2] (the WCECS 2013 conference version of this paper, disclosed in a footnote), [6] (Maliţa on FFT for the same massively parallel architecture), [7] (Maliţa and Ştefan, the functional definition of the architecture), [8] (the Connex simulator used for every evaluation), and [9]-[11] (Ştefan on the CA1024/BA1024 chip and the Connex project). Every one is directly relevant: the paper builds on the authors' own architecture and simulator, so their earlier work is the natural prior art. The remaining four references are textbook sources (Batcher, Chu and George, Cooley-Tukey, SWAR); there is no engagement with other SIMD, GPU or many-core work on transpose-based FFT or sorting, which leaves the paper without external comparison. The 30% threshold is exceeded by a wide margin, so EXCESSIVE_SELF_CITATION applies by rule; there are no irrelevant self-citations.\n\n---\n\n## Structural Analysis\n\nThe paper has no related-work or evaluation section. Performance claims are single ratios against an ARM Cortex A9 said to occupy the same area and power as Connex64 or Connex32: 36.6x for an inner product, 76.8-128x for a selective add, 82x for AES (\"173/2.1 = 82\"), 18.8x for FFT and 84x for sort. The sequential baselines are hand-counted instruction loops (\"8 × p = 512 cycles\") or a \"direct implementation\" of AES whose provenance is not given; the area and power equivalence is asserted, not shown; the 18.8x FFT figure appears without derivation; and the 70x sort figure is explicitly \"our estimation\" for \"an hypothetical limit case\". The claim-evidence balance is adequate for an architecture-exploration note, but the evidence is simulator cycle counts on very small examples. Limitations are acknowledged inline: the transpose \"is efficient only for small n × n matrices where p >> n\", \"for p = n the parallel approach in Connex environment can not provide a meaningful performance improvement\", and beyond a threshold n0 transposition dominates FFT time.\n\nArtifacts: the authors' Connex Simulator is cited with a specific URL ([8]) and the Scheme programs for FFT and sort are listed in two appendices. The inputs are synthetic (a sine sequence in Appendix 1); no dataset is involved, so the category is code.\n\n---\n\n## Conclusion\n\nA coherent architectural note on hiding the cost of a minimal linear interconnect by transposing data blocks and overlapping transfers with computation, expressed with light and appropriate notation and backed by a linked simulator and listed code. Its weaknesses are evidential: the speed-ups rest on hand-counted sequential baselines and an asserted area and power equivalence, and the scaling statements are informal. The reference list is dominated by the authors' own Connex work (7 of 11), which triggers the excessive self-citation rule even though every self-citation is on topic."
+  },
+  {
+   "paper_id": "pop2014",
+   "paper": {
+    "title": "A Quality-Aware Forensic Speaker Recognition System",
+    "authors": [
+     "Gheorghe Pop",
+     "Dragoş Drăghicescu",
+     "Dragoş Burileanu"
+    ],
+    "abstract": "The performance of a speaker recognition systems based on Gaussian mixture models is often impaired both by the low quality and by short duration of test speech samples. A best material selection criterion is described in this paper, especially suitable for forensic automatic speaker recognition systems, where even enrollment speech quality might be important in some cases. The material selection is performed by checking well known short-time measures of input speech that carry quality information, such as linear cepstral peak, spectral autocorrelation peak to valley ratio, and windowed autocorrelation lag energy. Our tests show that the proposed approach outperforms reported speaker recognition solutions that consider quality of the input speech, at least in co-channel speech conditions.",
+    "keywords": [
+     "Forensic automatic speaker recognition",
+     "Gaussian mixture model",
+     "quality measure",
+     "linear cepstral peak"
+    ],
+    "doi": null,
+    "pages": "134-149",
+    "source_file": "gpop2014.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 95,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 75.75,
+    "composite": 69.31,
+    "final": 64.31
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The performance of the baseline FASR system is demonstrated in Fig. 4 for speech recordings from the NIST 2008 SRE database.\" The system is built on the third-party \"Microsoft speaker recognition (MSR) identity toolbox [12]\"; no code of the authors is linked or offered.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of the small evaluation (34 speaker models, 34 test files), of thresholds tuned on the same corpus, or of the fact that the comparison with [6] uses figures reported on different data."
+   },
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Quality-weighted GMM-UBM scoring for forensic speaker recognition; the equations are needed but partly mis-explained, and a 34-speaker test with a cross-study comparison does not carry the outperformance claims; no limitations stated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A GMM-UBM forensic speaker recognition system that computes three frame-level quality measures (inverse linear cepstral peak, log windowed autocorrelation lag energy, modified spectral autocorrelation peak-to-valley ratio), maps them to [0, 1], rejects frames below a threshold and uses the fused quality as an exponent weight on each frame's likelihood.\n**Level:** 2 (Low)\n**Rationale:** The quality measures come from the literature ([3], [9]) and the recogniser is a standard GMM-UBM built on a third-party toolbox; the contribution is a weighting scheme evaluated empirically.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 (numbered 1-12, with 12 used twice)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Equations (1)-(3) define the three quality features and (11)-(12) the mapping functions; a programmer needs them to reproduce the front end. Equation (7) is the standard GMM likelihood and (8)-(10) state the quality-weighted likelihood, which is the paper's actual contribution. The brace notation of (4)-(6), Y = {y_t}, q^k = {q_t^k} and λ = {w_i, µ_i, Σ_i}, is borderline: it names a frame sequence and the model parameters and could be a sentence, but it is the conventional notation of the GMM speaker-recognition literature, it declares the symbols that (8) and (9) use, and no set operation is performed on it. It is not counted as theater.\n\n### Issues\nThe formalism is imprecise exactly where it matters, hence a score below the proportionate base. The text says \"A high value of q_t^k makes p(o_t|λ)^q_t^k much closer to 1, which reduces the contribution of o_t to the global likelihood\", which is inverted: with q in [0, 1] it is a low exponent that drives the term toward 1. V(q_t), \"the volume the q-vector stretches upon\", is never defined operationally, and normalising it to sum to one (eq. 10) does not match the earlier statement that each frame's weight is \"the product of the defined QMFs\". The mappings q2 = 1 − 25 × log WALE and q3 = 1 − √MSAPVR are given without the clipping ranges that keep them in [0, 1].\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 16 references (6%): [13] Pop, Drăghicescu and Burileanu on forensic case pre-assessment, which supplies the q-vector pre-assessment stage of Fig. 1 and is directly relevant. The other references cover the main quality-aware speaker recognition literature (Garcia-Romero et al., Mandasari et al., Richiardi and Drygajlo, Kelly et al., Reynolds). No issues identified.\n\n---\n\n## Structural Analysis\n\nThe evaluation is small: 250 files for UBM training, 34 speaker models and 34 test files from NIST 2008 SRE, the same 34 files contaminated with babble noise at TIR = 15 dB, and 150 files used to choose the thresholds. Results are shown only as confusion matrices and DET plots; the text gives no EER for its own system beyond \"At least 15%\" improvement in Table 1. The headline comparison sets that figure against the 7.15% improvement reported by [6] on different data and a different protocol, so \"Our approach outperformed the results reported in [6]\" is not a controlled comparison, and \"Our FASR system performs by more than an order of LR magnitude better than other approaches\" has no supporting measurement in the paper. Claim-evidence balance is weak but the claims are not wholly unsupported, since the figures do show the effect of quality weighting on the authors' own test set. No limitation is acknowledged, hence NO_LIMITATIONS.\n\nArtifacts: the baseline is Microsoft's MSR Identity Toolbox [12], a third-party tool. The speech comes from NIST 2008 SRE, a named, published corpus (distributed under LDC licence); the random selection of files and the babble-noise source are not identified. No code of the authors is released, so the category is data.\n\n---\n\n## Conclusion\n\nAn applied signal-processing paper whose idea, frame-level quality weighting of GMM-UBM likelihoods for forensic use, is expressed with equations that are needed but carelessly explained, including a reversed description of how the exponent weight acts. The empirical support is thin relative to the claims: a 34-speaker test, thresholds tuned on the same corpus, and a comparison with prior work made across studies rather than on common data. Citation practice is clean. The paper would need a controlled comparison and an explicit account of its limits to support its conclusions."
+  },
+  {
+   "paper_id": "vintan2014",
+   "paper": {
+    "title": "Multi-Objective Optimization of Advanced Computing Systems: Some Achievements and Fertile Work Directions",
+    "authors": [
+     "Lucian N. Vinţan"
+    ],
+    "abstract": "The main aim of this work is to synthetically point out a state of the art in developing automatic design space exploration methods dedicated to Computer Architecture multi-objective optimizations, as they were developed during the time by the author and his research group. Also the paper points out some of the author’s envisaged further work directions that would hopefully advance this important research field. So, in order to achieve better convergence speed and solutions’ quality, specific domain-knowledge for each of the target computing system is necessary to be developed and integrated into the DSE tools. Adequately representing domain-knowledge is a significant scientific challenge. Also, automatically calculating the degrees of logical contradiction for a certain domain-knowledge represented using fuzzy logic rules would be of certain scientific interest. Effective meta-optimization methods are needed. Integrating some advanced Response Surface Models to accelerate the automatic DSE processes represents another fertile research challenge, too.",
+    "keywords": [
+     "Computing Systems",
+     "Design Space Exploration",
+     "Multi-Objective Optimization Methods",
+     "Meta-Optimization",
+     "Domain-Knowledge",
+     "Response Surface Models"
+    ],
+    "doi": null,
+    "pages": "121-133",
+    "source_file": "lvintan2014.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 55,
+    "artifact_availability": 70,
+    "intellectual_integrity": 60.0,
+    "composite": 62.5,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"The software tool is publicly available (see https://code.google.com/p/fadse/).\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 10/21 = 48%: references [1] and [3]-[11] are co-authored by Vinţan; [2] is a PhD thesis he supervised (not counted; 52% if included). All are on the FADSE framework, the simulators it drives, or fuzzy-rule contradiction, so all are relevant and no IRRELEVANT_SELF_CITATION applies. The ratio follows from the paper's declared aim of reviewing the author's own group, but it exceeds the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Overview and research agenda for the author's FADSE design-space-exploration work; formalism is minimal and appropriate and the tool is publicly linked, but 10 of 21 references are self-citations and the one new result is only sketched.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A retrospective and research agenda for the FADSE automatic design-space-exploration framework developed by the author's group: multi-objective evolutionary and PSO search over simulated architectures (GAP, M-Sim 2, UniMap, Sniper), fuzzy-rule domain knowledge in a modified mutation operator, meta-optimisation that runs NSGA-II and SPEA2 concurrently, and proposed work on contradiction degrees of fuzzy rules, response-surface models and a \"Pareto-fuzzy set\".\n**Level:** 1 (Trivial)\n**Rationale:** A survey of the group's published work plus open questions; the techniques it reports are described and evaluated elsewhere. It is a signed research overview with one preliminary result (Fig. 3), not front matter, so the EDITORIAL flag does not apply.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (centre-of-gravity defuzzification), plus pseudocode of the fuzzy mutation operator (Fig. 2)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The single equation is the standard centroid formula and specifies what the mutation operator computes for each parameter; it is not decoration. The caption \"HV(Meta-Algorithm)>HV(NSGA-II U SPEA2)\" uses a union for the combined Pareto fronts of the two algorithms, which is the meaningful operation for a hypervolume comparison.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTen of 21 references (48%) are co-authored by the author: [1], [3]-[8], [10] and [11] on FADSE and its applications, and [9] on contradiction degrees of fuzzy rules. [2] is the PhD thesis of his former student Calborean, supervised by him; it is not counted, and including it raises the ratio to 52%. Every self-citation is on topic, which follows from the paper's stated aim of summarising work \"developed during the time by the author and his research group\". The external references (Ipek et al., Joseph et al., Lee and Brooks, Silvano et al., Kang and Kumar, Prost-Boucle et al., Thompson and Pimentel) are relevant and fairly discussed. The genre explains the ratio but does not change the rule, so EXCESSIVE_SELF_CITATION applies. A minor slip: the conclusion cites [4], [5], [6] for being \"the first ones using fuzzy logic as a method to express computer architecture knowledge\", where [6] concerns Network-on-Chip application mapping.\n\n---\n\n## Structural Analysis\n\nMost claims point to earlier publications rather than to evidence in this paper, which is acceptable for an overview: \"We have proven in our optimization research focused on a Superscalar/SMT Microarchitecture ... [5] that the explorations with fuzzy logic rules ... are involving a noticeable solutions quality gain.\" The one new result, meta-optimisation outperforming NSGA-II and SPEA2 on the GAP processor, rests on Fig. 3 with no experimental setup (benchmarks, generations, runs, variance), and the details are deferred: \"A dedicated paper detailing this new original approach will be developed soon.\" Priority claims (\"As far as we know, we are the first ones using fuzzy logic ...\") are unverified. Trade-offs are acknowledged inline: overly strong domain knowledge biases the search, weak knowledge may not speed convergence, and pruning individuals with low Pareto-membership \"might restrict the individuals' diversity\".\n\nArtifacts: the group's FADSE tool is linked at a specific public repository. The simulation results behind the reported optimisations are not deposited, so the category is code.\n\n---\n\n## Conclusion\n\nA readable overview of a productive line of work on automatic design-space exploration, with minimal and appropriate formalism and a publicly linked tool. As a research contribution it is thin: the new meta-optimisation result is shown in a single figure without setup, and the remaining sections are research directions. Because the paper reviews the author's own group, nearly half of its references are self-citations; each is relevant, but the ratio exceeds the framework's threshold and triggers the excessive self-citation flag."
+  },
+  {
+   "paper_id": "soto2014",
+   "paper": {
+    "title": "Sequentially Dependent Meta-Constraint Satisfaction Problem: An Application to Video Games",
+    "authors": [
+     "Ricardo Soto",
+     "Broderick Crawford",
+     "Eric Monfroy",
+     "Fernando Paredes"
+    ],
+    "abstract": "A Constraint Satisfaction Problem (CSP) consists in a sequence of variables holding a domain of possible values and relations among these variables called constraints. A meta-CSP can be seen as a metaproblem whose decomposition leads to a set of CSPs. The meta-variables correspond to sub-problems of the original problem, and a meta-constraint is a relation among those meta-variables. Meta-CSPs find many applications in industry, usually in processes that involve time and actions such as the control of a robot, a manufacturing process, or the scheduling of any common activity. In this paper, we introduce the notion of Sequentially Dependent Meta-CSP (SD Meta-CSP), which extends the meta-CSP in order to support applications where a dependency between sub-problems is mandatory. In this case, the meta-CSP is decomposed into a set of sub-problems {Pi, Pi+1, ..., Pn}, but the instance of the sub-problem Pi+1 sequentially depends on the solution of the sub-problem Pi. In this work we provide a formal definition for the SD Meta-CSPs, a framework to handle it, and we illustrate its applicability to video games. In particular, we model and implement agents as SD Meta-CSPs able to autonomously play two classic games: Ms. Pac-Man and Super Mario Bros.",
+    "keywords": [
+     "Video-games",
+     "artificial intelligence",
+     "constraint satisfaction problem"
+    ],
+    "doi": null,
+    "pages": "204-216",
+    "source_file": "rsoto2014.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.7,
+    "composite": 33.52,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text for the authors' agents; the only link, \"http://www.emn.fr/z-info/choco-solver/\", is to the third-party Choco Solver",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (CSP solving applied to game agents) whose meta-level formalisation fails the necessity test: the \"SD Meta-CSP\" triplet and its Pac-Man instance restate, in set notation, a loop that builds and solves one CSP per move (Algorithm 2). Removing it would not change the implementation, and no proof or bound depends on it.",
+    "DECORATIVE_DEFINITIONS": "Section 4 defines the SD Meta-CSP as \"a triplet P = <V, D, C>\" whose variables are sub-problems, and Section 5.1 repeats the definition for Ms. Pac-Man. The meta-constraint set C is declared but never populated or used for either game, and neither definition is referenced by any result; \"at each move, build a CSP from the observation matrix and solve it\" says the same.",
+    "UNNECESSARY_SET_THEORY": "The ordered sequence of moves is written as sets: \"V = {v1, v2, ..., vn} is the set of metavariables\", \"D = {dvi | vi ∈ V} is the set of domains\", \"C = {CR | R ⊆ V, R ≠ ∅} is the set of constraints\", with the order carried only by \"f : ai → vi+1\". In code this is a list traversed by a foreach loop, and no proof uses the set operations."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Ms. Pac-Man and Mario agents that solve a four-variable CSP with Choco at each move, presented as a new \"SD Meta-CSP\" formalism whose set-notation meta-level adds nothing to the implementation; evaluation has no baselines and no code is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** The paper defines a \"Sequentially Dependent Meta-CSP\", a meta-CSP in which sub-problem i+1 is instantiated from the solution of sub-problem i, and uses it to build agents for Ms. Pac-Man and the Mario AI Benchmark that, at each move, solve a CSP over four Boolean move variables with the Choco solver.\n**Level:** 2 (Low)\n**Rationale:** Standard CSP solving applied to game-agent control. The \"framework\" is Algorithm 2, a foreach loop that passes each solution as the input instance of the next solver call, and Algorithm 3 is the textbook backtracking-with-propagation procedure with an extra argument. There is no new solving technique, no complexity analysis and no property proved.\n\n### Formal Elements\n- Definitions: 5 (CSP triplet as background; SD Meta-CSP triplet; its Ms. Pac-Man instance; the Ms. Pac-Man move sub-problem; the Mario move sub-problem) (with constraints: 2 generic constraint schemas)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 4 (generic and example move constraints, dependency function f), plus 3 algorithms\n\n### Proportionality\nCalculated complexity: 10\nExpected range (Level 2): 0-15\nRatio: 0.67x upper bound\n\n**Assessment:** Disproportionate in kind though not in count. The background CSP triplet of Section 3 is standard. The meta-level is not needed: the SD Meta-CSP and its Ms. Pac-Man instance restate, in set-builder notation, a sequence of per-move solver calls (\"V = {v1, v2, . . . , vn} is the set of metavariables\", \"D = {dvi | vi ∈ V} is the set of domains\", \"C = {CR | R ⊆ V, R ≠ ∅} is the set of constraints\", \"f : ai → vi+1\"). The sequence is ordered, which is the whole point of the extension, yet it is written as an unordered set; the meta-constraint set C is declared but never populated for either game; and no proof, property or bound depends on any of it. Plain English, \"at each move, build a CSP from the current observation matrix, solve it and execute the move\", conveys the whole construct, and that is exactly what Algorithm 2 does. The per-move constraints, such as (right = 1) ⟺ (block_x+1,y = 0 ∨ block_x+1,y = 1 ∨ block_x+1,y = 2), are the actual agent model and are necessary; the meta-level formalisation is not.\n\n### Issues\nThe formal layer shows signs of not having been exercised: the solution of an SD Meta-CSP is written \"{x1 → a1, . . . , vn → an | ai ∈ dvi, i ∈ 1..n}\", mixing x and v; Algorithm 3's loop guard reads \"while i ≤ 1 ≤ n\"; Algorithm 2 takes \"a CSP P\" as input yet iterates over sub-problems P' ∈ P with an instP' that is never initialised, and its line numbers repeat. The generic constraint operator is defined as ranging over {∧, ∨} for a fixed formula, which reduces each move decision to a lookup on neighbouring cells.\n\n---\n\n## Citation Analysis\n\nTwo of 41 references (5%) include the authors: [25] Monfroy, Castro, Crawford, Soto, Paredes and Figueroa on a reactive hybrid constraint solver, and [6] Crawford, Soto, Monfroy, Palma, Castro and Paredes on PSO tuning of a choice-function hyperheuristic. Both appear only in the future-work sentence on autonomous search. [25] is relevant; [6] is marginal (constraint-solving hyperheuristics, not meta-CSPs or game agents) but not unrelated. The rest of the list is a broad and appropriate survey of CSP extensions and game-AI work. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe novelty claim, \"to the best of our knowledge, no published work addresses meta-CSP where dependency among sub-problems is mandatory\", is made against a list of CSP variants without engaging with dynamic CSPs (cited as [24]) or with re-solving a model online at each time step, the obvious comparators. The evaluation is 40 tries per game: \"In the case of Ms. Pac-Man, 98% of tries pass the first level, 53% pass the second level, and 10% reached the 4th level\", and 40 of 40 Mario stages solved. There is no baseline agent, no comparison with published Ms. Pac-Man or Mario AI competition results, and no measure of variance; the conclusion that the framework shows \"real-world applicability\" is not supported by these results. A limitation is acknowledged only in passing: \"although our goal here is rather to validate the use of SD Meta-CSP rather than performance of agents, we consider that results are reasonable\". This is a thin inline acknowledgment, so NO_LIMITATIONS is not raised.\n\nArtifacts: the agents are not released. The only link is to the third-party Choco Solver, and the Mario AI Benchmark is an open third-party environment; neither counts as the authors' artifact.\n\n---\n\n## Conclusion\n\nThe practical content, game agents that call a constraint solver once per move with a handful of neighbourhood constraints, is modest and would be well described in plain prose. It is framed as a new formal class, the SD Meta-CSP, whose set-notation definition mirrors a loop, leaves its meta-constraints empty and supports no result. At Level 2 this is formalism theater, and the decorative definitions and set notation for an ordered list are disqualifying. The evaluation has no baselines and no code is available."
+  },
+  {
+   "paper_id": "song2014",
+   "paper": {
+    "title": "A Small Universal Spiking Neural P System with Cooperating Rules",
+    "authors": [
+     "Tao Song",
+     "Linqiang Pan"
+    ],
+    "abstract": "Spiking neural P systems (shortly called SN P systems) are a class of distributed and parallel neural-like computing devices, which are inspired by the way of biological neurons communicating with each other by means of impulses/spikes. SN P systems with cooperating rules are a new variant of SN P systems, where each neuron has the same number of components and some components of a neuron can be empty. In a step of a computation, one component from each neuron is used, with the same label in all neurons; from these components, one rule is applied, in the way usual in SN P systems. In the terminating mode, adopted in this paper, after choosing a component of the neurons, this component is applied until no rule from this component, in any neuron, is enabled (we switch from a component to another one, nondeterministically chosen, when no rule of the component can be used, in any neuron of the system). In this work, we investigate how many neurons are needed to construct a Turing universal SN P system with cooperating rules as a number generator in terminating mode. Specifically, we construct a Turing universal SN P system having 8 neurons, which can generate/compute any set of Turing computable natural numbers. This result gives an answer to an open problem formulated in [V.P. Metta, S. Raghuraman, K. Krithivasan, CMC15, 267–282, 2014].",
+    "keywords": [
+     "bio-inspired computing",
+     "membrane computing",
+     "spiking neural P system",
+     "cooperating rule",
+     "Turing universality"
+    ],
+    "doi": null,
+    "pages": "177-189",
+    "source_file": "taosong2014.pdf"
+   },
+   "concept_level": 5,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 35,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 59.25,
+    "composite": 44.44,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 15/33 = 45%: references [12]-[17] and [25]-[33] include Song or Pan. All concern SN P systems and are relevant, so no IRRELEVANT_SELF_CITATION, but several are cited in batches to illustrate variants where one would do, and the ratio exceeds the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Constructive proof that 8-neuron SN P systems with cooperating rules are Turing universal; the formalism is the substance and proportionate, but the proof has several index and case inconsistencies and 15 of 33 references are self-citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Construction of a Turing-universal spiking neural P system with cooperating rules (terminating mode, two components, extended and forgetting rules, finitely many rules per neuron) with 8 neurons, obtained by simulating a 3-register universal register machine; this improves the 10-neuron bound for finite-rule SN P systems in [15] and answers an open problem of Metta et al. [7].\n**Level:** 5 (Very High)\n**Rationale:** The paper proves computational universality (Theorem 1: N_tot SNP_8 CR_2(extend, forg) = NRE).\n\n### Formal Elements\n- Definitions: 4 (regular expressions and their languages; SN P system with cooperating rules of degree m; register machine; the family N_tot SNP_m CR_p(α, forg)) (with constraints: rule-form restrictions c ≥ p, a^s ∉ L(E))\n- Theorems: 1\n- Proofs: 1 (constructive simulation)\n- Equations: the rule set of Table 1 and the spike-count relations of the simulation\n\n### Proportionality\nCalculated complexity: 15\nExpected range (Level 5): 60-150\nRatio: 0.1x upper bound\n\n**Assessment:** Proportionate. The formalism is the subject matter: every definition is used in the theorem or its proof, and the set notation (Σ*, L(E), syn ⊆ {1, ..., m} × {1, ..., m}) is the native language of formal language theory.\n\n### Issues\nThe proof has presentation errors that lower confidence that it was checked. Fig. 1 gives \"T = 11(m + 1) + 1\" while the text and Table 1 give T = 11(m + 1). Registers 0, 1, 2 are said to be associated with \"neurons σ1, σ2 and σ3\", and the ADD summary uses \"f(1) = 7, f(2) = 8, f(3) = 9\" for registers 0, 1, 2. In the SUB(1) case analysis an empty register leads to l_j and a non-empty one to l_k, the reverse of the definition given (\"if register r is non-empty, then subtract 1 from it and go to the instruction with label lj; otherwise, go to the instruction with label lk\"), and the summary then reads \"or to simulate the instruction lk (with neuron σstate having T + j spikes)\". Rules in σ2 such as \"a7(a9)*/a5 → a\" and \"a4(a8)*/a4 → a2\" look like copying slips, and the SUB(2) simulation is omitted (\"We omit the details here\"). How σstate ends with T + j spikes when both σs1 and σs2 send it T spikes is not traced. None of this obviously breaks the construction, which follows an established technique, but a careful reader cannot verify it as printed.\n\n---\n\n## Citation Analysis\n\nFifteen of 33 references (45%) include one of the authors: [12]-[17] (Pan with co-authors) and [25]-[33] (Song or Pan with co-authors). All are SN P system papers and are relevant, mostly to the survey of variants in the introduction and to earlier small universal systems ([15]-[17], [25], [33]). The SN P systems community is small and this group is among its most prolific, so a high ratio partly reflects the field; still, several self-citations are listed in batches to illustrate variants (\"[30–32]\", \"[6, 13, 28]\") where one would suffice. EXCESSIVE_SELF_CITATION applies by rule; there are no irrelevant self-citations.\n\n---\n\n## Structural Analysis\n\nThe theorem is the claim and the constructive proof is the evidence; the comparison with the 10-neuron system of [15] is factual, and the improvement is attributed to a stated change of technique (rules in a single state neuron instead of one module per instruction). The conclusion acknowledges the result's limits inline: the number of rules per neuron is not minimised, only the terminating cooperation mode is studied, and function-computing variants remain open.\n\nArtifacts: pure theory with nothing to release (relevant: false); no simulator run of the constructed system is reported.\n\n---\n\n## Conclusion\n\nA conventional small-universality result in membrane computing whose formalism is proportionate and necessary at Level 5. The construction is plausible and answers a stated open problem, but the proof as printed contains index errors, an inverted SUB branch relative to the stated register-machine semantics, and an omitted case, so it should be read as unverified. Nearly half of the references are the authors' own; they are on topic, but the ratio triggers the excessive self-citation flag."
+  }
+ ]
+}

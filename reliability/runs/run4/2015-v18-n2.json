@@ -1,0 +1,243 @@
+{
+ "batch_id": "2015-v18-n2",
+ "analysis_timestamp": "2026-10-18T03:45:24Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 18,
+  "issue": 2,
+  "year": 2015
+ },
+ "papers": [
+  {
+   "paper_id": "maican2015",
+   "paper": {
+    "title": "Minimum Spanning Tree Algorithm on MapReduce One-Chip Architecture",
+    "authors": [
+     "Voichiţa Maican"
+    ],
+    "abstract": "A parallel algorithm for minimum spanning tree and its implementation on a one-chip many-core structure with a MapReduce architecture is presented. The generic structure’s main features and performances are described, but also new general purpose features added for upgrading the existing generic structure in order to perform better in running the proposed algorithms. As the developed algorithm uses the representation of the graph as a matrix, both, dense and sparse cases are considered. A Verilog based simulator is used for evaluation. The main outcome of the presented research is that, compared with the hyper-cube architecture (having p processors and the size in O(p log p)), our MapReduce architecture (with p execution units and the size in O(p)) has the same theoretical time performance: O(N log N) for p = N = |V|. Also, the actual energy performance of our architecture is 7 pJ for 32-bit integer operation, compared with the ∼150 pJ per operation of the current many-cores.",
+    "keywords": [
+     "parallel computing",
+     "MapReduce",
+     "many core",
+     "minimum spanning tree",
+     "parallel algorithm"
+    ],
+    "doi": null,
+    "pages": "126-143",
+    "source_file": "02-vmaican.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 41.5,
+    "composite": 31.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "UNNECESSARY_SET_THEORY",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (a textbook parallel Prim's algorithm mapped onto an existing SIMD-style accelerator) whose formal elements fail the Necessity Test. Two numbered textbook definitions of spanning tree and minimum spanning tree are never used afterwards. Set-algebra notation for the instruction set (ISAmapReduce = ISAcontroller × ISAarray; ISAcontroller = SSarith&logic ∪ SScontrol ∪ SScommunication) says only that each instruction word pairs a controller instruction with an array instruction, each drawn from three groups.",
+    "DECORATIVE_DEFINITIONS": "\"Definition 1 Spanning tree (ST) of an undirected graph G: a tree containing all the vertices of G\" and \"Definition 2 Minimum spanning tree (MST) of a weighted undirected graph is the ST with minimum weight\" put standard textbook notions in Definition blocks. Neither is referenced in any proof or derivation, and removing them would not change what a programmer builds.",
+    "UNNECESSARY_SET_THEORY": "The instruction set is described with set union and a Cartesian product: \"ISAcontroller = SSarith&logic ∪ SScontrol ∪ SScommunication\" and \"ISAarray = SSarith&logic ∪ SSspatialControl ∪ SStransfer\". These are lists of instruction groups, and no proof or bound depends on the set operations.",
+    "NO_LIMITATIONS": "No limitations are acknowledged. The concluding remarks report only favourable results, although the evaluation rests on one six-vertex example, the comparison with the hypercube is purely asymptotic, and the appendix code carries an unresolved \"TO BE SOLVED!\" comment that the text never discusses."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Maps the textbook parallel Prim's algorithm onto a one-chip MapReduce accelerator and adds three activation instructions. It has decorative definitions and set notation, an evaluation limited to a six-vertex example, and an unsupported energy comparison.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A parallel version of Prim's minimum spanning tree algorithm, for dense and sparse matrix representations, written in the assembler of an existing one-chip many-core MapReduce accelerator. Three activation instructions (actwhere, saveact, restact) are added to the array's instruction set.\n**Level:** 2 (Low)\n**Rationale:** The algorithm is the standard data-parallel Prim's algorithm: one processing element per vertex (or per edge in the sparse case) plus a log-depth min-reduction. The worked example and the hypercube baseline come from the textbook treatment the paper cites (Kumar et al., section 7.2). The contribution is mapping this algorithm onto a specific architecture and counting cycles in the resulting programs. That makes it an existing algorithm applied to a new platform, not a new algorithm with a complexity proof. The ISA extension is an engineering change.\n\n### Formal Elements\n- Definitions: 2 (spanning tree, minimum spanning tree)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 10 (the ISA product and unions, the vector domains S and V, the reduction operators, G = (V, E, w) with E′ ⊆ E, two execution-time formulas, the boolVect relation)\n\n### Proportionality\nCalculated complexity: 4 (2 definitions × 2)\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Proportionate in count, but several elements fail the Necessity Test. The two numbered definitions restate what any reader of a paper on minimum spanning trees already knows, and neither is used again. The instruction set is written as a Cartesian product of two unions of instruction subsets. That says no more than \"each 32-bit instruction word carries one controller instruction and one array instruction, each drawn from three groups\". The set notation in the statement of Prim's algorithm (VT = {r}, V − VT, E′ ⊆ E) is the ordinary way the sequential algorithm is written, and it is not counted against the paper. The execution-time expressions do earn their place, because they carry the asymptotic claim.\n\n### Issues\n- \"Definition 1 Spanning tree (ST) of an undirected graph G: a tree containing all the vertices of G.\" This is plain English and is never referenced again.\n- \"ISAcontroller = SSarith&logic ∪ SScontrol ∪ SScommunication\" uses set union for a list of instruction groups.\n- The sparse-case bound TPRIM_SM max = 2(N − 1)logN + 334N − 26 gives about 2,000 cycles for N = 6, but the simulator reports 198 cycles for the same graph. The 334 may be a typo (34N would fit the measurement), but the paper does not explain the gap at its only data point.\n- The appendix program carries the comment \"TO BE SOLVED!\" at the tie-breaking step, and the text never discusses it.\n\n---\n\n## Citation Analysis\n\nThe paper has nine references and none is by the author. The author's e-mail address shows the surname Dragomir, and neither that name nor Maican appears in the list, so SCR = 0/9. Four references ([2], [3], [7], [8]) come from the research group that built the accelerator; they describe the architecture and its other uses and are relevant. The list is thin for an algorithm paper: it cites no prior parallel or GPU minimum spanning tree work, and the claim that the hypercube is \"the most efficient and used parallel structure today\" has no source.\n\n---\n\n## Structural Analysis\n\nThe paper makes two headline claims: (a) the same O(N log N) time as a hypercube, on a smaller O(N) engine; (b) 7 pJ per operation against about 150 pJ for current many-cores. Claim (a) rests on instruction counts for the listed programs and is reasonably supported as an asymptotic argument. However, the introduction promises \"testing and comparing it with the algorithm implemented on a Hypercube\", and no hypercube implementation or measurement appears. Claim (b) comes with no measurement, method or citation. The text also says the 2008 implementation used 65 nm technology, while the conclusion sets a 28 nm figure against a 22 nm Xeon Phi. The only empirical evidence is one six-vertex graph per representation, run on a Verilog simulator. The claim-evidence balance is weak (CER roughly 0.4), and the paper states no limitations.\n\nArtifacts: the assembler programs are printed in full in two appendices and a Verilog simulator is mentioned, but nothing is linked or offered. Description is not availability, so the category is none.\n\n---\n\n## Conclusion\n\nA short engineering paper that ports a textbook parallel Prim's algorithm onto an accelerator developed by the author's group and adds three activation instructions. The idea is reasonable, and the programs are detailed enough to re-implement. The formal dressing, however, adds nothing at this level: numbered textbook definitions and set algebra for an instruction list. The evaluation is a single toy graph, and the energy comparison the abstract headlines is unsupported. Under the zero-tolerance rule for Level 1-2 papers, the decorative formalism is disqualifying."
+  },
+  {
+   "paper_id": "hayat2015",
+   "paper": {
+    "title": "Computing Topological Indices of Honeycomb Derived Networks",
+    "authors": [
+     "Sakander Hayat",
+     "Mehar Ali Malik",
+     "Muhammad Imran"
+    ],
+    "abstract": "A topological index can be considered as a transformation of a chemical structure into a real number. The degree based topological indices such as Randić index, geometric-arithmetic (GA) index and atom-bond connectivity (ABC) index are of vital importance among all topological indices. These topological descriptors significantly correlate certain physico-chemical properties of the corresponding chemical compounds. Graph theory has been found to be very useful in this area of research. The topological indices of certain interconnection and mesh derived networks are recently studied by Imran et al. [17]. In this paper, we define some new classes of networks from honeycomb networks by using basic graph operations like stellation, medial and dual of a graph. We derive analytical close formulas of general Randić index Rα(G) (for different values of α) for hexagonal and honeycomb derived networks. We also compute first Zagreb, ABC, and GA indices for these important classes of networks.",
+    "keywords": [
+     "General Randić index",
+     "First Zagreb index",
+     "Atom-bond connectivity (ABC) index",
+     "Geometric-arithmetic (GA) index",
+     "Honeycomb derived networks"
+    ],
+    "doi": null,
+    "pages": "144-165",
+    "source_file": "03-mimran.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 31.0,
+    "composite": 23.25,
+    "final": 23.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "DISPROPORTIONATE_FORMALISM",
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "DISPROPORTIONATE_FORMALISM": "Formalism complexity is 6 definitions × 2 + 16 theorems × 3 + 16 proofs × 4 = 124. The Level 2 upper bound is 15 (threshold 30), so this is about 8.3 times the bound. The sixteen theorem-proof pairs are one computation, substituting an edge-degree partition into an index formula, repeated for four graphs and four indices.",
+    "FORMALISM_THEATER": "Level 2 paper whose formal elements fail the Necessity Test. Each of the sixteen proofs reads \"By using the formula given by equation (n) and the edge partition given in Table k, we get\", followed by the theorem's own expression repeated verbatim. The step that would need proof, the edge partition itself, is asserted from a figure. The results could be given as a table of closed forms without the theorem/proof apparatus.",
+    "DECORATIVE_DEFINITIONS": "Definition 1.1 (Wiener index) and Definition 1.4 (second Zagreb index M2) formally define indices that the paper never computes or mentions again.",
+    "ELEVATED_SELF_CITATION": "8 of 33 references (24%) include at least one of the authors: [2], [12], [13], [14], [15], [17], [18], [21]. All are on chemical graph theory and relevant or marginally relevant; [21], on the anti-Kekulé number, concerns a different invariant. [18] is in the reference list but never cited in the text.",
+    "NO_LIMITATIONS": "No limitations are acknowledged. The conclusion says the results \"provide a basis to understand deep topology of these important networks\" without noting that the edge partitions are unverified, or that the chemical relevance of the indices to these interconnection-network graphs is never examined."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Closed-form degree-based topological indices for four honeycomb-derived graph families. A routine edge-partition substitution is dressed as sixteen theorem-proof pairs, and the HcDN2 and HcDN4 results contain copy-paste inconsistencies.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Four graph families (HcDN1–HcDN4), built by uniting the honeycomb network with its stellation, bounded dual and medial, and closed formulas for their general Randić index (α = 1, 1/2, −1, −1/2), first Zagreb index, ABC index and GA index.\n**Level:** 2 (Low)\n**Rationale:** The indices are standard, and each is a sum over edges of a function of the two end-vertex degrees. Once the edges are partitioned by degree pair, every result is arithmetic substitution. The new graph families are unions of known constructions. This is an existing method applied to new instances, the Level 2 pattern. The paper neither develops a new model nor proves a non-trivial structural property. The edge partitions are the only step that needs combinatorial reasoning, and they are given as tables read off figures, without derivation.\n\n### Formal Elements\n- Definitions: 6 (Wiener, Randić, first Zagreb, second Zagreb, ABC, GA), plus an informal definition of a topological index\n- Theorems: 16 (Theorems 2.1.1–2.1.16)\n- Proofs: 16\n- Equations: 5 numbered, plus the 16 closed-form results, each printed twice\n\n### Proportionality\nCalculated complexity: 124 (6 × 2 + 16 × 3 + 16 × 4)\nExpected range (Level 2): 0-15\nRatio: 8.3x upper bound\n\n**Assessment:** Disproportionate. The notation itself (sums over uv ∈ E(G)) is needed to define the indices and is not the problem. The problem is that one routine computation is packaged as sixteen theorems whose sixteen proofs add nothing to the statements. A typical proof reads \"By using the formula given by equation (2) and the edge partition given in table 2, we get M1(G) = 324n² − 336n + 102\", which simply restates the theorem. Two of the six definitions (the Wiener index and the second Zagreb index) are never used.\n\n### Issues\n- The proof of Theorem 2.1.5 gives HcDN2(n) 27n² − 21n + 6 edges, which is the HcDN1 count. Summing Table 3 gives 36n² − 36n + 12, which matches honeycomb plus stellation plus bounded-dual edges.\n- In the proof of Theorem 2.1.13 (HcDN4), Case 2 (α = 1/2) prints the expression the theorem gives for α = −1/2. Case 4 (α = −1/2) prints the HcDN2 result of Theorem 2.1.5, whose n² coefficient, 9/4 + 3√2/2, belongs to HcDN2. Statement and proof therefore disagree in two of the four cases.\n- The α = 1/2 expression in Theorem 2.1.13 leaves like terms unsimplified (−24√5 + 36√5, −120√2 + 252√2).\n- The proofs of Theorems 2.1.7 and 2.1.8, both about HcDN2, open with \"Let G be the honeycomb derived network of first type\".\n- The proof of Theorem 2.1.12 (GA index) cites equation (1), the Randić formula, instead of equation (5).\n- The HcDN1 results for R1 and M1 were checked against Table 2 and agree with it, and the HcDN1 edge total agrees with the stated edge count.\n\n---\n\n## Citation Analysis\n\nEight of the 33 references (24%) include at least one of the three authors: [2], [12]–[15], [17], [18], [21]. All are in chemical graph theory and bear on computing topological indices. Two are weak: [21] (anti-Kekulé number of nanotubes) concerns a different invariant, and [18] is never cited in the text, so it only pads the list. No self-citation is unrelated enough to fall below 0.3 similarity. Four references on the evolution of cooperation in social dilemmas ([24], [25], [29], [32]) support the claim that honeycomb networks matter in evolutionary biology. Their link to this paper is thin, but the framework gives no grounds to flag them.\n\n---\n\n## Structural Analysis\n\nThe claims are the sixteen closed forms. Their evidence is the edge partitions in Tables 2–5, which are asserted rather than derived, and substitutions that are not shown. No numerical check against a small instance is reported, and the errors listed above suggest the results were not checked systematically. The introduction's statements about chemical relevance are backed by citations. The stated motivation is interconnection networks, yet the paper never connects the computed indices to any property of them. No limitations are acknowledged.\n\nArtifacts: a purely analytical paper with nothing to release; category none, relevant false.\n\n---\n\n## Conclusion\n\nA formula paper in a style common in chemical graph theory: new graph families are defined by combining known operations, edges are partitioned by degree pair, and index values follow by substitution. The mathematics is elementary. Wrapping it in sixteen theorem-proof pairs whose proofs repeat their statements inflates the formal apparatus roughly eightfold beyond what the contribution warrants. Copy-paste inconsistencies in the HcDN2 and HcDN4 sections undermine confidence in those results. Self-citation is elevated but on topic."
+  },
+  {
+   "paper_id": "teodorescu2015",
+   "paper": {
+    "title": "On the Regularities and Randomness of the Dynamics of Simple and Composed CAs with Applications",
+    "authors": [
+     "Horia-Nicolai Teodorescu"
+    ],
+    "abstract": "Several elementary dynamic properties of cyclic cellular automata are analyzed, with emphasis on the decorrelation of the cycles. Potential applications to the generation of pseudo-random sequences and to spread spectrum communications are briefly discussed.",
+    "keywords": [
+     "cellular automata",
+     "pseudo-random number generator",
+     "dynamics",
+     "spread spectrum",
+     "CDMA"
+    ],
+    "doi": null,
+    "pages": "166-181",
+    "source_file": "04-hnteodorescu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 75,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 40.0,
+    "composite": 30.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "DISPROPORTIONATE_FORMALISM",
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS"
+   ],
+   "flag_details": {
+    "DISPROPORTIONATE_FORMALISM": "Formalism complexity is 5 definitions × 2 + 4 properties × 3 + 3 proofs × 4 = 34. The Level 2 upper bound is 15 (threshold 30), so this is 2.3 times the bound. The excess is marginal and comes from labelled Property and proof blocks for elementary observations.",
+    "FORMALISM_THEATER": "Level 2 paper whose formal elements fail the Necessity Test. Property 1 (the orbits of a CPCA partition the state space) and Property 2 (a CPCA has no fixed point and no transient) restate the definition of a CPCA. Property 4 (d² ≥ L, because distinct cycles share no state) is a one-line observation. The d-divergence and the μ indicator are defined by formulas with set notation over index pairs ((j,k) ∈ M × M) and are never computed.",
+    "DECORATIVE_DEFINITIONS": "The labelled Definition of the d-divergence Dd({Ci}) and the quality indicator μ({Ci}) = Mdmin/|{Ci}| are introduced as measures for CDMA key families, but neither is evaluated for any automaton in the paper. Only the c-divergence is computed, once."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "An exploratory study showing, on small rule-60 and rule-102 examples, that the cycles of equal-length-cycle cellular automata are often strongly correlated. Elementary properties are presented as formal results, and divergence measures are defined but never used.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** The dynamics of completely periodic and equal-length-cycle (ELC) elementary cellular automata. The paper proposes distance- and correlation-based measures of how independent their cycles are, works through examples for rules 60 and 102, and sketches composed (\"staked\") CAs, with pseudo-random generators and CDMA keys as the target applications.\n**Level:** 2 (Low)\n**Rationale:** This is an exploratory empirical study. It computes Euclidean distances, Pearson correlations and a runs count for the cycles of a few small automata. The formal properties are, in the author's words, \"elementary\", and the hybrid CAs are described but not analysed. Nothing reaches the level of a new model with validation or a non-trivial proof.\n\n### Formal Elements\n- Definitions: 5 labelled (CPCA, ELC-CA, Euclidean distance between cycles, d-divergence, c-divergence), plus inline definitions of the normalised distance, the μ indicator, the maximal correlation and the symbolic distance\n- Theorems: 4 (Properties 1–4)\n- Proofs: 3 (Properties 2, 3, 4)\n- Equations: about 10\n\n### Proportionality\nCalculated complexity: 34 (5 × 2 + 4 × 3 + 3 × 4)\nExpected range (Level 2): 0-15\nRatio: 2.3x upper bound\n\n**Assessment:** Disproportionate, but only marginally. The cycle-distance and correlation formulas are basic equations that the analysis actually uses, and they pass the Necessity Test. The four Properties do not, with one exception. Properties 1, 2 and 4 follow immediately from the definitions. Only Property 3 serves a practical purpose: rules with f(0,0,*) = 0 or f(0,1,*) = 0 have fixed points when eL = 0, which prunes a search. The d-divergence and μ are formal definitions that are never applied.\n\n### Issues\n- \"Property 1. The set of all orbits of a CPCA is a partition of the definition domain\" follows from the definition stated just before it.\n- Dd({Ci}) is summed over \"(j,k) ∈ M × M\", where M is an integer, and the text refers to \"Proposition 4\" for what is Property 4.\n- One citation is broken (\"see also [?]\").\n- The paragraph beginning \"With the appropriate shift for achieving minimal distance\" appears twice in Section 4.2.\n- Figure references do not match. The text cites Fig. 8 for an n = 12 automaton and Fig. 9 for n = 19, but the Fig. 8 caption gives n = 19 and Fig. 9 shows the hybrid CA.\n\n---\n\n## Citation Analysis\n\nFour of the 25 references (16%) are by the author. [16] (with A. Mitra) is unpublished, [22] reviews the characterisation of nonlinear dynamic systems, [23] is on type-D fuzzy CAs, and [24] is submitted. All concern cellular automata or the characterisation of dynamical systems and are relevant, [23] only marginally. Readers cannot check two of the four, and [24] is the reference given for the statement that the high correlations \"will be proved elsewhere\". The ELC-CA papers under critique ([14], [15]) are by the collaborator the author acknowledges. Reference [17] has no title.\n\n---\n\n## Structural Analysis\n\nThe central claim is that the cycles of ELC-CAs are often too correlated to serve as independent keys. Worked examples support it: rule 60 with n = 4, 5, 8, 12 and 19, and rule 102 with n = 4, with correlations, distances and run counts reported. The generalisations go further than this evidence:\n- The dependence on the rule is conjectured or deferred to [24].\n- The claim that low-correlation cycles arise only at the smallest cycle count is labelled a conjecture.\n- The closing remarks on hardware savings (no boundary wiring, fewer traces, lower power) are untested.\n- The hybrid CAs are proposed with one example, and that example turns out not to be an ELC-CA.\n\nThe conjectures are labelled as such, and the paper notes that staked CAs often produce shorter cycles; these count as inline acknowledgment of limits. CER is adequate, about 0.6.\n\nArtifacts: the experiments are small simulations, and the paper gives no code, no data and no availability statement. Category none.\n\n---\n\n## Conclusion\n\nThe paper is a useful warning that the independence of ELC-CA cycles cannot be assumed, and its examples show this clearly for rules 60 and 102. It is exploratory, though, and its formal layer is more than a Level 2 empirical study needs: four Properties, five Definitions, and two measures that are never used. That pushes the formalism count just over the disproportionality threshold. Editorial slips (a duplicated paragraph, a broken citation, mismatched figure references) and self-citations that cannot be checked weaken it further."
+  },
+  {
+   "paper_id": "simecek2015",
+   "paper": {
+    "title": "Utilization of GPU Acceleration in Le Bail Fitting Method",
+    "authors": [
+     "I. Šimeček",
+     "O. Mařík",
+     "M. Jelínek"
+    ],
+    "abstract": "Le Bail fitting method is a process used in applied crystallography. It can be employed in several phases of crystal structure determination and as it is only one step in a more complex process, it needs to be as fast as possible. This article begins with a short explanation of crystallography terms needed to understand the Le Bail fitting, then continues with the description of the Le Bail fitting method itself and basic principles on which it is based. Then the parallelization method is explained, starting with a more general process, followed by specifics of GPU accelerated computing including short part on optimization. Finally, achieved results are presented along with comparison to sequential implementation and alternative parallelization approaches.",
+    "keywords": [
+     "Le Bail fitting method",
+     "GPGPU",
+     "parallel execution",
+     "applied crystallography"
+    ],
+    "doi": null,
+    "pages": "182-196",
+    "source_file": "05-isimecek.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 61.25,
+    "composite": 45.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "4 of 9 references (44%) are by the authors: [1], the preliminary conference version, and [6], [7] and [8], Šimeček's papers on GPU and dichotomy-based indexing. All are on topic, but [6]–[8] are cited for GPU acceleration of \"molecular dynamic simulations, quantum mechanics calculations of molecular structure or protein structure analysis\", topics they do not cover. Even leaving out the disclosed preliminary version, SCR is 33%."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A CUDA port of Le Bail whole-profile fitting with measured speed-ups over sequential and OpenMP versions. The formalism is all necessary, but the reference list is thin and heavy with self-citation, the test data is undocumented, and no code is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Sequential, OpenMP and CUDA implementations of Le Bail refinement (iterated whole-profile decomposition plus non-linear least squares) for powder diffraction data, with GPU-specific optimisations and execution-time comparisons.\n**Level:** 2 (Low)\n**Rationale:** An existing crystallographic method is parallelised on an existing platform and its speed-up measured. The paper reports a performance comparison, not a new algorithm.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (Bragg's law and the triclinic Q expression, the Le Bail intensity update, normal-equation least squares, the exponential intensity contribution and the profile reconstruction), plus two pseudocode algorithms\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Every equation is one the implementation computes, and the pseudocode for DoLeBail and DoLeastSquares maps directly onto the kernels. All of it passes the Necessity Test.\n\n### Issues\nNone identified. Equations (5) and (6) use an exponential peak shape with peakWidth in the denominator but never name the profile function. A re-implementer would need that detail, but it is a gap in the description, not a formalism problem.\n\n---\n\n## Citation Analysis\n\nFour of the nine references (44%) are by the authors. [1] is the six-page preliminary version, disclosed in a footnote, and is a legitimate citation. [6], [7] and [8] are Šimeček's papers on indexing powder diffraction data. They are relevant to the field, but the paper cites them as examples of GPU acceleration in \"molecular dynamic simulations, quantum mechanics calculations of molecular structure or protein structure analysis\", which they are not. The other five references are two textbooks, an online course, the CUDA guide and a CUDA primer. Neither the original Le Bail method paper nor any existing implementation is cited, so the self-citations make up most of the research literature in the list.\n\n---\n\n## Structural Analysis\n\nThe speed-up claims are backed by Tables 1 and 2 and Fig. 4, and the hardware is specified. Several points are left open:\n- \"Data sample size\" (40–200) is never defined, and the test samples are not identified.\n- Timings are single figures, with no repetitions and no variance.\n- The precision claim (\"the mean change in figures of merits is several percent and is positive for most of the test samples\") comes without numbers.\n\nLimitations are acknowledged inline: the least-squares matrices may be ill-conditioned, single-precision results vary from run to run, the optimisation result \"cannot be generalized\", and comparison with other software was not possible. CER is adequate, about 0.7.\n\nArtifacts: the paper notes that existing Le Bail programs are not open source but releases neither its own code nor its test data. There is no link and no availability statement. Category none.\n\n---\n\n## Conclusion\n\nA competent engineering report on porting Le Bail fitting to CUDA. The parallelisation analysis is sensible, the formalism is proportionate, and the remarks on precision and generality are honest. Its weaknesses lie in evidence and citation: the test data is undocumented, no implementation is released, and four of the nine references are the authors' own, three of them cited for claims they do not support. The self-citation ratio exceeds the 30% threshold."
+  }
+ ]
+}

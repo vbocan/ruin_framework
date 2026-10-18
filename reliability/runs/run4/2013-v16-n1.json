@@ -1,0 +1,126 @@
+{
+ "batch_id": "2013-v16-n1",
+ "analysis_timestamp": "2026-10-18T03:40:22Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 16,
+  "issue": 1,
+  "year": 2013
+ },
+ "papers": [
+  {
+   "paper_id": "sosik2013",
+   "paper": {
+    "title": "A Catalytic P System with Two Catalysts Generating a Non-Semilinear Set",
+    "authors": [
+     "Petr Sosík"
+    ],
+    "abstract": "Membrane computing is a relatively young but fast emerging bio-inspired computing paradigm, nowadays with many branches and applications. Its original computing model is the catalytic P system. Although it was proven already in 2005 that catalytic P systems with two catalysts are computationally universal [2], no simple example of such a P system generating a non-semilinear set was known. The present paper fills this gap and provides such an example with 54 rules. It is expected, however, that this number of rules can be reduced and the minimal number of rules to generate a non-semilinear set in a catalytic P system with two catalysts remains open.",
+    "keywords": [
+     "Catalytic P System",
+     "Membrane Computing",
+     "Non-Semilinear Set"
+    ],
+    "doi": null,
+    "pages": "3-9",
+    "source_file": "01-petr@20sosik.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 88,
+    "citation_integrity": 40,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 67.95,
+    "composite": 50.96,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 2/6 = 33.3% (> 30%): [2] Freund, Kari, Oswald, Sosík (TCS 2005) and [6] Sosík, Freund (WMC 2002, LNCS 2597). Both are directly on topic (similarity about 0.9 or higher); the flag follows mechanically from a six-item reference list, not from padding."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Short constructive theory note giving a 54-rule, two-catalyst, one-membrane catalytic P system that generates a non-semilinear set; formalism is the subject matter and proportionate, but the paper is flagged because 2 of its 6 references are (on-topic) self-citations, SCR 33%.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Construction of an extended catalytic P system with one membrane, two catalysts and 54 rules that generates the non-semilinear set {2^n − 2n | n ≥ 2}, obtained by specialising the general register-machine simulation of Theorem 4.1 in the Oxford Handbook of Membrane Computing [5] to an 8-instruction program and then removing ten rules.\n**Level:** 3 (Medium)\n**Rationale:** The paper proves a non-trivial property (non-semilinearity of the generated set, with an explicit rule count) of a concrete computing device. It does not establish a new universality, complexity-class or undecidability result: two-catalyst universality is the cited prior result [2], and correctness of the base construction is delegated to the handbook theorem. The domain is formal computability theory, which could argue for Level 4, but the contribution is a specialisation of an existing construction, and the strict default places it at 3.\n\n### Formal Elements\n- Definitions: 5 (1 numbered: Definition 1, extended catalytic P system, quoted from Def. 4.1 of [5]; 4 inline: free monoid and empty string, multiset and support, the generated set N(Π), the non-deterministic register machine and its generated set)\n- Theorems: 1\n- Proofs: 1 (constructive)\n- Equations: the 8-instruction register program, two full system specifications Π (64-rule and 54-rule), two derivation sequences\n\n### Proportionality\nCalculated complexity: 5×2 + 1×3 + 1×4 = 17\nExpected range (Level 3): 10-40\nRatio: 0.43x upper bound\n\n**Assessment:** Proportionate. The construction is the result. The alphabet O and the rule set R are written as sets because a P system is defined as a construct of sets and multisets; the rules cannot be stated precisely in prose, and a reader implementing a simulator would need every one of them. Every definition is used in the theorem or its proof (DUR = 1.0). Membership and union notation passes the Necessity Test here: it is the subject matter, not notation standing in for list operations.\n\n### Issues\nNo formalism theater. Smaller defects in the construction text:\n- The rule tally checks out: the 64-rule system decomposes as 21 trap rules + 2 + 5 + 6 + 24 + 3 + 3, and the ten removals leave exactly the 54 listed in the final system.\n- In the final system the alphabet O lists only {o1, o2}, yet the rule c2 p̂″5 → c2 p5 p̃5 o1 o3 produces o3, the output object, so O should include o3.\n- Modification 2(b) labels the instruction \"2: (SUB(2), 6, 1)\"; the program's instruction 5 is meant.\n- The introduction states \"we prove that the generated set is non-semilinear\", but the proof never argues the point; it rests on the standard fact that an exponentially growing set of numbers is not semilinear. Text extraction dropped the superscript (\"{2n − 2n | n ≥ 2}\"); tracing the register program gives register 3 ∈ {0, 2, 8, 22, …} = 2^n − 2n, consistent with the claim.\n- Correctness of the reduced system rests on three invariants of the handbook construction whose \"detailed justification can be found in [5]\"; that the ten removals preserve them is argued only informally.\n\n---\n\n## Citation Analysis\n\nThe single author appears in 2 of the 6 references: [2] (Freund, Kari, Oswald, Sosík, TCS 2005, the two-catalyst universality result this paper exemplifies) and [6] (Sosík, Freund, WMC 2002, the earlier universality proof with 8 catalysts). Both are directly on topic (similarity about 0.95 and 0.9) and are the natural citations for the history of the problem. SCR = 2/6 = 33.3%, above the 30% threshold, so EXCESSIVE_SELF_CITATION is raised as the specification requires and the component is capped at 40. The ratio comes from a very short reference list, not from padding: no self-citation is irrelevant, and the other four references (Freund 2013, Minsky 1967, Păun 2000, the Oxford Handbook) are the canonical sources. Gheorghe Păun, cited twice, is thanked in the acknowledgements; that is ordinary in this field, and the text shows no mutual citation on unrelated topics.\n\n---\n\n## Structural Analysis\n\nThe one claim (Theorem 1) is backed by an explicit construction, and the background claims are cited, so the claim-evidence balance is good (CER about 1.0). The gaps are delegation: correctness and non-semilinearity rest on [5] and on standard knowledge, not on argument in the paper. Limitations are acknowledged inline. The abstract and conclusion say that 54 rules is not minimal (\"this result is barely optimal in terms of simplicity\"), leave the minimal rule count open, and suggest two concrete ways to reduce it. Artifact: a theoretical note with nothing executable to release; no code, simulator or rule file is linked. Category `none`, relevant = false. No instructions addressed to reviewers or automated assessors were found in the text.\n\n---\n\n## Conclusion\n\nA short, legitimate theory note in membrane computing. It fills a stated gap with an explicit example of a two-catalyst system generating a non-semilinear set, and its formalism is proportionate and necessary throughout. The minor errors above (o3 missing from the final alphabet, a wrong instruction label, non-semilinearity asserted rather than proved) do not undermine the construction.\n\nThe disqualification is mechanical: two on-topic self-citations in a six-item reference list exceed the 30% SCR threshold, and under the specification that flag caps the score whatever the paper's quality. This case is a small-denominator effect of the self-citation rule, not evidence of citation manipulation."
+  },
+  {
+   "paper_id": "soto2013",
+   "paper": {
+    "title": "Nurse and Paramedic Rostering with Constraint Programming: A Case Study",
+    "authors": [
+     "Ricardo Soto",
+     "Broderick Crawford",
+     "Eric Monfroy",
+     "Wenceslao Palma",
+     "Fernando Paredes"
+    ],
+    "abstract": "The nurse rostering problem consists in generating a configuration of daily schedules for a set of nurses satisfying a set of constraints. The problem is known to be computationally challenging as it must consider different requirements such as minimal area or floor allocations, different skills, working regulations, as well as personnel wishes. The literature presents several successful work devoted to this problem, however there still is limited evidence about real cases of nurse rostering, in particular solved with constraint programming. The aim of this paper is to illustrate a real case study involving the design of a constraint programming solution for nurse rostering. The solution is devoted to a set of mid-size Chilean hospitals where nurse rostering is done manually using a very uncommon shift sequence called the “fourth shift” system. We present a classic model and a global constraint-based model that can be applied generically to any fourth shift health care center.",
+    "keywords": [
+     "Rostering",
+     "Constraint Programming",
+     "Heuristic Search"
+    ],
+    "doi": null,
+    "pages": "52-64",
+    "source_file": "04-wpalma.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 30,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 23.0,
+    "composite": 17.25,
+    "final": 17.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 application paper defines a CSP formally as a triple P = ⟨X, D, C⟩ of n-tuples, with each constraint 'a subset of the Cartesian product of domains' and a solution as an assignment {x1 → a1, ..., xn → an}; none of these symbols is used again (the model defines its own Vi,j, Pi,j, Xi,j), and the definition fails all three Necessity Test questions.",
+    "DECORATIVE_DEFINITIONS": "The CSP triple and the CSP-solution definition are tuple/set definitions of a standard textbook concept, never referenced by the model, the experiments or any proof (there are none); removing them changes nothing a programmer would build.",
+    "EXCESSIVE_SELF_CITATION": "SCR = 11/28 = 39.3% (> 30%): [8], [9], [10], [11], [12], [18], [19], [23], [24], [25], [26] include at least one author. Eight of the eleven ([8]-[12], [18], [25], [26]) are cited only in the final future-work sentence, seven of them in one bracket '[11, 18, 25, 10, 12, 10, 9, 8]' that lists [10] twice.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of any weakness in the models or the evaluation; the conclusion only says the work is ongoing and 'can clearly be extended by considering bigger clinic centers', which is future work, not a stated constraint."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Applied CP case study of 'fourth shift' nurse/paramedic rostering with a runtime-only evaluation; flagged for an unused textbook CSP tuple definition (formalism theater at Level 2) and an SCR of 39% (11/28) with self-citations stacked in one future-work bracket; real-world claims are unvalidated and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Constraint-programming models of the \"fourth shift\" (D, N, Off, Off) rostering problem for nurses, paramedics and chief nurses at six Chilean health care centres. A first model uses logical implications and occurrences constraints; a second replaces the shift-sequence implications with a regular (DFA) constraint. Both are implemented in ECLiPSe and timed on six scaled instances under six enumeration strategies.\n**Level:** 2 (Low)\n**Rationale:** The paper applies existing CP techniques (CSP modelling, the occurrences and regular global constraints, standard variable and value ordering heuristics, an off-the-shelf solver) to a new application case. It proposes no new algorithm, propagator or search method, and the evaluation is a runtime table.\n\n### Formal Elements\n- Definitions: 5 (CSP as a triple ⟨X, D, C⟩; solution of a CSP; the occurrences global constraint; DFA as a quintuple (Q, Σ, δ, q0, F); the regular constraint)\n- Theorems: 0\n- Proofs: 0\n- Equations: about 40 constraint formulas (13 nurse, 4 paramedic and 5 chief-nurse constraints in Section 3, partly restated in Section 4), a list of four regular expressions, and an ECLiPSe transition table\n\n### Proportionality\nCalculated complexity: 5×2 = 10\nExpected range (Level 2): 0-15\nRatio: 0.67x upper bound\n\n**Assessment:** Proportionate in count, but one element fails the Necessity Test. The constraint formulas are the model itself and translate one-to-one into solver code, so they pass. The DFA quintuple passes narrowly, because δ, q0 and F are the literal arguments of the regular(δ, q0, F, X) call. The CSP triple in Section 2 fails.\n\n### Issues\n- Section 2 gives the textbook definition \"Formally, a CSP P is defined by a triple P = ⟨X, D, C⟩\", with X and D as n-tuples, each constraint as \"a subset of the Cartesian product of domains\", and a solution as an assignment {x1 → a1, …, xn → an}. None of these symbols (X, D, C, n, m, dj, cj) appears again; the model defines its own matrices Vi,j, Pi,j, Xi,j ∈ {0, 1, 2}. The definition can be said in one English sentence (\"a CSP has variables, their domains, and constraints over them\"), removing it changes nothing a programmer would build, and there is no proof for it to support. At Level 2 this triggers FORMALISM_THEATER under the zero-tolerance rule, and DECORATIVE_DEFINITIONS as a tuple definition never referenced afterwards. DUR = 3/5, since the CSP triple and its solution definition are unused.\n- Writing Vj as the \"set of variables {V1,j, …, Vnurses,j}\" for what occurrences treats as a list is minor and is not counted separately.\n- Errors in the formal content:\n  - δ is typed Q × V → Q although the alphabet is Σ, and Fig. 2 is cited as \"figure ??\".\n  - Nurse constraint 4 subsumes constraint 2; the redundancy is not discussed.\n  - In chief-nurse constraints 1-2, occurrences(1, Vj, N) binds N to the count of value 1, which the paper defines as the day shift, so the D/N labels appear swapped.\n  - Chief-nurse constraint 5 (\"four day shifts or three night shifts per week\") is stated over Xj, the column of chief nurses on day j, not over one chief nurse's week, so it does not express what the text says.\n  - The Section 4 restatement of preference 13 reads V15,4 = 0 ∧ V15,2 = 0, where Section 3 has V15,1.\n\n---\n\n## Citation Analysis\n\n11 of 28 references include at least one of the five authors: [8], [9], [10], [11], [12], [18], [19], [23], [24], [25], [26]. SCR = 39.3%, above the 30% threshold, so EXCESSIVE_SELF_CITATION is raised and the component is capped at 40. Relevance varies:\n- [19], the HCI 2011 version this paper extends (disclosed in a footnote), and [23], [24], the authors' other nurse-rostering papers: highly related (about 0.9).\n- [8], [9], [10], [12], [18], [25] (autonomous search, dynamic enumeration-strategy selection, hybrid solvers in CP): related to the enumeration-strategy portfolio used here (about 0.5-0.6).\n- [11] (PSO tuning of a choice-function hyperheuristic): marginal (about 0.4).\n- [26] (cell formation in group technology with CP and SAT): cited for CP+SAT as a future direction; a different application domain with a shared technique, marginal (about 0.35).\n\nNone falls below 0.3, so IRRELEVANT_SELF_CITATION is not raised. The concern is how the citations are used. Eight of the eleven ([8]-[12], [18], [25], [26]) appear only in the final future-work sentence, seven of them in one bracket, \"[11, 18, 25, 10, 12, 10, 9, 8]\", which lists [10] twice and adds nothing to the paper's argument. [8] is a ROMJIST paper by the same group. For this stacking the component is scored at 30, below the cap. A citation ring cannot be assessed from a single paper, and nothing in the text indicates one.\n\n---\n\n## Structural Analysis\n\nThe background and literature claims are cited. The evaluation is a single runtime table (Table 1) on six synthetic sizes, from 36 to 576 workers, under six heuristic combinations, and the headline claims overstate it:\n- \"less than 3 seconds for 288 workers\": only the RR strategies stay under 3 s, FF-med and FF-max take 3.20-3.25 s, and FF-min takes 120.31 s.\n- \"about 8 seconds for 576 workers\": 8.17 s is the best case; the range runs up to 11.15 s, and FF-min times out.\n\nOther claims have no evidence at all:\n- no instance built from the six hospitals' actual staff is reported;\n- there is no comparison with manual rosters (\"within some seconds instead of manually some days\");\n- there is no validation by hospital staff or check of roster quality (\"fast and correct nurse assignment\");\n- generality to \"any fourth shift health care center\" is asserted, not shown;\n- the regular-constraint overhead is attributed to \"the computation of the DFA\" without measurement.\n\nCER is estimated at about 0.5 (weak to adequate). No limitation of the models or the evaluation is acknowledged; the closing remark that the work \"can clearly be extended by considering bigger clinic centers\" is future work, hence NO_LIMITATIONS. Artifact: the authors implemented both models, and a regular constraint, in ECLiPSe and print one transition table, but they link no code and release no instance data. Category `none`, relevant = true. No instructions addressed to reviewers or automated assessors were found in the text.\n\n---\n\n## Conclusion\n\nA modest applied case study: a reasonable CP encoding of an uncommon two-shift rostering system, with a runtime table showing that the encoding scales. Two specification triggers determine the outcome, and either disqualifies on its own. First, a textbook CSP tuple definition that the model never uses is formalism theater at Level 2. Second, 11 of the 28 references are the authors' own, seven of them stacked in one future-work bracket with a duplicate.\n\nBeyond the flags, the paper makes unvalidated claims about real-world use, overstates its runtime results, contains several errors in the chief-nurse constraints, and releases nothing that would let the rosters be reproduced."
+  }
+ ]
+}

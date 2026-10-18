@@ -1,0 +1,296 @@
+{
+ "batch_id": "2014-v17-n1",
+ "analysis_timestamp": "2026-10-18T03:43:53Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 17,
+  "issue": 1,
+  "year": 2014
+ },
+ "papers": [
+  {
+   "paper_id": "nicolescu2014",
+   "paper": {
+    "title": "Complex Objects for Complex Applications",
+    "authors": [
+     "Radu Nicolescu",
+     "Huiling Wu"
+    ],
+    "abstract": "We further develop our earlier Prolog-like complex objects proposal and present several new and improved solutions, for a variety of problems: a faster SAT solution with a fixed number of rules and a set of transformations and components that can build a termination detection algorithm. These results enforce our conjecture that our complex object proposals enable an efficient high-level programming style for P systems.",
+    "keywords": [
+     "P systems",
+     "Prolog terms",
+     "complex objects",
+     "generic rules",
+     "data structures",
+     "parallel composition",
+     "NP-complete",
+     "termination detection",
+     "Dijkstra-Scholten"
+    ],
+    "doi": null,
+    "pages": "46-62",
+    "source_file": "04-rnicolescu.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 30,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 57.5,
+    "composite": 43.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 12/22 = 54.5%: references [3], [4], [5], [6], [9], [10], [14], [15], [16], [17], [18] and [22] include Nicolescu or Wu. All are P-systems papers and none is judged unrelated (the stereo-vision applications [9], [10], [15] are marginal), but the ratio is far above the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Model-extension paper for P systems (complex objects, generic rules, a fixed-ruleset SAT solution, Dijkstra-Scholten termination detection) whose formalism is proportionate and is itself the program text, but whose reference list is dominated by the authors' own work (12 of 22).",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Revised Prolog-like \"complex objects\" for tissue-like P systems, generic rules with combined instantiation/rewriting modes, unary arithmetic, a single-cell SAT solution with a fixed alphabet and ruleset, parallel composition with interaction, and a P-system rendering of the Dijkstra-Scholten termination-detection layer over synchronous BFS.\n**Level:** 3 (Medium)\n**Rationale:** The paper extends a computational model and gives new constructions with informal step-count analysis. There are no safety/liveness proofs (Proposition 3 is stated without proof) and no complexity-theoretic results, so Level 4 is not justified; it is more than an application of an existing algorithm, so Level 2 is too low.\n\n### Formal Elements\n- Definitions: 4 (complex-object grammar; one-way unification semantics; generic rule format with the min.min/min.max/max.min/max.max modes; parallel composition with interaction)\n- Theorems: 1 (Proposition 3; Conjecture 1 is not counted)\n- Proofs: 0\n- Equations: the paper consists largely of P-system rulesets (arithmetic, SAT, DS control layer, SyncBFS), which are the algorithms themselves\n\n### Proportionality\nCalculated complexity: 11\nExpected range (Level 3): 10-40\nRatio: 0.28x upper bound\n\n**Assessment:** Proportionate. The five-line BNF for complex objects superficially resembles the \"grammar for a simple format\" pattern, but it defines the term language of a new computational model and is what a simulator's parser would implement, so it passes the necessity test. The rulesets are executable specifications, not decoration.\n\n### Issues\n- Proposition 3 (invariants of SyncBFS* with DS) is asserted with no proof, and the claim that the unification adds \"an almost linear factor\" is explicitly left as a conjecture.\n- The built-in AND table is printed wrongly: it lists the triples (0,0,1) and (1,0,1), which give 0 AND 0 = 1 and 1 AND 0 = 1.\n- The step counts for the two aggregation phases (\"log(2^n) = n parallel steps\") conflate the number of literals per clause and the number of clauses with the number of truth assignments, so the advertised runtime linear in the number of variables is argued loosely.\n- Editorial slips: a dangling \"Section ??\" cross-reference, the max.max case labelled rho_min.max, the symbol kappa listed in the alphabet but never used, and \"Gazdac\" for Gazdag.\n\n---\n\n## Citation Analysis\n\n12 of 22 references (54.5%) include one of the two authors: [3], [4], [5], [6], [9], [10], [14], [15], [16], [17], [18], [22]. Relevance is generally good: [16] is the direct predecessor, [3]-[5], [14], [22] are P-system distributed-algorithm papers that bear on the termination-detection section, and [6], [17], [18] are P-system graph algorithms that used complex objects. The computer-vision applications [9], [10], [15] are cited only as earlier uses of complex objects and are marginal (similarity roughly 0.4), but not unrelated. The pattern is one of a research group building on its own line, yet the ratio is well above 30%, and the specification applies the threshold irrespective of relevance.\n\n---\n\n## Structural Analysis\n\nThere is no empirical evaluation; claims are supported by worked constructions (the 3-variable SAT example, the four-cell SyncBFS+DS trace) and informal step counts. The conclusion is appropriately hedged (\"The gathered evidence suggests...\"). Limitations are acknowledged inline: the performance conjecture is unproven, the class of algorithms to which the DS transformation applies is \"still an open problem\", the SAT solution is \"the most basic brute force approach\", and the asynchronous case is left for future work. Claim-evidence balance is adequate (CER roughly 0.6), weakened by the unproved proposition and the errors in the SAT tables.\n\nNo software, simulator or data is offered; the rulesets are printed in full, and the paper has nothing executable to release beyond them (artifact relevance: false).\n\n---\n\n## Conclusion\n\nA coherent model-extension paper whose formal content is proportionate and functional: the rules are the program, and the grammar defines a genuinely new term language. Its weaknesses are technical rather than theatrical (an unproved proposition, a wrong truth table, loose step-count arguments). The paper is nonetheless disqualified on citation conduct: more than half of its references are the authors' own, which exceeds the specification's 30% threshold even though nearly all of them are topically related."
+  },
+  {
+   "paper_id": "peng2014a",
+   "paper": {
+    "title": "A Region-based Color Image Segmentation Method Based on P Systems",
+    "authors": [
+     "Hong Peng",
+     "Yufan Yang",
+     "Jiarong Zhang",
+     "Xiaoli Huang",
+     "Jun Wang"
+    ],
+    "abstract": "Region growing-based color image segmentation approaches suffer from expensive computation cost. In order to overcome this issue, a novel region-based color image segmentation method based on P systems is proposed in this paper. A tissue-like P system is designed in such a way that an adaptive selection of target regions is achieved. The proposed method is evaluated on several real-life color images.",
+    "keywords": [
+     "Membrane computing",
+     "Tissue-like P systems",
+     "Color image segmentation",
+     "Region-based segmentation"
+    ],
+    "doi": null,
+    "pages": "63-75",
+    "source_file": "05-hpengyyang.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 35,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 23.5,
+    "composite": 17.62,
+    "final": 17.62
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the test images are described only as \"several color images randomly collected from the Internet\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "DECORATIVE_DEFINITIONS",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (seeded region growing re-described as a three-cell tissue-like P system) whose P-system apparatus fails the necessity test: the evolution rules are stated to be Eq. (5) and Eq. (7) themselves, and the rewriting/communication rules restate the 8-neighbour label propagation already given in plain English in Section 3.2. Removing the P-system layer would not change the segmentation code.",
+    "UNNECESSARY_SET_THEORY": "The alphabet of the designed system is built with set-builder notation, unions and a set difference (Gamma = Sigma union {A^Rt_ij | ...}, Sigma = {a_ij | ...} union {H_ij | ...} union {D_ij | ...}, E = Gamma - Sigma) to describe what are per-pixel arrays of colour values, similarity values, distance values and region labels. No proof depends on these operations.",
+    "DECORATIVE_DEFINITIONS": "Two formal tuple definitions, the generic construct Pi = (Gamma, Sigma, E, omega_1..omega_d, R, i_o) in Eq. (1) and the designed system in Eq. (8), are never used in any proof or analysis and amount to \"three cells: one selects seeds, one grows regions, one collects the output\".",
+    "EXCESSIVE_SELF_CITATION": "SCR = 9/24 = 37.5%: references [10], [11], [12], [13], [16], [17], [18], [19], [21] include Peng (and in several cases Wang, Yang, Huang or Zhang). [10]-[13] (spiking neural P systems for fuzzy reasoning and fault diagnosis) are marginal to colour segmentation."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Seeded region growing for colour images dressed in tissue-P-system notation that does not change the algorithm; the speed advantage that motivates the paper is never measured, evaluation is visual only, and self-citation exceeds 30%.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Seed selection (local standard deviation in YCbCr with an Otsu threshold, plus a maximum relative Euclidean distance threshold, modified from Shih and Cheng) followed by 8-neighbour region growing, described as a tissue-like P system with three cells.\n**Level:** 2 (Low)\n**Rationale:** The image-processing method is an existing seeded-region-growing scheme lightly modified; the P system is a descriptive layer. No P-system simulator, parallel hardware or complexity analysis is used, so the computational model contributes no algorithmic novelty.\n\n### Formal Elements\n- Definitions: 2 (generic tissue-like P system, Eq. (1); the designed system with its object types, Eq. (8))\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 numbered image equations (2)-(7), plus about ten rule schemata\n\n### Proportionality\nCalculated complexity: 4\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Disproportionate in kind rather than in count. Equations (2)-(7) are needed: they define the similarity and distance features. The P-system apparatus is not: the tuple definitions, set-builder alphabets and rule schemata restate a procedure the paper already gives in three plain-English steps (Section 3.2).\n\n### Issues\n- \"The Eq. (5) and Eq. (7) are used as evolution rules of objects\": the evolution rules are real-valued arithmetic, so calling them P-system rules adds nothing a programmer would use.\n- Gamma = Sigma union {A^Rt_ij | 1 <= i <= n, 1 <= j <= m, ...} with Sigma a union of three indexed families is set notation for what are image-sized arrays.\n- The symbol E denotes both the environment alphabet (E = Gamma - Sigma) and the set of similarity feature values (E subset of R); index ranges for i and j swap between n and m across sections; the omega_2 = a_ij initial multiset is ill-formed.\n- Communication rules (iii)-(v) encode \"give an unlabelled neighbour the label of its labelled neighbour\", which the paper states in English immediately after each rule.\n\n---\n\n## Citation Analysis\n\n9 of 24 references (37.5%) include Hong Peng: [10]-[13], [16]-[19], [21]. The membrane-computing segmentation and thresholding papers [16]-[19], [21] are directly related. The spiking-neural-P-system papers [10]-[13] (fuzzy knowledge representation, fault diagnosis, fuzzy inference) are cited within a generic \"A variety of P systems have been proposed [8-13]\" sentence; they do support that sentence, so they are judged marginal (similarity about 0.3-0.4) rather than unrelated, but they look like padding of a background list. The ratio exceeds 30%.\n\n---\n\n## Structural Analysis\n\nThe paper's motivation and conclusion rest on computational cost (\"can effectively overcome the large computation cost problem\", \"has the advantage of fast segmentation\"), yet no running time, complexity bound or parallel implementation is reported. Segmentation quality is judged by eye on images \"randomly collected from the Internet\", with one qualitative comparison against Shih's method on a single image and no ground truth or quantitative metric; T2 is \"determined empirically\". Figure-based observations do give the qualitative claims some support (CER roughly 0.5), but the headline efficiency claim has none. Limitations appear inline (noise in results, target regions \"not full\", unsatisfactory results on two images).\n\nNo code is offered and the test images are not identified, so the experiment cannot be repeated.\n\n---\n\n## Conclusion\n\nThe contribution is an ordinary seeded-region-growing pipeline. Recasting it as a tissue-like P system brings tuple definitions, set-builder alphabets and rule schemata that a programmer would not need, which at Level 2 triggers the formalism-theater family. The claimed computational advantage of the P-system framing is untested, the evaluation is qualitative, and self-citation (37.5%) independently exceeds the disqualifying threshold."
+  },
+  {
+   "paper_id": "peng2014b",
+   "paper": {
+    "title": "DE-MC: A Membrane Clustering Algorithm Based on Differential Evolution Mechanism",
+    "authors": [
+     "Hong Peng",
+     "Jiarong Zhang",
+     "Yang Jiang",
+     "Xiaoli Huang",
+     "Jun Wang"
+    ],
+    "abstract": "A clustering algorithm using the framework of membrane computing is proposed in this paper. The P system used is a cell-like P system of two-layer nested structure: a skin membrane contains several elementary membranes. Each object in elementary membranes represents a group of cluster centers. Objects in the system evolve by using the differential evolution mechanism, and then the global optimal object in the skin membrane is updated by the best objects in all elementary membranes. The cell-like P system can automatically find the best cluster centers for a data set. The proposed DE-MC algorithm is evaluated on an artificial data set and a real-life data set and is further compared with classical k-means algorithm, GA-based clustering algorithm and DE-based clustering algorithm, respectively. The comparison results reveal that the proposed DE-MC algorithm is superior to the other three clustering algorithms in terms of clustering quality and robustness.",
+    "keywords": [
+     "Membrane computing",
+     "P systems",
+     "Clustering algorithm",
+     "Differential evolution"
+    ],
+    "doi": null,
+    "pages": "76-88",
+    "source_file": "06-hpengjzhang.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 78,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 41.05,
+    "composite": 43.29,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"a real-life data set (Iris) and an artificial data set (Data1) are used\"; Iris is a named public dataset (not cited or linked), Data1 is described by its class ranges but not deposited; no code is linked",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (differential evolution on several sub-populations sharing a global best, applied to partitional clustering). The DE equations (1)-(7) are necessary, but the two membrane communication rules, [Z_i,best]_i -> Z_i,best and Z_best -> [Z_best]_i, restate in P-system notation an assignment that Eq. (5) and the pseudocode of Table 1 already specify (copy the best vector to a shared slot, then hand it back). Each rule is paraphrased in English immediately after it, removing it changes nothing in the implementation, and no proof uses it. A narrow case: the notation is light, but under the Level 1-2 zero-tolerance rule it fails the necessity test.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints (parameter sensitivity, computational cost, only two small data sets, five runs, no significance testing)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Multi-population differential evolution for clustering relabelled as a membrane system; the DE mathematics is sound and the comparison on Iris and a synthetic set is reported, but membrane-rule notation restates trivial assignments, small differences are overclaimed as significant, and no limitations are acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** DE/best/1/bin run independently on q sub-populations (\"elementary membranes\") that share a global best vector (\"skin membrane\"), used to find k cluster centres minimising the sum of point-to-centre distances; compared with k-means, a GA-based and a DE-based clusterer on Iris and a synthetic 9-class set.\n**Level:** 2 (Low)\n**Rationale:** An existing optimiser is applied to an existing problem with an island-style population structure. The membrane-computing vocabulary does not bring in any P-system semantics (multisets, maximal parallelism, halting computations); the algorithm is ordinary sequential DE with sub-populations.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (nearest-centre assignment, DE mutation, crossover, selection, global-best update, clustering metric M, adaptive scaling factor F) plus 2 membrane communication rules\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** The equations are proportionate and necessary: they are the algorithm, and a programmer would implement them directly. The two communication rules are not. They are P-system notation for \"send the best vector to the shared slot / copy the shared best back into each sub-population\", which Eq. (5) and Table 1 already state, and which the text paraphrases after each rule. Under the Level 1-2 zero-tolerance rule this triggers FORMALISM_THEATER. The data-set notation D = {x_i in R^d | i = 1..m} is conventional and no set operations are performed on it, so it is not counted.\n\n### Issues\n- The two communication rules described above.\n- The DE baseline's mutation factor is said to be \"given by Eq. (5)\", which is the global-best update; Eq. (7) is presumably meant.\n- The crossover description says the random index ensures V_i,j takes at least one component \"from Z_i,j\"; in DE/bin it guarantees a component from the mutant U_i,j.\n\n---\n\n## Citation Analysis\n\n4 of 22 references (18.2%) include Hong Peng: [13], [16], [17], [18]. Reference [20] (G. Zhang et al.) does not involve the co-author Jiarong Zhang and is not counted. [18] (membrane-computing image thresholding) is a related use of membrane-inspired optimisation. [13], [16], [17] (spiking neural P systems for fuzzy knowledge representation and fault diagnosis) sit in a generic \"a large number of variants have been considered [12-20]\" list; they do support that sentence and are judged marginal rather than unrelated. The ratio is in the 15-20% elevated band; no flag.\n\n---\n\n## Structural Analysis\n\nTables 2 and 3 (five runs each) and two convergence plots support the direction of the quality claims, but the differences on Iris are small (mean M 96.68 against 96.77 for plain DE) and no statistical test is applied, while the conclusion calls DE-MC \"significantly superior\". The text does not match the tables: on Iris it says DE-MC wins \"except for the second run\", yet DE-MC has the lowest M in run 2 of Table 2; on Data1 it says DE-MC is better than all three methods, yet DE (600.098) beats DE-MC (600.115) in run 2 of Table 3. Figure 6's legend omits k-means. No running times are compared, although the motivation cites k-means' cost on large data. CER is adequate (roughly 0.7). No limitations are acknowledged anywhere.\n\nIris is a well-known public dataset, named but not cited; Data1 is specified by its class ranges and distribution but not deposited; no code is offered.\n\n---\n\n## Conclusion\n\nTechnically this is a reasonable multi-population DE clusterer with a small but honest-looking experiment. The membrane-computing framing is a relabelling: its only formal footprint is two communication rules that restate trivial assignments, which fails the necessity test at Level 2 and caps the paper. Separately, the evaluation overclaims (significance without tests, text-table mismatches) and the paper acknowledges no limitations."
+  },
+  {
+   "paper_id": "perezhurtado2014",
+   "paper": {
+    "title": "A P-Lingua based Simulator for Tissue P Systems with Cell Separation",
+    "authors": [
+     "Ignacio Pérez-Hurtado",
+     "Luis Valencia-Cabrera",
+     "José M. Chacón",
+     "Agustín Riscos-Núñez",
+     "Mario J. Pérez-Jiménez"
+    ],
+    "abstract": "Tissue P systems are one of the currently active research topics within the field of Membrane Computing. In particular, their computational efficiency is being investigated in the case when the number of cells can grow by means of cell separation rules. In order to complement this study, it is useful to provide simulation software tools for this variant of tissue P systems. The paper presents an extension of P-Lingua specification language, in order to include the class of tissue P systems with cell separation. This extension involves updating the P-Lingua parser, by reinterpreting some operators, along with some new ingredients. In addition, a new built-in simulation algorithm that has been added to the core library of P-Lingua is also presented. A case study of a family of tissue P systems with cell separation of type TSC(3) solving SAT is used to show the dynamics of the simulator.",
+    "keywords": [],
+    "doi": null,
+    "pages": "89-102",
+    "source_file": "07-iperezhurtado.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 75,
+    "citation_integrity": 25,
+    "structural_integrity": 65,
+    "artifact_availability": 100,
+    "intellectual_integrity": 55.0,
+    "composite": 66.25,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"The current release of pLinguaCore library is 4.0, and it can be downloaded from [11]\"; \"The P–Lingua source code that defines a tissue P system belonging to the family specified above is available for download in the Examples section at [11]\"; [11] http://www.p-lingua.org/ (16 of the 48 benchmark formulas are printed in Table 1)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "THEOREMLESS_FORMALISM"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 8/12 = 66.7%: references [1], [2], [3], [5], [7], [8], [9], [10] include at least one of the authors (two further entries, [11] and [12], are the group's own project web sites). All are topically relevant to tissue P systems and P-Lingua, and [5] is never cited in the text; the ratio nonetheless far exceeds 30%.",
+    "THEOREMLESS_FORMALISM": "Seven formal definitions (multisets and their operations; Definition 1; configurations and computations; recognizer systems; decision problems; Definition 2; the class PMC_R) and no theorem, lemma or proposition. Mitigation: these are recalled preliminaries, and Definition 1 is the specification the simulator implements."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Useful tool paper that extends P-Lingua and pLinguaCore to tissue P systems with cell separation and releases the software and case-study model, but carries a theorem-free page of complexity-theory preliminaries and cites the authors' own group in two thirds of its references.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Syntax extension of the P-Lingua language (@model<TSCS>, @ms1/@ms2 partition, separation-rule syntax) and a deterministic built-in simulator in the pLinguaCore Java library for tissue P systems with cell separation, exercised on a known uniform family solving SAT in TSC(3) taken from [10].\n**Level:** 2 (Low)\n**Rationale:** A software tool that extends an existing framework to a new model variant. The simulation algorithm is a straightforward rule-selection loop (communication rules first, then separation rules, then execution). It is more than a CRUD-style integration, because it must implement the semantics of a formal model, but it proposes no new algorithm with analysis.\n\n### Formal Elements\n- Definitions: 7 (multisets with support, cardinality, union and relative complement; Definition 1, tissue P system with cell separation; configurations, transitions and computations; recognizer systems; decision problems; Definition 2, uniform polynomial-time solvability; the class PMC_R)\n- Theorems: 0\n- Proofs: 0\n- Equations: the Cantor pairing function and the full specification of the SAT family (set-builder alphabets and 50 rule schemata), reproduced from [10]\n\n### Proportionality\nCalculated complexity: 14\nExpected range (Level 2): 0-15\nRatio: 0.93x upper bound\n\n**Assessment:** Proportionate in count. Under the necessity test, Definition 1 and the description of maximally parallel semantics pass: they are the specification the simulator implements, and removing them would change what is built. The SAT family passes too: it is the input program of the case study, matching the downloadable P-Lingua file, and set-builder alphabets are the native way to write such a family. Definition 2 is used in Section 4 to justify a deterministic simulator (by confluence) and in Section 5 to frame the case study. The decision-problem and PMC_R recall is the weakest element: it is background with no later use, but it reports a cited complexity-theoretic context rather than standing in for any programming operation, so no formalism-family flag is raised. The seven definitions with no theorem do trigger THEOREMLESS_FORMALISM.\n\n### Issues\n- The multiset relative complement and the class PMC_R are defined and never used again.\n- Table 2's axis labelled \"n/m\" is ambiguous, and its values do not obviously correspond to the n and m grouping of Table 1.\n\n---\n\n## Citation Analysis\n\n8 of 12 references (66.7%) include at least one author: [1], [2], [3], [5], [7], [8], [9], [10]. Two more, [11] and [12], are the group's own P-Lingua and MeCoSim web sites, which are not counted by name. Every self-citation is topically relevant: P-Lingua itself, its tissue-P simulator, GPU simulation of tissue P systems, complexity classes for membrane systems, and the SAT solution being simulated. [5] appears in the list but is never cited in the text. The pattern reflects a narrow sub-field led by this group, yet the specification applies the 30% threshold irrespective of relevance.\n\n---\n\n## Structural Analysis\n\nThe claims are modest and matched by the evidence: the syntax extension is specified, the simulation algorithm is given in pseudocode, and simulation times are reported for 48 SAT instances (16 shown individually). No correctness check against an independent SAT solver is described, but the SAT/UNSAT column of Table 1 can be checked by hand for the small formulas shown. Limitations are acknowledged inline: the simulator is deterministic and reproduces only one computation (justified by confluence), and \"the developed simulator is based on sequential technologies, so the inherent parallelism assumed by the theoretical model cannot be exploited\". CER is adequate.\n\nThe pLinguaCore 4.0 library and the case-study P-Lingua source are downloadable from the project site, and 16 of the formulas are printed. The other 32 instances behind the Table 2 averages are not published.\n\n---\n\n## Conclusion\n\nA practical tool paper whose software and case-study model are released, which is uncommon in this corpus. Its formal content mostly serves as the simulator's specification. The complexity-theory preliminaries, however, produce no formal result in this paper, which triggers THEOREMLESS_FORMALISM. The paper is disqualified on citation conduct: two thirds of the references are the authors' own. All of them are relevant, but the ratio is well beyond the specification's threshold."
+  },
+  {
+   "paper_id": "subramanian2014",
+   "paper": {
+    "title": "Parallel Array-rewriting P Systems",
+    "authors": [
+     "K.G. Subramanian",
+     "Pradeep Isawasan",
+     "Ibrahim Venkat",
+     "Linqiang Pan"
+    ],
+    "abstract": "A variant of array-rewriting P systems that uses parallel rewriting of arrays in the regions is introduced. The generative power of this model is compared with certain array grammars generating array languages. It is shown that geometric arrays such as hollow rectangles and hollow squares can be generated by parallel array P systems with a priority relation on the rules. The advantage of the proposed variant is that the number of membranes necessary for generating certain array language is reduced in the constructions as array generation devices.",
+    "keywords": [
+     "Two-dimensional array",
+     "Array grammar",
+     "Array P system",
+     "Parallel rewriting"
+    ],
+    "doi": null,
+    "pages": "103-116",
+    "source_file": "08-kgsubramanian.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 40,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 56.75,
+    "composite": 42.56,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "ELEVATED_FORMALISM"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "SCR = 5/16 = 31.25%: references [3], [4], [12], [13], [14] include Subramanian (and [13] all four authors). All are central to array P systems and picture languages; the 30% threshold is exceeded narrowly.",
+    "ELEVATED_FORMALISM": "Formalism complexity 62 (7 definitions x 2 + 8 lemmas/theorems x 3 + 6 proofs x 4) against a Level 3 upper bound of 40 (1.55x). The formalism passes the necessity test; part of the excess is recalled background (Definitions 1 and 2, Lemma 1)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Formal-language-theory paper that introduces parallel array P systems and proves short generative-power results with formalism that is all used, though above the Level 3 range; self-citation at 31% narrowly crosses the disqualifying threshold.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A variant of isometric array-rewriting P systems in which all nonterminals of an array in a region are rewritten in parallel by context-free or regular array rules with a common target. The paper compares its generative power with regular array grammars and two-dimensional right-linear grammars (2RLG), generates hollow rectangles and squares using rule priorities, and applies the model to a family of floor-design pictures.\n**Level:** 3 (Medium)\n**Rationale:** A new formal model with proofs of non-trivial properties (strict inclusions and separations of language families). The results are short constructive simulations and informal non-generability arguments rather than complexity, universality or undecidability results, so Level 4 or 5 is not warranted under the default-low rule.\n\n### Formal Elements\n- Definitions: 7 (arrays as finitely supported mappings up to translation; array productions and derivation; context-free and regular array rules; array grammars and their languages; Definition 1, array P system; Definition 2, 2RLG; Definition 3, parallel array P system with the priority families)\n- Theorems: 8 (Lemma 1 recalled from [13]; Lemmas 2-6; Theorems 1-2)\n- Proofs: 6\n- Equations: language definitions and rule-set specifications for six example systems\n\n### Proportionality\nCalculated complexity: 62\nExpected range (Level 3): 10-40\nRatio: 1.55x upper bound\n\n**Assessment:** Elevated but justified in kind. In formal language theory the definitions and lemmas are the content, and every construct is used in a construction or proof. Set-builder notation such as L(G) = {A in T*2 | S =>* A} and rule sets defined by membership in R_h are the field's native language, not decoration, so there is no formalism theater. Part of the excess is recalled background (Definitions 1 and 2, Lemma 1).\n\n### Issues\n- The translation is written tau_v: Z -> Z with v in Z, where Z^2 is meant.\n- \"Defintion 3\" typo.\n- The proof of Lemma 5 announces a system Pi_3 but defines Pi_4.\n- Lemma 6 refers to Figure 6 for hollow squares, but Figure 6 shows the floor-design arrays and no hollow-square figure is printed.\n- The non-generability arguments in Theorem 1 (\"it is straightforward to see\"), Lemma 4, and the claim that L_f cannot be generated by any S/P RAP system are informal sketches.\n\n---\n\n## Citation Analysis\n\n5 of 16 references (31.25%) include K.G. Subramanian: [3], [4], [12], [13], [14]; [13] includes all four authors. All five are on array P systems or picture languages and are directly relevant: [3] introduced the base model and [13] supplies Lemma 1. [11] is a doctoral thesis by a co-author of [14] and is not counted. The 30% threshold is crossed by a fraction of a reference, but the specification applies it as stated.\n\n---\n\n## Structural Analysis\n\nThe claims are backed by constructions and proofs. The membrane-reduction advantage stated in the abstract is supported by the contrast between Lemma 1 (five membranes) and Lemma 2 (two membranes). CER is high (at least 1.0), tempered by the informal separation arguments. Limitations are acknowledged inline: Remark 2 leaves open whether the priority relation in Lemmas 5 and 6 can be dropped, and further comparisons with other array models are proposed.\n\nThe paper is purely theoretical and has nothing to release (artifact relevance: false).\n\n---\n\n## Conclusion\n\nA competent, compact formal-language contribution whose formalism is functional throughout, though heavier than the Level 3 expectation, mainly through recalled background. The editorial errors (wrong figure reference, wrong system name, the Z/Z^2 slip) do not affect the results. The paper is disqualified only because self-citation, all of it relevant, reaches 31%, just above the specification's 30% threshold."
+  }
+ ]
+}

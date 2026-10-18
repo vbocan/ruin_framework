@@ -1,0 +1,127 @@
+{
+ "batch_id": "2018-v21-n1",
+ "analysis_timestamp": "2026-10-18T03:45:02Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 21,
+  "issue": 1,
+  "year": 2018
+ },
+ "papers": [
+  {
+   "paper_id": "groza2018",
+   "paper": {
+    "title": "Digitally controlled oscillator for all-digital frequency locked loops",
+    "authors": [
+     "R. Groza",
+     "I. A. Potarniche",
+     "B. S. Kirei",
+     "M. D. Topa"
+    ],
+    "abstract": "A digitally controlled oscillator is presented as a suitable solution for all-digital frequency lock loops. The system consists of a bias circuit, current-voltage converters and a current controlled oscillator, which is implemented using log-domain circuits. In this way, the oscillation frequency can be tuned using the bias currents. The bias circuit consists of a binary decoder and a current division network. The role of the decoder is to control the output current values of the division network via a 10-bit digital control word. Thus, it was possible to obtain 1024 distinct bias current values which yielded 1024 frequency values. The current-voltage converter transforms the output current into a voltage necessary for the next stage. All circuits were implemented using Virtuoso Analog Design Environment from Cadence using a 180nm CMOS technology. The MOS transistors for the log-domain blocks are working in sub-threshold region. Spectre simulations were performed to demonstrate de functionality of the proposed circuit.",
+    "keywords": [
+     "DCO",
+     "ADFLL",
+     "ELIN",
+     "sub-threshold",
+     "log-domain"
+    ],
+    "doi": null,
+    "pages": "3-17",
+    "source_file": "paper577.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 80.5,
+    "composite": 60.38,
+    "final": 60.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Simulation-only design of a log-domain ring DCO with proportionate, necessary circuit equations and modest on-topic self-citation; weakened by in-text reference numbers that appear shifted against the list, no loop-level or corner validation, a non-like-for-like tuning-range comparison, and no released design files.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Transistor-level design of a 10-bit digitally controlled oscillator (DCO) for all-digital frequency locked loops: a four-stage ring of current-mode log-domain integrators in sub-threshold 180 nm CMOS, tuned through a programmable current division network driven by a binary (thermometer-style) decoder, followed by a current-comparator current-to-voltage converter; verified by Spectre simulation.\n**Level:** 2 (Low)\n**Rationale:** The DCO is assembled from established building blocks (log-domain integrators, cascode current mirrors with switched branches, a decoder of 1-to-2 demultiplexers and OR gates, a published CMOS current comparator) and characterised by simulation. There is no new algorithm, no new analytical model and no proof; standard analog design patterns are applied to the DCO problem. It sits above Level 1 because there is genuine transistor-level design and a small amount of analysis (oscillation condition, bias-current tuning), but well below Level 3.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (integrator transfer function, Barkhausen condition for the four-stage ring, logarithmic and exponential cell laws, log-domain integrator transfer function, current-division-cell output sum, transistor W/L ratios)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — every equation is a standard circuit relation that the design actually uses. Eqs. (1)-(2) give the oscillation frequency ω0 = 1/τ and the minimum per-stage gain A = √2; Eq. (5) shows that the gain is set by the ratio IE/IL and the time constant by C and Iosc, which is exactly the tuning mechanism the bias circuit exploits; Eq. (6) states how the switched mirror branches add up to the 1024 bias levels. τ is the conventional time-constant symbol, not a decorated configuration constant. No set notation, tuple definitions or formal definitions appear.\n\n### Issues\n- Section 4 says the bias choice (IE = 2 uA, IL = 1.25 uA) made the gain of every integrator cell \"larger than 1/√2\", whereas Eq. (2) gives the oscillation condition as A = √2. The ratio 1.6 satisfies the latter, so the \"1/√2\" appears to be a slip.\n- Otherwise none identified.\n\n---\n\n## Citation Analysis\n\n23 references. Self-citations (Groza, Kirei, Topa): [19] an all-digital FLL and its linearised s-domain model, [21] discrete-domain modelling of an ADFLL, [22] a digitally controlled current-mode quadrature oscillator. SCR = 3/23 (13%). All three are on the paper's own subject (ADFLLs and what looks like the conference precursor of this DCO); topical similarity ≥0.7. None is irrelevant.\n\nThe reference list and the in-text numbering do not agree. From Section 2 onward many in-text numbers point to entries on a different subject: the TSPC flip-flops of the prescaler are cited as [8] but the TSPC prescaler paper is [13]; the time-to-digital converter is cited as [9] but the TDC thesis is [14]; the ADDLL is cited as [13] (a prescaler paper) while the DLL report is [18]; the log-domain integrators are cited as [17] (a fast-locking ADPLL paper); the current comparator is cited as [18] while the comparator paper is [23]. The pattern is consistent with an offset of five, which would leave list entries [9]-[12] uncited and put the three self-citations in the text only under shifted numbers ([14], [16], [17]). Read with that offset, the self-citations support the statements beside them; as printed, a reader following the numbers lands on the wrong works. This is a reference-integrity defect rather than a self-citation problem; no flag in the specification covers it, and it is reflected in the structural score instead.\n\n---\n\n## Structural Analysis\n\nThe claims are those of a simulation study, and the simulations support most of them: Fig. 16 shows monotonic tuning from about 90 kHz (Iosc = 10 nA) to 3.76 MHz (1034 nA), Fig. 15 shows quadrature outputs with a 92° shift, Fig. 17 gives the phase noise at 1 MHz. Weaker points:\n- The abstract presents the DCO as \"a suitable solution for all-digital frequency lock loops\", but it is never simulated inside a loop (no lock time, no jitter).\n- The 105 uW power figure in Table 2 and the conclusion has no supporting figure or breakdown.\n- \"The proposed architecture has the largest tunning range\" compares a 0.09-3.7 MHz oscillator with GHz LC and ring oscillators in Table 2; the comparison is a tuning ratio across incomparable operating points.\n- No process, voltage, temperature or mismatch analysis is given, although the design runs in sub-threshold, where currents are exponentially sensitive to all of these.\n- The 1 nA step resolution is asserted from the bias design; only the aggregate tuning curve is shown.\n- The misnumbered in-text citations weaken the evidence trail for the background statements of Sections 1-3.\n\nEstimated CER is adequate (about 0.7).\n\nLimitations: there is no limitations section. The closing sentence, \"Further work is focused on silicon implementation, in order to prove the presented approach\", is a brief inline admission that the results are simulation-only; it is counted as an inline acknowledgment, though a thin one.\n\nArtifacts: no netlists, schematic files, simulation decks or data are offered; Cadence Virtuoso and Spectre are third-party tools. Category none, relevant, since a circuit design of this kind has releasable design files.\n\nNo instructions addressed to reviewers or automated assessors were found in the text.\n\n---\n\n## Conclusion\n\nA compact circuit-design paper whose formalism is exactly what the design needs: a handful of standard transfer functions and bias relations, with no definitions, theorems or proofs. Self-citation is modest and on topic.\n\nThe weaknesses are evidential. The results are simulation-only with no corner or mismatch analysis, the DCO is never placed in the ADFLL it is designed for, the tuning-range comparison is not like-for-like, and from Section 2 onward the in-text reference numbers appear shifted by five against the reference list. No paper-specific artifacts are released."
+  },
+  {
+   "paper_id": "sandu2018",
+   "paper": {
+    "title": "Modeling issues regarding thermal conductivity of graphene-based nanocomposites",
+    "authors": [
+     "Titus Sandu",
+     "Mihai Gologanu",
+     "Rodica Voicu",
+     "George Boldeiu",
+     "Victor Moagar-Poladian"
+    ],
+    "abstract": "Modeling thermal conductivity of graphene-based nanocomposites is analyzed from an effective medium approximation point of view, where interfacial thermal resistance and arbitrary shape of the fillers are considered. Two approximations, Maxwell-Garnett and coherent potential approximation, are used to show that the usual oblate spheroidal shape approximation of graphene nanodots is not satisfactory to model thermal conductivity in graphene-based composites.",
+    "keywords": [
+     "Composites",
+     "graphene",
+     "graphene-based composites",
+     "thermal conductivity",
+     "thermal interface materials",
+     "Maxwell-Garnett approximation",
+     "coherent potential approximation"
+    ],
+    "doi": null,
+    "pages": "82-92",
+    "source_file": "paper582.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 0,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 50.25,
+    "composite": 37.69,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "IRRELEVANT_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "11 of 34 references (32.4%) include the authors, chiefly T. Sandu with R. Voicu, G. Boldeiu, M. Gologanu and V. Moagar-Poladian: [14], [15], [16], [22]-[26], [30]-[32]. This exceeds the 30% threshold.",
+    "IRRELEVANT_SELF_CITATION": "[14] (band anticrossing model for BeSe_xTe_1-x), [15] (beryllium chalcogenide/silicon heterostructures) and [16] (first-principles study and hopping conductivity of doped ZnO) are semiconductor electronic-structure papers, cited only as examples of the t-matrix and coherent potential approximations in an introductory analogy that [2] and [13] already support, and not used again. Topical similarity to the thermal conductivity of graphene composites is about 0.2 each."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Effective-medium model of graphene-composite thermal conductivity with formalism fully proportionate to the physics, disqualified on citation practice: 11 of 34 references are self-citations (32%), three of them on unrelated semiconductor electronic-structure topics. Evidence is model-to-model only and no code is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Effective-medium modelling of the thermal conductivity of polymer/graphene nanocomposites. The Maxwell-Garnett (MGA) and coherent potential (CPA) approximations are written for fillers of arbitrary shape by expanding the particle polarizability over the eigenmodes of a boundary electrostatic operator (the authors' earlier method), with interfacial thermal resistance treated as a thin shell; oblate-spheroid and flat-disk models of graphene flakes and nanodots are then compared numerically, including CPA percolation thresholds.\n**Level:** 2 (Low)\n**Rationale:** The paper re-applies an existing spectral method, developed in the authors' work on the dielectric response of cells and on plasmonic nanoparticles [22-25], to a new transport problem and combines it with the classical MGA and CPA mixing rules. The generalised formulas (Eqs. 10 and 14) replace the three ellipsoidal depolarisation factors by a weighted sum over eigenmodes, and the paper itself notes that Eq. (10) contains Eqs. (8) and (9) as particular cases; the shell homogenisation of Eq. (15) was shown in [22]. There are no theorems or proofs and no validation against measurements. That is closer to an existing method applied to a new domain than to a substantively new model, so under the default-lower rule it is Level 2. A Level 3 reading would change no flag here.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 15 numbered (boundary-value problem, polarizability and its eigenmode form, Eshelby local field, MGA for aligned and randomly oriented inclusions, dilute limit, CPA, shelled-particle homogenisation) plus an unnumbered percolation fit k_eff = k1 (f − f_th)^γ\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations are the physical model itself. Figs. 2-4 and the percolation thresholds are computed from Eqs. (10), (11) and (14) with the shape factors of Table 1, so removing the equations would remove the method. The Greek symbols (θ, β, α, χ, η, γ) denote physical quantities in their conventional roles, not configuration constants. No set notation, tuple definitions or decorative definitions.\n\n### Issues\nPresentation slips only: the matrix and filler conductivities are written both as K0/K1 and as k0/k1 (Eqs. 3, 4, 6); Eq. (8) is written with χk although the text says it is the x-aligned case, which Eq. (9) writes with χx; the shell model of Eq. (15) is derived but never used in the numerical results. None of this is formalism theater.\n\n---\n\n## Citation Analysis\n\n34 references. The corresponding author, T. Sandu, appears on 11 of them, with co-authors R. Voicu, G. Boldeiu, M. Gologanu and V. Moagar-Poladian on several: [14], [15], [16], [22], [23], [24], [25], [26], [30], [31], [32]. SCR = 11/34 = 32.4%, above the 30% threshold.\n\nRelevance of each self-citation:\n- [22]-[25] (dielectric response of clustered living cells; surface plasmon resonances of clustered nanoparticles; eigenmode decomposition of near-field enhancement; electrostatic capacitance and charging): the source of the eigenmode method used to compute χk and wk. Related (about 0.5-0.6).\n- [26]: the preliminary conference version of this work. Related (about 0.9).\n- [30]: analytical depolarisation factors for spheroids, used for the oblate model. Related (about 0.5).\n- [31]: plasmon resonances in graphene nanodisks, cited for the shape effect in graphene nanodots. Related (about 0.5).\n- [32]: near-field and extinction spectra of rod-shaped nanoantenna dimers, cited as evidence that the shape issue has been noticed \"for carbon nanotubes\", although the work concerns plasmonic nanoantenna rods, not nanotubes. Marginal (about 0.35).\n- [14] (generalised band anticrossing model for BeSe_xTe_1−x), [15] (electronic and optical properties of beryllium chalcogenide/silicon heterostructures) and [16] (first-principles study and variable-range-hopping conductivity of doped ZnO): cited in the introduction only as instances of the averaged t-matrix and coherent potential approximations in electronic-structure theory, alongside Nan [2] and Yonezawa and Morigaki [13], which already carry that point. They concern semiconductor band structure and electronic transport, not composites or heat conduction, and are not used again. Topical similarity about 0.2 each, which raises IRRELEVANT_SELF_CITATION.\n\nScore: the excessive SCR caps the base at 40, and three unrelated self-citations at −20 each take it below zero, so the citation-integrity score is 0.\n\n---\n\n## Structural Analysis\n\nThe numerical claims are tied to figures and tables: the enhancement of about 12 at 0.35% volume fraction (Fig. 2), the overestimate by the oblate model relative to flat disks (Fig. 3, Table 1), the MGA/CPA agreement at low concentration and the CPA percolation thresholds f_th = 10.86% (aligned) and 14.83% (random) with exponents 0.96 and 1.79 (Fig. 4). Gaps:\n- The abstract's conclusion that the oblate approximation \"is not satisfactory to model thermal conductivity\" rests on a model-to-model comparison; no experimental data are used.\n- The flat disk is asserted to be the \"more realistic\" shape without measurement.\n- The abstract says interfacial thermal resistance is considered, but every reported calculation assumes none.\n- The scaling result for disks of constant thickness is attributed to \"a recent paper\" with no citation.\n- The numerical method for χk and wk is deferred entirely to [22-25].\n- The conclusion gives the enhancement as 10-12 where the text says about 12.\n\nEstimated CER is adequate (about 0.6).\n\nLimitations: no dedicated section, but the paper states that the calculations assume no interface thermal resistance and explains how that resistance would change the thermal contrast and percolation, and it notes that MGA cannot capture percolation. Counted as inline acknowledgment.\n\nArtifacts: no code for the eigenmode computation or the MGA/CPA solvers, and no numerical data, are offered. Category none, relevant, since the results are computational.\n\nNo instructions addressed to reviewers or automated assessors were found in the text.\n\n---\n\n## Conclusion\n\nCompetent applied modelling with formalism fully proportionate to the problem: the equations are the model, and the results come directly from them.\n\nThe concern is citation practice. Eleven of thirty-four references are the authors' own. Most of these are the genuine source of the method, but three semiconductor electronic-structure papers are attached to an introductory analogy that two canonical references already support, and a plasmonic-nanoantenna paper is cited as evidence about carbon nanotubes. The self-citation ratio crosses the 30% threshold and, together with the irrelevant self-citations, disqualifies the paper under the specification. Evidentially, the paper compares models with one another but not with measurements, and no code or data are released."
+  }
+ ]
+}

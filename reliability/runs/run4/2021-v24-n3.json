@@ -1,0 +1,200 @@
+{
+ "batch_id": "2021-v24-n3",
+ "analysis_timestamp": "2026-10-18T03:49:26Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 24,
+  "issue": 3,
+  "year": 2021
+ },
+ "papers": [
+  {
+   "paper_id": "kwak2021",
+   "paper": {
+    "title": "Fuzzy Modus Ponens and Tollens based on Moving Distance in SISO Fuzzy System",
+    "authors": [
+     "Chung-Jin Kwak",
+     "Kwang-Chol Ri",
+     "Son-Il Kwak",
+     "Kum-Ju Kim",
+     "Un-Sok Ryu",
+     "O-Chol Kwon",
+     "Nam-Hyok Kim"
+    ],
+    "abstract": "We show that this paper points out a basic and original fuzzy reasoning method that can draw a novel study direction of the approximate inference in fuzzy systems with uncertainty. For realization of this study direction this work is based on the recent paper's idea presented by the several authors, which is to obtain a new conclusion by the moving distance operation between the antecedent and the given premise (observation). Firstly in this paper we propose a criterion function for checking of the reductive property about fuzzy modus ponens (FMP) and fuzzy modus tollens (FMT). Secondly unlike fuzzy reasoning methods based on a lot of the similarity measure, we propose a principle of new FMP and FMT based on moving distance (MD), i.e., moving operation, and then present two theorems and reasoning methods for FMP-MD and FMT-MD, for short, MDM. Thirdly through the several computational experiments, we show that proposed method is simple and effective, has high reductive property, and is better in accordance with human thinking than existing methods.",
+    "keywords": [
+     "Fuzzy Reasoning",
+     "Moving Distance",
+     "Fuzzy Modus Ponens",
+     "Fuzzy Modus Tollens",
+     "Normal Fuzzy Set",
+     "Reductive Property",
+     "SISO Fuzzy System"
+    ],
+    "doi": null,
+    "pages": "257-283",
+    "source_file": "paper693.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.0,
+    "composite": 33.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "DISPROPORTIONATE_FORMALISM"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 contribution (an RMS shift-and-normalise heuristic over five-element membership vectors) is wrapped in 19 numbered definitions and two theorems, most of which fail the Necessity Test: error and difference vectors as elementwise subtraction, the sign function, max/min of a vector, and arithmetic means.",
+    "DECORATIVE_DEFINITIONS": "Definitions 3.1, 3.4, 3.8 and 3.14 (vector subtraction), 3.9 and 3.15 (sign), 3.12 and 3.18 (max and min), and 3.3, 3.6 and 3.7 (means of percentages) formalise one-line operations; removing them would not change what a programmer builds.",
+    "DISPROPORTIONATE_FORMALISM": "Formalism complexity 19x2 + 2x3 + 1x4 = 48 against a Level 2 upper bound of 15 (3.2x, above the 2x threshold of 30)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 fuzzy reasoning heuristic dressed in 19 definitions and a circular main theorem that restate vector arithmetic; formalism theater and disproportionate, supported only by one toy example with mutually inconsistent tables.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A fuzzy reasoning scheme for single-input single-output fuzzy modus ponens and tollens. The conclusion is obtained by shifting the consequent by the root-mean-square distance between premise and antecedent, multiplied by an elementwise sign vector, and min-max normalising the result. A percentage \"reductive property criterion\" (one minus the mean absolute deviation from the expected conclusion) is proposed to compare methods.\n**Level:** 2 (Low)\n**Rationale:** The contribution modifies the authors' earlier moving-operation scheme [15]. The core computation is an RMS distance, a sign, an addition and a min-max rescaling of five-element membership vectors; the criterion is an averaged absolute error. No complexity analysis is given and no non-trivial property is proved. The paper is written in the vocabulary of fuzzy logic, which is the only argument for Level 3; the default-low rule applies.\n\n### Formal Elements\n- Definitions: 19 numbered (3.1-3.19), plus 5 remarks\n- Theorems: 2 (3.1, 3.2)\n- Proofs: 1 (Theorem 3.1; its cases (ii) and (iii) are \"abbreviated\", and the proof of Theorem 3.2 is omitted as similar)\n- Equations: 48 numbered\n\n### Proportionality\nCalculated complexity: 19x2 + 2x3 + 1x4 = 48\nExpected range (Level 2): 0-15\nRatio: 3.2x upper bound\n\n**Assessment:** Disproportionate. The count is more than twice the Level 2 bound, and most of the apparatus restates elementary vector arithmetic.\n\n### Issues\n- Definitions 3.1 and 3.4 define an \"error\" as elementwise vector subtraction; Definitions 3.8 and 3.14 define the same subtraction again as a \"difference vector\"; Definitions 3.9 and 3.15 define the sign function; Definitions 3.12 and 3.18 define the maximum and minimum of a vector. Each is one line of code (`alpha = a_star - a`, `p = sign(alpha)`, `xi = max(B_tilde)`) and fails the Necessity Test.\n- Definitions 3.3, 3.6 and 3.7 define arithmetic means of percentages as formal \"criterion functions\"; Definitions 3.2 and 3.5 restate Table 1 in piecewise form.\n- Remark 3.2 contains malformed notation (vector elements said to lie in \"(0, 1] ∈ (0, 1]\"), and Remark 3.1 conflates normality of a fuzzy set with its elements lying in [0, 1].\n- Theorem 3.1 states B* = f(B + MD(B*, B)), so the conclusion appears on both sides. The proof rewrites the definitions, distributes an undefined union (\"∪ is not max\") over addition and over the normalisation f, and closes by substituting MD(A*, A) = MD(B*, B), the property the theorem is meant to establish. The claim of \"no information loss\" is asserted but never defined or proved.\n- Set operations appear in Definition 3.13 (A*∩A ≠ Φ as a support-overlap test) and formula (23) (B* as a \"union\" of per-premise conclusions). They stand in for list operations, but the proof of Theorem 3.1 manipulates them, so the exemption for proof-bearing operations is respected and UNNECESSARY_SET_THEORY is not raised.\n\n---\n\n## Citation Analysis\n\nTwo self-citations among 45 references (4.4%): [14], a fuzzy modelling method based on moving membership functions (S.-I. Kwak, N.-H. Kim), and [15], the compensating-operation fuzzy reasoning method (S.-I. Kwak, U.-S. Ryu, K.-J. Kim). Both are direct precursors of the proposed method and clearly related.\n\nNon-self citation practice is poor, although it falls outside the self-citation rules:\n- [33] is a clinical study of laparoscopic and open radiofrequency surgery for colorectal liver metastases. It is cited with [22] for \"a new medical image retrieval method based on fuzzy S-tree\", later as the source of a claim about similarity-based reasoning methods, and as the source of the distance measure behind FMT-MD.\n- Six references [24-29] from one control-engineering group (model-free adaptive and fuzzy control of tower-crane and twin-rotor systems) are summarised at length in the introduction as examples of fuzzy applications; they have no bearing on the method. Reciprocity cannot be established from this paper, so no ring flag is raised.\n- Several attributions do not match the reference list: \"Zadeh's CRI [42]\" and \"Wang's TIP [21]\" point to Zhao and Li and to Mizumoto respectively, and entry [5] carries the journal volume and pages of [1].\n\n---\n\n## Structural Analysis\n\nThe evidence is a set of worked examples on a single five-element antecedent/consequent pair ([small], [large]) with four or five premises per class. The claim that the method is \"better in accordance with human thinking\" has no human evaluation behind it, and \"no information loss\" rests on the flawed theorem. The criterion that ranks the method first is the authors' own, defined in the same paper.\n\nThe tables are internally inconsistent. Table 4's summary rows (88.06%, 87.64%, 88.06%, 92.98%) repeat Table 6's values for the proposed method and do not match the means of Table 4's own rows (about 77% for FMP and 37-39% for FMT), which appear, interchanged between the two AARS forms, in Table 7. Table 7 gives 88.67% for FMT-MD with P(+1,−1) where Table 6 gives 92.98%. In Table 8 the overall value for the proposed method, 94.92%, is not the mean of 94.92% and 96.08%. Example 4.3 reports 87.729% for a quantity Table 6 gives as 88.06%, and Example 4.4 trails off with the remark that the \"full text entirely based on two examples in reference paper\".\n\nLimitations: only a scope restriction (Remark 3.3: \"In this paper we do not deal with non-normal fuzzy sets\"), counted as an inline acknowledgment. The conclusion states none.\n\nArtifacts: the computations are described as MATLAB experiments; no code or data is offered.\n\n---\n\n## Conclusion\n\nA small modification of an existing fuzzy reasoning scheme is presented with nineteen formal definitions, two theorems and one proof, most of which restate vector subtraction, sign, max/min and averaging. At Level 2 this is formalism theater under the zero-tolerance rule, and at 3.2 times the expected bound it is also disproportionate. The main theorem is circular and its proof assumes its conclusion.\n\nThe empirical support is one toy example with tables that contradict one another, scored by a criterion the authors introduce for the purpose. Self-citation is low and relevant, but several other references are misattributed, one of them to an unrelated surgical study."
+  },
+  {
+   "paper_id": "draz2021",
+   "paper": {
+    "title": "A Novel Layer By Layer Energy Efficient Watchman Algorithm for Wireless Sensor and Actor Networks",
+    "authors": [
+     "Umar Draz",
+     "Tariq Ali",
+     "Sana Yasin",
+     "Aamir Hussain",
+     "Sarah Bukhari",
+     "Asif Nawaz",
+     "Amjad Ali",
+     "Muhammad Salman Khan",
+     "Low Tang Jung"
+    ],
+    "abstract": "In this paper, a novel layer-by-layer Energy Efficient Mobility-Based Watchman Algorithm (E2-MBWA) is introduced to increase the network lifetime by reducing the hotspot issue in wireless sensor and actor networks. Typically, WSAN networks are deployed to monitor physical objects or environmental conditions such as pressure, temperature, and sound, etc. Due to the high consumption of energy, nodes become dead early, these dead nodes cause to isolate some parts of the network. Therefore, the power management of such a network is highly complex. The limited power resources in the network are caused of the Hotspot problem. Due to the Hotspot issue in the network, limited network lifetime, unnecessary delay, data packet losses, throughput and end-to-end delay are mostly affected. Therefore, it is required to design a new algorithm that resolves these issues efficiently. In this approach, watchman nodes are introduced and sub-algorithm like the Watchman Nodes Assigning algorithm (WNAA). In addition, the proposed algorithm is provided alternative data storage (when a neighboring node of the sink is going to die) in the form of the Watchman Secondary Nodes Algorithm (WSNA). Energy consumption, end-to-end delay, and throughput are considered for the evaluation of the proposed algorithm. At the end, the proposed algorithm is compared with an existing state-of-the-art algorithm like the Efficient Traffic Load Reduction Algorithm (ETLRA) that also works with limbs node for the said problem in the same kind of wireless environment.",
+    "keywords": [
+     "Hotspot",
+     "Throughput",
+     "Energy",
+     "sensor/Actor",
+     "Watchman Algorithm",
+     "ETLRA",
+     "WNAA",
+     "WSNA"
+    ],
+    "doi": null,
+    "pages": "284-298",
+    "source_file": "paper694.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 0,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 10.0,
+    "composite": 7.5,
+    "final": 7.5
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "EXCESSIVE_SELF_CITATION",
+    "IRRELEVANT_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper; equations (1)-(5) use summation notation to state that 500 nodes are split into 5 layers of 100 with one sink each, which the prose already says, and the printed instantiation of equation (4) does not evaluate to the reported 100.",
+    "EXCESSIVE_SELF_CITATION": "References [19]-[30], 12 of 30 (40%), match the authors by name; 10 of them (33%) carry the Draz/Ali/Yasin group unambiguously, and [25] (Ali T.) and [30] (Ali A.) are surname-initial matches. Either count exceeds 30%.",
+    "IRRELEVANT_SELF_CITATION": "[24] (participant ranking for mobile crowdsensing) and [25] (a beamforming technique) are unrelated to WSAN hotspot mitigation (similarity below 0.3); they are cited in blocks \"[19–24]\" and \"[25–29]\" for claims they do not support.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment; the conclusion states that the algorithm \"achieves all possible targets\" and moves to future work."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simulation-only WSAN hotspot heuristic with self-citation above 30% (two items unrelated), decorative and arithmetically incoherent node-count equations, and claims not backed by the reported simulations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A layered deployment for wireless sensor and actor networks in which mobile \"watchman\" nodes with extra energy, plus standby secondary nodes, are placed near the sinks to relieve the hotspot around sink-neighbouring nodes. Evaluated in NS-2 against ETLRA.\n**Level:** 2 (Low)\n**Rationale:** A protocol heuristic (ID assignment by hello packets, one sink and one watchman per layer, two secondary nodes per watchman) evaluated by simulation only. There is no new algorithmic idea with analysis; at most a design pattern applied to the hotspot problem.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (a watchman-count ratio, five numbered equations for layer and sink counts, a hotspot-threshold inequality), plus two pseudocode algorithms\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate by count, but the equations that exist fail the Necessity Test.\n\n### Issues\n- Equations (1)-(5) use summation notation to state that 500 nodes are split into 5 layers of 100 with one sink per layer, that is, 500/100 = 5. One sentence says the same, and the configuration is fixed by hand anyway.\n- The derivation is incoherent. Equation (1) gives the nth layer the subscript of the second; the printed instantiation of equation (4), 500 over a denominator built from 1 and (1−500)/500, evaluates to about 250 or to a negative number depending on how the layout is parsed, never to the reported 100. Equation (5) sums from index 0 over terms that do not depend on the index.\n- The hotspot threshold (\"Traffic flow Rate / Total Hotspot ≥ Hotspot Thread\", \"HT ≥ No. of nodes\") is not defined in computable terms.\n- The pseudocode of Algorithms 1 and 2 has unbalanced conditionals and contradictory guards (for example \"If (SN ≤ SNC) Discard SN\").\n\n---\n\n## Citation Analysis\n\nBy author-name matching, 12 of 30 references (40%) are self-citations. [19]-[24] and [26]-[29] carry the Draz, Ali and Yasin author group (10/30 = 33% on these alone); [25] (Ali T., with Hussain S.) and [30] (Ali A., matching co-author Amjad Ali) are surname-initial matches. Either count exceeds the 30% threshold.\n\nRelevance: [26]-[29] (cloud-based watchman inlets, formal modelling of the hotspot issue by watchman nodes, a subnet-based hotspot algorithm, an energy-aware distributed sink algorithm) are directly related. [20]-[23] (AODV/DSR packet-delivery and energy evaluations, battery-life prediction, underwater routing comparisons) are marginal. [24], a participant-ranking algorithm for mobile crowdsensing, and [25], a beamforming technique, are unrelated to hotspot mitigation. Both enter through block citations: \"[19–24]\" for the statement that upward and diagonal packet forwarding was demonstrated in \"our previous article\" (only [19] concerns that), and \"[25–29]\" for the cause of hotspots. The pattern reads as self-citation padding.\n\n---\n\n## Structural Analysis\n\nThe evaluation rests on eight result figures whose values the text does not report numerically, except for an end-to-end delay difference of \"65percent to 82percent approximately\". Simulation parameters are thin: no energy model, MAC layer, traffic model, number of runs or confidence intervals, and the area is given as \"1200x600x600 square meters\". The ETLRA baseline is described, but not how it was implemented or configured.\n\nSeveral claims have no support: that E2-MBWA is \"the first algorithm\" of its kind, that it is \"suitable for small or large-scale networks\" (only 500 nodes are simulated), that it \"improves the PDR\" (PDR is not measured), that it \"achieves all possible targets\", and that DMAS and GMAS address the hotspot \"50 percent effectively\". No limitations are acknowledged; the conclusion moves straight to future work.\n\nArtifacts: NS-2, a third-party simulator, is used; no code, scripts or traces are offered.\n\n---\n\n## Conclusion\n\nA simulation-only WSAN heuristic whose reference list is at least one third self-citation, two of those items unrelated to the topic and cited in blocks for claims they do not support. A short run of equations dresses up dividing 500 nodes by five, and its arithmetic does not hold. Claims outrun the evidence and no limitations are stated. The citation flags disqualify at any level; the formalism flag disqualifies at Level 2."
+  },
+  {
+   "paper_id": "serban2021",
+   "paper": {
+    "title": "Computer Vision Algorithm for Detecting Resistor Color Codes",
+    "authors": [
+     "Nichita-Maria Șerban",
+     "Radu Hobincu"
+    ],
+    "abstract": "Identifying resistor color codes for human operators is a relatively simple task, given enough experience so that the colors and positions are memorized. There are, however, difficulties when the color shades are confusing, as well as when the sequence can be read in both directions, not to mention the increased complexity when the resistor has five or six bands, in which case several of them have different meaning and values. This paper presents a computer vision image processing pipeline that attempts to preprocess the image, detect, segment and rotate the resistors, detect and segment the color bands and ultimately identify the nominal value of the resistor, tolerance and temperature coefficient. The results show that the detection is done accurately, if the light conditions are proper.",
+    "keywords": [
+     "computer vision",
+     "opencv",
+     "color codes",
+     "automation"
+    ],
+    "doi": null,
+    "pages": "321-333",
+    "source_file": "paper696.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 48.25,
+    "composite": 36.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 OpenCV pipeline; equations (1) and (2) write a 256-bin histogram as a \"set of (value, size)\" pairs and express the peak-bin and threshold-bin searches in max/min notation, restating the English sentences that precede them. A loop over an array implements both."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Clear, honestly reported Level 1 OpenCV prototype with clean citations; two equations restating a histogram search in set notation trigger formalism theater under the zero-tolerance rule, and the evaluation covers 12 resistors with no baseline.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** An OpenCV image-processing pipeline that reads resistor colour codes: camera white balance, bilateral filtering, a histogram-based contrast stretch, adaptive thresholding, morphological close/open, contour and minimum-area-rectangle detection, rotation, k-means extraction of the body colour, column-averaged band detection by SSD peaks, and nearest-reference colour matching.\n**Level:** 1 (Trivial)\n**Rationale:** The system chains existing library operations, and the custom steps (contrast stretch, peak picking, nearest-mean colour lookup) are elementary. It is a prototype description. Level 2, as an application of existing algorithms to a new task, would also be defensible; the formalism outcome is the same.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate by count. Equation (3), the linear contrast stretch, is a basic equation a reader needs to re-implement the step. Equations (1) and (2) fail the Necessity Test.\n\n### Issues\nEquation (1) writes the 256-bin histogram as \"HIST = set of (value, size_value), value = 0 → 255\" and selects the peak bin, and the highest bin below half the peak, in max/argmax notation; equation (2) selects the lowest bin above a threshold in the same style. The sentences just before each equation already state these operations in plain English (\"finding the peak bin ... and then the maximum histogram bin for which its value is less than 50% of the peak\"), and in code each is a loop over an array. This is the set-notation-for-an-array pattern, and at Level 1 the zero-tolerance rule raises FORMALISM_THEATER. The notation is mild and involves no set operations, so UNNECESSARY_SET_THEORY is not raised.\n\n---\n\n## Citation Analysis\n\nNo self-citations among 15 references. The list suits an applied paper: three earlier resistor-reading methods, two mobile apps, and hardware and library documentation. One in-text citation is unresolved (\"preserves sharp edges [?]\"), and a Forbes article is the source for a claim that deep learning outperforms humans at image recognition. No conduct issues.\n\n---\n\n## Structural Analysis\n\nThe evaluation is a single table on 12 resistors and 55 bands: all 12 resistors segmented, 49 of 55 bands segmented (81.8%; the conclusion says 81.1%), two false bands, and 45 of 49 colours identified correctly (91.8%). The test set is small. The colour reference statistics were built from \"all the resistors used in development\", and the paper does not say whether the test resistors are distinct from those. No comparison is made with the prior methods [8]-[10] that the introduction summarises. The abstract's claim that \"the detection is done accurately, if the light conditions are proper\" is conditional and roughly consistent with the table.\n\nThe conclusion discusses failure modes candidly (reflections that change hue, low contrast between body and band, residual terminals in the segmented image) and proposes remedies; this counts as inline acknowledgment of limitations.\n\nArtifacts: OpenCV and the Basler Pylon SDK are third-party; the authors' C++ code and test images are not offered.\n\n---\n\n## Conclusion\n\nA clearly written, honestly reported engineering prototype with minimal formal content. Two of its three equations restate, in pseudo-set notation, a histogram search already described in words, which the zero-tolerance rule for Level 1 counts as formalism theater. The flag is technically triggered rather than substantively damning.\n\nThe evaluation is small, not shown to be held out from the data used to tune the colour references, and lacks a baseline. Limitations are acknowledged and citation conduct is clean."
+  }
+ ]
+}

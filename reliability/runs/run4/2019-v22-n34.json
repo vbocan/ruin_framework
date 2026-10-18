@@ -1,0 +1,188 @@
+{
+ "batch_id": "2019-v22-n34",
+ "analysis_timestamp": "2026-10-18T03:45:28Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 22,
+  "issue": "3-4",
+  "year": 2019
+ },
+ "papers": [
+  {
+   "paper_id": "gellert2019",
+   "paper": {
+    "title": "Perceptron-Based Selective Load Value Prediction in a Multicore Architecture",
+    "authors": [
+     "Arpad Gellert",
+     "Maria Vinţan",
+     "Lucian Vinţan"
+    ],
+    "abstract": "Paraphrased: extends the authors' selective load value predictor for a multicore architecture with perceptron-based classification of load instructions as predictable or unpredictable, using a predicted value only for loads classed predictable. The scheme is integrated into the Sniper multicore simulator and evaluated on the Splash-2 parallel benchmarks, with a reported average relative speedup of 4.21% over the baseline multicore and a maximum of about 17%.",
+    "keywords": [
+     "Multicore architecture",
+     "issue bottleneck",
+     "selective load value prediction",
+     "perceptron",
+     "speculative execution",
+     "Splash-2 parallel benchmarks",
+     "Sniper multicore simulator"
+    ],
+    "doi": null,
+    "pages": "215-227",
+    "source_file": "paper629.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 35,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 60.0,
+    "composite": 57.5,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "We have used for the evaluations the large datasets of the Splash-2 parallel benchmarks",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "11 of 26 references (42%) include an author of this paper (A. Gellert or L. Vințan): [4]-[9] and [21]-[25]. The SCR exceeds the 30% threshold. The self-citations are topically related (value prediction, branch prediction, the Sniper simulator), with [9] and [25] marginal, so the flag rests on the ratio, not on irrelevance.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgement of constraints. The marginal gain over the authors' own counter-based predictor (4.21% vs 4.14% average speedup), the per-benchmark accuracy losses visible in Table 3, and the hardware cost of storing 40 weights per LVPT entry are not discussed."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Incremental microarchitecture study whose perceptron equations are proportionate to the design, disqualified by a 42% self-citation ratio; the gain over the authors' own predictor is marginal (4.21% vs 4.14%) and no limitations are acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Replacing the saturating-counter confidence mechanism of the authors' own selective load value predictor (SLVP) for a multicore with a per-load single-cell perceptron, adapted from Jiménez and Lin's perceptron branch predictor, and evaluated in the Sniper simulator on Splash-2.\n**Level:** 2 (Low)\n**Rationale:** The contribution transfers an established predictor (perceptron branch prediction) to a new classification target inside a mechanism the authors published in [8], then tunes the history length. There is no new algorithm with complexity analysis and no proof. Applying an existing algorithm to a new domain is Level 2.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 numbered (perceptron output in conditional form, the same output in closed form, relative speedup), plus the threshold expression taken from [10] and a pseudocode listing of the training rule\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The equations specify what the hardware computes (a signed sum of weights selected by the history bits, a bounded increment/decrement training rule, the speedup metric), and an implementer of the predictor needs them.\n\n### Issues\n- Equation (2) restates Equation (1) in closed form and is not used further. It duplicates the computation rather than decorating it (the (-1)^(L_i+1) form is the sign inversion the adder tree applies per history bit), so it is not counted as a necessity failure.\n- The pseudocode writes V_R ∈ V for \"the committed value matches one of the H = 4 stored values\". Inside pseudocode this is the membership operator of a comparison the hardware performs, not set-builder notation standing in for list code, so UNNECESSARY_SET_THEORY is not raised.\n- Θ follows the notation of the cited branch predictor and is used in several conditions; it is not a decorative Greek letter.\n- Editorial defects: Section 3.2 repeats the title of Section 3.1, and the threshold formula is carried over from branch prediction with no discussion of whether that tuning transfers to load classification.\n\n---\n\n## Citation Analysis\n\nEleven of 26 references (42%) include A. Gellert or L. Vințan: [4]-[9] and [21]-[25]. Most are topically close: selective value prediction in superscalar, SMT and multicore processors ([5]-[8]), register value prediction ([22]-[24]), a perceptron-style branch predictor ([21]), and a Sniper extension ([4], cited for prior use of the simulator). Two are marginal (similarity about 0.4): [9] on fuzzy-knowledge CPU performance/energy optimisation, cited in a block of prior value-prediction work, and [25] on meta-optimisation for design-space exploration, cited only for future work. None is unrelated, so IRRELEVANT_SELF_CITATION is not raised. Several self-citations are cited as blocks ([5, 6, 7, 8] and [9]; [22, 23] and [24]) that list the authors' earlier work rather than support a specific statement. The external literature (Perais and Seznec, Martin et al., Jiménez and Lin, Miguel et al., Orosa et al., Endo et al.) is appropriate and recent. The ratio alone exceeds 30%, which is disqualifying.\n\n---\n\n## Structural Analysis\n\nEvidence is simulation-based: ten Splash-2 benchmarks, a per-benchmark coverage and accuracy table, and dual- versus quad-core averages. Claim-evidence balance is adequate overall (CER about 0.7), with these weaknesses:\n- The headline improvement over the authors' own counter-based predictor is 4.21% versus 4.14% average speedup, a 0.07 point difference reported without variance or any discussion of significance.\n- The text states that both coverage and accuracy are better for the perceptron method, but Table 3 shows accuracy falling on cholesky, Fmm, lu.ncont and raytrace (87.00% to 73.17%), and coverage falling on lu.cont; only the averages improve.\n- The storage and latency cost of 40 one-byte weights per LVPT entry, and the adder tree, are not evaluated, although the scheme is presented as a hardware design.\n- Future-work statements (speedups would for sure be much more significant) and the energy claim deferred to the authors' prior papers are unsupported here.\n- No limitations section and no inline acknowledgement of constraints.\n\nArtifacts: the predictor was implemented inside Sniper 6.1 (the paper names the modified source files and configuration settings), but no code is linked. The workloads are the public Splash-2 suite [26], so the category is data.\n\n---\n\n## Conclusion\n\nA competent, incremental microarchitecture study whose formal content is exactly what the design requires: the perceptron output and training rule are operational, and nothing is decorative. The paper is disqualified on citation conduct rather than formalism: 42% of its references are to the authors' own work, much of it cited in blocks. The empirical case for the new classifier is weak, since the gain over the authors' previous predictor is marginal and per-benchmark accuracy regresses on four of ten benchmarks, and no limitations are acknowledged."
+  },
+  {
+   "paper_id": "fahim2019",
+   "paper": {
+    "title": "Clustering Algorithm for Multi-density Datasets",
+    "authors": [
+     "Ahmed Fahim"
+    ],
+    "abstract": "Paraphrased: DBSCAN finds clusters of arbitrary shape and handles noise but fails on clusters of differing density because of its global Eps parameter. The paper proposes a simple method, drawing on DENCLUE, DBSCAN and k-nearest neighbours, that estimates each point's local density as the sum of distances to its k nearest neighbours, orders points by that density, and grows clusters from the densest point by adding unclustered points of similar density that satisfy a DBSCAN-like core condition over their Minpts nearest neighbours. Experiments are reported to show that the method discovers clusters of varied density.",
+    "keywords": [
+     "Clustering methods",
+     "Data analysis",
+     "Data mining",
+     "Knowledge discovery",
+     "Un-supervised learning"
+    ],
+    "doi": null,
+    "pages": "244-258",
+    "source_file": "paper631.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 85,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 39.75,
+    "composite": 29.81,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "DECORATIVE_DEFINITIONS",
+    "THEOREMLESS_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "A Level 2 contribution, described by the author as a simple modification of DBSCAN, carries eight numbered definitions and five equations (formalism complexity 16, above the Level 2 bound of 15). At least five elements fail the necessity test: set-builder notation for the k-nearest-neighbour list and for the filtered neighbour list, a definition that restates Eq. (3), a plain-English definition of the cluster initiator, and a definition of noise as very small clusters with no threshold.",
+    "UNNECESSARY_SET_THEORY": "Definition 1 writes the k-nearest-neighbour list as a set-builder expression, and Definition 4 writes the neighbours within the cumulative-distance bound as {a_j | density(q, a_j) <= kden(Ci), 1 < j < k}. In Algorithm 2 this is a loop over the sorted neighbour list that exits at the first neighbour over the bound. No proof depends on either expression.",
+    "DECORATIVE_DEFINITIONS": "Definition 2 restates Eq. (3); Definition 3 (cluster initiator) and Definition 8 (noise, with no size threshold) are plain-English statements placed in Definition blocks; Definitions 4-7 transcribe DBSCAN's reachability, connectivity and cluster definitions with Eps replaced by kden(Ci), and none is used in any proof. Removing them would not change what a programmer builds from Algorithms 1 and 2.",
+    "THEOREMLESS_FORMALISM": "Eight definitions and zero theorems. The DBSCAN definitions being adapted originally supported lemmas on cluster determinacy; those lemmas are dropped, and the properties asserted in prose (symmetry of direct reachability between core points, transitivity of reachability) are not proved. The symmetry claim does not carry over from Eps-neighbourhoods, because k-nearest-neighbour relations are not symmetric.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgement of constraints. Sensitivity to k (set per dataset, from 9 to 30), the purely visual evaluation on five synthetic 2-D datasets, and the absence of comparison with the multi-density DBSCAN variants surveyed in Section 1 are not discussed."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simple kNN-density variant of DBSCAN presented through eight theorem-free definitions and set-builder notation (disqualifying formalism theater at Level 2), and evaluated only visually against plain DBSCAN on five unidentified synthetic 2-D datasets.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** CMDD, a DBSCAN variant for datasets with clusters of differing density. Each point's local density is the sum of distances to its k nearest neighbours; points are processed from densest to sparsest, and each cluster grows from its densest point, using that point's k-distance sum in place of Eps as the bound for core and membership tests.\n**Level:** 2 (Low)\n**Rationale:** The author describes the method as a very simple idea and a simple modification of DBSCAN. It recombines DBSCAN expansion with a kNN density estimate of the kind used in the author's earlier work [14], [24] and in Multi Density DBSCAN [22]. There is no complexity analysis beyond an unargued O(n log n) and no proof. A simple optimisation of an existing method is Level 2.\n\n### Formal Elements\n- Definitions: 8 (with constraints: 3, Definitions 4, 5 and 7)\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (cumulative neighbour distance, its recursion, the k-distance sum, Euclidean distance, neighbour membership)\n\n### Proportionality\nCalculated complexity: 16 (8 definitions x 2)\nExpected range (Level 2): 0-15\nRatio: 1.07x upper bound\n\n**Assessment:** Disproportionate for Level 2. The count is only just above the bound, but the excess is decorative rather than load-bearing. Definitions 4-7 follow Ester et al.'s DBSCAN definitions closely, with Eps replaced by kden(Ci). In DBSCAN they support lemmas on how a cluster is determined by any of its core points; here they support nothing, and Algorithms 1 and 2 specify the method completely without them.\n\n### Issues\n- Definition 1 uses set-builder notation for what the algorithm treats as a sorted neighbour list; as written it also includes p itself and admits more than k points under ties.\n- Definition 4's set-builder expression is the loop with an early exit in Algorithm 2; its index range 1 < j < k excludes the first and k-th neighbours, contradicting the algorithm.\n- Eq. (3) sums over index i while the summand is indexed by j.\n- The quantity named density(p, q_j) is a cumulative distance, an inverse density. The text acknowledges the inverse relation but keeps the name, which makes Definitions 3 and 4 harder to read.\n- The prose asserts that direct density-reachability is symmetric between core points. With Eps-neighbourhoods (DBSCAN) this holds; with kNN lists it does not, because q in kNN(p) does not imply p in kNN(q). No proof is offered.\n- Definition 8 defines noise as very small clusters without a size threshold, while Algorithm 2 marks a point as noise when it fails the core condition.\n- Necessity failures: Definition 1 (set notation for a list), Definition 4 (set notation for a filtered list), Definition 2 (restates Eq. 3), Definition 3 (plain English in a Definition block), Definition 8 (vacuous). Five in all.\n\n---\n\n## Citation Analysis\n\nThree of 24 references are by the author (12.5%): [1] an enhanced k-means algorithm, [14] a homogeneous-densities clustering algorithm, and [24] CBLDP. [14] and [24] are multi-density, density-based methods directly related to this paper (similarity about 0.8). [1] is cited as the reference for k-means itself, in place of MacQueen or Lloyd. The cited paper is on clustering but not on density-based methods, so its relevance here is marginal (about 0.4), and the placement substitutes a self-citation for the canonical source. The rest of the list is standard (Ester et al., Ankerst et al., Hinneburg and Keim, CLARANS, BIRCH, CURE, CHAMELEON) plus a set of multi-density DBSCAN variants. The ratio raises no flag; the k-means substitution lowers the score.\n\n---\n\n## Structural Analysis\n\nThe evaluation uses five two-dimensional synthetic datasets of unstated origin, compared visually with DBSCAN at a few Eps values. There is no quantitative index (ARI, NMI, purity), no ground truth reported, no runtime measurement despite the repeated use of the word efficiency, and no comparison with any of the multi-density methods reviewed in Section 1 (VDBSCAN, DBSCAN-DLP, k-DBSCAN, Multi Density DBSCAN, KDDBSCAN, CBLDP and others), which address the same problem. k is chosen per dataset (9, 10, 13-20, 16, 30), so the claim that the method escapes DBSCAN's parameter problem is weakened: one global parameter is traded for another. The conclusion asserts O(n log n) complexity equal to DBSCAN's without analysis. By sentence count the claims are backed by figure descriptions (CER about 0.6), but the evidence is qualitative. No limitations are acknowledged.\n\nArtifacts: no code and no data are linked, and the datasets are not named.\n\n---\n\n## Conclusion\n\nCMDD is a plausible heuristic: replacing a global Eps with a per-cluster bound taken from the densest point's k-distance sum is a reasonable way to handle varying density. The paper wraps this simple idea in eight theorem-free definitions transcribed from DBSCAN, set-builder notation for neighbour lists, and equations with indexing errors, which at Level 2 is formalism theater and disqualifying. Even without the flags the empirical support is thin: a visual comparison against unmodified DBSCAN on unidentified 2-D data, with no metrics, no runtimes and none of the competing multi-density methods, cannot establish the superiority claimed in the conclusion."
+  },
+  {
+   "paper_id": "mihai2019",
+   "paper": {
+    "title": "IT-Based Financial Confirmation & Diagnosis Mechanisms",
+    "authors": [
+     "Răzvan Mihai",
+     "Tom Einar Nyberg",
+     "Einar Michaelsen",
+     "Ioana Rizea-Popp",
+     "Monica Dascălu",
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "Paraphrased: argues that the growing complexity of finance calls for new tools and proposes combining blockchain and artificial intelligence to build IT-based mechanisms for financial confirmation and diagnosis. The paper describes both mechanisms, analyses the kind of computation they require, notes that both technologies are computationally intensive and that off-the-shelf hardware cannot minimise their time and energy cost, and proposes and evaluates an architectural environment (the authors' accelerator) for an efficient implementation.",
+    "keywords": [],
+    "doi": null,
+    "pages": "284-299",
+    "source_file": "paper634.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 55,
+    "structural_integrity": 25,
+    "artifact_availability": 0,
+    "intellectual_integrity": 25.5,
+    "composite": 19.12,
+    "final": 19.12
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "ELEVATED_SELF_CITATION",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 project description. Equation (1) displays, element by element, an N x N matrix for each of k relation parameters between companies and stacks them into an N x N x k array, preceded by the vector notation R_ij = [p1_ij, ..., pk_ij]. This is the adjacency structure of the confirmation graph; nothing in the paper is computed from it (the diagnosis technique is only said to resemble medical image diagnosis), and the adjacent prose already states it in English. It fails all three necessity questions.",
+    "ELEVATED_SELF_CITATION": "6 of 24 references (25%) include G. M. Ştefan: [2], [13], [14], [15], [19], [20]. All concern the authors' MapReduce / integral-parallel accelerator line and are related to Section 5, but [14] is never cited in the text, and the authors' in-print chapter [15] is the source of the hardware comparison table.",
+    "UNSUPPORTED_CLAIMS": "Assertions far outnumber evidence (CER about 0.25). No confirmation platform or diagnosis model is implemented or tested, yet the conclusion states that verification cost will fall to virtually zero, that the auditor's role will change dramatically, and that the system will use 3-4x less energy than current solutions. The energy figure rests on one simulated SHA-256 number compared with a forum post [24]; statements that GPGPU is an oxymoron, that TPUs use under 13.4% of peak for most applications, and that other approaches accelerate matrix-vector products no better than O(p/log p) are uncited or loosely cited."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Project proposal combining a permissioned blockchain, an unspecified neural diagnosis model and the authors' existing accelerator; decorative matrix notation at Level 1 disqualifies it, and its sweeping claims about auditing and energy are not supported by any implementation or experiment.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A proposed financial confirmation and diagnosis system: a private permissioned blockchain on which companies record mutual transactions, a deep neural network (not specified) to be trained on the resulting inter-company graph, and the authors' existing MapReduce accelerator as the computing platform. Section 6 is a work plan for the project.\n**Level:** 1 (Trivial)\n**Rationale:** The paper describes an architecture that combines existing components (permissioned blockchain, smart contracts, a neural network, a previously published accelerator) and outlines a project. It proposes no new algorithm and proves nothing; the accelerator figures summarise prior work. A system architecture combining existing components, described as a proposal, is Level 1.\n\n### Formal Elements\n- Definitions: 2 inline (relation vector R_ij, parameter matrix M_i) (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 numbered (the matrix M_i), plus an execution-time expression for matrix-vector multiplication (N + 2 + log2 p), O(p) acceleration statements and a performance ratio of 3.37\n\n### Proportionality\nCalculated complexity: 4\nExpected range (Level 1): 0-5\nRatio: 0.8x upper bound\n\n**Assessment:** Within the count bound, but Level 1 carries zero tolerance for unnecessary formal notation, and Equation (1) fails the necessity test.\n\n### Issues\n- Equation (1) displays the matrix of one relation parameter element by element (its last row repeats p1N instead of pN1, pN2), and the text then stacks k such matrices into a 3-D array described as an image. Nothing downstream uses the notation: the diagnosis technique is only said to be similar to medical image analysis [5], [17], with no network, input encoding, training data or output defined. The sentence beside the equation already says the same thing in English.\n- The accelerator's programming model is listed as named vectors (V_i, W_j, B, IX, ACC and others) with Verilog-style per-cell operations. This documents the machine state a programmer of the accelerator needs and is not counted as theater.\n- The timing expression N + 2 + log2 p and the O(p) acceleration claims are stated, not derived; the comparison with about 5N^2 cycles on a single core, and the claim that other approaches achieve no better than O(p/log p) [11], are not argued.\n\n---\n\n## Citation Analysis\n\nSix of 24 references (25%) include G. M. Ştefan: [2], [13], [14], [15], [19], [20]. All belong to the accelerator line (integral parallel architecture, MapReduce from circuits to cloud, the CA1024 chip, deep-learning accelerators) and are relevant to Section 5 only (similarity about 0.5-0.6); none is unrelated. [14] is listed but never cited in the text, as is [9]. The comparison table of commercial chips is sourced to the authors' own in-print chapter [15]. Thirteen of the 24 references are web pages, blogs, vendor documents or a forum thread. The historical remark on Pacioli's double-entry manual is attributed to a 2018 MIT Technology Review article on blockchain [3] and dated to the 14th century, whereas the Summa appeared in 1494. The ratio falls in the 20-30% band (ELEVATED_SELF_CITATION).\n\n---\n\n## Structural Analysis\n\nThe abstract says the architectural environment is proposed and evaluated. The evaluation consists of a table of commercial chips taken from the authors' earlier work, one SHA-256 throughput-per-watt figure from a 28 nm simulation of the accelerator set against a forum benchmark for a GTX TITAN X, and asymptotic statements. The confirmation platform is a generic description of a permissioned blockchain transaction flow; the diagnosis system has no model and no data. The conclusion's predictions (verification cost falling to virtually zero, auditors relieved of attestation work, 3-4x lower energy than current solutions) have no evidence in the paper, and several assertions about competing hardware (GPGPU described as an oxymoron, TPU utilisation figures) are uncited or loosely cited. CER is about 0.25. One inline constraint is acknowledged (IO-bound computations when data transfer exceeds compute time), so NO_LIMITATIONS is not raised, but the proposal's own risks, such as confidentiality of shared transaction data, adoption by competing firms and scalability of the permissioned network, are not discussed.\n\nArtifacts: nothing is released or linked, and the accelerator controller is described as proprietary.\n\n---\n\n## Conclusion\n\nThis is a project proposal rather than a research result. Its three components are an off-the-shelf permissioned blockchain flow, a neural diagnosis model that is named but never specified, and an accelerator from the authors' earlier work. The one numbered equation dresses the adjacency structure of the transaction graph as a displayed matrix that nothing in the paper uses, which at Level 1 is formalism theater and disqualifying. Independently of that, the paper's claims about auditing practice and energy savings far exceed the evidence it presents, a quarter of the references are self-citations (one never cited in the text), and much of the remaining support is grey literature."
+  }
+ ]
+}

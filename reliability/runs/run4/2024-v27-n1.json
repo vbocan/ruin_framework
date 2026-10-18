@@ -1,0 +1,236 @@
+{
+ "batch_id": "2024-v27-n1",
+ "analysis_timestamp": "2026-10-18T03:50:10Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 27,
+  "issue": 1,
+  "year": 2024
+ },
+ "papers": [
+  {
+   "paper_id": "antonescu2024",
+   "paper": {
+    "title": "Multi-Function Scan Circuit for Assisting the Parallel Computational Map Pattern",
+    "authors": [
+     "Mihai Antonescu",
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "Some parallel computing patterns can be accelerated using appropriate networks of simple circuits. We propose a solution, based on the Beneš-Waksman permutation network, which is adapted to efficiently accelerate not only permutation, but some of the most used parallel computational patterns such as: pack, prefix operations and reductions. The structural context considered for deploying our circuit is the map parallel pattern represented by an array of computational elements. The developed network receives a vector from the map array and outputs a vector for functions such as permute, pack, prefix sum (thus closing a first global loop over the map array of cells). For reduction functions (add, min, max) the network returns a scalar (thus closing a second global loop over the map array). With these improvements, this network adds circuit support for frequently used functions, in addition to map-type functions performed in the array of computing elements. While for reduction functions the frame of the permutation network can be easily adapted, for prefix functions and for the pack function new forms of implementation are proposed. The cells of the Beneš-Waksman network are redesigned to support the additional functionality. Some applications are then presented to emphasize the utility of our design.",
+    "keywords": [
+     "Benes network",
+     "General-Purpose Accelerator",
+     "Multi-Function Permutation circuit",
+     "Scan Circuit"
+    ],
+    "doi": null,
+    "pages": "1-18",
+    "source_file": "paper758.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 82,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.95,
+    "composite": 59.21,
+    "final": 59.21
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Hardware extension of the Beneš-Waksman network to pack, prefix and reduction functions; proportionate HDL-style notation and relevant citations, but evaluation limited to area figures and no released artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Hardware extension of the Beneš-Waksman permutation network whose cells are redesigned so that one log-depth network also performs pack, prefix sum and add/min/max reduction for a linear map array of processing cells; pipelined and sequential versions, FPGA synthesis.\n**Level:** 2 (Low)\n**Rationale:** The contribution is a redesign of the cells of a well-known network topology and a mapping of standard scan primitives onto it. The size and depth bounds (O(n log n), O(log n)) are inherited from the Beneš network and stated rather than derived. No new algorithm is proved correct: the conflict-free routing of the pack function through the first log2 n stages is asserted and checked by random simulation, not proved. Under the default-low rule this is an engineering optimisation of an existing structure rather than a Level 3 algorithmic contribution.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: about 15 (size and depth of the network; permute, pack and prefix cell functions in Verilog-style concatenation and ternary notation; prefix-sum recurrence; the three reduction functions; cell input/output bundles; destination shift; pack execution time)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — every displayed expression specifies hardware behaviour a designer must implement. The {a, b} bundles and \"p ? {..} : {..}\" selections are hardware-description notation for wire groupings and multiplexer settings, the cell-count formulas give the synthesis cost, and the size/depth expressions support the stated trade-off between the pipelined and the sequential version.\n\n### Issues\nNone identified under the necessity test. Expressions such as x_j = {v_j, enable, destination_j} resemble the \"tuple for a data structure\" pattern, but they are port and signal bundles written in the notation an HDL designer uses; removing them would leave the cell interface unspecified. Minor presentation issues only (garbled running heads, \"Chapter 7\" for Section 7).\n\n---\n\n## Citation Analysis\n\nTwo of 13 references include an author of this paper (Ştefan): [10] (all-pair shortest path on a hybrid map-reduce architecture, cited to show that pipelining can hide network latency) and [13] (a spectral-clustering accelerator, cited for the distributed queue used in matrix-vector multiplication). Both concern the same many-cell map-reduce architecture and are directly relevant (similarity well above 0.5). SCR = 2/13 = 15.4%, just inside the elevated band. The remaining references are canonical (Beneš, Waksman, Ladner-Fischer, Nassimi-Sahni, Dally-Towles, McCool et al.). No padding or ring pattern.\n\n---\n\n## Structural Analysis\n\nThe design is supported by a SystemVerilog DUT-versus-golden-model test with random inputs and by ZYNQ-7020 synthesis tables (LUT and register counts for 8 to 256 inputs, and the overhead relative to a permute-only network); Table 3 is arithmetically consistent with Tables 1 and 2. Weaker points: no timing results (clock frequency, latency in ns) are reported, there is no comparison with dedicated prefix or reduction circuits from the literature, and the speed-ups in the application section (\"Simulations provided 6n× acceleration\", \"an acceleration of ∼ 1.5 × n is achieved\") are given without set-up or data. Limitations are acknowledged inline: the multi-function network is roughly double the size of a permute-only one, the sequential version cannot be pipelined, latency cannot be avoided in FFT version 1, and the circuits \"may not be the most efficient implementation for all possible functions\". CER is judged adequate (about 0.5-1.0).\n\nNo code, HDL sources or test benches are linked or offered; the synthesis tool chain is third-party.\n\n---\n\n## Conclusion\n\nA compact hardware-architecture paper whose notation is the working notation of digital design and stays proportionate to its content. Citation practice is clean, with two relevant self-citations to the same research line. The weaknesses are evaluative: area figures are reported but timing and comparison with competing circuits are missing, the application speed-ups are asserted rather than shown, and nothing is released for reproduction."
+  },
+  {
+   "paper_id": "hentout2024",
+   "paper": {
+    "title": "Shortest Path Planning and Efficient Fuzzy Logic Control of Mobile Robots in Indoor Static and Dynamic Environments",
+    "authors": [
+     "Abdelfetah Hentout",
+     "Abderraouf Maoudj",
+     "Ahmed Kouider"
+    ],
+    "abstract": "Efficient navigation in dynamic environments is a critical skill for of mobile robots, where obstacles can stochastically appear. This paper presents a complete navigation and control system that integrates effective path optimization and motion control capabilities for mobile robots evolving in indoor static and dynamic environments. This system consists primarily of two layers. In the Optimization Layer (Global planner), a Deterministic Constructive Algorithm (DCA) quickly generates the shortest path, as a sequence of nodes, to get to the goal position while avoiding the static obstacles. The Control layer (Local planner) employs an Efficient Fuzzy Logic Controller (EFLC) to continuously guide the robot around the detected dynamic obstacles and drive safely the robot along the intended path. Simulations conducted on various maps with different complexities demonstrate the effectiveness of the DCA planner. Finally, validations using V-REP software show the strength of the proposed EFLC that mimics human reasoning for mobile robots navigating in dynamic environments.",
+    "keywords": [
+     "Deterministic constructive algorithm",
+     "indoor static and dynamic environments",
+     "fuzzy logic control",
+     "mobile robots",
+     "shortest path planning"
+    ],
+    "doi": null,
+    "pages": "21-36",
+    "source_file": "paper759.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 75,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 40.0,
+    "composite": 30.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 integration of the authors' earlier path planner and fuzzy controller; the binary indicator variables A and B with constraints (3)-(4) and (8)-(10) form an optimisation model that the constructive algorithm never solves or uses, and say no more than that no path segment or robot edge may cross an obstacle edge.",
+    "UNNECESSARY_SET_THEORY": "Eq. (11) writes the list of obstacles crossed by the current segment as a set intersection (Obs{} = [CPos, MovePoint] ∩ Obs_Seg_tj, ∀t, j), and Eqs. (3)-(4) and Table 2 use set membership for simple geometric case checks; no proof depends on these operations."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Combination of the authors' earlier path planner and fuzzy controller, presented with an unused binary optimisation model and set-intersection notation; thin, partly inconsistent evaluation and no artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Two-layer navigation system for a mobile robot: a deterministic constructive path planner (DCA, published earlier by the same authors in [40]) that routes around rectangular static obstacles, followed by a fuzzy logic controller (EFLC, described in the authors' preprint [46]) that handles dynamic obstacles; evaluated on 2-D maps and one V-REP scenario.\n**Level:** 2 (Low)\n**Rationale:** Both components are the authors' previously published methods combined into one pipeline. The planner is a geometric heuristic with no complexity or optimality proof, and the controller is a standard Mamdani FLC with min-max inference and centre-of-gravity defuzzification. This is an application and integration of existing methods.\n\n### Formal Elements\n- Definitions: 0 numbered (Table 1 lists notation)\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 numbered, plus a set-membership case table (Table 2) and an inline set condition for node reduction\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** The count is proportionate, but the necessity test fails: the problem formulation in Section 2 is an optimisation model that the algorithm never solves or refers to.\n\n### Issues\n- Eqs. (3)-(4) and (8)-(10) introduce binary indicator matrices A_{r,tj} and B_{i,tj}, defined by existential set-membership expressions (\"1 if ∃P1(x1, y1), P2(x2, y2) | ({P1, P2} ∈ Rob_Seg_r) ∧ ({P1, P2} ∈ Obs_Seg_tj)\"), with sum constraints on them. The DCA is a constructive geometric procedure; no solver uses these variables, no result depends on them, and their content is \"no path segment and no robot edge may cross an obstacle edge\". The definition is also malformed (two points shared by both segments describes overlap, not intersection), and constraint (8) sums over i while also quantifying over i.\n- Eq. (11), Obs{} = [CPos, MovePoint] ∩ Obs_Seg_tj, writes \"the obstacles whose edges the current segment crosses\" as a set intersection; the surrounding text says the segment is [CPos, Target], so equation and prose disagree. Table 2 repeats the notation for case selection, and lists cases 1 and 5 identically.\n- Eq. (13) computes the heading error as arctan((YT − Yr)/(XT − Xr)) − arctan(Yr/Xr), subtracting the polar angle of the robot's position rather than its heading; as written the controller input is wrong.\n- The segment equation (1), the path-length objective (5)-(6) and the distance to target (12) are ordinary geometry and pass the necessity test.\n\nAt Level 2 the decorative optimisation model and the set-intersection filter trigger FORMALISM_THEATER and UNNECESSARY_SET_THEORY; no proof depends on any of these operations.\n\n---\n\n## Citation Analysis\n\nNine of 47 references include an author of this paper ([3], [9], [27], [30], [38], [39], [40], [41], [46]); SCR = 19.1%, at the top of the 15-20% band. All nine are on robot path planning or fuzzy control and are topically relevant (similarity above 0.5). [40] and [46] are the sources of the two components, and the paper defers essential content to them: the membership functions appear only in [46], and for the rule base the reader is told \"For more details, please refer to [46]\". [46] is a preprint by the same three authors with a near-identical title, so the overlap between this article and that preprint deserves checking.\n\nSeparately, six references to one control-engineering group ([18], [22], [23], [24], [25], [36]) are cited as examples of path-planning metaheuristics or of \"reference inputs for tracking problems specific to mobile robots\", although they concern tuning fuzzy controllers for servo systems, clutches and tower cranes. They are not self-citations and no mutual pattern can be established from this paper alone, so no citation flag is raised, but their topical fit is weak and the score is placed at the bottom of its band.\n\n---\n\n## Structural Analysis\n\nEvidence consists of one self-designed map (runtime 0.062 s), a four-map comparison with memEAPF in Table 3 (DCA shorter on two maps, longer on two), visual comparisons with GA, RRT, ACO and Dijkstra paths reprinted from other papers (no numbers), and one qualitative V-REP run of the EFLC. Runtimes are compared with values reported in [42] on different hardware. Several claims exceed the evidence: \"zero-failure rates\", \"exhibits superior performance in terms of path length, runtime, and safety\", \"DCA guarantees the generation of feasible short paths\". The text's \"improved the runtime by 98.26%\" does not match Table 3, whose Map8 runtime improvement is itself mis-computed (99.96% reported, where 3.00 s against 0.031 s gives 98.97%). The introduction also attributes \"inherent NP-hardness\" to deterministic planners. CER is judged weak (about 0.33-0.5). A limitation is acknowledged inline only in the final sentence (the EFLC's efficiency depends on rule tuning).\n\nNo code, maps or simulation scenes are released. V-REP is third-party software; the comparison maps come from published papers but are not supplied as a dataset.\n\n---\n\n## Conclusion\n\nAn integration paper that combines two of the authors' earlier methods and wraps them in an optimisation model and set notation that the algorithm does not use; at Level 2 this is formalism theater and disqualifies the paper. Self-citation is relevant though high, but the controller is specified mainly by reference to the authors' own preprint, and a cluster of weakly related citations is present. The experimental support is thin and partly inconsistent."
+  },
+  {
+   "paper_id": "hafs2024",
+   "paper": {
+    "title": "Enhancing Recognition in Multimodal Biometric Systems: Score Normalization and Fusion of Online Signatures and Fingerprints",
+    "authors": [
+     "Toufik Hafs",
+     "Hatem Zehir",
+     "Ali Hafs",
+     "Hanene Brahmia",
+     "Amine Nait-Ali"
+    ],
+    "abstract": "Multimodal biometrics employs multiple modalities within a single system to address the limitations of unimodal systems, such as incomplete data acquisition or deliberate fraud, while enhancing recognition accuracy. This study explores score normalization and its impact on system performance. To fuse scores effectively, prior normalization is necessary, followed by a weighted sum fusion technique that aligns impostor and genuine scores within a common range. Experiments conducted on three biometric databases demonstrate the promising efficacy of the proposed approach, particularly when combined with Empirical Modal Decomposition (EMD). The fusion system exhibits strong performance, with the best outcome achieved by merging the online signature and fingerprint modalities, resulting in a normalized Min-Max score-based Equal Error Rate (EER) of 1.69%.",
+    "keywords": [
+     "Empirical mode decomposition",
+     "fingerprints",
+     "image and signal processing",
+     "min-max",
+     "multibiometrics",
+     "online handwritten signatures",
+     "scores fusion",
+     "weighted sum"
+    ],
+    "doi": null,
+    "pages": "37-49",
+    "source_file": "paper760.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 30,
+    "artifact_availability": 50,
+    "intellectual_integrity": 39.0,
+    "composite": 41.75,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "The first used database is the publicly available MYCT-100 [16]",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 score-fusion pipeline; the Bayes likelihood-ratio derivation (Eqs. 7-8) is not implemented, since no likelihoods are estimated and the decision is a threshold on the fused score, and Eq. (8) is mathematically inverted.",
+    "UNSUPPORTED_CLAIMS": "Evaluation on three databases is claimed but only one MCYT-100 table is reported; superiority over unimodal systems and existing approaches, the 2.91% baseline and 'improves the decision in all cases' are asserted without data (CER judged below 0.33).",
+    "NO_LIMITATIONS": "No limitation of the proposed system is acknowledged; limitations are discussed only for unimodal biometrics in general."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Standard score-level fusion of signature and fingerprint scores, with a decorative and incorrect Bayes derivation, results on one database only, and unsupported comparative claims.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Score-level fusion of an online-signature verifier (EMD features, reused from the first author's earlier work [4]) and a minutiae-based fingerprint verifier, with Min-Max, Z-score and TanH normalisation and EER-based weighted-sum fusion.\n**Level:** 2 (Low)\n**Rationale:** Every component (EMD, minutiae extraction, standard score normalisations, weighted sum) is an existing method applied in a standard pipeline; the result is an empirical comparison of four normalisation settings.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 8\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** The count is proportionate, but the necessity test fails on one block: the Bayes decision derivation is decorative and wrong.\n\n### Issues\n- Eqs. (7)-(8) derive a Bayes likelihood-ratio rule, then state that the priors are hard to estimate and that \"we compare the likelihood ratio to an experimental threshold θ\". No class-conditional likelihoods P(S/H0) or P(S/H1) are ever estimated; the system accepts when the fused score passes a threshold. The derivation changes nothing in what is implemented and could be replaced by one sentence. Eq. (8) is also incorrect: (7) yields P(S/H1)/P(S/H0) > P(H0)/P(H1), not a ratio of likelihoods on the right-hand side.\n- Eq. (6), w_i = EER_i / Σ EER_m, makes each weight proportional to the subsystem's error rate, while the text says the weights are \"inversely proportional\" and that the more discriminative modality gets the larger weight; the printed formula does the opposite.\n- Eqs. (1)-(5) (reference averaging, EMD stopping criterion, EMD reconstruction, Euclidean distance, weighted sum) define what is computed and pass the test.\n\nAt Level 2 the decorative decision-theory block triggers FORMALISM_THEATER.\n\n---\n\n## Citation Analysis\n\nOne of 30 references is a self-citation: [4] (Hafs et al., EMD for online signature verification), the method reused for the signature subsystem, directly relevant. SCR = 3.3%.\n\nThe related-work section ends with one sentence citing six works ([10]-[15]) on fuzzy-model \"signatures\" (an algebraic notion unrelated to handwritten signatures), shape-memory-alloy actuators, COVID-19 mortality prediction, LSTM mobility prediction, K-means post-processing and Bayesian filtering, introduced as applications of \"modeling and classification techniques in various fields\". None bears on biometric fusion; four share one author group and two are to this journal. They make up 20% of the reference list and read as padding. They are not self-citations and mutuality cannot be shown from this paper, so no citation flag is raised; the score sits at the bottom of its band. References [27] and [28] are also attached to the wrong modalities in Section 3.4.\n\n---\n\n## Structural Analysis\n\nThe paper claims experiments on three databases (MCYT-100, SVC2004, FVC2004) but reports results for MCYT-100 only: one four-cell table (EER 1.69% Min-Max, 1.85% Z-score, 1.76% TanH, 2.16% unnormalised) and one DET figure. Unimodal results, the intra-signature fusion and \"the two previous fusion operations\" mentioned in Section 4 are not presented, and the 2.91% baseline in \"error rates which dropped from 2.91% to 1.69%\" appears nowhere else. Claims such as \"offering improved performance compared to existing approaches\", Min-Max normalisation \"improves the decision in all cases\" (one case is shown) and \"performs much better compared to the unimodal systems illustrated in our work\" have no supporting numbers, and no comparison with the systems reviewed in Section 2 is made. Factual slips reduce confidence: the introduction calls the signature a physical and the fingerprint a behavioural modality, the SVC2004 paragraph describes fingerprint sensors, and FVC 2004 is expanded as \"Fingerprint Verification Competition 2002\". CER is judged below 0.33. No limitations of the proposed system are acknowledged.\n\nThe results rest on named public benchmark databases (MCYT-100, SVC2004, FVC2004); no code is offered.\n\n---\n\n## Conclusion\n\nA routine score-fusion study whose results reduce to a single table on one database, while the text claims evaluation on three and superiority over unimodal and existing systems without showing either. The formal content is small, but it includes a decorative and inverted Bayes derivation and a weight formula that contradicts its own description; at Level 2 this is formalism theater. The reference list carries a block of unrelated citations."
+  },
+  {
+   "paper_id": "popescu2024",
+   "paper": {
+    "title": "Software Platform Based on the hLARM Formalism for Modeling Complex Systems",
+    "authors": [
+     "Dragos Constantin Popescu",
+     "Ioan Dumitrache"
+    ],
+    "abstract": "The problem of defining, analyzing and reasoning behaviors, facts and uncertainties in complex systems asks for new modeling formal methods and software tools that can deal with managing such collections of heterogeneous and dynamical interacting entities. The purpose of this paper is to present in detail the implementation of a new software modeling platform which is based on the hLARM (Hybrid Logic-Algebraic Relational Modeling) formalism which aims to alleviate the process of designing and managing such systems. The development of the platform is thoroughly analyzed from its conceptual background and up to the algorithms which support all the inference procedures involved.",
+    "keywords": [
+     "Complexity",
+     "modeling",
+     "platform",
+     "relational modeling",
+     "trust factors"
+    ],
+    "doi": null,
+    "pages": "65-80",
+    "source_file": "paper762.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 40.95,
+    "composite": 30.71,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 software-platform description; Eq. (2) presents a Python dictionary as a numbered equation, and Eqs. (5)-(6) restate a SAT-solver call and a dictionary filter as operator notation.",
+    "UNSUPPORTED_CLAIMS": "No evaluation of any kind; claims of flexibility, ease of use, high adaptability and efficient searching are supported only by architecture diagrams and screenshots (CER judged below 0.33)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Description of a Python modelling platform for the authors' hLARM formalism; notation restates dictionaries and library calls, there is no evaluation, and the software is not released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Description of a Python software platform (terminal application plus browser-based UI) implementing the authors' previously published hLARM relational modelling formalism [3], built on SymPy (SAT solving, Quine-McCluskey simplification), NumPy, NetworkX (Kamada-Kawai layout), livereload, Bootstrap and leader-line.\n**Level:** 1 (Trivial)\n**Rationale:** The formalism and its inference algorithms were introduced in [3]. This paper documents classes, menus, GUI rendering, a layout post-processing step and the mapping of hLARM operators onto existing library calls: a system/prototype description that combines existing components.\n\n### Formal Elements\n- Definitions: 0 (the paper invokes \"Definition 8 from [3]\")\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 numbered, plus Algorithm 1 with inline coordinate formulas\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** The count is proportionate, but the necessity test fails: part of the notation restates ordinary code.\n\n### Issues\n- Eq. (2), \"{'index' : object related to the resource}\", presents a Python dictionary as a numbered equation.\n- Eqs. (5)-(6), S̄V = σ|FV and S̄f = ϕ_fi|S̄V, write \"call the SymPy SAT solver\" and \"keep only the auxiliary attributes in each solution\" as operator notation; the paper itself says the filter operator \"is implemented using standard set theory over Python dictionaries\".\n- Eq. (1) and the attribute notation (α with input, internal and output indices) restate the hLARM data structures (a list of rules and a list of trust factors) without being used in any derivation here.\n- Eq. (3) (least-squares propagation of trust factors) and Eq. (4) (the ITE construction passed to the SAT solver) specify computations a programmer needs and pass the test; Algorithm 1 is ordinary pseudocode.\n\nAt Level 1 the dictionary-as-equation and the operator notation for library calls trigger FORMALISM_THEATER. The filter in Eq. (6) is a projection operator rather than set-builder, union or intersection notation, so UNNECESSARY_SET_THEORY is not raised.\n\n---\n\n## Citation Analysis\n\nOne of 32 references is a self-citation: [3] (Popescu and Dumitrache, Information Fusion 2023), the source of the formalism the platform implements; essential and directly relevant. SCR = 3.1%. Many references are tool home pages (KeYmaera X, Modelica, Simulink, NetLogo, Ptolemy II, SysML, Modelio, Python, SymPy, NumPy, NetworkX, Bootstrap, leader-line), appropriate for a software paper. Two citation placeholders were left unresolved in the published text (\"[citare]\" after the pickle package and after the NetworkX Kamada-Kawai routine), a copy-editing lapse rather than an integrity issue.\n\n---\n\n## Structural Analysis\n\nThe paper contains no evaluation: no worked modelling example, no case study, no performance or scalability measurement, no user study. Evidence is limited to architecture diagrams, the class tree and UI screenshots. Evaluative claims, such as \"a high degree of flexibility and real ease of use\", \"simplicity of configuration and high adaptability for wide classes of heterogeneous complex systems\", \"highly efficient searching\" and support for concurrent multi-user modelling, rest on no data, so CER is judged below 0.33. One implementation constraint is acknowledged inline (leader-line gives no control over link routing, so only model positions are optimised); there is no broader limitations discussion.\n\nThe platform is the paper's contribution, yet no repository, download or availability statement is given; all linked URLs are third-party tools.\n\n---\n\n## Conclusion\n\nA software description of a platform implementing the authors' earlier formalism. Its useful content (class structure, the mapping of operators onto SymPy and NumPy, layout post-processing) is wrapped in notation that restates dictionary storage and library calls as equations, which at Level 1 is formalism theater. With no evaluation, unsupported claims of flexibility and ease of use, and the software itself unavailable, readers can neither verify nor reuse what is described."
+  }
+ ]
+}

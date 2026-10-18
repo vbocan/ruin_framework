@@ -1,0 +1,187 @@
+{
+ "batch_id": "2025-v28-n4",
+ "analysis_timestamp": "2026-10-18T03:52:27Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 4,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "balaban2025",
+   "paper": {
+    "title": "112 Emergency Video Call Response Pipeline for Car Crashes Using Computer Vision and Natural Language Processing",
+    "authors": [
+     "Béatrix-May Balaban",
+     "Ioan Sacală",
+     "Alina-Claudia Petrescu-Nită"
+    ],
+    "abstract": "This paper presents a comprehensive 112 emergency response pipeline that integrates multimodal technologies, such as automatic speech recognition, object detection, natural language processing, and blockchain, to enhance how critical incident information is gathered, analyzed, and acted upon. From real-world video inputs, speech content is transcribed using a speech-to-text algorithm, while computer vision models identify individuals involved. The transcribed dialogue is semantically processed to extract structured question-answer pairs, which are then evaluated to assess the medical urgency of the case. To enrich contextual awareness, the system cross-references vehicle ownership claims made in the transcript with a blockchain-based ledger of profiles linked by Vehicle Identification Number (VIN) identifiers. This verification step enables the retrieval of car owner name, age and critical medical background, such as insurance coverage, chronic conditions, and ongoing treatments. A lightweight web interface presents this information in an accessible format for first responders. The result is an intelligent, end-to-end system that prioritizes car accident emergency cases efficiently and empowers intervention teams with personalized insight, aiming to reduce response time and improve patient outcomes by classifying each emergency accordingly.",
+    "keywords": [
+     "Blockchain",
+     "computational linguistics",
+     "computer vision",
+     "emergency services",
+     "natural language processing",
+     "object detection",
+     "semantic processing"
+    ],
+    "doi": "10.59277/ROMJIST.2025.4.01",
+    "pages": "315-326",
+    "source_file": "paper811.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.95,
+    "composite": 59.96,
+    "final": 59.96
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "No code or dataset link. The only link is the supplementary document [13], \"Available at: https://1drv.ms/b/s!Ajn0ZsYKsVKMkvFwQDqhmf-lpwuqBA?e=F0Zb8y\", described as holding transcription examples: \"Table 2 contains full examples of speech-to-text result for each scenario using the three mentioned algorithms\"; the CarEM-Vid videos, labels and code are not offered.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Level 1 integration of off-the-shelf detection, speech-to-text, semantic matching, rule-based triage and a blockchain lookup, with no formalism and one relevant self-citation; the evaluation is thin (a single 83.67% accuracy figure with no protocol, on a scripted 49-video dataset) and neither code nor dataset is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** End-to-end pipeline for 112 emergency video calls after car crashes: YOLOv8 with Deep SORT counts occupants, Whisper transcribes the call, a SentenceTransformer matches transcript segments to known operator questions, hand-written rules map answers to severity and an overall urgency label, and a blockchain ledger keyed by VIN supplies the owner's medical data to a Flask page.\n**Level:** 1 (Trivial)\n**Rationale:** Every component is an existing pre-trained model or service; the contribution is their orchestration, a small staged dataset (CarEM-Vid, 49 videos) and a rule table. No new algorithm is proposed. This is the \"system architecture that combines existing components\" case.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the paper states its logic in prose and a flow diagram (three or more \"High\" answers give Critical, one gives Urgent, none gives Non-Critical). No notation is introduced.\n\n### Issues\nNone identified in the formalism. The rule-based urgency logic is, however, underspecified: missing answers are said to default to \"High\", yet the text does not explain why the unconscious-driver monologue in Table 3 is rated \"Urgent\" while the damaged-car monologue is rated \"Critical\".\n\n---\n\n## Citation Analysis\n\nOne self-citation among 16 references (SCR ≈ 6%): [13] is the authors' own supplementary material for this paper, directly relevant (similarity ≈ 1.0). No other reference shares an author with the paper. The Romanian NLP references [14]-[16] are cited only as future-work pointers.\n\nCitation descriptions are loose. The literature review announces \"five pertinent academic studies published between 2023 and 2025\", but of [1]-[5] only [1] (2025) and [3] (2023) fall in that window; [2] is from 2022, [4] from 2014 and [5] from 2007. Reference [12] is labelled a ResearchGate preprint while giving an arXiv DOI. The introduction's claims about the state of emergency systems carry no citations at all. No manipulation pattern identified.\n\n---\n\n## Structural Analysis\n\nClaim-evidence balance is weak (CER ≈ 0.45). The dataset consists of scripted operator dialogues acted out in cars, yet the results claim accuracy \"in a real-world context, where data comes from noisy, spontaneous speech under stressful conditions\". One headline number is reported, an overall urgency classification accuracy of 83.67% (83.6% in the conclusions), with no ground-truth procedure, per-scenario breakdown or confusion matrix. The same figure, 83.67% (41 of 49 videos), is also given in Section 4.2 as the YOLOv8 person-counting accuracy, and neither is tied to a stated test protocol. The speech-to-text comparison is qualitative (one excerpt in Table 1, more in the supplement) with no word error rate. Statements such as \"a reduction in false alarms\", \"classifies emergencies with high accuracy\" and \"the urgency classification system ensures that critical cases are never delayed\" have no supporting measurement.\n\nLimitations are acknowledged only inline and minimally: the future-work note that the Romanian speech-to-text result should be improved. The staged data, the dataset size, and the handling of medical records on a ledger are not discussed.\n\nArtifacts: no code link. The only link is the OneDrive supplementary document [13], which as described holds speech-to-text output examples, not the CarEM-Vid videos, their labels, or code. Assessed as none.\n\n---\n\n## Conclusion\n\nA Level 1 integration paper whose prose-only presentation suits its content: no formalism, and a single, relevant self-citation. Its weakness is evidential. The one accuracy figure has no protocol behind it and coincides exactly with the separately reported detection accuracy, and the evaluation data are scripted rather than real calls, so the claims about real-world robustness and operational benefit go well beyond what is shown. Releasing the dataset, labels and rule table, and reporting per-scenario results against a defined ground truth, would make the work assessable."
+  },
+  {
+   "paper_id": "li2025",
+   "paper": {
+    "title": "Design and Simulation of Integrated Radio Frequency Transmitter for Wireless Sensor Network Applications",
+    "authors": [
+     "Zhenyao Li",
+     "Jie Jin",
+     "Daobing Zhang",
+     "Zhijing Li"
+    ],
+    "abstract": "This paper introduces a low-voltage low-power integrated radio frequency (RF) transmitter using GlobalFoundries' 0.18 µm CMOS RF process technology for 2.4 GHz wireless sensor network (WSN) applications. The proposed RF transmitter consists of an LC voltage-controlled oscillator (VCO) and a sub-harmonic mixer. The VCO utilizes an LC tank to achieve reduced phase noise and enhanced frequency stability, the sub-harmonic mixer is optimized for lower power consumption and reduced harmonic distortion, addressing limitations observed in previous designs, and the collaboration between the VCO and the sub-harmonic mixer ensures that the RF transmitter operates stably and efficiently. Simulation experiments demonstrate that the integrated RF transmitter operates effectively at 1V supply voltage, and its power consumption is 2.55 mW, showcasing its suitability for low-power applications typical in WSNs where energy efficiency is critical. In terms of linearity, the input-referred third-order intercept point (IIP3) of the transmitter reaches 3.19 dBm, which exhibits its ability to handle third-order nonlinearities and robustness against interference. Additionally, the RF transmitter achieves a conversion gain of approximately 12.5 dB, which demonstrates its effectiveness in signal amplification and ensures that the transmitter is capable of providing sufficient power to the received signals, enabling reliable applications in WSNs.",
+    "keywords": [
+     "Complementary metal-oxide-semiconductor (CMOS)",
+     "mixer",
+     "oscillator",
+     "radio frequency (RF)",
+     "transmitter",
+     "wireless sensor network (WSN)"
+    ],
+    "doi": "10.59277/ROMJIST.2025.4.03",
+    "pages": "341-352",
+    "source_file": "paper813.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 70,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 71.5,
+    "composite": 53.62,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "IRRELEVANT_SELF_CITATION"
+   ],
+   "flag_details": {
+    "IRRELEVANT_SELF_CITATION": "Reference [3], J. Jin et al., \"A novel dynamic hill cipher and its applications on medical IoT\" (IEEE Internet of Things Journal, 2025), matches the corresponding author by name and is a cryptography paper, cited only in the opening \"[1-3]\" sentence on the popularity of WSNs; topical similarity to RF CMOS transmitter design is about 0.15, below 0.3."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simulation-only CMOS transmitter combining a standard LC VCO and sub-harmonic mixer, with proportionate circuit equations; a self-citation to the corresponding author's unrelated hill-cipher paper is disqualifying, and the comparison table lists one reference twice with different values while the conclusions contradict the reported gain.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Simulation-only design of a 2.4 GHz CMOS transmitter (GlobalFoundries 0.18 µm) pairing a complementary cross-coupled LC VCO at 1.15 GHz with a Gilbert-cell sub-harmonic mixer that uses an LO frequency doubler and current bleeding; all results come from Cadence simulations.\n**Level:** 2 (Low)\n**Rationale:** Both blocks are standard topologies (complementary negative-resistance LC VCO; sub-harmonic Gilbert mixer with current bleeding), combined for a WSN transmitter and characterised by simulation. No new circuit principle or analysis is claimed beyond the combination, which matches \"standard design patterns applied to a new domain\".\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (five numbered circuit relations for the negative-resistance condition, plus Leeson's phase-noise equation inline)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — Equations (1)-(5) are the textbook derivation that the cross-coupled pair presents about −1/gm across the tank, the start-up condition the design relies on, and Leeson's equation is the standard phase-noise model. These are domain models a circuit designer actually uses, not notation standing in for something plainer, so they pass the necessity test.\n\n### Issues\nExecution is careless rather than theatrical. Equation (1) reads \"gm1 = gm2 = gm3 = gm1\" (the last term should be gm4), and gm is called \"the transimpedance of the transistor\" when it is the transconductance. Leeson's equation is introduced \"to quantitatively analyze the phase noise\", but none of its parameters (F, Ps, Q, the 1/f³ corner) is given a value and the −110 dBc/Hz result at 1 MHz offset is reported without a plot or the calculation. The equation is stated rather than exercised; as a legitimate domain model it is not counted as a necessity-test failure, but the paper makes no use of it.\n\n---\n\n## Citation Analysis\n\nThirty-eight numbered references, of which [35] and [38] are the same paper (Li and Saavedra, 2018) entered twice. Self-citations by name match on the corresponding author, J. Jin: [3], [7], [19]. A fourth candidate, [24] (Z. Li et al., 2004, Journal of Southeast University), matches an author's surname and initial but comes from another institution two decades earlier and is treated as an unlikely match. SCR = 3/38 ≈ 7.9% (4/38 ≈ 10.5% if [24] is counted), within the normal band.\n\nRelevance: [7] (amplifier-based mixer for ISM-band applications) and [19] (resonant-amplifier sub-harmonic mixer) are directly on topic (similarity ≈ 0.8). [3], \"A novel dynamic hill cipher and its applications on medical IoT\", is a cryptography paper cited in the opening sentence on the popularity of WSNs (\"[1-3]\"); it shares only the broad IoT setting with RF transmitter design (similarity ≈ 0.15). This raises IRRELEVANT_SELF_CITATION.\n\nOther citation problems, not self-citation: [18], on torque sub-harmonic reduction in induction motor drives, is cited for sub-harmonic mixers improving DC drift in zero-IF receivers, which reads as a keyword match; [1] (underwater acoustic localisation) and [2] (a humidity-sensor paper in this journal) are cited only for the general popularity of WSNs. The comparison is compromised: Table 2 lists [35] (8.5 dB, IIP3 14.5 dBm) and [38] (13.74 dB, −3.5 dBm) with different values although they are the same reference, and the text attributes the 14.5 dBm IIP3 to [36] while the table gives [36] −6 dBm. Smaller errors: [14] is described as a 2023 conference with the year 2013, and the text dates [19] to 2016 while the reference gives 2017.\n\n---\n\n## Structural Analysis\n\nThe headline numbers (2.55 mW at 1 V, conversion gain 12.447 dB, IIP3 3.19 dBm, 180° VCO outputs) are backed by simulation figures, so claim-evidence balance is adequate (CER ≈ 0.6). Several statements outrun them. The conclusions give the conversion gain as \"approximately 10.5 dB\", against 12.447 dB in Section 3 and 12.5 dB in the abstract. Section 3.1 attributes the 2.55 mW to the mixer (\"The mixer is designed to operate with a low supply voltage of 1V, achieving an exceptionally low power consumption of only 2.55 mW\"), while the abstract and conclusions present it as the transmitter's consumption; the VCO's consumption is never reported. Table 2 omits power, supply and process, so the claimed \"remarkable reductions in power consumption\" is compared with nothing, and the IIP3 is called \"strong linearity\" although one comparator is about 11 dB better. The phase-noise figure has no plot. The introduction promises that \"the parasitic analysis and interference effects are also introduced\", but Section 3.3 offers only generic advice on reducing parasitics; there are no post-layout, corner or Monte Carlo results.\n\nLimitations are acknowledged inline only: future work on fabrication and use \"in the real WSN\" concedes that the design is unfabricated, and the comparison concedes that three designs have higher gain.\n\nArtifacts: simulation-only work with no netlist, testbench or layout released; Cadence and the process kit are third-party. Assessed as none.\n\n---\n\n## Conclusion\n\nThe circuit content is conventional and its equations are proportionate to it, so formalism is not the problem. The paper is disqualified on citation conduct: the corresponding author's unrelated cryptography paper is cited in a padding position in the first sentence of the introduction. Beyond that, the comparison table lists one reference twice with different numbers, the conclusions' gain figure contradicts the results, and the power figure appears to cover the mixer alone, so the performance claims need correcting before the comparison can be relied on."
+  },
+  {
+   "paper_id": "lazarescu2025",
+   "paper": {
+    "title": "Personalized Movement Algorithms for Neural Forearm Prostheses Using Convolutional Neural Networks",
+    "authors": [
+     "Sorin Lazarescu",
+     "Florin Istudor",
+     "Octavian Ionescu",
+     "David Dragomir",
+     "Marian Ion",
+     "Ladislau Székely",
+     "Szilárd Olasz",
+     "István Tüsez",
+     "Gabriela Ionescu",
+     "Stefanos P. Zaoutsos",
+     "Cătălin Niculae",
+     "Bogdan Sinatoma"
+    ],
+    "abstract": "The article presents personalized movement algorithms for neural forearm prostheses equipped with AI module. The implementation of personalized motion algorithms is done by using a glove with finger flexion sensors mounted on the patient's healthy hand, a neural interface with plug electrodes implanted in the motor fascicles of the median and ulnar nerves from the patient's amputation stump and an AI module based on a convolutional neural network (CNN). For each prosthesis movement selected by the patient, the glove will detect the movement parameters of the fingers from the healthy hand, the neural interface will detect the motor neural signals from the median and ulnar nerves, and the CNN will identify the specific pattern of motor neural signals. The AI module will thus learn to recognize the patient's commands for the prosthesis and will command its natural movements.",
+    "keywords": [
+     "Convolutional neural networks",
+     "implantable neural interface",
+     "movement algorithms",
+     "neural prostheses"
+    ],
+    "doi": "10.59277/ROMJIST.2025.4.06",
+    "pages": "377-384",
+    "source_file": "paper816.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 40.25,
+    "composite": 30.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 prototype description whose only formal element, Equation (1), Nmvm = Σ_{i=1..5} C(5,i) = 31, restates 2^5 − 1 in summation-and-binomial notation; it fails all three necessity questions and is contradicted by the \"32 output classes\" given in Section 4.",
+    "UNSUPPORTED_CLAIMS": "CER about 0.3: no neural data, no CNN training and no accuracy results, yet the conclusions state that \"the results presented in this article show that neural prostheses offer patients a greater range of movement functions\" and that the interface \"has been successfully tested both in vitro and in vivo\", neither supported in the paper."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Concept-level description of a CNN-based neural prosthesis control module with no neural data, no trained model and no accuracy results; its only equation dresses up 2^5 − 1 = 31 as a binomial sum, and its conclusions claim results the paper does not contain.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Description of the movement-learning module of the NerveRepack neural forearm prosthesis: a data glove on the healthy hand is to label simultaneous motor-nerve signals recorded by implanted plug electrodes, and a small CNN on a Basys3 FPGA is to learn the mapping. What is actually shown is glove thresholding into flexed/extended bits, a finger-state table, and an inference-time figure.\n**Level:** 1 (Trivial)\n**Rationale:** The paper describes a prototype and its intended workflow. The CNN is neither specified in detail nor trained or evaluated, the neural data do not yet exist (first human implantation is planned for March 2027), and the implemented part is thresholding of glove readings. This is the \"prototype description\" case; even read generously as an ML application it would be no higher than Level 2.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (Equation (1), Nmvm = Σ_{i=1..5} C(5,i) = 31)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Within range by count, but the single equation fails the necessity test. It counts the non-empty subsets of five needles, 2^5 − 1 = 31, a number that can be stated in one clause; removing it changes nothing in the design or the implementation, and no proof or bound depends on it. At Level 1 one unnecessary formal element raises FORMALISM_THEATER.\n\n### Issues\nEquation (1) is presented as \"the total number of distinct movements that can be implemented in the AI module\", resting on the unstated assumption that every subset of active needles is a separately decodable movement command. The paper then departs from it: Section 4 gives the network \"32 output classes (one for each possible combination finger flex / extension)\", that is 2^5 finger states rather than 31 needle subsets, and Table 1 lists three movements. The notation gives the 31-movement claim an appearance of derivation that nothing else in the paper supports.\n\n---\n\n## Citation Analysis\n\nNo self-citations among the 8 references (SCR = 0%); [6] and [7] come from another Romanian prosthesis group and share no author with this paper. The reference list is thin for the claims made: half the entries are statistics, encyclopedia or news pages, and nothing on peripheral-nerve interfaces, neural decoding, or CNNs for neural signals is cited.\n\nSeveral citations are misattributed. \"The plug electrodes and neural interface from the NerveRepack project are presented in detail in [8]\", but [8] is the 5DT data-glove datasheet. \"2018 statistics\" are attributed to [2], a 2010 item. The forecast of 3,600,000 people by 2050 is credited to \"Advanced Amputee Solutions\" while [4] is Ziegler-Graham et al. (2008), and the text applies that limb-loss estimate to \"people with amputated arms\". No manipulation pattern identified, but the citations do not carry the paper's factual claims.\n\n---\n\n## Structural Analysis\n\nClaim-evidence balance is poor (CER ≈ 0.3). The title and abstract promise CNN-based personalised movement algorithms, but no neural signals were recorded, no network was trained, and no recognition accuracy is reported; the abstract itself is in the future tense (\"the CNN will identify the specific pattern of motor neural signals\"). The only measurements are glove traces (Fig. 6) and an FPGA inference time of about 20 ms for a 5 x 3000 input introduced as \"aforementioned\" without having been mentioned. The network description is inconsistent: \"a single convolutional layer, followed by a feature map activation layer and a classification layer\", then \"two hidden layers\". Physiological premises central to the method, that the nerve signal trains \"are the same every time the patient makes the same movement\" and stay \"the same as before amputation\", are asserted without citation. The conclusions state that \"the results presented in this article show that neural prostheses offer patients a greater range of movement functions compared to that provided by myoelectric prostheses\" and that the interface \"has been successfully tested both in vitro and in vivo\"; the paper contains no results or references supporting either.\n\nLimitations are acknowledged inline only: constant angular speed \"in this first iteration of the algorithm\", and the pending first human implantation.\n\nArtifacts: no code, data, or design files are linked or claimed; the only technical link is the third-party glove datasheet. Assessed as none.\n\n---\n\n## Conclusion\n\nThis is a project description presented as a research result. Its one formal element dresses a trivial count in binomial-sum notation and is contradicted by the network's own class count, which is disqualifying at Level 1. Independently of that, the paper's central claims, CNN-based recognition of motor commands and the superiority of neural over myoelectric control, have no evidence in the text. A version reporting recorded nerve signals, a trained model and its accuracy would be a different and assessable paper."
+  }
+ ]
+}

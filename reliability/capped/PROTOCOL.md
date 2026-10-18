@@ -79,4 +79,15 @@ out. Output: [`results.json`](results.json).
 
 ## Deviations
 
-None so far.
+Recorded after the run, 2026-10-18. None affects a judged field or a metric.
+
+1. **Paraphrased abstracts.** Several agents wrote a short paraphrase into the
+   `abstract` metadata field instead of the verbatim abstract, and said so in
+   the field. The abstract is metadata; no metric reads it.
+2. **Issue labels.** For issues labelled "3-4", "S" or "T", agents set
+   `source.issue` to null. `scripts/finalize_run.py` rebuilt `source` from the
+   corpus `source.json`, as it does for every run, and made two `paper_id`s
+   unique across the run. Papers are matched by `(batch_id, source_file)`, so
+   neither change touches the analysis.
+3. **Specification change after the run.** `framework/` moved to 1.2.1 after
+   every run-4 agent had finished; the run used 1.2.0 (tag `spec-1.2.0`).

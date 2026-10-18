@@ -1,0 +1,278 @@
+{
+ "batch_id": "2022-v25-n2",
+ "analysis_timestamp": "2026-10-18T03:52:00Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 25,
+  "issue": 2,
+  "year": 2022
+ },
+ "papers": [
+  {
+   "paper_id": "bal2022",
+   "paper": {
+    "title": "The Impact of Features and Preprocessing on Automatic Text Summarization",
+    "authors": [
+     "Salih Bal",
+     "Efnan Sora Gunal"
+    ],
+    "abstract": "Automatic text summarization obtains a shortened and informative version of a given text without manual intervention based on specific features, preprocessing methods, and decision mechanisms. This paper aims to thoroughly analyze the impact of common features and preprocessing techniques on the performance of automatic text summarization, particularly in the Turkish language. Also, a new distinctive feature based on latent semantic analysis is proposed as another contribution. Two datasets consisting of a total of 120 documents and 1,466 sentences were used for the analysis. Two different success metrics were utilized to assess the performance of automatic text summarization. A set of comprehensive experimental studies revealed the optimal feature subset and the most useful preprocessing methods that can improve the summarization performance. Moreover, it has been verified that the proposed feature further improves the performance.",
+    "keywords": [
+     "Computational linguistics",
+     "automatic text summarization",
+     "feature extraction",
+     "feature selection",
+     "machine learning",
+     "preprocessing"
+    ],
+    "doi": null,
+    "pages": "117-132",
+    "source_file": "paper711.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 47.0,
+    "composite": 35.25,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the datasets are attributed to earlier papers without a statement that they are public: \"The first dataset (Dataset I) consists of 100 Turkish documents consisting of news in the fields of economy, sports, and art [28]. The second dataset (Dataset II) includes 20 Turkish documents consisting of news in various fields such as magazines, politics, and health [19].\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 empirical study. The proposed feature is stated in one plain sentence (cosine similarity to the sentence with the highest LSA score) and then restated as a seven-step formal algorithm with set-builder lists, a restated term-sentence matrix and SVD, and an ill-formed \"MLSi = max(LSi)\" that yields a score but is then used as a sentence in Eq. (18). None of this changes the implementation or supports a proof.",
+    "UNNECESSARY_SET_THEORY": "Set-builder notation \"D={Si | i=1,2,...,N}\" and \"TF={Tj | j=1,2,...,M}\" for the arrays of sentences and terms (repeated in Tables 5 and 6), index-set membership \"i in {1...N}\" inside min/max in Eqs. (7)-(8), and intersection/union in Eq. (5) to count shared neighbouring sentences; no proof depends on any of these operations."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Exhaustive empirical study of sentence features and preprocessing for Turkish extractive summarization; set-builder notation and a seven-step formal restatement of a one-sentence feature amount to formalism theater at Level 2, and the optimal subsets are selected and reported on the same data without a held-out split.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Empirical evaluation of 15 common sentence features, 16 preprocessing combinations, and one new LSA-derived feature for extractive summarization of Turkish news, using exhaustive feature-subset search.\n**Level:** 2 (Low)\n**Rationale:** The core contribution is an empirical comparison of existing features and preprocessing steps. The proposed feature (cosine similarity of each sentence to the sentence with the highest LSA score) combines two existing measures. There is no new algorithm, model, or proof.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 18 (feature formulas and LSA steps), plus set-builder notation in the proposed-feature algorithm and in the two evaluation algorithms (Tables 5 and 6)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate by count, but the Necessity Test fails. Most feature equations (position, cosine similarities, the LSA score) specify what is computed and are acceptable. The proposed feature, however, is first stated in one plain sentence (\"obtained based on the cosine similarity to the sentence that has the highest LSA score\") and then restated as a seven-step formal algorithm that adds nothing a programmer needs.\n\n### Issues\n- Set notation for lists: \"D={Si | i=1,2,...,N} represents the sentences in a given document\" and \"TF={Tj | j=1,2,...,M} represents the terms in a given sentence\". These are arrays of sentences and terms. The same set-builder construction is repeated in Tables 5 and 6 to describe a vote count.\n- Eq. (17) writes \"MLSi = max(LSi)\", which yields a score, and Eq. (18) then uses it as a sentence in cosine(Si, MLSi). The notation is not only unnecessary but wrong: an argmax is meant.\n- Eqs. (6)-(8) embed C-style ternary operators (\"ci > 0 ? 1 : 0\") and index-set membership inside sums and min/max, which is code transcribed into mathematical dress.\n- Eq. (5) applies intersection and union to \"similars\" sets to count shared neighbours (a Jaccard ratio); in English it is the share of sentences similar to both.\n- Eq. (16) restates the SVD already introduced before Eq. (14).\n\nNecessity failures: 4 (set-builder lists, restated matrix and SVD, ill-formed max, set operations for counting common neighbours). At Level 2 any one of them triggers FORMALISM_THEATER.\n\n---\n\n## Citation Analysis\n\nOne self-citation among 33 references (3.0%): [28], the authors' earlier model for Turkish summarization, which is also the source of Dataset I and the main comparison point in the Discussion. It is directly relevant. References [21] and [30] are by an author who shares the corresponding author's surname but has a different initial (S. Gunal); by name matching they are not self-citations, and both are on topic (preprocessing for text classification, exhaustive feature-set search). No irrelevant or padding citations were found, and the reference list covers Turkish and multilingual extractive summarization adequately.\n\n---\n\n## Structural Analysis\n\nThe experimental design is exhaustive (all 65,535 feature subsets and all 16 preprocessing combinations), and the tables support the descriptive claims. There are weaknesses:\n- The optimal subsets are selected and reported on the same documents, with no held-out split or cross-validation, so the reported maxima are optimistic.\n- Dataset II has only 20 documents (201 sentences), and no statistical test or variance is reported for differences in the second or third decimal place.\n- The claim of superiority over [27] and [28] rests on comparisons the authors themselves describe as not one-to-one, and the Discussion's \"maximum performance of 0.774\" on Dataset II does not match the 0.770 maximum in Tables 9, 11 and 13.\n- The claim that the selected features \"reduce the computational load\" has no baseline timing for the full feature set.\n\nLimitations are acknowledged only inline and weakly (\"a one-to-one comparison is not always possible\"; results \"may vary depending on the domain of the text and the utilized success metric\").\n\nArtifacts: the C# implementation is not released, and the two datasets are attributed to [28] and [19] with no statement that they are public. The Zemberek library is third-party.\n\n---\n\n## Conclusion\n\nA careful, if conventional, empirical study whose main finding (the best feature subset and preprocessing combination depend on the dataset and metric) is supported by its tables. The proposed feature is reasonable, but its presentation wraps a one-sentence idea in set-builder notation and an ill-formed max expression. At Level 2 that constitutes formalism theater, which disqualifies under the framework. Independently of the flag, the lack of a held-out evaluation for the exhaustive subset search means the headline numbers overstate expected performance."
+  },
+  {
+   "paper_id": "verma2022",
+   "paper": {
+    "title": "Computational Cost Reduction of Convolution Neural Networks by Insignificant Filter Removal",
+    "authors": [
+     "Amit Verma",
+     "Toshanlal Meenpal",
+     "Bibhudendra Acharya"
+    ],
+    "abstract": "Convolutional Neural Networks are widely employed in a range of computer vision applications such as image classification and text recognition. While delivering excellent results across a range of applications, these high performing CNNs are computationally intensive. This is due to dependency on huge number of parameters which limit their re-usability on lower end CPUs. To address these limitations, we propose an eigenvalue-based framework (EVF) to reduce computational cost by removing insignificant convolution layers filters from the network while maintaining similar accuracy. Proposed method is architecture independent and may easily be deployed to existing deep learning platforms. Experiments have been carried on standard VGG-16 and AlexNet. Based on experiments the resultant reduced models outperforms the original models in terms of computational cost while maintaining similar accuracy. We have also compared proposed EVF with the state-of-the-art methods. We have achieved comparable accuracy after filter pruning only and without further retraining.",
+    "keywords": [
+     "Computational cost reduction",
+     "convolutional filter",
+     "VGG-16",
+     "AlexNet"
+    ],
+    "doi": null,
+    "pages": "150-165",
+    "source_file": "paper713.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 80,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 40.5,
+    "composite": 42.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"Experiments were performed on VGG-16 [23] and AlexNet [16] trained on ImageNet ILSVRC-2012 dataset [22], which has 1.2M training examples and 50K validation images in 1000 object categories.\" No code is released; the networks are third-party Keras/Caffe models.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 pruning heuristic. Eqs. (6)-(7) expand Sum[f(x+u, y+v, z+d) - f(x, y, z)]^2 by a three-variable Taylor series, although the feature map is two-dimensional, there is no z coordinate, and a diagonal shift is already a combination of u and v. The derivation lends apparent rigour to the 3x3 matrix Gs, is not needed for the implementation (fully specified by Eqs. (8)-(12)), enables no proof or bound, and could be replaced by one English sentence."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Harris-style filter-pruning criterion for CNNs evaluated without retraining on VGG-16 and AlexNet; the three-variable Taylor derivation behind the diagonal term treats a 2-D feature map as a function of a nonexistent third coordinate and adds nothing the implementation needs (formalism theater at Level 2); compression is modest and no ablation isolates the criterion.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Structured pruning of convolution filters in pretrained VGG-16 and AlexNet. Filters are scored with a Harris-corner-style response (xi = det - m*trace^2 of a 3x3 matrix of Sobel derivative products, with a diagonal Sobel derivative added), averaged over feature maps, and removed when the score falls below beta times the layer mean.\n**Level:** 2 (Low)\n**Rationale:** The method transfers an existing corner-detection response (Harris and Stephens [11]) to filter-importance scoring, a simple heuristic modification of existing pruning approaches. No complexity analysis, convergence argument or proof is offered.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: about 16 (convolution, Sobel kernels, autocorrelation, Taylor expansion, structure matrix, xi, layer and filter means), plus one algorithm\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate by count. The Necessity Test fails for the derivation in Eqs. (6)-(7).\n\n### Issues\n- Eq. (6) defines Delta P(u, v, d) = Sum[f(x+u, y+v, z+d) - f(x, y, z)]^2, and Eq. (7) expands it by a three-variable Taylor series. The feature map f is two-dimensional, so there is no z coordinate, and a diagonal shift d is already a combination of u and v. The \"third dimension\" is therefore not independent, and the derivation gives the 3x3 matrix Gs a mathematical basis it does not have.\n- The derivation does not affect the implementation, which Eqs. (8)-(12) specify completely: convolve with three Sobel kernels, sum the products, form the matrix, and compute det - m*trace^2. It enables no proof or bound and could be replaced by one English sentence. That is one necessity failure, and at Level 2 it triggers FORMALISM_THEATER.\n- The \"eigenvalue-based\" framing is cosmetic. Xi is computed from the determinant and trace, and the eigenvalues are never needed.\n- Greek symbols (xi, beta, m, Psi) appear inside working formulas and are not counted as decoration.\n\n---\n\n## Citation Analysis\n\nThere are no self-citations among the 27 references. A cluster of references has no connection to CNN compression:\n- [21] (evolving fuzzy models of shape-memory-alloy actuators), cited as an example of a \"feature based method\" for classification.\n- [4] (a unified form of fuzzy C-means and K-means), [1] (predicting students' GPA) and [2] (neural networks in medical decision-making), cited for \"medical science and data science\".\n- [26] (SVM on sleep EEG), cited for SVM.\n- [25] (adoption of mobile learning), which is not cited in the text at all.\n\nThree of these appeared in this journal and three share an author. The pattern looks like citation padding, but mutual citation cannot be established from the paper alone, so no citation flag is raised. There are also attribution errors: dropout is credited to \"Shrivastava et al.\" [24] (the author is Srivastava), and reference [13], cited for deep convolutional networks, is a deep-belief-net paper.\n\n---\n\n## Structural Analysis\n\nThe quantitative results (Tables 6 and 7) support the narrow claim: pruning without retraining cut parameters by 12% and 21% and computation by 14% and 30%, with top-1 losses of 0.8 and 0.2 points. Several broader claims are not supported:\n- that competing pruned networks \"cannot be further used for transfer learning\";\n- that the reduced models can be retrained on low-end CPUs;\n- that the method is architecture-independent, when only two networks were tested.\n\nTable 7 shows EVF with the least compression of all the compared methods, which the text calls \"comparable\". No ablation compares the proposed 3x3 criterion with the standard 2x2 Harris response or with a simple weight-norm criterion, so the contribution of the diagonal term is not isolated. \"FLOPS\" is defined as floating-point operations per second but reported as operation counts. Constraints are acknowledged only inline (beta needs fine-tuning; a direct comparison with retrained methods is not possible).\n\nArtifacts: no code is released. The networks are third-party Keras/Caffe models, and the evaluation uses the public ImageNet ILSVRC-2012 dataset.\n\n---\n\n## Conclusion\n\nA modest, heuristic pruning criterion evaluated on two standard networks without retraining. The results are internally consistent but small, and no ablation isolates what the proposed criterion adds. Its main formal content, a three-variable Taylor expansion of a two-dimensional map, is invalid and unnecessary for the implementation. At Level 2 that constitutes formalism theater, which disqualifies under the framework. The reference list also contains several citations unrelated to the topic."
+  },
+  {
+   "paper_id": "sularea2022",
+   "paper": {
+    "title": "High Power Supply Rejection Capacitor-less Low Dropout Regulators Based on High Slew Rate Symmetrical Operational Transconductance Amplifiers",
+    "authors": [
+     "Iulian Sularea",
+     "Cristian Răducan",
+     "Marius Neag"
+    ],
+    "abstract": "This paper introduces a power supply rejection (PSR) enhancement technique for capacitor-less low dropout (LDO) voltage regulators with PMOS pass transistor. The main idea for enhancing the PSR is to create a feed forward signal path, so that variations of the supply line result in a current injected directly into the node at the gate of the pass transistor which cancels the effect of the unwanted signal paths between the input and output of the LDO. Circuit implementation is based on an additional OTA that senses the supply variations by using a high pass filter and generates the cancelling signal current. The technique is demonstrated on two LDOs with different error amplifiers based on symmetrical operational transconductor amplifiers with high Slew-Rate. Both LDOs are designed in a 0.18µm standard CMOS process and provide a regulated 1.5 V output voltage for load currents up to 50 mA, while burning only 22 µA. These LDOs exhibit PSR values better than –40 dB at 1 MHz at a maximum load current of 50mA, for values of the load capacitor between 10pF to 1nF and dropout voltages as low as 300 mV. A new Figure of Merit was introduced to compare their performance against LDOs with similar design requirements.",
+    "keywords": [
+     "Capacitor-less LDO",
+     "class-A symmetrical OTA",
+     "class-AB symmetrical OTA",
+     "high SR symmetrical OTA",
+     "PSR enhancer"
+    ],
+    "doi": null,
+    "pages": "179-204",
+    "source_file": "paper716.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 90,
+    "citation_integrity": 40,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 65.0,
+    "composite": 48.75,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Six of 14 references (42.9%) include the second or third author: [1], [7], [8], [9], [10], [12]. All are topically close (LDO design by the same group, the conference precursor [1], and the reused class-AB OTA [12]), so none is irrelevant, but the ratio exceeds the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Competent simulation-based analog design with necessary, proportionate small-signal analysis; six of fourteen references are to the authors' group (42.9%), and some headline PSR and stability-margin claims are stronger than the paper's own Monte Carlo and margin results support.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Two capacitor-less LDO regulators in 180 nm CMOS that add a feed-forward supply-cancellation path (a high-pass filter plus an OTA) and a voltage buffer to raise high-frequency PSR, with high-slew-rate symmetrical OTAs as error amplifiers. Validation is by simulation.\n**Level:** 2 (Low)\n**Rationale:** Feed-forward supply cancellation and buffer-based bandwidth extension are established techniques ([1]-[5]). The contribution is their combination and implementation for a given specification, supported by standard small-signal analysis. There is no new theory or proof.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 27 (small-signal ripple paths, the cancellation condition, DC gain, poles and zeros, unity-gain frequency, the high-pass filter, PTAT transconductance, three figures of merit)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The equations are the working language of analog design, and the paper uses them. The cancellation condition CFF = CGD (Eq. 9) motivates the PSR enhancer, Eqs. (18) and (24) show how C2 and R3,4 set the bandwidth, and the pole and zero expressions explain the simulated phase margins. Removing them would change how the circuit is sized.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nSix of 14 references (42.9%) include the second or third author: [1] (the authors' own conference paper on the same PSR technique), [7], [8], [9] and [10] (the group's LDOs with fast transient response), and [12] (the class-AB OTA reused in LDO2). All are topically close (similarity at least 0.5), so none is irrelevant, but the ratio exceeds the 30% threshold in a short reference list. The paper does not state how it relates to the 2021 conference paper [1].\n\n---\n\n## Structural Analysis\n\nThe design is described in detail, and the simulations cover process corners, temperature, Monte Carlo, and line and load transients. The results are simulation-only. Table 2 marks this, but the text still claims the best FOM_PSR, a figure of merit the authors introduced, against competitors whose PSR was measured on silicon. Some headline claims go further than the data:\n- The abstract claims \"PSR values better than -40 dB at 1 MHz ... for values of the load capacitor between 10pF to 1nF\". Against this, the Monte Carlo mean at 1 MHz is -37 dB (spread up to -25 dB), and the text itself says PSR is better than -30 dB only for loads above 100 uA.\n- The specification requires a gain margin above 5 dB. LDO1 reaches a minimum of 3.3 dB, yet the conclusion says the LDOs \"met the main requirements\".\n\nConstraints are acknowledged inline: the phase margin falls below 1 mA load, transient performance degrades at 125 C, and the PSR improvement is limited by the residual CGD path.\n\nArtifacts: only schematics and sizing values are given; no netlists, testbenches or data are offered.\n\n---\n\n## Conclusion\n\nTechnically competent analog design whose formalism is necessary and proportionate. The paper is let down by a self-citation ratio above 30%, though every self-citation is on topic, and by summary claims stronger than its own Monte Carlo and margin results, in a comparison that sets simulated results against measured silicon. The excessive self-citation flag disqualifies under the framework regardless of technical quality."
+  },
+  {
+   "paper_id": "ilie2022",
+   "paper": {
+    "title": "Battery Connected Linear Voltage Regulator for Very Low Current Consumption Automotive Applications",
+    "authors": [
+     "Ionuţ-Alin Ilie",
+     "Cristian Ştefan Zegheru",
+     "Adrian-Gabriel Băjenaru",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "This paper presents a battery connected linear voltage regulator suitable for always-on automotive applications (keyless entry, car monitoring, anti-theft system). The regulator is designed as a simple 3 pins device and it is always connected to the battery, even when the car's engine is off; therefore, a very low quiescent current of the regulator is mandatory. The regulator has a fixed 5 V output voltage and can deliver up to 0.5 A to the load. The total quiescent current of the proposed regulator is 3.8 µA at no load and due to an adaptive biasing technique a value of 75 µA is achieved at 500 mA load current. The architecture include a buffer to bias the gate of pMOS pass device and so a PSRR value of 65 dB at 100 Hz is obtained. Moreover, being supplied directly from the automotive battery, this regulator can withstand the very harsh environment in terms of temperature, line disturbances, EMC. The proposed regulator was implemented on silicon in a 0.8 µm BiCMOS technology and its characteristics were simulated and measured.",
+    "keywords": [
+     "pMOS",
+     "power supply rejection ratio",
+     "very low quiescent current"
+    ],
+    "doi": null,
+    "pages": "235-245",
+    "source_file": "paper719.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 40,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 64.25,
+    "composite": 48.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Three of eight references (37.5%) are self-citations: [2] (the first author's master's thesis on the same regulator), [3] (the authors' conference paper, of which this is a declared extended version) and [6] (the second author's patent on the compensation technique). All are relevant, but the ratio exceeds the 30% threshold."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Measured silicon results for a low-quiescent-current automotive regulator, with minimal and necessary formalism; three of eight references are the authors' own (37.5%), and some robustness claims (EMC, all requirements met over process and temperature) go beyond what a single measured sample shows.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A 5 V, 0.5 A battery-connected linear regulator for always-on automotive loads in 0.8 um BiCMOS. It combines a Zener pre-regulator, a Brokaw bandgap, a symmetrical OTA, and a source-follower buffer with load-adaptive biasing and R-C compensation. The design was simulated and measured on silicon.\n**Level:** 2 (Low)\n**Rationale:** Standard regulator building blocks and known techniques (buffer impedance attenuation [5], capacitance-multiplier compensation [6]) are applied to a demanding automotive specification. The contribution is the design and its measured performance.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (the output voltage set by the resistive divider)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The single equation is basic and necessary, and the poles and zeros are described in prose. If anything, the paper offers too little analysis for the stability argument it makes.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThree of eight references (37.5%) are self-citations: [2] (the first author's master's thesis on the same regulator), [3] (the authors' 2021 conference paper, of which this paper is a declared extended version) and [6] (a patent by the second author describing the compensation technique used). All three are directly relevant, but the ratio exceeds 30% in a very short reference list, and most figures and both tables are reproduced from [3] or [2]. The comparison set is only two earlier regulators, [7] and [8]; related low-quiescent-current automotive work is not surveyed.\n\n---\n\n## Structural Analysis\n\nMeasured silicon data support the main figures: 3.82 uA quiescent current at 50 uA load, 75.1 uA at 500 mA, about 65 dB PSRR at 100 Hz, and 440 mV and 340 mV load-step excursions. The paper acknowledges that quiescent current was measured on a single sample, that the reference designs have better transient performance, and that power efficiency is not optimised. Several claims go further:\n- The abstract says the regulator \"can withstand the very harsh environment in terms of temperature, line disturbances, EMC\", but no EMC test is reported.\n- The conclusion that \"all initial requirements were met\" rests on one sample, although the specification includes process variation and -40 to 150 C, and PSRR at 500 mA was not measured.\n- The abstract's \"3.8 uA at no load\" was measured at a 50 uA load.\n- The stability argument (three poles, two zeros) comes with no loop-gain plots or phase margins.\n\nArtifacts: no netlists or measurement data are offered; this is an industrial design.\n\n---\n\n## Conclusion\n\nA sound engineering report with measured results and minimal, appropriate formalism. Self-citations make up 37.5% of an eight-item reference list. They are relevant, but the ratio triggers the excessive self-citation flag, which disqualifies under the framework. Some robustness claims are broader than one measured sample can support."
+  },
+  {
+   "paper_id": "tismanar2022",
+   "paper": {
+    "title": "Vis-active TiO2 – rGO Photocatalysts for Advanced Wastewater Treatment",
+    "authors": [
+     "Ioana Tismanar",
+     "Alexandru Cosmin Obreja",
+     "Octavian Buiu",
+     "Anca Duta"
+    ],
+    "abstract": "The implementation of efficient Vis-active photocatalysts, targeting water re-use, represents a priority considering the up-scaling and possible feasible candidates are the composites with metal oxide matrix and graphene derivative(s) fillers. The most efficient metal oxide matrix is titanium dioxide and coupled with the reduced graphene oxide it can develop Vis-active photocatalytic composites. This paper analyzes the performance of these composites as potential photocatalysts to be implemented at industrial scale. The properties of the TiO2 - rGO composite thin films are discussed along with the efficiencies in degrading the methylene blue standard pollutant; moreover, the stability of these thin films during the photo-degradation processes is outlined correlated with the rGO filler content in the composites.",
+    "keywords": [
+     "Photocatalyst aqueous stability",
+     "TiO2 – rGO composite thin film",
+     "Vis-active photocatalyst"
+    ],
+    "doi": null,
+    "pages": "260-271",
+    "source_file": "paper721.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 73.25,
+    "composite": 54.94,
+    "final": 54.94
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Experimental materials-science study of TiO2-rGO photocatalytic films with no formalism and on-topic citations; efficiencies are single runs without replicates or error estimates, and the stability conclusion for the 7.5 wt% film rests on a sample whose stability was not tested.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Double-layer TiO2 / TiO2-rGO composite thin films deposited by spray pyrolysis and sol spraying, characterised by XRD, SEM, EDX and AFM, and tested for methylene-blue photodegradation and aqueous stability as a function of rGO content (0.15-7.5 wt%).\n**Level:** 2 (Low)\n**Rationale:** An experimental materials study that varies one composition parameter and reports characterisation and efficiency results. It lies outside computer science and has no algorithmic or theoretical content.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. There is no formal apparatus; even the removal-efficiency calculation is described only in words.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo of 11 references (18.2%) are self-citations: [9] (the authors' 2021 conference paper on the same composites, from which Figure 6 is taken) and [10] (their 2021 journal paper on TiO2-graphene oxide films). Both are directly relevant. The ratio is elevated but below the 20% flag threshold. The second author's name is misspelled \"Obraja\" in both entries, and the reference list is short for the topic.\n\n---\n\n## Structural Analysis\n\nThe characterisation is described in detail, but the evidence for the main claims is thin:\n- Efficiencies come from single runs with no replicates, error estimates or statistical comparison.\n- The \"Vis-activation\" claim rests on differences of about 4-7 percentage points between UV+VIS and UV (e.g. 31.07% vs 24.73% at 5 wt%), while adsorption alone accounts for 12-18 points.\n- Readings of the SEM images go beyond what images can show (\"proving that high-performance interfaces ... are developed\"), and the XRD peak at 2theta = 5.5 degrees is attributed to rGO only tentatively.\n- The conclusion that low stability is \"the main cause\" of the lower efficiency at 7.5 wt% is not supported, because stability was evaluated only for the 0.15, 0.9, 3 and 5 wt% films (Tables 5 and 6).\n- There are editorial errors: Table 4 repeats the caption of Table 3 (0.15 wt%) for data at 0.9-7.5 wt%, and Table 3 reports 9 hours where the method states 8.\n\nConstraints of the material are acknowledged inline (limited filler-matrix compatibility, the need for periodic regeneration); constraints of the study are not.\n\nArtifacts: no data are offered.\n\n---\n\n## Conclusion\n\nA preliminary experimental study with no formalism and on-topic citations. Its weakness is structural: single-run measurements, conclusions drawn from qualitative images, and a stability conclusion for a sample that was not tested. Because the paper lies outside computer science, the framework's formalism criteria have little to engage with."
+  }
+ ]
+}

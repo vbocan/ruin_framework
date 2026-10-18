@@ -1,0 +1,298 @@
+{
+ "batch_id": "2018-v21-n4",
+ "analysis_timestamp": "2026-10-18T03:48:56Z",
+ "analysis_version": "1.2.0",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 21,
+  "issue": 4,
+  "year": 2018
+ },
+ "papers": [
+  {
+   "paper_id": "zhao2018",
+   "paper": {
+    "title": "An extension of ELECTRE to multi-criteria decision making problems with extended hesitant fuzzy sets",
+    "authors": [
+     "Kexing Zhao",
+     "Xianjiu Huang"
+    ],
+    "abstract": "Extended hesitant fuzzy sets (EHFSs), which are an extension of hesitant fuzzy sets, consider possible value-groups for the membership of x into the set A and increase the richness of numerical representation based on the value-groups. Extended hesitant fuzzy set is a very useful tool in handling decision making problems, due to it can identify different decision makers (DMs) in decision making. Some extended hesitant fuzzy elements (EHFEs) aggregation operators are proposed. In this paper, the dominance relation and opposition relation for EHFEs which based on traditional ELECTRE methods are introduced and the method for comparing EHFEs is proposed. To extend EHFSs to multi-criteria decision making, we proposed an outranking approach which is similar to ELECTRE III, and the data of outranking approach is in the form of EHFEs. Then, we combine the propose method with the proposed outranking approach to ranking alternatives in multi-criteria decision making. Finally, an example is given to illustrate the developed approach.",
+    "keywords": [
+     "Extended hesitant fuzzy set",
+     "extended hesitant fuzzy elements",
+     "ELECTRE III",
+     "outranking approach",
+     "multi-criteria decision making"
+    ],
+    "doi": null,
+    "pages": "328-343",
+    "source_file": "paper605.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.7,
+    "composite": 33.52,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DISPROPORTIONATE_FORMALISM",
+    "DECORATIVE_DEFINITIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 method paper (ELECTRE III transposed to extended hesitant fuzzy elements) whose formal elements include several that fail the necessity test. Definitions 3.2-3.8 (reduced EHFE, complement, union and intersection, operational laws, the generic Theta-aggregation, the EHFWA and EHFWG operators) are reviewed or introduced and never used by the decision procedure of Section 5. The opposition relation of Definition 4.8, with Properties 4.5-4.6, plays no role in Step 5, which uses the discordance index directly.",
+    "DISPROPORTIONATE_FORMALISM": "19 numbered definitions, 6 properties (counted as propositions) and 4 proofs give 19x2 + 6x3 + 4x4 = 72, more than twice the Level 2 upper bound of 15 (threshold 30). Counting only the seven definitions new to this paper still gives 48.",
+    "DECORATIVE_DEFINITIONS": "Definitions 3.6 (generic Theta-aggregation), 3.7 (EHFWA) and 3.8 (EHFWG) are defined and worked through in Example 3.1, but no proof or algorithm step refers to them; removing them changes nothing an implementer would build. Step 1 weights decision makers by plain multiplication (Table 2), not by these operators."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Fuzzy-MCDM extension of ELECTRE III to extended hesitant fuzzy sets. Its formal apparatus (72 complexity points) is far beyond what a Level 2 contribution needs and includes operators that are never used, and the illustrative ranking contradicts the paper's own ranking-index values.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Transposition of the ELECTRE III outranking method (concordance, discordance, credibility, net-flow ranking) to extended hesitant fuzzy elements. It follows the multi-hesitant ELECTRE of Peng et al. [14] and the hesitant fuzzy outranking of Wang et al. [19], and gives one illustrative energy-policy example adapted from the literature.\n**Level:** 2 (Low)\n**Rationale:** The paper applies an existing outranking scheme to a recently proposed fuzzy-set type. The new concordance and discordance indices (Eqs. 4-5, 7-8) are averages of the existing single-value indices over all pairs of membership units. The proven properties (bounds, a characterisation of strict dominance, transitivity) are short consequences of the definitions. There is no complexity analysis, no convergence result and no empirical validation beyond one worked example. Defaulting low, this is Level 2, not 3.\n\n### Formal Elements\n- Definitions: 19 (2.1-2.3, 3.1-3.8, 4.1-4.8); 12 reviewed from [7], [15], [19], [21], [29], 7 new (3.6-3.8, 4.5-4.8)\n- Theorems: 6 (Properties 4.1-4.6, counted as propositions)\n- Proofs: 4 (Properties 4.2, 4.3, 4.5, 4.6; Properties 4.1 and 4.4 have no proof)\n- Equations: 15 numbered, plus the operational laws listed in Sections 2-3\n\n### Proportionality\nCalculated complexity: 19x2 + 6x3 + 4x4 = 72\nExpected range (Level 2): 0-15\nRatio: 4.8x upper bound\n\n**Assessment:** Disproportionate. The decision procedure needs only the HFE/EHFE notion, the ELECTRE III single-criterion indices (Defs. 4.1-4.2), the new averaged indices (Defs. 4.5, 4.7) and the dominance relations (Def. 4.6). The rest of Section 3 (complement, union, intersection, operational laws, Theta-aggregation, EHFWA/EHFWG) is reviewed or introduced and then dropped.\n\n### Issues\n- The EHFWA and EHFWG operators (Defs. 3.7-3.8) are defined and worked through in Example 3.1, then abandoned. The abstract still lists them as a contribution (\"Some extended hesitant fuzzy elements (EHFEs) aggregation operators are proposed\").\n- Step 1 says decision-maker weighting uses the Xia-Xu operations, under which weighting gives 1-(1-gamma)^lambda. Table 2 instead multiplies values directly (0.3 x 0.3 = 0.09), so Eq. (10) and the computed matrix disagree.\n- Definition 4.2 item (3) has its inequality reversed (g_j(a1) + v_j >= g_j(a2) where <= is meant), and item (2) writes c_j for d_j. Definition 4.4 calls the discordance index a \"concordance index\". Definition 4.3 is credited to [19], although the text attributes it to Peng [14].\n- The text refers to Equations 3.2, 4.1, 4.2, 5.3, 5.5 and 5.6; equations are numbered (1)-(15). The proof of Property 4.2 cites Definition 4.3 (multi-hesitant elements) where Definition 4.6 is meant.\n\n---\n\n## Citation Analysis\n\n30 references. One self-citation: [6] (Chen, Huang, Tang, distance measures for higher-order dual hesitant fuzzy sets), co-authored by the second author. It covers the same hesitant-fuzzy subject area (topical similarity about 0.6). SCR = 1/30 = 3.3%. No irrelevant self-citation, and no ring pattern visible from this paper.\n\nThe reference list has accuracy problems. [2] adds a co-author to Atanassov's 1986 intuitionistic fuzzy sets paper. [8] gives a 2014 date for a volume-37 (2010) article and lists the second author by given name. Step 1 credits the Xia-Xu operations to [25] (Zadeh) instead of [21]. These are attribution errors, not self-citation problems.\n\n---\n\n## Structural Analysis\n\nThe claims of validity and feasibility, of avoiding information loss and of wide applicability (\"can be applied to many fields\") all rest on one illustrative example with assumed preference values and no sensitivity analysis. The example's own numbers contradict its conclusion. Summing the reported credibility matrix gives delta(A1) = +0.01 (reported as -0.01) and delta(A5) = -0.255 > delta(A3) = -2.473. The stated ranking A4 > A2 > A1 > A3 > A5 therefore does not follow from the reported values. Ranked correctly they give A4 > A2 > A1 > A5 > A3, the same order the paper attributes to the earlier method [29] and claims to have changed. The third row of the concordance matrix has a single entry, and this is not explained. Estimated CER is about 0.45 (weak).\n\nLimitations are acknowledged inline: Section 4 restricts the thresholds to constants, and the conclusion notes that only exact-valued thresholds are assumed.\n\nArtifacts: no code or data release. The example matrix is printed in Table 1, but nothing is deposited or linked.\n\n---\n\n## Conclusion\n\nThe paper is a routine transposition of ELECTRE III to extended hesitant fuzzy elements. Its formal apparatus is about five times what a Level 2 contribution requires, and much of it (aggregation operators, set operations, the opposition relation) never enters the decision procedure, which triggers the formalism-family flags.\n\nThe illustrative example is the only evidence offered, and it has computational inconsistencies. Its own index values reproduce the ranking of the prior method it claims to improve on, which removes the basis for the comparative claim."
+  },
+  {
+   "paper_id": "ngan2018",
+   "paper": {
+    "title": "Logic Connectives of Complex Fuzzy Sets",
+    "authors": [
+     "Tran Thi Ngan",
+     "Luong Thi Hong Lan",
+     "Mumtaz Ali",
+     "Dan Tamir",
+     "Le Hoang Son",
+     "Tran Manh Tuan",
+     "Naphtali Rishe",
+     "Abe Kandel"
+    ],
+    "abstract": "The Fuzzy Set Theory has been applied in various problems in numerous fields. In particular, the concepts of t-norms and t-conorms serve a significant role in shaping the theory and its applications. The notion of Complex Fuzzy Sets extends the Fuzzy Set Theory and provides several advantages over the classical theory, especially in terms of the capability to concisely, efficiently, and accurately represent complex relations between fuzzy set components. Some of the areas where complex fuzzy sets have been successfully applied are the areas of time series analysis and multi-criteria decision making problems. The notions of complex t-norms and t-conorms have not been fully developed so far. In this paper, we present the complex fuzzy set forms of t-norms and t-conorms and detail their properties. Additionally, we provide two numerical examples of applying the complex t-norm and t-conorm to multi-criteria decision making in the context of medicine-related problems using medical datasets.",
+    "keywords": [
+     "Fuzzy sets",
+     "Complex fuzzy sets",
+     "t-norm and t-conorm",
+     "Complex fuzzy t-norms and t-conorms",
+     "Multi-criteria decision making problem"
+    ],
+    "doi": null,
+    "pages": "344-357",
+    "source_file": "paper606.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 88,
+    "structural_integrity": 30,
+    "artifact_availability": 50,
+    "intellectual_integrity": 38.3,
+    "composite": 41.22,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"This example is performed on the Tsumoto dataset [14].\" Source reference [15]: Hirano and Tsumoto (2003), https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1480296/. The other example (5.1) uses records from two hospitals that are not public.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DISPROPORTIONATE_FORMALISM",
+    "DECORATIVE_DEFINITIONS",
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "At Level 2, several formal elements fail the necessity test. The decision algorithm of Section 5 uses only the Lukasiewicz formula of Example 4.7. The Archimedean definitions (3.9, 4.3, 4.4), the negation definitions (4.12-4.14) and all eight propositions and theorems (4.8-4.11, 4.16-4.19) could be deleted without changing the procedure. None of the propositions is proved, and several do not hold for general t-norms.",
+    "DISPROPORTIONATE_FORMALISM": "16 definitions and 8 propositions/theorems, with no proofs, give 16x2 + 8x3 = 56, above twice the Level 2 upper bound (threshold 30).",
+    "DECORATIVE_DEFINITIONS": "Definitions 3.3-3.6 (complement, union, intersection and product of complex fuzzy sets) and 4.3-4.4 (Archimedean complex t-norm and t-conorm) are never referenced again by any proposition, proof or algorithm step.",
+    "UNSUPPORTED_CLAIMS": "Eight propositions and theorems are stated without proof, and several are false as stated. Propositions 4.8-4.10 assert distributivity, absorption and idempotency for an arbitrary complex t-norm/t-conorm pair, which by Theorem 4.11 forces min/max. Under min/max with the negation of Example 4.15, the excluded-middle laws of Proposition 4.16 fail. The application claims (results \"verified by physicians\", the algorithm makes the problem \"efficiently tractable\") come with no evidence. Estimated CER for the contribution claims is below 0.2.",
+    "NO_LIMITATIONS": "No limitation is acknowledged; the conclusion lists only future work."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Definitional transposition of the t-norm axioms to complex membership grades. The propositions are unproved and partly inconsistent, the MCDM procedure uses none of them, the formalism is disproportionate for the contribution, and the evidence from the application examples cannot be traced.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Axiomatic definitions of complex-valued t-norms, t-conorms and negations for complex fuzzy sets, a list of stated properties, and a five-step MCDM procedure (normalise, apply the Lukasiewicz complex t-norm, sum, pick the maximum) illustrated on two small medical decision matrices.\n**Level:** 2 (Low)\n**Rationale:** The definitions copy the classical t-norm and t-conorm axioms with complex membership grades substituted in. They do not settle the question this raises: the monotonicity axioms need an order on the unit disk, and none is given. Nothing is proved, and the application is a straightforward fuzzy MCDM computation. Level 3 needs a substantive theoretical extension or a validated new model, so defaulting low gives Level 2.\n\n### Formal Elements\n- Definitions: 16 (3.1-3.9, 4.1-4.4, 4.12-4.14)\n- Theorems: 8 (Propositions 4.8, 4.9, 4.10, 4.16, 4.17; Theorems 4.11, 4.18, 4.19)\n- Proofs: 0\n- Equations: about 12 (membership functions, the operators of Examples 4.5-4.7, normalisation)\n\n### Proportionality\nCalculated complexity: 16x2 + 8x3 + 0x4 = 56\nExpected range (Level 2): 0-15\nRatio: 3.7x upper bound\n\n**Assessment:** Disproportionate. The formal layer is heavy, unproved and disconnected from the algorithm, which relies only on Example 4.7.\n\n### Issues\n- Definition 3.7 gives the t-norm three arguments (T: [0,1] x [0,1] x [0,1] -> [0,1]).\n- Definition 3.5 uses max for the amplitude of an intersection.\n- Definition 4.1 calls [0,1] \"the unit complex disk\", and its associativity axiom (3) is garbled (\"I(I(q, r)) = I(p, I(p, q), r)\").\n- The monotonicity axioms compare complex numbers (q <= r) without defining an order.\n- Propositions 4.8-4.10 assert distributivity, absorption and idempotency for any complex t-norm/t-conorm pair. Classically these hold only for min/max, as Theorem 4.11 itself implies. Proposition 4.16 (excluded middle) then fails for min/max with the negation of Example 4.15. Proposition 4.10 writes idempotency as I(p, q) = p.\n- Example 4.7(2), the Lukasiewicz t-conorm, simplifies min(p1+q1, 1) to \"(p1 + q1 - 1) AND 0\", which is wrong. Example 4.6 drops the imaginary unit from the phase.\n- Example 5.2 says it uses \"the operators in Example 3.7\", which does not exist.\n\n---\n\n## Citation Analysis\n\n35 references, 5 of them self-citations (SCR = 14.3%):\n- [1] (Ali, Tamir, Rishe, Kandel)\n- [17] (Kandel, Tamir, Rishe)\n- [26] and [27] (Ramot et al., with Kandel)\n- [30] (Tamir, Rishe, Kandel)\n\nAll five concern complex fuzzy sets, complex fuzzy logic or their applications: [17] (disaster mitigation with complex fuzzy sets) at a similarity of about 0.5, the others at 0.7 or more. The Ramot et al. papers are the expected foundational citations for this topic. No irrelevant self-citation.\n\nThere are attribution slips. The Tsumoto dataset is cited as [15] in the introduction and as [14] (a fuzzy control textbook) in Example 5.2. \"Supriya et al. [11]\" points to a paper by De and Krishna. [31] is dated 1993 where 1983 is correct. The literature review also contains an uncited paragraph on \"evolution equations\" with no connection to the paper.\n\n---\n\n## Structural Analysis\n\nNo formal claim is proved, and the examples cannot be traced:\n- The decision matrix of Table 1 is \"based on expert knowledge\".\n- The \"Gauss function\" and \"Sinusoidal function\" fuzzifications are not specified.\n- Phase values above 1 appear in Tables 4 and 9.\n- The criterion weights are given but never visibly used.\n- The defuzzification from Table 4 to Table 5, and from Table 9 to Table 10, is not described, so the final matrices cannot be reproduced from the paper.\n\nThe statement that the results were \"verified by physicians\" comes with no protocol or evidence. No limitations are acknowledged.\n\nArtifacts: Example 5.1 rests on private hospital records. Example 5.2 names the public Tsumoto dataset and cites its source, but the 3x3 decision matrix of Table 6 is not derived from that dataset in any stated way. No code is released.\n\n---\n\n## Conclusion\n\nDefining t-norms for complex fuzzy sets is a legitimate subject. Here the definitions are transcribed with errors, the property list is unproved and internally inconsistent, and the decision procedure uses none of it. At Level 2 that triggers the formalism-family flags, and the evidence offered for the application is too opaque to support the claims made for it."
+  },
+  {
+   "paper_id": "precup2018",
+   "paper": {
+    "title": "Experiments in Incremental Online Identification of Fuzzy Models of Finger Dynamics",
+    "authors": [
+     "Radu-Emil Precup",
+     "Teodor-Adrian Teban",
+     "Adriana Albu",
+     "Alexandra-Iulia Szedlak-Stinean",
+     "Claudia-Adina Bojan-Dragos"
+    ],
+    "abstract": "This paper suggests a set of evolving Takagi-Sugeno-Kang (TSK) fuzzy models that characterize the finger dynamics of the human hand in the framework of myoelectric (ME) control of prosthetic hands. The fuzzy models represent the reference models in ME-based control systems. The fuzzy model outputs are the finger angles, namely the midcarpal joint angles. Starting with the ME signals obtained from eight ME sensors, which are used as fuzzy model inputs, different numbers of additional model inputs obtained from past inputs and/or outputs are considered. The structure and parameters of the fuzzy models are evolved by an incremental online identification algorithm. The evolving TSK fuzzy models for three out of five fingers are tested against the experimental data and compared. The experimental results highlight that the proposed fuzzy models are consistent with both training and validation data.",
+    "keywords": [],
+    "doi": null,
+    "pages": "358-376",
+    "source_file": "paper607.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 60,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 68.5,
+    "composite": 51.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (the identification relies on third-party software: \"supported by the eFS Lab software developed by A. Dourado and his team\")",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "IRRELEVANT_SELF_CITATION"
+   ],
+   "flag_details": {
+    "IRRELEVANT_SELF_CITATION": "[46] (Pozna, Troester, Precup et al., design of an obstacle-avoiding trajectory, 2009) is cited only inside two blocks: [44-53] (\"optimization techniques inserted in the online identification algorithm\") and [34-36, 39, 41, 44-46, 50] (\"model-based control\"). Trajectory planning for obstacle avoidance has no bearing on evolving TSK identification of finger dynamics, and the citation supports no specific statement. Estimated topical similarity is about 0.25."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Competent application of an existing evolving-TSK identification algorithm (run through the third-party eFS Lab) to myoelectric finger-angle modelling, with candid inline limitations. It is disqualified for a self-citation to unrelated trajectory-planning work placed in a padded block of twenty generic references.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Identification of evolving Takagi-Sugeno-Kang fuzzy models that map eight myoelectric signals (plus lagged inputs and outputs) to three finger flexion angles. The models use the Angelov-Filev online identification algorithm as implemented in the eFS Lab software. The paper compares 18 input configurations per finger and RLS against wRLS consequent estimation, and reports RMSE on training and validation data.\n**Level:** 2 (Low)\n**Rationale:** An existing identification algorithm is applied unchanged to a new data set, with variations in the model inputs. This is a straightforward empirical modelling study.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 17 (TSK rule base and output, firing degree, Gaussian membership function, potential updates, RLS recursion, RMSE)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The equations restate the identification algorithm of [31] that builds the models, and an implementer would need them. There is no set-theoretic or definitional decoration.\n\n### Issues\nNothing amounts to formalism theater. The restated algorithm has typographical errors: the rule consequent in Eq. (2) repeats \"ai0 + ail\", Eq. (17) writes y1,k for yl,k, the identity matrix is said to have order nR(N+1), and the index l = 4 is given to both the ring finger and the pinky.\n\n---\n\n## Citation Analysis\n\n53 references, of which 8 are self-citations of one or more of the five authors: [9], [10], [14], [15], [26], [30], [36], [46]. SCR = 8/53 = 15.1%, just inside the elevated band. Estimated topical similarity:\n- [9], [10], [14], [15]: the authors' earlier work on the same prosthetic-hand modelling problem, about 0.9.\n- [26], [30]: the same evolving-TSK identification applied to crane and automotive systems, about 0.6.\n- [36] (telerobot simulation and control in space medicine): marginal, about 0.35.\n- [46] (obstacle-avoiding trajectory design): unrelated, about 0.25. This one raises IRRELEVANT_SELF_CITATION.\n\n[36] and [46] are cited only inside two blocks, [34-43] and [44-53], which the text presents as \"other fuzzy model structures\" and \"optimization techniques\" that \"can lead to performance enhancement\". The blocks include work on load balancing in cloud computing, planetary gear trains, mobile user authentication and human recognition, none of it connected to the paper's claims. This is citation padding beyond the self-citations. Mutual citation cannot be established from this paper alone, so no ring flag is raised.\n\n---\n\n## Structural Analysis\n\nThe RMSE tables support the central empirical claims, and the paper is unusually frank about its limitations, inline. It says the best models were selected on the validation data and that \"ideally their performance should be checked in new unseen test data\". It also says that only 434.91 s of recording were used and that \"more people and larger data sets could conclude in different results\".\n\nWeaknesses:\n- There appears to be a single subject.\n- The stated sample counts (25000 training points over 250 s, 1891 validation points over 184.91 s) imply different sampling rates.\n- Several models have training RMSE far above validation RMSE (fifth-finger model 8: 59.5 against 1.14). This contradicts the summary that validation performance \"is consistent with the training one\", and it is not discussed.\n- The comparison with DENFIS and neural networks is carried over from earlier papers [9], [14] and not shown here.\n\nEstimated CER is about 0.7.\n\nArtifacts: no code or data release. eFS Lab is third-party software, and the myoelectric recordings are not deposited.\n\n---\n\n## Conclusion\n\nA modest, honestly reported modelling study. The identification algorithm is used off the shelf, the formalism is proportionate, and the authors point out their own validation weakness.\n\nThe disqualification comes from citation conduct, not from the technical content: a self-citation to unrelated trajectory-planning work, placed among twenty generic references that support no specific claim."
+  },
+  {
+   "paper_id": "priya2018",
+   "paper": {
+    "title": "Fuzzy logic approach for temperature analysis in multi-jet air impingement investigation",
+    "authors": [
+     "P. Indira Priya",
+     "P. Chandramohan",
+     "A. Kannan"
+    ],
+    "abstract": "In the present work, an experimental investigation was carried out to study the influence of design parameters of impinging air jets on heat transfer, temperature and Nusselt number in a multi-jet air impingement system. Studies have been conducted to see the effect of parameters such as type of nozzle, area of nozzle, Reynolds number and H/D ratio on the heat transfer characteristics. Square, triangle and circular type nozzles with area 8, 10 and 12 mm2 were used for the analysis considering Reynolds number 18000, 20000 and 22000. The H/D ratio used was 2D, 4D and 6D. Taguchi based design of experiment approach with L27 orthogonal array was used to design the experiments. Grey relational analysis is used to optimize the multiple responses and the uncertainty in the experimental data is handled using fuzzy logic technique. The complexity, vagueness and softness in the experimental data are eradicated using fuzzy rules and hence the deductive inference based on rules is used for effective decision making. The investigation reveals that the type of nozzle contributes the most towards overall performance with contribution of 86% followed by area of nozzle, H/D ratio and Reynolds number respectively. A significant improvement in experimental data is observed with the application of fuzzy logic technique.",
+    "keywords": [
+     "Multi-jet air impingement",
+     "heat transfer",
+     "Fuzzy logic",
+     "Grey relational analysis"
+    ],
+    "doi": null,
+    "pages": "406-428",
+    "source_file": "paper610.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 0,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 42.0,
+    "composite": 31.5,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (analysis uses third-party tools: \"For performing the fuzzy logic technique, fuzzy logic tool in MATLAB software is used\")",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "IRRELEVANT_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "IRRELEVANT_SELF_CITATION": "Five of the six self-citations have nothing to do with experimental heat transfer. [43] (fuzzy unequal clustering for wireless sensor networks), [44] (fuzzy temporal pattern classification with PSO) and [45] (fuzzy temporal energy-efficient WSN routing) are cited only because they use fuzzy logic (\"fuzzy rule based system has been applied in other areas of research such as wireless sensor networks [43] and pattern classification [44]\"). [46] and [47] (neuro-fuzzy classifiers for social-network analysis) are listed in the references but never cited in the text. Estimated similarity is 0.1-0.2 each.",
+    "NO_LIMITATIONS": "No limitation is acknowledged anywhere. There is no confirmation experiment and no discussion of measurement uncertainty, of the experimental design, or of the use of a single setup."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Routine Taguchi-grey-fuzzy analysis of a jet-impingement experiment whose central claim, that fuzzy logic \"improves\" the experimental data or removes its \"fuzziness\", has no basis. It is disqualified for five self-citations to unrelated wireless-sensor-network and social-network work, two of them never cited in the text.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Experimental study of heat transfer from a heated plate under multi-jet air impingement, varying nozzle shape, nozzle area, Reynolds number and H/D ratio. The 27-run Taguchi design is analysed with grey relational analysis (GRA) to combine three responses, a Mamdani fuzzy inference system in MATLAB that maps grey relational coefficients to a \"grey-fuzzy reasoning grade\", and ANOVA.\n**Level:** 2 (Low)\n**Rationale:** Standard statistical-design and multi-response tools (Taguchi, GRA, Mamdani FIS, ANOVA), run in Minitab and MATLAB, applied to a new experimental data set. This is an empirical study with basic statistics.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 (GRA normalisation and coefficients, linear and multiple regression)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The formulas are the basic equations GRA needs, though partly garbled: Eq. (8) reads \"i zeta_i(k)\", and Eqs. (3)-(4) and (6)-(7) define the deviation sequence twice in different notation. The textbook regression equations (9)-(10) are never used, since no regression model is fitted or reported. They are basic equations, not formal apparatus.\n\n### Issues\nNone identified at the level of formal notation.\n\n---\n\n## Citation Analysis\n\n47 references, of which 6 are self-citations (SCR = 12.8%, normal by ratio):\n- [7] (Chandramohan et al., multi-jet impingement analysed with PCA): directly related, about 0.9.\n- [43]-[47] (Kannan, or Indira Priya with Kannan): fuzzy clustering and routing for wireless sensor networks, fuzzy temporal pattern classification, and neuro-fuzzy social-network analysis.\n\nFive of the six are topically unrelated to the paper; the only common element is fuzzy logic. Two of them, [46] and [47], appear in the reference list without being cited anywhere in the text.\n\nSeven further references ([20]-[24], [31], [32]) are by one external author and cover machining and anaerobic digestion. The paper's wording also appears to be carried over from a machining study: the GRA/fuzzy workflow, the reference to an \"EDM machine setup\" in the discussion of Fig. 14, and that figure's caption, \"Effect of Grey Fuzzy Reasoning Grade on Machining Parameters\". Mutual citation cannot be established from this paper, so no ring flag is raised.\n\n---\n\n## Structural Analysis\n\nThe descriptive results (percentage change per factor, GRA grades, ANOVA contributions) are tabulated. The paper's distinctive claims are not supported:\n- The claim that fuzzy logic eliminates \"the vagueness or fuzziness in the obtained experimental data\" and yields \"a significant improvement in experimental data\". The reported 24.28% average \"improvement\" is a property of the FIS output mapping, which compresses grades toward the middle (run 27 falls from 1.000 to 0.834). It does not change the measurements.\n- The stated reason for applying fuzzy logic, to bring R2 \"closer to 100%\", is not a valid justification.\n- The novelty statement says the technique \"does not require any algorithm-specific parameter\", which does not describe a Mamdani FIS.\n- The optimum is said to be \"proved by other researchers also\", with no citation, and no confirmation run at the predicted optimum is reported.\n\nThe experimental design has problems of its own:\n- The 27-run layout is not a standard L27 column assignment. Within each nozzle type, Reynolds number and H/D are paired one-to-one, so the (Re, H/D) cell fully determines the nozzle type.\n- As a result, the \"significant interaction effect\" between Reynolds number and H/D read from Fig. 11 is aliased with the nozzle-type main effect, which is the dominant factor.\n- The rule base and membership-function parameters are not given.\n- The two replications differ by a few hundredths in nearly every cell.\n- Table 6 repeats the H/D mean square as the error mean square.\n\nEstimated CER is about 0.45 (weak). No limitations are acknowledged.\n\nArtifacts: the measured responses are printed in Table 3 but not deposited. MATLAB and Minitab are third-party tools, and nothing is released.\n\n---\n\n## Conclusion\n\nA conventional design-of-experiments study whose fuzzy-logic layer adds no demonstrated value; the claim made for that layer misreads what the transformation does. The formalism is proportionate.\n\nThe disqualification comes from citation conduct: five self-citations to the authors' unrelated work on wireless sensor networks and social-network analysis, two of which are never cited in the text."
+  },
+  {
+   "paper_id": "labdai2018",
+   "paper": {
+    "title": "Sliding Mode Control via Fuzzy Multi-Level Switching control scheme for DFIG based WECS",
+    "authors": [
+     "S. Labdai",
+     "N. Bounar",
+     "A. Boulkroune",
+     "B. Hemici"
+    ],
+    "abstract": "This paper presents a new sliding mode control (SMC) via fuzzy multi-level switching (FMLS) technique for doubly fed induction generator-based wind energy conversion system (DFIG-based WECS). The main objectives are: 1) extraction of maximum power from the wind by achieving maximal power point tracking (MPPT) strategy, and 2) supplying the grid with zero reactive power. The SMC is combined with FMLS control to minimize the undesirable effect of chattering inherent to the conventional SMC. Based on the measured error, five error levels are selected extra-small, small, middle, large, and extra-large. For each error level there is different switching level. The DFIG and MLS controller will be tested against various perturbations. Simulation results using Simulink/Matlab conclude that the proposed controller succeeded in eliminating perturbation and minimizing the chattering effect.",
+    "keywords": [
+     "Wind energy conversion system",
+     "MPPT",
+     "DFIG",
+     "Sliding mode control",
+     "Fuzzy control",
+     "Multi-level switching"
+    ],
+    "doi": null,
+    "pages": "429-445",
+    "source_file": "paper611.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 92,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.45,
+    "composite": 56.59,
+    "final": 51.59
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (simulation in a third-party tool: \"the DFIG based WECS is tested under Simulink/Matlab\")",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitation is acknowledged. The paper does not mention that the stability argument covers only classical SMC, that validation is by simulation only, or that the gains and membership functions were tuned by \"try and fail\"."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation study that combines sliding mode control with a five-rule fuzzy gain schedule for a DFIG wind system. The control-theoretic formalism is proportionate, but the stability proof does not cover the proposed scheme and the computation-time claim is contradicted by the paper's own table.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Rotor-current sliding mode control of a doubly-fed induction generator wind system, with vector control and a PI speed loop for MPPT. The switching gain is scheduled by a five-rule fuzzy system on the absolute tracking error (\"fuzzy multi-level switching\"). The scheme is compared in Simulink with a fuzzy sliding mode controller taken from [18].\n**Level:** 2 (Low)\n**Rationale:** Established components applied to a well-studied plant: the standard DFIG model, vector control, classical SMC with a Lyapunov argument, the multi-level switching idea of [16] and the fuzzy SMC of [17], [18]. The only new element is a five-rule monotone map from error magnitude to gain.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 1 (Lyapunov stability argument for classical SMC, Section 3.3.4)\n- Equations: 30 (turbine and DFIG models, vector-control relations, control law)\n\n### Proportionality\nCalculated complexity: 1x4 = 4\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Proportionate. The machine model and the control law are what an implementer needs, and the gains in the control law are real design parameters, not decorative Greek letters.\n\n### Issues\nNo formalism theater, but there are technical gaps. The stability proof assumes a fixed gain lambda_j > |delta_j(x)|, so it covers the classical SMC, not the proposed scheme. In the proposed scheme the gain shrinks with the error and can fall below the uncertainty bound, so the claim that \"the robustness is not affected\" is unproven.\n\nSmaller errors:\n- The lemma invoked is called the \"Barbalet lemma\" (Barbalat).\n- The fourth line of Eq. (4) is labelled vqs where vqr is meant.\n- The mechanical equation (7) uses the aerodynamic torque without the gearbox ratio listed in the nomenclature.\n\n---\n\n## Citation Analysis\n\n18 references, of which 2 are self-citations (SCR = 2/18 = 11.1%):\n- [9] (Bounar, Boulkroune et al., adaptive fuzzy vector control of a doubly-fed induction motor)\n- [13] (Bounar et al., adaptive SMC for a doubly-fed induction machine)\n\nBoth are closely related to the paper (about 0.8), so there is no irrelevant self-citation.\n\nTwo minor points. Technical claims about converter rating are attributed to [3] and [4], which are policy roadmaps from the US DoE and EWEA. [5] and [6] are listed but not cited.\n\n---\n\n## Structural Analysis\n\nAll evidence comes from simulation: one wind profile and three windows of parameter variation. Problems with the evidence:\n- Chattering reduction, the main claim, is shown only visually (Figs. 7-13) and never quantified.\n- Section 4.1 announces a comparison with \"normal SMC\", but the figures and Table 5 compare against FSMC.\n- The text says the FMLS \"controller calculation time is faster due to the rule reduction\", yet Table 5 reports 14.12 s for FMLS against 3.31 s for FSMC.\n- The conclusion mixes up the method names (\"superiority of the SMC via FSMC controller\").\n- The FSMC baseline gains and all membership functions were set \"based on try and fail\", so the comparison depends on unreported tuning effort.\n\nEstimated CER is about 0.45 (weak). No limitations are acknowledged.\n\nArtifacts: no Simulink model or code is released, and MATLAB/Simulink is a third-party tool.\n\n---\n\n## Conclusion\n\nA conventional applied-control paper with proportionate formalism and acceptable citation practice. Its weaknesses are in the evidence: the proposed gain scheduling has no stability guarantee of its own, the chattering benefit is not measured, and one comparative claim is contradicted by the paper's own table."
+  }
+ ]
+}
