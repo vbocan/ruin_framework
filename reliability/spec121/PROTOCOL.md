@@ -32,8 +32,9 @@ from run-to-run variation.
 - Model: **Claude Opus 5.5** (`claude-opus-5-5`), as Claude Code subagents
   launched from an interactive session, with the runtime's default sampling
   settings, as in runs 1–4.
-- Specification: the four files in `framework/` at version 1.2.1 (tag
-  `spec-1.2.1` and later commits that change no specification file).
+- Specification: the four files in `framework/` as of commit `c1bb0fb`
+  (version 1.2.1; they differ from tag `spec-1.2.1` only in the wording of
+  two example captions, "validation corpus" becoming "ROMJIST corpus").
 - Instructions: [`RUN_INSTRUCTIONS.md`](RUN_INSTRUCTIONS.md), the text of
   `../RUN_INSTRUCTIONS.md` with the analysis version set to 1.2.1.
 - One agent per issue, `FILES` limited to the sampled papers of that issue,
