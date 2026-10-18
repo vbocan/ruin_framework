@@ -1,7 +1,7 @@
 # Paper-level dataset
 
 `ruin_scores.csv` is the flat, one-row-per-paper view of the validation run. It
-is generated from the batch JSONs in `journal-analysis/ROMJIST_29.12.2025/`,
+is generated from the batch JSONs in `journal-analysis/ROMJIST_2026-10-04/`,
 which remain the archive of record:
 
 ```bash
@@ -9,11 +9,21 @@ python scripts/export_scores.py --output data/ruin_scores.csv
 ```
 
 The file as shipped holds the **404 research papers** of the ROMJIST 2010–2025
-corpus across 56 issues. The nine non-research records — eight editorials and
-one unreadable PDF — are excluded by default, because every statistic the
+corpus across 56 issues. The 17 non-research records — 16 editorial records and
+one unreadable scan — are excluded by default, because every statistic the
 manuscript reports is computed over research papers only. Pass
 `--include-non-research` to emit all 421; their score columns come out blank
 rather than zero, so a downstream mean cannot silently absorb them.
+
+## What the labels mean
+
+Every paper is identified by title and first author so that each judgment can be
+audited against its source. The labels attached to it, the flags, the bands, and
+the `disqualified` column, are outputs of an experimental screen whose validity
+has not been established, applied under fixed rules. They are not findings about
+the conduct of any author, and a cap at 24 marks passages for a reader to
+examine, not a verdict on the paper. The manuscript's Section 4.6 shows how much
+the bands depend on the scoring rules themselves.
 
 ## Columns
 
@@ -29,7 +39,7 @@ rather than zero, so a downstream mean cannot silently absorb them.
 | `formalism`, `citation_integrity`, `structural_integrity`, `artifact_availability` | 0–100 | Judged. The four component scores. |
 | `intellectual_integrity`, `composite`, `final` | 0–100 | **Derived**, never judged. Computed by `scripts/ruin_scoring.py`. |
 | `classification` | enum | **Derived.** `STRONG`, `ADEQUATE`, `LIMITED`, `CONCERNING`, `CRITICAL`. |
-| `disqualified` | boolean | **Derived.** True for the 17 papers whose score is capped at 24. |
+| `disqualified` | boolean | **Derived.** True for the 148 papers whose score is capped at 24. |
 | `flags` | string | Pipe-separated (`A|B`), empty when no flag fired. |
 | `artifact_category` | enum | Judged. `code_and_data`, `code`, `data`, `claimed`, `none`, or `unassessed` (one paper whose PDF is no longer served). `artifact_availability` is this category's anchor; see `framework/scoring.md`. |
 | `artifact_relevant` | boolean | Judged. False for papers with nothing that could be released (pure theory, proofs). Does not change the score. |
