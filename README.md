@@ -73,7 +73,7 @@ Outputs land in `scripts/output/`:
 | `tables/classification_stability.json` | Section 4.6 — the double count, rule and model sensitivity, recorded self-citation ratios |
 | `tables/headline_stats.json` | Mean final score (42.7), artifact availability (11.4), disqualified papers (148), formalism-theater rate (17.8%), annual-mean CV and regression |
 
-This is the path from the open dataset to every number in the Results section except the citation analysis of Section 4.5, which needs a licensed Web of Science export (see `citations/`), and the run-4 retest, analysed by `reliability/capped/analyze.py`.
+This is the path from the open dataset to every number in the Results section except the citation analysis of Section 4.5, which needs a licensed Web of Science export (see `citations/`), the run-4 and run-5 retests, analysed by `reliability/capped/analyze.py` and `reliability/spec121/analyze.py`, and the computed citation checks of Section 4.7 (see `citations/README.md`).
 
 ## Reproducing the full pipeline (from PDFs)
 
@@ -104,6 +104,9 @@ The results the manuscript reports come from `journal-analysis/ROMJIST_2026-10-0
 | `reliability/results.json` | Output of `analyze.py`: MAD, ICC(2,1), Fleiss κ, per-flag agreement |
 | `reliability/capped/` | Run 4: protocol, sample, and results of a supplementary retest of all 148 capped papers and 40 uncapped controls |
 | `reliability/runs/run4/` | The run-4 analyses |
+| `reliability/spec121/` | Run 5: protocol, sample, and results of a re-analysis under specification 1.2.1 of the 72 formalism-theater papers and run 4's 40 controls |
+| `reliability/runs/run5/` | The run-5 analyses |
+| `citations/` | Citation analysis (Section 4.5) and the computed checks of the citation judgments (Section 4.7): GROBID reference lists, deterministic self-citation count, OpenAlex baselines, SPECTER2 relevance |
 
 To reproduce from scratch: download the corpus with `tools/Download-ROMJIST.ps1`, check it against the manifest, run `reliability/extract_text.py`, analyse each issue with the published instructions, then `scripts/finalize_run.py`, `scripts/rescore.py --write`, and `reliability/analyze.py`.
 

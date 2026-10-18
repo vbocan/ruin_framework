@@ -11,6 +11,19 @@ revision produced that file.
 
 No specification change.
 
+- **Run 5: the stated Necessity Test rule.** `reliability/spec121/` re-analyses
+  under specification 1.2.1 the 72 papers run 1 flagged `FORMALISM_THEATER` and
+  run 4's 40 controls (protocol committed before the run, deviations recorded in
+  it); the analyses are in `reliability/runs/run5/`. The flag recurs on 64 of 72
+  (66 under 1.2.0), 10 of 40 controls acquire it (4 under 1.2.0), and the flag
+  agrees with the per-question answers for 109 of 112 papers. In four run-5
+  records the third-party author's name is redacted, as in the other runs.
+- **Computed checks of the citation judgments** (`citations/`, manuscript
+  Section 4.7): GROBID reference lists for every research paper, a deterministic
+  self-citation count compared with the model's flags (category agreement 397 of
+  404), an OpenAlex field baseline of 2,000 computer science journal articles and
+  the same measurement for ROMJIST, and a SPECTER2 comparison of the self-citations
+  flagged as irrelevant with the others.
 - **Section 4.6 and Table 5 reproduce from this repository.**
   `scripts/classification_stability.py` (standard library only) recomputes the
   double count of capped findings, the band distribution under alternative

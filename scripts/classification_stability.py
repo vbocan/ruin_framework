@@ -256,7 +256,7 @@ def compute(fw=REPO):
 TABLE5 = [
     ("Published rules", "published"),
     ("Cap replaced by -15 per flag", "cap_as_minus15"),
-    ("No cap, no deduction", "no_cap_no_penalty"),
+    ("No cap, no deduction (finding counted once)", "no_cap_no_penalty"),
     ("Self-citation line at 25%", "scr_line_25"),
     ("Self-citation line at 35%", "scr_line_35"),
     ("Self-citation line at 40%", "scr_line_40"),

@@ -65,7 +65,11 @@ Read D:\Repositories\ruin_framework\reliability\RUN_INSTRUCTIONS.md and follow t
 
 Run 4 used the same prompt with `FILES` limited to the sampled papers of each issue (from
 `reliability/capped/sample.csv`), `OUTPUT_FILE` under `reliability/runs/run4/`, and
-`TODAY = 2026-10-18`; its protocol is `reliability/capped/PROTOCOL.md`.
+`TODAY = 2026-10-18`; its protocol is `reliability/capped/PROTOCOL.md`. Run 5 used
+`reliability/spec121/RUN_INSTRUCTIONS.md` (the same text with the analysis version set to
+1.2.1), `FILES` from `reliability/spec121/sample.csv`, and `OUTPUT_FILE` under
+`reliability/runs/run5/`; its protocol, with the deviations recorded, is
+`reliability/spec121/PROTOCOL.md`, and `reliability/spec121/analyze.py` produces its results.
 
 `reliability/RUN_INSTRUCTIONS.md` is kept exactly as the agents read it, including the
 authors' Windows paths. `reliability/run_issue.sh` rewrites those paths for your checkout and
@@ -101,3 +105,11 @@ issue template (`.github/ISSUE_TEMPLATE/replication.md`).
 The scripts are in `citations/`. The citation counts come from a Web of Science export, which
 is licensed data and is not redistributed here; see `citations/README.md` for the query that
 reproduces it with institutional access.
+
+## Level 5 — Computed checks of the citation judgments (Section 4.7)
+
+The deterministic self-citation count, the OpenAlex baselines, and the SPECTER2 relevance
+comparison are in `citations/`; `citations/README.md` gives the commands. The self-citation
+count needs only the committed reference lists and the standard library; the reference
+extraction needs the corpus PDFs and a GROBID container, the baselines network access to
+OpenAlex, and the relevance comparison the Docker image in `citations/relevance/`.
