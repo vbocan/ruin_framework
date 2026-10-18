@@ -1,0 +1,75 @@
+{
+ "batch_id": "2019-v22-n1",
+ "analysis_timestamp": "2026-10-18T17:12:55Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 22,
+  "issue": 1,
+  "year": 2019
+ },
+ "papers": [
+  {
+   "paper_id": "bancioiu2019",
+   "paper": {
+    "title": "Efficiency Optimizations for Koller and Sahami’s Feature Selection Algorithm",
+    "authors": [
+     "Camil Băncioiu",
+     "Maria Vințan",
+     "Lucian Vințan"
+    ],
+    "abstract": "This article describes and evaluates four optimizations for Koller and Sahami’s Feature Selection algorithm, significantly reducing the time it requires to complete. The optimizations exploit the Information Theory concepts used by the algorithm, its inherent data parallelism and the fact that much of the calculations it performs are redundant. Each proposed optimization was carefully evaluated, showing significant efficiency gains. In particular, a decomposition of conditional mutual information is shown to reduce the time required to calculate its primary heuristic and can be potentially applied to other algorithms which calculate conditional mutual information.",
+    "keywords": [
+     "Feature Selection",
+     "Koller and Sahami’s Algorithm",
+     "Markov Blankets",
+     "Conditional Mutual Information",
+     "Data Parallelism",
+     "Caching Techniques",
+     "Computation Reuse"
+    ],
+    "doi": null,
+    "pages": "85-99",
+    "source_file": "paper620.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 70,
+    "artifact_availability": 100,
+    "intellectual_integrity": 49.0,
+    "composite": 61.75,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"The experimental framework, the KS algorithm and its optimizations were all implemented in Python 3. This implementation has been published online [16] under the GPL 3 license.\" Reference [16]: https://github.com/camilbancioiu/MBFF. Data: \"The documents in the dataset and their assignments to classes were extracted from the Reuters Corpus Volume 1 [15].\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (efficiency optimizations of an existing algorithm) with three formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no). Eq. (4) is a set-builder definition of the approximate Markov blanket that the paper restates immediately in equally precise prose. Eq. (6) is a recurrence with set difference for 'remove the feature with the lowest delta each iteration until Q remain'. Eq. (19) gives the subprocess signature as a display-math tuple, duplicating the sentence before it. The information-theoretic derivation (Eqs. 12-18) is necessary and is not part of this flag.",
+    "UNNECESSARY_SET_THEORY": "Eq. (4) uses {Fj | Fj in G and ... card({Ft | ...}) < K} for what is a top-K selection over a sorted list. Eq. (6) uses G_r = G_r-1 - {Fi | argmin delta} for removing one element from a list. No proof depends on either operation; the paper contains no proofs."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Sound engineering optimizations of the Koller-Sahami feature filter, with a correctly derived entropy decomposition, released code and public data, evaluated on a single dataset. Disqualified under the Level 1-2 zero-tolerance rule because three formal elements (Eqs. 4, 6, 19) restate in set-builder and tuple notation a top-K selection, a removal loop and a function signature that the paper already describes in plain English.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Four efficiency optimizations for an existing feature-selection algorithm (Koller and Sahami, 1996): rewriting its gamma heuristic as a sum of four cached entropies, a persistent memo database of removed features, process-level parallelism over the features of an iteration, and a cache of approximate Markov blankets across iterations, evaluated by wall-clock time on one Reuters-derived text dataset.\n**Level:** 2 (Low)\n**Rationale:** The paper optimizes an existing algorithm without changing what it computes. Three of the four optimizations are standard engineering (memoization, caching with invalidation, a process pool via `multiprocessing.Pool`). The fourth, Gamma Decomposition, applies the textbook chain rule to the identity gamma = I(Y; A | B) proven in [18] and then caches the shared entropy terms. There is no complexity analysis, no proof, and no bound; the evaluation is a single timing experiment. This is the \"simple optimizations of existing methods\" case of Level 2. Level 3 would need a genuinely new algorithm with complexity or convergence analysis.\n\n### Formal Elements\n- Definitions: 5 inline (with constraints: 2, the selection condition of aMB and the removal recurrence of KS): gamma (1), aMB (4), delta (5), KS (6), subprocess (19). No numbered Definition blocks.\n- Theorems: 0\n- Proofs: 0\n- Equations: 19 numbered plus one inline term (p. 94). Eqs. (2)-(3) and (8)-(11) restate the standard definitions of Kullback-Leibler divergence, entropy, conditional entropy, mutual information and conditional mutual information; (7) repeats (1); (12)-(18) are the decomposition derivation.\n\nCounting rule used: an inline definition is counted when it defines an object of the algorithm under study. The five textbook information-theory quantities are counted as equations, since they are recalled background rather than apparatus the paper builds. Counting them as definitions instead gives 10 definitions, complexity 20 (1.33x the Level 2 upper bound) and adds THEOREMLESS_FORMALISM (more than 5 definitions, no theorems). That would not change the outcome, because a disqualifying flag already applies.\n\n### Necessity Test\n- Eq. (1) and its repeat (7), gamma as D_KL(P(C | Fi, Fj) || P(C | Fj)): Q1 no, Q2 yes, Q3 yes → necessary (fixes which two conditional distributions are compared; it is the starting point of the decomposition)\n- Eqs. (2)-(3), Kullback-Leibler divergence: Q1 no, Q2 yes, Q3 no → necessary (the unoptimized gamma and delta are computed as this sum)\n- Eq. (4), aMB(C, K, Fi, G) as a set-builder with a nested card({...}) < K condition, with the asides aMB ⊂ G ⊂ F and MBi ⊂ G: Q1 yes, Q2 no, Q3 no → **unnecessary**\n- Eq. (5), delta as D_KL(P(C | Fi, MBi) || P(C | MBi)): Q1 no, Q2 yes, Q3 no → necessary (the quantity computed and minimized in Phase 2)\n- Eq. (6), KS(C, F, Q, K) = G_card(F)-Q with G_0 = F and G_r = G_r-1 − {Fi | argmin delta}: Q1 yes, Q2 no, Q3 no → **unnecessary**\n- Eq. (8), mutual information as H(A) − H(A | B): Q1 no, Q2 no, Q3 yes → necessary (used in steps (15)-(16))\n- Eq. (9), Shannon entropy: Q1 no, Q2 yes, Q3 yes → necessary (the optimized code computes these entropies)\n- Eq. (10), conditional entropy: Q1 no, Q2 no, Q3 yes → necessary (used in step (16))\n- Eq. (11), conditional mutual information: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. (12), gamma = I(Y; A | B), cited from [18]: Q1 no, Q2 no, Q3 yes → necessary (premise of the derivation)\n- Eqs. (13)-(18), decomposition of gamma into H(A,B) + H(Y,B) − H(B) − H(Y,A,B): Q1 no, Q2 yes, Q3 yes → necessary (this is the contribution: it establishes the equivalence and dictates which terms are computed and shared)\n- Inline term p(Y=y, A=a, B=b) log[p(Y=y | A=a, B=b) / p(Y=y | B=b)] (p. 94): Q1 no, Q2 yes, Q3 no → necessary (specifies the eight-term unoptimized computation whose rounding differs from the decomposed one)\n- Eq. (19), subprocess(C, K, Fi, G) returning the tuple (Fi, MBi, delta_i): Q1 yes, Q2 no, Q3 no → **unnecessary**\n\n### Proportionality\nCalculated complexity: 10 (5 definitions x 2)\nExpected range (Level 2): 0-15\nRatio: 0.67x upper bound\n\n**Assessment:** Proportionate in quantity, but three elements fail the Necessity Test. The information-theoretic equations earn their place: the derivation (13)-(18) is the paper's main idea, and it is what the implementation computes. The algorithm restatement in Section 3.2 (\"Formal definition\") does not. Its set-builder and recurrence notation re-express a top-K selection and a remove-the-minimum loop that the paper already describes completely in prose.\n\n### Issues\n- Eq. (4) is a set-builder for a filtered list. The paper restates it right away in plain English with the same precision, ties included: \"all features Fj that will compose the approximate Markov blanket of the feature Fi must have less than K features Ft with a lower γ score than Fj\". It then paraphrases the result as \"the best subset of K features Fj from G, when sorted by the γ heuristic\". A programmer sorts and takes the first K. The notation adds nothing.\n- Eq. (6) uses set difference, G_r = G_r-1 − {...}, to remove one element per iteration. Section 3.1 already says it in prose: \"the algorithm removes the feature with the lowest δ value in each iteration\", and \"the number of executed iterations is n − Q\". The set term {Fi | argmin(δ(C, Fi, MBi))} is also malformed as set-builder notation, since argmin is not a predicate.\n- Eq. (19) wraps a function's return tuple in display notation. The sentence before it says the same thing: \"The sub-process then returns a tuple containing the feature Fi itself, the computed approximate Markov blanket and the computed δ value.\"\n- Minor set notation used as prose, not counted as formal elements: card(G) = Q, Fi, Fj ∈ F, and \"K ∈ {1, 2, 3...20}\" for a parameter sweep. The RFDB iteration key \"(ObjectiveVariable, IterationNumber, K)\" is a parenthetical list of key fields, not a formal definition.\n\n---\n\n## Citation Analysis\n\nThere are 18 reference entries, but [5] and [11] are the same Tsamardinos et al. FLAIRS 2003 paper listed twice, so there are 17 distinct works. Two self-citations: [2], Băncioiu and Vințan, ICSTCC 2017, the authors' earlier comparison of KS with Information Gain Thresholding on the same dataset and implementation; and [16], the MBFF GitHub repository of the first author, which holds the code evaluated here. Both are directly on topic (similarity about 0.9). SCR = 2/18 = 11.1%, or 1/18 = 5.6% if the repository is not counted as a self-citation. Either value is in the normal band. The rest of the list covers the Markov-blanket feature-selection lineage (GS, IAMB, MMMB, HITON, PCMB, IPC-MB) and the KS applications the paper discusses, and all of it is relevant.\n\nBibliographic sloppiness lowers the score within the normal band: the duplicated entry; [1] dated 1995 while the text says the algorithm was \"published in 1996\"; [6] dated 2007 while the text says 2006; and [12], a conference paper, catalogued as a \"Ph.D. dissertation\". The claim that IPC-MB (2008) \"remains the state-of-the-art ... at the time of writing\" is dated for a 2019 paper. No citation-ring pattern.\n\n---\n\n## Structural Analysis\n\nThe quantitative claims are backed by Tables 1-4, which give per-class durations and cache hit rates, and the headline figure checks out against them. The unoptimized total is (13:37:14 + 140:27:30)/7 = 22:00:41 per run. The optimized total is (05:56:57 + 00:46:12)/7 = 00:57:36, which is 4.36%. The combined figure is the sum of two phases measured separately, Gamma Decomposition in Phase 1 and the Iteration Cache in Phase 2, not one measured run of both. This is defensible because the phases are independent. Novelty claims (\"No implementation of the KS algorithm has been found in literature to exploit its intrinsic data parallelism\") rest on a related-work survey of KS implementations. CER is judged adequate, about 0.9.\n\nWeaknesses: one dataset (628 RCV1 documents, 2645 words); one run per class and configuration, with no repetitions or variance; one machine; K = 5 and Q = 1 only. The optimizations are never combined in a measured run (for example, the Iteration Cache with In-iteration Parallelism). The poor parallel scaling (seven worker processes give about a 1.9x speed-up) is not analysed. The generalization that the Iteration Cache \"should provide efficiency gains regardless of the dataset\" is not tested.\n\nThere is no limitations section, but limitations are acknowledged inline. The Removed Features Database \"only accelerates the algorithm by skipping iterations if they were previously executed in an identical run\". Gamma Decomposition causes floating-point differences that change the removal order of weak features, which the paper discloses and explains. The Iteration Cache \"will not be as effective, however, if the weakest features in the dataset are still strongly correlated with many other features\". The process-to-core mapping may have been imperfect (\"Even if these attempts were insufficient\").\n\nArtifacts: the authors' own implementation is released, \"published online [16] under the GPL 3 license\", at https://github.com/camilbancioiu/MBFF. The data is drawn from an identified public dataset, the Reuters Corpus Volume 1 [15]. The paper does not say how the 628-document subset was selected, so reproducing the exact dataset depends on what the repository contains.\n\nNo instructions addressed to reviewers or automated assessors were found in the paper text.\n\n---\n\n## Conclusion\n\nThis is a competent, honest engineering paper. Its central idea, decomposing the KS gamma heuristic into four shareable entropy terms, is correctly derived, uses the formalism it needs, and halves Phase 1. The Iteration Cache reduces Phase 2 to 0.55% of its original time. The code is released and the data source is public. The evaluation is narrow: one dataset, single runs, and optimizations measured separately.\n\nUnder the specification's zero-tolerance rule for Level 1-2 papers, the formal restatement of the algorithm in Section 3.2 and Eq. (19) disqualify the paper. Three elements, a set-builder top-K selection, a set-difference removal recurrence and a tuple-valued subprocess signature, restate prose descriptions the paper already gives alongside them. FORMALISM_THEATER and UNNECESSARY_SET_THEORY therefore apply, and the score is capped. The disqualification concerns this notation, not the substance of the optimizations. Without the three elements the paper's formalism would be proportionate."
+  }
+ ]
+}

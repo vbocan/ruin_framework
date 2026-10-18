@@ -1,0 +1,189 @@
+{
+ "batch_id": "2012-v15-n1",
+ "analysis_timestamp": "2026-10-18T17:14:08Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 15,
+  "issue": 1,
+  "year": 2012
+ },
+ "papers": [
+  {
+   "paper_id": "cabarle2012",
+   "paper": {
+    "title": "Improving GPU Simulations of Spiking Neural P Systems",
+    "authors": [
+     "Francis George C. Cabarle",
+     "Henry N. Adorna",
+     "Miguel A. Martínez-del-Amor",
+     "Mario J. Pérez-Jiménez"
+    ],
+    "abstract": "In this work we present further extensions and improvements of a Spiking Neural P system (for short, SNP systems) simulator on graphics processing units (for short, GPUs). Using previous results on representing SNP system computations using linear algebra, we analyze and implement a computation simulation algorithm on the GPU. A two-level parallelism is introduced for the computation simulations. We also present a set of benchmark SNP systems to stress test the simulation and show the increased performance obtained using GPUs over conventional CPUs. For a 16 neuron benchmark SNP system with 65536 nondeterministic rule selection choices, we report a 2.31 speedup of the GPU-based simulations over CPU-based simulations.",
+    "keywords": [
+     "Membrane computing",
+     "spiking neural network",
+     "Spiking Neural P systems",
+     "GPU computing",
+     "CUDA"
+    ],
+    "doi": null,
+    "pages": "5–20",
+    "source_file": "01-cabarle.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 35,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 27.25,
+    "composite": 20.44,
+    "final": 20.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "DECORATIVE_DEFINITIONS",
+    "DISPROPORTIONATE_FORMALISM",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Concept Level 2: a GPU implementation of an existing matrix representation, improving the authors' own simulator. Five formal elements fail the Necessity Test: the rule record ri = <E, c, p>, the union R = ∪Rj, the count n = Σ|Rj|, Definition 5 (reachability), and the input encoding z for accepting systems, which is never used.",
+    "UNNECESSARY_SET_THEORY": "'We can label the union of all Rj sets as R = ∪ Rj' uses set union for what the simulator holds as one totally ordered list of rules. No proof depends on the operation.",
+    "DECORATIVE_DEFINITIONS": "Definition 5 formalises 'reachable after k steps', a notion the prose states just as precisely and that no proof manipulates. The inline record ri = <E, c, p> restates Definition 1's rule form as a struct. Removing either would not change what is built.",
+    "DISPROPORTIONATE_FORMALISM": "7 numbered definitions, 3 lemma/theorem statements and 3 proofs: 7×2 + 3×3 + 3×4 = 35, against a Level 2 upper bound of 15 (2.33×; the 2× threshold is 30). Counting the three unproven Observations as theorems raises the score to 44.",
+    "EXCESSIVE_SELF_CITATION": "10 of 26 references share an author with the paper ([1], [2], [3], [4], [5], [7], [8], [16], [18], [24]). SCR is 38.5%, or 34.6% if the co-edited volume [18] is excluded. All are on membrane computing or GPU computing. [7] (motif finding on GPUs) is marginal, and [5] is never cited in the text."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "An incremental Level 2 GPU simulator for spiking neural P systems. Its formalism scores 35 against a bound of 15, and its tuple and set-union notation stands in for rule records and lists. 10 of 26 references are self-citations; topically relevant, but above the 30% threshold.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A CPU-GPU simulator for spiking neural P (SNP) systems without delays. It builds on a published matrix representation (Ck+1 = Ck + Sk·MΠ) and on the authors' own earlier GPU simulators. Algorithm 1 enumerates all valid spiking vectors for each configuration on the host, then evaluates the matrix update on the GPU in parallel: one thread block per spiking vector, one thread per neuron.\n**Level:** 2 (Low)\n**Rationale:** The abstract says the paper offers \"further extensions and improvements\" of the authors' existing simulator, using \"previous results on representing SNP system computations using linear algebra\". The algorithm is a breadth-first expansion of the nondeterministic computation tree. Its parallel step is a data-parallel vector-matrix product. Two lemmas are proved: a product bound on branching and an informal correctness argument. There is no complexity analysis beyond a memory formula, and the reported gain is a 2.31× speedup. This is an improvement of an existing method on new hardware, not a novel algorithm with a non-trivial proof, so it sits at Level 2 rather than Level 3.\n\n### Formal Elements\n- Definitions: 7 numbered (with constraints: 2, Definitions 1 and 3), plus 2 inline definitional blocks (formal-language preliminaries; the rule record ri = <E, c, p>)\n- Theorems: 3 (Lemmas 1 and 2, Theorem 1), plus 3 unproven Observations\n- Proofs: 3\n- Equations: 4 numbered, plus inline formulas (R = ∪Rj, n = Σ|Rj|, the input encoding z, q for the benchmark systems)\n\n### Necessity Test\n- Formal-language preliminaries (V*, V+, regular expressions, L(E)): Q1 yes, Q2 yes, Q3 no → necessary (they fix the applicability check a^k ∈ L(E) that step II implements)\n- Input encoding for accepting systems (f : N^k → N, z = 10^(q1−1)1…10^(qk−1)1): Q1 yes, Q2 no, Q3 no → unnecessary (the simulator and all benchmarks are generative; no input neuron is ever used)\n- Example system Π1 (σ1 = (2, R1), …, syn = {(1,2), (1,3), (2,1), (2,3)}): Q1 no, Q2 yes, Q3 no → necessary (concrete instance from which C0, S0 and MΠ1 are derived)\n- Def. 1, SNP system tuple with rule forms and constraints: Q1 no, Q2 yes, Q3 yes → necessary (the semantics the simulator implements; the proof of Lemma 1 relies on its spiking/forgetting exclusivity)\n- Def. 2, configuration vector: Q1 yes, Q2 yes, Q3 no → necessary (per-neuron layout of the operand of Eq. 2)\n- Def. 3, spiking vector with one rule per neuron: Q1 no, Q2 yes, Q3 no → necessary\n- Def. 4, spiking transition matrix entries (−c, p, 0): Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (1), matrix MΠ1: Q1 no, Q2 no, Q3 no → necessary (exact entries of the worked instance)\n- Eq. (2), Ck+1 = Ck + Sk·MΠ: Q1 yes, Q2 yes, Q3 yes → necessary (the GPU kernel; used in Lemma 2 and Eq. 4)\n- Rule record ri = <E, c, p> with ri1 = E, ri2 = c, ri3 = p: Q1 yes, Q2 no, Q3 no → unnecessary (restates Definition 1's rule form as a struct)\n- R = ∪(j=1..m) Rj: Q1 yes, Q2 no, Q3 no → unnecessary (set union standing for the concatenated rule list)\n- n = Σ(j=1..m) |Rj|: Q1 yes, Q2 no, Q3 no → unnecessary (n was already introduced as \"the number of rules\")\n- Def. 5, reachable configuration C0 ⇒^k Ck: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 6, S(Ck) and S = ∪ S(Ck): Q1 yes, Q2 yes, Q3 yes → necessary (step II generates S(Ck); bounded in Observation 1, object of Lemma 2)\n- Def. 7, C(Ck+1) and C = ∪ C(Ck+1): Q1 yes, Q2 yes, Q3 yes → necessary (stopping criterion (1) needs the set of unique configurations)\n- Lemma 1 / Eq. (3), q = Π max(#spik(Rj), #forg(Rj)): Q1 yes, Q2 yes, Q3 yes → necessary (q sizes thread blocks and memory)\n- Proof of Lemma 1: Q1 yes, Q2 no, Q3 yes → necessary\n- Observation 1, |C(Ck+1)| = |S(Ck)| ≤ q: Q1 yes, Q2 no, Q3 yes → necessary\n- Lemma 2, Algorithm 1 computes C and S: Q1 yes, Q2 no, Q3 yes → necessary\n- Proof of Lemma 2: Q1 yes, Q2 no, Q3 yes → necessary\n- Theorem 1, Algorithm 1 simulates Π: Q1 yes, Q2 no, Q3 yes → necessary (nominally; it restates Lemma 2)\n- Proof of Theorem 1: Q1 yes, Q2 no, Q3 yes → necessary\n- Observations 2-3 (n < m implies rule-less neurons; m = n implies determinism): Q1 yes, Q2 yes, Q3 no → necessary (they justify launching m·q threads)\n- Eq. (4), G ≥ qk(n + 2m) + m(n + 1): Q1 yes, Q2 yes, Q3 yes → necessary\n- q = (dr/m)^(2^x) for benchmark Bmx: Q1 yes, Q2 yes, Q3 yes → necessary\n\nFive elements fail the test: the input encoding, the rule record, the union R, the sum n and Definition 5.\n\n### Proportionality\nCalculated complexity: 35 (7 definitions × 2 + 3 theorems × 3 + 3 proofs × 4); 44 if the Observations count as theorems, 53 if the two inline definitional blocks are added as well\nExpected range (Level 2): 0-15\nRatio: 2.33x upper bound\n\n**Assessment:** Disproportionate. The paper uses definition-lemma-theorem apparatus to describe an exhaustive breadth-first simulation plus a vector-matrix product. Most of the apparatus does constrain the simulator. The rest is notation where a programmer's list or record would do: the union and sum over rule sets, the rule triple, and a definition of reachability.\n\n### Issues\n- \"Hence a rule ri can be written as ri =< E, c, p > where ri1 = E, ri2 = c, and ri3 = p.\" This is a tuple for a record whose fields Definition 1 already fixes.\n- \"We can label the union of all Rj sets as R = ∪ Rj\". This is set union for list concatenation, and the total order the simulator needs is the paper's own extra assumption.\n- Theorem 1 adds nothing to Lemma 2: \"The proof follows directly from Lemma 2.\"\n- Observation 1 asserts |C(Ck+1)| = |S(Ck)|. Distinct spiking vectors can yield the same configuration, which is why stopping criterion (1) tracks unique configurations, so the equality should be ≤.\n- Observation 3 (\"if m = n, then Π is a deterministic system\") holds only if every neuron has exactly one rule.\n- The proof of Lemma 2 assigns the accumulation of S and C to step II, though Algorithm 1 computes the configurations in step III. The text also contains a broken cross-reference (\"in Figure ??\").\n\n---\n\n## Citation Analysis\n\n10 of 26 references share at least one author with the paper:\n- [1] and [2]: Cabarle, Adorna, Martínez-del-Amor. The direct predecessors of this simulator. Related (0.95).\n- [3] and [4]: Martínez-del-Amor and Pérez-Jiménez. GPU simulation of P systems. Related (0.8).\n- [5]: Pérez-Jiménez. SNP systems with extended rules. Related (0.6), but never cited in the text.\n- [7]: Cabarle and Adorna. Motif finding on GPUs, cited only as the source of a GPU hierarchy figure. Marginal (0.4).\n- [8]: Pérez-Jiménez. Software for P systems. Related (0.7).\n- [16]: Pérez-Jiménez. The P-Lingua SNP simulator. Related (0.8).\n- [18]: an edited volume with Pérez-Jiménez as co-editor. Related (0.5).\n- [24]: Adorna, Martínez-del-Amor, Pérez-Jiménez. The matrix representation the paper rests on. Related (0.9).\n\nThe SCR is 38.5%, or 34.6% if the edited volume is set aside. Either way it is above the 30% threshold. No self-citation falls below 0.3 similarity, so the excess is volume, not irrelevance. It reflects two groups that are central to membrane computing citing their own prior tools and representations heavily. No mutual-citation pattern on unrelated topics is visible.\n\n---\n\n## Structural Analysis\n\nThe introduction's claims are cited, and the formal claims come with proofs, although informal ones. The empirical claim rests on one experiment: four synthetic benchmark systems of 2 to 16 neurons, run on one hardware setup. Results appear as a single running-time and speedup figure, with no repeated runs or variance, and the reported speedup is \"up to 2.31\". The paper acknowledges limitations inline: host-device transfers lower the speedup, and GPU memory is far smaller than host memory. It names future work to move further steps onto the GPU.\n\nThere is no artifact. The implementation (PyCUDA and CUDA C, snpcpu-sim and snpgpu-sim) is described but not linked or offered. The benchmark systems are described, not deposited.\n\n---\n\n## Conclusion\n\nThis is a modest engineering contribution: the authors' own GPU simulator for SNP systems, improved and benchmarked. It is presented with a heavy formal apparatus: seven definitions, two lemmas, a theorem, three observations and their proofs, against a Level 2 expectation of basic equations. Most of the formalism does real work, since the matrix representation, spiking-vector validity and the branching bound shape the implementation. But several elements restate lists and records in set and tuple notation, the formal count is more than twice the Level 2 bound, and two of the observations are imprecise.\n\nIndependently of the formalism, more than a third of the references are self-citations. They are topically relevant, but they exceed the 30% threshold. Both the formalism family, at Level 2, and the self-citation ratio disqualify the paper. No code is available."
+  },
+  {
+   "paper_id": "li2012",
+   "paper": {
+    "title": "A Modified Estimation of Distribution Algorithm for Digital Filter Design",
+    "authors": [
+     "Yuquan Li",
+     "Gexiang Zhang",
+     "Jixiang Cheng",
+     "Xiangxiang Zeng",
+     "Marian Gheorghe",
+     "Susan Elias"
+    ],
+    "abstract": "Estimation of Distribution Algorithms (EDAs) are a class of probabilistic model-building evolutionary algorithms, which are characterized by learning and sampling the probability distribution of the selected individuals. This paper proposes a modified EDA (mEDA) for digital filter design. mEDA uses a novel sampling method, called centro-individual sampling, and a fuzzy C-means clustering technique to improve its performance. Extensive experiments conducted on a set of benchmark functions show that mEDA outperforms seven algorithms reported in the literature, in terms of the quality of solutions. Four types of digital infinite impulse response (IIR) filters are designed by using mEDA and the results show that mEDA can obtain better filter performance than four state-of-the-art methods.",
+    "keywords": [
+     "Modified EDA",
+     "Centro-individual sampling",
+     "Fuzzy C-means clustering",
+     "Digital IIR filter",
+     "Numeric optimization"
+    ],
+    "doi": null,
+    "pages": "50–62",
+    "source_file": "04-li.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 50,
+    "intellectual_integrity": 78.5,
+    "composite": 71.38,
+    "final": 66.38
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "The 23 functions from [24], denoted as f1 , f2 , · · · , f23 , are applied to conduct the experiments.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "There is no limitations section and no acknowledgment of the study's constraints. The only caveat is that mEDA's standard deviation on f5 is worse than UMDAc's. Unmentioned: the losses to HPBILc on f3, f8 and f9 in Table 1, the sensitivity to the empirically set parameters, and the reliance on competitor results copied from the literature."
+   },
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "A Level 2 EDA variant (per-parent Gaussian sampling plus fuzzy C-means) with proportionate formalism and broad benchmark comparisons. Self-citation is low. It discusses no limitations, overstates some results and releases no code; the benchmark suite is public.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A modified estimation-of-distribution algorithm (mEDA) with two changes. First, each parent seeds a Gaussian sample around itself (\"centro-individual sampling\", CIS). Second, after a fixed fraction of the generations, the population is split with fuzzy C-means clustering (FCMC). The algorithm is benchmarked on 27 standard test functions and applied to IIR digital filter design.\n**Level:** 2 (Low)\n**Rationale:** CIS amounts to Gaussian mutation around each parent, with a step scaled by the population's per-dimension standard deviation. FCM is the textbook algorithm of Bezdek et al. The contribution combines and tunes existing components. It is validated empirically, without convergence or complexity analysis. That is a simple modification of existing methods, applied to a new problem.\n\n### Formal Elements\n- Definitions: 0 numbered (with constraints: 0); symbols are introduced inline with the equations\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 numbered, plus inline formulas (Gaussian model, FCM membership and centre updates, splitting rule, stability constraints)\n\n### Necessity Test\n- Splitting ratio Rs and switching rule (t < Rs·Gm versus t ≥ Rs·Gm): Q1 yes, Q2 yes, Q3 no → necessary (it fixes when clustering starts)\n- Univariate Gaussian model pj(x) = N(uj, σj): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (1), CIS sampling x_ji^new = x_ji + Se·N(0, σi), with its symbol glossary Xj and σ: Q1 yes, Q2 yes, Q3 no → necessary\n- FCM membership constraints (Σj uij = 1, uij ∈ [0, 1]): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (2), FCM objective J = Σj Σi uij^b dij^2: Q1 no, Q2 yes, Q3 no → necessary\n- FCM membership update uij: Q1 no, Q2 yes, Q3 no → necessary\n- FCM centre update mj: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (3), cascaded IIR transfer function H(z): Q1 no, Q2 yes, Q3 no → necessary (it defines the decision variables)\n- Parameter set X and stability constraints bi1 ∈ [−1, 1], dj1 ∈ [−1 − dj2, 1 + dj2]: Q1 yes, Q2 yes, Q3 no → necessary\n- Design criterion δ1(x) + δ2(x): Q1 yes, Q2 yes, Q3 no → necessary (the fitness function)\n- Table 4 band specifications as intervals and interval unions: Q1 yes, Q2 yes, Q3 no → necessary\n- Eqs. (4)-(7), the designed filters: Q1 no, Q2 no, Q3 no → necessary (results; they state exact coefficients)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The formalism consists of the equations that define the sampler, the clustering step, the filter model and the fitness function. Each one constrains what is implemented.\n\n### Issues\nNo formal element fails the Necessity Test. The notation is careless, however:\n- The standard deviation is written as a set, \"σ = {σ1 , σ2 , · · · , σs }\", rather than a vector. This is treated as part of Eq. (1)'s glossary, not as a separate formal element.\n- The index j denotes a dimension in pj(x) but an individual in Xj.\n- Rs is defined as \"Rs = t/Gm\", a ratio that changes with t, but is then used as the constant 0.25.\n- Eq. (7) is labelled HBP although it is the bandstop filter.\n- As extracted, the bandpass stopband in Table 4 repeats the passband interval.\n\n---\n\n## Citation Analysis\n\n2 of 29 references are self-citations, both by G. X. Zhang (SCR 6.9%).\n- [29], a survey of quantum-inspired evolutionary algorithms, appears in a list showing that EDAs are widely used. Marginal to related (0.5): QIEAs are probabilistic-model evolutionary algorithms.\n- [28], on IIR filter design, is directly relevant (0.7), but is never cited in the text.\n\nReferences [5], [8], [16] and [27] are also never cited. Several early citations point to the wrong entries. EDAs are said to have been \"introduced in 1996 [1]\", but [1] is a fuzzy-clustering survey. The sampling statement is attributed to [2], which is Bezdek's FCM paper. No concerning self-citation pattern.\n\n---\n\n## Structural Analysis\n\nThe claims are backed by substantial evidence:\n- 23 functions with 30 independent runs, reported as mean ± sd, and Wilcoxon and Friedman tests against HPBILc.\n- 9 further functions compared with six EDAs.\n- Four filter designs compared with four published methods on the ripple criteria.\n\nSome results are overstated. The text says \"mEDA performs better than HPBILc, in terms of mean solutions and the robustness of solutions\", yet Table 1 shows HPBILc ahead on f3, f8 and f9. All competitor results are taken from the literature, not rerun. The parameters are set \"according to empirical studies\" without a sensitivity analysis. No limitation is acknowledged beyond one sentence noting a worse standard deviation on f5.\n\nThere is no code. The benchmark problems are the named, public test suite of Yao et al. [24] and the functions of [7], so the data the results rest on is public.\n\n---\n\n## Conclusion\n\nThis is a competent applied metaheuristic paper. Its formalism is limited to the equations that define the algorithm and the filter model, which is proportionate to a Level 2 contribution. The experimental comparison is broad and includes non-parametric tests, although some claims of superiority go beyond Table 1.\n\nThe weaknesses are presentational and reporting ones: inconsistent notation, mislabelled equations, misnumbered citations in the introduction, and no discussion of limitations. No code is released, but the benchmark suite is public."
+  },
+  {
+   "paper_id": "muniyandi2012",
+   "paper": {
+    "title": "Modeling Hormone-induced Calcium Oscillations in Liver Cell with Membrane Computing",
+    "authors": [
+     "Ravie Chandren Muniyandi",
+     "Abdullah Mohd. Zin"
+    ],
+    "abstract": "The capability of membrane computing to deal with distributed and parallel computing models, allows it to characterize the structure and processes of biological systems. With this advantage, membrane computing provides an alternative modelling approach to conventional methods such as ordinary differential equations, primarily in preserving the discrete and nondeterministic behavior of biological reactions. This paper investigates the implementation of the framework for modelling and verification based on membrane computing with a biological process of hormone-induced calcium oscillations in liver cell. The biological requirements and properties of this process are formalized in membrane computing. The model of membrane computing is verified with the simulation strategy of Gillespie algorithm and the model checking approach of the Probabilistic Symbolic Model Checker. The results provided by the simulation and model checking approaches demonstrate that the fundamental properties of the biological process have been preserved by membrane computing model. The results have emphasized that membrane computing provides a better approach in accommodating the structure and processes of hormone-induced calcium oscillations compared to the approach of the ordinary differential equations. However other biological aspects such as the selection of parameters based on the stochastic behavior of biological processes have to be tackled to strengthen membrane computing competence in modelling biological processes.",
+    "keywords": [
+     "membrane computing",
+     "hormone induced calcium oscillations",
+     "Gillespie algorithm",
+     "PRISM"
+    ],
+    "doi": null,
+    "pages": "63–76",
+    "source_file": "05-muniyandi.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 80,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 40.5,
+    "composite": 30.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only URL, in reference [18] ('Multicompartment Gillespie simulator in C : http://www.dcs.shef.ac.uk/ marian/PSimulatorWeb/PSystemMF.htm'), is a third-party simulator",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Concept Level 2: an existing framework, simulator and PRISM translation applied to a published ODE model. Three formal elements fail the Necessity Test, each restating what the surrounding prose already says: the system tuple HCOLC = (V, µ, ωE, ωC, ωER, RE, RC, RER), the alphabet V = {CaE, CaC, CaER} and the membrane structure µ = [ [ [ ]ER ]C ]E.",
+    "DECORATIVE_DEFINITIONS": "The tuple definition of the HCOLC system is a list of component names. Removing it would not change the model given to the simulator, which the initial multisets and Rules 1-5 specify completely."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A Level 2 membrane-computing case study converting a published ODE model into five rewriting rules. A P-system signature that restates the prose triggers formalism theater. The verification claims rest on reward plots with no stated properties, and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A membrane-computing (P system) model of hormone-induced calcium oscillations in liver cells, obtained by converting a published two-variable ODE model (Somogyi and Stucki) into five rewriting rules over three nested compartments. The model is simulated with an existing multi-compartment Gillespie simulator, then translated into PRISM with an existing technique and examined through reward structures.\n**Level:** 2 (Low)\n**Rationale:** Every component is taken from earlier work: the modelling-and-verification framework (the first author's thesis [11]), the ODE model [12], the simulator [18] and the PRISM translation [21]. The conversion itself is said to be detailed in [15]. What remains is a case study that applies existing methods to one biological system. No new algorithm, model class or proof is proposed.\n\n### Formal Elements\n- Definitions: 0 numbered; 5 inline definitional components (system tuple, membrane structure µ, alphabet V, initial multisets ω, rule schema), with constraints: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 numbered (the ODEs), plus the feedback function f[y] and Rules 1-5 with their kinetic constants\n\n### Necessity Test\n- ODE model, Eqs. (1)-(2) with f[y] = y^n/(a^n + y^n): Q1 no, Q2 yes, Q3 no → necessary (the source dynamics from which the rule rates are taken)\n- System tuple HCOLC = (V, µ, ωE, ωC, ωER, RE, RC, RER): Q1 yes, Q2 no, Q3 no → unnecessary (a list of component names, each defined separately below it)\n- Membrane structure µ = [ [ [ ]ER ]C ]E: Q1 yes, Q2 no, Q3 no → unnecessary (it restates the preceding sentence on the three compartments and on communication through C)\n- Alphabet V = {CaE, CaC, CaER}: Q1 yes, Q2 no, Q3 no → unnecessary (set notation for the three labelled species already named in the prose)\n- Initial multisets ωE = {CaE}, ωC = {CaC}, ωER = {CaER}: Q1 yes, Q2 yes, Q3 no → necessary (the only statement of the initial state)\n- Rule schema Ri_j : u[v]i → u′[v′]i with rate ki: Q1 yes, Q2 yes, Q3 no → necessary (it fixes how Rules 1-5 are read)\n- Rules 1-5 with k1 = γ, k2 = k′, k3 = k″, k4 = β, k5 = α·f[CaC]: Q1 no, Q2 yes, Q3 no → necessary (the model itself)\n\nThe PRISM reward listing is code, not a formal element, and is not counted. Three elements fail the test: the system tuple, the membrane structure µ and the alphabet V.\n\n### Proportionality\nCalculated complexity: 10 (5 inline definitional components × 2; 0 counting numbered definitions only)\nExpected range (Level 2): 0-15\nRatio: 0.67x upper bound\n\n**Assessment:** Proportionate in count, but not in necessity. The rules and the source ODEs carry the model. The P-system signature around them restates in notation what the prose has just said: \"HCOLC = (V, µ, ωE , ωC , ωER , RE , RC , RER )\", \"µ = [ [ [ ]ER ]C ]E\", \"V = {CaE , CaC , CaER }\". The zero-tolerance rule applies at Level 2.\n\n### Issues\n- The tuple, alphabet and bracket structure are the conventional P-system signature. They add nothing that the list of five reactions and their rates does not already specify.\n- The translation is asserted, not shown, to preserve the ODE dynamics, and its details are deferred to [15]. In Eq. (2), the influx γ is a constant term. In the P system, Rule 1 consumes an extracellular object, and the paper does not say how the constant influx is retained.\n- The process labels are inconsistent. The list defines R2 as cytosol-to-ER and R3 as ER-to-cytosol, but the discussion credits \"translocation process from cytosol to ER (R3)\" and \"translocation process from ER to cysotol (R2)\".\n- The text says more regular spikes are \"shown by Figure 3 with experiment B\", but Figure 3 is experiment A.\n\n---\n\n## Citation Analysis\n\n4 of 25 references are self-citations (SCR 16.0%, elevated band):\n- [11], the thesis framework. Related (0.9).\n- [15], the conversion of the same liver-cell model. Related (0.95).\n- [22], the Gillespie simulation study. Related (0.8).\n- [24], PRISM model checking of membrane models. Related (0.8).\n\nAll are on topic. However, [15] treats the same biological process and holds the conversion this paper relies on, which raises the question of how much this paper adds over it. The PRISM reward analysis seems to be the main addition. Several references are inaccurate: [12] gives volume 26 for the Journal of Biological Chemistry, and [5] mixes Communications of the ACM with Lecture Notes in Computer Science. No mutual-citation pattern is visible.\n\n---\n\n## Structural Analysis\n\nThe claims go beyond the evidence:\n- The abstract states that membrane computing \"provides a better approach\" than ODEs. The only support is the qualitative remark that nondeterminism and parallelism are \"obvious\" in the model, with no quantitative comparison.\n- The verification claim (\"properties of the biological system have been captured\") rests on reward plots. Each reward simply records the cytosolic calcium when a rule fires; no CSL property or probability is stated or checked.\n- Property (2) is only partly reproduced: the initial spike seen in the ODE model is absent.\n\nThe paper acknowledges this inline. It attributes the failure to separate experiments C and D to reusing continuous parameter values in a stochastic model, and it lists parameter selection as open work.\n\nThere is no artifact. The model files and PRISM code are not released. The only link points to the third-party Gillespie simulator, which does not count as the authors' code.\n\n---\n\n## Conclusion\n\nThis is a Level 2 case study: an existing framework, simulator and model-checking translation applied to a published ODE model of calcium oscillations. The five rewriting rules are a legitimate model description. They are wrapped in a P-system signature (tuple, alphabet set, bracket membrane structure) that restates the prose, which is formalism theater under the Level 1-2 zero-tolerance rule.\n\nThe verification is weaker than claimed. The model-checking step reports no formal properties, and the comparison with the ODE model is qualitative. Self-citation is elevated but relevant, with a notable overlap with the authors' earlier paper on the same system. Nothing is released."
+  }
+ ]
+}

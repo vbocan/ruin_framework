@@ -1,0 +1,190 @@
+{
+ "batch_id": "2025-v28-n3",
+ "analysis_timestamp": "2026-10-18T17:24:08Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 3,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "zavadskas2025",
+   "paper": {
+    "title": "Intelligent Expert Systems Using Molecular Fuzzy Genetic Algorithms and Multi-Objective Particle Swarm Optimization for Circular-Oriented Project Investments",
+    "authors": [
+     "Edmundas Kazimieras Zavadskas",
+     "Hasan Dinçer",
+     "Serhat Yüksel",
+     "Serkan Eti"
+    ],
+    "abstract": "Circular-oriented project investments promote sustainable growth by enhancing resource efficiency and minimizing waste. There is a significant gap in the literature to identify key variables that influence the performance of these investments. This gap can cause inappropriate decisions by investors and policymakers, as well as inefficient resource utilization by businesses. To address this missing gap, this study aims to identify the key indicators influencing circular-oriented project investments by introducing a novel decision-making model. The proposed model integrates the information gain technique for project prioritization, Q-learning for expert evaluation, genetic algorithms for criteria weighting, and swarm optimization for alternative ranking. The main contribution of this study is that molecular fuzzy sets are considered by combining molecular geometry and fuzzy logic. These sets offer a more advanced uncertainty modeling capability than traditional fuzzy sets. The application of genetic algorithms in criteria weighting provides a significant contribution to the literature. By making a global optimization, more appropriate calculations can be performed for criteria weighting. The findings denote that emission reduction and financial performance are the most crucial criteria for the performance improvements of these projects. Moreover, waste-to-energy plants and urban mining initiatives are found as the most significant project alternatives.",
+    "keywords": [
+     "Circular-oriented projects",
+     "genetic algorithms",
+     "molecular fuzzy sets",
+     "swarm optimization"
+    ],
+    "doi": "10.59277/ROMJIST.2025.3.02",
+    "pages": "260-273",
+    "source_file": "paper807.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 45.25,
+    "composite": 33.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "THEOREMLESS_FORMALISM"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with seven formal elements that fail the Necessity Test: declarations of the averaged matrix (Eq. 7), an individual (Eq. 13), the population as a set (Eq. 14), the mutated offspring (Eq. 25) and a particle as a set (Eq. 30), a reciprocal already stated in prose (Eq. 11), and a recursive restatement of the cumulative probability (Eq. 19).",
+    "UNNECESSARY_SET_THEORY": "Set braces for ordered arrays: the GA population P = {w1, ..., wn} (Eq. 14) and the PSO particle Xi = {xi1, ..., xin} (Eq. 30); Eq. 6 also writes the arithmetic mean of the experts' opinions as a union. No proof depends on these.",
+    "THEOREMLESS_FORMALISM": "Eight inline definitions (Eqs. 7, 8, 13, 14, 21, 22, 25, 30) and no theorem, lemma or proposition."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 hybrid MCDM application whose set-brace and purely declarative notation fails the Necessity Test; citation practice is sound, but the illustrative inputs have no stated origin, no baseline comparison is made and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Hybrid multi-criteria decision model for ranking circular-economy project investments: information gain to shortlist projects, an iterative opinion-balancing step called Q-learning, a genetic algorithm for criterion weights and particle swarm optimisation for ranking, all over \"molecular fuzzy\" triples, illustrated on three experts' ratings of eight projects.\n**Level:** 2 (Low)\n**Rationale:** Every component is an existing technique (entropy and information gain, a GA with roulette selection and one-point crossover, standard PSO, vector-angle similarity), combined and applied to a new decision domain; this is the \"fuzzy logic applied to supplier selection\" pattern. There is no proof, complexity analysis or convergence result, and the \"Q-learning\" step (Eqs. 3-5) is a fixed-point averaging rule with no states, actions or value function, so it adds no algorithmic novelty.\n\n### Formal Elements\n- Definitions: 8 (inline object declarations: Eqs. 7, 8, 13, 14, 21, 22, 25, 30; no numbered Definition blocks)\n- Theorems: 0\n- Proofs: 0\n- Equations: 25 further numbered equations (33 in total)\n\n### Necessity Test\n- Eq. 1, Shannon entropy of the ratings: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 2, information gain: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 3, reward degree RD = r(Qk − Qo): Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 4, penalty degree PD = p(Qo − Qk): Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 5, opinion update Qu = Qk + a(RD − PD): Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 6, averaging of the experts' triples (written with a union symbol on the left): Q1 no, Q2 yes, Q3 no → necessary (the right-hand side fixes the arithmetic mean)\n- Eq. 7, Q = [qij] r×c, declaration of the averaged matrix: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 8, row fuzzy vector ui of triples: Q1 yes, Q2 yes (fixes the component indexing Eq. 9 uses and drops the empty diagonal), Q3 no → necessary\n- Eq. 9, angle between two fuzzy vectors: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 10, piecewise normalisation of the angle by \"molecular geometry\": Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 11, recip = 1/norm: Q1 yes, Q2 no (the sentence before it already says the reciprocal is taken), Q3 no → unnecessary\n- Eq. 12, row normalisation of the reciprocals: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 13, w = [w1, ..., wn], declaration of an individual: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 14, P = {w1, ..., wn}, population written as a set: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 15, weights as gaps between sorted uniform draws: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 16, fitness function: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 17, selection probability: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 18, cumulative probability as a sum: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 19, cumulative probability restated recursively: Q1 yes, Q2 no (Eq. 18 already fixes it), Q3 no → unnecessary\n- Eq. 20, roulette-wheel selection condition: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 21, parent 1 split at crossover point c: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 22, parent 2 split at crossover point c: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 23, first offspring of one-point crossover: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 24, second offspring (also labelled O1): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 25, O′ = [w′1, ..., w′n], declaration of the mutated offspring: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 26, additive perturbation w′i = wi + Δ: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 27, final fitness score: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 28, weighted decision matrix: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 29, normalised final decision matrix: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 30, Xi = {xi1, ..., xin}, particle written as a set: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 31, PSO velocity update: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 32, initial velocity: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 33, position update: Q1 yes, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 16 (8 definitions × 2)\nExpected range (Level 2): 0-15\nRatio: 1.07x upper bound\n\n**Assessment:** Proportionate in count (marginally above the Level 2 bound, far below the 2× threshold), but seven elements fail the Necessity Test, which at Level 2 is formalism theater.\n\n### Issues\n- Set notation for arrays: the population is written P = {w1, w2, ..., wn} (Eq. 14) and a particle Xi = {xi1, ..., xin} (Eq. 30). Both are ordered vectors, and Eq. 14 reuses w1...wn, which Eq. 13 had just used for the components of one individual.\n- Eq. 6 writes the arithmetic mean of the experts' triples as a union over the experts.\n- Pure declarations (Eqs. 7, 13, 25), a reciprocal already stated in prose (Eq. 11) and a restated cumulative sum (Eq. 19) add notation without adding anything to implement.\n- Eight object declarations and no theorem: the apparatus yields numbers, not formal results.\n- The procedural equations contain errors: Eq. 24 labels the second offspring O1 again; Eq. 27 reads \"(Nij − wi, wj)²\", which is not well formed; Eq. 18 has no upper summation limit; Eq. 5 updates only the lead expert's matrix, so it is unclear how the other matrices become \"balanced\".\n- The \"Q-learning\" of Section 2.2 shares only its name with reinforcement-learning Q-learning.\n\n---\n\n## Citation Analysis\n\nTwo of 21 references are self-citations (9.5%): [1] (Shahbaz, Dinçer, Yüksel, Jiao), circular-economy renewable energy projects ranked with a hybrid fuzzy decision model, and [19] (Shen, Liu, Yüksel, Dinçer), the molecular fuzzy decision model whose sets are reused here. Both are on the same topic or method (similarity ≥ 0.5).\n\nSome non-self references are cited for points they are unlikely to be the natural source of: a conference preface [16] for the choice of fuzzy numbers, a multi-UAV path-planning paper [17] for the entropy measure, a wind-turbine design paper [20] for the genetic algorithm. None involves the authors and no reciprocal pattern is visible from the paper. No issues within the specification's flags.\n\n---\n\n## Structural Analysis\n\nThe illustration rests on Table 1 (factor values for eight projects) and the linguistic ratings of three experts; the paper does not say where the project values come from, whether they describe real projects, or who the experts are beyond their years of experience. The claims that molecular fuzzy sets model uncertainty better than classical fuzzy sets and that GA weighting is a significant contribution are asserted, not tested: no comparison with another weighting or ranking method is reported, and the only robustness evidence is that rankings are unchanged across learning rates and normalisation shapes (Tables 7 and 10). Reporting errors weaken traceability: Table 3 carries the caption of Table 2, the captions of Tables 9 and 10 appear swapped, and the text cites a non-existent Table 17. The policy recommendations in the conclusion (financial incentives, carbon taxes, public-private collaboration) do not follow from the analysis. Overall the claim-evidence balance is adequate, because the reported findings are tied to computed tables. One limitation (reliance on expert judgement) is acknowledged inline.\n\nNo code or data are released and there is no availability statement; the input tables printed in the paper are description, not an artifact.\n\n---\n\n## Conclusion\n\nA Level 2 hybrid MCDM application that chains standard techniques. Most of its 33 equations specify computations and pass the Necessity Test, but seven do not (set-brace declarations of a population and a particle, pure matrix and vector declarations, a reciprocal, a duplicated cumulative sum), which at Level 2 gives FORMALISM_THEATER and UNNECESSARY_SET_THEORY; eight inline declarations with no theorem give THEOREMLESS_FORMALISM. Citation practice is unremarkable. The empirical part is an illustrative computation on inputs of unstated provenance, with labelling errors and no baseline comparison."
+  },
+  {
+   "paper_id": "milicevic2025",
+   "paper": {
+    "title": "Design of a Microcomputer for Controlling a Servo System for Cutting Steel Pipes",
+    "authors": [
+     "Miroslav S. Milićević",
+     "Valentina M. Nejković"
+    ],
+    "abstract": "This paper deals with the problem of automatic regulation of cutting steel pipes and profiles. The process of making steel pipes and profiles starts from the steel strip by shaping in the forming section, induced longitudinal welding, and finally cutting. It is necessary to cut to a pre-selected length while in motion, which does not disturb the process of continuous operation of the production line. The existing cutting system created problems in the accuracy of product cutting lengths, insufficient synchronization of cutting tools and products, etc. After identifying the problem and analyzing the system, the design of a microcomputer-based control system was initiated to ensure precise regulation of the product cutting process, the final stage of the technical line for seam pipe production.",
+    "keywords": [
+     "Cutting steel pipes",
+     "design",
+     "microcomputer",
+     "regulation",
+     "servo system"
+    ],
+    "doi": "10.59277/ROMJIST.2025.3.03",
+    "pages": "274-285",
+    "source_file": "paper808.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 74.75,
+    "composite": 56.06,
+    "final": 51.06
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "The only link is reference [32], \"Supplement files for work: Design of a Microcomputer for Controlling a Servo System for Cutting Steel Pipes: https://github.com/valentinanejkovic/milicevic-romjist2024/blob/main/New%20attachment.pdf\", a PDF of supplementary figures (Figs. P1-P7: flowchart, state diagram, model circuit, memory and I/O schematics). No code or data is linked or claimed.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of the new system's limitations; only the old system's shortcomings are discussed."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Engineering design of a microcomputer flying-saw controller with functional, proportionate mathematics; the headline accuracy and productivity claims have no reported evidence, no limitations are acknowledged and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design of an Intel 8080-based microcomputer controller for a hydraulic flying saw that cuts welded steel pipes to length in motion, with a second-order Laplace-domain model of the hydraulic servo and an analogue process model used in a gain-compensating feedback loop.\n**Level:** 2 (Low)\n**Rationale:** The contribution is an engineering design that applies textbook control analysis (equation of motion, flow continuity, second-order transfer function, ramp response) and standard microprocessor components to one plant. No new method or theory is proposed and nothing is proved. It sits above Level 1 only because the plant is modelled and a compensating loop is designed, rather than components merely being connected.\n\n### Formal Elements\n- Definitions: 1 (Eq. 7, the substitutions defining ωn, z and k)\n- Theorems: 0\n- Proofs: 0\n- Equations: 17 further numbered equations and one unnumbered block of op-amp circuit relations\n\n### Necessity Test\n- Eq. 1, equation of motion of the saw carriage: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 2, the same in velocity form: Q1 no, Q2 yes (it is the form that is transformed), Q3 no → necessary\n- Eq. 3, pump flow continuity with leakage and compression: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 4, Laplace transform of Eq. 2: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 5, Laplace transform of Eq. 3: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 6, transfer function W1(s) without friction: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 7, substitutions for ωn, z, k: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 8, standard second-order form: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 9, ramp-limited input α(t): Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 10, Laplace transform of the input: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 11, output as an inverse Laplace transform: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 12, time response for t ≤ τ: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 13, time response for t > τ: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 14, open-loop transfer function W2(s): Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 15, velocity constant kv: Q1 no, Q2 yes, Q3 yes (it bounds the steady-state velocity error) → necessary\n- Eq. 16, numerical z, ωn and vmax: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 17, numerical response: Q1 no, Q2 yes, Q3 no → necessary\n- Unnumbered op-amp relations for U2-U5 and U5/U1: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 18, numerical transfer function of the analogue model: Q1 no, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Proportionate. The mathematics is the plant model and its response, which the controller design needs.\n\n### Issues\nNo necessity failures. The derivation has slips: Eq. 7 gives k = C0n/(α0 s) with a stray s, Eq. 10 has S²τ where s²τ is meant, the symbol list names β1 while Eq. 3 uses β, and \"Fig. 1\" is used both for the line's block diagram and for the servo block diagram derived from Eqs. 4-5. Stability is asserted (\"Applying the Mihailov criterion, it is shown that the system is stable\", with a 65° phase margin) without the analysis being shown.\n\n---\n\n## Citation Analysis\n\nFour of 43 references are self-citations (9.3%): [29] and [30], the first author's 1984 and 1979 conference papers on flying-saw control; [31], a book on electric actuators; and [32], the authors' supplementary PDF. All are on the paper's subject (similarity ≥ 0.5; [31], on actuators in general, is the most distant).\n\nA separate pattern concerns non-self citations. References [33]-[43] are recent works on PI and fuzzy controller tuning, tower cranes, maglev trains, vehicle steering and reinforcement learning; seven of the eleven include [third-party author] and three appeared in this journal. Their connection to a flying-saw controller built on 1970s-era components is loose. The text says they \"gave some ideas\" for future improvements and adds: \"Citation of this literature will in practice benefit the authors of the paper and all researchers who read and study this paper.\" This looks like citation padding toward one group, but the cited authors are not authors here and the ring flag needs reciprocal citation, which this paper cannot show. Recorded as an observation; no flag.\n\n---\n\n## Structural Analysis\n\nThe central performance claims have no supporting data in the paper. The total cutting error \"below 1 mm\", against up to 50 mm for the old system, cutting at right angles, reduced downtime, higher productivity and economic justification are all stated without measurements, test conditions or a results table. The supported parts are the plant derivation, the software's timing and memory budget (subroutine sizes and execution times against the 600 µs pulse period) and the component values of the analogue model. Much of the design (process flowchart, state diagram, model circuit, memory and I/O schematics) is moved to the external attachment [32]. The references are mostly textbooks and manuals from 1964-1984, and the work seems to describe a design from decades earlier, though the paper does not say so. Claim-evidence balance is weak. No limitation of the new system is acknowledged; the only shortcomings discussed are those of the old system.\n\nThe only link is [32], a PDF of supplementary figures on GitHub. The assembler program, identification data and accuracy measurements are not released.\n\n---\n\n## Conclusion\n\nAn engineering design report whose modest mathematics is all functional and proportionate to a Level 2 contribution, so no formalism flag applies. Self-citation is low and relevant; the block of loosely related recent references, with its stated aim of benefiting the cited authors, is a citation-practice concern that falls outside the specification's flags. The weaknesses are structural: the headline accuracy and productivity claims have no reported evidence, no limitations are acknowledged, and neither software nor data is available."
+  },
+  {
+   "paper_id": "precup2025",
+   "paper": {
+    "title": "Problem Setting for Trajectory Planning and Cruise Control of a Connected Autonomous Electric Bus in Intersection Scenarios with Human-Driven Vehicles to Optimize Energy, Comfort and Tracking",
+    "authors": [
+     "Radu-Emil Precup",
+     "Claudia-Adina Bojan-Dragos",
+     "Kun Gao",
+     "Shaohua Cui"
+    ],
+    "abstract": "This paper proposes a two-stage design approach to ensure reduced energy consumption, improved passenger comfort, and trajectory tracking in the context of an intersection crossing scenario involving a Connected Autonomous Electric Bus (CAEB) and a set of Human-Driven Vehicles (HDVs). The dynamic models of the CAEB and HDVs are defined considering that the movement is in a straight line and using three lanes of the road. In the first stage of the design approach, the discrete-time trajectory planning of the CAEB is performed, which involves the segmentation of the trip into road segments, and the trajectory planning is performed at the level of road segments in discrete time. A novel formula to calculate the length of a road segment is proposed. In this paper a new complete and transparent model is also proposed to compute the signal of traffic lights. An objective function is defined so that it can be minimized in an appropriate optimization problem, which aims to reduce the energy consumption of the CAEB and improve passenger comfort by forcing the CAEB to reduce the frequency of the increments of lane changing. The trajectory planning generates three reference inputs that are used by the cruise controllers designed in the second stage, where the original and simple trigonometric position and speed profiles are defined. In this stage of the design approach, the controllers are designed to ensure trajectory tracking in the framework of a continuous-time optimization problem that aims to reduce energy consumption and improve passenger comfort by minimizing an objective function that considers energy consumption and tracking performance of the CAEB cruise control system. Open-loop simulation results are presented, compared, and discussed for four simulation scenarios.",
+    "keywords": [
+     "Electric vehicles",
+     "energy consumption",
+     "human-driven vehicles",
+     "optimization",
+     "trajectory planning",
+     "trajectory tracking"
+    ],
+    "doi": "10.59277/ROMJIST.2025.3.05",
+    "pages": "299-312",
+    "source_file": "paper810.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 0,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 11.25,
+    "composite": 8.44,
+    "final": 8.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "\"The simulation of the traffic system and the associated traffic flow in representative cases was performed in Matlab & Simulink with details given in [5].\" The only link, [5] http://www.aut.upt.ro/~rprecup/2025RomjistSupplementaryMaterial.pdf, is a supplementary PDF of derivations, parameter tables and figures; no code or data is linked or claimed.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "THEOREMLESS_FORMALISM",
+    "EXCESSIVE_SELF_CITATION",
+    "IRRELEVANT_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with nine formal elements that fail the Necessity Test: the parameter sets Or, Ot, Os (Eqs. 1-3), the optimal sequences Uopt and Vopt written as sets (Eqs. 15-16), the trajectories written as unions of sets (Eqs. 17-18), and the start and final time sets (Eqs. 22-23), which restate the recursion in Eq. 14.",
+    "UNNECESSARY_SET_THEORY": "Set notation for records and sequences and set union for concatenation: Or = {S, DCz, Dlz, Nl, Dω, vmax, vmin}; Tsxr,opt = {kDs | k = 1...Ns−2} ∪ {S − Sv,S}; Eq. 18 unites the lateral trajectory with the set of admissible final positions. No proof depends on these.",
+    "THEOREMLESS_FORMALISM": "Eleven inline definitions (Eqs. 1-3, 8-9, 15-18, 22-23) and no theorem; the formulated optimisation problems are not solved.",
+    "EXCESSIVE_SELF_CITATION": "SCR = 7/22 = 31.8% ([3], [5], [6], [15], [16], [17], [20]); it would be 6/21 = 28.6% if the supplementary material [5] were not counted.",
+    "IRRELEVANT_SELF_CITATION": "[15] (evolving fuzzy models for myoelectric prosthetic-hand control, similarity about 0.1) and [16] (tensor-product model transformation for pendulum-cart positioning, about 0.15) are cited only as inspiration for a raised-cosine speed profile in a paper on electric-bus trajectory planning."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Unsolved problem formulation for electric-bus trajectory planning that packages parameters, sequences and trajectories in set notation, with a self-citation ratio above 30% and self-citations on unrelated topics; its results are deferred to a supplement.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Formulation, without solution, of a discrete-time lane and speed planning problem and a continuous-time cruise-control problem for a connected autonomous electric bus crossing a signalised three-lane intersection with human-driven vehicles. Trigonometric reference profiles and a piecewise traffic-light indicator are proposed, and four open-loop simulations with random control inputs are reported in a supplement.\n**Level:** 2 (Low)\n**Rationale:** The models (kinematic bicycle model, centralised-motor energy model), the segment-based planning tree and the constraint set are adapted from [2]-[4] and [11], \"with a different objective function and a similar set of constraints\". Neither optimisation problem is solved, no algorithm is given and nothing is proved. The claimed novelties (a segment-length formula, a traffic-light indicator, raised-cosine profiles) are modest changes to an existing formulation. This is standard modelling applied to a variant scenario, not a new model with validation, so Level 3 is not justified.\n\n### Formal Elements\n- Definitions: 11 (inline: the parameter sets Or, Ot, Os in Eqs. 1-3; the state and input vectors in Eqs. 8-9; the optimal sequences and trajectories written as sets in Eqs. 15-18 and 22-23)\n- Theorems: 0\n- Proofs: 0\n- Equations: 16 further numbered equations, two of them (Eqs. 14 and 27) multi-line constraint systems; many more are deferred to supplementary equations (S1)-(S78) in [5]\n\n### Necessity Test\n- Eq. 1, route parameters as the set Or: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 2, traffic-light parameters as the set Ot: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 3, surrounding-vehicle parameters as the set Os: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 4, piecewise traffic-light indication P(t): Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 5, CAEB kinematic model: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 6, HDV kinematic model: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 7, HDV straight-line motion: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 8, state vector: Q1 yes, Q2 yes (fixes the x1-x4 ordering used in Eq. 27), Q3 no → necessary\n- Eq. 9, control-input vector: Q1 yes, Q2 yes (u1 and u3 are used in Eqs. 14 and 27), Q3 no → necessary\n- Eq. 10, continuous-time optimal control problem: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 11, segment energy Ec = Pb·Tc: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 12, discrete trajectory-planning problem: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 13, rescaled objective with ψ and JDT = JDT1 + JDT2: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 14, discrete constraints: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 15, Uopt written as a set {u3[k] | k = 1...Ns}: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 16, Vopt written as a set: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 17, longitudinal trajectory as a union of sets: Q1 yes, Q2 no (the positions are already fixed in Eq. 14), Q3 no → unnecessary\n- Eq. 18, lateral trajectory as a union of sets: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 19, trigonometric speed profile: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 20, segment travel time: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 21, travel time of the last segment: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 22, start-time set as cumulative sums: Q1 yes, Q2 no (t[k+1] = t[k] + Tc[k] is already a constraint in Eq. 14), Q3 no → unnecessary\n- Eq. 23, final-time set as cumulative sums: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 24, linear longitudinal reference: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 25, trigonometric lateral reference: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 26, speed reference: Q1 no, Q2 yes (adds the final-segment case to Eq. 19), Q3 no → necessary\n- Eq. 27, continuous-time constraint set: Q1 no, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 22 (11 definitions × 2)\nExpected range (Level 2): 0-15\nRatio: 1.47x upper bound\n\n**Assessment:** Above the Level 2 range but below the 2× disproportion threshold; nine elements fail the Necessity Test.\n\n### Issues\n- Parameter lists written as sets: \"The three-lane urban route ... is defined as the set Or\", Or = {S, DCz, Dlz, Nl, Dω, vmax, vmin}, and likewise Ot and Os. These are records of named constants, and the text later speaks of \"the traffic signal Ot at any moment t\", treating the set as a signal.\n- Sequences written as sets: Uopt and Vopt (Eqs. 15-16) are ordered sequences that may repeat values, which set notation discards.\n- Set union for list concatenation: Eq. 17 builds the longitudinal trajectory as {kDs | k = 1...Ns−2} ∪ {S − Sv,S}, and Eq. 18 unites the lateral trajectory with the set of admissible final positions {−Dω, 0, Dω}, so the \"trajectory\" contains values that are not on it.\n- Eqs. 22-23 restate as sets of cumulative sums the time recursion already imposed in Eq. 14.\n- Eleven inline definitions and no theorem; the problems are explicitly left unsolved, so the apparatus produces no formal result.\n- Cross-references are inconsistent: Stage I computes the trajectories \"using (22) and (23)\" (they are Eqs. 17-18) and takes Uopt \"in (14)\" and Vopt \"in (15)\" (they are Eqs. 15-16). Eq. 26 repeats Eq. 19 although the text says speed is held constant during lane changes.\n\n---\n\n## Citation Analysis\n\nSeven of 22 references include at least one author of this paper (31.8%): [3] (with co-author K. Gao), the eco-cruising formulation adapted here; [5], the authors' supplementary material; [6], the authors' conference paper on the same scenario; [15], evolving fuzzy models for myoelectric prosthetic-hand control; [16], tensor-product model transformation for pendulum-cart positioning; [17], a survey of fuzzy control for mechatronics; and [20], data-driven sliding-mode control of tower cranes.\n\nRelevance: [3], [5] and [6] address the same problem (≥ 0.5). [15] and [16] are cited, with [17], only because the speed profile is \"inspired by the trigonometric membership functions of fuzzy sets used in [15]-[17]\". A raised-cosine shape needs no such source, and prosthetic-hand myoelectric control (about 0.1) and pendulum-cart modelling (about 0.15) are unrelated to bus trajectory planning. [17] (a broad fuzzy-control survey, about 0.3) and [20] (tower cranes, cited in future work as a source of controller structures, about 0.3) are marginal.\n\nThe ratio depends on what is counted. Excluding the supplement [5] gives 6/21 = 28.6%, and also excluding [3] would lower it further; counted by author-name matching, as specified, it exceeds 30%. The future-work sentence also cites three non-self papers from unrelated areas: piezoelectric laminated shells [19], maglev trains [21] and mobile robots [22], two of them in this journal.\n\n---\n\n## Structural Analysis\n\nThe paper is a problem statement that leans heavily on its supplement. The scenario figures, the energy model (S6)-(S9), most constraints (S10)-(S57), the segment-length formula (S49) claimed as a novelty, the objective components (S75), all parameter tables and all 32 result figures are in [5]; Section 5 reports no results in the paper itself. The paper states plainly that \"The two optimization problems in stages I and II are not solved\", so the simulations use random control inputs in open loop. Yet the abstract presents the approach as designed \"to ensure reduced energy consumption, improved passenger comfort, and trajectory tracking\". The conclusion says the results \"show that the proposed approach has a big potential for practical applications\" and that solving the problems \"will result in smooth trajectories, lower power consumption, and slightly increased tracking accuracy\". Open-loop runs with random inputs cannot support these claims. Claim-evidence balance is weak. One limitation (offline planning needs accurate traffic information) is acknowledged inline, and the paper says openly that the problems remain unsolved.\n\nThe simulations were run in Matlab & Simulink; no code or data are released. The only link is the supplementary PDF, which holds derivations, parameter tables and figures, not an artifact.\n\n---\n\n## Conclusion\n\nThe paper formulates, but does not solve, an adapted eco-driving planning and control problem for an electric bus, at Level 2. Nine of its formal elements are set-theoretic packaging (parameter records, sequences and trajectories written as sets, unions used for concatenation), giving FORMALISM_THEATER and UNNECESSARY_SET_THEORY; eleven inline definitions with no theorem give THEOREMLESS_FORMALISM. Independently of the formalism, a self-citation ratio of 31.8% (EXCESSIVE_SELF_CITATION) and two self-citations on unrelated topics (IRRELEVANT_SELF_CITATION) disqualify at any level. With its results deferred to a supplement and performance claims that outrun open-loop random-input simulations, the paper itself contains little beyond the problem statement."
+  }
+ ]
+}

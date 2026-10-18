@@ -1,0 +1,123 @@
+{
+ "batch_id": "2012-v15-n2",
+ "analysis_timestamp": "2026-10-18T05:26:54Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 15,
+  "issue": 2,
+  "year": 2012
+ },
+ "papers": [
+  {
+   "paper_id": "khan2012",
+   "paper": {
+    "title": "Optimized Dynamic Task Allocation and Priority Assignments in an Immunized Autonomous Multi-Robot Search and Rescue Operation",
+    "authors": [
+     "M. Tahir Khan",
+     "Bessie Chan",
+     "Afzal Khan",
+     "Zia Haq",
+     "Javaid Iqbal"
+    ],
+    "abstract": "Summary (not the verbatim abstract): robots in a simulated immune-inspired search-and-rescue mission collect parts from debris and carry them to an assembly point; a genetic algorithm tunes offline the weights of the cost function that selects the robot for each part, parts receive priorities from their assembly dependencies, and rules for resolving the robots' decision conflicts are proposed and tested in simulation.",
+    "keywords": [
+     "artificial immune system",
+     "cooperative transport",
+     "cost optimization",
+     "multi-robot systems"
+    ],
+    "doi": null,
+    "pages": "129-145",
+    "source_file": "04-tahir@20khan.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 40,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 29.0,
+    "composite": 21.75,
+    "final": 21.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with four formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no): the inline set definitions R = {r1, …, rn} and O = {o1, …, on}, the set difference {R − r1} for the competing robots, and Eq. (1), whose sum over k = 1..N has a summand without k and stands in for a loop over a node's neighbours. No proof uses any of them.",
+    "UNNECESSARY_SET_THEORY": "Robots and parts are introduced as sets R = {r1, …, rn} and O = {o1, …, on} (n reused for both), and the competitors are written {R − r1}; these are a robot list, a part list and a list filter, and no mathematical proof depends on them.",
+    "EXCESSIVE_SELF_CITATION": "5 of 13 references ([1]-[5]) include the first author M. T. Khan: SCR = 38.5% > 30%. All five belong to the same immune-based multi-robot cooperation project and are topically relevant, so IRRELEVANT_SELF_CITATION is not raised."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simulation study that tunes a seven-term weighted cost function for multi-robot task allocation with a standard genetic algorithm; set notation for the robot and part lists and a malformed summation in the priority update fail the Necessity Test at Level 2, five of thirteen references are self-citations, and no code is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Task allocation and conflict resolution for simulated, immune-inspired search-and-rescue robots that carry parts from debris to an assembly point; an offline genetic algorithm tunes the seven weights of the robots' cost function, and part priorities propagate along an assembly-dependency graph.\n**Level:** 2 (Low)\n**Rationale:** The contribution is the tuning of a linear weighted-sum cost with a standard GA (selection, crossover, mutation, stop at a 1% change over three generations) plus heuristic priority and conflict rules, evaluated only in simulation. There is no complexity analysis, no convergence argument and no proof: an existing algorithm applied to parameter tuning in a new setting, which is Level 2.\n\n### Formal Elements\n- Definitions: 2 inline (R as the set of robots, O as the set of parts) (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 numbered (priority update, cost, reduced cost, GA score) and 3 inline expressions in the decision routine of Section 3.3\n\n### Necessity Test\n- Inline definition R = {r1, r2, …, rn}, robots as a set: Q1 yes, Q2 no, Q3 no → unnecessary\n- Inline definition O = {o1, o2, …, on}, parts as a set (n reused from R): Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (1), neighbour priority update p_p = Σ_{k=1}^{N} p_p + P_p/N: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (2), seven-term weighted-sum cost ω_d·d + ω_υ·υ + ω_θ·θ + ω_e·e + ω_p·p + ω_r·r + ω_b·b: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (3), reduced cost with the priority and obstacle terms set to zero: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (4), GA score S = Σ_{k=1}^{50} t_k: Q1 yes, Q2 yes, Q3 no → necessary\n- Inline cost(o2) < cost(o1), switching test under Eq. (2): Q1 yes, Q2 yes, Q3 no → necessary\n- Inline {R − r1}, the competing robots as a set difference: Q1 yes, Q2 no, Q3 no → unnecessary\n- Inline cost′_r1(o2) < min{cost′_rk(o2) … cost′_rn(o2)}, lowest-bid rule: Q1 yes, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 4 (2 definitions × 2; the formula does not weight equations)\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Proportionate in quantity. Eqs. (2)-(4) and the two inequalities are basic equations that fix what the simulation computes: the linear form and sign convention of the cost whose weights the GA searches and Tables 1, 2 and 4 report, the zeroing of the priority and obstacle terms when bidding (the obstacle term appears only in the equation), the objective the GA minimises, and the lowest-bid rule. Four elements perform none of the three functions, and at Level 2 one is enough for FORMALISM_THEATER.\n\n### Issues\n- Robots and parts are written as sets only to name r1, r2, o1, o2 in a four-step example; the simulation holds a robot list and a part list, and the same n counts both. The competitors are then written {R − r1}, a list filter in set-difference form. No proof or bound uses R, O or the difference (UNNECESSARY_SET_THEORY).\n- Eq. (1) places a sum over k = 1..N in front of a summand that contains no k: the sum sign stands for a loop over the completed node's N neighbours. Read literally, either parse multiplies the neighbour's priority by N, which contradicts the paper's own statement that total priority stays constant. The prose rule (each neighbour gains the completed node's priority divided by the number of its neighbours) is the implementable statement, so the equation constrains nothing and carries no proof. The surrounding notation also reuses symbols: N is first the number of nodes and then the number of neighbours, and P is both a priority and a node.\n- The claims that the priority scheme behaves well wherever the first task is completed, and that it preserves the ordering of uncompleted tasks, are asserted without derivation or test.\n\n---\n\n## Citation Analysis\n\nFive of the thirteen references ([1]-[5]) include the first author, M. T. Khan (four with C. W. de Silva, one also with P. G. D. Siriwardana): SCR = 5/13 = 38.5%, above the 30% threshold (EXCESSIVE_SELF_CITATION). The paper presents itself as an extension of that project, and all five works concern immune-based or cooperative multi-robot object transportation, so each is topically related (similarity well above 0.5; the pose-estimation paper [4] is the most distant but belongs to the same cooperative-transport system). No irrelevant self-citation and no sign of a citation ring. The remaining references ([6]-[13]) are few but on topic: GA and PSO in multi-robot systems, search-and-rescue coordination, and the idiotypic network model.\n\n---\n\n## Structural Analysis\n\nThe method can be followed from the prose: seven cost factors, predicted weights with reasons (Table 1), the GA operators, fifty scenarios, a 5000-step limit with a 50,000-step penalty, and a six-step test procedure over 1000 trials. The comparative claims (GA weights beat intuitive weights; robots with conflict resolution finish more reliably) rest on Tables 2-4 and Figures 2-5, described qualitatively only and with no statistical test across the 1000 trials. Figures are not in the text extraction and are judged from the authors' descriptions. Estimated CER is about 0.7 (adequate).\n\nReporting is inconsistent in places. Steps 5 and 6 of the testing procedure say the GA was run with the predicted weight set where a plain simulation run seems meant. Section 5 attributes conflict-resolution scores to Fig. 3, which is the no-conflict comparison. The best GA scores in Table 3 lie near 90,500, against figure ranges said not to exceed 20,000-22,000 and a ceiling of 120,000, and the scales are never reconciled. The conclusion that distance and angle agree with intuition holds only for the conflict-resolution weights; in Table 4 both are negative without conflict resolution. GA population size and scenario parameters (field size, robot and part counts) are not given.\n\nLimitations are acknowledged inline: the field may be too small for distance to matter, message loss is fixed at 1% with unlimited range, and the number of contributing robots is not examined.\n\nArtifacts: the simulation was written in Java, but neither the code nor the fifty scenario configuration files are released, linked or offered.\n\n---\n\n## Conclusion\n\nA modest Level 2 simulation study: a standard GA tunes a linear cost function, and the results suggest that conflict resolution and GA-tuned weights shorten completion in the authors' simulator. Most of the equations are ordinary and do real work, but the set notation for robot and part lists, the set difference for the competing robots and the loop written as a summation in Eq. (1) fail the Necessity Test, which disqualifies at Level 2. Self-citation at 38.5% disqualifies independently, although every self-cited work is relevant. Correcting the notation, reconciling the reported scores and releasing the simulator would address the main concerns."
+  },
+  {
+   "paper_id": "ahmad2012",
+   "paper": {
+    "title": "Congestion Control in Multi Channel 802.11b and 802.11g Wireless Networks",
+    "authors": [
+     "Mudassar Ahmad",
+     "Junaid Ahsenali Chaudhry",
+     "Md. Asri Ngadi"
+    ],
+    "abstract": "Summary (not the verbatim abstract): an experimental comparison of TCP and UDP throughput in a two-access-point IEEE 802.11b/g network configured with overlapping and non-overlapping channels, varying antenna separation, transmit power, TCP window size and UDP datagram size; the authors conclude that non-overlapping channels give higher throughput.",
+    "keywords": [],
+    "doi": null,
+    "pages": "146-154",
+    "source_file": "05-jchaudhry.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.5,
+    "composite": 56.62,
+    "final": 51.62
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints; the conclusion only lists other standards (802.11n, 802.11a) for future researchers. The two-AP testbed, the single hardware model, the unreported variability over five repetitions and the unreported response-time and transmit-power results are not discussed."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Small two-access-point measurement study showing higher 802.11b/g throughput with non-overlapping channels; no formal apparatus and no self-citations, but results are reported only qualitatively, the congestion control of the title is not studied, no limitations are acknowledged, and no data are released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Throughput measurements (iperf, TCP and UDP) on a testbed of two 802.11b/g access points and two laptops, comparing overlapping and non-overlapping channel assignments while varying antenna separation, transmit power, TCP window size and UDP datagram size; a short section links the work to a medical body-area-network project.\n**Level:** 2 (Low)\n**Rationale:** An empirical configuration study of existing standards and tools, with results reported as charts and no new method or model. Empirical comparisons with basic statistics are Level 2.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Necessity Test\nNone. The iperf command lines and the channel-scheme table are configuration listings, not formal notation.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. A measurement study needs no formal apparatus, and the paper uses none. The metrics (throughput, response time) and the aggregation over the five repetitions are not defined, but that is a reporting gap rather than missing formalism.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNo self-citations: none of the seven references includes Ahmad, Chaudhry or Ngadi (SCR 0%). All references concern 802.11 channel assignment, interference or measurement, so relevance is not in question; accuracy is. Two entries ([2], [3]) carry no year and have venue fields that name no venue, and [6] has a truncated title. The related work describes [6] as the work of Murray et al., who are the authors of [7], and introduces [7] by year alone, with no author. Years given in the text differ from the list (Aki 2006 against 2007 for [1]; Mishra et al. 2006 against 2005 for [5]). One sentence on the growth of 802.11 usage appears twice, in the introduction with [1] and again in the related work as reported speech attributed to Aki. The conclusion's statement that most prior work studied TCP only is not supported by any citation.\n\n---\n\n## Structural Analysis\n\nThe experimental setup and factors are listed and the iperf command lines are given. The central claim, that non-overlapping channels give higher throughput, rests on Figures 2, 4 and 5, but every result in the text is qualitative: no throughput value, no mean or spread over the five repetitions, and no statistical test, although the data were handled in SPSS. Response time and transmit power were measured, and the conclusion credits throughput gains to transmit power, but no result is shown for either. Results from the two locations are not separated. The title promises congestion control, yet no congestion-control mechanism is proposed or evaluated. The Section 6 case study reports more than 500,000 records from an ECG device and asserts that wireless transfer of such data is error-prone, with no data and no link to the measured throughput. Setup details conflict: the laptop-AP distance is 7 feet in Section 3 and 7 meters in Section 5, the non-overlapping scheme is 1-6-11-1 in Table 1 and 6-1-11-6 in Section 5.1, and UDP buffer sizes in kilobytes are used interchangeably with datagram lengths. Figures are not in the text extraction and are judged from the text. Estimated CER is about 0.45 (weak).\n\nNo limitations are acknowledged; the future-work paragraph only names other standards (802.11n, 802.11a) for future researchers. The scale of the testbed (two APs, one hardware model), the interfering channel-6 APs that Section 5 says were present, and the missing variability measures go undiscussed.\n\nArtifacts: no measurement data, scripts or configuration files are released, linked or offered. The command lines describe the method but are not an artifact.\n\n---\n\n## Conclusion\n\nA small measurement study that confirms the expected advantage of non-overlapping channels on a two-AP testbed. It has no formalism problem and no citation-conduct problem; its weaknesses are structural: qualitative results without numbers or variability, measured factors left unreported, a title that does not match the content, an unconnected case study, conflicting setup details and no stated limitations. Numeric results with dispersion, and released measurements, would make the finding checkable."
+  }
+ ]
+}

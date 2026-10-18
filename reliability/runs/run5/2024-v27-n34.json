@@ -1,0 +1,174 @@
+{
+ "batch_id": "2024-v27-n34",
+ "analysis_timestamp": "2026-10-18T17:22:51Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 27,
+  "issue": "3-4",
+  "year": 2024
+ },
+ "papers": [
+  {
+   "paper_id": "ulmamei2024",
+   "paper": {
+    "title": "An Approach for Implementing Electronic Image Stabilization Using an FPGA System",
+    "authors": [
+     "Andrei-Alexandru Ulmămei",
+     "Călin Bîră"
+    ],
+    "abstract": "This paper proposes an approach for the implementation of a low-power electronic (digital) image stabilization using an AMD/Xilinx Zynq UltraScale+ ZU7EV device (CPU+FPGA) with a custom Linux OS. The stabilization method is based on frame-to-frame motion detection (Harris Corner Detector, an iterative optical flow calculator combined with a 4:2:1 down-sampler an 1:2:4 up-sampler) and an affine transformation that applies the stabilization. The scientific contribution of this paper resides in a combination of the most recent software algorithms presented in literature and porting that new resulting algorithm into hardware with the achieved performance of more than 2.5x current state of the art, thus enabling stabilization at 4K-UHD resolution.",
+    "keywords": [
+     "Electronic image stabilization",
+     "Field Programmable Gate Array",
+     "System on Chip"
+    ],
+    "doi": null,
+    "pages": "267-280",
+    "source_file": "paper778.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 77.25,
+    "composite": 70.44,
+    "final": 70.44
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"Testing the main FPGA core was done by analyzing a small number of successive frames and observing in detail, the changes that take place over the output image, using [16] images.\" Reference list: \"Optical Flow Dataset, [Online] Available https://vision.middlebury.edu/flow/data\" (listed as [17]; in-text numbers from [15] onward are shifted by one). No link to the authors' own HDL/HLS or Python code.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "FPGA port of an existing image-stabilization pipeline reaching 4K at 30 FPS; its affine and Kalman equations specify what the system computes, but they contain errors, the references are misnumbered, stabilization quality is thinly evaluated, and no code is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** FPGA (Zynq UltraScale+ ZU7EV) implementation of a video-stabilization pipeline assembled from existing algorithms: Harris corner detection, iterative pyramidal Lucas-Kanade optical flow, an affine transform estimated from three point correspondences, and Kalman smoothing of the motion estimate.\n**Level:** 2 (Low)\n**Rationale:** The paper locates its own contribution in \"adapting and combining multiple algorithms\" and porting them to hardware. Every algorithmic component comes from the literature; there is no new algorithm, complexity analysis or proof. Applying existing methods to a new platform is Level 2; the hardware design work lifts it above a Level 1 integration of existing components, but nothing places it at Level 3.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 19 (the inline affine map Y = A·X + B, numbered Eqs. 1-15, and three unnumbered Kalman update equations)\n\n### Necessity Test\n- Inline Y = A·X + B, affine map applied to pixel coordinates: Q1 yes, Q2 yes, Q3 no → necessary (the operation the Affine Transformation core applies to every pixel)\n- Eq. 1, entries of A and B: Q1 yes, Q2 yes, Q3 no → necessary (names the six coefficients the system solves for and that Eqs. 5-6 and 12-14 use)\n- Eq. 2, A and B packed into the 2×3 matrix M: Q1 yes, Q2 yes, Q3 no → necessary (fixes the parameter layout the transform consumes and Eq. 5 solves for)\n- Eqs. 3-4, transform of a point by M and its scalar expansion: Q1 no, Q2 yes, Q3 no → necessary (the per-pixel multiply-add datapath)\n- Eq. 5, the three point correspondences: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 6, reduced linear systems for the six coefficients: Q1 no, Q2 yes, Q3 no → necessary (although mistyped, see Issues)\n- Eq. 7, state vector (x, y, θ): Q1 yes, Q2 yes, Q3 no → necessary (fixes what the filter tracks; indexed in Eqs. 12-14)\n- Eq. 8, state transition model: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 9, observation model: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 10, state prediction: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 11, error-covariance prediction: Q1 no, Q2 yes, Q3 no → necessary\n- Unnumbered Kalman gain: Q1 no, Q2 yes, Q3 no → necessary\n- Unnumbered state update: Q1 no, Q2 yes, Q3 no → necessary\n- Unnumbered covariance update: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 12, dx: Q1 yes, Q2 yes, Q3 no → necessary (paper-specific combination of the affine estimate with the filter state)\n- Eq. 13, dy: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 14, dθ: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 15, estimated rotation-translation matrix R: Q1 no, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate — basic linear algebra and the standard Kalman recursion state computations the authors' own pipeline performs; there are no definitions, theorems, set notation or decorative symbols.\n\n### Issues\nNo formalism theater. The equations are careless, however, which matters because they are offered as the specification of the hardware: Eq. 6 writes the second and third Y equations with a00, a01 instead of a10, a11; the text says only the coordinates \"Xi, where i = 0, 2\" are needed and calls the result \"three equations with three unknowns\" where there are two such systems; Eq. 14 takes dθ = atan(a00/a10), which is not the rotation angle of the matrix; Eq. 10 introduces B and u_k without definition, B clashing with the translation vector of Eq. 1; and F, H, Q and R are \"specified in the first iteration with null values\", which leaves the filter unspecified (with zero matrices it would not filter at all). The affine matrix is called a \"rotation matrix\" throughout. None of this makes the equations unnecessary, but it lowers confidence that the description matches the hardware, so no quality bonus is given.\n\n---\n\n## Citation Analysis\n\nNo self-citations: neither Ulmămei nor Bîră appears among the 24 references (SCR 0/24 = 0%). The references are on topic: stabilization methods, the boards and tools used, the constituent algorithms, and earlier FPGA stabilizers. The citation apparatus is inaccurate, though. From [15] onward the in-text numbers are shifted by one against the list: PYNQ is cited as [15] but listed as [16]; the test frames are \"[16] images\" while the Optical Flow Dataset is [17]; MS-SSIM is attributed to [17] but listed as [18]; and in Table 4 Shirole [18], Li [19], Shene [20], Yong-Jie [21] and Yabuki [22] each point one entry too early, so \"Li [19]\" lands on a dual-core DSP paper by Zhang et al. The Lucas-Kanade method is attributed to [11], which is Horn and Schunck. There is no padding pattern, but a reader cannot follow the references reliably.\n\n---\n\n## Structural Analysis\n\nImplementation claims are backed by resource utilization (Table 3), throughput and latency per resolution (Table 1), a power estimate (Fig. 8) and a comparison with earlier systems (Table 4). The headline claim of performance \"more than 2.5x current state of the art\" is the Mpix/s ratio to a 2016 Virtex-5 design (248.8 vs 99.5), against comparators from 1996-2016; the paper concedes that a 2006 ASIC is faster and that part of the gain is \"a better (newer) FPGA device\". Stabilization quality is weakly evidenced: Table 2 reports PSNR, SSIM, MS-SSIM and UQI between stabilized and original frames on a few frames, which measures how much the output differs from the input rather than how stable it is; there is no interframe-fidelity measure and no quality comparison with other stabilizers. How throughput and latency were measured is not stated, and the power figure is an estimate. There is no limitations section, but constraints are acknowledged inline: the faster ASIC, LUTs as \"the limiting factor\" for 8K-UHD, the SSIM drop caused by the image border, and (Section 1.1) that stabilization \"will not distinguish an unwanted vibration from a naturally blurred/moving object\". CER is adequate, about 0.6.\n\nArtifacts: no link to the authors' Verilog/HLS cores or the PYNQ application; OpenCV, Petalinux, U-Boot and PYNQ are third-party. The test frames come from the public Middlebury optical-flow dataset, listed with its URL as [17] and cited as \"[16] images\" because of the numbering shift, so the category is data.\n\n---\n\n## Conclusion\n\nA competent engineering report that ports an existing stabilization pipeline to a Zynq UltraScale+ device at 4K and 30 FPS. Its formalism is modest and does work: the affine and Kalman equations specify computations the system performs, so the paper passes the Necessity Test and raises no flag. Its weaknesses are accuracy and evidence rather than inflation: errors in the equations, a reference list misaligned with the text, a thin evaluation of stabilization quality against older comparators, and no released code.\n"
+  },
+  {
+   "paper_id": "essiz2024",
+   "paper": {
+    "title": "Deep Learning-Based Prediction Models for the Detection of Vitamin D Deficiency and 25-Hydroxyvitamin D Levels Using Complete Blood Count Tests",
+    "authors": [
+     "Uğur Engin Eşsiz",
+     "Çiğdem İnan Acı",
+     "Esra Saraç",
+     "Mehmet Acı"
+    ],
+    "abstract": "Vitamin D (VitD) is an essential nutrient that is critical for the well-being of both adults and children, and its deficiency is recognized as a precursor to several diseases. In previous studies, researchers have approached the problem of detecting vitamin D deficiency (VDD) as a single \"sufficient/deficient\" classification problem using machine learning or statistics-based methods. The main objective of this paper is to predict a patient's VitD status (i.e., sufficiency, insufficiency, or deficiency), severity of VDD (i.e., mild, moderate, or severe), and 25-hydroxyvitamin D (25(OH)D) level in a separate deep learning (DL)-based models. An original dataset consisting of complete blood count (CBC) tests from 907 patients, including 25(OH)D concentrations, collected from a public health laboratory was used for this purpose. CNN, RNN, LSTM, GRU and Auto-encoder algorithms were used to develop DL-based models. The top 25 features in the CBC tests were carefully selected by implementing the Extra Trees Classifier and Multi-task LASSO feature selection algorithms. The performance of the models was evaluated using metrics such as accuracy, F1-score, mean absolute error, root mean square error and R-squared. Remarkably, all three models showed satisfactory results when compared to the existing literature; however, the CNN-based prediction models proved to be the most successful.",
+    "keywords": [
+     "25(OH)D level",
+     "classification",
+     "deep learning",
+     "feature selection",
+     "prediction",
+     "vitamin D deficiency"
+    ],
+    "doi": null,
+    "pages": "295-309",
+    "source_file": "paper780.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 42.75,
+    "composite": 32.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "\"The block diagram and pseudo codes of the DL-based prediction models and parameter settings of the methods are given in the supplementary document of the paper [22].\" The supplement (https://drive.google.com/file/d/1zgpH7e7Ck7s8STBhi0QmoGpi-obFhpGr/view?usp=sharing) holds diagrams, pseudocode, parameter tables and figures; no code or data is linked or offered, and the 907-patient CBC dataset is described only as \"an original dataset\".",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with six equations that fail the Necessity Test (Eqs. 1, 2, 3, 5, 6, 14): textbook descriptions of training steps and library layers that prose states as precisely, that change nothing in the TensorFlow/scikit-learn implementation, and that support no proof; Eqs. 2-3 introduce learning-rate and momentum constants η and α that are never given values.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints (single-laboratory retrospective data, preprocessing applied before cross-validation, no external validation)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Standard deep-learning models applied to a private blood-test dataset; a textbook primer of equations for library components fails the Necessity Test at Level 2, and the evaluation suffers from probable preprocessing leakage, an unsupported superiority claim and no limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Prediction of vitamin D status, deficiency severity and serum 25(OH)D level from routine blood tests of 907 patients, using CNN, RNN, LSTM, GRU and autoencoder models after MICE imputation, SMOTE oversampling and Extra Trees / multi-task LASSO feature selection.\n**Level:** 2 (Low)\n**Rationale:** Standard deep-learning models from TensorFlow and scikit-learn applied to a new tabular clinical dataset, with accuracy and error metrics reported. There is no new architecture, algorithm or analysis: a straightforward ML application.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 22 (Eqs. 1-3 generic training, Eqs. 4-15 textbook descriptions of CNN, RNN, GRU and autoencoder layers and losses, Eqs. 16-22 evaluation metrics)\n\n### Necessity Test\n- Eq. 1, MSE as the generic DNN error: Q1 yes, Q2 no, Q3 no → unnecessary (the preceding sentence already says it is \"the average of the squared differences\"; it is a generic step that \"can be done by\" MSE, not the stated loss of any model trained here)\n- Eq. 2, weight update with momentum, \"η and α are constant\": Q1 yes, Q2 no, Q3 no → unnecessary (Greek letters for training constants that are never given values; as printed it assigns the weight rather than its change)\n- Eq. 3, Δw = −η ∂e/∂w: Q1 yes, Q2 no, Q3 no → unnecessary (plain gradient descent, sayable in a phrase)\n- Eq. 4, convolutional layer: Q1 no, Q2 no, Q3 no → necessary (retained on Q1: the summation and indexing are not stated precisely in prose, although the layers are TensorFlow's)\n- Eq. 5, pooling x = down(x): Q1 yes, Q2 no, Q3 no → unnecessary (down(·) is an unspecified placeholder; the formula says no more than \"the pooling layer down-samples its input\")\n- Eq. 6, logistic output of the fully connected layer: Q1 yes, Q2 no, Q3 no → unnecessary (a sigmoid of a weighted sum, and not the output of the three-class Models 1-2 or of the regression Model 3)\n- Eq. 7, RNN recurrence: Q1 no, Q2 no, Q3 no → necessary (retained on Q1)\n- Eq. 8, GRU reset gate: Q1 no, Q2 no, Q3 no → necessary (retained on Q1)\n- Eq. 9, GRU update gate: Q1 no, Q2 no, Q3 no → necessary (retained on Q1; misprinted with W_r for W_z)\n- Eq. 10, GRU candidate state: Q1 no, Q2 no, Q3 no → necessary (retained on Q1)\n- Eq. 11, GRU state update: Q1 no, Q2 no, Q3 no → necessary (retained on Q1)\n- Eq. 12, autoencoder encoder: Q1 no, Q2 no, Q3 no → necessary (retained on Q1, borderline)\n- Eq. 13, autoencoder decoder: Q1 no, Q2 no, Q3 no → necessary (retained on Q1, borderline)\n- Eq. 14, squared-error reconstruction loss: Q1 yes, Q2 no, Q3 no → unnecessary (a sum of squared reconstruction errors; the paper never says this loss was used)\n- Eq. 15, cross-entropy reconstruction loss: Q1 no, Q2 no, Q3 no → necessary (retained on Q1, borderline; the summation bound is misprinted)\n- Eq. 16, accuracy: Q1 yes, Q2 yes, Q3 no → necessary (defines a quantity the results are reported in)\n- Eq. 17, precision: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 18, recall: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 19, F1-score: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 20, MAE: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 21, RMSE: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 22, R²: Q1 yes, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate in count (no definitions, theorems or proofs), but six equations fail the Necessity Test, which at Level 2 is formalism theater.\n\n### Issues\nSection 2.3 is a textbook primer on deep networks set around models that, by the paper's own account, \"were developed using the Python Scikit Learn library [37] and TensorFlow [38]\". None of Eqs. 1-15 fixes anything about the models actually trained (layer counts, units, losses and optimizer settings are deferred to the supplement), and the LSTM, one of the five models, gets no equations at all, which shows the paper can be followed without them. Six fail all three questions: the generic MSE step (Eq. 1), stated in prose just before it; the weight-update rules (Eqs. 2-3), whose learning-rate and momentum constants \"η and α\" are never instantiated (the Greek-letters-for-configuration pattern); the pooling placeholder down(·) (Eq. 5); a binary logistic output (Eq. 6) that matches none of the three models; and an unused squared-error reconstruction loss (Eq. 14). The primer is also error-ridden, as copied rather than used formalism tends to be: Eq. 2 updates w rather than Δw, Eq. 6 omits the probability operator, Eq. 9 reuses W_r for the update gate and Steps 1-2 mislabel the gates, the W′, b′ of Eq. 14 do not match the W(2), b(2) of Eq. 13, and the sum in Eq. 15 runs to x. The metric formulas are binary although Models 1-2 are three-class, and the averaging used for F1 is not stated.\n\n---\n\n## Citation Analysis\n\nSelf-citations: [21] (Eşsiz, Yüregir, Saraç 2023, data-mining prediction of vitamin D deficiency in diabetic patients) is the direct predecessor whose shortcomings motivate this paper; similarity is high (about 0.9) and it is relevant. [30] (Karayiğit, İnan Acı, Akdağlı 2021, CNN detection of abusive Instagram comments in Turkish) supports the claim that deep CNNs work on non-image classification problems; the domain is unrelated but the methodological claim is the one cited, so similarity is marginal (about 0.35), a warning rather than a flag. [22] is the paper's own supplementary material and is not counted as a citation of prior work. SCR = 2/40 = 5% (3/41 = 7.3% if the supplement is counted), in the normal range.\n\nA pattern outside self-citation deserves note. The introduction's paragraph on \"high-precision prediction models\" in \"various fields\" cites four works co-authored by [third-party author] ([3] observation-process modelling in cognition, [4] k-means post-processing, [6] reinforcement learning for servo control, [11] COVID-19 official statistics), none related to vitamin D or clinical prediction, alongside an unrelated segmentation paper [5] and two ROMJIST papers [7], [10]. [third-party author] is not an author, so these are not self-citations, and mutual citation cannot be established from this paper, so no citation flag applies; the paragraph nonetheless reads as citation padding.\n\n---\n\n## Structural Analysis\n\nThe results (Figs. 1-3) report accuracy, F1, MAE, RMSE and R² for each model with and without feature selection, so the performance figures themselves have evidence. Several claims do not. The conclusion that \"all three models surpassed the performance of ML-based or statistics-based approaches previously suggested in the literature\" rests on no comparison in the paper, and the authors' own earlier SVM result [21] (97.044% accuracy) exceeds the best accuracy here (0.9630). As described in Section 3, MICE imputation, SMOTE oversampling and feature selection are applied to the whole dataset before 5-fold cross-validation, which lets synthetic samples and selection information leak into the test folds and would inflate the reported figures (for instance R² = 0.9778 for predicting 25(OH)D from blood counts). Table 1 contains implausible values that go unremarked (calcium 41.38 ± 544.22 mg/dL against a normal range of 8.8-10.6). There is no limitations section and no inline acknowledgment of constraints: single-laboratory retrospective data, no external validation and the preprocessing order are not discussed. CER is about 0.5.\n\nArtifacts: the Google Drive supplement holds diagrams, pseudocode, parameter tables and figures; neither the code nor the 907-patient dataset is released or offered. Pseudocode is description, not availability, so the category is none.\n\n---\n\n## Conclusion\n\nA routine application of five standard deep-learning models to a private clinical dataset. Its formal content is a textbook primer whose equations describe library components rather than anything the authors built, and six of them fail the Necessity Test outright, which at Level 2 raises FORMALISM_THEATER. Independently of the flag, the evaluation is weakened by probable preprocessing leakage, an unsupported claim of superiority over prior work, the absence of any limitations, and no released code or data.\n"
+  },
+  {
+   "paper_id": "yalda2024",
+   "paper": {
+    "title": "Network Traffic Prediction Performance Using LSTM",
+    "authors": [
+     "Khirota Yalda",
+     "Diyar Jamal Hamad",
+     "Nicolae Tapus",
+     "Ibrahim Taner Okumus"
+    ],
+    "abstract": "As networks expand to support various applications involving text, audio, video, and images, data traffic increases correspondingly. Traffic classification, which identifies the origin of observed traffic, has multiple applications, including dynamic bandwidth allocation, traffic analysis, quality of service, and network security. Traditional network traffic classification methods like deep packet inspection rely on manually creating and maintaining communication profiles for various applications. However, these methods face challenges such as dynamic port changes and encrypted traffic. Machine Learning (ML) classifiers offer effective solutions to these issues, providing accurate network traffic classification. Due to these advancements, deep learning models are now utilized for network traffic classification and prediction. Long Short-Term Memory (LSTM) has emerged as a highly effective deep learning technique for addressing time series prediction challenges. This study aims to analyze the performance of forecasting network traffic using LSTM, with different activation functions and optimizers with Mean Absolute Error (MAE), Mean Absolute Percentage Error (MAPE), Mean Squared Error (MSE), Root Mean Squared Error (RMSE) and Coefficient of Determination (R-Squared) parameters as the model evaluation index. This demonstrates how these parameters impact network traffic forecasting performance.",
+    "keywords": [
+     "Activation function",
+     "LSTM",
+     "optimization algorithms",
+     "traffic prediction"
+    ],
+    "doi": null,
+    "pages": "336-347",
+    "source_file": "paper783.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 44.7,
+    "composite": 46.02,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The internet traffic dataset (in bits) from an ISP (https://www.kaggle.com/datasets/yjimmy/network-traffic-dataset/) is used for forecasting and analysis.\" No link to the authors' code; Keras and TensorFlow are third-party.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 configuration study with four equations that fail the Necessity Test (Eqs. 2, 3, 4, 7): formulas for sigmoid, tanh, ReLU and the SGD rule, components selected by name in Keras at library defaults; Eq. 7 introduces the learning rate as α, the Greek-letter configuration-parameter pattern."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "LSTM configuration study on a public Kaggle traffic series; textbook definitions of the activations and the SGD rule, used at Keras defaults, fail the Necessity Test at Level 2, and the evaluation is narrow, with no baselines and no variance.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Empirical comparison of three activation functions (sigmoid, tanh, ReLU) and three optimizers (Adam, AdaGrad, SGD) for a three-layer Keras LSTM forecasting a public univariate internet-traffic series.\n**Level:** 2 (Low)\n**Rationale:** A configuration study of an existing model on an existing dataset, run at library defaults, with no new method or analysis. Configuration and parameter-tuning studies are Level 2.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 numbered (Eq. 1 is a five-line LSTM system and Eq. 5 a five-line Adam update)\n\n### Necessity Test\n- Eq. 1, LSTM gate equations (peephole variant): Q1 no, Q2 no, Q3 no → necessary (retained on Q1; the peephole terms W_cf, W_ci, W_co do not correspond to the Keras LSTM layer actually used)\n- Eq. 2, sigmoid: Q1 yes, Q2 no, Q3 no → unnecessary (a named elementary function, selected in Keras by name)\n- Eq. 3, tanh: Q1 yes, Q2 no, Q3 no → unnecessary (likewise)\n- Eq. 4, ReLU = max(0, x): Q1 yes, Q2 no, Q3 no → unnecessary (the paper restates it in English at once: \"if the input x is positive, the output equals x; otherwise, it is zero\")\n- Eq. 5, Adam update: Q1 no, Q2 no, Q3 no → necessary (retained on Q1; the authors used TensorFlow's default Adam())\n- Eq. 6, AdaGrad update: Q1 no, Q2 no, Q3 no → necessary (retained on Q1, borderline)\n- Eq. 7, SGD θ(t+1) = θ(t) − α g(t): Q1 yes, Q2 no, Q3 no → unnecessary (\"α stands for the learning rate, a small positive constant\", left at the library default)\n- Eq. 8, MAE: Q1 yes, Q2 yes, Q3 no → necessary (defines a quantity the results are reported in)\n- Eq. 9, MAPE: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 10, MSE: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 11, RMSE: Q1 yes, Q2 yes, Q3 no → necessary\n- Eqs. 12-13, R² with the mean of the observed values: Q1 yes, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate in count, but four elements fail the Necessity Test, which at Level 2 is formalism theater.\n\n### Issues\nSections 3-5 restate textbook formulas for the very components being compared, while the paper says the model \"was trained using the default settings of Adam, AdaGrad, and SGD optimizers in TensorFlow\" and that \"Calling functions such as Adam(), AdaGrad(), and SGD() without specifying parameters results in the algorithms using their default values\". The activation formulas and the SGD rule give a reader or programmer nothing the names do not: the activations are chosen by name, ReLU is restated verbatim in prose, and Eq. 7 is the Greek-letters-for-configuration pattern exactly, its α later glossed as \"a learning rate (α) of 0.01\". Other errors: R² is said to range \"from 0 to 1, with a negative result indicating the model's inability to fit the data\"; Eq. 12 writes the mean of the observed y as x̄ while x denotes the predictions; the MAPE accuracy bands skip 5-10%; and R-squared is listed among the \"loss functions\" the optimizers minimize.\n\n---\n\n## Citation Analysis\n\nNo self-citations: none of Yalda, Hamad, Tapus or Okumus appears among the 21 references (SCR 0/21 = 0%). The references are on topic (traffic prediction, LSTM, activation functions, optimizers, error metrics), although several are weak sources for textbook material: a gradient-descent review in \"PalArch's Journal of Archaeology of Egypt\" [17], a stock-market LSTM paper [10] for the definition of LSTM, and a traffic-flow paper [8] cited for what Pandas does. No concerning pattern.\n\n---\n\n## Structural Analysis\n\nThe experimental claims rest on one table of nine configurations (Table 1) on one dataset with one 80/20 split, with no baseline (persistence, ARIMA or another model) and no variance across the repeated runs the text mentions. The table caption, \"The SPR and external angle for various parameters\", belongs to some other paper, and the MAPE the conclusion quotes for ReLU with Adam (6.443) does not match the table (6.95164). Section 6.4's account of why Adam wins is generic and untested here, and the conclusion generalizes from one series to \"network traffic data prediction\". Limitations are acknowledged inline: that \"precise traffic volumes are not determined\", the run-to-run instability of the sigmoid-AdaGrad configuration, and \"the lack of publicly available datasets\". CER is about 0.5.\n\nArtifacts: the dataset is a linked public Kaggle dataset; no code is released, and Keras and TensorFlow are third-party. Category data.\n\n---\n\n## Conclusion\n\nA small configuration study with a public dataset and a clear if thin result: ReLU with Adam gives the lowest errors. Much of its formal content is textbook definitions of the activations and update rules being compared, chosen in Keras by name and left at library defaults; four of these fail the Necessity Test, which at Level 2 raises FORMALISM_THEATER. The evaluation is narrow (one series, no baselines, no variance) and carries editorial errors such as a results table captioned for another paper.\n"
+  }
+ ]
+}

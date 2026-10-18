@@ -1,0 +1,240 @@
+{
+ "batch_id": "2024-v27-n1",
+ "analysis_timestamp": "2026-10-18T17:25:28Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 27,
+  "issue": 1,
+  "year": 2024
+ },
+ "papers": [
+  {
+   "paper_id": "antonescu2024",
+   "paper": {
+    "title": "Multi-Function Scan Circuit for Assisting the Parallel Computational Map Pattern",
+    "authors": [
+     "Mihai Antonescu",
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "Some parallel computing patterns can be accelerated using appropriate networks of simple circuits. We propose a solution, based on the Beneš-Waksman permutation network, which is adapted to efficiently accelerate not only permutation, but some of the most used parallel computational patterns such as: pack, prefix operations and reductions. The structural context considered for deploying our circuit is the map parallel pattern represented by an array of computational elements. The developed network receives a vector from the map array and outputs a vector for functions such as permute, pack, prefix sum (thus closing a first global loop over the map array of cells). For reduction functions (add, min, max) the network returns a scalar (thus closing a second global loop over the map array). With these improvements, this network adds circuit support for frequently used functions, in addition to map-type functions performed in the array of computing elements. While for reduction functions the frame of the permutation network can be easily adapted, for prefix functions and for the pack function new forms of implementation are proposed. The cells of the Beneš-Waksman network are redesigned to support the additional functionality. Some applications are then presented to emphasize the utility of our design.",
+    "keywords": [
+     "Benes network",
+     "General-Purpose Accelerator",
+     "Multi-Function Permutation circuit",
+     "Scan Circuit"
+    ],
+    "doi": null,
+    "pages": "1-18",
+    "source_file": "paper758.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 80,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.25,
+    "composite": 33.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with four formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no). The permute-cell conditional {y2i, y2i−1} = p_i ? {x2i−1, x2i} : {x2i, x2i−1} restates the preceding prose. The reduction glosses yn = Σ xi / MIN / MAX restate 'add, min, max'. The nested cell-interface tuples in_ij, out_ij, x2i, y2i restate the bullet list beneath them, and name output fields (out, dout) that the bullets call dataOut and destOut. destOut ⇐ destIn/2 restates 'destinations are shifted one position to right'. The size, depth, cell-count and cell-function formulas pass the test."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A credible hardware extension of the Beneš-Waksman network, whose size, depth and cell-function formulas are necessary. It is flagged under the Level 2 zero-tolerance rule for four notational restatements of its own prose. Application speed-ups are asserted without data, and the design is not released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Redesign of the cells of a Beneš-Waksman permutation network so that one pipelined (or sequential) circuit performs permute, pack, prefix sum and add/min/max reduction for a linear map array of processing cells, with FPGA synthesis on a ZYNQ7020 and application sketches (select, matrix-vector product, pooling, transpose, FFT).\n**Level:** 2 (Low)\n**Rationale:** The contribution is an engineering extension of an existing network. The topology and its size and depth, the prefix-network shape (Ladner-Fischer) and pack by prefix-sum-then-permute are known; the paper adds cell types and a decoder and characterises them by cell counts and synthesis results. Nothing is proved and no new bound is derived. A case for Level 3 exists (a new circuit with size and depth accounting), but the complexity figures are inherited from the Beneš topology, and the specification directs the lower level when in doubt.\n\n### Formal Elements\n- Definitions: 3 inline (input word x_j = {v_j, a_j}; pack input x_j = {v_j, enable, destination_j}; cell interface in_ij/out_ij with nested field tuples) (with constraints: 2, the routing-field widths)\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 (size and depth of P_n, permute-cell function, prefix-sum recurrence, prefix-cell function, three sum/subtract cell types, reduction glosses, destination shift, five cell-type counts, pack execution time)\n\n### Necessity Test\n- Input word x_j = {v_j, a_j}, with a_j a (−1 + 2log2 n)-bit routing word consumed one bit per layer: Q1 no, Q2 yes, Q3 no → necessary\n- Pack input x_j = {v_j, enable, destination_j}, destination consumed bit by bit over the first log2 n layers: Q1 no, Q2 yes, Q3 no → necessary\n- Size S_perm(n) = S_perm(2)(1 − n + n log2 n) ∈ O(n log n): Q1 no, Q2 no, Q3 yes → necessary\n- Depth D_perm(n) = D_perm(2)(−1 + 2log2 n) ∈ O(log n): Q1 no, Q2 no, Q3 yes → necessary\n- Permute-cell function {y2i, y2i−1} = p_i ? {x2i−1, x2i} : {x2i, x2i−1}: Q1 yes, Q2 no, Q3 no → unnecessary (the preceding paragraph already says the selection bit either passes the inputs straight or switches them)\n- Prefix-sum recurrence y1 = x1, yi = yi−1 + xi: Q1 no, Q2 yes, Q3 no → necessary (fixes an inclusive rather than exclusive scan)\n- Prefix-cell function {y2i, y2i−1} = {(x2i−1 + x2i), x2i−1}: Q1 no, Q2 yes, Q3 no → necessary\n- Sum/subtract cell types [1 1+2], [2 1+2], [2−1 2] of the prefix-on-permute-shape network: Q1 no, Q2 yes, Q3 no → necessary\n- Reduction glosses add (yn = Σ xi), min (yn = MIN xi), max (yn = MAX xi): Q1 yes, Q2 no, Q3 no → unnecessary (the words add, min and max already say it)\n- Cell interface in_ij = {x2i−1, x2i, funcIn}, out_ij = {y2i−1, y2i, funcOut}, x2i = {dataIn_even, enableIn_even, destIn_even}, y2i = {out_even, enableOut_even, dout_even} and the odd counterparts: Q1 yes, Q2 no, Q3 no → unnecessary (the bullet list beneath names the same fields and their roles)\n- Destination update destOut ⇐ destIn/2: Q1 yes, Q2 no, Q3 no → unnecessary (Section 3.2 already states that destinations are shifted one position to the right after each stage)\n- Cell-type counts (n − 1), (n − 1 − log2 n), (1 − n + 0.5 n log2 n), (−2n + 0.5 n log2 n + log2 n + 2), (0.5n − 1): Q1 no, Q2 yes, Q3 yes → necessary\n- Pack execution time t_pack = 2 × 2log2 n + const ∈ O(log n): Q1 no, Q2 no, Q3 yes → necessary\n\n### Proportionality\nCalculated complexity: 6\nExpected range (Level 2): 0-15\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate in volume. Most of the notation specifies what each cell computes or carries the size, depth and cell-count figures, and that part passes the test. The disqualification follows from the zero-tolerance rule, not from the amount of formalism.\n\n### Issues\nFour elements restate in notation what the surrounding prose already says: the permute-cell conditional, the reduction glosses, the nested cell-interface tuples of Section 4, and the destination shift. The interface tuples are also inconsistent with the text that explains them: they name the output fields out and dout, which the bullets call dataOut and destOut. The braces denote signal concatenation, not sets, and no set operation is used, so `UNNECESSARY_SET_THEORY` does not apply. There are no \"Definition N:\" blocks, so `DECORATIVE_DEFINITIONS` does not apply either.\n\n---\n\n## Citation Analysis\n\nThirteen references, two of them self-citations: [10] (Dragomir and Ştefan, all-pair shortest path on a hybrid map-reduce architecture), cited for pipelining that hides network latency, and [13] (Maliţa, Popescu and Ştefan, accelerating spectral clustering), cited for the queue memory distributed along the map array. SCR = 2/13 = 15.4%, just inside the elevated band. Both belong to the same map-reduce accelerator line as this paper and are cited for techniques it uses, so both are related (similarity about 0.7). The remaining references are the canonical sources (Beneš, Waksman, Ladner-Fischer, Nassimi-Sahni, McCool et al., Dally-Towles, MPI, GPU scan and reduction). No issues identified.\n\n---\n\n## Structural Analysis\n\nThe size claims are backed by evidence: the design was checked against a golden model with random stimuli in SystemVerilog (no coverage figures are given), and the synthesis tables for 8 to 256 inputs support \"roughly double the size\" (LUTs +104 to +116%, registers +5 to +9%). The application claims are weaker. \"Simulations provided 6n× acceleration\" and \"an acceleration of ∼ 1.5 × n is achieved\" come without data. No clock frequency or timing result is reported. The paper's own motivation is that separate dedicated circuits are inefficient, but it is never tested against separate prefix and reduction networks. CER is about 0.6, which is adequate. Limitations are acknowledged inline: the multi-function network doubles the LUT count, the sequential version gives up pipelining, the permute shape \"may not be the most efficient implementation for all possible functions\", and FFT latency \"cannot be avoided\". There is no dedicated section.\n\nArtifacts: the SystemVerilog design and test bench are not released, and no link or availability statement appears.\n\n---\n\n## Conclusion\n\nThe paper delivers a credible engineering result: one Beneš-Waksman-shaped network that also packs, scans and reduces, at about twice the LUT cost of a permute-only network, with functional verification and synthesis figures across six sizes. Its quantitative formalism (size, depth, cell counts, cell functions) is necessary and proportionate.\n\nThe flag rests on the zero-tolerance rule at Level 2. Four elements only restate the prose, and under the specification one such element is enough at this level. The flag is narrow, and the offending notation is engineering shorthand rather than set-theoretic decoration. Apart from the flag, the paper would gain from timing results, measured application speed-ups and the release of its design."
+  },
+  {
+   "paper_id": "hentout2024",
+   "paper": {
+    "title": "Shortest Path Planning and Efficient Fuzzy Logic Control of Mobile Robots in Indoor Static and Dynamic Environments",
+    "authors": [
+     "Abdelfetah Hentout",
+     "Abderraouf Maoudj",
+     "Ahmed Kouider"
+    ],
+    "abstract": "Efficient navigation in dynamic environments is a critical skill for of mobile robots, where obstacles can stochastically appear. This paper presents a complete navigation and control system that integrates effective path optimization and motion control capabilities for mobile robots evolving in indoor static and dynamic environments. This system consists primarily of two layers. In the Optimization Layer (Global planner), a Deterministic Constructive Algorithm (DCA) quickly generates the shortest path, as a sequence of nodes, to get to the goal position while avoiding the static obstacles. The Control layer (Local planner) employs an Efficient Fuzzy Logic Controller (EFLC) to continuously guide the robot around the detected dynamic obstacles and drive safely the robot along the intended path. Simulations conducted on various maps with different complexities demonstrate the effectiveness of the DCA planner. Finally, validations using V-REP software show the strength of the proposed EFLC that mimics human reasoning for mobile robots navigating in dynamic environments.",
+    "keywords": [
+     "Deterministic constructive algorithm",
+     "indoor static and dynamic environments",
+     "fuzzy logic control",
+     "mobile robots",
+     "shortest path planning"
+    ],
+    "doi": null,
+    "pages": "21-36",
+    "source_file": "paper759.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 75,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 37.5,
+    "composite": 28.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper in which 13 of 16 formal elements fail the Necessity Test. Section 2 casts the problem as a mathematical program (eqs. 2-10: an objective, binary collision indicators A and B defined with ∃, ∧ and set membership, and constraints summing them to zero) that the constructive planner never formulates or solves. The segment equation (1), the Euclidean distances (6, 12) and the set expressions for collision tests add nothing a programmer would build differently.",
+    "UNNECESSARY_SET_THEORY": "Set intersection and membership stand in for list and geometry routines. Obs{} = [CPos, MovePoint] ∩ Obs_Seg (eq. 11) is the list of obstacles a segment crosses. Path_Seg ∩ Obs_Seg = ϕ (eq. 2) and the step-three tests are ordinary segment-intersection checks. Eqs. 3-4 build a boolean contact flag from ∃P1, P2 with {P1, P2} ∈ Rob_Seg ∧ {P1, P2} ∈ Obs_Seg. No proof depends on any of them."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A navigation system combining the authors' earlier constructive planner with a fuzzy controller. A mathematical program and set notation that the algorithm never uses trigger formalism theater at Level 2. Comparisons are largely visual, and the controller's design is deferred to the authors' preprint.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A two-layer navigation system for indoor mobile robots. A deterministic constructive planner (DCA, taken from the authors' earlier conference paper [40]) builds a waypoint path around rectangular static obstacles and prunes redundant nodes. A Mamdani fuzzy controller (EFLC, whose membership functions and rules are deferred to the authors' preprint [46]) then steers between waypoints around pop-up obstacles. Evaluation consists of map comparisons and one V-REP run.\n**Level:** 2 (Low)\n**Rationale:** The paper combines the authors' existing planner with a standard fuzzy controller and applies the pair to static and dynamic indoor navigation. It offers no complexity analysis, no optimality or completeness proof, and no new algorithmic idea beyond [40].\n\n### Formal Elements\n- Definitions: 4 inline (segment Seg(Pk, Pl), eq. 1; collision indicator A_r,tj, eq. 3; collision indicator B_i,tj, eq. 4; obstacle set Obs{}, eq. 11), plus a notation table (Table 1) (with constraints: 4, eqs. 7-10)\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 numbered, plus set expressions in Section 3.1 (intersection points, Table 2 membership cases, step-three tests, node-reduction rule)\n\n### Necessity Test\n- Eq. 1, line equation of an obstacle edge with MIN/MAX x-range: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 2, Path_Seg_i ∩ Obs_Seg_tj = ϕ: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 3, A_r,tj = 1 if ∃P1, P2 with {P1, P2} ∈ Rob_Seg_r ∧ {P1, P2} ∈ Obs_Seg_tj: Q1 yes, Q2 no, Q3 no → unnecessary (a robot-edge/obstacle-edge contact flag that the planner never computes)\n- Eq. 4, B_i,tj defined the same way for path segments: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 5, min Σ ‖N_i+1 − N_i‖: Q1 yes, Q2 no, Q3 no → unnecessary (the DCA is constructive and never solves this program)\n- Eq. 6, Euclidean distance between nodes: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 7, consecutive nodes distinct: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 8, sum of B equals zero: Q1 yes, Q2 no, Q3 no → unnecessary (it also sums over i while quantifying over every i)\n- Eq. 9, sum of A equals zero: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 10, A and B binary: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 11, Obs{} = [CPos, MovePoint] ∩ Obs_Seg_tj: Q1 yes, Q2 no, Q3 no → unnecessary (set notation for the list of obstacles a segment crosses; the formula says MovePoint where the text says Target)\n- Intersection points {P1, P2} = [CPos, Target] ∩ Obs_Seg_tk with the Table 2 membership cases: Q1 no, Q2 yes, Q3 no → necessary (the case table selects the MovePoint, although cases 1 and 5 are identical)\n- Step-three tests [CPos, MovePoint] ∩ Obs_j = ∅ / ≠ ∅: Q1 yes, Q2 no, Q3 no → unnecessary\n- Node-reduction rule ([Nh, Nl] ∩ Obs_j = ∅) ∧ (l ≥ h + 2): Q1 no, Q2 yes, Q3 no → necessary (it fixes when intermediate nodes are dropped)\n- Eq. 12, Dist-Target as Euclidean distance: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 13, Error-Angle = arctan((YT − Yr)/(XT − Xr)) − arctan(Yr/Xr): Q1 no, Q2 yes, Q3 no → necessary (it defines a controller input, though the second term is the bearing of the robot's position from the origin, not its heading)\n\n### Proportionality\nCalculated complexity: 8\nExpected range (Level 2): 0-15\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate in count, but disproportionate in function. Thirteen of the sixteen elements fail the test. Section 2 states a mathematical program (an objective, binary indicators and constraints) that the constructive algorithm never formulates or solves, and Section 3.1 writes routine segment-intersection checks in set notation.\n\n### Issues\nThe problem formulation (eqs. 2-10) has no counterpart in the method. Section 2 says \"the path problem consists of finding a set of feasible nodes that optimizes the total length while satisfying condition\" (2), but the DCA builds the path greedily around the nearest crossed obstacle and is never related to the objective or constraints. The indicator definitions use ∃, ∧ and set membership where a two-word description (\"edges touch\") would do. The DCA is repeatedly called the generator of \"the shortest path\", with no proof, and Table 3 contradicts this: memEAPF finds shorter paths on Map5 and Map7.\n\n---\n\n## Citation Analysis\n\nThere are 47 references, 9 of them self-citations ([3], [9], [27], [30], [38], [39], [40], [41], [46]), so SCR = 9/47 = 19.1%, just under the 20% threshold. All nine concern mobile or manipulator path planning or fuzzy navigation, so all are related (similarity ≥ 0.5). [40] is the source of the DCA. [46] is the authors' 2023 preprint on the same controller: the paper defers to it the membership functions, the rule base (\"Table I of [46]\") and its illustrative examples (\"For more details, please refer to [46]\"), so the paper is not self-contained.\n\nSeparately, six third-party references from one external group, [18], [22], [23], [24], [25] and [36], concern controller tuning for servo, clutch and tower-crane systems. They are cited for claims about mobile-robot path planning that they do not address. [24] and [25] are said to \"establish reference inputs for tracking problems specific to mobile robots\", and [36], on iterative feedback tuning for tower cranes, is described as applying IFT \"to solve optimization problems and improve the training speed of NN\". These are not self-citations, and no mutual pattern can be established from this paper alone, so no citation flag is raised. The pattern is recorded as a citation-practice concern and is reflected in a score at the bottom of the elevated band.\n\n---\n\n## Structural Analysis\n\nThe claims outrun the evidence: CER is about 0.45 (weak). The runtime improvement is given as 98.26%, but the four Table 3 values average 99.4%, and the runtimes are compared against figures copied from [42], measured on other hardware. The discussion says DCA \"significantly improves the path length for the two last tests\" and in the next sentence \"For both tests, memEAPF produced the best results\". The GA, RRT, ACO and Dijkstra comparisons are visual, on figures reprinted from other papers, with no numbers. The EFLC is validated by one qualitative V-REP run with no metrics, yet the paper concludes it is \"robust\" and gives \"resilience in complex and changing environments\". The paper also states \"the DCA planner does not depend on any parameter\", although it uses SafetyDist. One limitation is acknowledged inline: the EFLC's efficiency \"strongly depends on its rules\" and they must be tuned.\n\nArtifacts: no code, maps or controller files are released. The only URL to the authors' own work is the preprint of the paper itself.\n\n---\n\n## Conclusion\n\nThe engineering idea, a constructive planner feeding waypoints to a fuzzy reactive controller, is reasonable. But the paper presents a mathematical program that its planner does not solve, and it writes routine geometric checks in set notation; at Level 2 this is formalism theater, together with unnecessary set theory.\n\nThe evidence is thin for claims of superiority. Comparisons are visual or rest on numbers taken from other papers, the reported average does not match the table, and the controller is shown in one qualitative simulation with its design deferred to the authors' preprint. Self-citation is just below the 20% threshold and on topic. A cluster of off-topic third-party references is a separate concern."
+  },
+  {
+   "paper_id": "hafs2024",
+   "paper": {
+    "title": "Enhancing Recognition in Multimodal Biometric Systems: Score Normalization and Fusion of Online Signatures and Fingerprints",
+    "authors": [
+     "Toufik Hafs",
+     "Hatem Zehir",
+     "Ali Hafs",
+     "Hanene Brahmia",
+     "Amine Nait-Ali"
+    ],
+    "abstract": "Multimodal biometrics employs multiple modalities within a single system to address the limitations of unimodal systems, such as incomplete data acquisition or deliberate fraud, while enhancing recognition accuracy. This study explores score normalization and its impact on system performance. To fuse scores effectively, prior normalization is necessary, followed by a weighted sum fusion technique that aligns impostor and genuine scores within a common range. Experiments conducted on three biometric databases demonstrate the promising efficacy of the proposed approach, particularly when combined with Empirical Modal Decomposition (EMD). The fusion system exhibits strong performance, with the best outcome achieved by merging the online signature and fingerprint modalities, resulting in a normalized Min-Max score-based Equal Error Rate (EER) of 1.69%.",
+    "keywords": [
+     "Empirical mode decomposition",
+     "fingerprints",
+     "image and signal processing",
+     "min-max",
+     "multibiometrics",
+     "online handwritten signatures",
+     "scores fusion",
+     "weighted sum"
+    ],
+    "doi": null,
+    "pages": "37-49",
+    "source_file": "paper760.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 30,
+    "artifact_availability": 50,
+    "intellectual_integrity": 39.0,
+    "composite": 41.75,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "The first used database is the publicly available MYCT-100 [16]",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNSUPPORTED_CLAIMS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with five formal elements that fail the Necessity Test. The hypothesis-testing block (H0, H1, eqs. 7-8) derives a Bayesian decision rule the system does not use, since the implemented decision thresholds the fused score at an experimental θ, and eq. 8 does not follow from eq. 7. Eq. 1 restates 'averaging the first five signatures'. Eq. 3 is the textbook EMD reconstruction identity, unused by the matcher.",
+    "UNSUPPORTED_CLAIMS": "Claim-evidence ratio estimated at about 0.3. The evidence is one table of four EERs on MCYT-100 and one DET plot. The abstract reports experiments on three databases, but no results appear for SVC2004 or FVC2004. Unimodal EERs are absent, yet the conclusion says the fusion 'performs much better compared to the unimodal systems illustrated in our work'. The reported drop 'from 2.91% to 1.69%' matches no figure in Table 1 (unnormalised fusion: 2.16%). 'Improved performance compared to existing approaches' is asserted with no comparison.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of the system's constraints; the closing perspective lists only an FPGA port and a data-security module."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A conventional signature-fingerprint score fusion with a decorative and incorrect Bayesian decision derivation, which is formalism theater at Level 2. Its claims rest on a single four-cell table, several numbers do not match it, and no limitations are stated. The data come from a public database.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Score-level fusion of two verifiers: an online-signature verifier based on empirical mode decomposition (the authors' earlier method [4]) and a minutiae-based fingerprint matcher. Scores are normalised with min-max, z-score and tanh and combined by an EER-weighted sum; the evaluation reports EERs on MCYT-100.\n**Level:** 2 (Low)\n**Rationale:** Every stage is an existing technique (Gaussian filtering, EMD, Rilling extrema location, histogram equalisation, Fourier enhancement, thinning, minutiae extraction, standard normalisations, weighted-sum fusion). The contribution is their combination and an empirical comparison of normalisation methods.\n\n### Formal Elements\n- Definitions: 2 inline (hypotheses H0 and H1) (with constraints: 0)\n- Theorems: 0 (Bayes' theorem is invoked, not stated as a result)\n- Proofs: 0\n- Equations: 8\n\n### Necessity Test\n- Eq. 1, S_ref = (S1 + S2 + S3 + S4 + S5)/5: Q1 yes, Q2 no, Q3 no → unnecessary (the sentence before already says the reference is obtained by averaging the first five signatures)\n- Eq. 2, SD = Σ|E_j−1(t)| ≤ ε, the sifting stop criterion: Q1 no, Q2 yes, Q3 no → necessary (though garbled: E is undefined, and the usual criterion is a normalised squared difference between successive siftings)\n- Eq. 3, S(t) = r(t) + Σ IMF_i(t): Q1 yes, Q2 no, Q3 no → unnecessary (the textbook reconstruction identity; it restates the preceding sentence and the matcher does not use it)\n- Eq. 4, S_emp = (1/I)·sqrt(Σ(S_ref,i − S_test,i)²): Q1 no, Q2 yes, Q3 no → necessary (it defines the fingerprint score, although the next sentence describes it as the proportion of matched minutiae pairs, which the formula does not compute)\n- Eq. 5, fused score S = Σ w_i S_i: Q1 no, Q2 yes, Q3 no → necessary (it introduces the weights fixed by eq. 6)\n- Eq. 6, w_i = EER_i / Σ EER_m: Q1 no, Q2 yes, Q3 no → necessary (as printed, a modality's weight grows with its error rate, the opposite of the \"inversely proportional\" weighting the text describes)\n- Hypotheses H0 (impostor) and H1 (genuine): Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 7, P(S/H1)P(H1)/P(S) > P(S/H0)P(H0)/P(S): Q1 yes, Q2 no, Q3 no → unnecessary (the implemented decision is a threshold θ on the fused score)\n- Eq. 8, P(S/H1)/P(S/H0) > P(S/H0)/P(S/H1): Q1 yes, Q2 no, Q3 no → unnecessary (it does not follow from eq. 7, whose correct consequence compares the likelihood ratio with P(H0)/P(H1), and it is not used)\n\n### Proportionality\nCalculated complexity: 4\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Proportionate in count. The disqualification comes from the decorative hypothesis-testing block and two restatements, not from volume.\n\n### Issues\nThe Bayesian decision rule (H0, H1, eqs. 7-8) is derived and then set aside: \"we compare the likelihood ratio to an experimental threshold θ\". No likelihood is ever estimated; the system thresholds the fused score. The derivation is also wrong at its second step. Two of the retained equations contradict their own descriptions (eq. 4 and eq. 6, see above).\n\n---\n\n## Citation Analysis\n\nThere are 30 references and one self-citation, [4] (T. Hafs, ..., A. Nait-Ali, empirical mode decomposition for online signature verification, IET Biometrics 2016). It is the signature method reused here and is directly related. SCR = 1/30 = 3.3%.\n\nA block of six references in the related-work section, [10] to [15], concerns unrelated topics: signatures in the fuzzy-set sense, fuzzy models of shape-memory-alloy actuators, COVID-19 mortality prediction, LSTM human-mobility prediction, k-means post-processing and Bayesian filtering. The block opens with \"Many successful applications of modeling and classification techniques in various fields have been established\". Four of the six share one external author, two are papers in this journal, and [10] appears to have been matched on the word \"signature\" alone. None bears on biometric fusion. They are not self-citations, so no flag is raised, and the score is held at the bottom of the normal band.\n\n---\n\n## Structural Analysis\n\nCER is about 0.3. The results consist of one table (a single row of four EERs on MCYT-100) and one DET plot. The abstract reports \"experiments conducted on three biometric databases\", but no results for SVC2004 or FVC2004 appear. No unimodal EERs are reported, yet the conclusion says the fusion \"performs much better compared to the unimodal systems illustrated in our work\". The text reports an error drop \"from 2.91% to 1.69%\" that matches nothing in Table 1 (the unnormalised fusion is 2.16%). The phrase \"As for the two previous fusion operations\" refers to results that are not in the paper. \"Improved performance compared to existing approaches\" is asserted, but no comparison is made.\n\nThere are also factual slips. The signature is called a physical modality and the fingerprint a behavioural one. FVC 2004 is glossed as \"Fingerprint Verification Competition 2002\". The SVC2004 description includes fingerprint-sensor details that belong to another database. The two IMF conditions are misstated. No limitation of the system is acknowledged anywhere.\n\nArtifacts: the results rest on MCYT-100, a public bimodal database that the paper cites; the signature and fingerprint code is not released.\n\n---\n\n## Conclusion\n\nThe paper presents a conventional score-fusion pipeline with a Bayesian decision derivation that is both incorrect and unused, which at Level 2 is formalism theater. The experimental section does not support the abstract or the conclusions: one database, one table row, no unimodal baselines, no comparison with prior work, and numbers in the text that do not match the table.\n\nFactual slips (modality types, competition year, a weight formula opposite to its description), no stated limitations and an off-topic block of citations weaken the paper further. Data availability rests on the public MCYT database."
+  },
+  {
+   "paper_id": "popescu2024",
+   "paper": {
+    "title": "Software Platform Based on the hLARM Formalism for Modeling Complex Systems",
+    "authors": [
+     "Dragos Constantin Popescu",
+     "Ioan Dumitrache"
+    ],
+    "abstract": "The problem of defining, analyzing and reasoning behaviors, facts and uncertainties in complex systems asks for new modeling formal methods and software tools that can deal with managing such collections of heterogeneous and dynamical interacting entities. The purpose of this paper is to present in detail the implementation of a new software modeling platform which is based on the hLARM (Hybrid Logic-Algebraic Relational Modeling) formalism which aims to alleviate the process of designing and managing such systems. The development of the platform is thoroughly analyzed from its conceptual background and up to the algorithms which support all the inference procedures involved.",
+    "keywords": [
+     "Complexity",
+     "modeling",
+     "platform",
+     "relational modeling",
+     "trust factors"
+    ],
+    "doi": null,
+    "pages": "65-80",
+    "source_file": "paper762.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 42.0,
+    "composite": 31.5,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 paper (a software platform assembled from SymPy, NumPy, NetworkX, Bootstrap and leader-line) with four formal elements that fail the Necessity Test. Eq. 1, introduced as 'formal definitions', writes each model's list of rules and trust factors as column vectors F(α) and Π, which the implementation stores as a dictionary of modRule objects. Eq. 2 numbers a Python dictionary literal as an equation. Eqs. 5 and 6 dress a SymPy satisfiability call and a dictionary-key filter as the operators σ and ϕ, which this paper never defines.",
+    "UNSUPPORTED_CLAIMS": "Claim-evidence ratio estimated at about 0.2. The platform is not evaluated: there is no modelled case study, no timing of the inference procedures or the layout algorithm, and no user study. Yet the conclusion asserts 'a high degree of flexibility and real ease of use', 'simplicity of configuration and high adaptability for wide classes of heterogeneous complex systems' and 'efficient interfacing'. The only evidence is screenshots of the interface."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A software description of a modelling platform built on SymPy, NumPy and NetworkX. The recapped formalism and the operator notation for library calls are formalism theater at Level 1. The platform is not evaluated, and its code is not released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A description of the LARM software platform, which implements the hLARM modelling formalism published earlier by the same authors [3]. It consists of a Python terminal of 15 classes and a web interface built with Bootstrap and leader-line. A layout heuristic is seeded by the NetworkX Kamada-Kawai algorithm, and the inference procedures are given as step lists that delegate satisfiability and product-of-sums minimisation to SymPy and the probabilistic inference to NumPy.\n**Level:** 1 (Trivial)\n**Rationale:** The paper describes a prototype software platform assembled from existing libraries. The formalism and its algorithms are those of [3], and the only new algorithm is a simple pixel-layout heuristic. Nothing is evaluated.\n\n### Formal Elements\n- Definitions: 2 inline (parameter and attribute symbols u_i, w_i, y_i, α; rule vector F(α) and trust-factor vector Π, eq. 1, introduced as \"formal definitions\") (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 numbered, plus the formulas inside Algorithm 1 and the logical condition in step 10 of Algorithm 5\n\n### Necessity Test\n- Eq. 1 with the parameter and attribute symbols, F(α) as a column of rules over (αu, αw, αy) and Π as the column of their probabilities: Q1 yes, Q2 no, Q3 no → unnecessary (each model holds a list of rules with trust factors, which Section 4.1 implements as a dictionary of modRule objects; nothing in this paper is derived from the vectors)\n- Eq. 2, {'index' : object related to the resource}: Q1 yes, Q2 no, Q3 no → unnecessary (a dictionary literal numbered as an equation, restating the sentence before it; it is code, not mathematics, and weighs little)\n- Algorithm 1 formulas (area-weighted centre of mass, distance to the centre, target coordinates with 100/200-pixel margins, proportional coordinate update): Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 3, Π_y = Π′ · (V′ · V′^T)^−1 · V′ · V_y^T: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 4, F_V = ∧_i ITE(f_i, F_i, ¬F_i): Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 5, S̄_V = σ|F_V: Q1 yes, Q2 no, Q3 no → unnecessary (operator notation for the SymPy satisfiability call that the preceding sentence already describes; σ is not defined in this paper)\n- Eq. 6, S̄_f = ϕ_fi|S̄_V: Q1 yes, Q2 no, Q3 no → unnecessary (operator notation for restricting each solution dictionary to the keys f_i; the paper itself says this operator \"is implemented using standard set theory over Python dictionaries\")\n- Algorithm 5 step 10, solutions that satisfy F ∧ F^y and do not satisfy F ∧ ¬F^y: Q1 no, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 4\nExpected range (Level 1): 0-5\nRatio: 0.8x upper bound\n\n**Assessment:** Within range by count. At Level 1, however, the four unnecessary elements decide the case: the recap of the formalism in vector form and the operator notation for library calls do no work in a paper about software.\n\n### Issues\nEq. 1 is announced as \"the following formal definitions\", but it describes a list of rule-probability pairs. Eqs. 5 and 6 name a SAT call and a dictionary filter with operators, σ and ϕ, that the paper never defines; they are left to [3]. Eq. 2 presents a Python dictionary as a numbered equation. The paper contains no \"Definition N:\" blocks (eq. 3 cites \"Definition 8 from [3]\"), so `DECORATIVE_DEFINITIONS` is not raised. Eq. 6 is a dictionary filter, but it is written as a restriction operator rather than with set operators, so `UNNECESSARY_SET_THEORY` is not raised either. Two citations are left as the placeholder \"[citare]\" (for pickle and for the NetworkX Kamada-Kawai layout).\n\n---\n\n## Citation Analysis\n\nThere are 32 references and one self-citation, [3] (Popescu and Dumitrache, Information Fusion 2023), the paper that defines hLARM. It is directly related. SCR = 1/32 = 3.1%. About a third of the references are home pages of tools and standards (Python, SymPy, NumPy, NetworkX, Bootstrap, LeaderLine, livereload, KeYmaera X, Modelica, Simulink, NetLogo, Ptolemy II, SysML, Modelio), which is appropriate for a software paper. No integrity issues were identified; the two placeholder citations are an editing lapse.\n\n---\n\n## Structural Analysis\n\nThe platform is not evaluated. The paper models no case study with it, reports no timing for the inference procedures or the layout algorithm, and includes no user study. Its closing claims, \"a high degree of flexibility and real ease of use\", \"simplicity of configuration and high adaptability for wide classes of heterogeneous complex systems\" and \"efficient interfacing\", rest only on screenshots of the interface (Figs. 6-9). CER is about 0.2. One limitation is acknowledged inline: leader-line provides no control over link routing, so only the positions of the models are optimised. There is no limitations section.\n\nArtifacts: this is a software-platform paper with no repository link or availability statement. The only GitHub URL, [21], points to a third-party library.\n\n---\n\n## Conclusion\n\nThe paper documents the architecture of a modelling tool. That is a legitimate contribution, but a Level 1 one: the formal content belongs to the authors' earlier paper, and the inference is delegated to SymPy and NumPy. The recap of the formalism and the operator notation for library calls are unnecessary here and trigger formalism theater.\n\nThe paper offers no evaluation of the platform, so its claims of flexibility and ease of use are unsupported. Two references are left as placeholders, and the platform itself is not released."
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "batch_id": "2018-v21-n3",
+ "analysis_timestamp": "2026-10-18T17:14:08Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 21,
+  "issue": 3,
+  "year": 2018
+ },
+ "papers": [
+  {
+   "paper_id": "song2018",
+   "paper": {
+    "title": "A Quick Survey of Tissue-Like P Systems",
+    "authors": [
+     "Bosheng Song",
+     "Yingxin Hu",
+     "Henry N. Adorna",
+     "Fei Xu"
+    ],
+    "abstract": "Survey of tissue-like P systems, one of the three main families of membrane-computing models alongside cell-like and neural-like P systems. The paper gives the definitions of tissue P systems and several variants, recalls results on their Turing universality and computational efficiency, and presents the computational complexity theory developed for them: polynomial complexity classes for several variants, known results, and borderlines between efficiency and non-efficiency determined by the length of communication rules.",
+    "keywords": [
+     "Bio-inspired computing",
+     "Membrane computing",
+     "Tissue P system",
+     "Universality",
+     "Computational complexity"
+    ],
+    "doi": null,
+    "pages": "310-321",
+    "source_file": "paper603.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 40,
+    "citation_integrity": 90,
+    "structural_integrity": 75,
+    "artifact_availability": 0,
+    "intellectual_integrity": 66.25,
+    "composite": 49.69,
+    "final": 49.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text; the only URL, http://ppage.psystems.eu, is the third-party P systems web page",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Short survey of tissue-like P systems that restates definitions and complexity results from the literature; its formal apparatus far exceeds the Level 1 expectation for a survey, but every element is needed to state the surveyed results, so no flag is raised. Self-citation is 13% and on topic; there is nothing to release.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Short survey of tissue-like P systems (membrane computing): definitions of the basic symport/antiport model and its cell-division and cell-separation variants, a catalogue of further variants, recalled Turing-universality results, and recalled polynomial-time complexity results whose efficiency frontiers are indexed by rule length.\n**Level:** 1 (Trivial)\n**Rationale:** The specification places surveys and literature reviews at Level 1, and that is the paper's whole contribution: every definition and all sixteen theorems are restated from cited works ([15], [17], [21], [26], [34]-[36], [43], [46], [48]-[51], [56]), no proof, proof sketch or new result is offered, and the conclusions pose open problems without addressing them. The surveyed subject is complexity theory, which is why the formal elements below pass the Necessity Test, but the level measures the paper's own conceptual contribution, and under the default-lower rule a recapitulation does not justify elevation.\n\n### Formal Elements\n- Definitions: 9 (6 numbered, 3 inline; with constraints: 6)\n- Theorems: 16\n- Proofs: 0\n- Equations: 1 (inline correspondence between a classical rule (i, u/v, j) and the evolutional rule [u]i[v]j -> [v]i[u]j)\n\n### Necessity Test\n- Def. 1, tissue P system Π = (Γ, E, M1, ..., Mq, R, iout) with symport and antiport rule forms: Q1 no, Q2 yes, Q3 yes → necessary\n- Def. 2, tissue P system with cell division, rule [a]i -> [b]i[c]i: Q1 no, Q2 yes, Q3 yes → necessary\n- Def. 3, tissue P system with cell separation, partition {Γ0, Γ1} of Γ and rule [a]i -> [Γ0]i[Γ1]i: Q1 no, Q2 yes, Q3 yes → necessary\n- Def. 4, recognizer tissue P system with cell division (input alphabet, yes/no objects, input cell, halting): Q1 no, Q2 yes, Q3 yes → necessary\n- Def. 5, recognizer tissue P system with cell separation: Q1 no, Q2 yes, Q3 yes → necessary\n- Inline def., accepting and rejecting computation: Q1 yes, Q2 yes, Q3 yes → necessary\n- Inline notation, classes TC, TDC, TSC with rule-length bound (k) and environment-free variants: Q1 no, Q2 no, Q3 yes → necessary\n- Inline notation, classes TEC, TDEC, TSEC with length conventions (k) and (k1, k2): Q1 no, Q2 no, Q3 yes → necessary\n- Def. 6, uniform polynomial-time solvability and the class PMC_R: Q1 no, Q2 no, Q3 yes → necessary\n- Inline equation, classical rule (i, u/v, j) as evolutional rule [u]i[v]j -> [v]i[u]j: Q1 no, Q2 yes, Q3 yes → necessary\n- Thm. 1, P = PMC_TC: Q1 yes, Q2 no, Q3 yes → necessary\n- Thm. 2, P = PMC_TDC(1): Q1 yes, Q2 no, Q3 yes → necessary\n- Thm. 3, HAM-CYCLE ∈ PMC_TDC(2): Q1 yes, Q2 no, Q3 yes → necessary\n- Thm. 4, NP ∪ co-NP ⊆ PMC_TDC(2): Q1 yes, Q2 no, Q3 yes → necessary\n- Thm. 5, P = PMC_TSC(2): Q1 yes, Q2 no, Q3 yes → necessary\n- Thm. 6, SAT ∈ PMC_TSC(3): Q1 yes, Q2 no, Q3 yes → necessary\n- Thm. 7, NP ∪ co-NP ⊆ PMC_TSC(3): Q1 yes, Q2 no, Q3 yes → necessary\n- Thm. 8, P equals PMC of environment-free TSC: Q1 yes, Q2 no, Q3 yes → necessary\n- Thm. 9, PMC of environment-free TDC(k) equals PMC_TDC(k) for each k ≥ 1: Q1 yes, Q2 no, Q3 yes → necessary\n- Thm. 10, TXC ⊆ TXEC for X ∈ {D, S}: Q1 yes, Q2 no, Q3 yes (the class containment through which Theorems 4 and 7 carry over to evolutional systems) → necessary\n- Thm. 11, TXC(k) ⊆ TXEC(k, k) ⊆ TXEC(2k): Q1 yes, Q2 no, Q3 yes (rule-length bound) → necessary\n- Thm. 12, TXEC(k1, k2) ⊆ TXEC(k1 + k2): Q1 yes, Q2 no, Q3 yes (rule-length bound) → necessary\n- Thm. 13, PMC_TDEC(1) = PMC_TDEC(2) = P: Q1 yes, Q2 no, Q3 yes → necessary\n- Thm. 14, SAT ∈ PMC_TDEC(4): Q1 yes, Q2 no, Q3 yes → necessary\n- Thm. 15, PMC_TSEC(n,1) = PMC_TSEC(1,n) = P for each n ≥ 1: Q1 yes, Q2 no, Q3 yes → necessary\n- Thm. 16, SAT ∈ PMC_TSEC(3,2): Q1 yes, Q2 no, Q3 yes → necessary\n\nThe set operations that occur (E ⊆ Γ, Γ = Γ0 ∪ Γ1 with Γ0 ∩ Γ1 = ∅, multisets over Γ \\ Σ, NP ∪ co-NP, containments between classes of systems) act on the alphabet of a formal model and on complexity classes, not on lists in a program, so they are not the set-notation-for-arrays pattern. Theorems 10 and 12 are the weakest elements: each restates what the preceding sentence or the length convention already says, and the paper derives nothing from them; they are retained only as the length-bound containments through which efficiency results transfer between classes.\n\n### Proportionality\nCalculated complexity: 66 (9 × 2 + 16 × 3 + 0 × 4)\nExpected range (Level 1): 0-5\nRatio: 13.2x upper bound\n\n**Assessment:** Disproportionate — the volume of formal apparatus is far beyond the Level 1 expectation for a survey, although every element is needed to state the results being surveyed. Because no element fails the Necessity Test, and the specification feeds the formalism flags only with unnecessary elements, neither FORMALISM_THEATER nor DISPROPORTIONATE_FORMALISM is raised; the excess is carried by the formalism score through the beyond-2x branch of the score calculation (40) rather than by a cap. A reading that applied DISPROPORTIONATE_FORMALISM to the raw count would cap this paper at 24; the choice is recorded here so that it can be audited.\n\n### Issues\nNo theater, but several inconsistencies in the formal text: Def. 2, item (1), restates the tissue P system with an extra component Σ that Def. 1 does not have; Def. 4 requires all computations to halt while Def. 5 omits that condition, and the paragraph after Def. 5 then speaks of computations that cannot stop; the symbol R denotes a rule set in Defs. 1-3 and a class of systems in Def. 6. The numbered definitions appear in the text layer without their Definition labels, although Section 3.2 refers to Definition 1; this is probably an extraction artefact and is not held against the paper.\n\n---\n\n## Citation Analysis\n\n60 references, 8 of them self-citations ([33], [36], [37], [52], [53], [54], [55], [56]), all involving the first author B. Song (in [53] the surname is misprinted as SON); none involves Y. Hu, H. N. Adorna or F. Xu. SCR = 8/60 = 13.3%, inside the normal band.\n\nTopical relevance: [36] and [56] (tissue P systems with evolutional symport/antiport rules) are the sources of Section 3.3 and Theorems 10-16, about 0.95; [55] (channel states under flat maximal parallelism) about 0.9; [53] (computational power of tissue P systems with promoters), [54] (protein on cells) and [37] (flat maximal parallelism in tissue P systems with promoters) about 0.85; [33] (flat maximal parallelism in cell-like P systems with promoters) about 0.7; [52] (timed P systems with active membranes, a cell-like model) about 0.5, cited as an example of tissue P systems with promoters or inhibitors, which its title does not support. Marginal at worst, none below 0.3, so no IRRELEVANT_SELF_CITATION.\n\nPattern note: Sections 2.3 and 3.3 present in detail only variants that the first author introduced or studied (channel states under flat maximal parallelism, evolutional symport/antiport rules), while the computation power of the other classes is referred to [44]. The selection leans on the authors' own line of work, but the self-cited works are on topic and the ratio is low. Two references are to this journal ([16], [37]). No mutual-citation pattern can be detected from a single paper. Score 90, at the floor of the normal band, for the concentration on the authors' own variants and the mismatched context of [52].\n\n---\n\n## Structural Analysis\n\nClaim-evidence balance is strong for a survey: nearly every result statement is attributed to a cited work, and the general claims of the introduction (universality, efficiency, application areas) each carry references. CER is well above 1.0.\n\nThe weaknesses are those of a thin survey: no stated method for selecting the literature (scope, period, search), little comparison or synthesis beyond listing results, and twelve pages for a field the paper itself describes as twenty years old. Limitations: there is no dedicated section, but Section 2.3 states that only two classes are presented and refers the reader to [44] for the rest, and the title declares a quick survey; this is counted as an inline acknowledgment of scope, so NO_LIMITATIONS is not raised. The open problems in the conclusions (TDEC(3), TSEC(2, 2)) belong to the field, not to the survey.\n\nEditorial slips: membrane creation is cited as [30] in Section 1 but as [27], a paper on rewriting tissue P systems, in Section 2.2, while [27] is also the citation for string replication in Section 1; Section 4 places the open problems on evolutional systems in subsection 3.2 although they are treated in 3.3.\n\nArtifact availability: a survey has nothing of its own to release. The only URL is the community P systems web page, a third-party resource. Category none, relevant false.\n\nThe text contains no instructions addressed to reviewers or to an analysing agent.\n\n---\n\n## Conclusion\n\nA short, carefully attributed survey of tissue-like P systems whose formal content is the definitions and complexity results of the area, restated from the literature. Read strictly, the specification places a survey at Level 1, and against that expectation nine definitions and sixteen theorems are thirteen times the upper bound; yet each element is needed to state the results surveyed, so no formalism flag is raised and the excess appears only as a formalism score of 40.\n\nCitation conduct is sound: 13% self-citation, all on topic, though the detailed sections favour the first author's own variants. The structural weaknesses are those of a brief survey: no selection method, little synthesis, and a handful of cross-reference and citation slips. Nothing is available to release, as expected for the genre."
+  }
+ ]
+}

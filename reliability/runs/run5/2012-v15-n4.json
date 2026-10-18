@@ -1,0 +1,74 @@
+{
+ "batch_id": "2012-v15-n4",
+ "analysis_timestamp": "2026-10-18T05:28:08Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 15,
+  "issue": 4,
+  "year": 2012
+ },
+ "papers": [
+  {
+   "paper_id": "stanimirovic2012",
+   "paper": {
+    "title": "Block Method for Convex Polygon Triangulation",
+    "authors": [
+     "Predrag S. Stanimirović",
+     "Predrag V. Krtolica",
+     "Muzafer H. Saračević",
+     "Sead H. Mašović"
+    ],
+    "abstract": "In this paper, the block method for convex polygon triangulation is presented. The method is based on the usage of the previously generated triangulations for polygon with smaller number of vertices. In the beginning, we establish some relations between the triangulations of the polygons having the consecutive number of vertices. Using these relations, we decompose the triangulation problem into subproblems which are themselves smaller instances of the starting problem. The recursion with memoization is used to avoid repeating the calculation of results for previously processed inputs. The corresponding algorithm is developed and implemented.",
+    "keywords": [
+     "Convex polygon triangulation",
+     "Catalan numbers",
+     "Recursion",
+     "Memoization",
+     "Divide & Conquer algorithms"
+    ],
+    "doi": null,
+    "pages": "344-354",
+    "source_file": "04-pstanimirovic.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.7,
+    "composite": 33.52,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only mention of code is \"Some interesting parts of the code are presented in Appendix.\", i.e. partial listings printed in the paper",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with four formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no): Eq. (2) T_n = 2T_{n-1} + rest(R_n), whose rest and R_n are never defined and which only restates the preceding inequality T_n > 2T_{n-1}; Eqs. (3) and (4), which write the working vertex list L as a set of (position, vertex) pairs; and the inline \"n = {5, . . . , 15}\" for the range of tested sizes.",
+    "UNNECESSARY_SET_THEORY": "The paper calls L \"a list of ordered pairs\" but writes it in set braces, L = {(1, 1), (2, 2), . . . , (n, n)} and, after eliminations, L = {(s, i_s), s = 1, . . . , l}; the first member of each pair is only the position in the list, which Algorithm 2 decrements after each removal, as deleting from an array does by itself. The tested sizes are likewise written n = {5, . . . , 15}. No proof depends on this notation."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 acceleration of the Hurtado–Noy generator of convex polygon triangulations. Set notation for a plain vertex list and an equation with undefined terms fail the Necessity Test; the general filling step only reproduces the n = 6 example, and the printed code does not implement the described algorithm.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Generating all triangulations of a convex n-gon from the stored triangulations of the (n−1)-gon. Each stored triangulation is copied twice as a \"block\" and completed with one of the two diagonals of a remaining quadrilateral; the rest of the table is filled separately. The method is presented as an acceleration of the Hurtado–Noy algorithm and timed against it in Java.\n**Level:** 2 (Low)\n**Rationale:** The authors frame the method as an acceleration of an existing algorithm (\"Hurtado’s algorithm witch we try to accelerate\"), built on memoization, a standard technique. The only formal result, Proposition 1.1, is a short combinatorial observation. Neither algorithm receives a complexity analysis; the speedup is shown by one timing per n on one machine. This is a simple optimization of an existing method; Level 3 would require a genuinely novel algorithm with complexity analysis.\n\n### Formal Elements\n- Definitions: 2 (with constraints: 2) — Def. 2.1 (circular distance) and the inline prose definition of a closed vertex (ear); both fix what the elimination procedure tests\n- Theorems: 1 (Proposition 1.1)\n- Proofs: 1 (informal, of Proposition 1.1)\n- Equations: 9 — numbered (1)–(4), the Catalan recurrence with the bound T_n > 2T_{n−1}, the binomial count in Step 4.1 of Algorithm 4, the performance ratio and performance profile taken from [4], and the inline \"n = {5, . . . , 15}\"\n\nAlgorithms 1–4 are pseudocode; their inline index conditions are tested as one group below.\n\n### Necessity Test\n- Eq. (1), number of triangulations T_n = C_{n−2} = (2n−4)!/((n−1)!(n−2)!): Q1 no, Q2 yes, Q3 yes → necessary\n- Catalan recurrence C_n = (4n−2)/(n+1) C_{n−1} giving T_n > 2T_{n−1} for n > 4: Q1 yes, Q2 no, Q3 yes → necessary\n- Eq. (2), T_n = 2T_{n−1} + rest(R_n) with rest and R_n never defined: Q1 yes, Q2 no, Q3 no → unnecessary\n- Proposition 1.1, every triangulation of T_{n−1} starts exactly two triangulations of T_n: Q1 yes, Q2 yes, Q3 yes → necessary\n- Proof of Proposition 1.1, the quadrilateral (1, i, n−1, n) and its two triangulations: Q1 yes, Q2 no, Q3 yes → necessary\n- Inline definition of a closed vertex (ear): Q1 yes, Q2 yes, Q3 yes → necessary\n- Def. 2.1, circular distance d(i, j) = min{|i − j|, m − |i − j|}: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (3), the vertex list written L = {(1, 1), (2, 2), . . . , (n, n)}: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (4), the list after n − l eliminations written L = {(s, i_s), s = 1, . . . , l}, 4 ≤ l ≤ n, i_l = n: Q1 yes, Q2 no, Q3 no → unnecessary\n- Binomial count C(n−3, n−4) = n − 3 of the combinations in Step 4.1: Q1 yes, Q2 yes, Q3 no → necessary\n- Performance ratio r_{p,s}, a solver's time divided by the better of the two times: Q1 yes, Q2 yes, Q3 no → necessary\n- Performance profile ρ_s(τ), the share of the 11 sizes on which r_{p,s} ≤ τ: Q1 yes, Q2 yes, Q3 no → necessary\n- Inline \"n = {5, . . . , 15}\" for the range of tested sizes: Q1 yes, Q2 no, Q3 no → unnecessary\n- Index conditions inside Algorithms 1–4 (e.g. i_k ∈ {1, 2, . . . , n−2}, (i_l, n−1) → (i_l, n) for i_l < i_k): Q1 yes, Q2 yes, Q3 no → necessary\n\nReasons for the answers:\n\n- Retained elements. Eq. (1) sizes the tables of Algorithm 4 (C_{n−2} and C_{n−3} rows) and yields the bound. Proposition 1.1 is the basis of Steps 2–3, which duplicate every row. d(p, q) = 2 is the ear test of Algorithms 2 and 3. The binomial count fixes how many rows Step 4.1 fills. The two performance-profile formulas define what Fig. 4 plots.\n- Eq. (2) adds nothing to the inequality stated in the sentence before it. The split into 2·row_b copied rows and row_n − 2·row_b remaining rows is fixed by Algorithm 4 itself.\n- Eqs. (3) and (4) describe an array. By the paper's own account, the first member of each pair is only the \"relative vertex positions in the list L\". Algorithm 2 decrements those positions after each removal, which is what deleting from an array does anyway.\n\n### Proportionality\nCalculated complexity: 11 (2 definitions × 2 + 1 theorem × 3 + 1 proof × 4)\nExpected range (Level 2): 0-15\nRatio: 0.73x upper bound\n\n**Assessment:** Proportionate by count. The volume of formalism is within the Level 2 range, and the necessary part (Eq. (1), Proposition 1.1, Def. 2.1) is small and to the point. Four elements nevertheless fail the Necessity Test, and at Level 2 a single failure is formalism theater.\n\n### Issues\n- Eq. (2) is announced as a recursion (\"can be recursively expressed as Tn = 2Tn−1 + rest(Rn)\"). Neither rest nor R_n appears again, so the equation restates the inequality of the previous sentence and is not a recursion.\n- The paper says \"we make a list of ordered pairs\" and then writes that list in set braces, both initially (Eq. (3)) and after eliminations (Eq. (4)). The first member of each pair is an array position.\n- \"n = {5, . . . , 15}\" equates an integer with a set to say that n runs from 5 to 15.\n- The performance-profile apparatus is copied from [4] with its wording. t_{p,s} is defined as \"the number of iterations required for solving the problem p\", although the metric used is CPU time. With only two solvers, ρ_s(τ) restates the Speedup column of Table 1 as a step function.\n\n---\n\n## Citation Analysis\n\nThere is one self-citation among nine references (SCR 11.1%): [8], Saračević, Stanimirović, Mašović and Biševac (2012), on implementing convex polygon triangulation algorithms in Java, C++ and Python. Three of the four authors are on it. It is cited for the choice of Java and treats the same problem, so it is related (similarity about 0.9).\n\nThe other eight references are by other authors: Chazelle; Chazelle and Palios; Cormen et al.; Dolan and Moré; Garey et al.; Hurtado and Noy; Koshy; Sen-Gupta et al. Each is cited for a specific point: applications, Catalan numbers, memoization, the base algorithm, the distance definition, performance profiles. Apart from the self-citation, the list ends in 2009. It does not engage other work on generating all triangulations, or on the binary trees in bijection with them. That is a coverage gap, not an integrity problem. No ring pattern.\n\n---\n\n## Structural Analysis\n\n- **Speedup evidence.** The speedup claim rests on Table 1 and on Fig. 4, which is drawn from the same numbers. Table 1 gives one timing per n for 5 ≤ n ≤ 15, measured with the NetBeans profiler on one machine, with no repetitions or spread reported. Its Speedup column agrees with the two timing columns.\n- **Correctness for general n.** The claim that Algorithm 4 generates all of T_n is supported only by the worked example for n = 6, and the general Step 4.1 does not extend beyond it.\n  - Step 4.1 fills the remaining row_n − 2row_b − 1 rows with the \"combinations of the (n − 4)th class\" of diagonals ending at n, of which there are n − 3. With the fan row, that makes n − 2 rows, but T_n − 2T_{n−1} rows have to be filled.\n  - The two counts agree at n = 6 (4 rows). They do not agree at n = 7 (14 rows against 5) or n = 8 (48 against 6). Triangulations in which vertex n carries between 2 and n − 5 internal diagonals are never produced.\n  - Table 1 nevertheless lists the full Catalan counts up to n = 16. Either the timed program does more than the paper describes, or the counts were not checked against its output.\n- **Appendix code.** The listings do not implement Algorithms 2–4, although the paper states that \"The method Block() corresponds to Algorithm 4\".\n  - Block() has the same level-by-level tree-insertion skeleton as Hurtado(), with leftBranch/setLeft renamed remainingBranch/setLast.\n  - Block() uses a variable n1 that is declared nowhere in the listing, and it discards the results of L.contains(r), r.equals(R) and L.lastElement().\n  - contains() calls this.contains() unconditionally on its first line, which would recurse without end.\n- **Analysis and limitations.** Neither algorithm receives a complexity analysis, and the conclusion attributes the \"significant speedup\" to the block approach without one. Limitations are acknowledged inline in Section 3: RAM is exhausted for n > 16, and including disk I/O for larger n \"will make the performance difference of two algorithms blurry\".\n- **Claim-evidence ratio.** Roughly 0.8. Cited background, Table 1 and the n = 6 example back most statements. The correctness of the general algorithm and the correspondence of the code are unsupported.\n- **Figures.** Figures 1–3 are images absent from the text conversion; their reading relies on the surrounding prose and on Example 2.1. No instructions addressed to an assessor appear in the text.\n- **Artifacts: none.** The paper prints partial listings (\"Some interesting parts of the code are presented in Appendix\"). The classes Triangulation, App, Point and PostScriptWriter are named but not shown, and no repository or data is given. An artifact is relevant here, because the contribution is an implemented algorithm whose timings are the evidence.\n\n---\n\n## Conclusion\n\nThe paper is a short algorithmic contribution with a sound core idea: Proposition 1.1 lets each stored (n−1)-gon triangulation be reused twice by completing a quadrilateral, and the timings show a speedup over the Hurtado–Noy algorithm up to n = 15. The necessary formalism (Eq. (1), Proposition 1.1, Def. 2.1) is small and appropriate. Around it, however, the paper writes its working vertex list in set notation and adds an equation with undefined terms. For a Level 2 contribution, the zero-tolerance rule records this as formalism theater and unnecessary set theory, and both flags are disqualifying at this level.\n\nMore important for a reader, the general filling step only reproduces the n = 6 example, and the printed code does not implement the described algorithm. The reported timings therefore cannot be tied to the procedure the paper specifies. Citation conduct is clean, with one relevant self-citation. Nothing is released."
+  }
+ ]
+}

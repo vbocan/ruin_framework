@@ -1,0 +1,117 @@
+{
+ "batch_id": "2011-v14-n1",
+ "analysis_timestamp": "2026-10-18T17:06:21Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 14,
+  "issue": 1,
+  "year": 2011
+ },
+ "papers": [
+  {
+   "paper_id": "zhang2011",
+   "paper": {
+    "title": "A membrane-inspired approximate algorithm for traveling salesman problems",
+    "authors": [
+     "Gexiang Zhang",
+     "Jixiang Cheng",
+     "Marian Gheorghe"
+    ],
+    "abstract": "This paper proposes a membrane-inspired approximate algorithm to solve traveling salesman problems, which is a well-known and extensively studied NP-complete combinatorial optimization problem. The algorithm combines P systems with ant colony optimization, called ACOPS. ACOPS uses the pheromone model and pheromone update rules defined by ant colony optimization algorithms, and the hierarchical membrane structure and transformation/communication rules of P systems. First, the parameter setting of ACOPS is discussed. Second, extensive experiments are conducted and statistical analysis are investigated. It is shown that ACOPS is superior to Nishida’s membrane algorithms and its counterpart ant colony optimization algorithms, in terms of the quality of solutions and the number of function evaluations.",
+    "keywords": [],
+    "doi": null,
+    "pages": "3-19",
+    "source_file": "01-mgheorghe.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 70,
+    "artifact_availability": 100,
+    "intellectual_integrity": 38.5,
+    "composite": 53.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"All the TSP benchmarks are available in [5]. The programs for all the experiments can be available in [6].\" [5] http://www.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/tsp/ ; [6] http://staffwww.dcs.shef.ac.uk/people/M.Gheorghe/",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with three formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no). The first is the set-notation TSP statement C = {c1, ..., cN}, D = {dij | i, j ∈ {1, ..., N}, i ≠ j}, which is a city list and a distance matrix. The second is the textbook tuple definition of a cell-like P system, Π = (V, T, µ, w1, ..., wm, R1, ..., Rm, i0), with rules a → v, v ∈ (V × {here, out, in})*. The third is the ACOPS \"P system-like framework\", whose membrane structure µ = [0 [1 ]1 [2 ]2 ... [m ]m ]0 and initial multisets w0 = λ, w1 = A1 ... AM1, ... restate a partition of the ants into sub-colonies. None is used in a proof or changes what is implemented.",
+    "DECORATIVE_DEFINITIONS": "Two formal definition blocks could be removed without changing what a programmer builds: the P-system tuple definition (Sect. 2.2) and the ACOPS P-system-like framework (Sect. 2.4, items (i)-(v)). The algorithm is fully specified by the ACS rules (Eqs. 1-5), Eq. 6, the pseudocode of Fig. 3 and steps (i)-(vii). ACOPS never instantiates the tuple, giving no alphabet, output membrane or a → v rule, and neither definition is referenced in any proof.",
+    "ELEVATED_SELF_CITATION": "7 of 28 references (25.0%) include at least one of the authors: [11], [12], [13], [25], [26], [27], [28]. That is inside the 20-30% band. All are on membrane algorithms and topically related. Counting [6], the third author's web page cited as the location of the programs, would give 8/28 = 28.6%, the same band."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Multi-colony ant colony system framed as a one-level membrane algorithm, tested on TSPLIB with t, Wilcoxon and Friedman tests. At Level 2, three formal elements fail the Necessity Test: a set-notation TSP statement, the textbook P-system tuple and a P-system-like restatement of the sub-colony partition. That raises FORMALISM_THEATER and DECORATIVE_DEFINITIONS despite solid empirical support, a code link on an author homepage and public TSPLIB data. Self-citation is elevated at 25%, all on topic.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** ACOPS, an ant colony system (ACS) run inside a one-level membrane structure: each of m elementary membranes runs ACS on a sub-colony for a random number of generations, their best ants form a colony in the skin membrane, and the skin's best ant updates the pheromone of every elementary membrane. Tested on symmetric TSPLIB instances against its ACO counterpart and Nishida's membrane algorithm.\n**Level:** 2 (Low)\n**Rationale:** The algorithm recombines an existing method, ACS, whose rules are reproduced unchanged as Eqs. 1-5, with the authors' earlier one-level membrane structure [25]; structurally it is a multi-colony ACS with migration through a central colony. There is no complexity, convergence or correctness analysis. The rest of the paper is a parameter study (number of membranes m, number of communications NoC) and an empirical comparison with basic statistical tests. That matches \"simple optimizations of existing methods\" and \"configuration or parameter tuning studies\"; Level 3 requires a genuinely novel algorithm with complexity analysis, which is absent.\n\n### Formal Elements\n- Definitions: 3 (with constraints on the implementation: 0): the set-notation TSP statement (Sect. 2.1), the tuple definition of a cell-like P system (Sect. 2.2), and the ACOPS P-system-like framework (Sect. 2.4, items (i)-(v))\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (Eqs. 1-7 and the inline initial pheromone value τ0 = 1/(N·Da))\n\n### Necessity Test\n- Def., TSP as C = {c1, ..., cN} and D = {dij | i, j ∈ {1, ..., N}, i ≠ j}: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def., cell-like P system Π = (V, T, µ, w1, ..., wm, R1, ..., Rm, i0) with rules a → v, v ∈ (V × {here, out, in})*: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def., ACOPS framework with µ = [0 [1 ]1 [2 ]2 ... [m ]m ]0, w0 = λ, w1 = A1 A2 ... AM1, ..., Σ Mj = M: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 1, pseudorandom proportional rule (argmax of [τil]^α [ηil]^β when q ≤ q0): Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 2, random proportional transition probability: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 3, local pheromone update τij = (1 − υ)τij + υτ0: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 4, global pheromone update τij(t + 1) = (1 − ρ)τij(t) + ρΔτij(t): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 5, deposit Δτij = 1/Db on the edges of the best tour Tb, 0 elsewhere: Q1 yes, Q2 yes, Q3 no → necessary\n- Inline τ0 = 1/(N·Da), initial pheromone: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 6, generation count git = gmin + ⌊rand(0, 1)·(gmax − gmin)⌋: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 7, gmax = 2·NoFE/(NoC·(N + m)) − gmin from the evaluation budget: Q1 yes, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 6 (3 definitions × 2; the formula does not weight equations)\nExpected range (Level 2): 0-15\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate in volume, but three elements fail the Necessity Test, and at Level 2 a single unnecessary element is formalism theater. The eight equations are the standard ACS rules and two parameter formulas; each fixes behaviour a re-implementation must reproduce, so all are retained. The three definitions lay notation over a list of cities and a distance matrix, over a textbook computing model the algorithm never instantiates, and over a split of the ants into sub-colonies.\n\n### Issues\n- Sect. 2.1 writes the cities and travel costs in set notation, C = {c1, c2, ..., cN} and D = {dij | i, j ∈ {1, 2, ..., N}, i ≠ j}, and states the problem in English in the same sentence; C and D are not used again.\n- Sect. 2.2 reproduces the formal definition of a cell-like P system from [17, 20]. ACOPS never instantiates it: no alphabet V, output membrane i0 or rule of the form a → v is given for the algorithm, whose \"rules\" are described in prose as the ACS tour construction and pheromone updates.\n- Sect. 2.4's \"P system-like framework\", with the membrane structure µ = [0 [1 ]1 [2 ]2 ... [m ]m ]0 and the initial multisets w1 = A1 A2 ... AM1, ..., says in notation what Fig. 3 and steps (i)-(vii) specify completely in prose: scatter M ants over m sub-colonies, run ACS in each, collect the best ants in a top-level colony, run ACS there, feed its best tour back.\n- Notation is inconsistent. N is the number of cities, then \"the set of all the nodes\" (Nik ⊆ N), and in Eq. 7 \"the total number of ants\" (M elsewhere). In item (iv), Mj is both a running index (A_{M1+1} ... A_{M2}) and a count (Σ Mj = M).\n\n---\n\n## Citation Analysis\n\nSeven of the 28 references (25.0%) include at least one of the authors: [11], [12], [13], [25], [26], [27] and [28]. Zhang is on all seven, Gheorghe on [13], [25], [26] and [28], and Cheng on [28]. All seven are membrane algorithms, combining P-system structures with evolutionary, memetic or swarm methods, which is the paper's own subject:\n- [25] introduces the one-level membrane structure on which ACOPS is built.\n- [26] applies a membrane algorithm to satisfiability.\n- [28] is the group's P-system particle swarm optimizer.\n- [11]-[13] and [27] apply the same family to filter design, radar emitter signals and atom decomposition.\n\nEstimated topical similarity is 0.6-0.9, so no self-citation is irrelevant. They are cited in the introduction's review of membrane algorithms, and [25] is also used in Sects. 2.2 and 2.4 as the source of the one-level membrane structure. Reference [6], the third author's staff web page cited as the location of the programs and detailed results, is an artifact pointer rather than a cited work and is not counted; counting it would give 8/28 = 28.6%, still inside the 20-30% band. The remaining references cover ACO, P systems, Nishida's membrane algorithms, TSPLIB and the statistical methodology. No ring pattern is observable from a single paper.\n\n---\n\n## Structural Analysis\n\nThe central claims are backed by data:\n- Superiority over the ACO counterpart (ACS, labelled ACO in Tables 1-2) at equal evaluation budgets rests on Table 1 (20 TSPLIB instances, 20 runs each, Student t-tests) and Table 2 (Wilcoxon p = 1.6e-4, Friedman p = 5.7e-5).\n- Better tours than Nishida's membrane algorithm with far fewer evaluations rest on Tables 3-6.\n- The parameter choices m = 4 and NoC in [15, 35] are read from Figs. 5-8.\n\nThe claim-evidence ratio is about 1.2. The reporting has faults:\n- lin105 has p = 8.61e-2 but is marked '+' at the declared 0.05 level, so only 15 of the \"16 significant differences\" are significant.\n- The significant eil76 difference favours the ACO counterpart (mean 551.62 for ACOPS against 546.22), yet it is counted with the rest without comment.\n- Nishida's results are taken from [15, 16], with equivalent evaluation counts computed by the authors, not re-run.\n- Several best tours fall below the \"Optimum\" column (ulysses16 73.99 vs 74, pr144 58535.22 vs 58537, tsp225 3904.46 vs 3916), and the distance convention is not explained.\n- The parameter study shows one instance per experiment and defers the rest to [6].\n- The introduction calls this \"the first attempt to investigate the interaction between P systems and swarm intelligence approaches\", which the authors' own particle swarm membrane algorithm [28] contradicts; the conclusion narrows the claim to ant colony optimization.\n\nThere is no limitations section. The only acknowledgment is the closing remark \"In order to thoroughly test the capabilities of this approach, our future studies will focus on the use of ACOPS to producing solutions to some real-world engineering problems\", together with the reported time-quality trade-off in choosing m; together these count as a weak inline acknowledgment. The structural score of 70 reflects a well-supported evaluation (+10) and that weak acknowledgment (+5) on a neutral base of 60, less 5 for the reporting errors above.\n\nArtifacts: \"The programs for all the experiments can be available in [6]\", with [6] = http://staffwww.dcs.shef.ac.uk/people/M.Gheorghe/, and the benchmarks are the public TSPLIB at [5]. As published, that is a link to the authors' code plus an identified public dataset (code_and_data), although the link is a personal homepage rather than a repository.\n\n---\n\n## Conclusion\n\nAs an empirical study, ACOPS is sound. It is a multi-colony ACS framed as a membrane algorithm, compared at equal evaluation budgets with its ACO counterpart, with non-parametric tests that support its advantage, and programs and data are pointed to. Its conceptual weight, however, is that of a Level 2 recombination of existing methods, and the paper dresses it in formal apparatus it does not use: a set-builder statement of TSP, the textbook P-system tuple, and a P-system-like restatement of a sub-colony partition. None of these constrains the implementation or carries a proof. At Level 2 they constitute formalism theater and decorative definitions, which disqualify the paper under the specification.\n\nSelf-citation is elevated at 25% but entirely on topic. The experimental reporting has small errors: a mis-marked p-value, and a significant loss counted among the \"significant differences\" without comment."
+  },
+  {
+   "paper_id": "hadjkhalifa2011",
+   "paper": {
+    "title": "Transportation Process of Containers BPMN-Modeling and Transformation into ACTIF Model",
+    "authors": [
+     "Ismahène Hadj Khalifa",
+     "Abdelkader El Kamel",
+     "Pascal Yim"
+    ],
+    "abstract": "In this paper, we propose to model the transportation process of containers in the Nord-Pas de Calais Region (France). Based on the BPMN (Business Process Modeling Notation) approach, it allows deriving a comprehensive vision of the process and a friendly-user interface of the logistics chain for the analysis and the decision making. Furthermore, ACTIF (Aide à la Conception de systèmes de Transports Interopérables en France), a modeling approach proposed by the French Transportation Ministry, appears to be an interesting alternative approach since it assures the interoperability between the transport systems in France. Hence, we propose a model transformation procedure of the BPMN-model into an ACTIF model.",
+    "keywords": [
+     "Model Driven Architecture",
+     "BPMN model",
+     "ACTIF model",
+     "Model Transformation"
+    ],
+    "doi": null,
+    "pages": "67-80",
+    "source_file": "05-hadjkhalifa.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.0,
+    "composite": 60.75,
+    "final": 60.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text for the authors' BPMN model, ECORE meta-models or ATL transformation; the only links are to third-party resources, e.g. \"We download TOPCASED 1.0.0. version available in the website http://gforge.enseeiht.fr/frs/?group id=7.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Descriptive case study that draws a container trucking process in BPMN and tabulates a BPMN-to-ACTIF element mapping in TOPCASED. It has no formal elements and no self-citation, but the ATL rules and the transformed model are never shown, the decision-support claims go unevaluated and no artifact is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A BPMN model, drawn in Intalio Designer, of the local trucking of containers at the Delta 3 multimodal platform in Dourges, and a proposed transformation of BPMN diagrams into the French ACTIF transport-architecture model, set up as ECORE meta-models in TOPCASED with ATL as the transformation language.\n**Level:** 1 (Trivial)\n**Rationale:** The work assembles existing tools and notations into a process diagram, two meta-model diagrams, and one table matching five BPMN element types to ACTIF elements, with two ACTIF elements left unmatched: Pool to Terminator or Functional Area, Lane to High-level Function, Flow Objects to Low-level Function, Message Flow to Aggregated Flow, and Sequence Flow to Elementary Flow. It proposes no algorithm, validates no model and proves nothing, which places it with prototype and case-study descriptions. Reading it as a standard method applied to a new domain (Level 2) would not change the assessment, since the paper has no formal elements.\n\n### Formal Elements\n- Definitions: 0 (with constraints on the implementation: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Necessity Test\nNone. The meta-models are given as figures (Figs. 3-4) and the mapping as a table (Table 1); the text contains no formal notation.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. A descriptive modelling study that uses no formal notation.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nNo self-citations: none of the 23 references names Hadj Khalifa, El Kamel or Yim (0%). The references fit the topic but include little peer-reviewed work:\n- OMG specifications and standards documents: [1], [4]-[7], [11], [13], [14].\n- The ACTIF project website: [12].\n- Gray literature: TOPCASED consortium articles [17, 18], a course report on the Intalio tool [16], and tutorials [22, 23].\n- Research publications on model-driven engineering or model transformation: only [2], [19], [20] and [21].\n\nMinor citation-form slips: an author-year citation \"(White, 2007)\" inside the numbered scheme, a given name printed as the surname in [23] (\"Catherine G.\"), and the 2003 MDA Guide [1] dated 2001. No concerning patterns.\n\n---\n\n## Structural Analysis\n\nBackground sections (MDA, GRAI, UML, ACTIF, BPMN, TOPCASED, ATL) are cited, but the paper's own claims mostly are not. The claim-evidence ratio is about 0.6, and the background carries it.\n- The abstract claims the BPMN model gives \"a comprehensive vision of the process and a friendly-user interface of the logistics chain for the analysis and the decision making\", but no use by, or validation with, the platform's actors is reported; the acknowledgments thank them for advice.\n- Section 6.2 announces five steps ending with \"Step 5: Result\", but no result is ever presented: neither the ATL rules nor the generated ACTIF model appear (the last figure is the source model, Fig. 5). The conclusion nonetheless states \"we transformed the BPMN diagram into an ACTIF model\".\n- Table 1 contradicts the text. It maps Flow Objects to \"Low-level Function or Data Store\", while the text states \"We didn't find the corresponding element of the Data Store in the BPMN model\" and the table carries a separate \"?\" row for Data Stores.\n- Assertions such as \"the ACTIF model does not respect the task synchronization and cannot be implemented\", and the dismissal of GRAI and UML in favour of BPMN, are given without support.\n\nThere is no dedicated limitations section, but limitations are acknowledged inline: the transformation loses the ACTIF Standards and Data Stores (\"Consequently, we risk losing information\"), only the local trucking part of the process is modelled, and execution through BPEL is deferred to future work. The structural score of 55 reflects an adequate CER (0) and the inline acknowledgment (+5) on a neutral base of 60, less 10 for the missing transformation result and the contradictory mapping table.\n\nArtifacts: none. The only URLs point to third-party resources: the TOPCASED download, the ATL transformation zoo, the ACTIF website and the OMG specifications. The authors' BPMN model, ECORE meta-models and transformation are neither linked nor offered, though they are what a reader would need to check the mapping.\n\n---\n\n## Conclusion\n\nA short applied case study whose substance is a process diagram and a table matching BPMN elements to ACTIF elements. There is no formalism, which suits the paper, and citation conduct is clean. The structural weakness is that the transformation the title promises is never demonstrated: no rules, no output model and no assessment of the result, with the information loss acknowledged but not quantified. Nothing is released for inspection. The paper reads as a project report on a modelling exercise more than a research contribution, but none of the specification's disqualifying conditions applies."
+  }
+ ]
+}

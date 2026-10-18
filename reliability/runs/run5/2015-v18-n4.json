@@ -1,0 +1,124 @@
+{
+ "batch_id": "2015-v18-n4",
+ "analysis_timestamp": "2026-10-18T17:10:49Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 18,
+  "issue": 4,
+  "year": 2015
+ },
+ "papers": [
+  {
+   "paper_id": "paun2015",
+   "paper": {
+    "title": "On the Necessary Verification of Fabrication Stages for SOI CMOS Humidity Sensors",
+    "authors": [
+     "Maria-Alexandra Paun",
+     "Claudio Falco",
+     "Florin Udrea"
+    ],
+    "abstract": "A humidity sensor, which is part of an air quality sensor system, based on MWCNTs/MMA composite doped with KOH has been studied. A standard SOI CMOS process, with only one post-processing step for the membrane etching, was used to fabricate the sensor presented. In order to have a homogeneous distribution of the CNTs in the solution, the tip sonication method was employed. The current voltage and resistance voltage characteristics have been investigated, for different temperatures. Within the sensing layer of the proposed humidity sensor, the parabolic dependence of the resistance with the voltage applied has been proven for positive voltage values. The corresponding first and second order coefficients have been extracted.",
+    "keywords": [
+     "humidity sensor",
+     "SOI CMOS technology",
+     "MMA",
+     "MWCNTs",
+     "KOH",
+     "resistive",
+     "relative humidity"
+    ],
+    "doi": null,
+    "pages": "376-387",
+    "source_file": "06-mapaun.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 45.25,
+    "composite": 33.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with four formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no): the absolute, relative and saturation humidity equations of Section 2.1 (Eqs. 1-3), which are never used in the method or results, and the full Taylor series with a malformed vanishing-remainder statement (Eqs. 4-5), of which only the truncated quadratic (Eq. 6) is used."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Early-stage fabrication and electrical characterisation of a CMOS humidity sensor; unused textbook humidity definitions and a decorative Taylor-series derivation raise FORMALISM_THEATER at Level 2, and the claimed parabolic law and humidity response are thinly supported.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fabrication and preliminary electrical characterisation of a resistive humidity sensor made in a standard SOI CMOS process, with an MWCNT/MMA sensing film doped with KOH (recipe adapted from [2]), deposited by drop casting and dip-pen nanolithography, and characterised by I-V and R-V curves at six heater-set temperatures plus a qualitative breath test.\n**Level:** 2 (Low)\n**Rationale:** The sensing material comes from Su and Wang [2], the process is a standard foundry SOI CMOS flow with one DRIE step, and the analysis consists of second-order polynomial fits with goodness-of-fit values. That is an existing method moved to a new platform and an empirical study with basic statistics. Nothing in the paper is a new model, algorithm, or proof; the controlled humidity tests are explicitly left for later.\n\n### Formal Elements\n- Definitions: 3 (inline, Eqs. 1-3: absolute, relative and saturation humidity)\n- Theorems: 0\n- Proofs: 0\n- Equations: 12 numbered (including the three definitional ones)\n\n### Necessity Test\n- Eq. 1, absolute humidity AH = m_w/v: Q1 yes, Q2 no, Q3 no -> unnecessary (textbook definition restated in the sentence before it; AH never appears again)\n- Eq. 2, relative humidity as e_w/e*_w x 100: Q1 yes, Q2 no, Q3 no -> unnecessary (never used; no RH value is computed or calibrated anywhere in the paper)\n- Eq. 3, saturation humidity SH = m_ws/v x 100: Q1 yes, Q2 no, Q3 no -> unnecessary (never used; the factor 100 on a mass-per-volume quantity is unexplained)\n- Eqs. 4-5, full Taylor series of R(T) about T0 and the statement that the n>=3 remainder \"= O[((T - T0)^(n>=3))] -> 0\": Q1 yes (\"keep terms up to second order\"), Q2 no (only the truncated form, Eq. 6, is used), Q3 no (Eq. 5 is not a bound: the notation is malformed and no error estimate or range of validity is given) -> unnecessary\n- Eqs. 6-8, quadratic resistance-temperature model R(T) = R0[1 + aT(T-T0) + bT(T-T0)^2] with its coefficients: Q1 no, Q2 yes (it is the calibration model behind the heater temperature feedback; numerical aT, bT are given), Q3 no -> necessary\n- Eqs. 9-10, inversion of the quadratic giving T from dR/R0: Q1 no, Q2 yes (used to compute T1-T6 in Section 3.1), Q3 no -> necessary\n- Eqs. 11-12, quadratic resistance-voltage model R(V) = R01 + aV V + bV V^2: Q1 no (fixes the parameterisation whose coefficients Table 2 reports), Q2 yes (the form of the fits), Q3 no -> necessary\n\n### Proportionality\nCalculated complexity: 6\nExpected range (Level 2): 0-15\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate in count, but four elements fail the Necessity Test. Section 2.1 (\"Basic definitions\") sets out three humidity metrics in equation form that the rest of the paper never uses, and Section 2.4 opens with an infinite Taylor series and a malformed vanishing-remainder statement to arrive at a quadratic that could simply have been stated. Under the zero-tolerance rule for Level 1-2, this raises FORMALISM_THEATER.\n\n### Issues\n- The three humidity metrics (Eqs. 1-3) are background textbook material with no role in the method or results; the sensor's output is never expressed as AH, RH or SH.\n- Eq. 5 writes the remainder as \"O[((T - T0)n>=3)] -> 0\", which is not a meaningful asymptotic statement; the text then says \"Eq. (4) rewrites as a second order equation\" when it is Eq. (6) that is rearranged.\n- The coefficients aT = 2.05e-3 K^-1 and bT = 3e-7 K^-2 are given without saying how they were obtained, although the six reported temperatures depend on them.\n- Eq. 11 defines aV, bV as derivatives at V = 0, but Table 2 obtains them by least-squares fits over [0, 3 V]; the two are not the same quantity. Table 2's column \"sigma^2\" is undefined (probably R^2), and the fitted coefficients change sign and magnitude erratically across temperatures (aV from 25974 to -11291), which sits uneasily with the claim that the parabolic dependence \"has been proven\".\n- These are not \"Definition N:\" blocks, so DECORATIVE_DEFINITIONS is not raised; there is no set notation, so UNNECESSARY_SET_THEORY does not apply.\n\n---\n\n## Citation Analysis\n\nOne self-citation out of 21 references (SCR 4.8%): [18], the authors' own CAS 2015 conference paper, whose subtitle (\"On the Necessary Verification of Fabrication Stages\") is this article's title. It is on the same work (similarity about 0.95), so no relevance flag applies.\n\nThe numbering around it is wrong, however. The introduction says the authors' previous verification of the fabrication stages was \"performed by the authors previously in [17]\", but [17] is the Farahani et al. review; the authors' own paper is [18], which is instead cited in Section 2.1 as the source for the general definition of humidity and of absolute humidity. References [17] and [18] appear to have been swapped. The journal article and the conference paper share a subtitle, and the extent of overlap between them cannot be judged from the text; the paper does disclose the earlier work. The remaining references (materials, CMOS humidity sensors, handbooks, a Honeywell application note) are topical. A typo, \"Multi Wall Carbon Nanotubes (MECNTs)\", recurs from the introduction.\n\n---\n\n## Structural Analysis\n\nThe descriptive claims about the solution and deposition are supported by photographs (Figs. 1-4) and the dimensions table, and the I-V and R-V measurements by Figs. 5-6 and Table 2. Several claims outrun the evidence: \"good dimension repeatability\" of the syringe deposition and \"good control on position, dimension and CNTs density\" with DPN are asserted without measurements; the parabolic R-V dependence is said to be \"proven\" on fits whose quality falls to 0.84-0.90 at the two highest temperatures and whose coefficients follow no pattern, one point having been removed by an unstated \"statistical exclusion criterion\"; and the humidity response (Figs. 7-8) is a qualitative breath test (\"every time there was a blow on the chip ~98% relative humidity was applied\") with no sensitivity, response time, hysteresis, or reference hygrometer. The stated objective, RH accuracy of +/-2% over 5-95% RH, is never evaluated. Figure references are off by one (\"Figs. 4-5\" for Figs. 5-6). Estimated CER is about 0.45 (weak).\n\nLimitations are acknowledged only inline, as open questions and future work: \"Further measurements will prove if it depends on the relative or absolute humidity\", the CNT amount \"is not fixed\", and \"Our immediate goal is to perform humidity tests on our sensors, for which we will be using a special chamber\". That is enough to avoid NO_LIMITATIONS, but there is no limitations section.\n\nArtifacts: no data, measurement files, layout, or code are offered; the fabrication description and photographs are description, not availability. The measured I-V/R-V and time-series data underlie the results and could have been released, so the assessment is relevant.\n\n---\n\n## Conclusion\n\nThis is an early-stage device report: a sensor built on a known sensing composite in a standard process, with electrical characterisation and a qualitative humidity test, and with the controlled humidity measurements that would show whether it works as a humidity sensor still to come. The formal apparatus is padded relative to that content: three textbook humidity definitions that play no part in the work and a full Taylor series with a malformed truncation statement leading to a quadratic that could have been written directly. At concept Level 2 those unnecessary elements raise FORMALISM_THEATER, which caps the score.\n\nApart from the flag, the paper's weaknesses are evidential rather than formal. The fits do not establish the claimed parabolic law, the humidity response is anecdotal, the headline accuracy target is never tested, and a reference swap makes the authors' own conference paper the cited source for the definition of humidity. Releasing the measurement data and running the chamber tests would do more for it than any amount of notation."
+  },
+  {
+   "paper_id": "purdila2015",
+   "paper": {
+    "title": "Low-Voltage Controlled Floating Buck Converter with Imbalanced Stacked MOSFETs Switch (ISMS) for High LED Driving Capability",
+    "authors": [
+     "Anca Gabriela Purdila",
+     "Gheorghe Pristavu",
+     "Vlad Anghel",
+     "Gheorghe Brezeanu",
+     "Emilian Ceuca"
+    ],
+    "abstract": "This paper presents a cost effective technique for extending LED driving capability of floating buck converters, using an imbalanced stacked MOSFETs switch (ISMS). The ISMS is comprised of a low-voltage transistor and a power MOSFET, biased at a constant voltage, and can be driven by low output capability control blocks. Unlike prior-art, the proposed ISMS does not rely on synchronous switching and identical devices. The overall turn ON/OFF times impact on the converter's switching frequency is investigated. The proposed technique is validated by implementation in floating buck converters with two high performing control circuits. Hence, a critical conduction mode control block and a variable OFF time controller, fabricated in 40 V and 5 V CMOS technologies, respectively, are used for driving the converter. Measurements are performed for a wide range of LED strings (6-48) and up to 250 V input voltage. Efficiency results reveal a peak value of 97% and switching frequencies between 25 KHz and 170 KHz. Converters with ISMS are experimentally proven to drive up to eight times more LEDs than their regular versions, with higher efficiencies.",
+    "keywords": [
+     "stacked MOSFETs",
+     "floating buck LED driver",
+     "low-voltage control",
+     "critical conduction control",
+     "variable OFF time control"
+    ],
+    "doi": null,
+    "pages": "388-407",
+    "source_file": "07-apurdila.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 84.75,
+    "composite": 63.56,
+    "final": 63.56
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Practical LED-driver technique stacking a gate-biased power MOSFET on a low-voltage switch, validated on two controllers; proportionate textbook switching-time formalism and low, relevant self-citation, with some overstated headline figures and no released data.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A floating buck LED driver in which the switch is replaced by an \"imbalanced stacked MOSFETs switch\" (ISMS): a low-voltage, low-gate-capacitance transistor driven by a low-voltage controller, with a high-voltage power MOSFET stacked on it at a fixed gate bias and a Schottky diode clamping the low-side drain. The technique is applied to a commercial critical-conduction-mode controller and to the authors' previously published variable OFF time controller [18], [19], and validated by bench measurements of efficiency and switching frequency for up to 48 LEDs.\n**Level:** 2 (Low)\n**Rationale:** The ISMS is a known circuit pattern, a gate-biased high-voltage device stacked on a low-voltage switch (the paper derives it from the ESBT topology and cites cascode work [23]), applied to a new setting with two existing controllers. The switching-sequence analysis uses textbook RC-charging and Miller-plateau expressions taken from [25]. There is no new algorithm, model with proof, or theoretical result; the contribution is a practical design technique with experimental validation.\n\n### Formal Elements\n- Definitions: 0 (time constants are glossed in \"where\" clauses of the equations)\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 numbered (switching-time model)\n\n### Necessity Test\n- Eq. 1, total turn-ON time tT-ON = t1a + t2a + t3a: Q1 yes, Q2 yes (it defines the total transition time that the design requirement \"switching period much higher than the turn-ON and turn-OFF times\" constrains and that Section 6 measures, 120 ns), Q3 no -> necessary\n- Eq. 2, t1a = tau1-ON ln(VDD/(VDD - VT1)) with tau1-ON = Rdrv1-ON(Cgs1 + Cgd1): Q1 no (the logarithmic dependence on threshold and RC constant is quantitative), Q2 yes (drives the choice of a low-gate-capacitance SW1), Q3 no -> necessary\n- Eq. 3, t2a = tau2-ON ln(10) for VGS2 charging to 0.9 VGG: Q1 no, Q2 yes (identifies SW2's gate capacitance as the dominant term), Q3 no -> necessary\n- Eq. 4, Miller plateau t3a = VIN Rdrv2-ON Cgd2/(VGG - VGS2): Q1 no, Q2 yes (shows the VIN and VGG dependence behind the stated rule that VGG should be high but below SW1's drain-source limit), Q3 no -> necessary\n- Eq. 5, total turn-OFF time tT-OFF = t1b + t2b + t3b: Q1 yes, Q2 yes (as Eq. 1; measured as 350 ns against a 6 us period), Q3 no -> necessary\n- Eq. 6, t1b = tau1-OFF ln(VDD/(VDD - VT1 - Vov1)): Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. 7, t2b = tau2-OFF ln(10): Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. 8, Miller plateau during turn-OFF t3b = VIN Rdrv2-OFF Cgd2/(VT2 + Vov2): Q1 no, Q2 yes, Q3 no -> necessary\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Eight engineering equations, all standard and sourced, each tied to a design decision the paper actually discusses. No definitions, set notation, or decorative apparatus.\n\n### Issues\nNone that bear on proportionality. Two weaknesses of the model itself: it is never evaluated numerically against the measured 120 ns and 350 ns transition times (Section 6 says only that the waveforms \"are consistent with the analytical study\"), and the 0.9 VGG end point of t2a is chosen without justification. The definition line after Eq. 8 is garbled in typesetting (\"(Cgs2 + Cgd2)· ·Rdrv1,2-OFF represent\").\n\n---\n\n## Citation Analysis\n\nTwo self-citations out of 35 references (SCR 5.7%): [18] (ESSCIRC 2013) and [19] (IEEE JSSC 2014), both by Anghel, Pristavu and Brezeanu with co-authors, [19] also listing \"Vasilica A.\", which matches the first author's e-mail address. Both describe the variable OFF time controller that Section 5.2 uses as one of the two test vehicles, so they are directly relevant (similarity about 0.9) and the paper labels them as its own earlier work.\n\nThree references are datasheets of ON Semiconductor parts used in the experiments ([16] CAT4201, [30] NDD05N50Z, [31] NTA4001N); ON Semiconductor is the employer of two authors. These are not self-citations under name matching and they document components actually used, but the reader should know the parts are the authors' employer's. The rest of the list is topical: buck LED driver papers, patents and datasheets for the competing control methods, stacked-transistor literature, and standard power-supply textbooks. Minor reference defects: [35]'s title contains a stray \"[34]\", and [23]'s volume number looks truncated.\n\n---\n\n## Structural Analysis\n\nThe central claims are backed by measurement: efficiency and switching-frequency maps for both converters (Figs. 8, 9, 11, 12), oscilloscope waveforms of the stacked switch (Fig. 10), a PSpice check of the modified zero-current detection (Fig. 7), and two comparison tables. Estimated CER is about 1.0.\n\nSome statements exceed the data. The abstract's \"up to eight times more LEDs\" is 6x for CrM (8 to 48) and 7.5x for variable OFF time (4 to 30). The maximum input voltage is 250 V in the abstract and conclusions but 240 V in Table 1. \"Maximum efficiency is higher for the ISMS topologies\" compares configurations with different inductors and voltage ranges (Table 1 lists 470 uH for the baseline variable OFF time converter and 680 uH with ISMS). Table 2 sets a DC floating buck stage beside AC/DC flyback and PFC converters, which is not a like-for-like comparison. The concluding claims that external components are \"not limited by the technique\" and that ISMS suits \"any floating buck converter\" rest on two controllers. Fig. 12's caption repeats Fig. 11's (\"Measured efficiency results\") although the text says it shows switching frequency.\n\nLimitations are acknowledged inline: the ISMS comes \"at the cost of increased ON resistance\", its \"transition time is slightly higher than state-of-the-art stacked topologies\", the CrM variant needs an external supply and an extra RZCD-CZCD network, and the measured LED current and output power are lower than in the compared designs. There is no limitations section.\n\nArtifacts: none. Schematics, component values and part numbers are given, which helps re-implementation, but no measurement data, design files or simulation netlists are offered. As an experimental hardware paper it has material that could be released, so the assessment is relevant.\n\n---\n\n## Conclusion\n\nA practical power-electronics contribution: a low-cost way to let a low-voltage controller drive long LED strings by stacking a gate-biased power MOSFET on a small switch, shown to work with two different controllers over wide input-voltage and string-length ranges and at high efficiency. The formalism is limited to a standard switching-time model that informs the design choices, which is what a Level 2 engineering paper needs; no formalism flag applies. Self-citation is low and relevant.\n\nThe weaker points are presentational: a rounded-up \"eight times\" headline, an inconsistent maximum input voltage, comparisons across non-identical configurations and topologies, an analytical model that is never checked numerically against the measured transition times, and no released data or design files."
+  }
+ ]
+}

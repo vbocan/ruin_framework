@@ -1,0 +1,71 @@
+{
+ "batch_id": "2021-v24-n1",
+ "analysis_timestamp": "2026-10-18T17:13:25Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 24,
+  "issue": 1,
+  "year": 2021
+ },
+ "papers": [
+  {
+   "paper_id": "coste2021",
+   "paper": {
+    "title": "Programmable Capacitor Multiplier Based on Gm-cell with Two Outputs – Topology, Circuit Implementations and Applications",
+    "authors": [
+     "Paul Coste",
+     "Paul Martari",
+     "Marius Neag",
+     "Marina Ţopa",
+     "Vlad Ionescu"
+    ],
+    "abstract": "This paper introduces a novel circuit topology for programmable capacitance multipliers implemented with linear transconductors (Gm cells), along with several circuit implementations and applications. Starting from a fairly well-known architecture, that employs two Gm cells, the proposed topology only requires one transconductor core. It is particularly well suited to high-linearity transconductors, such as the Kwan-Martin and Welland circuits, but simple differential pairs can also be used to implement it. In fact, circuit implementations based on all three transconductor types are demonstrated in the paper. Mathematical analysis and parametric simulations were performed in order to assess the impact non-idealities inherent to circuit implementation may have on the proposed topology. It was found that the finite value of an output resistance was the main performance limiting factor for the capacitance multiplier. Therefore, a compact implementation for active cascoding of current mirrors was used in subsequent circuit implementations. The usefulness of the proposed capacitance multiplier was demonstrated on three applications, designed in a standard 0.18µm CMOS technology: a triangular waveform generator with signal frequency programmable between 2.67kHz and 21.4kHz; a fully differential lossy integrator, with the pole frequency programmable between 75kHz and 575kHz, and the decoupling capacitor of a fully-integrated LDO, with the equivalent value of 100pF derived from a 5pF placed capacitance.",
+    "keywords": [
+     "Microelectronics",
+     "capacitor multiplier",
+     "linear transconductor",
+     "active cascode",
+     "triangular wave generator",
+     "programmable pole frequency",
+     "capacitorless LDO"
+    ],
+    "doi": null,
+    "pages": "4-27",
+    "source_file": "paper677.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 86,
+    "citation_integrity": 78,
+    "structural_integrity": 68,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.7,
+    "composite": 59.02,
+    "final": 59.02
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Incremental analog circuit paper (single-core, two-output Gm capacitance multiplier) whose small-signal equations are proportionate and do real design work; self-citations (3/17) are on topic. Validation is by simulation only, several figures disagree between text, tables and conclusions, and no artifacts are released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Analog CMOS circuit design. A capacitance-multiplier topology in which a single transconductor core drives two current outputs with gain ratio 1:K, replacing the two separate Gm cells of an earlier scheme [8]. Three transistor-level implementations (Kwan-Martin core, Welland core, degenerated differential pair) and three applications (triangular-wave generator, fully differential lossy integrator, capacitorless LDO), all validated by simulation in 0.18 µm CMOS.\n**Level:** 2 (Low)\n**Rationale:** The contribution is an incremental modification of a known architecture: the authors note that the two Gm cells of [8] share their inputs and merge them into one core with two outputs. The analysis is a standard small-signal impedance derivation followed by parametric and transistor-level simulation; no new algorithm, proof or bound is claimed. A case could be made for Level 3 (a new circuit model with validation), but the specification asks for the lower level when uncertain, and the outcome does not depend on the choice, because no formal element fails the Necessity Test.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 19 numbered, plus the inline definition M = K + 1 of the multiplication factor\n\n### Necessity Test\n- Inline M = K + 1 (and M = 1 + Gm2/Gm1 for the circuit of [8]), capacitance multiplication factor: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (1), input impedance of the two-Gm multiplier of [8], with Cequivalent = Cplaced·(1 + Gm2/Gm1) and Rseries = 1/(Gm1 + Gm2): Q1 no, Q2 no, Q3 no → necessary\n- Eq. (2), input impedance of the proposed topology, Rp ∥ (Rs + 1/jωCequivalent): Q1 no, Q2 no, Q3 no → necessary\n- Eq. (3), Cequivalent as a function of K, Gm and Rout2: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (4), Rs and Rp: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (5), pole pulsation in terms of AVV0, K and Rout2: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (6), zero pulsation: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (7), ideal limit Cequivalent → Cplaced·(1 + K): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (8), ideal limits Rs → 1/(Gm·M), Rp → ∞: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (9), ideal limits of the pole and zero pulsations: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (10), pole pulsation rewritten in M for Rout2 = Rout1/M: Q1 no, Q2 no, Q3 no → necessary\n- Eq. (11), zero pulsation rewritten in M: Q1 no, Q2 no, Q3 no → necessary\n- Eq. (12), Gm1 = 2/RGAIN, Gm = 2K/RGAIN and K as a W/L ratio for the Kwan-Martin core: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (13), output resistance boosted by the active cascode: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (14), single-pole frequency model of the OTA transconductance: Q1 no, Q2 no, Q3 no → necessary\n- Eq. (15), equal source-drain voltages of M6a-M6c: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (16), VdrainP and VdrainN bias levels: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (17), oscillation frequency fosc = IB/(2·Cequivalent·ΔVth): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (18), transfer function of the Gm-C single pole with H0 = Gm3/Gm4: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (19), pole frequency fpole = Gm4/(2π·Cplaced·(1 + K)): Q1 yes, Q2 yes, Q3 no → necessary\n\nThe equations are the paper's working circuit analysis. From eqs. (3)-(6) the authors conclude that Gm·Rout2 must be large, which motivates the active cascodes of Figs. 8-12; eqs. (8), (12), (17) and (19) size the designs (Gm, RGAIN and mirror ratios, Cequivalent = 150-1200 pF, Gm4 = 184 µS). The Q1 answers of *no* mark rational, frequency-dependent impedance and transfer-function expressions whose functional form is the content and which prose can only paraphrase. Eqs. (10), (11) and (14) size nothing, but they are expressions of that kind and are retained under Q1. None of the theater patterns (set notation for lists, tuple definitions for records, Greek letters for configuration constants, grammars for simple formats) occurs.\n\nSpot check against the simulations: eq. (17) with IB = 5 µA and ΔVth = 0.8 V gives 20.8 kHz at 150 pF and 2.60 kHz at 1200 pF, against 21.4 kHz and 2.67 kHz in Table 1; eq. (19) with Gm4 = 184 µS and Cplaced = 25 pF gives 586 kHz (M = 2) and 73.2 kHz (M = 16), against 573.3 kHz and 74.58 kHz in Table 2. The first-order expressions agree with simulation to within about 3%, as the paper states.\n\n### Proportionality\nCalculated complexity: 0 (definitions × 2 + theorems × 3 + proofs × 4; equations do not enter the formula)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the paper has no definitions, theorems or proofs; its 19 equations are standard small-signal circuit relations used to analyse non-idealities and to size the three designs.\n\n### Issues\nNo formalism theater. Errors in the printed equations, as extracted from the text:\n- Eq. (13) reads (1 + GmOTA + RoOTA), adding a transconductance to a resistance; the sentence before it gives the boost as the gain of the additional stage, Gm·Ro, so a product was presumably intended.\n- Eq. (18) puts Gm3 in the pole term (s·Cequivalent/Gm3), whereas eq. (19) and the sizing (Gm4 = 184 µS) place the pole at Gm4/Cequivalent; the simulated pole frequencies of Table 2 agree with eq. (19).\n- The caption of Fig. 10 gives the ideal phase as 90°, while the text uses –90° throughout.\n\n---\n\n## Citation Analysis\n\n17 references, 3 self-citations: SCR = 3/17 = 17.6%, in the elevated band (above 15%, below 20%) but under the 20% threshold of ELEVATED_SELF_CITATION.\n\n- [1] Coste, Martari, Neag, Ionescu, CAS 2019, *Capacitor Multiplier with One Transconductor Cell*: the conference paper that introduces the same single-transconductor multiplier. Similarity about 0.95; relevant. It is cited only inside a generic \"[1–3]\" bracket in the first paragraph, and the paper presents the topology as novel without saying that it extends [1].\n- [11] Neag, Kovács, Onet, Topa, EUROCON 2011, a voltage-controlled amplifier based on Gm cells: the source of the programmable binary-weighted current mirror of Fig. 8. Similarity about 0.6; relevant.\n- [15] Raducan and Neag, CAS 2015, a capacitorless LDO with a high slew-rate error amplifier: the LDO reused as the third application (Fig. 21). Similarity about 0.6; relevant.\n\nNo self-citation is unrelated, so IRRELEVANT_SELF_CITATION does not apply. Four references ([5], [7], [9], [17]) are by Bonteanu and co-authors, a group outside the author list that works on capacitance multipliers; they are on topic and show no sign of a citation ring. Bibliographic quality is uneven: [12] (Bult and Geelen, JSSC 25(6)) is dated 2004 with pages 1–6, although volume 25 of the JSSC appeared in 1990, and [4] gives no venue.\n\n---\n\n## Structural Analysis\n\nClaims are mostly backed by simulation: parametric sweeps (Figs. 3–6), AC responses of the two multiplier implementations (Figs. 10 and 13), three application designs with numeric results (Tables 1–4), and a comparison with prior work (Table 5). The estimated CER is above 1.0. Weaknesses:\n\n- All validation is by simulation. There are no silicon measurements and no process-corner, temperature, Monte Carlo or noise analysis. The claim that a single core avoids \"the errors caused by mismatches between the Gm1 and Gm2 cells\" is not tested by a mismatch simulation, and the multiplication factor still depends on current-mirror matching.\n- Some comparative statements are unbacked: the triangular-wave generator \"compares favorably to data reported recently for similar circuits\" with no citation or data, and the claim that the integrator handles 800 mVpkpk \"without significant distortions\" rests on an FFT plot with no distortion figure.\n- Text, tables and conclusions disagree in places. The integrating current is 5 µA in Section 3.a and 1 µA in the Conclusions (eq. (17) with Table 1 is consistent with 5 µA). Table 4's caption gives VIN between 1.4 V and 1.6 V, the text 1.4 V to 1.8 V. Table 3's column for the overshoot when Iload ramps down lists 327 mV and 359 mV, which the text reports as peak-to-peak variations, the peak overshoots being 214 mV and 182 mV. Table 5 lists an output voltage range of 500 mV while the applications handle 800 mVpkpk.\n- Die area motivates the work but is never quantified: no layout area is given for the active circuitry that replaces the placed capacitance.\n\nLimitations: there is no dedicated section, but constraints are acknowledged inline. Section 2.b and the Conclusions state that the useful frequency range is limited mainly by the output resistance and capacitance of the high-gain mirror branch; the ideal-case note says performance still depends on the absolute values of Gm, Cplaced and M; the LDO comparison concedes that the standard LDO has the smaller peak-to-peak variation when the load is released; the note to Table 5 says only simulation results are compared. This meets the inline-acknowledgment condition, so NO_LIMITATIONS is not raised, although the simulation-only character of the study is never discussed as a limitation.\n\nArtifacts: no netlists, design files, simulation decks or data are linked or offered, and the paper says nothing about availability. The designs use a commercial 0.18 µm process, which may restrict release, but the paper does not say so. Category `none`; relevant, since the results rest entirely on simulations of these designs.\n\nThe paper text contains no instructions addressed to reviewers or automated assessors.\n\n---\n\n## Conclusion\n\nA competent, simulation-validated analog design paper. The incremental topology, one Gm core with two scaled outputs in place of two Gm cells, is analysed with standard small-signal equations that all do real work: they identify output resistance as the limiting factor, motivate the active cascodes, and size the three applications, and their first-order predictions agree with simulation to within about 3%. Formalism is proportionate, and no formalism or citation flag applies; the three self-citations are on topic, though the dependence on the authors' own CAS 2019 paper [1] is not disclosed.\n\nThe weaknesses are evidentiary rather than formal. Everything rests on nominal simulation without corners, Monte Carlo or measurements; several figures disagree between text, tables and conclusions; two printed equations appear to contain errors; and nothing is released for reproduction.\n"
+  }
+ ]
+}

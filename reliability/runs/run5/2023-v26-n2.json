@@ -1,0 +1,195 @@
+{
+ "batch_id": "2023-v26-n2",
+ "analysis_timestamp": "2026-10-18T17:18:22Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 26,
+  "issue": 2,
+  "year": 2023
+ },
+ "papers": [
+  {
+   "paper_id": "yurtkan2023",
+   "paper": {
+    "title": "Student Success Prediction Using Feedforward Neural Networks",
+    "authors": [
+     "Kamil Yurtkan",
+     "Ahmet Adalier",
+     "Umut Tekgüç"
+    ],
+    "abstract": "Machine learning algorithms have been used in the last decade to predict human behavior. In education, the student’s behavior, and accordingly, their success prediction is also applicable in parallel with the developments in machine learning algorithms and the increased availability of the datasets. The datasets include the observations, which the machine can learn to predict student behavior. By this analysis, given the background information about a student, the features representing a student sample, and the student’s possible performance may be estimated. This study’s motivation is to predict a student’s possible performance to give guiding service. This paper proposes a novel approach for predicting student success by using conventional feed-forward neural networks. The algorithm selects the most informative features based on the variances and uses those features to represent a student sample. The approach is tested on the Experience-API (X-API) dataset collected from Kalboard 360 e-learning system. There are 480 samples in total, with 16 features. It is shown that the improved approach achieves comparable results around 91.95% acceptable predictions by only using behavioral attributes and 93.17% acceptable prediction rates without the feature selection process, respectively.",
+    "keywords": [
+     "Data mining and analysis",
+     "educational data mining",
+     "feature selection",
+     "feed-forward neural networks",
+     "information content",
+     "natural computing",
+     "pattern recognition",
+     "student performance",
+     "student success prediction",
+     "variance"
+    ],
+    "doi": null,
+    "pages": "121-136",
+    "source_file": "paper736.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 100,
+    "intellectual_integrity": 46.5,
+    "composite": 59.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"The Matlab code and the dataset of the algorithm can be accessed via the following link: https://github.com/umuttekgucbau/StdSuccessPredictionFNN\"; dataset [35]: https://www.kaggle.com/aljarah/xAPI-Edu-Data",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper in which every formal element fails the Necessity Test: Eqs. 2-5 define a feature vector and a feature matrix (an array and a data table), the training set and the network parameters θ, w, b and α are introduced but never set, and the gradient-descent rule of Eq. 1 is superseded by MATLAB's default training settings."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 application of a default MATLAB feed-forward network to a public dataset whose vector, matrix and backpropagation notation performs no function, triggering FORMALISM_THEATER; code and data are linked, but the target variable and the scale-driven feature filter weaken the central claim.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Predicting a student's grade category on the public xAPI-Edu-Data (Kalboard 360) set with a MATLAB feed-forward network at default settings, after keeping only the attributes whose raw variance exceeds the mean variance.\n**Level:** 2 (Low)\n**Rationale:** An existing classifier applied to a new domain, with a one-line filter (keep the features whose variance is above average) as the claimed novelty. No new algorithm, model, or analysis is proposed.\n\n### Formal Elements\n- Definitions: 5 inline (with constraints: 0): training set X, network parameters θ (weights w, biases b), error function E(X, θ), feature vector FV (Eqs. 2-3), feature matrix FM (Eqs. 4-5)\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 numbered\n\n### Necessity Test\n- Training set X = (x1, y1), ..., (xN, yN), with (xi, yi) ∈ X: Q1 yes, Q2 no, Q3 no → unnecessary\n- Network parameters θ, w^k_ij, b^k_i and learning rate α: Q1 yes, Q2 no, Q3 no → unnecessary (α is never given a value; the experiments use MATLAB's default settings, Fig. 7)\n- Error function E(X, θ): Q1 yes, Q2 no, Q3 no → unnecessary (its form is never stated)\n- Eq. 1, gradient-descent update θ(t+1) = θ(t) − α ∂E/∂θ: Q1 yes, Q2 no, Q3 no → unnecessary (textbook rule restated from [33, 34]; the network was trained with MATLAB defaults, which the equation neither selects nor parameterises)\n- Eqs. 2-3, feature vector FV_j = [f1 ... fk]: Q1 yes, Q2 no, Q3 no → unnecessary (a row of 17, or 4, numbers)\n- Eqs. 4-5, feature matrix FM stacking the FV_j: Q1 yes, Q2 no, Q3 no → unnecessary (the data table)\n\n### Proportionality\nCalculated complexity: 10\nExpected range (Level 2): 0-15\nRatio: 0.67x upper bound\n\n**Assessment:** Proportionate in volume, but every formal element fails the Necessity Test. Eqs. 2-5 are formal definitions of an array and of a table (the \"it's an array\" pattern), and the backpropagation passage introduces Greek-letter parameters that are never set and an update rule that the MATLAB defaults replace.\n\n### Issues\n- Eqs. 2 and 3 are identical except for the subscript k1/k2, and so are Eqs. 4 and 5; the text explains only that k1 and k2 \"are 17 and 4 respectively\".\n- The set-of-pairs notation for the training data is conventional and no set operation is performed on it, so UNNECESSARY_SET_THEORY is not raised. There are no \"Definition N\" blocks (no DECORATIVE_DEFINITIONS), and five definitions do not exceed the THEOREMLESS_FORMALISM threshold.\n\n---\n\n## Citation Analysis\n\nOne self-citation among 45 references (SCR 2.2%): [36], Yurtkan et al. on variance-based feature selection for 3D facial expression recognition, cited for the within-class/between-class variance principle behind the feature filter. Different application, same methodological idea: marginal relevance (about 0.4), no flag.\n\nNot self-citations, but worth recording: ten references are remote from student-performance prediction and appear in generic sentences. Four come from one group ([6] observation-process modelling in cognition, [7] fuzzy models of shape-memory-alloy actuators, [10] k-means post-processing, [11] grey-wolf-optimised reinforcement-learning control), cited as \"significant examples of machine learning approaches\"; six from another ([37]-[42]: botnet detection, stock prices, air quality, rainfall), cited for feature visualisation and for the role of parameter settings. The paper alone cannot show mutual citation, so CITATION_RING_INDICATOR is not raised. Ref. [32], an educational data-mining case study, is cited for the FFNN being a universal function approximator.\n\n---\n\n## Structural Analysis\n\nThe evidence is ten repetitions of 10-fold cross-validation, with all features and with the four selected ones (Tables 3-6). Several claims outrun it; CER about 0.6.\n- The target. The network predicts GradeID, which Table 1 lists as an \"Attribute Data\" field with ten levels beside StageID. In the cited xAPI-Edu-Data set [35], GradeID appears to record the school grade a student is enrolled in (G-01 to G-12), while the performance label is the three-level Class attribute, listed in Table 1 as row 17. If so, the system predicts year of study rather than success, and the \"acceptable prediction\" rate (exact or within one level) measures that.\n- The feature filter ranks raw variances of integer codes, so attributes on a 0-100 count scale outrank categorical codes with 2-14 levels by construction. The paper notices that only \"the already numerical features\" survive and calls the observation \"a delusion\", yet the conclusion presents the behavioural features as strong indicators of success.\n- The comparison (Table 7) sets the paper's exact-or-one-off rate (91.95%) against other studies' exact accuracy (73.8%, 76.07%); the paper's own exact rate is 56.8%.\n- Counting inconsistencies: 17 versus 16 input features, 440 + 41 samples from a set of 480, a \"ten-class\" problem with m = 8 output units, and both a 90/10 split and 10-fold cross-validation described for the same experiments.\n- Generalisation claims (\"can be adapted to any teaching model\", a base for a system \"that can run on big data\") have no support.\n\nA dedicated Limitations subsection (8.1) exists, although it concludes that the possible limitations of the system \"are minimized\".\n\nArtifacts: the authors' MATLAB code and the dataset are linked (a GitHub repository of the third author), and the data is the public Kaggle xAPI-Edu-Data set [35]: code_and_data.\n\n---\n\n## Conclusion\n\nA Level 2 educational data-mining application whose formal content (a training-set notation, network parameters that are never set, a textbook update rule superseded by MATLAB defaults, and vector and matrix equations for the feature table) performs none of the three functions of the Necessity Test, so FORMALISM_THEATER applies and the score is capped.\n\nBeyond the formalism, the choice of target variable and the scale-driven feature filter undermine the central claim that behavioural features predict student success, and the headline comparison is not like for like. Releasing code and data is the paper's strongest point."
+  },
+  {
+   "paper_id": "mortazavi2023",
+   "paper": {
+    "title": "Detecting Images with Adult Content Using SURF and Haar Wavelet",
+    "authors": [
+     "Mohammad Mortazavi T.",
+     "Omid Mahdi Ebadati E.",
+     "Dang N. H. Thanh",
+     "Tudor Barbu"
+    ],
+    "abstract": "Detecting images with adult content is one of the necessary and challenging problems in the fields of machine learning and machine vision. It can be used for a variety of applications such as content filtering and censoring, and user tracking, and banning. In this work, a framework for detecting nudity and adult content in digital images by using the SURF algorithm and Haar wavelet is developed. The proposed method is divided into online and offline modules. Each process that has a high time consumption is implemented in the offline module. Therefore, it can increase the speed of implementation of the model. For the proposed method, 899 images are used, in that, 402 images contain adult content, and 497 images have no adult content. 300 features of each image are extracted to create a bag of features (BOF), and they were used for the training by using a support vector machine (SVM). The results showed that the proposed method achieved an accuracy of 89.3%, a sensitivity of 86.2%, and a specificity of 92.03% for the classifier. The proposed framework provides an effective solution for detecting images and/or videos containing adult content from the internet environment.",
+    "keywords": [
+     "Adult content",
+     "Haar wavelets",
+     "machine learning (ML)",
+     "machine vision",
+     "nudity detection",
+     "speeded up robust features (SURF)",
+     "support vector machines"
+    ],
+    "doi": null,
+    "pages": "137-150",
+    "source_file": "paper737.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 42.2,
+    "composite": 31.65,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; data: \"In this article, 763 images from various resources on the Internet (Google images) and 101 images from Caltech [32] are used.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "THEOREMLESS_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with twelve formal elements that fail the Necessity Test: the textbook SURF Hessian and descriptor (Eqs. 1-2), the Haar mother wavelet and matrix, and the linear, hard-margin and soft-margin SVM primal/dual derivation (Eqs. 6-13), none of which changes what is implemented beyond naming SURF and a soft-margin SVM.",
+    "THEOREMLESS_FORMALISM": "Eleven inline definitions (Hessian, SURF descriptor, Haar averages, coefficients, mother wavelet and matrix, linear decision function, margin, Lagrangian, hinge slack, polynomial kernel) and no theorem; the apparatus yields no formal result of the paper's own.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints; the undescribed evaluation protocol, the small self-collected dataset and the inconsistent contingency table go unremarked."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 SURF, Haar and SVM pipeline whose textbook SVM derivation, reproduced with errors, fails the Necessity Test (FORMALISM_THEATER); the evaluation protocol is undescribed, the contingency table is inconsistent, nothing is released and no limitation is acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Binary classification of images as adult or non-adult using SURF bag-of-features histograms plus a one-level Haar wavelet histogram (300 features in all) and a cubic-polynomial-kernel SVM in MATLAB, on 899 images.\n**Level:** 2 (Low)\n**Rationale:** Standard, named feature extractors and a standard classifier combined and applied to a known problem. The stated contributions are a framework split into online and offline modules, the use of SURF, spatial pyramid and SVM, and a bag of features. No new algorithm or model is proposed.\n\n### Formal Elements\n- Definitions: 11 inline (with constraints: 3): Hessian H(x, σ) with smoothed image L and Gaussian G; SURF descriptor V; Haar averages; Haar coefficients; Haar mother wavelet ψ; Haar matrix H2×2; linear decision function f(x) = wᵀx + b with the vectors of Eq. 6; margin γ; Lagrangian L(w, b, α); hinge slack ξ; polynomial kernel K\n- Theorems: 0\n- Proofs: 0 (the passage from Eq. 7 to Eq. 11 is a textbook derivation of the SVM dual, not a proof of a claim of the paper)\n- Equations: 14 numbered, plus unnumbered expressions for the Gaussian kernel, the Haar matrices, the margin and the kernel\n\n### Necessity Test\n- Eq. 1, Hessian H(x, σ) with L = G * I and the Gaussian kernel: Q1 yes, Q2 no, Q3 no → unnecessary (standard SURF detector of [27])\n- Eq. 2, SURF descriptor V = (Σdx, Σ|dx|, Σdy, Σ|dy|): Q1 yes, Q2 no, Q3 no → unnecessary (standard SURF descriptor, already stated in the prose)\n- Eqs. 3-4, Haar averages and coefficients: Q1 yes, Q2 yes, Q3 no → necessary (fix the half-sum and half-difference feature computation the paper adds to SURF)\n- Eq. 5, Haar mother wavelet ψ: Q1 yes, Q2 no, Q3 no → unnecessary\n- Haar matrix H2×2 and its normalised form: Q1 yes, Q2 no, Q3 no → unnecessary (restates Eqs. 3-4, with a normalisation that disagrees with them)\n- Linear decision function f(x) = wᵀx + b and Eq. 6 (x and w as column vectors, b = bias): Q1 yes, Q2 no, Q3 no → unnecessary (the classifier trained is kernelised)\n- Margin γ = 2/‖w‖ via α = b − 1, β = b + 1: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 7, hard-margin primal: Q1 yes, Q2 no, Q3 no → unnecessary (the hard-margin SVM is not the model trained)\n- Eq. 8, Lagrangian: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eqs. 9-10, stationarity conditions: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 11, hard-margin dual: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 12, soft-margin primal with hinge slack: Q1 yes, Q2 no, Q3 no → unnecessary (the prose \"non-linear soft margin SVM ... regularization parameters C\" already fixes the model; no value of C is given)\n- Eq. 13, soft-margin dual: Q1 yes, Q2 no, Q3 no → unnecessary\n- Polynomial kernel K(xi, xj) = (xi · xj + 1)^3: Q1 yes, Q2 yes, Q3 no → necessary (fixes degree and offset)\n- Eq. 14, evaluation metrics: Q1 yes, Q2 yes, Q3 no → necessary (fix which counts enter each reported rate)\n\n### Proportionality\nCalculated complexity: 22\nExpected range (Level 2): 0-15\nRatio: 1.47x upper bound\n\n**Assessment:** Disproportionate for Level 2: above the upper bound, though below the 2x threshold of DISPROPORTIONATE_FORMALISM. Twelve of the fifteen formal elements reproduce textbook SURF, Haar and SVM material that the paper never uses beyond naming the methods; the system is fully understood without them.\n\n### Issues\n- The derivation carries errors that show it plays no working role: Eq. 10 reads \"w = Σ αi yi = 0\"; Eq. 13 constrains Σ vi αi > 0, with the sum running to m, and 0 < αi < C; the soft-margin constraint applies φ to (xi + b); the Gaussian exponent has \"sσ²\"; and α and β are first defined as b − 1 and b + 1, then α is reused for the Lagrange multipliers.\n- Eleven definitions and no theorem: THEOREMLESS_FORMALISM. The definitions are used within the derivation chain, so ORPHAN_DEFINITIONS is not raised. There are no \"Definition N\" blocks (no DECORATIVE_DEFINITIONS) and no set operations standing in for list operations (no UNNECESSARY_SET_THEORY).\n\n---\n\n## Citation Analysis\n\nNo self-citations among 38 references (SCR 0%). Most references concern skin detection, pornographic-image recognition, and SURF/SVM methods. A few are off-topic and appear in generic sentences: [12] on GPA prediction and [15] on sleep-EEG stress classification as examples of classifiers, [6] on neural-network model-predictive control in a sentence on k-means colour segmentation, and [30] on stock-price prediction beside the SVM kernel. Table 2 attributes \"Pornographic Image Recognition via Weighted Multiple Instance Learning\" to [16], which in the reference list is a different 2007 paper on web pages; the cited title is [17]. No flag.\n\n---\n\n## Structural Analysis\n\nThe evidence is one contingency table over the 899 images (Table 1) and a comparison table of figures taken from other papers on other datasets (Table 2). CER about 0.45.\n- No training/test split or cross-validation is described, and the contingency table totals all 899 images, so it is unclear whether the reported 89.3% accuracy is measured on unseen data.\n- Table 1 is internally inconsistent: its rows sum to 402 and 497, the class sizes stated in Section 3.2, yet the reported rates (sensitivity 86.2% = 364/422, specificity 92.03% = 439/477) take the column totals 422 and 477 as the actual classes.\n- The data description does not add up: 763 web images plus 101 Caltech images make 864, not 899.\n- \"Tested on a large dataset\" (899 images) and \"can compete with other similar state-of-the-art methods\" are not supported by a like-for-like comparison.\n- No limitation is acknowledged anywhere in the paper.\n\nArtifacts: no code is offered. The positive images were collected from websites and are not released, and only the 101 negative Caltech images come from a public set, so the data the results rest on is not public: none.\n\n---\n\n## Conclusion\n\nA Level 2 application of standard feature extractors and an SVM that fills its Methods section with SURF and Haar background and a textbook SVM derivation reproduced with errors. Most of these elements perform none of the Necessity Test's functions, so FORMALISM_THEATER applies and the score is capped, with THEOREMLESS_FORMALISM recorded alongside.\n\nIndependently of the formalism, the evaluation protocol is not described, the contingency table contradicts the stated class sizes, nothing is released, and no limitation is acknowledged."
+  },
+  {
+   "paper_id": "onet2023",
+   "paper": {
+    "title": "A Blended On-Campus and At-Home Approach to Laboratories on Electronic Circuits",
+    "authors": [
+     "Raul Onet",
+     "Marius Neag",
+     "Albert Fazakas",
+     "Paul Miresan",
+     "Gabriel Petrasuc",
+     "Iulian Sularea",
+     "Alessandro Battigelli",
+     "Michael Murray",
+     "Martin Hill"
+    ],
+    "abstract": "This paper presents a blended approach to organizing laboratories for undergraduate Bachelor-level courses on electronics circuits and systems. The main idea is to combine on-campus laboratory sessions with at-home experiments performed individually by each student as homework. This way, students can enjoy the advantages of both on-campus and at-home experimental work while avoiding most of their limitations. An essential prerequisite is to provide each student with a portable laboratory kit. Such a kit was developed by the authors with the Erasmus+ project Home Electronics Laboratory Platform (HELP). The HELP laboratory kit comprises of a portable signal generator & measurement instrument and an electronic board developed specifically for this purpose, which includes several functional blocks alongside the usual breadboard for assembling circuits with discrete components. The paper describes the HELP kit in some detail, then the results of an experiment designed to assess the impact of using it. An administrative unit of 18 third-year students was split randomly in two equal-size groups, one that had only traditional on-campus lab classes while the other nine students were given HELP kits and followed the proposed blended on-campus and at-home approach for their lab classes. All students received end-of-semester marks for both laboratory activity (as an average of four tests and homework completion) and a written exam (solving four problems on circuit analysis). The group that used HELP kits performed substantially better than their counterparts, both in respect to laboratory – average lab mark almost two points (out of ten) higher – and written exam – average exam mark over one point higher. These results indicate that the blended on-campus and at-home approach to laboratory classes helped improve the overall learning experience for students, with positive impact not only on their lab performance but on their understanding of electronic circuits, as well.",
+    "keywords": [
+     "Assessment of laboratory work",
+     "electrical engineering education",
+     "home electronics laboratory",
+     "online learning",
+     "portable electronic laboratory kits"
+    ],
+    "doi": null,
+    "pages": "167-180",
+    "source_file": "paper740.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.75,
+    "composite": 59.81,
+    "final": 54.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only project link, [13] https://international.utcluj.ro/help-home-electronics-laboratory/, is cited for the Erasmus+ project (\"The Home Electronic Laboratory Platform (HELP) was developed within an EU-funded Erasmus+ project [13]\"), not as a source of the board design or the grade data",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of the study's constraints (two groups of nine, one course, no significance test, possible pre-existing group differences); drawbacks are discussed only for earlier approaches and kits."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Level 1 description of a portable electronics laboratory kit with no formalism and relevant self-citations; the claim of improved learning rests on a 9-versus-9 descriptive comparison without statistical testing or acknowledged limitations, and no design files or data are released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A portable laboratory kit (a commercial Hantek 3-in-1 instrument plus a custom USB-powered board with supply, amplifier, reference and clock blocks) and a blended on-campus and at-home laboratory scheme, evaluated by comparing the grades of nine kit users with those of nine reference students in one course.\n**Level:** 1 (Trivial)\n**Rationale:** The technical contribution is a prototype that combines existing components (commercial instrument, DC-DC converter, current limiter, amplifier, clock generator); the evaluation is a small descriptive comparison with box plots and a questionnaire. Nothing algorithmic or theoretical is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Necessity Test\nNone.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper is written in prose, tables and figures, as its subject warrants.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo self-citations among 18 references (SCR 11.1%): [10], O'Mahony et al., on the take-home laboratory kit from which the HELP board was upgraded (co-authored by Onet, Neag, Murray and Hill), and [12], the authors' 2022 conference paper introducing the HELP kit and the questionnaire reused here. Both are directly related (similarity above 0.8). [13] is the HELP project's own web page; it carries no author names and is not counted as a self-citation. The remaining references cover remote and take-home laboratories and the datasheets of the components used. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe evidence is the kit specification and a comparison with three other kits (Table 1), a questionnaire answered only by the nine kit users (Fig. 6), grade box plots for the two groups (Fig. 7), and grades in two other courses. CER about 0.5.\n- The central claim, that the blended approach \"contributed to improving the overall academic performance\" of the kit users, rests on two groups of nine with no statistical test; the text nevertheless calls the difference \"significantly better\".\n- The same group also scored higher in two courses that used no kit (Microprocessors Architecture: median +0.5; Optoelectronics: average +0.66). This points to a pre-existing difference between the groups, which the paper reports without discussing it as a confound.\n- The abstract and conclusion report average differences (\"average lab mark almost two points (out of ten) higher\", \"average exam mark over one point higher\"), while the results section reports medians and gives no exam figures.\n- The questionnaire has no counterpart for the reference group.\n- No limitation of the study (sample size, a single cohort, no significance testing, possible group differences) or of the kit is acknowledged; drawbacks are discussed only for earlier approaches and kits.\n\nArtifacts: the board is described through block diagrams and simplified schematics (Figs. 3-4) and the project web page is cited [13], but no design files, firmware or grade data are offered. Description is not availability: none.\n\n---\n\n## Conclusion\n\nA Level 1 engineering-education paper with no formalism, appropriately so, and relevant self-citations. Its weakness is structural: the claim that the blended laboratory improved learning rests on a descriptive comparison of two groups of nine, with no significance test, no acknowledged limitation, and grades from other courses suggesting the groups differed beforehand. Releasing the board design would let other departments reuse the kit."
+  }
+ ]
+}

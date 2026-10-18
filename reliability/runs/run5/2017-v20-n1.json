@@ -1,0 +1,194 @@
+{
+ "batch_id": "2017-v20-n1",
+ "analysis_timestamp": "2026-10-18T17:15:50Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 20,
+  "issue": 1,
+  "year": 2017
+ },
+ "papers": [
+  {
+   "paper_id": "yu2017",
+   "paper": {
+    "title": "Fault Diagnosis of Power Systems Using Fuzzy Reasoning Spiking Neural P Systems with Interval-valued Fuzzy Numbers",
+    "authors": [
+     "Wenping Yu",
+     "Jun Wang",
+     "Hong Peng",
+     "Jun Ming",
+     "Chengyu Tao",
+     "Tao Wang"
+    ],
+    "abstract": "Combining interval-valued fuzzy numbers with spiking neural P systems (SN P systems, in short), an extended SN P system model is developed for fault diagnosis of power systems, called fuzzy reasoning spiking neural P systems with interval-valued fuzzy numbers (ivFRSN P systems, in short). The ivFRSN P systems can better characterize uncertain alarm information in power systems. Firstly, the modeling approach and fuzzy reasoning algorithm are developed. Secondly, the corresponding fault diagnosis models are discussed. Finally, the fault diagnosis of a six-bus 69kV distribution system is used as an example, including single fault with device failure and multiple faults, to demonstrate the availability and effectiveness of the proposed fault diagnosis model based on ivFRSN P systems.",
+    "keywords": [
+     "Power system",
+     "Fault diagnosis",
+     "Fuzzy reasoning spiking neural P systems",
+     "Interval-valued fuzzy numbers"
+    ],
+    "doi": null,
+    "pages": "5-17",
+    "source_file": "paper1.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 55,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 30.5,
+    "composite": 22.88,
+    "final": 22.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with unnecessary formal elements: Definition 1 casts the neuron network as a construct Π = (A, σ1, …, σm, syn, I, O) that the reasoning algorithm never uses, and the special-case remarks on interval-valued fuzzy numbers play no role.",
+    "DECORATIVE_DEFINITIONS": "Definition 1 is a tuple definition of a data structure (singleton alphabet, neuron triples, synapse relation, input and output sets); removing it would not change what a programmer builds from the matrix algorithm of Section 2.3.",
+    "ELEVATED_SELF_CITATION": "7 of 24 references (29.2%) by name match ([13], [16], [18]–[22]); 6/24 = 25% if the 'Wang J.' in [16] is a different author.",
+    "NO_LIMITATIONS": "No limitation of the method is acknowledged; the only constraint mentioned is the paper's space limit, given as the reason for omitting the Case 2 reasoning."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 extension of FRSN P systems to interval-valued fuzzy numbers; a decorative construct definition triggers formalism theater, self-citation is elevated, and the evidence is two toy cases with qualitative comparison and no stated limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Extends fuzzy reasoning spiking neural P systems (FRSN P systems) by replacing their fuzzy values with interval-valued fuzzy numbers (IVFNs), and applies the resulting model to fault-section diagnosis on a six-bus 69 kV test system.\n**Level:** 2 (Low)\n**Rationale:** The reasoning model and its matrix-based algorithm come from earlier FRSN P system work [19, 22]; the change is a new value domain, IVFNs with componentwise arithmetic taken from [23]. No property is proved, no complexity is analysed, and the validation is two worked cases on a textbook network. This is an existing method applied with a modified number type, which the classification guide places at Level 2.\n\n### Formal Elements\n- Definitions: 5 definitional blocks (Definition 1; the inline IVFN definition; the four IVFN operations; the vectors and matrices of the reasoning algorithm; the three matrix operations) (with constraints: 2, the ordering of the trapezoidal parameters in [0,1] and syn ⊆ {1..m}×{1..m})\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 numbered, plus 7 operator definitions and 2 rule-neuron firing formulas\n\n### Necessity Test\n- Def. 1, ivFRSN P system as the construct Π = (A, σ1, …, σm, syn, I, O) with neurons as triples (θi, ci, ri): Q1 yes, Q2 no, Q3 no → unnecessary\n- Inline IVFN definition A = [(a1L, …, a4L), (a1U, …, a4U)] with ordered parameters in [0,1]: Q1 yes, Q2 yes, Q3 no → necessary\n- Special-case remarks on IVFNs (AL = AU; a1 = a2 = a3 = a4; a1 < a2 = a3 < a4): Q1 yes, Q2 no, Q3 no → unnecessary\n- IVFN operations (1)–(4), componentwise sum, product, min and max: Q1 yes, Q2 yes, Q3 no → necessary\n- Rule-neuron firing formulas β = (θ1 ∧ … ∧ θk−1) ⊗ c and β = (θ1 ∨ … ∨ θk−1) ⊗ c: Q1 yes, Q2 yes, Q3 no → necessary\n- Vectors θ, δ and matrices C, D1, D2, E: Q1 yes, Q2 yes, Q3 no → necessary\n- Matrix operations C ⊙ δ, Dᵀ ⊙ θ, Eᵀ ⊛ δ: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (2), rule-neuron update δg: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (3), proposition-neuron update θg: Q1 no, Q2 yes, Q3 no → necessary\n- Diagnosis thresholds θ ≥ FH (faulty) and θ ≤ FL (not faulty): Q1 yes, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 10 (5 definitional blocks × 2)\nExpected range (Level 2): 0-15\nRatio: 0.67x upper bound\n\n**Assessment:** Proportionate in volume. The trouble is the kind of formalism, not the amount: Definition 1 is a formal tuple for a data structure that the algorithm never uses.\n\n### Issues\nDefinition 1 follows the \"a Widget is a tuple\" pattern. It declares a singleton alphabet A = {a} that plays no role, firing rules of the form aθ → aβ whose firing condition is never stated anywhere in the paper, a synapse relation syn ⊆ {1, …, m} × {1, …, m}, and input and output sets. Everything the reasoning algorithm of Section 2.3 operates on is introduced again there as the vectors θ, δ and the matrices C, D1, D2, E. A programmer would build the same algorithm from Section 2.3 and the neuron-type descriptions with or without Definition 1, and its content fits in one sentence: a directed graph of proposition and rule neurons, each holding an IVFN value, rule neurons also holding a certainty factor, with designated input and output neurons. The special-case remarks on IVFNs are likewise never used. UNNECESSARY_SET_THEORY is not raised: the set notation in Definition 1 declares a relation and index sets, but no set operation stands in for a list operation, and the operations actually used (⊕, ⊗, min, max) are real computations.\n\nA substantive gap besides: the diagnosis rule in Section 3.2 compares IVFNs with ≥ and ≤, and the termination test compares vectors of them, but the paper defines no ordering or ranking of IVFNs, so the decision step is not operational as written.\n\n---\n\n## Citation Analysis\n\nBy author-name matching, 7 of 24 references are self-citations (SCR 29.2%): [13], [16], [18], [19], [20], [21], [22], through J. Wang, H. Peng and T. Wang. [16] matches only on \"Wang J.\", a common name, and may be a different author; without it the ratio is 6/24 = 25%. Either way it falls in the 20–30% band. All self-cited works are on spiking neural P systems, fuzzy membrane computing, or FRSN P fault diagnosis, and are topically related (similarity ≥ 0.5); [19] and [22] are the direct predecessors this method extends. No irrelevant self-citation and no ring pattern is visible from the reference list. The rest of the list covers the power-system fault-diagnosis literature (expert systems, fuzzy Petri nets, neural networks) appropriately, though most of it is a decade old or more.\n\n---\n\n## Structural Analysis\n\nClaim-evidence balance is weak (CER estimated at about 0.45). The evidence is two cases on a six-bus test system taken from [7]. Only Case 1 is traced; the reasoning for Case 2 is omitted for reasons of space. The conclusions claim \"a good accuracy of diagnosis solution\", \"a parallel computing ability\", more reliable results, a model \"easier to handle and more intuitive\" than CTPN, and handling of incomplete messages \"in a more flexible and effective way\", but none of these rests on a quantitative comparison, an accuracy statistic, or a test with missing or false alarms. The comparison with CTPN [7] and FRSN P systems [22] is qualitative only. There are internal inconsistencies: the system is said to have 10 CBs, CB1–CB10, yet Case 2 trips CB11, and the list of sections names B1 twice. No limitation of the method is acknowledged; the only constraint mentioned is the paper's own space limit.\n\nNo code, model files or data are released or claimed. The IVFN scale and confidence tables printed in the paper help re-implementation, but they are not an artifact.\n\n---\n\n## Conclusion\n\nA Level 2 extension of FRSN P systems to interval-valued fuzzy numbers, applied to a textbook fault-diagnosis example. The working machinery (IVFN arithmetic, synaptic matrices, the two update equations) is functional and passes the Necessity Test, but Definition 1 is a formal tuple for the neuron network that the algorithm never uses, which at this level triggers FORMALISM_THEATER and DECORATIVE_DEFINITIONS. Add a self-citation ratio near 29%, two lightly reported cases with only qualitative comparison, an undefined ordering of IVFNs in the decision rule, and no stated limitations, and the support for the claimed gains in accuracy and robustness is thin.\n\nNo text addressed to an automated reviewer was found in the paper."
+  },
+  {
+   "paper_id": "rong2017",
+   "paper": {
+    "title": "A Novel Approach to Fault Classification of Power Transmission Lines Using Singular Value Decomposition and Fuzzy Reasoning Spiking Neural P Systems",
+    "authors": [
+     "Haina Rong",
+     "Ming Zhu",
+     "Zhipeng Feng",
+     "Gexiang Zhang",
+     "Kang Huang"
+    ],
+    "abstract": "A novel approach for classifying different types of faults occurring in power transmission lines is proposed by considering wavelet transform, singular value decomposition and Fuzzy Reasoning Spiking Neural P Systems (FRSNPS). In this approach, singular value decomposition in wavelet domain is used to extract features of fault current components recorded from power transmission lines; FRSNPS is applied to build the fault type classification model. Several cases with different fault types in power transmission lines are considered in the simulation experiments to verify the effectiveness of the proposed approach. The robustness to noise and to parameters of power transmission lines is also discussed.",
+    "keywords": [
+     "Membrane computing",
+     "fuzzy reasoning spiking neural P systems",
+     "fault classification",
+     "wavelet transform",
+     "singular value decomposition"
+    ],
+    "doi": null,
+    "pages": "18-31",
+    "source_file": "paper2.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 58,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 37.8,
+    "composite": 28.35,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with unnecessary formal elements: the generic rFRSNPS tuple, the instantiated system Π1 listing 54 synapses in set notation that duplicate rules R1–R12 and Fig. 4, and the textbook wavelet frequency-band formulas.",
+    "DECORATIVE_DEFINITIONS": "The rFRSNPS tuple definition (singleton alphabet O = {a}, neuron tuples, firing condition E = {aⁿ}, synapse relation, input and output sets) restates what the matrices θ, δ, C, D1, D2 and E already encode; removing it would not change the implementation.",
+    "ELEVATED_SELF_CITATION": "6 of 24 references (25%) include G. Zhang or H. Rong ([5], [6], [7], [10], [12], [13]); [6] and [7] are only marginally related to fault classification."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 application of rFRSN P systems with wavelet singular values to fault-type classification; solid simulated evaluation, but a decorative construct definition and a set-listed topology trigger formalism theater, and self-citation is elevated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Fault-type classification on a simulated 500 kV transmission line. Wavelet singular values of the fault-component currents are fuzzified with two-set membership functions and fed to a hand-built fuzzy reasoning spiking neural P system with twelve production rules.\n**Level:** 2 (Low)\n**Rationale:** Both components are existing methods: wavelet singular values as fault features follow [16], and the rFRSN P system with its matrix reasoning algorithm is taken from [12–14]. The contribution is their combination for a new task (fault type rather than fault section) and an empirical evaluation on simulated faults. Applying an existing algorithm to a new task is Level 2.\n\n### Formal Elements\n- Definitions: 4 definitional blocks (the generic rFRSNPS tuple; the vectors and matrices; the three matrix operators; the instantiated system Π1) (with constraints: 2, syn ⊆ {1..m}×{1..m} with i ≠ j, and values in [0,1])\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 numbered, plus the fault-component, frequency-band and normalisation formulas and 3 operator definitions\n\n### Necessity Test\n- Fault-component current iF(t) = i(t) − i(t − nN): Q1 yes, Q2 yes, Q3 no → necessary\n- Wavelet frequency bands Dj: [2^−(j+1) fs, 2^−j fs] and Aj: [0, 2^−(j+1) fs]: Q1 yes, Q2 no, Q3 no → unnecessary\n- Normalisation sφ = Sφ / max(Sa, Sb, Sc, S0): Q1 yes, Q2 yes, Q3 no → necessary\n- Generic rFRSNPS tuple Π = (O, σ1, …, σm, syn, in, out) with O = {a}, neuron tuples and firing condition E = {aⁿ}: Q1 yes, Q2 no, Q3 no → unnecessary\n- Vectors θ, δ and matrices C, D1, D2, E: Q1 yes, Q2 yes, Q3 no → necessary\n- Operators ⊗ (weighted sum), ⊕ (min) and ⊙ (max) over the synaptic matrices: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (1), rule-neuron update δg: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (2), proposition-neuron update θg: Q1 no, Q2 yes, Q3 no → necessary\n- Fuzzy production rules R1–R12: Q1 yes, Q2 yes, Q3 no → necessary\n- Membership functions for sa, sb, sc and s0 (Fig. 3, crossovers at 0.5 and 0.001): Q1 yes, Q2 yes, Q3 no → necessary\n- Instantiated system Π1 with syn listed as 54 ordered pairs, in = {σ1, …, σ8}, out = {σ11, …, σ20}: Q1 yes, Q2 no, Q3 no → unnecessary\n\n### Proportionality\nCalculated complexity: 8 (4 definitional blocks × 2)\nExpected range (Level 2): 0-15\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate in volume, but three elements fail the Necessity Test.\n\n### Issues\nThe generic rFRSNPS tuple is the \"a Widget is a tuple\" pattern. The singleton alphabet O = {a}, the neuron tuples and the synapse relation restate what the reasoning algorithm encodes in θ, δ, C, D1, D2 and E, and the firing condition E = {aⁿ} has no operational role in the matrix computation (Steps 4 and 7 test \"E = aˢ\" without saying what s is). The instantiation Π1 then lists the 54 synapses of Fig. 4 in set notation; the same topology follows from rules R1–R12 and the numbering in Fig. 4, so the list adds nothing a programmer needs. The frequency-band formulas are a textbook property of the dyadic wavelet transform, and the paper never uses them to justify the choice of db3 at 8 levels. UNNECESSARY_SET_THEORY is not raised: the braces list data (edges, index ranges), but no set operation stands in for a list operation.\n\nSmaller inconsistencies: in Cases 3 and 4 the text says \"the value 0.95 is the highest\" while the reported output is 0.9025, and Section 6 speaks of 100 testing samples for the line-parameter test while Table 4 lists 120 per line.\n\n---\n\n## Citation Analysis\n\nBy author-name matching, 6 of 24 references are self-citations (SCR 25%), all through G. Zhang (with H. Rong in [10]): [5], [6], [7], [10], [12], [13]. [10], [12] and [13] are on spiking and fuzzy-reasoning P systems and directly related; [5] is a membrane-computing monograph and related. [6] (a survey of evolutionary membrane computing) and [7] (differential evolution with tissue membrane systems for manufacturing parameter optimisation) are cited as general examples of membrane-computing applications; their relevance to fault classification is marginal (similarity about 0.3–0.5), a warning but not below the 0.3 threshold. \"Zhang, X.\" in [3] and [4] is a different author (initial X) and is not counted. The paper presents itself as a continuation of [12–14], which explains the concentration.\n\n---\n\n## Structural Analysis\n\nThe evaluation is substantial for the claim made: 1200 simulated faults in PSCAD/EMTDC covering ten fault types, four fault resistances, five locations and six inception angles, a line-parameter test on two further lines, and a noise test from 40 dB down to 10 dB SNR. Most claims are backed by tables (CER about 1). Caveats: the membership functions were set from \"data analysis of different fault samples\", and the paper does not say whether those samples are separate from the 1200 test simulations, so the reported 100% accuracy may be partly in-sample; and Table 5 compares against figures reported by [24] and [19], presumably on different systems and data. Limitations are acknowledged only inline and weakly: the superiority claim is restricted to SNR ≥ 20 dB, Table 5 shows accuracy falling to 72% at 10 dB, and the conclusion names double-circuit and series-compensated lines as situations not yet treated. I counted this as inline acknowledgment, so NO_LIMITATIONS is not raised, but the call is borderline.\n\nNo code, simulation models or generated data are released or claimed. PSCAD/EMTDC is a third-party tool and does not count as the authors' artifact.\n\n---\n\n## Conclusion\n\nA competent Level 2 application of an existing P-system reasoning model to fault-type classification, with a reasonable simulated evaluation. Its formal presentation, however, carries over the generic rFRSNPS construct and spells out the instantiated network as a set of 54 pairs, neither of which constrains the implementation beyond the rule table and Fig. 4; at Level 2 this triggers FORMALISM_THEATER and DECORATIVE_DEFINITIONS. Self-citation is 25%, with two marginally related monograph and survey citations, and nothing is available for reproduction.\n\nNo text addressed to an automated reviewer was found in the paper."
+  },
+  {
+   "paper_id": "carandang2017",
+   "paper": {
+    "title": "CuSNP: Spiking Neural P Systems Simulators in CUDA",
+    "authors": [
+     "Jym Paul A. Carandang",
+     "John Matthew B. Villaflores",
+     "Francis George C. Cabarle",
+     "Henry N. Adorna",
+     "Miguel A. Martinez-del-Amor"
+    ],
+    "abstract": "Spiking neural P systems (in short, SN P systems) are models of computation inspired by biological neurons. CuSNP is a project involving sequential (CPU) and parallel (GPU) simulators for SN P systems. In this work, we report the following results: a P-Lingua file parser is included, for ease of use when performing simulations; extension of the matrix representation of SN P systems to include delay; comparison and analysis of our simulators by simulating two types (bitonic and generalized) of parallel sorting networks; extension of supported types of regular expressions in SN P systems. Our GPU simulator is better suited for generalized sorting as compared to bitonic sorting networks, and the GPU simulators run up to 50× faster than our CPU simulator. Finally, we discuss our experiments and provide directions for further work.",
+    "keywords": [
+     "Membrane computing",
+     "SN P systems",
+     "CUDA",
+     "GPU"
+    ],
+    "doi": null,
+    "pages": "57-70",
+    "source_file": "paper5.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 50,
+    "structural_integrity": 65,
+    "artifact_availability": 70,
+    "intellectual_integrity": 33.75,
+    "composite": 42.81,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "\"The latest version of the CuSNP code is available at [29].\" [29]: http://aclab.dcs.upd.edu.ph/productions/software/cusnp_v060616",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "DISPROPORTIONATE_FORMALISM",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "DISPROPORTIONATE_FORMALISM": "Formalism complexity 41 (12 definitions × 2 + 3 theorem-like statements × 3 + 2 proofs × 4) exceeds twice the Level 2 upper bound of 15 (ratio 2.73x); 39 (2.6x) even without the standard SN P background definition.",
+    "ELEVATED_SELF_CITATION": "9 of 30 references (30.0%, the inclusive upper end of the band) include an author of this paper; 8/29 = 27.6% if the software release [29] is excluded."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 GPU simulator paper for SN P systems with released code and acknowledged limitations; twelve definitions, three theorem-like statements and two thin proofs exceed twice the Level 2 bound, and self-citation sits at 30%.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** CuSNP, a CPU and CUDA GPU simulator for spiking neural P systems. The paper adds a P-Lingua input parser, extends the matrix representation of [23] to rules with delays, adds DFA-based checking for two more regular-expression forms, and benchmarks the simulators on generalised and bitonic sorting networks.\n**Level:** 2 (Low)\n**Rationale:** The core is a software tool. The algorithmic contribution is an incremental extension of an existing matrix representation [23]: a status mask for closed neurons and per-rule countdowns for delays. The correctness lemma and theorems are short and close to restatements of the update, no complexity bound is proved, and the evaluation is a runtime comparison. The paper falls between a simple optimisation of an existing method (Level 2) and a prototype description (Level 1); it lacks the novel algorithm with complexity analysis that Level 3 requires, and the guide says to default lower.\n\n### Formal Elements\n- Definitions: 12 (the standard SN P system definition with its semantics; Definitions 1–11) (with constraints: 4, namely c ≥ p ≥ 1 and d ≥ 0, aˢ ∉ L(E), i ≠ j in syn, and d0 ∈ {−1, 0, ≥1})\n- Theorems: 3 (Lemma 1, Theorem 2, Theorem 3)\n- Proofs: 2 (of Lemma 1 and Theorem 3)\n- Equations: about 6 (configuration notation, the NG(k) definition, Lemma 1, Theorem 2, the worked example, the parallel update formulas)\n\n### Necessity Test\n- Standard SN P system definition Π = (O, σ1, …, σm, syn, in, out) with spiking and forgetting rules, delays, closed neurons and halting computations (the inline output-mode formula n = tn − t1 is treated as part of this background block): Q1 no, Q2 yes, Q3 no → necessary\n- Configuration notation Ct = ⟨r1/k1, …, rm/km⟩: Q1 yes, Q2 yes, Q3 no → necessary\n- Def. 1, configuration vector C(k): Q1 yes, Q2 yes, Q3 no → necessary\n- Def. 2, spiking vector S(k): Q1 yes, Q2 yes, Q3 no → necessary\n- Def. 3, status vector St(k): Q1 yes, Q2 yes, Q3 no → necessary\n- Def. 4, rule representation ri = (E, j, d0, c): Q1 yes, Q2 yes, Q3 no → necessary\n- Def. 5, delay vector D: Q1 yes, Q2 yes, Q3 no → necessary\n- Def. 6, loss vector LV(k): Q1 yes, Q2 yes, Q3 no → necessary\n- Def. 7, gain vector GV(k): Q1 yes, Q2 yes, Q3 no → necessary\n- Def. 8, transition matrix TV: Q1 no, Q2 yes, Q3 no → necessary\n- Def. 9, indicator vector IV(k): Q1 yes, Q2 yes, Q3 no → necessary\n- Def. 10, removing matrix RM: Q1 no, Q2 yes, Q3 no → necessary\n- Def. 11, net gain vector NG(k) = C(k+1) − C(k): Q1 yes, Q2 yes, Q3 no → necessary\n- Lemma 1, NG(k) = St(k) ⊗ GV(k) − LV(k) with GV(k) = IV(k)·TV and LV(k) = S(k)·RM: Q1 no, Q2 yes, Q3 yes → necessary\n- Theorem 2, C(k+1) = C(k) + St(k) ⊗ (IV(k)·TV) − S(k)·RM: Q1 no, Q2 yes, Q3 no → necessary\n- Theorem 3, Algorithm 1 yields C(k+1): Q1 yes, Q2 no, Q3 yes → necessary\n\n### Proportionality\nCalculated complexity: 41 (12 × 2 + 3 × 3 + 2 × 4)\nExpected range (Level 2): 0-15\nRatio: 2.73x upper bound\n\n**Assessment:** Disproportionate. Every element performs a function, but the volume is more than twice the Level 2 bound. Without the standard background definition the count is 39 (2.6x), still above 2x. At Level 3 (bound 40) a count of 41 would be only marginally elevated, so the flag rests on the Level 2 classification.\n\n### Issues\nSeveral numbered definitions declare one-line arrays (\"The delay vector D = ⟨d1, …, dn⟩ contains the delay count for each rule\"). They are referenced in Lemma 1, Theorem 2 and Algorithm 1, so they pass the test, but they inflate the apparatus around what is essentially a masked matrix-vector update. The proofs are walkthroughs: the proof of Lemma 1 checks dimensions, and the proof of Theorem 3 narrates Algorithm 1 line by line instead of arguing against the semantics of Section 2 (for instance, that spikes sent to a closed neuron are lost, or that only one rule per neuron fires), yet the paper says it has \"proved the algorithms\". The notation is also inconsistent: TV and RM are called ordered sets and written with braces although they are matrices; the rule tuples in the example are written with set braces; Def. 3 refers to \"neuron m\" for every i; Def. 9 gives IV dimension m although it indexes rules; the worked example gives St(1) first as ⟨1, 1, 1⟩ and later as ⟨1, 1, 0⟩; and Section 5 refers to \"the four cases described in Section 4\" where Section 4 has three. No set operation stands in for a list operation, so UNNECESSARY_SET_THEORY is not raised.\n\n---\n\n## Citation Analysis\n\nBy author-name matching, 9 of 30 references are self-citations (SCR 30.0%): [2], [4], [5], [12], [19], [23], [26], [29], [30], through Cabarle, Adorna, Martínez-del-Amor and Carandang and Villaflores. The ratio sits exactly at the inclusive upper end of the elevated band; treating [29], the software release itself, as a non-citation gives 8/29 = 27.6%, which does not change the band. Relevance is high for most: [2], [4], [5], [23], [26], [29] and [30] are GPU simulation, the matrix representation, or earlier CuSNP versions, the direct basis of this work, and [12] (SN P systems and finite automata) relates to the DFA-based regex checking. [19] (structural plasticity) is cited as an example SN P variant; it is marginal but within the same model family. No irrelevant self-citation and no ring pattern is visible.\n\n---\n\n## Structural Analysis\n\nThe claims are reasonably supported by Figures 3 and 4 and the nvprof profile (CER about 0.9): the 9× and 50× speed-ups, the generalised-versus-bitonic comparison and the per-kernel time breakdown are all reported. Weaknesses: timings come from the Linux time command on a single machine, with no repetitions or variance; every run is fixed at 100 steps regardless of halting; and the correctness claims rest on the thin arguments noted above. Limitations are acknowledged inline in the final remarks: only deterministic systems are simulated, sorting networks beyond 512 inputs exceed thread limits, the .pli parser has no error checking, and some regular-expression forms are unsupported.\n\nArtifacts: the paper states that the latest CuSNP code is available at [29], a specific URL on the authors' laboratory site. The inputs are sorting-network SN P systems built from published constructions [24, 25] and fed random numbers; no input files or benchmark data are deposited, so the category is code rather than code and data.\n\n---\n\n## Conclusion\n\nA useful tool paper: a GPU simulator for SN P systems with delays, released as code, with a candid list of its current limitations. At Level 2, however, its formal apparatus (twelve definitions, a lemma and two theorems, two proofs) scores 41 against an upper bound of 15, which triggers DISPROPORTIONATE_FORMALISM even though every element is used. The proofs restate the algorithm rather than argue for it, and the notation contains several slips. Self-citation sits at the 30% boundary but is topically coherent.\n\nNo text addressed to an automated reviewer was found in the paper."
+  }
+ ]
+}

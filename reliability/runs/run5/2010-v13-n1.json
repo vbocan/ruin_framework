@@ -1,0 +1,68 @@
+{
+ "batch_id": "2010-v13-n1",
+ "analysis_timestamp": "2026-10-18T05:22:34Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 13,
+  "issue": 1,
+  "year": 2010
+ },
+ "papers": [
+  {
+   "paper_id": "bozanic2010",
+   "paper": {
+    "title": "Streamlined Design of SiGe Based Power Amplifiers",
+    "authors": [
+     "Mladen Božanić",
+     "Saurabh Sinha",
+     "Alexandru Müller"
+    ],
+    "abstract": "This paper presents a streamlined design flow for an integrated power amplifier. For a given set of amplifier specifications and BiCMOS process parameters, a software routine computes passive component values for a Class-E or Class-F based power amplifier. The routine includes a matching network for standard impedance loads. Spiral inductor search algorithm is used to generate inductors with Q-factors optimised at a desired frequency. Operation of the software routine is demonstrated by simulations in Austriamicrosystems 0.35 µm single-supply process for the 10 dBm, 2.4 GHz power amplifier design.",
+    "keywords": [
+     "BiCMOS process",
+     "spiral inductor",
+     "Class-E amplifier",
+     "Class-F amplifier",
+     "impedance matching",
+     "SPICE netlist"
+    ],
+    "doi": null,
+    "pages": "22-32",
+    "source_file": "02_bozanic.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 95,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 81.0,
+    "composite": 60.75,
+    "final": 60.75
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Level 2 PA design-automation routine resting on thirteen cited design equations, all necessary; no self-citations; validation by simulation only, with a Class-F table that does not follow from the paper's own equations, and no access to the software.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A software routine that turns power-amplifier specifications and BiCMOS process parameters into Class-E or Class-F component values, an output matching network, Q-optimised square spiral inductors, and SPICE netlist and GDS exports, demonstrated on two simulated 2.4 GHz amplifiers in the AMS S35 process.\n**Level:** 2 (Low)\n**Rationale:** The relations the paper states are the standard ones from its references: Sokal and Sokal for Class-E, Kazimierczuk for the RF choke, Raab for the Class-F coefficients, Mohan et al. for spiral inductance and Lee et al. for the π-model Q-factor. The authors' own procedure, the inductor search, looks for the square-spiral geometry with the highest Q at a target inductance under those existing models, a simple optimisation of existing methods. It comes with no complexity analysis, convergence argument or new model, so Level 3 does not apply. It sits at Level 2 rather than 1 because the routine performs domain computation and a design optimisation, not storage, display or service integration.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 (numbered design relations; coefficient values in Table 1 and after Eq. (10))\n\n### Necessity Test\nQ2 is yes for every equation. Section 3 says the routine was developed from these design equations, and the Class-E values of Table 2 (RL = 11.5 Ω, L2 = 3.83 nH, C1 = 1.05 pF, C2 = 1.71 pF) reproduce from Eqs. (1)-(4) to within 1% with the listed VCC = 1 V, Pout max = 17 dBm, QL = 5 and f0 = 2.4 GHz. Q1 is yes for a plain product or ratio of named quantities and coefficients, which one sentence states exactly, and no for relations with sums, nested fractions, inline derived constants or fitted exponents, which prose could only transcribe symbol by symbol.\n- Eq. (1), Class-E optimum load resistance from VCC and Pout max [3]: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (2), series-resonator inductance L2 = QL·RL/(2πf0): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (3), Class-E shunt capacitance C1: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (4), Class-E series capacitance C2 with the 1.42/(QL - 2.08) correction: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (5), minimum RF-choke inductance L1min [4], about 42 nH for the Class-E design, which the 100 nH external choke meets: Q1 no, Q2 yes, Q3 yes (a lower bound on L1) → necessary\n- Eq. (6), Class-F optimum load resistance with γV [6]: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (7), Class-F DC current IDC: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (8), peak collector voltage vCm = δV·VCC, which gives the Table 1 coefficient its meaning and sets the voltage the HBT must withstand (neither table lists it): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (9), peak collector current iCm = δI·IDC, the same role for current: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (10), data-fitted monomial for spiral inductance with β and α1-α5 [7]: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (11), single-π inductor Q-factor [8]: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (12), equivalent parallel resistance RP: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (13), equivalent parallel capacitance CP: Q1 no, Q2 yes, Q3 no → necessary\n\nNo element is unnecessary.\n\n### Proportionality\nCalculated complexity: 0 (0 definitions × 2 + 0 theorems × 3 + 0 proofs × 4; equations do not enter the formula)\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate — the paper has no definitions, theorems or proofs, and its equations are the design relations the routine computes with; even counting each of the 13 equations as one point would stay within the Level 2 bound of 15. Formalism score 85: the proportionate base of 80 plus 5, since every element is sourced and used; the bonus is held down by the slip in Eq. (10) noted below and by Class-F values that do not follow from Eqs. (6)-(7).\n\n### Issues\nNone of the theater patterns occurs. There is no set notation and no tuple definition, and the Greek symbols (γV, γI, δV, δI, β, α1-α5) are literature coefficients with numeric values that Eqs. (6)-(10) need, not decorated configuration parameters. One notational slip: the text after Eq. (10) defines din, which the expression does not contain, and leaves w and davg, which it does contain, undefined.\n\n---\n\n## Citation Analysis\n\nNone of the nine references has Božanić, Sinha or Müller as an author, so SCR = 0/9 = 0%. Each reference is the standard source for what it is cited for: Sokal and Sokal for Class-E, Raab for the Class-F coefficients, Gao for the fifth-harmonic topology, Mohan et al. for inductance, Lee et al. for the π-model Q, the books by Grebennikov and Sokal and by Kazimierczuk for amplifier theory, Nellis and Zampardi for the technology context, and a Cadence manual for the GDS format. No mutual-citation pattern can be seen from a single paper. Citation integrity 95 rather than 100: the list is short and cites no earlier PA design-automation or inductor-synthesis tool, so the routine is not positioned against alternatives. That is a coverage weakness, not an integrity concern.\n\n---\n\n## Structural Analysis\n\nA rough sentence count gives about 21 evidence sentences (cited theory, the two tables, the reported output powers and efficiencies, the waveform and S-parameter figures) against about 23 claim sentences, CER ≈ 0.9, adequate. The background claims are cited; the contribution claims are not tested. Rapid and streamlined design is never measured against a manual flow or another tool. The inductor search appears only as a flowchart (Fig. 5, which the text extraction does not carry) with one sentence stating its goal, and the text reports no resulting geometry or Q-factor. Layout import is said to overcome \"one of the major drawbacks of the spiral inductor design\" without demonstration, and simulated S-parameters, taken after an input matching the routine does not describe, are said to prove \"the correct operation of designed PAs\". Validation is by simulation only; no fabricated amplifier or measured inductor is reported.\n\nThe Class-F results do not follow from the paper's own equations. With the listed VCC = 1.5 V and Pout max = 11 dBm, Eq. (6) gives RL ≈ 130 Ω, not the tabulated 50 Ω, and Eq. (7) gives IDC ≈ 9.3 mA (24 mA with RL = 50 Ω), not 16.6 mA. Table 3 is captioned as a Class-E table, and C5 = 0.36 fF should be about 0.35 pF to resonate with L5 = 0.5 nH at 5f0. The 2.5-3 dB output drop is attributed to inductor parasitics although transistor biasing was added in the same step, and the collector efficiencies (41.3% and 51% with ideal inductors, 23.5% and 20% in practice) are not discussed against the 100% and 90.5% theoretical values the paper gives.\n\nThere is no limitations section, but constraints are acknowledged inline: the inductor model \"does not model the distributive capacitive effects\" and holds only below resonance, the inductance fit is typically within 3%, the design was over-specified because of \"the nonideal properties of the driving transistor\", and the RF chokes were assumed external. That rules out NO_LIMITATIONS, though the conclusion names no limitation or further work. Structural integrity 55: a base of 50 for a simulation-only demonstration with untested contribution claims and the reporting errors above, 0 for an adequate CER, and +5 for inline acknowledgment.\n\nNo availability statement or link is given for the software routine, which is the paper's main contribution, nor for its process configuration files or the netlists and GDS files it exports. The category is none, and the paper has software to release, so it is marked relevant.\n\n---\n\n## Conclusion\n\nA short Level 2 design-automation paper with proportionate formalism: thirteen cited design equations that the routine computes with, the Class-E ones confirmed against Table 2. Citation conduct is clean, with no self-citations. The weaknesses are structural: validation by simulation only, untested claims of speed and optimality, an inductor search described only by a figure, a Class-F table inconsistent with Eqs. (6)-(7), and no access to the software that constitutes the contribution. No flag applies."
+  }
+ ]
+}

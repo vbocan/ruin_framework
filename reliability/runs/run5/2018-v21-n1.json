@@ -1,0 +1,68 @@
+{
+ "batch_id": "2018-v21-n1",
+ "analysis_timestamp": "2026-10-18T17:13:35Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 21,
+  "issue": 1,
+  "year": 2018
+ },
+ "papers": [
+  {
+   "paper_id": "groza2018",
+   "paper": {
+    "title": "Digitally controlled oscillator for all-digital frequency locked loops",
+    "authors": [
+     "R. Groza",
+     "I. A. Potarniche",
+     "B. S. Kirei",
+     "M. D. Topa"
+    ],
+    "abstract": "A digitally controlled oscillator is presented as a suitable solution for all-digital frequency lock loops. The system consists of a bias circuit, current-voltage converters and a current controlled oscillator, which is implemented using log-domain circuits. In this way, the oscillation frequency can be tuned using the bias currents. The bias circuit consists of a binary decoder and a current division network. The role of the decoder is to control the output current values of the division network via a 10-bit digital control word. Thus, it was possible to obtain 1024 distinct bias current values which yielded 1024 frequency values. The current-voltage converter transforms the output current into a voltage necessary for the next stage. All circuits were implemented using Virtuoso Analog Design Environment from Cadence using a 180nm CMOS technology. The MOS transistors for the log-domain blocks are working in sub-threshold region. Spectre simulations were performed to demonstrate de functionality of the proposed circuit.",
+    "keywords": [
+     "DCO",
+     "ADFLL",
+     "ELIN",
+     "sub-threshold",
+     "log-domain"
+    ],
+    "doi": null,
+    "pages": "3-17",
+    "source_file": "paper577.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.3,
+    "composite": 59.47,
+    "final": 59.47
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Transistor-level DCO design (log-domain ring oscillator tuned by a 10-bit thermometer-coded current DAC) verified by nominal Spectre simulation only. Its seven design equations are all functional and proportionate; self-citation is low (3/23) and on topic. Weaknesses are evidential and editorial: no corner or temperature analysis, a derived tuning law never checked against the simulated frequencies, small numerical inconsistencies, in-text citation numbers offset from the reference list after the introduction, and no released design files.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Transistor-level design of a digitally controlled oscillator for all-digital frequency locked loops: a four-stage ring of current-mode log-domain integrators whose frequency is set by a bias current, the bias current coming from a 10-bit thermometer-decoded current division network (a unary current DAC), followed by a current comparator as current-to-voltage converter. 180 nm CMOS, sub-threshold, verified by Spectre simulation only.\n**Level:** 2 (Low)\n**Rationale:** The contribution is the assembly of established circuit blocks (log-domain integrators, which the authors present in their own 2017 oscillator paper; cascode current mirrors switched as a unary DAC; a binary-to-thermometer decoder; a published CMOS current comparator) into a DCO for a new role. There is genuine design work (oscillation condition, bias sizing), so it is more than a Level 1 component integration, but there is no new algorithm, no new model validated against measurement, and no proof. Section 2 is a tutorial overview of ADPLL/ADDLL/ADFLL architectures.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 numbered, plus two inline results drawn from (2) (omega0 = 1/tau and the minimum gain A = sqrt(2))\n\n### Necessity Test\n- Eq. (1), first-order integrator transfer function H(s) = A/(1 + s tau): Q1 yes, Q2 no, Q3 yes -> necessary (it is the model from which the oscillation condition is derived)\n- Eq. (2), Barkhausen condition for the four-stage ring, with the inline results omega0 = 1/tau and A = sqrt(2): Q1 no, Q2 yes, Q3 yes -> necessary (fixes the minimum integrator gain, hence the IE/IL ratio, and the oscillation frequency)\n- Eq. (3), large-signal law of the logarithmic cell, Vout = 2 VT ln(Iin/IL): Q1 no, Q2 yes, Q3 yes -> necessary (device law that, with (4), yields the integrator transfer function)\n- Eq. (4), large-signal law of the exponential cells, Iout = IE exp((Vi+ - Vi-)/2VT): Q1 no, Q2 yes, Q3 yes -> necessary\n- Eq. (5), log-domain integrator transfer function, gain IE/IL and time constant 2 VT C / Iosc: Q1 no, Q2 yes, Q3 yes -> necessary (sets the design rules used in Section 4: IE = 2 uA, IL = 1.25 uA, C = 100 fF, and with (2) gives the tuning law)\n- Eq. (6), programmable CDC output Iout = I + sum_{i=1}^{1023} c_i I: Q1 yes, Q2 yes, Q3 no -> necessary (the weakest element: prose could state it, but it is the code-to-current law the unary branches and the 1023-output thermometer decoder implement, and the 10 nA to 1034 nA tuning range of Section 4 is computed from it)\n- Eq. (7), transistor aspect ratios (W/L)NMOS = 46 and (W/L)PMOS = 137: Q1 yes, Q2 yes, Q3 no -> necessary (they are the sizing of the sub-threshold devices; removing them leaves the cells unspecified)\n\nThe Greek letters (tau, omega0) are standard symbols inside a derivation, not decorations for configuration constants. No set notation, tuples, or formal definitions appear.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Every equation is an ordinary analog-design equation that feeds the next step of the design chain.\n\n### Issues\nNo formalism theater. Two weaknesses in how the formalism is used:\n- The text states that the integrator gain \"was larger than 1/sqrt(2)\", whereas (2) gives a minimum gain of sqrt(2). The chosen IE/IL = 2/1.25 = 1.6 does satisfy sqrt(2), so this reads as a typo, but it contradicts the derivation.\n- The derived tuning law is never compared with the simulated frequencies. A first-order reading of (2) and (5), f = Iosc / (4 pi VT C) with VT about 26 mV and C = 100 fF, gives roughly 0.3 MHz at Iosc = 10 nA and 32 MHz at 1034 nA, against the simulated 90 kHz and 3.7 MHz; the frequency span is about 41x for a 103x current span. The paper does not discuss the gap, so the reader cannot tell whether it reflects the sub-threshold slope factor, parasitic capacitance, or something else.\n\n---\n\n## Citation Analysis\n\n23 references. Three are self-citations, all by members of the same Cluj-Napoca group and all on topic: [19] Kirei, Farcas, Groza, Topa on an ADFLL s-domain model; [21] Szopos, Saracut, Kirei, Topa on discrete-domain modelling of an ADFLL; [22] Groza, Csipkes, Kirei, Topa on a digitally controlled current-mode quadrature oscillator, evidently the predecessor of this circuit. SCR = 3/23 = 13%, in the normal band; topical similarity of each self-citation is high (>= 0.5). No citation-ring pattern is visible.\n\nThe in-text numbering does not match the reference list from Section 2 onward. The introduction's citations [1]-[8] and Table 2 match the list, but later citations point five entries too low: \"true singe-phase clock DFFs [8]\" matches list [13] (a TSPC prescaler), \"time to digital converter (TDC) [9]\" matches [14] (a TDC thesis), the ADDLL \"[13]\" matches [18] (an all-digital DLL report), the ADFLL accumulator \"[14], [15]\" match [19] and [20], the log-domain integrators \"[17]\" match [22], and the CMOS current comparator \"[18]\" matches [23]. Read literally, most citations from [8] onward land on sources that do not match the statement, and [19]-[23], including all three self-citations, are never cited. The defect looks editorial rather than manipulative, but a reader following the numbers is misdirected; the citation score sits at the bottom of the normal band for this reason.\n\n---\n\n## Structural Analysis\n\nThe functional claims are supported by simulation: transient waveforms at both ends of the tuning range (Figs. 13-14), the frequency-versus-current sweep (Fig. 16), quadrature outputs with a 92 degree shift (Fig. 15), and phase noise (Fig. 17). Evidence is adequate for what is shown, with gaps:\n- Simulation only, nominal conditions only. No process corners, Monte Carlo, supply or temperature sweeps are reported, although sub-threshold log-domain cells depend directly on VT and device matching.\n- The phase noise is reported as -88 dBc/Hz at 100 kHz in Section 4, the conclusion and Table 2, while the Fig. 17 marker reads -86.8 dBc/Hz.\n- The tuning range is stated as 10 nA to 1034 nA in 1 nA steps; 10 nA plus 1023 steps of 1 nA is 1033 nA.\n- The 105 uW power figure appears only in the conclusion and Table 2, with no supporting simulation.\n- Linearity, monotonicity and step uniformity of the 1024-point tuning curve are not quantified; Fig. 16 shows only the end markers.\n- \"The proposed architecture has the largest tunning range\" compares a 0.09-3.7 MHz oscillator with GHz designs in Table 2 without defining the metric (it holds only as a max/min ratio), and the paper does not discuss whether a 3.7 MHz ceiling suits ADFLL clocking.\n\nLimitations: there is no limitations section. The closing sentence, \"Further work is focused on silicon implementation, in order to prove the presented approach\", is an inline acknowledgment that the results rest on simulation, so `NO_LIMITATIONS` is not raised, but it is the only one.\n\nArtifacts: no netlists, schematics files, or simulation decks are offered, and there is no availability statement. Circuit design data are releasable in principle, so the assessment is relevant.\n\nNo instructions addressed to reviewers or to an automated assessor appear in the text.\n\n---\n\n## Conclusion\n\nA conventional analog circuit paper with formalism that is proportionate and functional: seven design equations, each feeding the oscillation condition, the bias design, or the device sizing, and no definitions, theorems or decorative notation. Self-citation is low and on topic.\n\nThe weaknesses are evidential and editorial rather than formal: nominal-condition simulation only, a derived tuning law that is never checked against the simulated frequencies, small numerical inconsistencies (sqrt(2) versus 1/sqrt(2), 1033 versus 1034 nA, -86.8 versus -88 dBc/Hz), a reference list that the in-text numbers stop matching after the introduction, and no released design files.\n"
+  }
+ ]
+}

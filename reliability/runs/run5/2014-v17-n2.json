@@ -1,0 +1,126 @@
+{
+ "batch_id": "2014-v17-n2",
+ "analysis_timestamp": "2026-10-18T05:30:15Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 17,
+  "issue": 2,
+  "year": 2014
+ },
+ "papers": [
+  {
+   "paper_id": "pop2014",
+   "paper": {
+    "title": "A Quality-Aware Forensic Speaker Recognition System",
+    "authors": [
+     "Gheorghe Pop",
+     "Dragoş Drăghicescu",
+     "Dragoş Burileanu"
+    ],
+    "abstract": "The performance of a speaker recognition systems based on Gaussian mixture models is often impaired both by the low quality and by short duration of test speech samples. A best material selection criterion is described in this paper, especially suitable for forensic automatic speaker recognition systems, where even enrollment speech quality might be important in some cases. The material selection is performed by checking well known short-time measures of input speech that carry quality information, such as linear cepstral peak, spectral autocorrelation peak to valley ratio, and windowed autocorrelation lag energy. Our tests show that the proposed approach outperforms reported speaker recognition solutions that consider quality of the input speech, at least in co-channel speech conditions.",
+    "keywords": [
+     "Forensic automatic speaker recognition",
+     "Gaussian mixture model",
+     "quality measure",
+     "linear cepstral peak"
+    ],
+    "doi": null,
+    "pages": "134-149",
+    "source_file": "gpop2014.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 50,
+    "artifact_availability": 50,
+    "intellectual_integrity": 45.75,
+    "composite": 46.81,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The performance of the baseline FASR system is demonstrated in Fig. 4 for speech recordings from the NIST 2008 SRE database.\" No code of the authors is linked; the MSR Identity Toolbox cited as [12] is third-party.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Concept Level 2 with four formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no): Eq. (4) Y = {y_t}, Eq. (5) q^k = {q_t^k}, Eq. (6) λ = {w_i, μ_i, Σ_i}, and the inline O = {o_1, ..., o_T}. Each one puts set braces around a list (frames, quality values, GMM parameters, feature vectors) that the prose already describes. None enters a proof or changes the implementation."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 combination of published speech-quality measures into frame-weighted GMM-UBM scoring. The feature and likelihood equations are needed, but the set-brace declarations of frames, quality signals, feature vectors and GMM parameters (Eqs. 4-6 and one inline) fail the Necessity Test, so FORMALISM_THEATER disqualifies. The comparative claims rest on figures for 34 test files, with no numeric EER reported.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Frame-level quality weighting in a GMM-UBM forensic speaker recognition system. Three published short-time measures (inverse linear cepstral peak, logWALE from [9], MSAPVR from [3]) are mapped to [0, 1] with experimentally chosen constants, multiplied into one weight per frame, and applied as exponents to the frame likelihoods; the system is tested on NIST 2008 SRE files mixed with babble noise.\n**Level:** 2 (Low)\n**Rationale:** Every component already exists: the GMM-UBM back end is the MSR Identity Toolbox, the quality measures come from [3] and [9], and quality-weighted scoring follows the approach of [6]. The contribution is their combination and tuning for forensic material, without complexity analysis, proof, or a new model with theoretical grounding. A simple modification of an existing method is Level 2.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 13 display equations numbered (1)-(12), with (12) used twice, plus the inline O = {o_1, ..., o_T}, the inline restatement q^k = {q_1^k, ..., q_T^k}, and q_t^k ∈ [0; 1]\n\n### Necessity Test\n- Eq. (1), ILCP per frame, reciprocal of the maximum of the DCT of the log power spectrum: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (2), logWALE per frame, log of the largest autocorrelation energy in a lag window of width W: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (3), MSAPVR = (2P1 + P2 + P3 + P4 + P5)/V1, also stated in the preceding sentence: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (4), Y = {y_t}, set braces naming the sequence of analysis frames: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (5), q^k = {q_t^k}, set braces naming each quality signal (restated inline before Eq. 8): Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (6), λ = {w_i, μ_i, Σ_i}, the GMM parameters as a set of triples, explained in words on the next line: Q1 yes, Q2 no, Q3 no → unnecessary\n- Inline O = {o_1, ..., o_T}, set braces naming the feature-vector sequence: Q1 yes, Q2 no, Q3 no → unnecessary\n- Inline q_t^k ∈ [0; 1], output range of the quality mappings: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (7), GMM likelihood as the weighted sum of the component densities: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (8), likelihood with each frame term raised to its quality value: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (9), log-likelihood weighted by the fused quality V(q_t): Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (10), Σ_t V(q_t) = 1, normalisation of the frame weights: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (11), q1 = (10 × ILCP)^4: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (12), q2 = 1 − 25 × logWALE: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (12, second use), q3 = 1 − √MSAPVR: Q1 yes, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The paper has no definitions, theorems or proofs, and the feature, likelihood and mapping equations are the basic equations a Level 2 system needs to say what it computes. Reading Eqs. (4)-(6) as inline definitions would give a complexity of 6 (0.4x), still within range. The failure is one of necessity, not of volume.\n\n### Issues\nFour elements do nothing except put set braces around a list: the analysis frames Y = {y_t} of Eq. (4), the quality signal q^k = {q_t^k} of Eq. (5), the feature vectors O = {o_1, ..., o_T} written inline before Eq. (8), and the speaker model λ = {w_i, μ_i, Σ_i} of Eq. (6), whose weights, mean vectors and covariance matrices the next line lists in words. This is the specification's set-notation-for-lists pattern. None of the four enters a proof, and the implementation (frames held in an array, model parameters estimated by the toolbox) is the same without them. At Level 2 a single such element raises FORMALISM_THEATER. No set operation (union, difference, filtering, membership lookup) stands in for a list operation, so UNNECESSARY_SET_THEORY is not raised. There are no definition blocks, so DECORATIVE_DEFINITIONS is not raised either.\n\nThe equations that are needed have problems of their own:\n- The gloss of Eq. (8) says that a high value of q_t^k makes p(o_t|λ)^(q_t^k) \"much closer to 1, which reduces the contribution\" of o_t. That inverts the arithmetic: for a likelihood below 1, it is a low exponent that pushes the term towards 1.\n- The clipping thresholds applied before Eqs. (11)-(12) are not reported.\n- The rule for the pure-speech-equivalent duration (\"the frame duration divided to its global quality measure, the reciprocal of the volume\") leaves unclear whether a low-quality frame counts for more or for less duration.\n- Two equations share the number (12).\n\n---\n\n## Citation Analysis\n\nOne self-citation among 16 references (SCR 6.3%): [13], the authors' SpeD 2013 paper on forensic case pre-assessment. It supplies the q-vector pre-assessment stage of Fig. 1 and the decision it produces, and belongs to the same line of work (similarity about 0.9). The other fifteen references are external studies of GMM speaker recognition, quality measures and classifier fusion, each cited where its content is discussed. No issues identified.\n\n---\n\n## Structural Analysis\n\nBackground claims in Section 2 are cited, but the results are thin:\n- The baseline uses a 64-Gaussian UBM trained on 250 randomly chosen NIST 2008 SRE files, with 34 speaker models and 34 test files. Thresholds were tuned on 150 further files.\n- Performance is shown only through confusion matrices and DET plots (Figs. 4, 6-8). No EER or minDCF value is reported for either the baseline or the proposed system.\n- Table 1 claims an EER improvement of \"At least 15%\", set against the 7.15% that [6] reports on its own data.\n- The conclusion's \"more than an order of LR magnitude better than other approaches\" has no figure or number behind it.\n\nCER is about 0.6: adequate overall, weak for the comparative claims. There is no limitations section. Inline, the abstract confines the claim to co-channel speech (\"at least in co-channel speech conditions\"), and Section 4 concedes that combining quality information \"tends to over-penalize portions of speech signals which have more than one quality measure lower than 1\".\n\nArtifacts: no code of the authors is released; the MSR Identity Toolbox they build on [12] is third-party. The results rest on the NIST 2008 SRE corpus, a named standard dataset, hence the data category. The randomly drawn subsets and the babble-noise source are not identified, so the exact test material cannot be rebuilt.\n\n---\n\n## Conclusion\n\nA Level 2 engineering paper that combines published speech-quality measures into a frame weight for GMM-UBM scoring. The feature, likelihood and mapping equations are needed, and their number is proportionate. Three numbered equations and one inline expression, however, only wrap the frame sequence, the quality signals, the feature vectors and the GMM parameters in set braces. The specification treats this as formalism theater at this level, and the flag disqualifies.\n\nApart from the flag, the evaluation is too small and too qualitative to carry the comparative claims of the abstract and conclusions: 34 test speakers, results shown only in figures, and a comparison with [6] made across different data. Citation conduct is clean."
+  },
+  {
+   "paper_id": "soto2014",
+   "paper": {
+    "title": "Sequentially Dependent Meta-Constraint Satisfaction Problem: An Application to Video Games",
+    "authors": [
+     "Ricardo Soto",
+     "Broderick Crawford",
+     "Eric Monfroy",
+     "Fernando Paredes"
+    ],
+    "abstract": "A Constraint Satisfaction Problem (CSP) consists in a sequence of variables holding a domain of possible values and relations among these variables called constraints. A meta-CSP can be seen as a metaproblem whose decomposition leads to a set of CSPs. The meta-variables correspond to sub-problems of the original problem, and a meta-constraint is a relation among those meta-variables. Meta-CSPs find many applications in industry, usually in processes that involve time and actions such as the control of a robot, a manufacturing process, or the scheduling of any common activity. In this paper, we introduce the notion of Sequentially Dependent Meta-CSP (SD Meta-CSP), which extends the meta-CSP in order to support applications where a dependency between sub-problems is mandatory. In this case, the meta-CSP is decomposed into a set of sub-problems {Pi, Pi+1, ..., Pn}, but the instance of the sub-problem Pi+1 sequentially depends on the solution of the sub-problem Pi. In this work we provide a formal definition for the SD Meta-CSPs, a framework to handle it, and we illustrate its applicability to video games. In particular, we model and implement agents as SD Meta-CSPs able to autonomously play two classic games: Ms. Pac-Man and Super Mario Bros.",
+    "keywords": [
+     "Video-games",
+     "artificial intelligence",
+     "constraint satisfaction problem"
+    ],
+    "doi": null,
+    "pages": "204-216",
+    "source_file": "rsoto2014.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 45.25,
+    "composite": 33.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link for the authors' agents in the text; the only link is to the third-party solver: \"We used the Choco Solver for solving each sub-problem sequentially.\" (footnote 1: http://www.emn.fr/z-info/choco-solver/)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "THEOREMLESS_FORMALISM"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Concept Level 2 with five formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no): the background CSP triple, the CSP solution in set-builder form, the SD Meta-CSP triple with its dependency function f, the SD Meta-CSP solution, and the Ms. Pac-Man restatement of the triple. The abstract states their content in one sentence, and Algorithm 2 executes it as a loop. The meta-constraints are never instantiated, and no proof uses any of these elements.",
+    "DECORATIVE_DEFINITIONS": "The CSP and SD Meta-CSP definitions are formal tuple-definition blocks: \"Formally, a CSP P is defined by a triplet\" ⟨V, D, C⟩, and \"Hence, formally, the SD Meta-CSP is composed of:\". They are unnumbered but of the \"A [noun] is a tuple (a, b, c) where...\" kind. No proof references them, and removing them would not change what a programmer builds: a loop that sends one move CSP per game step to Choco.",
+    "THEOREMLESS_FORMALISM": "Seven formal definitions and no theorem, proposition or proof. The definitions cover the CSP, its solution, the SD Meta-CSP, its solution, the Ms. Pac-Man SD Meta-CSP, and the Ms. Pac-Man and Mario move sub-problems. No property of the SD Meta-CSP or of Algorithm 2 is stated or proven."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 application of constraint programming to Ms. Pac-Man and Mario agents. The per-move CSP models are retained. The formal SD Meta-CSP definitions, which restate a solve-per-move loop in set notation and support no theorem, raise FORMALISM_THEATER, DECORATIVE_DEFINITIONS and THEOREMLESS_FORMALISM. The evaluation is 40 runs per game with no baseline.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A \"sequentially dependent meta-CSP\": a chain of CSPs in which the solution of one sub-problem becomes the input instance of the next. It is illustrated by Ms. Pac-Man and Mario AI agents that pose one small Boolean CSP per move to the Choco solver.\n**Level:** 2 (Low)\n**Rationale:** The paper applies an existing technique, constraint programming with an off-the-shelf solver, to a new domain, game-agent control. In operation the proposed extension is a loop that calls the solver once per move (Algorithm 2). No property, complexity result or proof comes with it, so it does not extend CSP theory in substance. Applying an existing method to a new domain is Level 2.\n\n### Formal Elements\n- Definitions: 7 (with constraints: 2)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (the generic move constraint and one instance for each game); the three pseudocode algorithms are not counted\n\nThe seven definitions are: the CSP; its solution and sol(P); the SD Meta-CSP with its dependency function f; the SD Meta-CSP solution; the Ms. Pac-Man SD Meta-CSP; the Ms. Pac-Man move sub-problem; and the Mario move sub-problem. All of them are referenced later, in the algorithms, Fig. 4 or Section 5. DUR is therefore near 1, and ORPHAN_DEFINITIONS does not apply.\n\n### Necessity Test\n- Sec. 3, CSP as a triple ⟨V, D, C⟩ with set-builder domains and constraints (background): Q1 yes, Q2 no, Q3 no → unnecessary\n- Sec. 3, CSP solution as the assignment {v1 → a1, ..., vn → an | ai ∈ dvi}, with sol(P): Q1 yes, Q2 no, Q3 no → unnecessary\n- Sec. 4, SD Meta-CSP as a triple of meta-variables, meta-domains with dependency function f: ai → vi+1, and meta-constraints: Q1 yes, Q2 no, Q3 no → unnecessary\n- Sec. 4, SD Meta-CSP solution as an assignment satisfying the meta-constraints: Q1 yes, Q2 no, Q3 no → unnecessary\n- Sec. 5.1, Ms. Pac-Man SD Meta-CSP, the Sec. 4 triple restated with \"move i\": Q1 yes, Q2 no, Q3 no → unnecessary\n- Sec. 5.1, Ms. Pac-Man move sub-problem ⟨V', D', C'⟩ with V' = {left, right, up, down} and D' = {0, 1}: Q1 yes, Q2 yes, Q3 no → necessary\n- Sec. 5.1, generic move constraint, (v = 1) ⇔ an n-ary conjunction or disjunction of conditions (block_{x,y} = val)_w: Q1 yes, Q2 yes, Q3 no → necessary\n- Sec. 5.1, (right = 1) ⇔ (block_{x+1,y} = 0 ∨ block_{x+1,y} = 1 ∨ block_{x+1,y} = 2): Q1 yes, Q2 yes, Q3 no → necessary\n- Sec. 5.2, Mario move sub-problem ⟨V', D', C'⟩ with V' = {left, right, jump, sAct} and D' = {0, 1}: Q1 yes, Q2 yes, Q3 no → necessary\n- Sec. 5.2, (right = 1) ⇔ (block_{x+1,y} = 1): Q1 yes, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 14\nExpected range (Level 2): 0-15\nRatio: 0.93x upper bound\n\n**Assessment:** Proportionate in count, just inside the Level 2 bound. However, five of the seven definitions fail the Necessity Test, and none of the seven supports a theorem.\n\n### Issues\nThe paper presents \"a formal definition for the SD Meta-CSPs\" as a contribution, yet the definition does no work:\n- Its one working idea, that the solution of P'i is the input of P'i+1, is stated in plain words in the abstract and carried out by the loop of Algorithm 2.\n- The meta-constraints C = {C_R | R ⊆ V, R ≠ ∅} are never instantiated for either game.\n- The meta-domains (all solutions of each move) are never enumerated; the agent takes whatever solution Choco returns.\n- The Ms. Pac-Man version in Section 5.1 repeats the triple with \"move i\" substituted.\n- Nothing is proven about the construct, and Algorithm 2 comes with no statement of correctness, completeness or cost.\n\nThe definitions are also loose. f is written as a map from a solution ai to the meta-variable vi+1, which conflates the variable with the instance it should generate. The SD Meta-CSP solution is written {x1 → a1, ..., vn → an | ...}, and Algorithm 3's loop guard reads \"while i ≤ 1 ≤ n\".\n\nThese definitions follow the \"a [noun] is a tuple (a, b, c) where\" and set-builder-for-a-list patterns, at Level 2. They raise FORMALISM_THEATER, DECORATIVE_DEFINITIONS and THEOREMLESS_FORMALISM. No set operation stands in for a list operation, so UNNECESSARY_SET_THEORY is not raised. The move models of Section 5 are retained: their Boolean variables, and the iff-constraints on neighbouring blocks, are what the agents actually compute.\n\n---\n\n## Citation Analysis\n\nTwo self-citations among 41 references (SCR 4.9%), both in the future-work paragraph as examples of autonomous search. [25], a reactive and hybrid constraint solver, is related (similarity about 0.6). [6], PSO tuning of a choice-function hyperheuristic, is marginal (about 0.4), since it concerns solver tuning rather than CSP modelling or game agents. Neither falls below 0.3. The remaining references cover CSP extensions and game-AI work on the two benchmarks, each cited where discussed. No issues identified beyond the marginal relevance of [6].\n\n---\n\n## Structural Analysis\n\nThe related work is well cited. The novelty claim, \"no published work addresses meta-CSP where dependency among sub-problems is mandatory\", is asserted without saying how the construct differs from the dynamic, composite and temporal CSP variants the paper itself surveys.\n\nThe evaluation is 40 runs per game, with a solve time of about 40 ms:\n- Ms. Pac-Man: 98% of runs clear the first level, 53% the second, and 10% reach the fourth.\n- Mario: 40 of 40 stages are completed, with the difficulty of the stages not stated.\n- There is no baseline agent and no game score.\n\nThe authors present the experiment as validating the use of the model rather than agent performance, and their claims stay correspondingly modest. CER is about 0.8 (adequate). There is no limitations section. Inline, the paper notes \"our goal here is rather to validate the use of SD Meta-CSP rather than performance of agents\" and \"if a sub-problem has no solution, the SD Meta-CSP also becomes inconsistent\".\n\nArtifacts: the agents' code is neither released nor claimed. The only link points to the third-party Choco Solver, and the Mario AI Benchmark is a third-party published environment, so the category is none. It is marked relevant because the agents could have been released.\n\n---\n\n## Conclusion\n\nA Level 2 application of constraint programming to two game agents, wrapped in a formal extension that does not carry its weight. The per-move CSP models are legitimate and implemented. The CSP background triple, the SD Meta-CSP triple, the two solution definitions and the Ms. Pac-Man restatement, by contrast, put into set notation what the abstract says in one sentence and what Algorithm 2 does in a loop. Nothing is proven about them. Under the zero-tolerance rule this is formalism theater, and it disqualifies.\n\nThe evaluation is small and has no baseline, though its claims are modest. Citation conduct is clean."
+  }
+ ]
+}

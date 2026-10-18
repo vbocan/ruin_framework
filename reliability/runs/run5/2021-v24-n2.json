@@ -1,0 +1,225 @@
+{
+ "batch_id": "2021-v24-n2",
+ "analysis_timestamp": "2026-10-18T17:13:09Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 24,
+  "issue": 2,
+  "year": 2021
+ },
+ "papers": [
+  {
+   "paper_id": "veselu2021",
+   "paper": {
+    "title": "New Constant-gm circuit for precision chopper offset-stabilized operational amplifiers",
+    "authors": [
+     "Adrian Constantin Veselu",
+     "Cornel Stănescu",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "The paper presents a low-voltage chopper offset-stabilized operational amplifier with a new constant-gm technique, having a 1.8–5.5 V supply range, designed and simulated in a 0.25 µm CMOS process. The amplifier has an offset voltage of ±5 µV, minimum CMRR of 106 dB, minimum PSRR of 121 dB, 51 nV/√Hz voltage noise density and 550 kHz unity-gain bandwidth. The quiescent current is only 36 µA and was obtained due to the new low current constant-gm technique, which provides a variation of only 4% of the input transconductance and almost constant unity-gain bandwidth within the common-mode voltage range.",
+    "keywords": [
+     "Microelectronics and electronic packaging",
+     "chopper offset-stabilized operational amplifier",
+     "constant-gm",
+     "low current",
+     "offset voltage",
+     "noise"
+    ],
+    "doi": null,
+    "pages": "182-200",
+    "source_file": "paper687.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 70,
+    "artifact_availability": 0,
+    "intellectual_integrity": 83.0,
+    "composite": 62.25,
+    "final": 62.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Simulated constant-gm input stage for a chopper op-amp; minimal, functional device equations, clean citations, inline limitations, simulation-only evidence and nothing released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A rail-to-rail CMOS input stage whose transconductance is held constant over the common-mode range by dummy differential pairs and added current mirrors, used in a 0.25 um chopper offset-stabilized operational amplifier; design and simulation only.\n**Level:** 2 (Low)\n**Rationale:** The contribution is a modification of a known constant-gm technique (saturation control with dummy pairs, refs [4], [5]) that lowers its current overhead, demonstrated by circuit simulation. There is no new theory, no analytical model beyond the textbook weak-inversion gm relation, and no proof; it is a simple optimisation of an existing method, which the specification places at Level 2.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 numbered (1)-(3), plus inline inequalities delimiting the three common-mode regions\n\n### Necessity Test\n- Eq. (1)-(3), total transconductance gm = Iref/(n Vth) in regions I, II, III: Q1 no, Q2 yes, Q3 yes -> necessary (the weak-inversion relation fixes the doubling of the active pair's tail current that the proposed mirrors implement, and the three equations together show the total gm is the same in every region)\n- Inline region boundaries (e.g. VCM < VDD - 2VSDP,sat - VSG): Q1 no, Q2 yes, Q3 no -> necessary (they define the operating regions the mirror switching is designed around)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Three standard device equations carry the working principle and are used in the argument for the new circuit (Section 3 refers back to (1)-(3) for each region).\n\n### Issues\nNone identified in the formalism. References [4] and [6] are the same PACET 2017 paper listed twice.\n\n---\n\n## Citation Analysis\n\nTwo of fourteen references are self-citations (14.3%). [1] is the authors' own CAS 2020 conference paper of which this article is the declared extended version; [8] (Stanescu et al., notch filter for ripple reduction in chopper amplifiers) describes the notch filter used inside the amplifier of Fig. 5. Both are directly on topic. The rest of the list is the standard constant-gm and chopper-amplifier literature (Huijsing, Burt and Zhang, Monticelli). No concerning pattern.\n\n---\n\n## Structural Analysis\n\nThe claims are backed by simulation tables and figures: UGBW and phase margin against VCM with and without the constant-gm circuit (Table 1), Monte Carlo offset and CMRR (Tables 2, 4-7), and a comparison with two published chopper amplifiers (Table 8). The claim that the technique needs \"eight times lower\" current than classical techniques rests on the Iref/8 argument of Section 3 and the 0.41 uA increment in Table 1. All results are from simulation; no silicon measurement is reported, and this is not acknowledged. Limitations are acknowledged inline: the added mirrors make the circuit slower and more complex, and chopper stabilisation worsens settling time, slew rate, and step response.\n\nNo netlists, simulation decks, or data are offered; the paper contains no availability statement.\n\n---\n\n## Conclusion\n\nA competent analogue design paper whose small amount of formalism is the standard weak-inversion transconductance relation, used to explain why the proposed mirrors keep gm constant. Citation practice is clean. The evidence is entirely simulated, which the paper does not flag as a limitation, and nothing is released for reproduction."
+  },
+  {
+   "paper_id": "paun2021",
+   "paper": {
+    "title": "Microheater optimized for the integration with metasurface-based IR sources for gas sensing application",
+    "authors": [
+     "Costel Paun",
+     "Roxana Tomescu",
+     "Catalin Parvulescu",
+     "Octavian Ionescu",
+     "Doina Elena Gavrila",
+     "Dana Cristea"
+    ],
+    "abstract": "This paper presents the design, manufacturing stages, electrothermal analysis and characterization of micro-heaters with platinum (Pt) resistive layer in four geometric configurations, which can be integrated with metasurfaces absorbers with applications in gas detection. The results obtained according to the electrothermal analysis and the performed experiments show that the studied micro-heaters can be integrated with metasurfaces to obtain the IR emission, necessary for gas detection.",
+    "keywords": [
+     "Microheater",
+     "IR emitter",
+     "metasurfaces",
+     "metamaterial absorber",
+     "gas sensor"
+    ],
+    "doi": null,
+    "pages": "201-212",
+    "source_file": "paper688.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 78.5,
+    "composite": 58.88,
+    "final": 58.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Platinum micro-heater design, fabrication, and thermal characterisation; textbook electrothermal equations stated but unused (one misstated), clean citations, simulation matched by measurement, integration with the metasurface not demonstrated, nothing released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design (COMSOL electrothermal simulation), fabrication, and thermal characterisation of four platinum meander micro-heaters on fused silica, intended to serve as heater and back-plane for a metasurface narrow-band IR emitter for CO2 sensing.\n**Level:** 2 (Low)\n**Rationale:** The work applies standard thin-film heater design and a commercial multiphysics solver to a new layer stack, then compares four geometries by simulation and measurement. It is an empirical engineering study with no new model or algorithm.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 9, numbered (1)-(9), plus the Stefan-Boltzmann constant\n\n### Necessity Test\n- Eq. (1), Joule power P = RI^2: Q1 no, Q2 yes, Q3 no -> necessary (links the bias to the dissipated power the heater is designed for)\n- Eq. (2), R = rho L/(w g): Q1 no, Q2 yes, Q3 no -> necessary (ties meander length, width, and Pt thickness to the resistance)\n- Eq. (3), heat generated over an interval, dQ = dt P: Q1 yes, Q2 no, Q3 yes -> necessary (first step of the derivation that yields (9))\n- Eq. (4), steady-state balance dt P = Qcond + Qconv + Qrad: Q1 yes, Q2 no, Q3 yes -> necessary (restates the preceding sentence, but is the step into which (6)-(8) are substituted)\n- Eq. (5), (4) divided by dt: Q1 yes, Q2 no, Q3 yes -> necessary (intermediate step of the same derivation)\n- Eq. (6), conduction loss A k dT/dx: Q1 no, Q2 no, Q3 no -> necessary (states the functional form of the loss term)\n- Eq. (7), convection loss As h dT: Q1 no, Q2 no, Q3 no -> necessary (as above)\n- Eq. (8), radiation loss AR eps sigma dT^4: Q1 no, Q2 no, Q3 no -> necessary (as above; but see Issues)\n- Eq. (9), combined power balance: Q1 no, Q2 no, Q3 no -> necessary (the governing relation the section derives)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. These are the basic equations a Level 2 engineering paper is expected to carry, the textbook electrothermal model of a resistive heater (attributed to [15]). None is used afterwards: the geometries come from \"a set of preliminary simulation\" in COMSOL, and no number in the paper is computed from (1)-(9). The equations are background rather than working formalism, but they are not the notation-for-programming patterns the formalism flags target, and each states a quantitative law or is a step in deriving (9).\n\n### Issues\nEq. (8) writes the radiative loss as eps sigma dT^4, the fourth power of a temperature difference, where the Stefan-Boltzmann law needs the difference of fourth powers of absolute temperatures; the constant is given in W m^-2 °C^-4 rather than K^-4. Table 1 gives electrical conductivity in kg/m^3. These are errors of statement, not of necessity.\n\n---\n\n## Citation Analysis\n\nTwo of eighteen references are self-citations (11.1%). [14] (Paun, Tomescu, Cristea, Ionescu, Parvulescu, CAS 2020) is the conference paper this article follows up; [13] (Tomescu et al., META 2019) is on IR emissivity control with metasurfaces, the component the heater is designed for. Both are on topic. The remaining references cover NDIR gas sensing, metasurface absorbers, and micro-heater technology. No concerning pattern.\n\n---\n\n## Structural Analysis\n\nSimulated temperature profiles (Figs. 4-8) are compared with thermocouple and IR-camera measurements (Figs. 11-13), and Fig. 12 supports the stated agreement between simulation and measurement; R(T) linearity is shown in Fig. 10. The abstract's claim that the heaters \"can be integrated with metasurfaces to obtain the IR emission\" is not tested: no metasurface is fabricated on a heater and no emission spectrum is measured, so the paper shows only that the target temperature is reached. Limitations are acknowledged inline: the 1 cm^2 active area was imposed by the existing optical set-up and will be reduced to lower power consumption, and further miniaturisation is planned.\n\nCOMSOL is a third-party tool; no model files, layouts, or measurement data are offered, and there is no availability statement.\n\n---\n\n## Conclusion\n\nA straightforward micro-heater design and characterisation study with textbook electrothermal equations that are stated but never used, one of them misstated. Citation practice is clean and simulation is checked against measurement, but the integration with the metasurface emitter that motivates the title is left for future work, and nothing is released."
+  },
+  {
+   "paper_id": "chiriac2021",
+   "paper": {
+    "title": "Manipulation of particles using dielectrophoresis in a microchannel",
+    "authors": [
+     "Eugen Chiriac",
+     "Marioara Avram",
+     "Corneliu Bălan"
+    ],
+    "abstract": "Over the years several methods were used to separate cells within a microfluidic device such as cavities, with vortex microfluidics method, or cell trapping mechanisms using size filters. However, one of the methods that is widely used to separate cancer cells from blood cells is the dielectrophoresis. In this work we employ the numerical code COMSOL Multiphysics for a dielectrophoretic separation of CTCs (circulating tumor cells) from RBCs (red blood cells) in a 3D microchannel. The microfluidic device is composed of one inlet and three outlets. The non-uniform alternative electric field is generated using interdigitated electrodes and it separates the cells within the device to the corresponding outlet. The electric field frequency was set to 100 kHz. For this paper, one single CTC line is selected MDA-MB-231, breast cancer cells. The CTCs and the RBCs are considered in an ideal way in the simulation as spheres, but with the afferent characteristics. This work can be extended to testing multiple CTC lines at various flow velocities and electric field frequencies",
+    "keywords": [
+     "particle manipulation",
+     "dielectrophoresis",
+     "microchannel",
+     "CFD"
+    ],
+    "doi": null,
+    "pages": "213-221",
+    "source_file": "paper689.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 80,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 72.5,
+    "composite": 54.38,
+    "final": 54.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "COMSOL study of dielectrophoretic CTC/RBC separation with micro-PIV check of the flow; proportionate physical-model equations, on-topic self-citations at 18%, thin and partly inconsistent separation evidence, nothing released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** COMSOL simulation of dielectrophoretic separation of a breast-cancer cell line (MDA-MB-231) from red blood cells in a microchannel with interdigitated electrodes, with fabrication of the PDMS/pyrex device and micro-PIV validation of the flow field only.\n**Level:** 2 (Low)\n**Rationale:** Standard DEP theory and a commercial solver are applied to a particular geometry and pair of cell types. The work is a parametric simulation study (two frequencies) with a partial experimental check; there is no new model or method.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 14, numbered (1)-(14)\n\n### Necessity Test\n- Eq. (1), DEP force 2 pi a^3 eps0 epsM Re[CM] grad|E|^2: Q1 no, Q2 yes, Q3 no -> necessary (the force applied to the particles in the trajectory step)\n- Eq. (2), Clausius-Mossotti factor: Q1 no, Q2 yes, Q3 no -> necessary (its sign decides positive or negative DEP, Fig. 6b)\n- Eq. (3)-(4), complex permittivities of particle and medium: Q1 no, Q2 yes, Q3 no -> necessary (inputs to (2) from the Table 1 parameters)\n- Eq. (5), Reynolds number on the hydraulic diameter: Q1 no, Q2 yes, Q3 yes -> necessary (Re = 0.05 << 1 justifies the Stokes model)\n- Eq. (6), hydraulic diameter 4A/P: Q1 no, Q2 yes, Q3 no -> necessary (input to (5))\n- Eq. (7)-(8), Stokes and continuity equations: Q1 no, Q2 yes, Q3 no -> necessary (the flow model solved in step one)\n- Eq. (9)-(12), current conservation, potential, constitutive relations: Q1 no, Q2 yes, Q3 no -> necessary (the electric-currents model solved in step two)\n- Eq. (13), Newton's second law for the particle: Q1 no, Q2 yes, Q3 no -> necessary (the particle-tracing model)\n- Eq. (14), Stokes drag: Q1 no, Q2 yes, Q3 no -> necessary (one of the two forces in (13))\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The equations are the physical model the three simulation steps solve and state its inputs; they are basic equations of the field, not decoration.\n\n### Issues\nNotation is loose: V denotes the electric potential in (10) and the particle velocity in (14), and the drag force omits the fluid velocity (it should act on the relative velocity). The text later raises the inlet velocity \"to 500 m/s\", which from Section 3 should be 500 um/s. These are presentation errors and do not make any element unnecessary.\n\n---\n\n## Citation Analysis\n\nTwo of eleven references are self-citations (18.2%, elevated band). [8] (Chiriac, Avram, Balan, CAS 2020) is the conference work this paper continues. [4] (Avram A. et al., including M. Avram) is a bipolar magnetophoretic system for manipulating magnetic particles, cited as an example of magnetic active separation; it is on particle manipulation in microfluidics, so related (similarity about 0.5), not padding. Reference [1] is incomplete (no venue or year), and [11] is the COMSOL manual. No irrelevant self-citation.\n\n---\n\n## Structural Analysis\n\nThe flow simulation is checked against micro-PIV (Figs. 4-6a), which is the only experimental validation; the separation itself rests on two simulations with one particle of each type. The abstract states that the field frequency was set to 100 kHz and that the field \"separates the cells within the device to the corresponding outlet\", but Section 4 reports that at 100 kHz both particles remain attached to the electrodes and separation appears only at 4.5e8 Hz. The paper also says both particles undergo negative DEP at 100 kHz yet stay on the electrodes, where negative DEP should repel them; this is not discussed. The conclusion that \"better results are obtained\" at high frequency is drawn from these two runs. Limitations are acknowledged inline: cells are modelled as ideal spheres, the geometry is simplified for computational cost, and the high frequency needed is hard to obtain experimentally and may damage cells.\n\nCOMSOL is third-party; no model files or PIV data are offered, and there is no availability statement.\n\n---\n\n## Conclusion\n\nA modest simulation study whose equations are the standard physical model of the solver, so the formalism is proportionate. Self-citation is in the elevated band but both self-citations are on topic. The evidence for separation is thin and partly at odds with the abstract, and nothing is released for reproduction."
+  },
+  {
+   "paper_id": "rebigan2021",
+   "paper": {
+    "title": "Fabrication of Fresnel lenses operating as image correcting optical components for long infrared imaging systems",
+    "authors": [
+     "R. Rebigan",
+     "A. Avram",
+     "R. Tudor",
+     "M. Kusko",
+     "D. Ursu",
+     "G. Sorohan",
+     "C. Kusko"
+    ],
+    "abstract": "We present the technological processes required to fabricate silicon Fresnel lenses with sixteen discrete depth levels operating as corrector optical components for long infrared imaging systems. In order to configure the discrete surface of the lenses, four separated photolithographic processes each one of them followed by deep reactive ion etching were used. In order to detach the configured lenses presenting a disk like shape from the wafer, a DRIE Bosch deep etching process was employed. Finally, an antireflective layer consisting of a nanostructured surface was configured on both sides of the lenses in order to improve the transmission in LWIR spectral range. The geometrical parameters of the fabricated Fresnel lenses were determined by white light interferometry method and it was found that they are in good agreement with the design specifications. The optical and scanning electron microscopy measurements reveal a high quality of the optical surface with a low value of roughness. The spectral characteristics of the lenses in the LWIR spectral region reveal a transmission of above 70%.",
+    "keywords": [
+     "Fresnel lens",
+     "long infrared optics",
+     "silicon microfabrication",
+     "photolithographic processes",
+     "reactive ion etching"
+    ],
+    "doi": null,
+    "pages": "233-243",
+    "source_file": "paper691.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.0,
+    "composite": 57.0,
+    "final": 52.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link to the authors' own material; the only URL in the text, reference [15], is a third-party equipment vendor page on cryogenic silicon etching",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgement of any constraint of the process or the lenses; the untested image-correcting function, the unquantified roughness, and the chromatic behaviour are not discussed as limitations."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Process report on 16-level silicon Fresnel corrector lenses for LWIR; minimal design formulas used to set etch depths, clean citations, geometry and transmission measured but the corrector function untested, no limitations stated, nothing released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** The fabrication process for 16-level silicon Fresnel corrector lenses for LWIR imaging (four lithography and cryogenic DRIE steps, Bosch release, KOH thinning, MACE antireflective nanostructuring), with WLI, microscopy, and FTIR transmission characterisation.\n**Level:** 2 (Low)\n**Rationale:** The paper reports a process flow built from established micro-fabrication steps, with tuned etch parameters and empirical characterisation. Multi-level Fresnel lenses from n masks giving 2^n levels are a known approach (cited [14]). It is a process and parameter study with no new model or algorithm.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 inline (step height d = lambda/(n - 1); sublevel depths d1 = d/2, d2 = d/4, d3 = d/8 with 2^n levels from n masks)\n\n### Necessity Test\n- Inline d = lambda/(n - 1), height giving a 2 pi phase step: Q1 no, Q2 yes, Q3 no -> necessary (fixes the 3.93 um zone height used to partition the lens)\n- Inline d_k = d/2^k and 2^n levels: Q1 no, Q2 yes, Q3 no -> necessary (sets the 2 um, 1 um, 500 nm, 250 nm etch depths of Table 1)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Two design formulas, both used to set the fabrication parameters.\n\n### Issues\nNone identified in the formalism.\n\n---\n\n## Citation Analysis\n\nTwo of twenty references are self-citations (10%). [14] (Rebigan et al., CAS 2020) is the conference version, from which Figs. 1 and 2 are reproduced with attribution in the captions; [19] (Rebigan et al., 2020) describes the antireflective layers applied here. Both are directly relevant. The silicon refractive index is cited to [10] (a Fresnel-lens camera paper) where [20] (Salzberg and Villa, infrared refractive indexes) appears to be meant, and [5] and [20] are not otherwise cited in the text; these are reference-handling slips, not citation manipulation. Reference [15] is a vendor web page.\n\n---\n\n## Structural Analysis\n\nWLI cross-sections support the stated agreement of the 250 nm sublevel heights with the design (Fig. 9), and FTIR spectra support the transmittance figure (Fig. 7). Other claims are less well supported: the abstract's \"high quality of the optical surface with a low value of roughness\" has no roughness measurement behind it, and the lenses' function as image correctors, which the title states, is not tested optically. Thicknesses are misreported in one passage (270 nm and 540 nm for 270 um and 530 um). No limitation of the process or the lenses is acknowledged anywhere.\n\nThe process parameters are tabulated (Tables 1-2), but description is not availability. No mask files or measurement data are offered. The only URL ([15]) is a third-party equipment vendor's page on cryogenic silicon etching, not an artifact of the authors.\n\n---\n\n## Conclusion\n\nA detailed process report with the minimum design formalism, used directly to set etch depths. Citation practice is acceptable. The characterisation supports the geometric claims but not the image-correcting function or the roughness claim, no limitations are stated, and nothing is released."
+  }
+ ]
+}

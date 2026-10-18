@@ -1,0 +1,72 @@
+{
+ "batch_id": "2020-v23-nT",
+ "analysis_timestamp": "2026-10-18T17:13:32Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 23,
+  "issue": "T",
+  "year": 2020
+ },
+ "papers": [
+  {
+   "paper_id": "anikin2020",
+   "paper": {
+    "title": "Kohonen Neural Network Training by Cellular Automaton",
+    "authors": [
+     "Valerii Anikin",
+     "Oksana Anikina",
+     "Oksana Gushchina"
+    ],
+    "abstract": "Effective integral dispersion quantile measure of the quality of data topology mapping by the Kohonen neural network is proposed. The comparison of the algorithm of SOM training by cellular automaton and classical Kohonen online and batch training algorithms was systematically carried out. Advantages and disadvantages of the new SOM training algorithm were identified.",
+    "keywords": [
+     "Artificial Intelligence",
+     "Kohonen neural network",
+     "self-organizing map",
+     "learning algorithm of SOM",
+     "cellular automaton",
+     "quantile dispersive measure"
+    ],
+    "doi": null,
+    "pages": "T78-T93",
+    "source_file": "paper675.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 100,
+    "intellectual_integrity": 45.25,
+    "composite": 58.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"The site https://github.com/okmih/Anikin_Kohonen contains the R code of the training algorithm and the data sets studied in the paper.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with four formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no): equations (4)-(6), the quantization error, topographic error and distortion reproduced from [15] only to be set aside and never computed in the experiments, and the unnumbered identity that restates QDM through QDM(j). Each can be said exactly in one sentence and none supports a proof or bound. The operative equations (1)-(3), (7), (8) and the data-generation formula pass."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 empirical comparison of a cellular-automaton SOM training algorithm with Kohonen batch training, with R code and data released on GitHub; formalism theater under the zero-tolerance rule because three literature quality measures the paper never computes are given as equations, and the proposed QDM is presented as a topology-preservation measure without validation and without reference to the map grid.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Re-implementation in R (package 'kohonen') of a cellular-automaton training algorithm for self-organizing maps that one of the authors proposed earlier and realised in MS Excel [10], with configuration variants (initial configurations 'init' and 'far', map rotation, interleaving with k-means epochs, selectively broken connections), an empirical comparison against Kohonen online and batch training on synthetic 2-D and 3-D sets and the 21-dimensional 'waveform' set, and a proposed SOM quality criterion, the integral quantile dispersion measure (QDM).\n**Level:** 2 (Low)\n**Rationale:** The training algorithm is not new to this paper; the modifications are configuration and parameter variants explored by experiment. QDM is a root-mean-square difference between per-coordinate quantiles of the data and of the code vectors. There is no complexity analysis, no convergence argument and no proof. The contribution is an empirical comparison of training algorithms with parameter tuning, which the specification places at Level 2; nothing justifies raising it to Level 3.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 (numbered equations (1)-(8), one unnumbered identity after (8), and the data-generation formula for 'sector120_3D' written in R notation)\n\nA pseudocode listing of the CA training algorithm and a list of its parameters are present; they are algorithm description, not formalism. The inline \"X∈R^d\" is conventional notation for the input space and is not counted separately.\n\n### Necessity Test\n- Eq. (1), winning unit as argmin of the squared Euclidean distance: Q1 yes, Q2 yes, Q3 no → necessary (step 3 already says it in words, but the equation fixes the distance both implemented algorithms use)\n- Eq. (2), online update rule with learning rate α(t) and neighbourhood h: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (3), batch update rule, which the CA algorithm also uses: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (4), quantization error Eq, reproduced from [15]: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (5), topographic error Et, reproduced from [15]: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (6), distortion Ed, reproduced from [15]: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (7), integral QDM, the proposed criterion: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (8), per-coordinate QDM(j), reported in Tables 2 and 4: Q1 no, Q2 yes, Q3 no → necessary\n- Unnumbered identity QDM = sqrt((1/d) Σ QDM(j)²): Q1 yes, Q2 no, Q3 no → unnecessary (it restates (7) through (8); \"QDM is the root mean square of the QDM(j)\" says the same)\n- Data-generation formula z_i = y_i + amp*(2*runif(1)-1): Q1 yes, Q2 yes, Q3 no → necessary (it fixes how the 3-D data set is built)\n\n### Proportionality\nCalculated complexity: 0 (no definitions, theorems or proofs)\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate by volume. The operative equations are the standard SOM update rules and the proposed measure, which is what a Level 2 paper is expected to carry. The flag comes from the Necessity Test, not from the count.\n\n### Issues\n- Equations (4)-(6) are reproduced from [15] only to be set aside: \"Instead of these quality measures, we propose using a simpler and more computationally efficient integrated quantile dispersion measure (QDM).\" None of them is computed in any experiment, no relation between them and QDM is derived, and each can be stated exactly in one sentence (mean distance from each object to its winner's code vector; fraction of objects whose first and second winners are not adjacent; neighbourhood-weighted sum of squared object-to-code-vector distances). As printed, (6) even drops the unit index from the neighbourhood term, and (4) subtracts the winner index I(x_i) from a vector, so the notation is less precise than the sentences it replaces. Under the zero-tolerance rule for Level 1-2, these elements make the paper formalism theater even though its working equations are sound.\n- The text states that Q_i(w(j)) is \"equivalently, the jth coordinate of the ith code vector\", which holds only after the code vectors are sorted coordinate by coordinate. As defined, QDM compares marginal distributions and is unchanged by any reassignment of code vectors among grid units; it does not involve the grid at all.\n\n---\n\n## Citation Analysis\n\n15 references, 2 self-citations (SCR 2/15 = 13.3%, normal range).\n\n- [10] Anikin and Karmanova (2014), the cellular-automaton training algorithm this paper re-implements in R: directly relevant (similarity about 0.9).\n- [13] Anikin and Anikina (2014), on modelling and visualising the information structure of algorithms in MS Excel: cited to explain why the earlier spreadsheet realisation could not support a systematic study. Tangential to SOM training but connected to the paper's motivation; marginal (similarity about 0.45), above the 0.3 threshold. No IRRELEVANT_SELF_CITATION.\n\nThe block [6-9] is attached to a single generic sentence (\"the comparative analysis of the productivity and efficiency of various types of neural networks is carried out\"); the works cited (Assamese character recognition, function approximation, genetic-algorithm training, medical decision-making) bear little on SOM training and are not engaged with anywhere else. They read as padding, but they are not self-citations and the paper shows no mutual-citation pattern, so no citation flag applies. The statement that online SOM training \"is extremely resistant to changes in the neighborhood function and always converges\" carries no citation.\n\n---\n\n## Structural Analysis\n\nThe results section reports observations tied to figures and tables: twist percentages over 20 independent runs of som.koh (Table 1), QDM values for the two configurations (Table 2), the dependence on data density n/N (Table 3), and per-coordinate QDM on 'waveform' (Table 4). The paper is candid that the CA algorithm does not always win (\"this is not always the case with more complex training data sets\").\n\nThe weak point is the central contribution. The paper presents QDM as a criterion of \"how well a trained SOM preserves the training data topology\", yet QDM, by its own formula, does not depend on the grid and so cannot register a twist; the twisting results are read off connection maps by eye, not from QDM. QDM is never compared numerically with the established measures (4)-(6); the authors say a relation is \"theoretically impossible to establish\" and rest the case on QDM behaviour that looks \"quite logical\". The claim that QDM is more computationally efficient than those measures has no timing or complexity evidence. The som.ca vs som.koh comparisons in Tables 2-4 rest on single runs of a stochastic baseline (seed=101) with no variance reported, although Table 1 shows that som.koh results vary across realisations. The \"for the first time\" novelty claim for a quantile-based measure is not backed by a search of the literature. Claim-evidence ratio estimated around 0.6 (adequate).\n\nLimitations: no dedicated section, but several inline acknowledgments: poor unfolding of incorrectly oriented and strongly elongated grids, the advantage holding only \"at least on the studied data sets\", poor self-organisation on complex data sets because the neighbourhood radius is fixed at one.\n\nArtifacts: the paper links the authors' repository: \"The site https://github.com/okmih/Anikin_Kohonen contains the R code of the training algorithm and the data sets studied in the paper.\" The repository name matches a co-author's e-mail address, and 'waveform' is a public benchmark. Code and data are both released.\n\n---\n\n## Conclusion\n\nA modest Level 2 empirical study: an earlier cellular-automaton SOM training algorithm is ported to R, varied, and compared with Kohonen batch training on synthetic data, with code and data released on GitHub, which is the paper's strongest point. The working formalism (update rules and the proposed QDM) is appropriate. The paper nonetheless reproduces three literature quality measures it never computes, plus a restating identity, and under the specification's zero-tolerance rule for Level 1-2 these unnecessary elements raise FORMALISM_THEATER, which caps the score.\n\nApart from the flag, the main substantive weakness is that QDM is offered as a measure of topology preservation without validation against established measures and, by construction, without reference to the map grid; the algorithm comparisons rest on single runs of a stochastic baseline. Citation practice is unremarkable apart from a loosely relevant reference cluster."
+  }
+ ]
+}

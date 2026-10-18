@@ -1,0 +1,134 @@
+{
+ "batch_id": "2018-v21-n2",
+ "analysis_timestamp": "2026-10-18T17:14:41Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 21,
+  "issue": 2,
+  "year": 2018
+ },
+ "papers": [
+  {
+   "paper_id": "stefan2018",
+   "paper": {
+    "title": "IT Driven Distributed Consensus for an Integrated Globalized World",
+    "authors": [
+     "Gheorghe M. Ştefan",
+     "Răzvan Mihai"
+    ],
+    "abstract": "The authors argue that blockchain technology and artificial intelligence can improve decision-making at every level of society. They review problems of contemporary democracies and of globalisation, describe blockchain technology, propose a blockchain-based vote and a competence-weighted vote, and discuss the implications for what they call iDemocracy, iConsensus and iGovernance.",
+    "keywords": [
+     "blockchain",
+     "distributed consensus",
+     "distributed ledgers",
+     "leaderless democracy",
+     "iDemocracy",
+     "iConsensus",
+     "iGovernance"
+    ],
+    "doi": null,
+    "pages": "114-128",
+    "source_file": "paper585.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 40.95,
+    "composite": 30.71,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DISPROPORTIONATE_FORMALISM",
+    "THEOREMLESS_FORMALISM",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 position paper with eight formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no): the wallet-state equations, the decision list D = ((A_1), ..., (A_m)), the arrays R_i and P_k, the matrix R(D), the opinion arrays O+/O-/O0, and the structured lists D and DC. Each names a list, array or record the prose already describes.",
+    "DISPROPORTIONATE_FORMALISM": "Seven inline definitions (D, R_i, P_k, R(D), O+/O-/O0, structured D, DC) and no theorems or proofs give a formalism complexity of 14, 2.8 times the Level 1 upper bound of 5 (trigger above 10).",
+    "THEOREMLESS_FORMALISM": "Seven inline definitions and no theorem, lemma or proposition; no property of the voting scheme (anonymity, robustness, convergence of iiVote) is stated or proved.",
+    "UNSUPPORTED_CLAIMS": "Estimated CER about 0.2: sweeping judgments about NGOs, politicians, democracy and AI-based governance rest on assertion or on quotations from trade books, and the proposed voting mechanism is not implemented, simulated or evaluated."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 1 position essay on democracy and blockchain whose competence-weighted voting proposal is dressed in list and array notation, with no implementation, no evaluation, and little evidence for most of its claims.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Position essay on the failings of representative democracy and globalisation, followed by a sketch of blockchain voting (one voteCoin per voter, sent to option wallets), a competence-weighted \"iVote\", and an iterative, commented variant (\"iiVote\") meant to reach consensus.\n**Level:** 1 (Trivial)\n**Rationale:** Sections 2, 3, 5, 7 and 8 are argument and a description of blockchain drawn from trade books. The only technical content (Sections 4 and 6) is an unimplemented design that combines an existing technology (cryptocurrency wallets) with a weighted tally: a voter's competence for each article is a normalised weighted sum of attribute scores, each vote is multiplied by it, and the votes are summed. No algorithm analysis, protocol property, security argument or evaluation is given. A conceptual architecture assembled from existing components is Level 1.\n\n### Formal Elements\n- Definitions: 7, all inline, none numbered (with constraints: 2, the value domains [0,1] or {0,1} of R_i and P_k)\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 (wallet state, row normalisation, competence product, weighted vote vectors, result matrix, coefficients gamma and delta)\n\nThe inline definitions are the declarations of the decision list D, the requirement array R_i, the voter competence array P_k, the matrix R(D), the opinion arrays O+/O-/O0, the structured list D = ((A_i(P_i)(K_i)) ...), and the commented list DC. The iiVote procedure (steps 0-3) is an algorithm in prose and is not counted as a formal element.\n\n### Necessity Test\n- Sec. 4.1 wallet state, VW_i = 1, OW_j = 0, then OW_j = v_j with sum v_j <= K: Q1 yes, Q2 no, Q3 no → unnecessary\n- Decision as a list of lists, D = ((A_1), ..., (A_m)) with each A_i a text: Q1 yes, Q2 no, Q3 no → unnecessary\n- Requirement array R_i = [r_i1, ..., r_in], r_ij in [0,1] or {0,1}: Q1 yes, Q2 no, Q3 no → unnecessary\n- Voter competence array P_k = [p_1, ..., p_n]: Q1 yes, Q2 no, Q3 no → unnecessary\n- Matrix R(D) stacking the R_i: Q1 yes, Q2 no, Q3 no → unnecessary\n- Row normalisation R'(D), r'_ij = r_ij / sum_j r_ij: Q1 yes, Q2 yes, Q3 no → necessary\n- Competence vector C_k = R(D) x P_k^T: Q1 yes, Q2 yes, Q3 no → necessary\n- Opinion arrays O+, O-, O0 with the one-hot triple <o+ o- o0>: Q1 yes, Q2 no, Q3 no → unnecessary\n- Weighted vote vectors V+, V-, V0 (element-wise product of O with C): Q1 yes, Q2 yes, Q3 no → necessary\n- Result matrix Omega(D), the sum of the voters' 3 x m matrices: Q1 yes, Q2 yes, Q3 no → necessary\n- Confidence coefficient gamma(D) = (sum omega+_i + sum omega-_i) / (K x m): Q1 yes, Q2 yes, Q3 no → necessary\n- Coefficient delta(D) = sum omega+_i / (K x m): Q1 yes, Q2 yes, Q3 no → necessary\n- Structured decision list D = ((A_1(P_1)(K_1)) ... (A_m(P_m)(K_m))): Q1 yes, Q2 no, Q3 no → unnecessary\n- Commented list DC = (((P'_1)(K'_1)) ... ((P'_m)(K'_m))): Q1 yes, Q2 no, Q3 no → unnecessary\n\nEight of the fourteen elements are unnecessary. The retained ones specify the weighting and tallying arithmetic; the rejected ones only name lists, arrays and records that the surrounding prose already describes.\n\n### Proportionality\nCalculated complexity: 14 (7 inline definitions x 2)\nExpected range (Level 1): 0-5\nRatio: 2.8x upper bound\n\n**Assessment:** Disproportionate. An essay whose one technical idea is a weighted tally carries fourteen displayed formal elements, half of which restate data structures in notation.\n\n### Issues\n- Data-structure notation: D = ((A_1), ..., (A_m)) is a list of article texts, the arrays R_i and P_k and the matrix R(D) are a table of weights, the opinion arrays are a three-way choice per article, and the later D and DC lists are records of parameters and keywords. This is the \"formal definitions for data structures\" pattern.\n- The notation is not used consistently, which shows it does no work in the argument: C_k is computed from R(D) although the normalised R'(D) was introduced for that purpose, and the statement that the most competent voter obtains C_k = [1, 1, ..., 1] holds only with R'; P_k is indexed p_i in the display but j in the text; V0 is printed as O+ x C; delta(D) is built from the agreement row omega+ yet is interpreted as a sign that articles are unclearly worded, which would fit the undecided row omega0.\n- No property of the scheme (anonymity, resistance to vote trading, convergence of iiVote) is stated or argued; the authors concede in prose that the iterative loop need not converge.\n\n---\n\n## Citation Analysis\n\nOne self-citation among 17 references (SCR 5.9%): [6], the first author's 2012 paper on cyber-physical society and iDemocracy, introduced in the first person singular although the paper has two authors. It is the direct predecessor of this paper's theme, so it is relevant (similarity well above 0.5). No other author overlap and no citation-ring pattern.\n\nThe reference base is thin for a journal article: most entries are trade books, two cited by Kindle location ([11], [17]), and web pages (a Bitcoin Magazine article, a political party's website). The title of [2] is misspelled. These are quality concerns, not integrity ones.\n\n---\n\n## Structural Analysis\n\nThe paper is mostly assertion. Section 2 makes sweeping judgments without support (that NGOs are not what they claim to be, that politicians are low performers drawn from the media and the law, that present democracy is corrupt), and the closing claim that AI-based administration will reduce bureaucratic dysfunction rests on an analogy with autonomous cars. The evidence offered is quotation from popular books; the proposed voting mechanism is neither implemented, simulated nor analysed. Estimated CER is about 0.2, below the 0.33 threshold.\n\nLimitations of the proposal are acknowledged inline: vote delegation may concentrate votes in a small group, iVote is not always a good solution provider when the confidence coefficients are low, and the iiVote loop may oscillate instead of converging. There is no dedicated limitations section.\n\nArtifact availability: nothing is released and nothing is claimed. The URLs printed in the text point to cited sources (the first author's earlier paper, the Bitcoin white paper, followmyvote.com within a quotation), not to the authors' code or data. As a position essay the paper has nothing of its own to release, so the category is recorded as not relevant.\n\nNo instructions addressed to reviewers or automated assessors were found in the text.\n\n---\n\n## Conclusion\n\nA position essay on democracy and blockchain whose single technical idea, a competence-weighted vote recorded on a blockchain, could be stated in a paragraph, yet is presented through fourteen displayed formal elements, eight of which only name lists and arrays. At Level 1 this is formalism theater, and the count of inline definitions exceeds twice the expected upper bound with no formal result to show for it. The argument rests on assertion rather than evidence, and the mechanism is not evaluated. Citation conduct is clean. The paper reads as an opinion piece; its formal apparatus adds no precision and contains several internal inconsistencies."
+  },
+  {
+   "paper_id": "liu2018",
+   "paper": {
+    "title": "Intelligent Optimization on Correlation Entropy Matter-element Model of Innovation and Reform Pilot Area",
+    "authors": [
+     "Zhenyuan Liu",
+     "Renyan Mu",
+     "ShuHua Hu",
+     "Li Wang",
+     "Lijun Wang"
+    ],
+    "abstract": "The paper builds a competitiveness index system for China's comprehensive innovation and reform pilot areas along four dimensions (carrier support, innovation ability, social contribution, export earning power) and applies a composite correlation-entropy matter-element model with grey correlation to evaluate and rank eight pilot regions, ending with policy suggestions for each.",
+    "keywords": [
+     "Chinese innovation evolutionary path",
+     "regional strategy",
+     "comprehensive innovation and reform pilot area",
+     "innovation-driven"
+    ],
+    "doi": null,
+    "pages": "153-171",
+    "source_file": "paper589.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 78,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 41.05,
+    "composite": 43.29,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "It depends on publication data from “China Torch Statistical Yearbook 2015”",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 application of an established evaluation method with four elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no): the matter-element matrices of eqs. (1), (5) and (8), which only display data tables, and the index-type sets J+, J-, J_interval.",
+    "UNNECESSARY_SET_THEORY": "J+ = {benefit index}, J- = {cost index}, J_interval = {interval index} and the membership j in J+ name three lists of indicator labels and look up an indicator's type; the text already states that D4 and D33 are interval indices, D30 a cost index and the rest benefit indices. No proof depends on these sets."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Standard entropy-weighted grey relational ranking of eight Chinese pilot zones, wrapped in matter-element tables and set notation, with garbled formulas, a composite score that measures evenness rather than level, and inconsistencies between text and tables.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Ranking the comprehensive competitiveness of China's eight comprehensive innovation and reform pilot areas with a four-level index system (4 first-grade, 8 second-grade, 36 third-grade indicators), entropy weights derived from grey relational coefficients, and a matter-element presentation of the result, computed in Matlab 7.0 on 2014 statistics.\n**Level:** 2 (Low)\n**Rationale:** The method is an established multi-criteria evaluation pipeline (min-max normalisation, grey relational coefficients, entropy weighting, weighted aggregation) applied to a new set of regions. No new algorithm is proposed and no property is proved; the \"intelligent optimization\" of the title is the normalisation step of eqs. (2)-(4). Applying an existing method to a new domain is Level 2.\n\n### Formal Elements\n- Definitions: 4, all inline (the matter-element matrix of eq. 1, the index-type sets J+, J-, J_interval, the standardised matrix of eq. 5, the weight matter element of eq. 8; with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 (normalisations 2-4, reference and difference sequences, grey relational coefficient 6, entropy 7, weight formula, composite entropy in 9)\n\n### Necessity Test\n- Eq. (1), matter-element matrix of zones x indices (the raw data table): Q1 yes, Q2 no, Q3 no → unnecessary\n- Index-type sets J+ = {benefit index}, J- = {cost index}, J_interval = {interval index}, with j in J+ selecting the formula: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (2), min-max normalisation of benefit indices: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (3), normalisation of cost indices: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (4), normalisation of interval indices: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (5), standardised matrix R~_mn: Q1 yes, Q2 no, Q3 no → unnecessary\n- Reference sequence Y0 of column maxima and difference sequence Delta_i = |Y0 - Y_i|: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (6), grey relational coefficient zeta_ij with resolution coefficient rho = 0.5: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (7), entropy F_j of each index: Q1 no, Q2 yes, Q3 no → necessary\n- Weights k_j = 1 - F_j, omega_j = k_j / sum k_j: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (8), weight matter element R_omega (a row of index names over a row of weights): Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (9), compound matter element with H_i = -sum_j P(omega_j mu_ij) ln P(omega_j mu_ij): Q1 no, Q2 yes, Q3 no → necessary\n\nFour of the twelve elements are unnecessary. The resolution coefficient rho is a standard parameter inside eq. (6), not a separate decoration.\n\n### Proportionality\nCalculated complexity: 8 (4 inline definitions x 2)\nExpected range (Level 2): 0-15\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate in quantity, since the computational equations are those entropy-weighted grey relational analysis needs, but four elements fail the Necessity Test: the matter-element wrappers of eqs. (1), (5) and (8) only display data tables, and the index-type sets restate a classification the text gives in prose (D4 and D33 interval, D30 cost, all others benefit).\n\n### Issues\n- Set notation for lists: J+, J- and J_interval are three lists of indicator labels, and j in J+ is a lookup of an indicator's type.\n- The formulas are garbled or inconsistent in places: eq. (4) switches between u, v and mu and uses interval bounds c_j1, c_j2 that are never defined; eq. (6) writes |mu_ij - y_i| while Delta_i was defined against Y0; the text sets M = 3 although eight pilot zones are measured.\n- The entropy is described the wrong way round: the text says a larger entropy means the index carries more information, while the weight k_j = 1 - F_j gives more weight to lower entropy, as the standard method intends.\n- The composite H_i of eq. (9) normalises each zone's weighted profile to sum to one, so it is invariant to scaling and largest for an even profile: it measures balance across indicators rather than level, and the reading that a bigger value means better competitiveness does not follow from it. The reported scores (0.43-0.62 in Table 3) are also far below what the printed formula gives for a profile spread over 36 indicators (up to ln 36, about 3.58), which suggests an unstated normalisation.\n- No optimisation is performed anywhere, intelligent or otherwise; the title's term refers to dimensionless normalisation.\n\n---\n\n## Citation Analysis\n\nThree of 19 references include co-author ShuHua Hu: [12] (Matthew effect in national high-tech zones and the layout of demonstration zones), [14] (selection system for national indigenous innovation demonstration zones) and [16] (four-three structure model of demonstration parks). SCR = 15.8% (16.7% if the duplicated entry below is removed), in the elevated band just above 15%. All three are directly on topic; the index system is explicitly built on the Wang Song and Xie Jialong work co-authored with Hu, so none is irrelevant (similarity at or above 0.5). No ring pattern is visible.\n\nReference handling is careless: [9] repeats [6] (the same Basile paper); in-text numbers [18] and [19] are swapped relative to the list; the years given in the text differ from the list for Hu Shuhua (2009 against 2011) and Kangjuan Lv (2016 against 2017); several authors are named in the review with a year but no reference number; and Ahmed et al. on simulation-model size and complexity is cited for a claim about regional models it has little bearing on.\n\n---\n\n## Structural Analysis\n\nThe empirical section reports weights (Table 2) and rankings (Table 3, Figs. 3-6) computed from 2014 statistics, so the ranking statements rest on results, and the literature review is cited. The policy recommendations of Sections 4.2-4.3 and the conclusion's claim that the indicator set measures competitiveness scientifically and effectively are asserted without validation, sensitivity analysis or comparison with any other ranking, and several figures quoted in the discussion (Tianjin enterprise counts, Wuhan's optical-fibre market share) carry no source. Estimated CER is about 0.6, adequate.\n\nInternal consistency is poor: Table 2 labels the social-contribution indicators D12-D15, D12, D13, D29, D30 instead of D23-D30, labels the third first-grade index B1, and omits the weights of D31-D36; the text gives innovation capacity a weight of 0.5314, which is the weight of innovation output within it (Table 2 gives 0.2991); the text gives Shanghai 0.661 for carrier support where Table 3 gives 0.6661; the six selection requirements are numbered (1)-(5) with (5) repeated; the abstract lists Guangzhou where the analysis uses Guangdong.\n\nLimitations: no dedicated section. Constraints are acknowledged inline: pilot-zone statistics are inadequate and many indicators qualitative (the stated reason for entropy weighting), the D5 count is missing and replaced by a national standard, and the work is presented as a theoretical exploration of a concept not yet clearly defined. The limits of the results themselves (a single year, qualitative indicators taken from a competitiveness report, no robustness check) are not discussed.\n\nArtifact availability: no code is released; Matlab 7.0 is a third-party tool. The data come from named public sources (China Torch Statistical Yearbook 2015, China Statistical Yearbook of Science and Technology 2015, China Statistical Yearbook 2015, and the China City Competitiveness Report 2015 for the qualitative indicators D6-D11) together with unnamed regional official-website data; the computed indicator values are not published.\n\nNo instructions addressed to reviewers or automated assessors were found in the text.\n\n---\n\n## Conclusion\n\nAn application of a standard entropy-weighted grey relational evaluation to rank eight Chinese pilot zones. The computational equations are those the method needs, but the paper wraps its data tables in matter-element notation and names its indicator categories with set notation: four elements that add nothing at Level 2, which makes this formalism theater with unnecessary set notation. Beyond the flags, the formulas are garbled in places, the composite score measures evenness rather than level, and text and tables disagree on several values, so the rankings are hard to reproduce or trust. Self-citation is slightly elevated but on topic, and the data sources are public and named."
+  }
+ ]
+}

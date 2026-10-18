@@ -1,0 +1,72 @@
+{
+ "batch_id": "2014-v17-n3",
+ "analysis_timestamp": "2026-10-18T17:07:08Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 17,
+  "issue": 3,
+  "year": 2014
+ },
+ "papers": [
+  {
+   "paper_id": "saracevic2014",
+   "paper": {
+    "title": "Construction and Notation of Convex Polygon Triangulation Based on Ballot Problem",
+    "authors": [
+     "Muzafer H. Saračević",
+     "Predrag S. Stanimirović",
+     "Predrag V. Krtolica",
+     "Sead H. Mašović"
+    ],
+    "abstract": "Encodes convex polygon triangulations as ballot records through a movement through the polygon derived from the ballot and lattice-path problems; gives algorithms in both directions (ballot to triangulation and back) and a more compact stack-based code, all implemented in Java. (Paraphrased.)",
+    "keywords": [
+     "Triangulation of convex polygon",
+     "Catalan numbers",
+     "Ballot problem",
+     "Lattice path",
+     "Stacks"
+    ],
+    "doi": null,
+    "pages": "237-251",
+    "source_file": "03-msaracevic2014.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 60,
+    "citation_integrity": 35,
+    "structural_integrity": 55,
+    "artifact_availability": 70,
+    "intellectual_integrity": 50.0,
+    "composite": 55.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "Java applications for both methods can be downloaded from: http://muzafers.uninp.edu.rs/triangulation/Ballot.rar and http://muzafers.uninp.edu.rs/triangulation/Hurtado.rar",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "EXCESSIVE_SELF_CITATION": "Three of seven references ([5], [6], [7]) are co-authored by authors of this paper: SCR = 3/7 = 42.9%, above the 30% threshold. All three concern convex polygon triangulation and do specific work (the Hurtado–Noy implementation [5], the baseline storage results in Table 2 [6], the remainder of Proposition 3.1 [7]), so none is irrelevant; the ratio is high because only four outside works are cited."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Ballot-record and stack-permutation coding of convex polygon triangulations, with linked Java code and a timing comparison against the authors' own Hurtado–Noy implementation. Self-citation is excessive (3 of 7 references); the formalism, textbook Catalan counts proved in two propositions, is slightly above the Level 2 bound but all of it is used, while the correctness of the algorithms is only illustrated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Coding convex polygon triangulations as ballot records (A/B sequences in which A never trails) through a movement through the polygon; the inverse coding of a given triangulation; a stack mapping that shortens a ballot record to a permutation (SVB) and its inverse; and a Java comparison of time and memory with the Hurtado–Noy generation method.\n**Level:** 2 (Low)\n**Rationale:** The paper applies correspondences it takes from its textbook sources (ballot records, lattice paths and stack permutations, all counted by the Catalan numbers; [1], [4]) to generating and storing triangulations, and compares running time and memory with one existing method. The four algorithms are pseudocode with worked examples on the pentagon. There is no complexity analysis and no proof that Algorithm 1 always yields a triangulation, that Algorithms 1 and 3 are mutually inverse, or that Algorithm 4 inverts the stack mapping; what is proved is textbook counting. Level 3 needs a new algorithm with complexity analysis or a non-trivial proved property, neither of which is here, and the classification defaults to the lower level.\n\n### Formal Elements\n- Definitions: 1 (with constraints: 1; Definition 3.1, the cyclic distance that Algorithm 3 uses to tell outer edges from diagonals)\n- Theorems: 2 (Propositions 2.1 and 3.1)\n- Proofs: 2\n- Equations: 5 (numbered (1)–(4), and the closing identity of the proof of Proposition 3.1)\n\nNot inventoried: the pseudocode of Algorithms 1–4 and its variables; labels for points, sides and triangles (T_j, P_k, δ_p,q, △(0, k, l)); the ballot condition written inline as a_i ≥ b_i, which restates the rule given in words in the Introduction; the matrices A_3, B_3 and R_3 of Example 2.2, which display example data as Table 1 does; and range shorthand such as v ∈ {5, …, 16} in Section 5.\n\n### Necessity Test\n- Eq. (1), invalid records (2n)!/((n+1)!(n−1)!) = C(2n, n−1): Q1 no, Q2 no, Q3 yes → necessary (subtracted in Eq. (2), reused in the proof of Prop. 3.1)\n- Eq. (2), C(2n, n) − C(2n, n−1) = C(2n, n)/(n+1) = C_n, with the inline total C(2n, n): Q1 no, Q2 no, Q3 yes → necessary (derives the number of valid records)\n- Prop. 2.1, valid ballot records number C_n: Q1 yes, Q2 no, Q3 yes → necessary (carries the recurrence proof, though Eq. (2) has already shown the same count)\n- Eq. (3), Segner's recurrence R_n = Σ R_i R_(n−i−1): Q1 no, Q2 no, Q3 yes → necessary (the step of the proof of Prop. 2.1)\n- Proof of Prop. 2.1: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. (4), C_n = T_(n+2): Q1 yes, Q2 no, Q3 yes → necessary (repeats the sentence before it, but the proof of Prop. 3.1 cites it for v = n + 2 and ends on T_v)\n- Prop. 3.1, movements through triangulations number C_n: Q1 yes, Q2 no, Q3 yes → necessary (carries a proof)\n- Proof of Prop. 3.1, with a = b = v − 2 and C(2v−4, v−2)/(v−1) = C_(v−2) = T_v: Q1 no, Q2 no, Q3 yes → necessary\n- Def. 3.1, d(p, q) = min{|p − q|, v − |p − q|}: Q1 yes, Q2 yes, Q3 no → necessary (Algorithm 3 separates outer edges, d = 1, from diagonals, d > 1, with it)\n\nNo element is unnecessary.\n\n### Proportionality\nCalculated complexity: 16 (1 definition × 2 + 2 propositions × 3 + 2 proofs × 4)\nExpected range (Level 2): 0-15\nRatio: 1.07x upper bound\n\n**Assessment:** Disproportionate, in the elevated band (1-2× the bound) and well below the 2× threshold of DISPROPORTIONATE_FORMALISM. The excess comes from proving textbook counts the paper attributes to [4], one of them twice (Eq. (2) and Prop. 2.1). SKILL.md's zero-tolerance rule also names formalism > 15 at Level ≤ 2 as a trigger for FORMALISM_THEATER; the flag is not raised on that count alone, because the 1.2.1 combination rule (flags.md) lets only unnecessary elements feed the formalism flags, the flag is catalogued as Level 1-2 with any unnecessary formalism, and no element here is unnecessary. The excess is scored in scoring.md's elevated band (formalism 60); ELEVATED_FORMALISM applies only from Level 3.\n\n### Issues\n- Prop. 2.1 restates the count that Eq. (2) has just derived and proves it again by Segner's recurrence, without saying how a record splits into the R_i and R_(n−i−1) parts.\n- The proof of Prop. 3.1 counts the A's and B's of a movement record (a = b = n) and reuses Eq. (1) for the records to discard, but never shows that a movement record satisfies the ballot condition or that distinct triangulations give distinct records; the rest is deferred to [7].\n- Eq. (4) repeats the preceding sentence and is introduced as a ratio, though it is an equality.\n- R_n names both the number of valid records (Prop. 2.1 and its proof) and the matrix whose rows are the records; A_n and B_n are called matrices of order n, though A_3 and B_3 are 5 × 6.\n- Algorithm 1 writes its input as b = {b_1, …, b_2n}, with set braces where a sequence is meant. It is the pseudocode's input declaration, read by index in steps 2.1–2.2, not a formal model of the data, and no set operation follows; it is noted as a slip and not counted. Section 5 refers to Alg. 3.1, a label no algorithm carries.\n- The formal apparatus proves textbook counts, while the properties the contribution rests on (Algorithm 1 always yields a triangulation; Algorithms 1 and 3 are inverse; Algorithm 4 inverts the stack mapping) are shown only on pentagon examples.\n\n---\n\n## Citation Analysis\n\nSeven references, three of them by authors of this paper: [5] (Saračević, Stanimirović, Mašović, with Biševac) on implementing the triangulation algorithm, [6] (all four authors, in this journal) on a block method for triangulating convex polygons, and [7] (all four) on decomposing Catalan numbers and triangulations. SCR = 3/7 = 42.9%, above the 30% threshold: EXCESSIVE_SELF_CITATION. All three treat the same problem (topical similarity well above 0.5) and each does specific work: [5] documents the implementation of the Hurtado–Noy baseline, [6] supplies the baseline storage results reproduced in Table 2, and [7] carries the rest of Prop. 3.1. None is irrelevant, so IRRELEVANT_SELF_CITATION does not apply. The four outside references are two textbooks (Even [1], Koshy [4]), Gupta et al. [2] for the distance definition, and Hurtado and Noy [3], the comparison method. The ratio is high because the outside base is so small: the paper compares with one method and cites no other work on coding or storing triangulations. No mutual-citation pattern is visible.\n\nScore 35: in the excessive band (cap 40), set below the cap for a ratio well past the threshold on a four-item outside base.\n\n---\n\n## Structural Analysis\n\nThe experimental claims (the ballot method is faster when generation and storage are timed together, Hurtado–Noy is faster for generation alone, the SVB output needs far less memory, storage takes a smaller share of the run) rest on Tables 2 and 3, and the time and memory differences in Table 3 agree with Table 2 row by row. The storage shares do not reconcile: H_S equals (H_all − H_G)/H_all at v = 5, 7, 10, 11, 12 and 14 but not elsewhere (59.83% reported at v = 13 against 69.83% computed), and ten of the 22 shares exceed the share of total time left after generation, even allowing for rounding, which the output phase alone cannot do if the totals cover input, generation and output as the paper states. How the shares were measured is not said. The timings come from the NetBeans profiler on one machine, with no repetition or spread reported, and the total-time advantage for v = 5–9 is 0.01–0.04 s. The baseline is the authors' own implementation ([5], [6]), and its v = 16 row is empty without explanation. The algorithmic claims (a unique coding, mutually inverse algorithms) rest on worked examples. Unsupported: the opening claim that triangulation is highly time- and space-consuming; the conclusion's output-file savings, not reported apart from buffer occupancy; its avoidance of disk I/O, not measured; and its better generation time, against the paper's own finding that Hurtado–Noy generates faster at every v. Estimated CER about 0.8 (adequate).\n\nLimitations: no section. Section 5 concedes that Hurtado–Noy gives better generation-only times, counted as an inline acknowledgment; the conclusion does not repeat it and states no limits of the evaluation.\n\nArtifacts: two archives with the Java applications for both methods are linked (Ballot.rar and Hurtado.rar at muzafers.uninp.edu.rs). The experiments run on generated combinatorial objects (all ballot records or triangulations of a v-gon), so no dataset is involved, and the raw timings are not deposited: category `code`, relevant.\n\n---\n\n## Conclusion\n\nThe paper turns the ballot problem into a coding scheme for convex polygon triangulations: algorithms in both directions between ballot records and triangulations, a stack mapping that halves the record, linked code and an experiment against Hurtado–Noy. Its formal content is textbook counting, proved at somewhat more length than a Level 2 contribution needs (one count is proved twice), while the properties the scheme depends on, correctness and mutual inversion of the algorithms, are illustrated but not proved. Every formal element does some work, so no formalism flag is raised.\n\nThe decisive problem is citation: three of seven references are the authors' own, all relevant, past the 30% threshold. The evaluation is thin (single profiler runs, own baseline, one machine), and Table 3's storage shares do not reconcile with Table 2. A revision would cite the counting facts instead of re-proving them, prove the bijection, and widen the reference base beyond the authors' own work."
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "batch_id": "2011-v14-n3",
+ "analysis_timestamp": "2026-10-18T05:25:04Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 14,
+  "issue": 3,
+  "year": 2011
+ },
+ "papers": [
+  {
+   "paper_id": "neacsu2011",
+   "paper": {
+    "title": "A Continuous Chaos Generator Using Harmonic Oscillator Circuit",
+    "authors": [
+     "Cristian Neacşu",
+     "Valentin Chesaru",
+     "Claudius Dan",
+     "Mircea Bodea"
+    ],
+    "abstract": "This paper presents a continuous time chaos generator based on a simple oscillator structure. The developed mathematical model (based on dedicated software), Spice simulation and hardware implementation of the circuit demonstrate the strange attractor and chaotic behavior.",
+    "keywords": [],
+    "doi": null,
+    "pages": "232-241",
+    "source_file": "04-neacsu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 80.5,
+    "composite": 60.38,
+    "final": 60.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Chaos-generator circuit paper whose seventeen equations all do modelling or stability-analysis work; no self-citation but only three references, weak inline limitations, thin discussion, and no released model, netlist or data.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A continuous-time chaos generator built from an RC harmonic oscillator whose output amplitude is regulated by a multiplier-based negative feedback loop with a diode amplitude detector. The paper derives the three-variable circuit model, analyses its single fixed point, and shows period doubling and chaos through numerical simulation, Poincaré sections, an LTSpice run, a largest-Lyapunov-exponent estimate and one oscilloscope capture, sweeping only the feedback offset SV.\n**Level:** 2 (Low)\n**Rationale:** The model is obtained from the schematic by routine nodal analysis with standard device laws (exponential diode law, ideal multiplier), and the dynamics are examined with the textbook toolkit: linearisation at the fixed point, divergence, phase portraits, Poincaré sections, and the Lyapunov-exponent estimator of [3]. Chaos is shown numerically, not proved, and the study is a one-parameter sweep. Level 3 (new mathematical model with validation) was considered, since the circuit is new and its model is checked against Spice and hardware, but the model transcribes the circuit rather than contributing a modelling idea, and no new method or non-trivial property is established; the strict default gives Level 2. Every formal element is retained by the Necessity Test, so the flags would be the same at Level 3.\n\n### Formal Elements\n- Definitions: 2, both inline: the Lambert W function (eq. 8) and the divergence (eq. 17) (with constraints: 0; neither constrains the implementation)\n- Theorems: 0\n- Proofs: 0 (uniqueness of the fixed point and the eigenvalue expressions are stated without derivation)\n- Equations: 17 numbered, (1)-(17), the two inline definitions included; (9), (13) and (16) introduce the auxiliary symbols ξ, DW and χ and are counted as equations\n\nThe component-value list and the two result tables (eigenvalues and mean divergence per SV; nature of the fixed point) are data, not formal elements.\n\n### Necessity Test\n- Eq. 1, current balance at the R1/C1 node: Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 2, R2 current charging C2: Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 3, amplitude detector (CV parallel to RP): Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 4, VC1 = VC2 + IN: Q1 yes, Q2 yes (closes the system from which (7) is formed), Q3 yes → necessary\n- Eq. 5, multiplier law for OUT: Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 6, diode law with series resistance RS: Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 7, state equations f1-f3 in Lambert W form: Q1 no, Q2 yes (the system the simulation software integrates), Q3 yes → necessary\n- Eq. 8, inline definition of the Lambert W function: Q1 yes, Q2 no, Q3 yes (implicit differentiation of it gives W′ in (14), hence the Jacobian) → necessary\n- Eq. 9, argument ξ of W: Q1 no, Q2 yes (needed to evaluate f3), Q3 yes → necessary\n- Eq. 10, fixed-point system f1 = f2 = f3 = 0: Q1 yes, Q2 no, Q3 yes (the system whose solution gives the unique fixed point on which (12)-(15) rest) → necessary\n- Eq. 11, fixed point at the origin: Q1 yes, Q2 no, Q3 yes (evaluating (12) there gives W(ξ) = IS·RS/Vth and the closed-form λ3) → necessary\n- Eq. 12, Jacobian entries: Q1 no, Q2 yes (its diagonal is summed in the mean-divergence computation), Q3 yes → necessary\n- Eq. 13, DW(ξ): Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 14, derivative of W: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. 15, closed-form eigenvalues: Q1 no, Q2 no, Q3 yes (they give the exact thresholds SV = 3 V and SV = 5 V between attracting point, spiral saddle and saddle) → necessary\n- Eq. 16, χ: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. 17, inline definition of the divergence: Q1 yes, Q2 no, Q3 yes (applied to (12) it yields the tabulated dissipation rates; the SV = 2.8 V and 3 V entries equal the Jacobian trace at the fixed point) → necessary\n\n### Proportionality\nCalculated complexity: 4 (2 definitions × 2; no theorems, no proofs)\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Proportionate — the formalism is the circuit's own equations and a standard linear stability analysis, and each element does modelling or analytical work. Counting the auxiliary symbols ξ, DW and χ as definitions too would give 10 (0.67x), still within range. The closed-form results check out: with the stated components 1/(R1C1) = 0.1 µs⁻¹ and χ = (SV − 3)/2, and (15)-(16) reproduce the tabulated eigenvalues; the fixed point is indeed unique, since at OUT = 0 the detector balance is monotone in VD. Modest quality bonus, limited by the omitted derivations and the slips below.\n\n### Issues\nNo formalism theater. Minor slips in otherwise necessary formalism:\n- The derivative identity (14) is said to follow from equation (5); it follows from the Lambert W definition (8).\n- The divergence column is labelled V/ms; divergence has units of inverse time, and the values match the Jacobian trace in ms⁻¹.\n- The SV = 2.8 V row gives the real part of λ1,2 as −0.1 µs⁻¹; (15)-(16) give −0.01, which is also what the −24.76 divergence entry implies.\n- Uniqueness of the fixed point and the eigenvalue expressions are asserted rather than derived.\n\nDECORATIVE_DEFINITIONS was considered for the two inline definitions and not raised: there are no \"Definition N\" blocks, both definitions are used later (W′ in the Jacobian, the divergence in the dissipation table), and both are retained by the Necessity Test through Q3. The Greek symbol σV for the multiplier scale voltage is not the Greek-letters-for-configuration pattern: it is a term of equations (5), (7), (9), (12) and (16) and enters the stability thresholds through SV/σV.\n\n---\n\n## Citation Analysis\n\nThree references: a chaos textbook (Hilborn), a bifurcation study of the Colpitts oscillator (De Feo and Maggio), and the synchronisation method for estimating the largest Lyapunov exponent (Stefanski and Kapitaniak). None has any of the four authors: SCR 0/3 = 0%. Each is cited for a specific use (classification of the fixed point, choice of capacitor voltages as state variables, Lyapunov estimation), and there is no sign of a citation ring. The bibliography is minimal, though: the introduction's statements about the growth of the field and the design goals of chaotic circuits cite nothing, and the circuit is never compared with an existing chaos generator. Score at the low end of the normal band for that reason.\n\n---\n\n## Structural Analysis\n\nThe central claim, chaotic behaviour with a strange attractor, rests on several independent lines of evidence: the fixed-point table, time series and phase portraits (Figs. 3-5), Poincaré sections with a zoomed substructure (Fig. 6), an LTSpice run with a broadband FFT (Fig. 7), the largest Lyapunov exponent versus SV (Fig. 8), and one oscilloscope capture (Fig. 9). Against this, the introduction's background claims are unsupported, the text never states the Lyapunov exponent values or their sign (they are left to Fig. 8, which the text extraction does not carry), the hardware build is not described beyond the schematic, and the conclusion is one sentence. Estimated CER about 0.85 (roughly 14 evidence sentences to 16 claim sentences): adequate.\n\nLimitations: no dedicated section. Two weak inline acknowledgments of constraints: the authors concede that the circuit is not the simplest possible, since it contains an analog multiplexer and two nonlinearities, and they state \"For simplicity the circuit's operation is examined by sweeping only one parameter\". That meets the inline-acknowledgment condition, so NO_LIMITATIONS is not raised, but nothing is said about the limits of the results (component tolerances, robustness of the chaotic regime, extent of the hardware validation).\n\nArtifacts: the model is simulated with unnamed dedicated software and with LTSpice, a third-party tool. No code, netlist, simulation data or measurements are linked or offered. The schematic and component values make the circuit re-implementable, but description is not availability: category none, relevant (a model script, a netlist and measured traces could have been released).\n\n---\n\n## Conclusion\n\nA short engineering paper that turns an amplitude-stabilised harmonic oscillator into a chaos generator and characterises it with standard nonlinear-dynamics tools. Its formalism is proportionate and functional: all seventeen equations are either the circuit model that is simulated or steps of a linear stability analysis whose closed-form results agree with the paper's own table. No formalism or citation flag applies.\n\nThe weaknesses are structural: a three-item bibliography with no positioning against existing chaotic circuits, results left largely to the figures, a one-sentence conclusion, only incidental acknowledgment of constraints, and no released model, netlist or data. A sound but thinly documented Level 2 contribution."
+  }
+ ]
+}

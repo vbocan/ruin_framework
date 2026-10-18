@@ -1,0 +1,173 @@
+{
+ "batch_id": "2022-v25-n2",
+ "analysis_timestamp": "2026-10-18T17:18:17Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 25,
+  "issue": 2,
+  "year": 2022
+ },
+ "papers": [
+  {
+   "paper_id": "bal2022",
+   "paper": {
+    "title": "The Impact of Features and Preprocessing on Automatic Text Summarization",
+    "authors": [
+     "Salih Bal",
+     "Efnan Sora Gunal"
+    ],
+    "abstract": "Automatic text summarization obtains a shortened and informative version of a given text without manual intervention based on specific features, preprocessing methods, and decision mechanisms. This paper aims to thoroughly analyze the impact of common features and preprocessing techniques on the performance of automatic text summarization, particularly in the Turkish language. Also, a new distinctive feature based on latent semantic analysis is proposed as another contribution. Two datasets consisting of a total of 120 documents and 1,466 sentences were used for the analysis. Two different success metrics were utilized to assess the performance of automatic text summarization. A set of comprehensive experimental studies revealed the optimal feature subset and the most useful preprocessing methods that can improve the summarization performance. Moreover, it has been verified that the proposed feature further improves the performance.",
+    "keywords": [
+     "Computational linguistics",
+     "automatic text summarization",
+     "feature extraction",
+     "feature selection",
+     "machine learning",
+     "preprocessing"
+    ],
+    "doi": null,
+    "pages": "117–132",
+    "source_file": "paper711.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 49.5,
+    "composite": 37.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the datasets are identified only by citation: \"The first dataset (Dataset I) consists of 100 Turkish documents consisting of news in the fields of economy, sports, and art [28]. The second dataset (Dataset II) includes 20 Turkish documents consisting of news in various fields such as magazines, politics, and health [19].\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 empirical study with nine formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no): the set-builder notation D = {Si | i=1,…,N} for the document's sentences (Section 3.3 and Tables 5–6) and TF = {Tj | j=1,…,M} for a sentence's terms, Eqs. 2–4 and 16–18, which restate the sentence printed before each, and the vote sum in Table 5.",
+    "UNNECESSARY_SET_THEORY": "\"D={Si | i=1,2,. . . ,N} represents the sentences in a given document\" and \"TF={Tj | j=1,2,. . . ,M} represents the terms in a given sentence\" use set-builder notation for what are ordered arrays of sentences and terms. Read as a set, D even discards the order the position feature f1 relies on. No proof or bound depends on these sets."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Empirical Level 2 study of sentence features and preprocessing for Turkish extractive summarisation. Set-builder notation for sentence and term lists, plus equations that restate their own prose, make it formalism theater. The optimal feature subsets are also selected and evaluated on the same small datasets.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Empirical study of how fifteen common sentence features and sixteen combinations of four preprocessing steps affect extractive summarisation of Turkish news, plus one new feature (cosine similarity of each sentence to the sentence with the highest LSA score).\n**Level:** 2 (Low)\n**Rationale:** The work combines existing sentence-scoring features, exhaustive subset search, and standard preprocessing, and reports overlap with human extracts. The proposed feature is a one-line combination of two existing quantities (LSA score and cosine similarity). There is no new algorithm with analysis, no model with theoretical grounding, and no proof. This is an empirical comparison and configuration study, Level 2.\n\n### Formal Elements\n- Definitions: 3 inline (the sentence set D, the term set TF, the term-sentence matrix TS in Section 3.3), none numbered\n- Theorems: 0\n- Proofs: 0\n- Equations: 18 numbered, plus 2 inline formulas in the evaluation algorithms of Tables 5 and 6\n\n### Necessity Test\n- Eq. 1, position feature f1 = (N − P(Si))/N: Q1 no, Q2 yes, Q3 no → necessary\n- Eqs. 2–4, f3, f4, f5 = cosine(Si, S_first / S_last / T): Q1 yes, Q2 no, Q3 no → unnecessary (each restates, symbol for symbol, the sentence printed immediately before it, e.g. \"is the cosine similarity of the related sentence to the first sentence\")\n- Eq. 5, common similarity score as a sum of intersection-over-union overlaps of the sets of similar sentences: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 6, CompactPartNum: Q1 no, Q2 yes, Q3 no → necessary (fixes the \"parts\" as the N sentences)\n- Eqs. 7–9, FirstAppear, LastAppear and their difference, with default values N and −1: Q1 no, Q2 yes, Q3 no → necessary\n- Eqs. 10–12, Count, Centroid, CompactPosVar: Q1 no, Q2 yes, Q3 no → necessary (the formula is a mean absolute deviation, not the \"variance\" the prose names, so the equation, not the prose, fixes what is computed)\n- Eq. 13, f11 as a 0/1 indicator of \"?\" or \"!\": Q1 yes, Q2 yes, Q3 no → necessary (the prose alone leaves count versus indicator open)\n- Eq. 14, B = S²Vᵀ: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 15, f15 as the norm of a sentence vector of B: Q1 no, Q2 yes, Q3 no → necessary\n- Section 3.3 step i, repeated as step i of Tables 5 and 6, D = {Si | i = 1, 2, …, N}: Q1 yes, Q2 no, Q3 no → unnecessary (set-builder notation for the document's ordered list of sentences)\n- Section 3.3 step ii, TF = {Tj | j = 1, 2, …, M}: Q1 yes, Q2 no, Q3 no → unnecessary (set-builder notation for the list of terms in a sentence)\n- Section 3.3 step iii, term-sentence matrix TS(N,M) with entries ts(i,j): Q1 no, Q2 yes, Q3 no → necessary (fixes the matrix orientation that Eq. 14 depends on)\n- Eq. 16, TS = USVᵀ: Q1 yes, Q2 no, Q3 no → unnecessary (restates \"By applying SVD, the matrix TS is decomposed into three parts\"; the factors were already named in Section 3.2)\n- Eq. 17, MLS_i = max(LS_i): Q1 yes, Q2 no, Q3 no → unnecessary (restates step vi, \"the sentence with the highest LSA score\"; written as max rather than argmax it is less precise than the prose)\n- Eq. 18, f16 = cosine(Si, MLS_i): Q1 yes, Q2 no, Q3 no → unnecessary (restates step vii in full)\n- Table 5 step v, voteS_i = Σ_j voteA_(i,j): Q1 yes, Q2 no, Q3 no → unnecessary (\"the total vote of each sentence\" already states it)\n- Table 6 step iv, overall performance (1/T) Σ_j performanceD_j: Q1 yes, Q2 yes, Q3 no → necessary (the only statement that a document's score averages over assessors)\n\n### Proportionality\nCalculated complexity: 6 (3 inline definitions × 2)\nExpected range (Level 2): 0-15\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate in quantity, but nine elements fail the Necessity Test. Most feature equations earn their place because they fix details the prose leaves open, which is to the paper's credit. The failures are set-builder notation standing in for arrays and equations that repeat the sentence before them.\n\n### Issues\n- \"D={Si | i=1,2,. . . ,N} represents the sentences in a given document\" (Section 3.3, and again in Tables 5 and 6) is the set-notation-for-an-array pattern. Read as a set it also discards the sentence order on which the position feature f1 depends, so the notation is less accurate than the word \"list\" would be. TF = {Tj | j=1,…,M} is the same pattern for the terms of a sentence. No proof or bound uses either set. Together they raise `UNNECESSARY_SET_THEORY` and, at Level 2, `FORMALISM_THEATER`.\n- The proposed feature is specified twice, once in prose and once as Eqs. 16–18, and the formal version adds nothing. Eq. 17 writes the maximum score where the sentence attaining it is meant.\n- Eq. 5 uses ∩ and ∪ legitimately: the feature is an intersection-over-union overlap between sets of similar sentences, and the equation defines the value computed. It was not counted against the paper.\n\n---\n\n## Citation Analysis\n\nOne self-citation in 33 references (SCR 3.0%): [28], Bal and Sora Gunal (2021), an earlier model for Turkish summarisation. It is the source of Dataset I and the baseline compared in the Discussion, so it is directly relevant (similarity well above 0.5). References [21] and [30] are by \"S. Gunal\". The initial does not match the second author (E. Sora Gunal), so they are not counted as self-citations. Counting them would still give SCR 9.1%. [21] (preprocessing in text classification) is on topic. [30] (feature-set search for power-quality event classification) is cited together with four other exhaustive-search papers from unrelated fields (radar codes, Bayesian structure learning, building design, knapsack), only to support the use of exhaustive search. That cluster is loose but not padding toward any one author. No citation-ring indicators.\n\n---\n\n## Structural Analysis\n\nEvery claim about features and preprocessing points to a table (Tables 7–14), so the claim-evidence balance is adequate. The headline conclusions are weaker than they are stated:\n- The \"optimal\" feature subsets are chosen by exhaustive search over 65,535 subsets and their performance is reported on the same documents. There is no held-out split, no cross-validation, and no significance testing. With 20 documents (201 sentences) in Dataset II, many top-ranked subsets differ by 0.001–0.005, which is within noise.\n- The Discussion says \"our work achieved a maximum performance of 0.774\" on Dataset II, but no table reports more than 0.770. The claim \"our work is superior\" over [27] and [28] rests on comparisons the authors themselves call not one-to-one.\n- Limitations: no section. Inline acknowledgment is minimal: \"though a one-to-one comparison is not always possible\", and the conclusion that the best features \"may vary depending on the domain of the text and the utilized success metric\". Small datasets and in-sample selection are not acknowledged.\n\nArtifacts: the C# implementation is not released. The two datasets are identified only by citation ([28] and [19]), with no statement that they are public. Zemberek is third-party software. Category `none`.\n\n---\n\n## Conclusion\n\nA competent, if conventional, empirical study. Its main value is the systematic sweep of preprocessing combinations for Turkish, which earlier work had applied without testing. Most of its equations are working definitions of features. The paper still writes the document and the sentence as sets, and restates the proposed feature in notation that adds nothing. At concept Level 2 this is formalism theater under the zero-tolerance rule, and it disqualifies. The empirical claims also need tempering: the optimal subsets are in-sample, the second dataset is very small, and the Discussion cites a 0.774 figure that the tables do not contain.\n"
+  },
+  {
+   "paper_id": "verma2022",
+   "paper": {
+    "title": "Computational Cost Reduction of Convolution Neural Networks by Insignificant Filter Removal",
+    "authors": [
+     "Amit Verma",
+     "Toshanlal Meenpal",
+     "Bibhudendra Acharya"
+    ],
+    "abstract": "Convolutional Neural Networks are widely employed in a range of computer vision applications such as image classification and text recognition. While delivering excellent results across a range of applications, these high performing CNNs are computationally intensive. This is due to dependency on huge number of parameters which limit their re-usability on lower end CPUs. To address these limitations, we propose an eigenvalue-based framework (EVF) to reduce computational cost by removing insignificant convolution layers filters from the network while maintaining similar accuracy. Proposed method is architecture independent and may easily be deployed to existing deep learning platforms. Experiments have been carried on standard VGG-16 and AlexNet. Based on experiments the resultant reduced models outperforms the original models in terms of computational cost while maintaining similar accuracy. We have also compared proposed EVF with the state-of-the-art methods. We have achieved comparable accuracy after filter pruning only and without further retraining.",
+    "keywords": [
+     "Computational cost reduction",
+     "convolutional filter",
+     "VGG-16",
+     "AlexNet"
+    ],
+    "doi": null,
+    "pages": "150–165",
+    "source_file": "paper713.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 45.25,
+    "composite": 46.44,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"Experiments were performed on VGG-16 [23] and AlexNet [16] trained on ImageNet ILSVRC-2012 dataset [22], which has 1.2M training examples and 50K validation images in 1000 object categories.\" No link to the authors' code or pruned models.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 pruning heuristic with four formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no): Eq. 1, the textbook convolution-plus-ReLU layer, which the method does not change and Algorithm 1 repeats verbatim; the tuple F^l = (f_1^l, …, f_R^l) for the list of input images; and Eqs. 13–14, which restate \"the average of ξmat\" and \"the individual mean of ξ values for each w_q\"."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 filter-pruning heuristic that applies a Harris-style corner response, with an added diagonal Sobel term, to CNN feature maps. Restated textbook and averaging equations make it formalism theater. The reductions are smaller than those of the compared methods, the accuracy claims are overstated, and no code is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Filter pruning for pretrained CNNs (VGG-16, AlexNet). Each filter's output feature maps are scored with a Harris-style corner response (det − m·trace² of a gradient matrix), extended with a diagonal Sobel derivative. Filters whose mean score falls below β times the layer mean are removed, with no retraining.\n**Level:** 2 (Low)\n**Rationale:** The method transfers an existing detector response (Harris and Stephens, 1988) to a new use, ranking filters. The diagonal term and the threshold rule are small modifications. There is no complexity analysis of the method itself (the O(·) expression is the standard cost of a convolution layer), no convergence or optimality argument, and no proof. This is a simple optimisation of existing methods applied to a new setting, so Level 2. When uncertain, the lower level is chosen.\n\n### Formal Elements\n- Definitions: 4 inline (tensor shapes of the feature map and kernel, the input list F^l, the threshold M_th^l), none numbered\n- Theorems: 0\n- Proofs: 0 (Eq. 7 is a derivation, not a proof)\n- Equations: 14 numbered (3a and 3b counted once), plus the cost expressions in Section 3.1 and Tables 2–5, and Algorithm 1\n\n### Necessity Test\n- Tensor shapes f^l ∈ R^(Cl×Xfl×Yfl) and ω^l ∈ R^(Nl×Cl×n×n): Q1 yes, Q2 no, Q3 yes → necessary (the symbols carry the cost expression behind the FLOPS columns)\n- Eq. 1, f_q^(l+1) = Ψ^l(ω_q^l ∗ f^l + b_q^l), the standard convolution with bias and ReLU: Q1 yes, Q2 no, Q3 no → unnecessary (a textbook layer, repeated verbatim as a line of Algorithm 1; the method does not change it)\n- Cost expressions O(Cl·Nl·n²·Xfl+1·Yfl+1) and P = Cl·Nl·n² + Bl: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. 2, central-difference kernels gx, gy: Q1 no, Q2 no, Q3 no → necessary (coefficients prose cannot state as compactly, though they describe the baseline EVF replaces)\n- Eqs. 3a–3b, Sobel kernels and their separable factors: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 4, autocorrelation ΔP(u, v): Q1 no, Q2 no, Q3 yes → necessary (starting point of the derivation of Gs)\n- Eq. 5, diagonal Sobel kernel Sz: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 6, ΔP(u, v, d) with a third coordinate z: Q1 no, Q2 no, Q3 yes → necessary (but see Issues)\n- Eq. 7, first-order Taylor derivation of the 3×3 matrix Gs: Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 8, fx = Sx ∗ f, fy = Sy ∗ f, fz = Sz ∗ f: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 9, pixelwise products of derivatives: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 10, sums of products over all M×N pixels: Q1 yes, Q2 yes, Q3 no → necessary (fixes summation over the whole map, not the \"local window patch\" the prose describes)\n- Eq. 11, assembly of Gs: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 12, ξ = det(Gs) − m·(trace Gs)²: Q1 no, Q2 yes, Q3 no → necessary\n- F^l = (f_1^l, f_2^l, …, f_R^l): Q1 yes, Q2 no, Q3 no → unnecessary (tuple notation for the list of input images; only R^l and the index r are used later, and both are stated in words)\n- Algorithm 1, the ξ matrix over images × filters: Q1 yes, Q2 yes, Q3 no → necessary (fixes that ξ is computed per image and per filter on post-activation maps)\n- Eq. 13, layer mean M^l: Q1 yes, Q2 no, Q3 no → unnecessary (restates \"M^l shows the average of ξmat\"; Table 1 shows the same layout)\n- Eq. 14, per-filter mean M_q^l: Q1 yes, Q2 no, Q3 no → unnecessary (restates \"the individual mean of ξ values for each w_q\")\n- Threshold M_th^l = β·M^l with removal when M_q^l < M_th^l: Q1 yes, Q2 yes, Q3 no → necessary (the prose does not otherwise give the rule)\n\n### Proportionality\nCalculated complexity: 8 (4 inline definitions × 2)\nExpected range (Level 2): 0-15\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate in quantity, and most of the image-gradient apparatus is working specification. Four elements fail the Necessity Test: the textbook convolution equation, the tuple notation for the input list, and the two averages that the surrounding sentences already state. At Level 2 any one of them triggers `FORMALISM_THEATER`.\n\n### Issues\n- Eq. 1 restates the standard convolution layer, which the method leaves untouched, and Algorithm 1 repeats it. Eqs. 13–14 put \"the average of ξmat\" and \"the individual mean of ξ values for each w_q\" into notation without adding precision.\n- Correctness rather than theater: Eq. 6 treats a 2-D feature map as a function f(x, y, z) and the diagonal shift d as an independent third coordinate. On a 2-D map a diagonal shift is a combination of u and v, so the Taylor expansion in a third variable is ill-posed. What Eqs. 8–11 actually compute is the 3×3 Gram matrix of three Sobel responses. The method is called \"eigenvalue-based\", but ξ is the Harris response computed from the determinant and trace; eigenvalues appear only in the interpretation.\n- β is a configuration constant, but it enters a stated threshold rule, so it is not decoration.\n\n---\n\n## Citation Analysis\n\nNo self-citations (0/27); none of the three authors appears in the reference list. Several references are tangential to CNN compression. \"SVM [26], K-means [4], Fuzzy [21]\" and \"medical science and data science [1, 2, 4]\" cite a GPA-prediction study, a review of neural networks in medical decision-making, a fuzzy C-means/K-means paper, a paper on fuzzy models of shape-memory-alloy actuators, and a sleep-EEG SVM study. Three of these five share one author ([third-party author]), and three ([1], [21], [26]) appeared in this journal. Reference [25] (an SEM-neural-network study of mobile learning) is listed but never cited in the text. Dropout is attributed to \"Shrivastava et al. [24]\", whereas the reference is Srivastava et al. These are not self-citations, and one paper cannot establish mutual citation, so no flag is raised. The pattern is recorded for corpus-level analysis.\n\n---\n\n## Structural Analysis\n\nTables 2–7 support the core quantitative claims: parameter and FLOP reductions of 12%/14% for VGG-16 and 21%/30% for AlexNet, with Top-1 changes of −0.8 and −0.2 points. Several statements outrun that evidence:\n- \"Our method removes insignificant filters from different convolution layers without affecting the network accuracy\", although VGG-16 Top-1 falls from 68.3 to 67.5.\n- \"Proposed method is architecture independent\", tested only on two closely related plain CNNs.\n- Competing pruned networks \"cannot be further used for transfer learning\" and \"are not implemented on most of the deep learning platforms\": no citation or experiment supports either claim. EVF's own transfer-learning reuse is claimed but not tested.\n- Table 7 shows EVF with the smallest FLOP reduction of all compared VGG-16 methods (13.3 B against 7.0–9.6 B). The text sets this aside with \"a direct comparison is not possible\".\n- There is no ablation of the diagonal term against the standard 2×2 Harris response or simpler criteria such as filter-norm pruning. How β is chosen per layer is described only qualitatively.\n\nLimitations: no section. Inline acknowledgment covers the β trade-off (\"a higher β ... may lead to loss of accuracy ... So a fine tuning of β is required\") and the comparability caveat. Artifacts: no code and no pruned models are released. Results rest on ImageNet ILSVRC-2012, a named public dataset cited as [22], and on the third-party Keras VGG-16 model. Category `data`.\n\n---\n\n## Conclusion\n\nA modest pruning heuristic: Harris-style corner energy, computed on feature maps, ranks filters for one-shot removal. The reductions are small next to the methods it compares against, and the abstract and conclusion overstate them. Most of the gradient-matrix formalism does specify the computation. The paper still restates the standard convolution layer, writes the input list as a tuple, and renders two plainly stated averages in notation. At concept Level 2 the zero-tolerance rule makes this formalism theater, and it disqualifies. The three-dimensional \"diagonal\" derivation is also mathematically unsound as written, although the computation it leads to is well defined.\n"
+  },
+  {
+   "paper_id": "tismanar2022",
+   "paper": {
+    "title": "Vis-active TiO2 – rGO Photocatalysts for Advanced Wastewater Treatment",
+    "authors": [
+     "Ioana Tismanar",
+     "Alexandru Cosmin Obreja",
+     "Octavian Buiu",
+     "Anca Duta"
+    ],
+    "abstract": "The implementation of efficient Vis-active photocatalysts, targeting water re-use, represents a priority considering the up-scaling and possible feasible candidates are the composites with metal oxide matrix and graphene derivative(s) fillers. The most efficient metal oxide matrix is titanium dioxide and coupled with the reduced graphene oxide it can develop Vis-active photocatalytic composites. This paper analyzes the performance of these composites as potential photocatalysts to be implemented at industrial scale. The properties of the TiO2 - rGO composite thin films are discussed along with the efficiencies in degrading the methylene blue standard pollutant; moreover, the stability of these thin films during the photo-degradation processes is outlined correlated with the rGO filler content in the composites.",
+    "keywords": [
+     "Photocatalyst aqueous stability",
+     "TiO2 – rGO composite thin film",
+     "Vis-active photocatalyst"
+    ],
+    "doi": null,
+    "pages": "260–271",
+    "source_file": "paper721.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 80,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 75.75,
+    "composite": 56.81,
+    "final": 56.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Experimental materials-science study of TiO2–rGO photocatalytic thin films, outside computer science. It uses no formalism and its two self-citations (18%) are relevant. Single-sample measurements without uncertainty, and conclusions on interfaces and on the stability of the 7.5 wt% film that the data do not support, weaken it. No data are released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Materials-science study of double-layer TiO2 / TiO2–reduced-graphene-oxide thin films made by spray pyrolysis and sol spraying. The films are characterised by XRD, SEM, EDX, and AFM, and tested for methylene-blue photodegradation under UV and UV+Vis light, with stability compared before and after use as the rGO content varies (0.15–7.5 wt%).\n**Level:** 2 (Low)\n**Rationale:** The paper is outside computer science, and the framework's scale is applied by analogy. It is an empirical parameter study of a known composite system: one variable (filler content, plus one annealing temperature) is varied and the outcomes are measured. No model, algorithm, or theory is proposed. That corresponds to Level 2, an empirical or configuration study.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 0 (only chemical formulas, volume ratios, and measured values)\n\n### Necessity Test\nNone. The paper has no formal elements.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. An experimental materials study needs no mathematical formalism, and the paper uses none. If anything is missing, it is quantitative treatment of the measurements (replicates, error estimates, a kinetic fit of the degradation curves), not notation.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nTwo self-citations in 11 references (SCR 18.2%): [9], a 2021 International Semiconductor Conference paper on TiO2–rGO composite thin films, and [10], a 2021 Applied Surface Science paper on TiO2–graphene-oxide composite films. Both list the same four authors, with the second author spelled \"OBRAJA\". Both are on the same material system and directly relevant (similarity above 0.5). [10] is cited for the thermal stability of rGO up to 180 °C, a property claim one would expect to be sourced to the wider literature. Figure 6 is credited to [9], so the before/after stability images for 0.9, 3, and 5 wt% rGO appear to have been published already in the authors' conference paper. The text does not say which results are new. The SCR is in the elevated band below 20%, so `ELEVATED_SELF_CITATION` does not apply. No ring indicators.\n\n---\n\n## Structural Analysis\n\nThe characterisation data (Tables 1–6, Figures 1–6) support the descriptive findings: crystallinity of 42.5–45.5% regardless of filler content, larger aggregates at higher rGO content, carbon loss at 200 °C, and highest MB removal at 5 wt%. Several interpretive claims go further than the evidence:\n- Each composition appears to be a single sample with a single run, with no replicates or error estimates. The UV+Vis versus UV differences that are taken to \"confirm the Vis-activation\" are 4–7 percentage points.\n- \"Proving that high-performance interfaces between the aggregates and the rGO sheets are developed\" rests on SEM images alone.\n- The conclusion that stability \"was found to be the main cause for the lower efficiency recorded for the composite thin films with the highest rGO content (7.5%w)\" has no stability measurement behind it: Table 6 and Figure 6 cover only 0.9, 3, and 5 wt%.\n- The XRD peak at 2θ = 5.5° is attributed to rGO without supporting evidence.\n- Table 4's caption says \"0.15%w rGO content\" while its rows list 0.9–7.5 wt%. Table 3's last column is 9 hours while the text describes 8 hours of irradiation.\n- The industrial-scale and up-scaling framing in the abstract is not tested.\n\nLimitations: no section. The paper does acknowledge constraints of the material inline: limited filler–matrix compatibility, \"limited stability of the composite layer\", \"the need for periodical regeneration of the substrate\", and that 200 °C treatment removes the filler.\n\nArtifacts: no measurement data (diffractograms, spectra, absorbance series) are deposited or linked. The ISO 10678 methylene-blue protocol is a standard, not an artifact. Category `none`.\n\n---\n\n## Conclusion\n\nA conventional experimental report on TiO2–rGO photocatalytic films, outside the journal's computing core. It has no formalism problem, because it has no formalism. Its two self-citations are on topic, though the reuse of a figure from the authors' conference paper deserves a clearer statement of what is new. The main weaknesses are evidential: single measurements with no uncertainty, and conclusions about interfaces and about the stability of the 7.5 wt% film that the data do not reach.\n"
+  }
+ ]
+}

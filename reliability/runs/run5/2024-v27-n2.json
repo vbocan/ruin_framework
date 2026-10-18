@@ -1,0 +1,121 @@
+{
+ "batch_id": "2024-v27-n2",
+ "analysis_timestamp": "2026-10-18T17:17:59Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 27,
+  "issue": 2,
+  "year": 2024
+ },
+ "papers": [
+  {
+   "paper_id": "taskin2024",
+   "paper": {
+    "title": "Real-Time Low Energy Indoor Positioning System to Efficient Use of Operating Theaters with Medical Asset and Staff Tracking",
+    "authors": [
+     "Deniz Taşkın",
+     "Cem Taşkın",
+     "Selçuk Yazar",
+     "Alkin Çolak"
+    ],
+    "abstract": "Efficient use of operating theaters would benefit hospitals financially as well as reducing the waiting time required for surgery. The aim of this study is to determine the frequency of use of the operating theatres and the amount of waste time in the use of those rooms for the different surgical branches. For this study, ”intelligent transmitters with low energy consumption” will be placed on the operating tables, the patient’s stretcher and on the all working staff. Intelligent transmitters with low energy consumption will communicate over ISM (Industrial Scientific Medical) band. By analyzing the data obtained after 6 months period; the workload of the operation theatres will be determined for the different surgical branches. With the system developed in this study, operating theater efficiency and personnel performance were examined by calculating ”insufficient time” (planned time - busy time) or ”overused time” (participated time - planned time). The results obtained with the approach in this study showed that 23.7% of the time was saved. Since the average two-year number of surgeries at Trakya University Research Hospital is around 15,000, this improvement could boost clinical quality improvement initiatives by increasing the more efficient use of operating rooms.",
+    "keywords": [
+     "Bluetooth low energy",
+     "indoor positioning",
+     "management service organizations",
+     "medical Internet of Things",
+     "operating theater information systems"
+    ],
+    "doi": null,
+    "pages": "151-165",
+    "source_file": "paper768.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 30,
+    "intellectual_integrity": 45.25,
+    "composite": 41.44,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "claimed",
+    "relevant": true,
+    "evidence": "\"Open source BLE gateway platform and tailor-made portable BLE beacons with a service life of more than two years.\" (contributions list; no repository or link is given, and the only URL, ref. [28], is a supplementary .docx of figures and tables)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 system-integration paper (BLE beacons, gateways, reporting web application). Eq. (2), T = COV(UTSDepth, TM)(UTSDepth, TM), fails the Necessity Test (Q1 yes, Q2 no, Q3 no): it is malformed, its variable is never computed, a covariance cannot yield the time values T is said to be, and the abstract already states the reported quantities as plain differences."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 1 BLE asset- and staff-tracking deployment in operating theatres; a malformed covariance equation decorates plain time differences (formalism theater), most results sit in an external supplement, and code is claimed open source without a link.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** BLE tracking deployment in a university hospital's operating theatres: off-the-shelf CC2541 beacons on stretchers and procured smart wristbands on staff, Linux gateways running a Python scan-and-store loop, an ASP.NET/MSSQL management system with mobile apps, and descriptive statistics of six months of presence data.\n**Level:** 1 (Trivial)\n**Rationale:** The contribution is the integration of existing components: a commercial BLE SoC, commercial wristbands, a router-class gateway that scans and writes RSSI records to a database, and a reporting web application. Positioning is room-level presence (which gateway hears which beacon); no localisation algorithm is described. The analysis is time accounting, planned against observed minutes. This is a data capture and reporting system.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0). A six-entry notation list (TM, PT, T, BSTn, PWBTm, USTSDepth) names the variables of the two equations; it is a glossary, not a set of formal definitions.\n- Theorems: 0\n- Proofs: 0\n- Equations: 2 (Eqs. 1 and 2). Listing 1 is pseudocode of the gateway loop and the battery-life estimate is prose arithmetic; neither is counted.\n\n### Necessity Test\n- Eq. (1), TM = median(PT) − (Σ BSTn + Σ PWBTm): Q1 yes, Q2 yes, Q3 no → necessary. Plain arithmetic, but it is the only place the paper says that busy time is the stretcher-beacon time plus the summed wristband times, so it fixes what is computed.\n- Eq. (2), T = COV(UTSDepth, TM)(UTSDepth, TM): Q1 yes, Q2 no, Q3 no → unnecessary. The expression is not well formed (a covariance operator followed by a repeated argument pair); its variable (USTSDepth in the glossary, UTSDepth in the equation) is never given a computation; and a covariance has units of time squared, so it cannot be the per-department overused or insufficient time that T is said to be. The abstract already states the reported quantities as plain differences (planned minus busy time, participated minus planned time). The covariance adds nothing a programmer could implement, and the statement that variables were \"rearranged\" for insufficient time is never spelled out.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in count, but one element fails the Necessity Test, and at Level 1 a single unnecessary element is formalism theater.\n\n### Issues\nEq. (2) dresses a comparison of time differences in statistical notation that does not define a computable quantity. Eq. (1) is retained but sloppy: the summation index and upper limit share the symbol n, and the tilde-median is applied to planned time without saying over what.\n\n---\n\n## Citation Analysis\n\n34 references. Self-citations: [26] (three of the four authors; a BLE sensor node for greenhouse monitoring), cited for BLE battery life, is the same hardware family in a different application, similarity about 0.5, related. [28] is the paper's own supplementary material, hosted on a co-author's university page. Counted as a self-reference it gives SCR = 2/34 = 5.9% (1/33 = 3.0% without it). Normal range; no irrelevant self-citation.\n\nA concerning third-party pattern lies outside the framework's self-citation flags. Two generic introductory paragraphs on extended Kalman filters, Takagi-Sugeno observers, and neural and tensor-product modelling \"in the context of BLE indoor localization\" cite [13]-[18]: four works sharing one author group, on a strip winding system, biomonitoring data, cognition-process observation and tower-crane modelling ([13], [14], [16], [17]), plus two unrelated ROMJIST papers on Parkinson's diagnosis and fuzzy AHP for start-up financing ([15], [18]). None of these techniques is used by the system. [16]-[18] are never cited by number; the second paragraph carries a broken \"[?]\" marker where they belong. Further mismatches: [27] (underground sensor-network path loss in agriculture) is cited for the management system's reporting, and [21] (backscatter radio for computational RFIDs) for BLE's advantages over RFID and Wi-Fi. A mutual-citation ring cannot be established from one paper, so CITATION_RING_INDICATOR is not raised; the pattern is recorded here and reflected in a citation score at the floor of the normal band.\n\n---\n\n## Structural Analysis\n\nClaim-evidence balance is weak (CER estimated at about 0.45). The headline 23.7% saving was obtained after hospital management restricted allocated time in some surgical branches; no baseline, control, or statistical test separates the system's contribution from that administrative change. The descriptive statistics (Table 1) and all result figures (Figs. 2-7) are not in the paper but in an external .docx [28], so the paper's own pages carry no result data beyond the 23.7% figure and a feature comparison with related systems (Table 2).\n\nInternal inconsistencies: the battery estimate (230 mAh at 0.0120742 mA) gives about 19,000 hours, not the stated 71,000; the data period is six months (1 April to 30 September 2018) in one place and three months in another; the ethics statement says the article contains no studies with human participants, although staff wore tracking wristbands and an ethics committee approved the study. Promotional claims (the system is expected to revolutionise operating-room management) go unsupported. Limitations are acknowledged inline only: signal interference and multipath are discussed, though said to have been overcome with additional gateways, and interoperability and scalability are named as future challenges.\n\nArtifacts: the contributions list an open-source BLE gateway platform, but no repository or link is given; the only URL, the supplementary file [28], holds figures and tables, not code or data. Category `claimed`.\n\n---\n\n## Conclusion\n\nA hospital deployment report for a BLE presence-tracking system built from commercial parts, with practical value for operating-theatre management. It is Level 1 work, and its one piece of non-trivial notation, the covariance expression of Eq. (2), is malformed and says nothing the abstract's plain differences do not; under the zero-tolerance rule this is formalism theater.\n\nBeyond the flag, the evidence is thin and largely external to the paper, the attribution of the 23.7% saving to the system is uncontrolled, several numbers and procedural statements contradict each other, and the introduction carries a block of off-topic citations. Code is described as open source with no route to obtain it. No instructions addressed to reviewers or to automated assessors were found in the text."
+  },
+  {
+   "paper_id": "brezeanu2024",
+   "paper": {
+    "title": "Improved Serial Peripheral Interface Controller Based on Scan Architecture",
+    "authors": [
+     "Ionelia-Bianca Brezeanu",
+     "Silviu Isari",
+     "Gheorghe Brezeanu"
+    ],
+    "abstract": "A high performance, digital serial controller having a self-test-based architecture is presented. A standard architecture able to achieve the targeted functionality was modified in order to contain the test mode circuitry for testability improvements. After the importance of creating digital architectures adapted for testability is underlined, we present the high frequency serial controller for analog switches. This block was adjusted for test reasons and implemented into a 3 V CMOS technology. The block is integrated together with input-output pad structures forming an entire chip structure for which the layout was implemented. Based on schematic design simulations, timing checks and defects analysis, the proposed architecture is confirmed.",
+    "keywords": [
+     "Coverage",
+     "design for testability",
+     "digital controller",
+     "scan insertion",
+     "test mode"
+    ],
+    "doi": null,
+    "pages": "241-251",
+    "source_file": "paper776.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 92,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 82.45,
+    "composite": 61.84,
+    "final": 61.84
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Incremental Level 2 design-for-testability paper adding standard scan insertion to the authors' own SPI controller; no formalism, relevant self-citation, simulation-only evidence with weak cross-design comparisons, and no released artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Redesign of the authors' earlier high-frequency SPI controller for analog switches [7] in 65 nm CMOS with standard full-scan insertion (a single scan chain, a test-mode entry controller, multiplexed clock and chip-select lines), followed by layout and ATPG fault-coverage analysis with a commercial DFT tool.\n**Level:** 2 (Low)\n**Rationale:** Scan insertion is a textbook design-for-testability technique, here applied to an existing block; the work is engineering implementation and tool-reported coverage, with no new algorithm, model, or proof. Level 2 rather than Level 1 because there is a design contribution (test-mode entry through the software reset register, pin reuse for scan signals) evaluated quantitatively.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0). Controllability and observability are defined in plain prose bullets.\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Necessity Test\nNone.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper is written in prose, block diagrams, layouts and tables, which suits an implementation report.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\n19 references. Self-citations: [6] (two of the three authors; an SPI-controlled multi-channel switch) and [7] (all three authors with one more; the SPI control block this paper redesigns). Both are directly on topic (similarity about 0.9 and 0.95). SCR = 2/19 = 10.5%, normal. The remaining references are datasheets of commercial SPI switches, DFT textbooks and lecture notes, the tool manual, and scan-chain and coverage papers, all relevant. No issues identified.\n\n---\n\n## Structural Analysis\n\nEvidence is simulation and tool output only: timing analysis, layout, and ATPG fault statistics (2334 faults, of which 2006 detected, 299 possibly detected, 1 ATPG-untestable, 28 not detected; 98.54% coverage with 29 patterns). No silicon measurement is reported. CER is adequate (about 0.7), but several comparisons are weak. The standard and scan versions differ in technology (180 nm against 65 nm) and in analysis method (an indirect estimate against the DFT tool), so the defect counts in Table 1 (2218 against 2334) are not comparable; moreover 2334 is first called the number of detected defects and then the total number of faults, of which 2006 were detected. Table 3 compares coverage with [18] and [19], which are different circuits.\n\nMinor inconsistencies: the abstract gives a 3 V CMOS technology while the body states 65 nm operating up to 3.3 V; Scan Enable is said to be an external port, then to come from the CSB pin, while the internal CSB takes RESETB in test mode, without a clear pin map. Section 3 largely restates [7], including two of its figures. Limitations are acknowledged inline: the area cost of scan insertion (811 to 4333 equivalent gates) and the reason coverage stays below 100%.\n\nArtifacts: no RTL, netlist, test patterns, or data are offered and no availability statement appears; the synthesis and DFT tools are third-party. Category `none`.\n\n---\n\n## Conclusion\n\nA competent, incremental circuit-design report: the authors add a standard scan architecture to their own SPI controller and report 98.54% fault coverage at roughly five times the gate count. Formalism is absent, appropriately so, and self-citation is limited to the directly preceding work.\n\nThe weaknesses are evidential: simulation-only validation, comparisons across technologies, analysis tools and unrelated designs, and an inconsistency in the fault counts. Nothing is released. No instructions addressed to reviewers or to automated assessors were found in the text."
+  }
+ ]
+}

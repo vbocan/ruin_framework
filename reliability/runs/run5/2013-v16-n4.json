@@ -1,0 +1,129 @@
+{
+ "batch_id": "2013-v16-n4",
+ "analysis_timestamp": "2026-10-18T05:27:06Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 16,
+  "issue": 4,
+  "year": 2013
+ },
+ "papers": [
+  {
+   "paper_id": "garg2013",
+   "paper": {
+    "title": "A Secure Image Based Watermarking for 3D Polygon Mesh",
+    "authors": [
+     "Hitendra Garg",
+     "Suneeta Agarwal"
+    ],
+    "abstract": "The proposed watermarking algorithm is based on geometrical properties of 3D mesh. The vertices of 3D mesh surface are categorized into flat, peak and deeper region. We first compare the perceivable distortion due to watermark insertion in the vertices of deep surfaces and the vertices belonging to either flat or peak surfaces. Our comparative analysis shows that insertion of watermark in deeper surface have less distortion in comparison to watermark insertion in flat and peak surfaces. In view of the fact, these vertices are categorized into three mutually exclusive groups. The first group (S1) is composed by the vertices of deeper area. For obtaining the vertices of second group (S2), the vertex normal is represented in IEEE-754 representation and nth bit of mantissa is considered as ‘1’. The third set (S3) contains the remaining vertices. The vertices from S1 and S2 are selected for watermark embedding according to the secure code, which is obtained from hash function applied over the secure image (I). The vertices of S3 remain intact. The watermark embedding is done by re-positioning the selected vertices from their original positions according to the category they belong to. The robustness is assessed against different distortion and distortion-less attacks. The subjective (MoS) and objective (Hausdorff distance, RMS) assessment of watermarked object are also done to measure the extend of similarity between original object and watermarked object.",
+    "keywords": [
+     "Original 3D mesh (O)",
+     "Watermark 3D mesh (Ow)",
+     "Mean Curvature",
+     "Hausdorff distance",
+     "RMS distance",
+     "Objective measurement",
+     "Subjective measurement",
+     "MD5"
+    ],
+    "doi": null,
+    "pages": "287-303",
+    "source_file": "03-hitendragarg.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 60,
+    "artifact_availability": 50,
+    "intellectual_integrity": 48.25,
+    "composite": 48.69,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "The Author would like to thank Stanford 3D Scanning Repository for providing 3D Model for experimental purpose.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with unnecessary formal elements. Section 3.2 defines the mesh as G ≡ (V,F) with V = {Vi ∈ R3 | 1 ≤ i ≤ N} and F = {Fj | 1 ≤ j ≤ M}, and an edge set E = {{i,j} | i,j ∈ I, {i,j} is an edge}; none of these symbols is used again, the edge definition is circular, and the method never touches connectivity. Eqs. (11)-(12) restate the embedding rule for an informal scaling argument. These four elements answer Q1 yes, Q2 no, Q3 no.",
+    "UNNECESSARY_SET_THEORY": "Set-builder notation stands in for the vertex, face and edge arrays read from the .obj file; no set operation, proof or later step depends on it."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 heuristic for 3D mesh watermarking whose embedding, coordinate and metric equations are needed, but whose unused set-builder definition of the mesh and its edges is formalism theater; robustness is measured on six public models under three distortion attacks, while the comparison with Cho et al., the deep-region motivation and the security claim are asserted without data.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Non-blind, spatial-domain watermarking of 3D polygon meshes. Vertices are split by mean curvature (deep regions, S1) and by one mantissa bit of the vertex normal (S2); an MD5 hash of a secret image chooses which of them to move; the watermark is embedded by adding an offset W to each selected vertex's radial distance from the centre of gravity, larger for S1 than for S2. Detection subtracts the cover mesh from the watermarked one.\n**Level:** 2 (Low)\n**Rationale:** The scheme assembles existing parts (the discrete mean-curvature operator of Meyer et al. [17], radial vertex-norm displacement of the kind used by Cho et al. [10], a stock hash function) into a vertex-selection heuristic and evaluates it empirically. There is no complexity analysis, no proof and no model of distortion. It is a modification of existing methods, not a novel algorithm with theoretical grounding, so Level 3 is not justified.\n\n### Formal Elements\n- Definitions: 2, inline and unnumbered (the mesh G ≡ (V,F) with V and F in set-builder form; the edge set E) (with constraints: 0, neither constrains the implementation)\n- Theorems: 0\n- Proofs: 0\n- Equations: 12 numbered: the embedding rule (1), the Cartesian/spherical conversions (2)-(5), the Hausdorff distance (6)-(8), the RMS error (9), the mean observation score (10), and a scaling argument (11)-(12)\n\n### Necessity Test\n- Mesh definition G ≡ (V,F), V = {Vi ∈ R3 | 1 ≤ i ≤ N}, F = {Fj | 1 ≤ j ≤ M} (Sec. 3.2): Q1 yes, Q2 no, Q3 no → unnecessary\n- Edge set E = {{i,j} | i,j ∈ I, {i,j} is an edge} (Sec. 3.2): Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (1), embedding rule ρ′ = ρ + W: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (2), radial distance from the centre of gravity: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (3), azimuth θ: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (4), polar angle ϕ: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (5), spherical-to-Cartesian reconstruction of the watermarked vertex: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (6), point-to-object distance e(p,O): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (7), one-sided Hausdorff distance Ha: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (8), symmetric Hausdorff distance Hd: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (9), d_rms over corresponding vertices: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (10), MoS as the mean of n observers' 0-10 scores: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (11), ρ′i = ρi + W, a restatement of Eq. (1): Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (12), ρ″i = (ρi + W)·t after uniform scaling: Q1 yes, Q2 no, Q3 no → unnecessary\n\nQ2 is answered yes for Eqs. (1)-(10) because each fixes a computation that the embedder, the detector or the reported metrics perform: an additive radial offset, centring on the centre of gravity, one-sided versus symmetric distance, the normalisation of the error. Eqs. (11)-(12) support only an informal invariance argument that a sentence carries equally well, and Algorithm 2 is the same with or without them.\n\n### Proportionality\nCalculated complexity: 4 (2 definitions × 2; no theorems or proofs)\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Proportionate in volume. The equations that carry the method (embedding, coordinate conversion) and its evaluation metrics are basic and needed. The necessity test fails on the notation of Section 3.2 and on the two restated equations of Section 5, and at Level 2 one failure suffices for FORMALISM_THEATER.\n\n### Issues\n- Section 3.2 opens with \"A 3D mesh is represented by G ≡ (V,F) where V is a finite set of vertices and F is a finite set of faces\", then writes V, F and the edge set in set-builder form. None of G, V, F, E, N or M is used again: the algorithm works in prose on vertices, S1-S3, O and Ow, and the method is stated to leave connectivity untouched, so the edge set has no role. The edge definition is circular ({i,j} such that {i,j} is an edge). This is set notation for the vertex and face arrays of an .obj file.\n- Eqs. (11)-(12) repeat the embedding rule to argue invariance to uniform scaling; nothing is proved formally.\n- Precision of the needed equations: Eq. (9) is labelled root mean square but has no 1/n factor (as printed it is a root-sum-square), and Eq. (3) takes tan⁻¹ of a ratio instead of a quadrant-aware arctangent, so a literal implementation of (3) with (5) would turn every vertex with x < x_cg by 180° about the vertical axis through the centre of gravity. Neither affects the flags.\n- There are no numbered Definition blocks, so DECORATIVE_DEFINITIONS is not raised; the inline definition is covered by FORMALISM_THEATER and UNNECESSARY_SET_THEORY.\n\n---\n\n## Citation Analysis\n\nNo self-citations: none of the 24 references has Garg or Agarwal among its authors (SCR 0/24 = 0%). The list is on topic: mesh-watermarking surveys and schemes ([2], [4], [9]-[14]), perceptual and geometric mesh metrics ([3], [5], [7], [18], [21], [22]), curvature estimation [17], and the tools used ([23], [24]). The weakest link is [20], a functional-analysis paper on the quantized Gromov-Hausdorff distance, cited for the plain statement that the Hausdorff distance between cover and watermarked object should be minimised; it is tangential, not manipulative. No ring pattern is visible from a single paper. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe scheme is run on six standard meshes, with Hausdorff distance, an RMS-type error, MoS, change in surface area and a detection ratio reported without attack (Table 1), under smoothing and subdivision (Tables 2-3) and at four levels of simplification (Table 4). These support the robustness claims for those attacks, including the candid weak cases (Cow retains 38% after smoothing, Nefertiti 78% after subdivision).\n\nSeveral claims have no data behind them. The abstract's comparative analysis showing that deep regions distort less than flat or peak regions, which motivates the whole vertex selection, does not appear in the paper. The statement that the method \"also produces less Root Mean Square (RMS) error than the method suggested by Cho et al.\" and avoids Cho et al.'s staircase artefacts is backed only by the proposed method's own MoS in Table 1. Full recovery under rotation, scaling and translation, and robustness to vertex reordering and cropping, are asserted without a table. The subjective study does not say how many observers took part. The security claim of the title rests on hashing a secret image, yet the text says MD5 \"produces 32 words of 8 bits i.e. 256 bit hash code\" (an MD5 digest has 128 bits), and no attack on the key is analysed. The detection ratio is called the bit error rate while being defined as the fraction of bits correctly detected. Overall the claim-evidence balance is adequate rather than strong. Limitations are acknowledged inline (sensitivity to smoothing and subdivision, partial loss of the watermark under distortion attacks); there is no limitations section.\n\nArtifacts: no code and no link. The acknowledgment names the Stanford 3D Scanning Repository as the source of the models; Armadillo, Bunny and Dragon are among its standard scans, while the sources of Duck, Cow and Nefertiti are not given and the Dragon is a simplified version. The category is therefore data, resting on a named public repository. MeshLab and the Metro tool, used for the attacks and the objective measurements, are third-party software and do not count as the authors' code.\n\n---\n\n## Conclusion\n\nA Level 2 heuristic whose operative formulas (radial embedding, coordinate conversion, evaluation metrics) are basic and necessary, but whose Section 3.2 dresses the mesh in set-builder notation that nothing uses; at this level that is formalism theater, and the score is capped.\n\nApart from the cap, the empirical case is moderate: robustness against smoothing, subdivision and simplification is measured on six public models, while the comparison with Cho et al., the deep-region motivation and the security claim are asserted rather than shown, and no code is released."
+  },
+  {
+   "paper_id": "bansal2013",
+   "paper": {
+    "title": "Distributed Scheduling on Utility Grids",
+    "authors": [
+     "Sunita Bansal",
+     "Chittaranjan Hota"
+    ],
+    "abstract": "Grid computing aggregates the power of widely distributed resources and provides non-trivial services to the users. Resource management and scheduling play a crucial role in Grid computing environment. It becomes more challenging in Utility Grids, where consumer wants to pay minimum amount and providers want to earn maximum amount. Many existing scheduling approaches are dedicated to either single criterion or multi-criteria. Existing multi-criteria systems give weight to each criterion according to its relative importance. Users need not worry about the choice of these criteria. These algorithms are less efficient in terms of time complexity and memory utilization. In this paper, we propose an efficient distributed scheduling algorithm on Utility Grids based on Technique for Order Preference by Similarity to Ideal Solution (TOPSIS). We have introduced a new parameter called Processing Element (PE) weight. The objective of this parameter is to select the resource that carves out smallest possible free PE cluster that satisfies the user requirements. User and system defined weights are used to select resource and evaluate the performance of the algorithm. The GridSim toolkit with standard workload model is used to simulate the Grid environment. The simulation results show that our algorithms perform better over existing approaches in terms of user satisfaction and number of application failures.",
+    "keywords": [
+     "Cost-time",
+     "Failure",
+     "Parallel Applications",
+     "TOPSIS",
+     "Utility Grids"
+    ],
+    "doi": null,
+    "pages": "373-392",
+    "source_file": "09-sbansal.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 92,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.7,
+    "composite": 33.52,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with unnecessary formal elements. The problem statement (Sec. 4.1) casts the resources, time slots and applications as sets R = {rj, …, rm}, TS = {tk, …, tp}, A = {ai, …, an}, and the application, resource and time slot as tuples ai = (ali, api, adi, asi, aηi, aδi), ri = (rcj, rsj, rpj, rbj, rtj), tsk = (tsk, tfk, tpk); these are lists and records whose fields are already given in prose and in Table 1, and the system-defined PE weight is named γi only to appear as a pseudocode variable. All seven answer Q1 yes, Q2 no, Q3 no.",
+    "UNNECESSARY_SET_THEORY": "R, TS and A are set notation for the lists of resources, time slots and applications that Algorithms 1 and 3 iterate over (\"for all resource rj ∈ R\", \"for all time-slot tk ∈ TS\"); no set operation or proof depends on them."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 application of TOPSIS to MCT/MET-style grid scheduling whose cost-time and TOPSIS equations are needed, but whose set and tuple notation for resources, time slots and applications is formalism theater; the simulation compares only the two proposed variants, so the claim of outperforming existing approaches is unsupported, and no code or workloads are released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Two online broker heuristics for rigid parallel jobs on a commodity-priced utility grid, EMCT and EMET, which take the classical MCT and MET heuristics and choose among the feasible time slots of each resource with TOPSIS over time, cost and a \"PE weight\" criterion (the PEs left over in the chosen slot). Evaluated by GridSim simulation with the Lublin-Feitelson and DAS-2 workload models.\n**Level:** 2 (Low)\n**Rationale:** The contribution applies an existing multi-criteria decision method (TOPSIS [12]) to existing scheduling heuristics (MCT/MET [6]) and adds one criterion. No complexity analysis, optimality argument or theoretical property is given, and the evaluation is a simulation study. This is an existing method applied to a new setting, the analogue of fuzzy logic applied to supplier selection, not a Level 3 algorithm.\n\n### Formal Elements\n- Definitions: 6, inline and unnumbered (sets R, TS, A; tuples ai, ri, tsk), plus the symbol γi declared for the PE weight (with constraints: 0, none constrains the implementation)\n- Theorems: 0\n- Proofs: 0\n- Equations: 12 numbered (execution, response, cost and transfer time (1)-(4); the TOPSIS steps (5)-(11); average user satisfaction (12)) and the inline weight constraint Σ wj = 1\n\n### Necessity Test\n- R = {rj, rj+1, …, rm}, set of resource providers (Sec. 4.1): Q1 yes, Q2 no, Q3 no → unnecessary\n- TS = {tk, tk+1, …, tp}, set of time slots (Sec. 4.1): Q1 yes, Q2 no, Q3 no → unnecessary\n- A = {ai, ai+1, …, an}, set of applications (Sec. 4.1): Q1 yes, Q2 no, Q3 no → unnecessary\n- ai = (ali, api, adi, asi, aηi, aδi), application as a 6-tuple: Q1 yes, Q2 no, Q3 no → unnecessary\n- ri = (rcj, rsj, rpj, rbj, rtj), resource as a 5-tuple: Q1 yes, Q2 no, Q3 no → unnecessary\n- tsk = (tsk, tfk, tpk), time slot as a triple: Q1 yes, Q2 no, Q3 no → unnecessary\n- γi, Greek-letter name for the system-defined PE weight: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (1), execution time Ψij = ali/rsj: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (2), response time αij = tfik − asi: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (3), cost cij = rcj·api·Ψij: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (4), transfer time τij = (ali + adi)/rbj: Q1 yes, Q2 yes, Q3 no → necessary\n- Σ wj = 1, normalisation of the criterion weights (Sec. 4.4): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (5), vector normalisation of the decision matrix: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (6), weighted normalised matrix: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (7), positive ideal solution A+: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (8), negative ideal solution A−: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (9), separation from the ideal: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (10), separation from the negative ideal: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (11), relative closeness: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (12), average user satisfaction: Q1 yes, Q2 yes, Q3 no → necessary\n\nThe equations are retained because they specify what the broker computes and how the reported metric is formed (Eq. (12) defines a metric that exists nowhere else in the paper). The set and tuple definitions only restate, in notation, attributes already listed in prose and in Table 1 and lists that the pseudocode iterates over.\n\n### Proportionality\nCalculated complexity: 12 (6 definitions × 2; no theorems or proofs)\nExpected range (Level 2): 0-15\nRatio: 0.8x upper bound\n\n**Assessment:** Proportionate in volume. The cost-time equations and the TOPSIS steps are needed; the set and tuple apparatus of the problem statement is not, and at Level 2 one unnecessary element suffices for FORMALISM_THEATER.\n\n### Issues\n- Section 4.1 states the problem with the resources, the time slots and the applications as sets, and each application, resource and time slot as a tuple (\"Each application is characterized by ai = (ali, api, adi, asi, aηi, aδi) where ali is application length ...\"). The components are spelled out again in prose and in Table 1, so the tuples are records and the sets are the lists that Algorithms 1 and 3 loop over (\"for all resource rj ∈ R do\", \"for all time-slot tk ∈ TS do\"). No set operation, proof or bound uses them. The notation is also inconsistent: R starts at rj, ri is defined with j subscripts, and tsk names both the tuple and its first component.\n- \"γ i be PE weight that should be defined by the system\" gives a configuration weight a Greek name that is used only as matrix[0][2] in the pseudocode.\n- The needed TOPSIS equations are imprecise: the text says the positive ideal solution \"has minimum value in criteria\" while Eq. (7) takes the maximum; Algorithm 2 returns \"the resource that has minimum C(i)\" although Eq. (11) measures closeness to the ideal; the indices of (7)-(10) run over i where criteria are meant. Eq. (2) takes the time slot's finish time as the job's completion time, and Eq. (4) adds instructions to bits. These are quality issues, not necessity failures.\n- There are no numbered Definition blocks, so DECORATIVE_DEFINITIONS is not raised; the tuple definitions are counted under FORMALISM_THEATER.\n\n---\n\n## Citation Analysis\n\nOne self-citation in 28 references (SCR ≈ 3.6%): [10], Bansal and Hota (2011) on refinery scheduling heuristics for heterogeneous computing systems, cited among the two-phase scheduling heuristics. It is on the same topic and relevant. The rest is standard grid-scheduling literature (Braun et al., Buyya et al., Garg et al., Lublin and Feitelson, the DAS-2 workload study). Minor attribution slips: [7], titled \"Economic Models for Resource Management and Scheduling in Grid Computing\", is cited as the GridSim toolkit reference; Genetic Simulated Annealing is cited to [27], a genetic-algorithm paper, while the genetic simulated annealing paper [28] is cited for plain simulated annealing; the Lublin model is written \"Lubin\". No padding or ring pattern is visible.\n\n---\n\n## Structural Analysis\n\nThe simulation uses standard workload models, two resource configurations (the nine sites of Table 3 and the DAS-2 sites of Table 4) and three weighting scenarios, with results averaged over ten trials with different prices (no dispersion reported). The results compare only the two proposed variants, EMCT and EMET, against each other; no existing algorithm (MCT, MET, the MinCTT family of [3], the cost-time balancing of [9]) is run as a baseline. The abstract's claim that \"our algorithms perform better over existing approaches in terms of user satisfaction and number of application failures\" and the conclusion's claim that they \"involve less overhead and lead to more efficient resource allocation than other optimal resource allocation approaches\" therefore have no evidence in the paper, and neither has the abstract's statement that existing multi-criteria algorithms are less efficient in time complexity and memory. The metric of Eq. (12), for which lower \"user satisfaction\" is better and which the text also calls \"user benefit\", makes the result paragraphs hard to follow. The per-figure statements are backed by Figures 3-14, so the claim-evidence ratio stays adequate, but the headline claims are unsupported. Limitations appear inline only: stated assumptions (fixed prices, fixed PE requirements, mutual trust) and dependent jobs left to future work as something which \"could not be addressed in the current work\".\n\nArtifacts: none. The workloads are generated from cited, published workload models, the simulator is the third-party GridSim, and no code, configuration or generated workload is released, linked or offered.\n\n---\n\n## Conclusion\n\nA Level 2 application of TOPSIS to grid resource selection whose operative equations are necessary, but whose problem statement wraps lists and records in set and tuple notation that no step needs; at this level that is formalism theater, and the score is capped.\n\nApart from the cap, the evaluation does not test the headline claim of superiority over existing approaches, since only the authors' two variants are compared, and nothing is released for reproduction."
+  }
+ ]
+}

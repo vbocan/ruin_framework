@@ -1,0 +1,131 @@
+{
+ "batch_id": "2019-v22-n34",
+ "analysis_timestamp": "2026-10-18T17:14:12Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 22,
+  "issue": "3-4",
+  "year": 2019
+ },
+ "papers": [
+  {
+   "paper_id": "fahim2019",
+   "paper": {
+    "title": "Clustering Algorithm for Multi-density Datasets",
+    "authors": [
+     "Ahmed Fahim"
+    ],
+    "abstract": "DBSCAN (Density-Based Spatial Clustering of Applications with Noise) algorithm is density-based clustering method. It discovers clusters with varied shapes, sizes and handles noise. But it fails to discover clusters of varied density. This problem arises due to its dependency on global parameters especially Eps (represents neighborhood radius for each point in dataset). This paper introduces very simple idea to deal with this problem. The idea is steamed from density-based methods especially DENCLUE (DENsity-based CLUstEring), DBSCAN algorithm and k-nearest neighbors. The proposed method estimates local density -for each point in dataset- as the sum of distances to the k-nearest neighbor, arranges points in ascending order based on local density. The algorithm starts the clustering process from the highest density point by adding un-clustered points that have similar density as first point in cluster. Similar means there is small variance in density between the current point and the first point in cluster. Also, the point is assigned to current cluster if the sum of distances to its Minpts-nearest neighbors is less than or equal to the density of first point (core point condition in DBSCAN). Experimental results show the efficiency of the proposed method in discovering varied density clusters from data.",
+    "keywords": [
+     "Clustering methods",
+     "Data analysis",
+     "Data mining",
+     "Knowledge discovery",
+     "Un-supervised learning"
+    ],
+    "doi": null,
+    "pages": "244-258",
+    "source_file": "paper631.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.0,
+    "composite": 33.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "DECORATIVE_DEFINITIONS",
+    "THEOREMLESS_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper (a simple DBSCAN modification) in which seven of thirteen formal elements fail the Necessity Test: Eq. 5 (index ranges already stated in prose), Def. 1 (set-builder for the k-NN list), Def. 2 (restates Eq. 3), Defs. 5-7 (DBSCAN's reachability, connectivity and cluster definitions, used by no lemma or proof and not needed by Algorithm 2), and Def. 8 (noise as 'very small clusters').",
+    "UNNECESSARY_SET_THEORY": "Def. 1 writes the k-nearest-neighbour result, obtained in the algorithm by an R*-tree query, as the set-builder {q_i ∈ dataset | dist(p, q_i) ≤ dist(p, q_k)}; Def. 4 writes the filtered prefix of the neighbour list, implemented as a loop with an early exit, as {a_j | density(q, a_j) ≤ kden(Ci), 1 < j < k}. No proof depends on either.",
+    "DECORATIVE_DEFINITIONS": "Defs. 1, 2, 5, 6, 7 and 8 are 'Definition N:' blocks whose removal would not change what a programmer builds: k-NN is a standard query, Def. 2 restates Eq. 3, Defs. 5-7 transpose DBSCAN's definitions without the lemmas they supported there, and Def. 8 is a vague prose statement that the algorithm does not implement.",
+    "THEOREMLESS_FORMALISM": "Eight numbered definitions and no theorem, lemma or proposition; the properties of the relations (symmetry, transitivity, reflexivity) and the O(n log n) complexity are asserted in prose without proof.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgement; the sensitivity to k and Minpts visible in Figs. 4, 5 and 7 and the restriction to two-dimensional synthetic data are not discussed as limitations."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A modest DBSCAN modification (Level 2) wrapped in an eight-definition DBSCAN-style apparatus with no lemmas; seven formal elements fail the Necessity Test, including set-builder notation for the k-NN list. Evaluation is visual on unnamed synthetic data against DBSCAN only, with no limitations and no artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** CMDD, a DBSCAN variant that drops the Eps radius, estimates each point's density as the cumulative distance to its k nearest neighbours (kden), sorts the points by kden, and grows each cluster from its densest unclassified point, using that point's kden as the cluster's density threshold together with a Minpts-th-neighbour core-point condition.\n**Level:** 2 (Low)\n**Rationale:** The contribution is a modification of an existing algorithm, which the author himself calls a \"very simple idea\" and a \"simple modification on the DBSCAN method\". There is no complexity derivation (the O(n log n) bound is asserted in one sentence of the conclusion), no correctness or convergence result, and the evaluation is visual on two-dimensional synthetic data. This is the Level 2 pattern of a simple optimisation of an existing method; Level 3 requires a novel algorithm with complexity analysis or proof.\n\n### Formal Elements\n- Definitions: 8 (with constraints: 4, Defs. 1, 4, 5, 7)\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (Eqs. 1-5)\n\nTwo pseudocode algorithms (CMDD and ExpandCluster) are code, not counted. The properties of the relations (symmetry, transitivity, reflexivity) are asserted in prose, carried over from DBSCAN, and neither stated as lemmas nor proved.\n\n### Necessity Test\n- Eq. 1, base case density(p_i, q_1) = dist(p_i, q_1): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 2, cumulative-distance recurrence density(p_i, q_j) = density(p_i, q_{j-1}) + dist(p_i, q_j): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 3, kden(p_i) as the sum of the k neighbour distances (the quantity used for ordering and as threshold; summation index misprinted as i): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 4, Euclidean distance (the metric is named nowhere in the prose): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 5, q_j ∈ knn(p_i), i = 1..N, j = 1..k (index ranges already stated in the prose above Eq. 1): Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 1, knn(p) as the set-builder {q_i ∈ dataset | dist(p, q_i) ≤ dist(p, q_k)} (a standard k-NN query, served by the R*-tree; circular, since q_k is itself the k-th neighbour): Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 2, kdensity (restates Eq. 3): Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 3, cluster initiator Ci, whose kden(Ci) becomes the cluster's threshold: Q1 yes, Q2 yes, Q3 no → necessary\n- Def. 4, directly density-reachable (the neighbour test and the core-point condition that ExpandCluster applies): Q1 yes, Q2 yes, Q3 no → necessary\n- Def. 5, density-reachable as a chain of directly density-reachable points: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 6, density-connected: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 7, cluster by maximality and connectivity, written with ∀ quantifiers: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 8, noise as \"very small clusters\" (no size threshold): Q1 yes, Q2 no, Q3 no → unnecessary\n\nSeven of the thirteen elements are unnecessary. Algorithm 2 is fully specified by Eqs. 1-4 and Defs. 3-4; Defs. 5-7 reproduce DBSCAN's reachability and connectivity apparatus, which in the original DBSCAN paper supports the lemmas showing that a cluster is determined by any of its core points. Here no lemma or proof uses them.\n\n### Proportionality\nCalculated complexity: 16 (8 definitions × 2)\nExpected range (Level 2): 0-15\nRatio: 1.07x upper bound\n\n**Assessment:** Disproportionate — the count slightly exceeds the Level 2 bound (well below the 2× threshold of DISPROPORTIONATE_FORMALISM), and, more decisively, seven elements fail the Necessity Test in a Level 2 paper.\n\n### Issues\n- Def. 1 writes the k-NN result as a set-builder, while the program obtains it from an R*-tree query (`regionQuery(Point, k)`). Def. 4, condition 1, likewise writes the filtered prefix of the neighbour list as {a_j | density(q, a_j) ≤ kden(Ci), 1 < j < k}, which Algorithm 2 implements as a loop with an early exit; the strict bounds 1 < j < k also exclude the first and the k-th neighbour, contradicting the algorithm.\n- Eq. 3 sums over i = 1..k while the summand is indexed by j.\n- The text states that direct density-reachability is a \"symmetric relation for pairs of points that are cores\". That holds for DBSCAN's Eps-neighbourhoods, but k-NN neighbourhoods are not symmetric (q may be among p's k nearest neighbours without p being among q's), and no argument is offered.\n- Def. 8 defines noise as very small clusters, whereas Algorithm 2 labels a point as noise when it fails the core-point condition; no size threshold is ever given.\n- The O(n log n) time complexity claimed in the conclusion is not analysed.\n\n---\n\n## Citation Analysis\n\nSingle author (A. Fahim). Three of 24 references are self-citations (SCR 12.5%). [14] (homogeneous densities clustering, 2018) and [24] (clustering based on local density of points, 2017) are directly on topic, kNN-based clustering of multi-density data (similarity ≈0.9), and are discussed in the related work. [1], the author's 2006 enhanced k-means paper, is cited as the reference for k-means itself in place of the original k-means literature; it is on clustering and therefore related (≈0.5), but the substitution is a mild preference for the author's own work. No unrelated self-citation and no ring pattern. The remaining references are the appropriate literature (partitioning and hierarchical methods, DBSCAN, OPTICS, DENCLUE, and a dozen multi-density DBSCAN variants).\n\n---\n\n## Structural Analysis\n\nThe evaluation uses five unnamed two-dimensional synthetic datasets shown as scatter plots and compares CMDD only with DBSCAN at several Eps values. There is no quantitative clustering measure (ARI, NMI, purity or similar), no runtime measurement despite repeated claims of efficiency, and no comparison with any of the multi-density variants the introduction reviews (VDBSCAN, DBSCAN-DLP, k-DBSCAN, KDDBSCAN, CBLDP, or the author's own [14]). Tables 1 and 2 report the kden(Ci) thresholds, not clustering quality. The qualitative claims are backed by the figures, so the claim-evidence balance is adequate overall (CER estimated ≈0.6), but the efficiency and complexity claims have no support. Sensitivity to k and Minpts is visible in Figs. 4, 5 and 7 (clusters merge or split as k changes) but is never presented as a limitation; the paper contains no limitations statement.\n\nNo code, no data, no availability statement. The datasets are not identified, so they cannot be obtained from elsewhere either.\n\n---\n\n## Conclusion\n\nThe algorithmic idea is a modest and plausible DBSCAN modification: replace the global radius with a per-cluster kNN density threshold taken from the cluster's densest point. The paper surrounds it with eight numbered definitions that mostly transpose DBSCAN's definitions without the lemmas they served there, and seven of its thirteen formal elements fail the Necessity Test, including set-builder notation for the k-NN list and the filtered neighbour list. At Level 2 this raises FORMALISM_THEATER, UNNECESSARY_SET_THEORY and DECORATIVE_DEFINITIONS, all disqualifying, and the eight definitions with no theorem raise THEOREMLESS_FORMALISM. The evaluation is qualitative and limited to a single baseline, no limitation is acknowledged, and nothing is released. Citation practice is sound."
+  },
+  {
+   "paper_id": "mihai2019",
+   "paper": {
+    "title": "IT-Based Financial Confirmation & Diagnosis Mechanisms",
+    "authors": [
+     "Răzvan Mihai",
+     "Tom Einar Nyberg",
+     "Einar Michaelsen",
+     "Ioana Rizea-Popp",
+     "Monica Dascălu",
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "The increasing complexity and dynamics of the financial domain impose appropriate tools to keep transactions efficient and secure. We propose to use a new technology, BlockChain (BC), and a revived technology, Artificial Intelligence (AI), to build IT-based tools for financial confirmation and diagnosis. We describe first the mechanisms for both, confirmation and diagnosis. Then, the type of computation involved is analysed. The two technologies involved in our proposal, BC and AI, are computationally intensive. The time and energy involved cannot be minimized using off-the-shelf solutions. Finally, the architectural environment for an efficient implementation is proposed and evaluated. The paper represents the description of our proposed approach to solve critical problems affecting the current financial systems.",
+    "keywords": [],
+    "doi": null,
+    "pages": "284-299",
+    "source_file": "paper634.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 30,
+    "artifact_availability": 0,
+    "intellectual_integrity": 28.5,
+    "composite": 21.38,
+    "final": 21.38
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNSUPPORTED_CLAIMS",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 proposal (blockchain platform, DNN diagnosis and an existing accelerator, none built here) whose diagnosis formalism fails the Necessity Test: the edge vectors R_ij, the N×N matrices M_i (Eq. 1) and the N×N×k array M are an array displayed as a matrix and restated in prose, and the diagnosis technique applied to them is never specified. The displayed performance ratio is likewise decorative (and miscomputed: 57.6/15.688 = 3.67, not 3.37).",
+    "UNSUPPORTED_CLAIMS": "Estimated CER ≈0.3. Nothing in the confirmation or diagnosis mechanisms is implemented or evaluated, yet the abstract says the architecture is 'proposed and evaluated' and the conclusion asserts verification costs falling 'to virtually zero', removal of settlement procedures and elimination of much audit attestation work; many statements about competing architectures in Section 2.3 are opinion.",
+    "ELEVATED_SELF_CITATION": "6 of 24 references ([2], [13], [14], [15], [19], [20]) include co-author G. M. Ştefan (SCR 25%). All are topically related to the accelerator section, but [14] is never cited in the body and [15] is an in-print chapter that carries the comparative Table 1."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A project proposal (Level 1) combining a blockchain confirmation platform, an unspecified neural diagnosis system and the authors' earlier accelerator, none built or evaluated here; the entity-relation matrix formalism is an array restated in prose, the conclusions far outrun the evidence, a quarter of the references are self-citations, and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A project proposal that combines a private permissioned blockchain for confirming inter-company transactions (replacing audit confirmations), a deep neural network trained on the platform's data for financial diagnosis, and the authors' previously published MapReduce accelerator as the computing substrate.\n**Level:** 1 (Trivial)\n**Rationale:** The paper describes a system architecture that combines existing components (permissioned blockchain, smart contracts, a DNN, an accelerator taken from the authors' earlier work [13], [19], [20]), and none of it is implemented or evaluated here; the abstract calls the paper \"the description of our proposed approach\". The accelerator's cycle count and O(p) speed-ups are asserted, not derived. This is the Level 1 pattern of system architectures that combine existing components and of prototype or proposal descriptions.\n\n### Formal Elements\n- Definitions: 1 inline (the entity-relation representation: edge vectors R_ij, matrices M_i, array M) (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 displayed (Eq. 1, the matrix-vector cycle count, the performance ratio), plus inline O(p) claims, register-transfer-style operation semantics and register-vector notation for the accelerator\n\n### Necessity Test\n- Edge vector R_ij = [p^1_ij, p^2_ij, ..., p^k_ij] of relation parameters between entities E_i and E_j: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 1, the N×N matrix M_i per parameter and its stacking into the N×N×k array M (restated in prose immediately afterwards): Q1 yes, Q2 no, Q3 no → unnecessary\n- Accelerator programmer's model, vectors V_i, W_j, B, IX, ACC, ADDR, SR, IO and controller memory D: Q1 yes, Q2 yes, Q3 no → necessary (names the machine state on which the instruction semantics act)\n- Register-transfer-style operation semantics (load, unary, binary, selection, reduction, insert into SR): Q1 yes, Q2 yes, Q3 no → necessary (predicated execution and the reduction fix the instruction behaviour)\n- T_matrixVectorMultiplication = N + 2 + log2 p against ∼5N² on a mono-core: Q1 yes, Q2 no, Q3 yes → necessary (states a cycle bound, though without derivation)\n- O(p) acceleration for hashing and matrix-vector multiplication, against O(p/log p) for other approaches: Q1 yes, Q2 no, Q3 yes → necessary (asymptotic bounds, asserted)\n- Displayed ratio \"MapReduce performance / Nvidia performance = 3.37\": Q1 yes, Q2 no, Q3 no → unnecessary\n\n### Proportionality\nCalculated complexity: 2 (1 inline definition × 2)\nExpected range (Level 1): 0-5\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate in count, but the formal content of the diagnosis section fails the Necessity Test. The matrices M_i and the array M are an adjacency tensor, that is an array, displayed as a matrix and then restated in prose; the diagnosis technique to be applied to it is not specified beyond being \"similar to the technique used in medical diagnose\", so the notation constrains nothing a programmer would build. The accelerator's notation, by contrast, is a reasonable description of an instruction set.\n\n### Issues\n- Eq. 1's last row reads p_1N p_1N ... p_NN instead of p_N1 p_N2 ... p_NN, and R_ij is introduced as the relation \"between E_i and E_i\".\n- The displayed ratio is arithmetically wrong: 57.6 / 15.688 = 3.67, not 3.37.\n- The \"supra-linear acceleration\" rests on comparing N + 2 + log2 p cycles on p ≥ N cells with an unexplained ∼5N² cycle estimate for a mono-core; the speed-up exceeds p only through that factor 5.\n- The binary-operation example mixes notations (acci + s[5j]) and its gloss (\"the value stored at the address 5\") does not match the expression.\n\n---\n\n## Citation Analysis\n\nSix of the 24 references include the co-author G. M. Ştefan: [2], [13], [14], [15], [19], [20] (SCR 25%). All concern the authors' parallel and MapReduce accelerator line and are topically related to Section 5 (similarity ≈0.6-0.8), so none is irrelevant. However, [14] (a deep-learning stereo-vision accelerator for automotive use) is never cited in the body, and [15], an unpublished in-print chapter, carries the comparative Table 1 and the claims about competitor utilisation. Reference [9] is likewise uncited in the body. A large share of the references are web pages, vendor blog posts, a forum thread and a recorded talk. A small factual slip: Pacioli's double-entry bookkeeping treatise is placed in the 14th century (it was printed in 1494). No ring pattern is apparent.\n\n---\n\n## Structural Analysis\n\nThe paper is a project proposal. The confirmation platform is described at the level of a generic blockchain transaction flow; the diagnosis system lists candidate input features but specifies no model, data set, training or evaluation; the accelerator is the authors' earlier design, supported here by one simulated SHA-256 energy figure (whose simulation is not described) and an asserted cycle count. Yet the abstract says the architecture \"is proposed and evaluated\", and the conclusion asserts that the cost of verifying transactions will fall \"to virtually zero\" and that a significant part of the auditor's attestation work will be eliminated, without evidence. Many statements in Section 2.3 about competing architectures (cache inefficiency, GPGPU as \"an oxymoron\", the TPU as \"completely useless\" for blockchain) are opinion rather than evidence. Claim-evidence ratio estimated at ≈0.3. Limitations: no section, but one inline acknowledgement (I/O-bound computations, when transfer time exceeds compute time) and Section 6 frames the integration as future work.\n\nNo code, data or simulator is released or offered. The FPGA version is a future project deliverable, not a claim that anything is available; the links in the references point to third-party pages.\n\n---\n\n## Conclusion\n\nThe paper sets out a research agenda rather than results: a blockchain confirmation platform, an unspecified neural diagnosis system, and an accelerator from the authors' earlier work, none of them built or evaluated here. Its one piece of formalism outside the accelerator, the entity-relation matrices and the N×N×k array, is an array written as a matrix and restated in prose, which at Level 1 raises FORMALISM_THEATER (disqualifying). The conclusions on cost, auditing and energy go well beyond the evidence (UNSUPPORTED_CLAIMS), the one quantitative comparison contains an arithmetic error, a quarter of the references are self-citations (ELEVATED_SELF_CITATION, all topically related), and nothing is released."
+  }
+ ]
+}

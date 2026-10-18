@@ -1,0 +1,127 @@
+{
+ "batch_id": "2020-v23-nS",
+ "analysis_timestamp": "2026-10-18T17:13:16Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 23,
+  "issue": "S",
+  "year": 2020
+ },
+ "papers": [
+  {
+   "paper_id": "biliaiev2020",
+   "paper": {
+    "title": "Numerical simulation of toxic chemical transport after accidental release at chemical plant",
+    "authors": [
+     "Mykola Biliaiev",
+     "Viktoriia Biliaieva",
+     "Vitalii Kozachyna",
+     "Oleksandr Berlov",
+     "Ivan Kalashnikov"
+    ],
+    "abstract": "Toxic chemical release may occur at different plants and impact directly on the people in the working areas. It is very important to predict atmosphere pollution and make risk assessment for accidental releases. CFD modeling is a powerful tool to solve these problems. This work is concerning on development of quick computing numerical model to predict air pollution in case of accidental solid propellant burning at the chemical plant. The model is based on transport equation for the products of propellant burning. Air flow on the industrial site is computed on the basis of potential flow model. To solve governing equations implicit finite difference schemes of splitting have been used. The results of numerical experiments are presented.",
+    "keywords": [
+     "atmosphere pollution",
+     "accidental release",
+     "risk assessment",
+     "numerical model",
+     "missile solid propellant"
+    ],
+    "doi": null,
+    "pages": "S3-S13",
+    "source_file": "paper650.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 92,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 80.0,
+    "composite": 60.0,
+    "final": 60.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the program is only described (\"We programed all finite difference equations and developed computer program “Air2D”.\")",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Level 2 application of established dispersion and potential-flow models to an accidental propellant burn at a chemical plant; the equations are the method itself and are proportionate, self-citation is low and on topic, but key parameters and the claimed validation are not reported and neither code nor data is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Two-dimensional numerical model of Cl2 and NO dispersion (with a simplified NO-NO2-O3 chemistry) after accidental burning of missile solid propellant at a chemical plant, using a potential-flow wind field around buildings and a probability-weighted map of potential risk.\n**Level:** 2 (Low)\n**Rationale:** The contribution applies an established modelling chain (depth-averaged advection-diffusion equation, potential flow, implicit splitting schemes taken from [11] and [14], Euler integration of a textbook NOx cycle) to a new site and scenario. There is no new algorithm and no complexity or convergence analysis, and the risk measure is a sum of scenario probabilities. Defaulting low, this is an existing method applied to a new domain, not a new mathematical model with validation.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 18 numbered, plus about 6 unnumbered displays (depth-averaged concentration, boundary and initial conditions, stopping criterion, discrete velocity formulas, upwind designations)\n\n### Necessity Test\n- Eq. (1), stoichiometry of ammonium perchlorate burning: Q1 yes, Q2 yes (\"Emission rate of Cl2, NO was calculated using (1)\"), Q3 no → necessary\n- Eq. (2), 2-D advection-diffusion equation with a moving point source: Q1 no, Q2 yes, Q3 no → necessary\n- Unnumbered depth-averaged concentration C(x,y) = (1/H)∫C dz: Q1 yes, Q2 yes (fixes what the 2-D variable means and how a point emission is spread over the height H), Q3 no → necessary\n- Eqs. (3)-(5), NO-NO2-O3 reaction scheme: Q1 yes, Q2 yes (fixes the species transported besides Cl2 and the constants k1, J used in (6)-(8)), Q3 no → necessary\n- Eqs. (6)-(8), kinetic ODEs solved by the Euler method: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (9), Laplace equation for the velocity potential: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (10), velocity as gradient of the potential: Q1 yes, Q2 yes, Q3 no → necessary\n- Boundary and initial conditions for P and C: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (11), evolutionary (pseudo-time) form of (9): Q1 no, Q2 yes, Q3 no → necessary (the limit for t → ∞ is cited to [14], not proved)\n- Eqs. (12)-(13), two-step splitting scheme for the potential: Q1 no, Q2 yes, Q3 no → necessary\n- Unnumbered stopping criterion |P(n+1) − P(n)| ≤ ε: Q1 yes, Q2 yes (sets the termination rule of the iteration), Q3 no → necessary\n- Unnumbered discrete velocity formulas: Q1 no, Q2 yes, Q3 no → necessary\n- Eqs. (14)-(17), four-step change-triangle splitting scheme for (2): Q1 no, Q2 yes, Q3 no → necessary\n- Unnumbered designations Q, u±, v±, M operators: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. (18), potential risk as a sum of scenario probabilities: Q1 yes, Q2 yes (fixes the risk measure the \"Ri\" subprogram computes: the unweighted sum of the probabilities of the meteorological situations in which the concentration at a point exceeds the level of concern), Q3 no → necessary. Borderline: the prose and the worked example (P(L1) = 60%+30%+10%) state the same rule, so the formula adds little beyond them.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate — every equation belongs to the physical model or its discretisation and maps onto a subprogram of Air2D (Pot, Vel, Cont, Chem, Ri). There are no definitions, theorems, set notation, or decorative Greek letters; ε is the iteration tolerance inside the stopping rule, not a renamed configuration constant.\n\n### Issues\nNo formalism theatre. The precision gaps are of another kind. As extracted, Eq. (6) reads d[NO2]/dt = −k1[NO][O3] − J[NO2], whose first term has the wrong sign for reaction (3), in which NO2 is produced (this may be an extraction artefact). The tolerance ε, the diffusion coefficients μx and μy, the averaging height H, the emission rates, and the values of k1 and J are not reported, so the computation cannot be reproduced from the text.\n\n---\n\n## Citation Analysis\n\n15 references. Two include the first author: [9] (Biliaiev, numerical simulation of indoor and atmospheric pollution for regions with complex topography) and [11] (Zgurovskiy, Skopetskiy, Khrutch, Biliaiev, monograph on numerical modelling of pollutant dispersion). SCR = 2/15 = 13.3%. Both are squarely on the paper's topic (estimated similarity 0.8-0.9); [11] is the source of the change-triangle scheme and of the porosity (marker) technique the paper uses. No other author of this paper appears in the reference list. The remaining references are relevant dispersion-modelling work (HARMO conference papers, ALOHA and SLAB studies, LES studies) and classic monographs (Marchuk, Samarskii). No issues identified.\n\n---\n\n## Structural Analysis\n\nThe usefulness of the model is argued from a single scenario: a 4-minute burn, two wind speeds with assigned probabilities, a 40x40 grid. Results are concentration and risk maps (Figs. 4-7) and a 5 s run time. Validation is asserted but not shown: \"validation of numerical model was performed by comparing numerical results which were obtained on different grids with analytical solutions of (2) and (11)\", with no error values or plots reported, and no comparison with the Gaussian tools (ALOHA, SLAB, PHAST) the introduction discusses. The conclusion that a burn \"will result in quick and very dangerous air contamination\" rests on that one scenario. Claim-evidence balance is estimated around 0.6 (adequate): background claims are cited and the result statements are tied to figures. Limitations are acknowledged inline (\"Because of lack of experimental data\", results described as \"first order\" information, a building-intrusion submodel left for future work), not in a dedicated section.\n\nArtifact availability: the Fortran PowerStation program Air2D is described subprogram by subprogram, but neither the code nor the input data is released or claimed to be available.\n\n---\n\n## Conclusion\n\nA Level 2 applied CFD paper whose equations are the method itself and are proportionate to it. Every formal element passes the Necessity Test, Eq. (18) being the only borderline one, and self-citation is low and relevant. The weaknesses are reproducibility and evidence: unreported parameters, a possible sign error in the NO2 kinetics, validation claimed but not shown, and nothing released. Acceptable as an engineering account of a tool built for an emergency service; it does not establish the model's accuracy."
+  },
+  {
+   "paper_id": "benbrahim2020",
+   "paper": {
+    "title": "Deep Transfer Learning with Apache Spark to Detect COVID-19 in Chest X-ray Images",
+    "authors": [
+     "Houssam Benbrahim",
+     "Hanaâ Hachimi",
+     "Aouatif Amine"
+    ],
+    "abstract": "A chest X-ray test is one of the most important and recurrent medical imaging examinations. It is the first imaging technique that represents a significant role in the diagnosis of SARS-CoV-2 disease. Automatic classification of 2019-nCoV using X-ray images is a major request that can help doctors to make the best decisions. In this paper, we adopted, developed, and validated a Deep Transfer Learning (DTL) method using Convolutional Neural Network (CNN) based models InceptionV3 and ResNet50 with Apache Spark framework for the classification of COVID-19 in chest X-ray images collected from Kaggle repository. High accuracy was obtained by our model in the detection of COVID-19 X-ray images 99.01% by the pre-trained InceptionV3 model and 98.03% for the ResNet50 model.",
+    "keywords": [
+     "COVID-19",
+     "SARS-CoV-2",
+     "2019-nCoV",
+     "chest X-ray images",
+     "deep transfer learning",
+     "convolutional neural network",
+     "CNN",
+     "apache spark",
+     "InceptionV3",
+     "ResNet50"
+    ],
+    "doi": null,
+    "pages": "S117-S129",
+    "source_file": "paper658.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 45,
+    "artifact_availability": 50,
+    "intellectual_integrity": 74.75,
+    "composite": 68.56,
+    "final": 63.56
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"These images have been obtained from Kaggle repository exactly from two datasets respectively called \"COVID-19 chest xray\" [36] and \"Chest X-Ray Images (Pneumonia)\" [37]\"; [36] https://www.kaggle.com/bachrr/covid-chest-xray, [37] https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia. The code appears only as screenshots (\"Fig. 7. An extract from the program for InceptionV3\") and is not linked.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints: the 320-image dataset, the single 70/30 split, the separate source collections for the two classes, the ambiguity between training and test accuracy, and the absence of external validation are not discussed."
+   },
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Level 2 transfer-learning application with no formalism and no self-citation; the evidence is weak (320 images, one split, headline accuracy shown in figures captioned as training accuracy), claims about Spark's performance and clinical impact are unsupported, and no limitations are acknowledged; the source data are public on Kaggle.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Binary classification (COVID-19 vs. normal) of 320 chest X-ray images drawn from two Kaggle collections, using features from ImageNet-pretrained InceptionV3 and ResNet50 (the DeepImageFeaturizer of Deep Learning Pipelines) fed to logistic regression on a Databricks Spark cluster.\n**Level:** 2 (Low)\n**Rationale:** A straightforward ML application: existing pretrained CNNs used as fixed feature extractors, a standard classifier, accuracy reported. The Spark and Databricks layer is library usage. It borders on Level 1 (library calls), but training a classifier for a new task matches the Level 2 example of a CNN applied to a new image classification task.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Necessity Test\nNone. The paper contains no formal elements; even the four metrics (accuracy, F1, weighted precision, weighted recall) are described in prose only.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate — no formalism for a library-driven application.\n\n### Issues\nNone identified for formalism. The prose descriptions of the metrics are loose, e.g. accuracy \"refers to the proximity of the measurements to a determined value\" and F1 \"is a measure of a test's accuracy\", which leaves the reader to assume the standard definitions.\n\n---\n\n## Citation Analysis\n\n42 references, none authored by Benbrahim, Hachimi, or Amine: SCR = 0/42 = 0%. No self-citation or citation-ring pattern. Several non-self citations are weakly matched to the claims they support: [27] (a CNN for sentence classification) is cited for CNNs being inspired by the visual cortex, and [28] (canonical correlation analysis for visualising CNNs) for the four main CNN layers; some background rests on a vendor web page and a blog post ([11], [12]). These lower citation quality slightly but involve no self-interest. No integrity issues identified.\n\n---\n\n## Structural Analysis\n\nThe evidence is one 70/30 random split of 320 images (roughly 96 test images), with no cross-validation, repeated runs, confidence intervals, or confusion matrix. The headline figures are ambiguous: the text says the 99.01% accuracy \"is recorded in Fig. 9\", whose caption is \"Training accuracy for InceptionV3\", and then speaks of \"the highest training accuracy\", so it is unclear whether held-out performance is reported at all. The COVID-19 and normal classes come from different Kaggle collections, so the classifier may be separating image sources rather than disease; this is not discussed. Several claims have no supporting evidence: \"Apache Spark proved an advanced performance in image classification techniques\" (no runtime or scaling measurement, on a cluster with a single 2-core driver), \"Our model will simplify, speed up, and reduce the costs of coronavirus detection\", and the comparison with [5], [6], [39]-[42] (\"a remarkable difference in the performance\"), which used different datasets of 50 to 13,800 images. Claim-evidence ratio estimated around 0.45 (weak); background claims are cited, but the paper's own claims about efficiency, superiority, and clinical value are not backed. No limitations are acknowledged anywhere.\n\nArtifact availability: both source datasets are public and linked in [36] and [37], which places the paper in the data category. The 320-image selection is not released, and the code is shown only as screenshots (Figs. 7-8).\n\n---\n\n## Conclusion\n\nA Level 2 application with no formalism, so nothing to test for theatre, and clean citation conduct. The weaknesses are structural: a small two-source dataset, a single split, headline numbers that the figures label as training accuracy, unsupported claims about Spark's performance and about clinical impact, and no acknowledged limitations. The public Kaggle sources give a partial route to reproduction, but the selected subset and the code are not available."
+  }
+ ]
+}

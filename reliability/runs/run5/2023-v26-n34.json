@@ -1,0 +1,231 @@
+{
+ "batch_id": "2023-v26-n34",
+ "analysis_timestamp": "2026-10-18T17:21:17Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 26,
+  "issue": "3-4",
+  "year": 2023
+ },
+ "papers": [
+  {
+   "paper_id": "duca2023",
+   "paper": {
+    "title": "Approach to Evaluate the Data of Moss Biomonitoring Studies: Preprocessing and Preliminary Ranking",
+    "authors": [
+     "Gheorghe Duca",
+     "Sergey Travin",
+     "Inga Zinicovscaia",
+     "Radu-Emil Precup"
+    ],
+    "abstract": "This paper, dedicated to Acad. Florin Gheorghe Filip, at his 15th anniversary as the Chairman of the Information Science and Technology Section of the Romanian Academy, suggests an approach to describe the data obtained in biomonitoring studies using mosses, on the example of the Republic of Moldova. In total, 33 moss samples were collected on the territory of Moldova, the elemental composition of which was determined by neutron activation analysis and atomic absorption spectrometry. At the first stage of the work, a correlation analysis was carried out with the ranking of data in the order of decreasing total correlation, which made it possible to preliminarily reduce the number of elements to two factors. At the stage of data sorting, iron, the content of which in the environment can be associated with anthropogenic activity, was chosen as the element determining the rank. The next stage of work was data smoothing using a discrete cosine transform, for which the codes were rewritten and the algorithm was ported to the Excel-VBA environment, which is most suitable for preprocessing and graphical display of experimental data. Also, an algorithm was developed for determining the number of linearly independent (basis) vectors in which the matrix itself can be decomposed. Two principal roots were identified, of which the larger one is several thousand units, and three lower roots, which are less than unit were excluded, since their absolute values differ by two to three or more orders of magnitude downward from the eigenvalues of the influencing components. The paper is dedicated to Acad. Florin Gheorghe Filip, at his 15th anniversary as the Chairman of the Information Science and Technology Section of the Romanian Academy, and at his 75th anniversary.",
+    "keywords": [
+     "Algorithm",
+     "correlation analysis",
+     "data preprocessing",
+     "moss biomonitoring"
+    ],
+    "doi": null,
+    "pages": "276-288",
+    "source_file": "paper749.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 15,
+    "structural_integrity": 45,
+    "artifact_availability": 50,
+    "intellectual_integrity": 16.5,
+    "composite": 24.88,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"The content of determined elements in moss samples is presented in Table 1 given in [15].\" [15] is the authors' supplementary material: http://www.aut.upt.ro/~rprecup/Supplementary material ROMJIST2.doc. Code is only described: \"the codes were rewritten and the algorithm ported to the Excel-VBA environment\" (no link).",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "IRRELEVANT_SELF_CITATION",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with three unnecessary formal elements: Eqs. (11)-(13) restate the bilinear model (10) in ICA notation, introduce an unmixing matrix W that is never computed, and end with the identity WAS^T = S^T. Each is Q1 yes, Q2 no, Q3 no.",
+    "IRRELEVANT_SELF_CITATION": "[23] (slime mould algorithm for tuning type-2 fuzzy controllers of servo systems) and [28] (fuzzy control for telesurgical applications), both by the corresponding author, are cited as generic metaheuristic examples and as a future 'application' of moss-data processing; topical similarity below 0.3.",
+    "ELEVATED_SELF_CITATION": "8 of 28 references include an author of this paper (SCR 28.6%; 25.9% if the authors' supplementary file [15] is excluded), within the 20-30% band."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 preprocessing of moss-biomonitoring data with existing smoothing and eigenvalue methods; a decorative ICA restatement and two unrelated self-citations within a 29% self-citation ratio disqualify it, and the results sit almost entirely in an external supplementary file.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Preprocessing and preliminary ranking of element concentrations from moss samples collected across the Republic of Moldova: correlation ranking, log transform, ordering of sites by iron content, penalized-least-squares smoothing via the discrete cosine transform (Garcia's method, ported to Excel-VBA), and estimation of the number of principal components from the eigenvalues of the covariance matrix (Danilevsky's reduction plus a published polynomial root finder).\n**Level:** 2 (Low)\n**Rationale:** Every computational step is an existing method applied to a new dataset: Garcia's DCT-based smoother, Danilevsky's method, Kostin's root finder, and discarding small eigenvalues as in PCA. The \"algorithm for determining the number of linearly independent (basis) vectors\" is standard rank estimation. No new algorithm with analysis and no proofs.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 15 numbered, (1)-(15)\n\n### Necessity Test\n- Eq. (1), penalized least-squares objective F(y^) = RSS + s*P(y^): Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (2), roughness penalty P(y^) = ||D y^||^2: Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (3), tridiagonal second-difference matrix D: Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (4), eigendecomposition of D and closed-form eigenvalues lambda_i: Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (5), smoother y^ = U Gamma U^T y with gamma_i: Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (6), two-dimensional DCT: Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (7), inverse DCT: Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (8), y^ = IDCT(Gamma * DCT(y)): Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (9), generalized cross-validation criterion for s: Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (10), bilinear model D = C S^T + E: Q1 no, Q2 no, Q3 no -> necessary (states the model whose number of components is estimated)\n- Eq. (11), ICA model X = A S^T + E: Q1 yes, Q2 no, Q3 no -> unnecessary (the paper itself calls it \"mathematically completely equivalent\" to (10) up to the symbols; nothing later uses it)\n- Eq. (12), ICA unmixing S^T = W X: Q1 yes, Q2 no, Q3 no -> unnecessary (no unmixing matrix is estimated anywhere in the paper)\n- Eq. (13), S^T = W A S^T = S^T for W = A+: Q1 yes, Q2 no, Q3 no -> unnecessary (a one-line identity; no result depends on it)\n- Eq. (14), Frobenius (companion) form P: Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (15), characteristic polynomial read from the first row of P: Q1 no, Q2 yes, Q3 no -> necessary\n\n### Proportionality\nCalculated complexity: 0 (no definitions, theorems or proofs)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate by count. Equations (1)-(9) and (14)-(15) reproduce existing methods that the authors say they ported or implemented, so they constrain the implementation. The ICA block (11)-(13) restates (10) and describes a method the paper never applies.\n\n### Issues\n- Equations (11)-(13) restate the bilinear model in ICA notation, introduce an unmixing matrix W that is never computed, and close with the identity W A S^T = S^T. Three unnecessary elements in a Level 2 paper trigger FORMALISM_THEATER under the zero-tolerance rule.\n- The DCT in (6)-(7) is written in two dimensions with inconsistent bounds (N, M against n, m) although the smoothing is applied to one-dimensional rank profiles; (9) is typeset ambiguously.\n- Numbering slips: Kostin's root finder is cited as [21] in the text but is reference [20]; Box and Wilson is dated 1992 in the text and 1951 in the list.\n\n---\n\n## Citation Analysis\n\nEight of 28 references include at least one author of this paper (SCR 28.6%; 25.9% if the authors' own supplementary file [15] is not counted): [6], [7], [8], [13], [14], [15], [23], [28]. The first six concern moss biomonitoring or the authors' earlier processing paper on the same data and are related (similarity above 0.5).\n\n[23] (slime mould algorithm for tuning interval type-2 fuzzy controllers of nonlinear servo systems) is cited in a closing paragraph that lists metaheuristics the paper does not use, and [28] (fuzzy control solution for telesurgical applications) is named as a future application of the moss-data approach. Both are by the corresponding author and have topical similarity well below 0.3, hence IRRELEVANT_SELF_CITATION. The paragraph listing [21]-[25] has no function in the argument beyond carrying these citations; [26] and [27] are likewise unrelated \"future applications\" (well-being, evolving systems).\n\n---\n\n## Structural Analysis\n\nEvery table and figure the argument rests on (concentrations, correlation matrices, smoothing profiles, eigenvalues) is delegated to a supplementary Word file [15]; the article itself contains no results table or figure. The claims that the smoothing gives \"mathematically correct filtering out of noise and experimental errors without losing meaningful information\", that the paper \"produces original techniques\", and that the root finder never failed in several years of use are not backed by evidence in the paper. There is no comparison with factor analysis, which the introduction sets up as the baseline, and no check of the two-factor conclusion. CER estimated at about 0.5. Limitations are acknowledged only inline (rotational ambiguity of the decomposition is set aside; low eigenvalues carry only noise).\n\nArtifacts: the element concentrations are published by the authors in the supplementary file at a printed URL, so the data is public. The Excel-VBA code and the authors' \"own package\" are described but neither linked nor offered.\n\n---\n\n## Conclusion\n\nA Level 2 data-preprocessing paper that applies existing smoothing and eigenvalue methods to a moss-biomonitoring dataset. Most of its mathematics reproduces methods it actually uses, but the ICA restatement (11)-(13) is decorative. Independently of the formalism finding, two self-citations by the corresponding author on unrelated control topics, within a self-citation ratio near 29%, disqualify it on citation conduct. The results themselves sit almost entirely outside the article."
+  },
+  {
+   "paper_id": "stefan2023",
+   "paper": {
+    "title": "Meaning in Action: a Qualitative Approach of Information",
+    "authors": [
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "There are many approaches to the concept of information in terms of quantity, but there is a lack of consensus on what information is. We measure it in many ways, but we don't consistently state what information is. We will try in this text to offer a qualitative image for the concept of information. On this occasion, perhaps we will better understand the role of information at different levels in existence by defining information as a symbolic structure that acts through the meaning it has in a given context.",
+    "keywords": [],
+    "doi": null,
+    "pages": "289-300",
+    "source_file": "paper750.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.5,
+    "composite": 33.38,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "DISPROPORTIONATE_FORMALISM"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 conceptual essay with many unnecessary formal elements: Draganescu's tuple definitions (Defs. 6-12), the author's own Def. 13 N = <S, C M>, the tuple expressions built from them, Def. 5, the quoted GDI and the BNF-style instruction format all fail the Necessity Test (Q1 yes, Q2 no, Q3 no).",
+    "DECORATIVE_DEFINITIONS": "Defs. 6-13 are numbered 'Definition N:' blocks of the form 'X is <S, M> where S is ... and M is ...'; each restates a prose notion, none is used in any inference, and the paper's contribution (Def. 13) is one of them.",
+    "DISPROPORTIONATE_FORMALISM": "Formalism complexity 13 definitions x 2 + 3 theorems x 3 = 35 against a Level 1 upper bound of 5 (7x, above the 2x threshold of 10)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Conceptual essay on the nature of information whose own contribution is tuple notation over prose concepts; thirteen numbered definitions and three quoted theorems in a Level 1 paper amount to formalism theater, while citation conduct is clean.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Philosophical essay on the concept of information. It reviews Shannon, algorithmic information theory (Solomonoff, Kolmogorov, Chaitin), Tononi, Draganescu, Wheeler and Floridi, then proposes a qualitative definition (information as a symbolic structure whose meaning acts on a context), illustrated with a RISC instruction, Lisp EVAL, a neural-network layer and DNA transcription.\n**Level:** 1 (Trivial)\n**Rationale:** A literature review plus a conceptual proposal. The paper develops no algorithm, model or proof; the theorems it states are quoted results without proof.\n\n### Formal Elements\n- Definitions: 13 (Defs. 1-5 reproduced from Kolmogorov and Chaitin; Defs. 6-12 reproduced from Draganescu; Def. 13 the author's own)\n- Theorems: 3 (quoted results of algorithmic information theory)\n- Proofs: 0\n- Equations: Shannon entropy inline; tuple expressions S = <R,C>, N1 = <S,R,C>, N = <S,R,C,sigma>; Floridi's GDI quoted; a BNF-style instruction format in Example 1\n\n### Necessity Test\n- Shannon entropy I(E) = -sum p_i log p_i: Q1 yes, Q2 no, Q3 yes -> necessary (supports the stated maximum at equal probabilities)\n- Def. 1, Kolmogorov relative complexity K_f(x|y) = min{|p| : f(p,y) = x}: Q1 no, Q2 no, Q3 no -> necessary\n- Def. 2, Chaitin complexity C_M(x) = min{|p| : M(p) = x}: Q1 no, Q2 no, Q3 no -> necessary\n- Def. 3, algorithmic probability P(s): Q1 yes, Q2 no, Q3 yes -> necessary (underlies H(s) in Theorems 1-3)\n- Def. 4, algorithmic entropy H(s) = -log2 P(s): Q1 yes, Q2 no, Q3 yes -> necessary (H appears in the bounds of Theorems 1-3)\n- Def. 5, algorithmic information I(s) = min(H(s)): Q1 yes, Q2 no, Q3 no -> unnecessary (minimum over an unstated variable; not used afterwards)\n- Theorem 1, minimal algorithmic entropy of an n-bit string in O(log n): Q1 no, Q2 no, Q3 yes -> necessary\n- Theorem 2, H(s) = n + H(n) for most n-bit strings: Q1 no, Q2 no, Q3 yes -> necessary\n- Theorem 3, entropy bound on theorems of an axiomatic theory: Q1 no, Q2 no, Q3 yes -> necessary\n- Def. 6, generalized information N = <S, M>: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Def. 7, informational structure N0 = <S>: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Def. 8, semantic information N1 = <S, S'> with S' given by a relation in S x S': Q1 yes, Q2 no, Q3 no -> unnecessary\n- Def. 9, reference information N11 = <S, R>: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Def. 10, context information N12 = <S, C>: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Def. 11, phenomenological information N2 = <S, sigma>: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Def. 12, pure phenomenological information N3 = <sigma>: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Tuple expressions S = <R, C>, N1 = <S, R, C>, N = <S, R, C, sigma>: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Floridi's General Definition of Information (sigma consists of n >= 1 well-formed, meaningful data), quoted: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Def. 13 (the paper's contribution), N = <S, C M>: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Example 1, \"instruction ::= {function, result, leftOperand, rightOperand}\" and \"programMemory[1342] = {add, reg5, reg12, reg4}\": Q1 yes, Q2 no, Q3 no -> unnecessary\n\nFloridi's \"(D) philosophy of information =def ...\" is a prose definition and is not counted as a formal element; the weight-matrix symbol M(n x m) in Example 3 is a name, not an equation.\n\n### Proportionality\nCalculated complexity: 13 x 2 + 3 x 3 = 35\nExpected range (Level 1): 0-5\nRatio: 7x upper bound\n\n**Assessment:** Disproportionate. A complexity of 35 exceeds twice the Level 1 upper bound (10). The reviewed definitions of algorithmic information theory are genuine mathematics, but the paper does nothing with them, and its own apparatus (Defs. 6-13) consists of angle-bracket tuples that name philosophical notions the surrounding prose already explains in full.\n\n### Issues\n- Defs. 6-13 follow the \"a [noun] is a tuple\" pattern, e.g. \"The generalized information is: N =< S, C M > where: S is the set of objects characterized by an internal syntactical order, and M is the meaning of S which is used to act on the context C.\" No operation, inference or result uses these tuples, and the text has to warn \"The entity sigma is not a set.\"\n- The central contribution, Def. 13, is Def. 6 with a context symbol attached; the notation adds nothing to the verbal thesis stated in the abstract.\n- Imprecision in the reproduced mathematics: Theorem 2 is written as an equality where the result holds up to O(1), Def. 5 minimises H(s) over an unstated variable, and Example 1 gives the address as 1324 in the text and 1342 in the formula.\n\n---\n\n## Citation Analysis\n\nNo self-citations (0/23). The references are mostly classic primary sources, quoted directly. Reference hygiene is weak: [8] points to a local file path on the author's computer (file:///C:/Users/.../Durham_FQXi4.pdf), and [9], [18] and [20] are never cited in the text. No issues of citation conduct.\n\n---\n\n## Structural Analysis\n\nFor an essay, the evidence is quotation and citation of sources, which is ample in Sections 2-3. The proposal in Section 4 rests on illustrative examples rather than argument or evidence, and Section 4.3 is openly speculative. CER estimated at about 0.45. Limits are acknowledged inline (\"Because we have reached the realm of speculation\", \"we are not yet prepared to give answers to these questions\").\n\nArtifacts: none, and none are expected for a conceptual paper (relevant: false).\n\n---\n\n## Conclusion\n\nA conceptual essay whose qualitative thesis can be stated in one sentence, and is so stated in the abstract. Its formal layer, thirteen numbered definitions and three quoted theorems, is far beyond what a Level 1 contribution needs, and the paper's own definitions are tuple notation laid over prose concepts. That triggers FORMALISM_THEATER, DECORATIVE_DEFINITIONS and DISPROPORTIONATE_FORMALISM. Citation conduct is clean."
+  },
+  {
+   "paper_id": "protic2023",
+   "paper": {
+    "title": "XOR-Based Detector of Different Decisions on Anomalies in the Computer Network Traffic",
+    "authors": [
+     "Danijela Protic",
+     "Miomir Stankovic"
+    ],
+    "abstract": "Anomaly-based intrusion detection systems are designed to scan computer network traffic for abnormal behavior. Binary classifiers based on supervised machine learning have proven to be highly accurate tools for classifying instances as normal or abnormal. Main disadvantages of supervised machine learning are the long processing time and large amount of training data required to ensure accurate results. Two preprocessing steps to reduce data sets are feature selection and feature scaling. In this article, we present a new hyperbolic tangent feature scaling approach based on the linearization of the tangent hyperbolic function and the damping strategy of the Levenberg-Marquardt algorithm. Experiments performed on the Kyoto 2006+ dataset used four high-precision binary classifiers: weighted k-nearest neighbors, decision tree, feedforward neural networks, and support vector machine. It is shown that hyperbolic tangent scaling reduces processing time by more than twofold. An XOR-based detector is proposed to determine conflicting decisions about anomalies. The decisions of the FNN and wk-NN models are compared. It is shown that decisions sometimes turn out differently. The percentage of the opposite decisions has been shown to vary and is not affected by dataset size.",
+    "keywords": [
+     "Anomaly-based intrusion detection",
+     "binary classification",
+     "machine learning"
+    ],
+    "doi": null,
+    "pages": "323-338",
+    "source_file": "paper753.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 45,
+    "artifact_availability": 50,
+    "intellectual_integrity": 42.75,
+    "composite": 44.56,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"To conduct the experiments, we used the Kyoto 2006+ dataset as it was developed for evaluating of the network-based IDSs.\" The dataset is a named public dataset (reference [35], Song et al.). Models were trained with MATLAB Classification Learner; no code is linked.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 empirical ML paper with five unnecessary formal elements: the gradient and Hessian (Eq. 3) and the Jacobian (Eq. 4) written out element by element right after being defined in words, the identity H = J(grad f)^T, the restated definition of tanh, and its derivative and linearisation. None is used by anything the authors compute (Q1 yes, Q2 no, Q3 no); LM runs inside MATLAB."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Empirical intrusion-detection study with textbook gradient, Hessian and Jacobian matrices that nothing in the paper uses; the key claims (a twofold speed-up for all models, independence from dataset size) go beyond single-run evidence.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Anomaly-based intrusion detection on the Kyoto 2006+ dataset: manual feature selection (24 to 9 features), comparison of min-max normalization with a tanh-based scaling, four MATLAB Classification Learner models (DT, SVM, wk-NN, FNN), and an XOR of the wk-NN and FNN predictions summed in an accumulator to count disagreements.\n**Level:** 2 (Low)\n**Rationale:** Off-the-shelf classifiers trained in a third-party tool on a public dataset, a scaling function that is tanh applied to a centred min-max transform, and a logical XOR of two prediction vectors. This is an empirical comparison with basic statistics; there is no new algorithm with analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 10 numbered, (1)-(10), plus inline formulas (tanh definition, tanh derivative and linearisation, H = J(grad f)^T, tp = ttrain + ttest, out(i) = xor(...))\n\n### Necessity Test\n- Eq. (1), min-max normalization to [a, b]: Q1 yes, Q2 yes, Q3 no -> necessary\n- Inline tanh(x) = (e^x - e^-x)/(e^x + e^-x): Q1 yes, Q2 no, Q3 no -> unnecessary (a standard named function; any implementation calls tanh)\n- Inline tanh' = 1 - tanh^2, slope near 1 at zero, and the linearisation f(x) ~ x on [-0.7616, 0.7616]: Q1 yes, Q2 no, Q3 no -> unnecessary (motivates the range; nothing is computed from it and no error bound is given)\n- Eq. (2), TH scaling tanh((x - mid-range)/half-range): Q1 yes, Q2 yes, Q3 no -> necessary\n- Eq. (3), gradient vector and Hessian matrix written out element by element: Q1 yes, Q2 no, Q3 no -> unnecessary (the same sentence defines them in words; nothing the authors compute uses the expansion)\n- Eq. (4), Jacobian matrix written out element by element: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Inline H(f(x)) = J(grad f(x))^T: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Eq. (5), damped LM objective: Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (6), LM update x(k+1) = x(k) - (J^T J + lambda I)^-1 J^T f(x(k)): Q1 no, Q2 yes, Q3 no -> necessary (the FNN is trained with LM)\n- Eq. (7), accuracy: Q1 yes, Q2 yes, Q3 no -> necessary\n- Eq. (8), precision: Q1 yes, Q2 yes, Q3 no -> necessary\n- Eq. (9), recall: Q1 yes, Q2 yes, Q3 no -> necessary\n- Eq. (10), F1-score: Q1 yes, Q2 yes, Q3 no -> necessary\n- Inline tp = ttrain + ttest: Q1 yes, Q2 yes, Q3 no -> necessary (defines the reported time)\n- Inline out(i) = xor(out_wk-NN(i), out_FNN(i)): Q1 yes, Q2 yes, Q3 no -> necessary (it is the detector)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate by count; the problem is necessity, not volume. Eqs. (3)-(4) reproduce textbook calculus for an optimizer that runs inside MATLAB, and the LM material has no link to the scaling it is said to underlie: Eq. (2) contains no LM component.\n\n### Issues\n- \"The gradient and the Hessian are vectors of partial derivatives and matrix of second partial derivatives of f(x), respectively, given as follows\", followed by both matrices in full and then the Jacobian in full. Nothing the authors compute needs any of it. Five unnecessary elements in a Level 2 paper trigger FORMALISM_THEATER.\n- The abstract presents the scaling as \"based on the linearization of the tangent hyperbolic function and the damping strategy of the Levenberg-Marquardt algorithm\", but Eq. (2) is tanh of a centred min-max transform; LM is only the FNN's training routine.\n- Errors in the formulas: (1) has (a - b) where (b - a) is needed; (3) labels the gradient f(x) and gives the Hessian the dimension n x m; (10) omits the factor 2 of the F1-score. The text states \"Since minimum and maximum values of the features are unknown, TH normalization is used\", yet (2) uses them.\n\n---\n\n## Citation Analysis\n\nSix of 50 references are the authors' own ([13], [14], [15], [21], [26], [43]): SCR 12%. All concern anomaly detection, feature scaling or the q-Levenberg-Marquardt method and are related (similarity above 0.5). [15] already presents the XOR detector of opposing decisions, which limits the novelty of this paper.\n\nA separate pattern concerns third-party citations. [27] (neural-network modelling of moss biomonitoring data) is cited for the wk-NN model, [28] (observation-process modelling in cognition) for neural networks, and [48] (evolving fuzzy models of shape-memory-alloy actuators) for validation sets. All three share one author and have nothing to do with intrusion detection; [7], by the same author, concerns reinforcement-learning control of a servo system. They are not self-citations and no reciprocal citation is visible, so no citation flag is raised, but they serve no purpose in the argument. [21] and [23] of paper754 in this issue are the same off-topic pair. In-text numbering is also misaligned: the Kyoto 2006+ collection is cited as [34] (LeCun et al., Efficient BackProp) and IDS Bro as [32] (an MIT News article on neural networks).\n\n---\n\n## Structural Analysis\n\nResults are in Tables 4-6, each from a single run on one daily record. Several claims go beyond them:\n- \"the processing time for all classifiers is more than twice as using Min-Max normalization\": Table 5 shows 2 s against 3 s for DT and 27 s against 37 s for SVM.\n- \"the percentage of different decisions is not related to the size of the data sets\": the three records have 57,300, 57,300 and 58,300 instances, so size hardly varies.\n- Hypothesis 2, that weighted nonlinear classifiers are best suited to XOR detection, is never tested.\n- The claim that XOR detection can \"increase the detection level of malware and bugs\" is not evaluated against labels at all.\n\nThe discussion of the accumulator register (shorter instructions, faster instruction cycle) has no bearing on the experiment. CER estimated at about 0.45. A limitation is acknowledged inline: the detector \"cannot predict the likelihood of a particular event occurring. Its sole purpose is to provide additional warnings\".\n\nArtifacts: the Kyoto 2006+ dataset is public and cited; the models were trained in MATLAB Classification Learner (a third-party tool); no code or configuration is released.\n\n---\n\n## Conclusion\n\nA Level 2 empirical study of feature scaling and classifier disagreement on a public intrusion-detection dataset. The equation set includes textbook gradient, Hessian and Jacobian matrices and a restated tanh that no computation in the paper requires, which under the zero-tolerance rule is formalism theater. The experimental claims are thinly supported: single runs, a size-independence claim tested at near-constant size, and a twofold speed-up that holds for two of four models. Self-citation is moderate and on topic, but the paper carries several unrelated citations to one third-party author."
+  },
+  {
+   "paper_id": "mirnalinee2023",
+   "paper": {
+    "title": "A Data Hiding Approach for Secured Data Communication",
+    "authors": [
+     "T. T. Mirnalinee",
+     "J. Bhuvana",
+     "SB. Vinodhinisri"
+    ],
+    "abstract": "In the digital era preserving the privacy of confidential information is the crucial issue in authentication and secret communication. Cryptography, steganography, data anonymization are few techniques used to preserve the information. Steganography is the process of hiding information into other non-secret sources of information like text, image or audio, so that secret information is not visible to the naked eye. This paper proposes a novel Prime Number Based Embedding (PNBE) approach for efficient data hiding to encode the data in images without any visual distortion. This approach proposes a novel scheme for identifying the embedding location of the data in the image and PNBE algorithm for the encoding and decoding of messages. The proposed approach is demonstrated with benchmark images. The data encoding capacity and quality are tested on different sized images. Experimental results show better hiding capacity in terms of bytes ranging from 6,327 to 12,448 based on the size of the image. The quality of the image is described as Peak to Signal Noise Ratio (PSNR), which computes the quality difference between original and compressed images. The efficiency of the proposed approach is demonstrated using PSNR with higher values. It is observed from the results that the proposed approach outperforms the existing ones in terms of embedding capacity and quality of the images.",
+    "keywords": [
+     "Embedding",
+     "encoding",
+     "data hiding",
+     "decoding",
+     "steganography"
+    ],
+    "doi": null,
+    "pages": "339-350",
+    "source_file": "paper754.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 35,
+    "artifact_availability": 0,
+    "intellectual_integrity": 40.25,
+    "composite": 30.19,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text; the only statement is \"The proposed approach is demonstrated with benchmark images.\", with the images named but neither cited nor linked",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with unnecessary formal notation in its algorithms: the set-builder condition '{G % E =0} {G | G % E =0}' for 'adjust the pixel until it is divisible by E', and the membership exclusion 'G in [G1 to G9] not-in G5' for 'every group except G5' (Q1 yes, Q2 no, Q3 no).",
+    "UNNECESSARY_SET_THEORY": "Set-builder and set-membership notation stand in for a divisibility test and a loop over image regions in Algorithms 1-2; no proof depends on them.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgement of constraints (security, robustness, payload versus PSNR, test scope); the conclusion only mentions extending the method to colour images."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Parity-style image steganography presented with set notation standing in for a divisibility test, a capacity formula that contradicts its own tables, and unsupported claims of distortion-free, secure and superior hiding.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Grayscale image steganography (PNBE). A 3x3 block at the image centre stores small primes (2, 3) as \"embedding codes\" for eight image regions; each message bit is embedded by nudging a pixel until it is (bit 1) or is not (bit 0) divisible by its region's prime, and decoding tests divisibility. Evaluated by capacity and PSNR on four images and compared with two published schemes on five standard images.\n**Level:** 2 (Low)\n**Rationale:** A one-bit-per-pixel parity-style embedding (with the prime 2 it is LSB parity embedding), with no security, complexity or robustness analysis. A variant of a standard technique; no proofs.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 numbered (capacity, MSE, PSNR), plus set notation inside Algorithms 1-2 and a 3x3 example matrix of embedding codes\n\n### Necessity Test\n- Eq. (1), capacity EC = M*N*NU/8: Q1 yes, Q2 yes, Q3 no -> necessary (fixes the reported capacity, although it does not reproduce the reported values)\n- Eq. (2), MSE = (double(A) - double(B))^2: Q1 yes, Q2 yes, Q3 no -> necessary (defines the reported quality, although the mean over pixels is missing)\n- Eq. (3), PSNR = 10*log10(255^2/MSE): Q1 yes, Q2 yes, Q3 no -> necessary\n- Algorithm 1, set-builder condition \"Increment or decrement G s.t {G % E =0} {G | G % E =0}\": Q1 yes, Q2 no, Q3 no -> unnecessary (it states \"until the pixel is divisible by E\", which the prose and the same line already say)\n- Algorithms 1-2, membership exclusion \"G in [G1 to G9] not-in G5\" (three occurrences): Q1 yes, Q2 no, Q3 no -> unnecessary (means \"for each group except G5\")\n\nThe 3x3 embedding-code matrix is a worked example of data values, not a formal element; the loop ranges \"for i in [i-1, i, i+1]\" are ordinary pseudocode.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate by count; the defect is set notation standing in for a divisibility test and a loop over regions.\n\n### Issues\n- The pseudocode writes the embedding condition as \"{G % E =0} {G | G % E =0}\" and the iteration as \"G in [G1 to G9] not-in G5\"; both are garbled set notation for one if-statement and one loop, and no proof depends on them. The list of \"prime\" embedding codes, \"(2, 3, 5, 7, 9 ...)\", includes 9.\n- Eq. (1) does not reproduce the reported capacities: with NU = 16 it gives 131,072 for a 256x256 image, while Table 1 reports 8,190 and Fig. 4 reports 65,520. The reported figures match M*N - 16 bits and (M*N - 16)/8 bytes, i.e. one bit per pixel, and Table 1 labels bytes as bits.\n- Eq. (2) omits the averaging over pixels, so as written it is not a scalar.\n\n---\n\n## Citation Analysis\n\nNo self-citations (0/23). [21] (evolving fuzzy models of shape-memory-alloy actuators), [22] (post-processing of k-means clusters) and [23] (observation-process modelling in cognition), all with the same third-party author, are cited in a two-sentence paragraph on \"data modeling\" that has no bearing on data hiding. [21] and [23] are the same two papers cited off-topic in paper753 of this issue. They are not self-citations and no reciprocal citation is visible, so no citation flag is raised.\n\nReference accuracy is poor. [1] is dated 2022 (published 2002) and [10] is labelled \"IH 2022\" in an LNCS volume of 2003. In-text citations are misattributed: [12] (an image-adaptive data hiding scheme) is cited for the services of cryptography and the types of steganography, [17] (pattern substitution) for the etymology of steganography, and VQ joint neighbouring coding as [20] although it is [9]. [5] and [16] are never cited.\n\n---\n\n## Structural Analysis\n\nThe headline claims are that the scheme hides data \"without any visual distortion\", \"securely hides the secret message\", and \"outperforms the existing ones in terms of embedding capacity and quality of the images\". The evidence is Table 1 (four images) and Table 2 (five 512x512 images, with competitor figures apparently taken from their papers). Problems:\n- Capacity is the theoretical one bit per pixel (the stated maximum, 262,128 bits for 512x512, equals M*N - 16), while the PSNR values (up to 77.88 dB, i.e. an MSE near 0.001) can only correspond to a much smaller actual payload, such as the \"FIND\" example. Capacity and quality are therefore not measured at the same embedding rate.\n- The comparison reports \"262128 bits per pixel\" and gives average PSNR values in percent.\n- No security, steganalysis or robustness evaluation is reported, although the scheme writes its key (the embedding codes) into the image itself as pixel values.\n- \"Without any distortion\" contradicts the finite PSNR values reported.\n\nCER estimated at about 0.4. No limitation is acknowledged; the only forward-looking remark is an extension to colour images.\n\nArtifacts: no code or data is linked. The standard test images (Pepper, Baboon, Bridge, Boat, Couple) are named but neither cited nor linked, and the Dog and Taj Mahal images are unidentified.\n\n---\n\n## Conclusion\n\nA Level 2 steganography scheme that amounts to parity-style embedding of one bit per pixel. Its pseudocode uses set-builder and membership notation for a divisibility test and a loop, which under the zero-tolerance rule is formalism theater and unnecessary set theory. Its capacity formula contradicts its own tables, and its claims of distortion-free, secure and superior hiding are not supported by the experiments. No limitations are acknowledged, and the reference list is unreliable."
+  }
+ ]
+}

@@ -1,0 +1,186 @@
+{
+ "batch_id": "2025-v28-n2",
+ "analysis_timestamp": "2026-10-18T17:22:00Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 2,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "dumitru2025",
+   "paper": {
+    "title": "Design Space Exploration of Current-Starved Ring Oscillators Based on Graphene Nanoribbons",
+    "authors": [
+     "Florin-Silviu Dumitru",
+     "Nicoleta Cucu-Laurenciu",
+     "Alexandru Mihai Antonescu",
+     "Sorin Cotofana",
+     "Marius Enachescu"
+    ],
+    "abstract": "Graphene is well-suited for ultra-low-power (ULP) nano-electronics due to its exceptional characteristics like ballistic transport and its ability to engineer structures featuring a geometry-induced bandgap. Identifying the conditions necessary for achieving the maximum level of performance and of power-efficiency frequently requires a design space exploration (DSE). By means of calibration and external regulation of the supply voltage, the ULP graphene-nanoribbon (GNR) ring oscillator presented in this paper is capable of exceeding the performance of its 7 nm FinFET counterpart both in terms of maximum frequency and of power-efficiency. Under nominal supply voltage conditions we achieve a 1.89× higher output frequency while simultaneously reducing the power consumption by 553.8× and achieving a 812× higher power efficiency. After performing a DSE and leveraging both externally-applied supply voltage modulation and output frequency calibration we achieved a 4.81× higher maximum output frequency operation mode and a 242× higher maximum power-efficiency operation mode when configuring both blocks for peak performance for each mode.",
+    "keywords": [
+     "current-starved",
+     "design space exploration",
+     "GNR",
+     "graphene",
+     "ring oscillator"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.07",
+    "pages": "197-209",
+    "source_file": "paper802.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 84,
+    "citation_integrity": 60,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 70.85,
+    "composite": 53.14,
+    "final": 48.14
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link to the authors' code, models, or data in the text; the only URL, https://nanohub.org/resources/19564 (ref. [31]), is S. Datta's third-party MATLAB NEGF code",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "8 of 32 references (25.0%) share an author with this paper: [3], [6], [7], [8], [9], [10], [12], [30]. All are on graphene-nanoribbon devices and circuits and topically related; [7], [10] and [12] supply the GNR geometries, the 5-bit DAC and the nominal-supply oscillator this paper builds on."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Simulation-based design study of a graphene-nanoribbon current-starved ring oscillator against a 7 nm FinFET counterpart; the few standard device and oscillator equations all do work, self-citation is elevated but on topic, and no simulation code or GNR models are released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design of an 8-stage current-starved ring oscillator from previously developed graphene-nanoribbon (GNR) devices, with a 5-bit DAC setting the current-source gate voltage, and a simulated 2D design space exploration (supply voltage × DAC code) against a 7 nm FinFET counterpart.\n**Level:** 2 (Low)\n**Rationale:** Every ingredient exists already: the current-starving technique, the textbook ring-oscillator relations, the NEGF/Landauer conductance computation, and the GNR geometries and DAC, which come from the authors' earlier work [7], [10], [12]. The contribution is the application of these to a new technology and a two-parameter simulation sweep. Adding the quantum-capacitance integral to the existing conductance routine is an incremental extension of the simulation tooling, not a new model or algorithm.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 numbered (Landauer conductance, quantum capacitance, ring-oscillator frequency, dynamic power, stage delay, current-starved frequency). The parallel-plate equation for C_ins is described but not written.\n\n### Necessity Test\n- Eq. 1, Landauer/NEGF conductance integral: Q1 no, Q2 yes, Q3 no → necessary (it is what the Matlab side of the co-simulation computes)\n- Eq. 2, quantum capacitance as the integral of DOS × thermal broadening: Q1 no, Q2 yes, Q3 no → necessary (added to the conductance algorithm and evaluated at every timestep)\n- Eq. 3, f = 1/(2·N·t_d): Q1 yes, Q2 no, Q3 yes → necessary (with Eq. 5 it yields Eq. 6, the relation used to read the DSE)\n- Eq. 4, P = α·N·C_L·V²·f: Q1 yes, Q2 no, Q3 yes → necessary (with Eq. 6 it gives efficiency f/P = 1/(α·N·C_L·V²), which accounts for the Section 4.2 findings that the DAC code barely moves efficiency while lowering the supply raises it)\n- Eq. 5, t_d ≈ ln2·(C_L·V/2)·1/(I_PMOS + I_NMOS): Q1 no, Q2 no, Q3 yes → necessary (step in the derivation of Eq. 6 and the stated reason for current starving)\n- Eq. 6, f = I_bias/(2·N·C_L·V): Q1 no, Q2 yes, Q3 yes → necessary (motivates the DAC-set I_bias design; its prediction of falling frequency at high V_DD is checked against Fig. 6a)\n\n### Proportionality\nCalculated complexity: 0 (definitions × 2 + theorems × 3 + proofs × 4)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — six textbook device and circuit equations, each feeding either the simulator or the interpretation of the results. No definitions, set notation, or decorative symbols.\n\n### Issues\nNo formalism theater. Minor notation slips: the sentence introducing both capacitances calls the quantum capacitance \"C_ins\", the oxide permittivity is written \"µeq\", and the parallel-plate equation is referred to without being given.\n\n---\n\n## Citation Analysis\n\n8 of 32 references (25.0%) share at least one author with this paper: [3], [6], [8], [9], [30] (Cucu-Laurenciu, Cotofana) and [7], [10], [12] (Dumitru, Enachescu, with Cucu-Laurenciu, Cotofana, Antonescu). All concern GNR devices and circuits from the same group. [3], [7], [10], [12] and [30] are directly relevant (gate geometries, device parameters, the DAC and the nominal-supply oscillator this paper extends; similarity well above 0.5). [6], [8] and [9] (GNR synapses and spiking neurons) are cited only as examples of GNR-based circuits; they are on the same device platform and remain related (≈0.5), not irrelevant. The ratio falls in the 20-30% band, hence `ELEVATED_SELF_CITATION`; no disqualifying citation pattern. The remaining references are standard graphene physics and fabrication sources. Bibliographic slips: Dirac's 1928 electron paper is given as \"Physical Review 117(778)\" (it appeared in Proc. R. Soc. A), [17] reads \"year, 2007\", and [21] has \"banoribbons\".\n\n---\n\n## Structural Analysis\n\nThe quantitative claims rest on circuit simulation and are traceable to the tables: 88.4/46.7 = 1.89×, 321.2/0.58 = 553.8×, 113.7/0.14 = 812×, 225.54/46.90 = 4.81×, 288.80/1.191 = 242×. Several of these ratios pair range endpoints taken at different DAC codes (e.g. the highest FinFET power against the highest GNR power), which presents the comparison favourably without saying so. The hybrid Spectre-Matlab framework is not validated in this paper, nothing is fabricated or measured, and despite stressing that single-ended oscillators are variation-sensitive the paper reports no process, temperature or mismatch analysis. Limitations are acknowledged inline only: the DAC's quiescent current of up to 31·I_bias (with a sample-and-hold remedy suggested), the deliberately restricted code range for the FinFET, and the pronounced non-linearity of the GNR frequency-versus-code characteristic. There is no dedicated limitations section. Claim-evidence balance is adequate for a simulation study.\n\nArtifacts: neither the co-simulation setup, the GNR conductance and capacitance code, nor the netlists are released. The only URL in the paper points to S. Datta's third-party MATLAB NEGF codes on nanoHUB, which does not count as the authors' artifact. Category `none`.\n\n---\n\n## Conclusion\n\nA competent, narrowly scoped simulation study that applies an established circuit technique to GNR devices developed earlier by the same group. The formal content is a handful of standard equations, all of which do work, so there is no proportionality concern. The main weaknesses are the self-citation ratio (a quarter of the references, though all on topic), favourable framing of the headline ratios, the absence of any variability analysis or experimental validation, and the lack of released models or code."
+  },
+  {
+   "paper_id": "calinescu2025",
+   "paper": {
+    "title": "An Area-Optimized Digitally-Assisted DAC Employing a Matrix-Based DEM Scheme",
+    "authors": [
+     "Alex Calinescu",
+     "Traian Antonovici",
+     "Marius Enachescu"
+    ],
+    "abstract": "The Dynamic Element Matching (DEM) technique's role is to mitigate mismatch issues in complex, matrix-based systems. Previous work employing a matrix-based random DEM scheme demonstrated enhanced linearity and spectral characteristics in the Digital to Analog Converter's (DAC) thermometric decoded section. This paper presents the design of an area-optimized, DEM-assisted 9-bit segmented DAC. The optimal segmentation level for area-performance is initially established. Subsequently, to mitigate area constraints from the integral nonlinearity (INL) requirement and improve spectral performance, we utilize the matrix-based DEM engine from prior research. The proposed 9-bit DAC, implemented in a commercial 180 nm CMOS process, achieves a total harmonic distortion (THD) of -79 dB and a spurious-free dynamic range (SFDR) of 79 dB, resulting in 8× and 16× improvements in SFDR and THD, respectively, over its non-DEM counterpart.",
+    "keywords": [
+     "DAC",
+     "DEM",
+     "digital controller",
+     "DNL",
+     "INL",
+     "mismatch",
+     "THD",
+     "SFDR"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.08",
+    "pages": "210-222",
+    "source_file": "paper803.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 60,
+    "structural_integrity": 62,
+    "artifact_availability": 0,
+    "intellectual_integrity": 69.3,
+    "composite": 51.98,
+    "final": 46.98
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (the MATLAB model, SystemVerilog RTL and TCL synthesis scripts are mentioned but not released)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "3 of 13 references (23.1%) include an author of this paper: [1] (Dumitru, Ilie, Enachescu), [5] (Calinescu, Enachescu), [6] (Calinescu, Antonovici, Enachescu). All are directly related; [6] is the matrix-based DEM engine reused here."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Design study of a 9-bit segmented DAC that reuses the authors' matrix DEM engine; the sizing equations are standard and purposeful, the results are simulation-only although the abstract reads as if the converter were built, self-citation is elevated but on topic, and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design of a 9-bit segmented current-steering DAC for an audio ΣΔ back end in 180 nm CMOS: the segmentation level is chosen with an area-linearity model, the authors' matrix-based random DEM engine [6] (two Galois-LFSR row/column shufflers) is reused to relax the INL-driven area, and DEM on/off performance is compared in Monte Carlo and transient simulation.\n**Level:** 2 (Low)\n**Rationale:** The sizing method follows Lin and Bult [2], with Pelgrom's mismatch law [7] and Kuboki's INL relation [8]; the DEM engine is taken from prior work [6]. The contribution is applying and combining these for one design point and reporting simulated results. There is no new algorithm, proof, or model beyond the established design equations.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 17 numbered, plus inline variance and mismatch relations\n\n### Necessity Test\n- Eq. 1, binary DAC output as Σ B_i·W_u·2^i: Q1 yes, Q2 no, Q3 yes → necessary (its 2^i weights give the midcode DNL variance of Eqs. 3-4)\n- Eq. 2, binary DAC area: Q1 yes, Q2 yes, Q3 no → necessary (term of the area model, Eq. 8, that selects B_t)\n- Eq. 3, midcode DNL variance σ_u²(2^Bb − 1): Q1 no, Q2 yes, Q3 yes → necessary (sets the σ_u and hence the area of the binary option)\n- Eq. 4, midcode DNL definition: Q1 yes, Q2 no, Q3 yes → necessary (the quantity whose variance Eq. 3 states)\n- Eq. 5, thermometric output as Σ T_i·W_u: Q1 yes, Q2 no, Q3 yes → necessary (equal unit weights give σ_DNL = σ_u, used for the 0.17 matching and 590× area comparison; thermometric term of Eq. 7)\n- Eq. 6, thermometric DAC area: Q1 yes, Q2 yes, Q3 no → necessary (term of Eq. 8)\n- Eq. 7, segmented DAC output with 2^Bb MSB weight: Q1 yes, Q2 no, Q3 yes → necessary (the segment weighting from which the maximum-DNL result, Eq. 10, follows)\n- Eq. 8, segmented area as the sum of Eqs. 2 and 6: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 9, simplified segmented area: Q1 yes, Q2 yes, Q3 no → necessary (enters Eq. 15)\n- Eq. 10, maximum DNL variance of the segmented DAC: Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 11, INL bound σ_INL ≈ ½σ_u√2^B: Q1 no, Q2 yes, Q3 yes → necessary (sets the hard minimum analog area)\n- Eq. 12, mismatch model W·(1 + ε_ij), |ε_ij| < 1: Q1 yes, Q2 no, Q3 yes → necessary (premise of Eq. 14)\n- Eq. 13, matrix output as ΣΣ b_ij·W_ij: Q1 yes, Q2 no, Q3 yes → necessary (instantiated as S1, S2 in Eq. 14; weakest retained case)\n- Eq. 14, averaged output of two configurations: Q1 yes, Q2 no, Q3 yes → necessary (states the residual error of averaging, the paper's only analytical support for DEM; marginal)\n- Eq. 15, digital area as decoder + shuffler + address logic + cells: Q1 yes, Q2 yes, Q3 no → necessary (drives Fig. 5)\n- Eq. 16, σ_u as a function of B_t from the 0.5 LSB, 3σ DNL target: Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 17, analog area from Pelgrom coefficients: Q1 no, Q2 yes, Q3 no → necessary\n- Inline relations (σ²_B,i = σ_u²·2^i, σ²_DNL = σ_u² for the thermometric DAC, σ_u² = σ²_u,p + σ²_u,n, A_I = σ_u·√(WL)): Q1 no, Q2 yes, Q3 yes → necessary\n\n### Proportionality\nCalculated complexity: 0 (definitions × 2 + theorems × 3 + proofs × 4)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the equations form the area-linearity sizing chain that produces Fig. 5 and the choice B_t = 5, a decision carried into the implementation. Seventeen numbered equations is a lot for a Level 2 design paper, but they are textbook DAC relations used in sequence, not decoration.\n\n### Issues\nNo formalism theater. Eqs. 13-14 largely restate the prose argument for DEM and are the closest to decorative; they are retained only because Eq. 14 states the averaged residual error explicitly. The formal apparatus is carelessly edited: Eq. 14 drops the factor W from the error term (it should read W + W·(ε1 + ε2)/2); \"as shown in 2.1.3.\" and \"According to ()\" point to a section or to nothing where Eq. 10 is meant; the text says DNL curves of 100 segmented DACs are in Fig. 3a while the Fig. 3b caption says 30; Section 3.1 says \"Using 9\" for Eq. 9.\n\n---\n\n## Citation Analysis\n\n3 of 13 references (23.1%) include an author of this paper: [1] (Dumitru, Ilie, Enachescu: segmentation and INL/DNL in a 10-bit DAC), [5] (Calinescu, Enachescu: DEM controller for an InAmp), [6] (Calinescu, Antonovici, Enachescu: the matrix-based DEM analysis whose engine is reused). All three are directly on topic (similarity well above 0.5), and [6] is the work this paper builds on. The ratio is in the 20-30% band, hence `ELEVATED_SELF_CITATION`. The short list reflects the small reference base rather than padding; the other entries are canonical sources (Lin and Bult, Pelgrom, Kuboki, Schreier, Clara). Reference [8] lacks the first author's initials.\n\n---\n\n## Structural Analysis\n\nThe design flow is supported step by step: MATLAB DNL simulations are compared with the theory (σ_DNL 0.4 vs 0.45, 0.023 vs 0.02, 0.13 vs 0.11), the transistor-level current-source area lands about 6% above the MATLAB estimate (3469 vs 3261 µm²), 30-DAC Monte Carlo runs over −40 to 125 °C give the DNL/INL envelopes with and without DEM, and a 10-DAC PSD comparison gives Table 1. The abstract's \"8× and 16× improvements in SFDR and THD\" are Table 1's 9 dB and 12 dB expressed as power ratios (10^0.9 ≈ 7.9, 10^1.2 ≈ 15.8), which the paper never explains. \"Implemented in a commercial 180 nm CMOS process\" means designed and simulated in that process; no silicon measurement is reported and this is not flagged as a limitation. The DEM-limited operating rate of 1.56 MHz sits just below the 1.6 MHz switching rate the application was said to require in Section 3, and the gap between the reported SNR of 64-65 dB and the stated 105 dB thermal limit is not discussed. Limitations are acknowledged inline only: the shuffling rate limit, the large passive area of the bias circuitry (with a suggested remedy), and the assumption that second-order effects can be ignored below 100 MHz. No dedicated limitations section. Claim-evidence balance is adequate.\n\nArtifacts: the MATLAB sizing model, the SystemVerilog RTL of the DEM controller and the TCL synthesis scripts are mentioned but not released; there is no link or availability statement. Category `none`.\n\n---\n\n## Conclusion\n\nA conventional and largely sound DAC design paper whose equations are the standard sizing chain of the field and earn their place. The self-citation ratio is elevated but every self-citation is directly relevant. The weaknesses are editorial carelessness in the equations and cross-references, results that are simulation-only although the abstract reads as if the converter were built, unexplained headline ratios, and no released design or model files."
+  },
+  {
+   "paper_id": "medinceanu2025",
+   "paper": {
+    "title": "GaN Bootstrapped Logic Gates: Analytical Modeling and Design Insights",
+    "authors": [
+     "Paul-Catalin Medinceanu",
+     "Marius Enachescu"
+    ],
+    "abstract": "Following recent advancements, Gallium Nitride (GaN) technology continues to garner interest as a promising solution for future power electronics applications. Due to the variety of devices available in a monolithic GaN process, the development of digital circuits requires different topologies compared to CMOS technologies. This paper presents the analysis and design of logic gates from the bootstrapped family. Analytical equations for the static and dynamic parameters of an inverter are introduced. When compared to simulation results, these equations achieve a maximum error of 23.9% for static parameters and 33.3% for dynamic parameters. Additionally, different implementation details, such as developing other logic functions or enhancing the circuit behavior at system level, are proposed.",
+    "keywords": [
+     "Bootstrapped",
+     "DCFL",
+     "digital",
+     "GaN",
+     "gallium",
+     "gates",
+     "HEMT",
+     "inverter",
+     "logic",
+     "LSI",
+     "MSI",
+     "nitride",
+     "RTL",
+     "VLSI"
+    ],
+    "doi": "10.59277/ROMJIST.2025.2.10",
+    "pages": "233-244",
+    "source_file": "paper805.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 68,
+    "artifact_availability": 0,
+    "intellectual_integrity": 82.5,
+    "composite": 61.88,
+    "final": 61.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Analytical design equations for GaN bootstrapped inverters, validated against SPICE within 23.9% (static) and 33.3% (dynamic); the formalism is the paper's subject and proportionate, citation practice is clean apart from one mis-attributed 'previous work' reference, and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** First-order analytical design equations for GaN bootstrapped (BS) logic gates: capacitor and device sizing, logic levels, noise margins and power (largely carried over from the authors' prior [13]), new linear-current-approximation equations for rise, fall and propagation times, a minimum stimulus frequency for bootstrap retention, and qualitative extensions to NAND/NOR and start-up circuitry, validated against SPICE in a 200 V GaN process.\n**Level:** 2 (Low)\n**Rationale:** Borderline with Level 3 (\"new mathematical models with validation\"). Level 2 is assigned because the derivations apply the textbook square-law and linear-load-current approximations of Hodges et al. [23] to a new gate topology, and the static equations come from the authors' earlier conference paper. The model is an application of standard hand-analysis to a new device family, not a new modelling method. The level choice affects no flag here.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 15 numbered, plus inline noise-margin and leakage relations; V_x = V_DD − V_th − V_D is a shorthand within Eqs. 3-6, not a separate element\n\n### Necessity Test\n- Eq. 1, C_BT ≥ I_leak/(ΔV_CBT·f_sw): Q1 no, Q2 yes, Q3 yes → necessary (capacitor sizing bound)\n- Eq. 2, C_BT ≥ (5÷10)·C_GS: Q1 yes, Q2 yes, Q3 no → necessary (rule that sets the capacitor values of Table 1)\n- Eq. 3, K_PU/K_PD = (V_DD − 2V_th)/(4V_x): Q1 no, Q2 yes, Q3 no → necessary (sets the aspect ratios of Table 1)\n- Eq. 4, V_IL closed form: Q1 no, Q2 no, Q3 yes → necessary (enters the noise-margin bound NM_L)\n- Eq. 5, V_OL closed form: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. 6, V_IH closed form: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. 7, V_OH = V_DD: Q1 yes, Q2 no, Q3 yes → necessary (the V_OH term of NM_H = V_OH − V_IH evaluated in Table 2)\n- Inline NM_L = V_IL − V_OL and NM_H = V_OH − V_IH: Q1 yes, Q2 no, Q3 yes → necessary (the noise margins are the bounds the level equations serve)\n- Eq. 8, three-term power model: Q1 no, Q2 no, Q3 no → necessary (Q1 no; checked against simulation within 6%)\n- Eq. 9, linearised load-current differential equation: Q1 no, Q2 no, Q3 yes → necessary (derivation of Eq. 10)\n- Eq. 10, t_R: Q1 no, Q2 yes, Q3 no → necessary (new design equation, validated in Table 2)\n- Eq. 11, t_F: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 12, t_PLH: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 13, t_PHL: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 14, minimum stimulus frequency f_min for bootstrap retention: Q1 no, Q2 yes, Q3 yes → necessary (bound; not checked numerically)\n- Inline I_leak = I_leakQD − I_leakQPD: Q1 yes, Q2 no, Q3 yes → necessary (enters Eq. 14)\n- Eq. 15, percentage error relative to the simulated value: Q1 yes, Q2 yes, Q3 no → necessary (fixes the reference value behind every reported maximum error; the prose does not otherwise state it)\n\n### Proportionality\nCalculated complexity: 0 (definitions × 2 + theorems × 3 + proofs × 4)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate — the analytical equations are the paper's subject and each is used for sizing or compared with simulation. No definitions, set notation, or decorative symbols.\n\n### Issues\nNo formalism theater. Eq. 15 has no absolute value, yet Table 2 reports unsigned errors for parameters where theory exceeds simulation (V_OL, t_F). f_max is said to be \"calculated as the mean of t_PLH and t_PHL\", which cannot be literally right (a frequency is not a mean of delays). Eq. 14 is supported only qualitatively (\"the output voltage drops below V_OH but remains within the sequential gate's NM_H\"), with no numerical comparison.\n\n---\n\n## Citation Analysis\n\n1 of 24 references (4.2%) is a self-citation: [13], the authors' conference paper on the static parameters of the BS family, which this work extends directly (similarity well above 0.5). No self-citation concern. One attribution problem: Section 2.1 opens with \"The main challenges and the principles of operation of the HEMT were discussed in this previous work [12]\", but [12] is a patent by de Rooij, Reusch and Biswas, not previous work by these authors; the sentence appears to cite the wrong entry. [12] is also the source cited for the BS family and the NAND design, where it fits. The background leans on grey literature (a datasheet, two press releases, an IEEE Spectrum page, two patents), which is acceptable for a technology overview but thin as scholarly support.\n\n---\n\n## Structural Analysis\n\nThe central claim, that the equations predict static parameters within 23.9% and dynamic parameters within 33.3% of SPICE, is directly supported by Table 2: 12 inverters (three K_PU/K_PD ratios × four drive strengths) with simulated and calculated values side by side, and the simulation setup is described (Cadence Virtuoso, Verilog-A device model, 10 MHz stimulus, four-inverter load). Because the logic levels and noise margins are identical across drive strengths, that part of the validation amounts to three independent checks rather than twelve. Validation is against simulation with a Verilog-A model only, with no silicon. The f_min equation and the design proposals of Section 3.3 (lumped PD devices for NAND/NOR, an extra start-up pull-up under POR/UVLO-like control) are not simulated. Limitations are acknowledged inline: the authors discuss the 23.9% V_OL and 33.3% t_F errors and argue they are tolerable, note the slewed first transitions of the bootstrapped pull-up, and note the slower t_R of the static-current-reducing variant. No dedicated limitations section. Claim-evidence balance is adequate to good for the core claim, weaker for the design-practice proposals.\n\nArtifacts: no netlists, device models, or scripts are released and the 200 V GaN process is commercial; the equations are fully printed, but description is not availability. Category `none`.\n\n---\n\n## Conclusion\n\nA modest, well-focused analytical paper whose formalism is exactly what its subject needs: design equations that are used for sizing and checked against simulation. Citation practice is clean, with one apparently mis-attributed \"previous work\" reference. The weaknesses are validation against simulation only, an unvalidated f_min bound and unvalidated design proposals, a few definitional slips (the f_max computation, the unsigned error formula), and no released artifacts."
+  }
+ ]
+}

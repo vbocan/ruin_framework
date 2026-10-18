@@ -1,0 +1,123 @@
+{
+ "batch_id": "2012-v15-n3",
+ "analysis_timestamp": "2026-10-18T05:30:31Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 15,
+  "issue": 3,
+  "year": 2012
+ },
+ "papers": [
+  {
+   "paper_id": "ilie2012",
+   "paper": {
+    "title": "An efficient 3D Visual Speech Synthesis Framework for Romanian Language Logopedics use",
+    "authors": [
+     "Mihai Daniel Ilie",
+     "Cristian Negrescu",
+     "Dumitru Stanomir"
+    ],
+    "abstract": "Presents a 3D facial animation framework for Romanian visual speech built on blendshape morphing, with hand-modelled visemes, a proposed piecewise viseme weight function for coarticulation, emotion and blink layers, and visible tongue motion. It is meant for teaching articulation and lip-reading to people with hearing disabilities and was tested with speech therapists and deaf lip-reading instructors at a Bucharest school.",
+    "keywords": [
+     "visual speech synthesis",
+     "Romanian language",
+     "logopedics",
+     "lip-reading",
+     "viseme animation",
+     "3D facial animation",
+     "coarticulation"
+    ],
+    "doi": null,
+    "pages": "229-245",
+    "source_file": "03-mdilie.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 93,
+    "structural_integrity": 65,
+    "artifact_availability": 30,
+    "intellectual_integrity": 48.8,
+    "composite": 44.1,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "claimed",
+    "relevant": true,
+    "evidence": "\"make the visual speech simulation application proposed in this paper available\" (Sect. 6, stated as the project's aim, for special schools for deaf people in Romania; no link, repository or request route is given)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with one formal element that fails the Necessity Test: the inline tuple M = (V, T) defining the head mesh as a vertex set and a triangle set (Sect. 1) repeats the surrounding prose, is never used again, and constrains neither implementation nor proof (Q1 yes, Q2 no, Q3 no)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 blendshape framework for Romanian visual speech whose working equations are proportionate, but an unused inline tuple definition of the head mesh fails the Necessity Test and raises FORMALISM_THEATER under the zero-tolerance rule; validation is thinly reported and the software is only promised to schools.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** 3D facial animation framework for Romanian visual speech, built on blendshape (morph-target) interpolation with hand-modelled visemes, rule-based coarticulation timing, a piecewise viseme weight curve, emotion and blink layers, and lip-reading tests with deaf instructors.\n**Level:** 2 (Low)\n**Rationale:** The animation machinery is the standard blendshape method applied to a new language; the contribution is a set of hand-tuned coarticulation rules and a new ease-in/plateau/ease-out weight curve. There is no complexity analysis, proof or controlled validation of the curve, so the paper does not reach Level 3. It is more than a Level 1 assembly of existing components because it designs the timing rules and the curve itself.\n\n### Formal Elements\n- Definitions: 1 (inline tuple M = (V, T) for the head mesh) (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 numbered (Eqs. 1-3 in related work), plus a seven-line pseudo-code block for the viseme key moments\n\n### Necessity Test\n- Inline mesh tuple M = (V, T) with V the vertex set and T the triangle set (Sect. 1), never used again: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 1, Cohen-Massaro dominance function (related work): Q1 no, Q2 no, Q3 no → necessary\n- Eq. 2, Ma et al. superquadric kernel (related work): Q1 no, Q2 no, Q3 no → necessary\n- Eq. 3, Huang et al. Gaussian dominance function (related work): Q1 no, Q2 no, Q3 no → necessary\n- Eq. 4, blendshape sum S(t) = S0 + Σ wi(t)·(Si − S0): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 5, weight bound Σ wi(t) ≤ 1: Q1 yes, Q2 yes, Q3 no → necessary\n- Key-moment pseudo-code (t1 to t4, magnitude α, last1 and last2 via q1 to q3 and the context functions f and g, with the instances f = t3, g = t4 and f = 0.5·t1 + 0.5·t2, g = t4 + 0.1): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 6, piecewise viseme function Vi(t) on the knots tijk and magnitudes αij, with exponents ω1 and ω2: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 7, normalised times τ1 and τ2: Q1 yes, Q2 yes, Q3 no → necessary\n\nEqs. 1-3 describe prior models that this paper does not implement (Q2 no); each is retained because it fixes an exact functional form that prose would blur, and the paper sets its own curve against them.\n\n### Proportionality\nCalculated complexity: 2\nExpected range (Level 2): 0-15\nRatio: 0.13x upper bound\n\n**Assessment:** Proportionate in volume — the working equations (4)-(7) and the scheduling procedure are what the program computes, and only Eq. 6 needs notation that prose could not replace. The single failure is the mesh tuple.\n\n### Issues\nThe introduction defines the head as a discrete mesh M = (V, T), with V a finite set of vertices in 3D space and T the set of triangles linking them. The same sentence already says this in prose, and none of M, V or T appears again: it is the formal-definition-for-a-data-structure pattern (a mesh is a struct). Under the zero-tolerance rule one such element at Level 2 raises FORMALISM_THEATER, and the disqualifying flag sets the formalism score to 0. DECORATIVE_DEFINITIONS is not raised because the paper has no numbered Definition blocks, and UNNECESSARY_SET_THEORY is not raised because no set operation is used.\n\n---\n\n## Citation Analysis\n\nTwo of 20 references are self-citations (SCR 10%): [19], the authors' automatic masked morphing, which Sect. 4 uses to confine emotion blendshapes to the upper face, and [20], their circular interpolation for morphing (ROMJIST 2011), which Sect. 5 uses for non-human characters. Both are on the paper's own topic (similarity well above 0.5) and serve as components rather than padding. The rest of the list covers facial animation and coarticulation (Parke, Cohen-Massaro, Ma, Huang, language-specific work) and Romanian phonetic and lip-reading sources; citing the orthographic dictionary [18] for coarticulation effects is a loose fit. No issues identified.\n\n---\n\n## Structural Analysis\n\nDescriptive claims about lip shapes, tongue position, emotion masks and the wolf interpolation are backed by figures (Figs. 8-14), and phonetic facts by sources [15]-[18]. The effectiveness claims rest on one aggregate comparison, 87.13% word recognition for the virtual actor against about 85% for human speakers, with no count of raters, words or trials and no statistical test; the improvement after training and the classroom results are asserted without data, and the efficiency in the title is never measured. CER is estimated at about 0.65 (adequate). There is no limitations section, but the paper acknowledges inline that lip-reading results vary between people and that linear interpolation fails for non-human characters, and it plans tests with more varied lip-readers.\n\nArtifacts: the implementation (Qt, C++, OpenGL) and the hand-modelled blendshapes are not released. Sect. 6 states the aim of making the application available to special schools for deaf people, with no link or route, which places it in the claimed category.\n\n---\n\n## Conclusion\n\nThe mathematics that does work here is modest and proportionate: a linear blend, a weight bound, a scheduling procedure and a piecewise cosine/sine weight curve, of which only the curve needs notation. The contribution is a carefully hand-tuned, language-specific animation system rather than a new model, and its validation is too thinly reported to weigh.\n\nUnder the specification's zero-tolerance rule, the unused tuple definition of the head mesh is enough to raise FORMALISM_THEATER at Level 2, a disqualifying flag, although it is a single introductory sentence and the rest of the formalism is functional. Readers of the result should know that the flag rests on that one element."
+  },
+  {
+   "paper_id": "shi2012",
+   "paper": {
+    "title": "An Efficient RSA-Based Remote User Authentication Scheme",
+    "authors": [
+     "Wenbo Shi",
+     "Yitao Chen"
+    ],
+    "abstract": "Shows that Awasthi et al.'s RSA-based smart-card remote user authentication scheme is open to privileged-insider, offline password-guessing and impersonation attacks, and proposes a modified RSA-based scheme that is argued to resist them while lowering storage, communication and computation costs.",
+    "keywords": [
+     "Authentication",
+     "Smart card",
+     "RSA"
+    ],
+    "doi": null,
+    "pages": "266-276",
+    "source_file": "05-ychen.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 97,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 50.2,
+    "composite": 37.65,
+    "final": 32.65
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_FORMALISM"
+   ],
+   "flag_details": {
+    "ELEVATED_FORMALISM": "Level 3 paper with formalism complexity 48 (3 notation definitions x 2 + 6 theorems x 3 + 6 proofs x 4) against an upper bound of 40, i.e. 1.2x, inside the 1-2x elevated band."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Level 3 cryptanalysis of Awasthi et al.'s RSA scheme with a sound algebraic forgery and a precisely specified fix, undermined by six decorative security theorems that fail the Necessity Test and lift formalism to 1.2x the Level 3 bound; clean citations and one acknowledged limitation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Cryptanalysis of Awasthi et al.'s RSA-based smart-card remote user authentication scheme (privileged-insider, offline password-guessing and impersonation attacks) and a modified RSA-based scheme with informal security arguments and a storage, communication and computation cost comparison.\n**Level:** 3 (Medium)\n**Rationale:** The paper designs a new authentication protocol and derives a number-theoretic forgery against the old one (extended Euclidean algorithm on e and f(IDi, Tc), verified algebraically), with an operation-count cost analysis: a new algorithm with analysis, above the Level 2 application of an existing method. It does not reach Level 4 because no security guarantee is established: there is no adversary model beyond two capability assumptions, no game and no reduction to the RSA problem.\n\n### Formal Elements\n- Definitions: 3 (inline cost notations Th, Tm, Te) (with constraints: 0)\n- Theorems: 6\n- Proofs: 6\n- Equations: 1 numbered (Eq. 1), plus some 40 inline protocol, attack and cost relations\n\n### Necessity Test\n- RSA set-up n = pq, ed ≡ 1 mod (p − 1)(q − 1), g primitive in GF(p) and GF(q) (Sects. 2 and 4): Q1 yes, Q2 yes, Q3 no → necessary\n- Awasthi et al.'s computations CIDi = f(IDi ⊕ d), hi = g^(pwi·d) mod n, Si = CIDi^d mod n, Xi, Yi, the check Yi^e = CIDi·Xi^f(IDi,Ti), R, R′ and the timestamp window (Sect. 2): Q1 no, Q2 no, Q3 yes → necessary\n- Password-guessing verifier li ≡ hi^e ≡ g^pwi mod n compared with g^pwi′ mod n (Sect. 3.2): Q1 no, Q2 yes, Q3 yes → necessary\n- Impersonation forgery CIDi = Si^e, ae + b·f(IDi,Tc) = 1, Xi = CIDi^(−b), Yi = CIDi^a (Sect. 3.3): Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 1, CIDi·Xi^f(IDi,Tc) = CIDi^(1 − b·f(IDi,Tc)) = CIDi^(a·e) = Yi^e: Q1 no, Q2 no, Q3 yes → necessary\n- Proposed registration CIDi = f(IDi ⊕ d), Si = CIDi ⊕ f(pwi ⊕ Ni) (Sect. 4): Q1 no, Q2 yes, Q3 no → necessary\n- Proposed login and authentication Ai = f(CIDi||ri||Ti), Xi = (Ai||ri)^e mod n, A′i||r′i = Xi^d mod n, the check on A′i, R = f(IDi, Ti, r′i, T′s), R′ and the timestamp windows (Sect. 4): Q1 no, Q2 yes, Q3 no → necessary\n- Theorem 1 with proof, user impersonation: Q1 yes, Q2 no, Q3 no → unnecessary\n- Theorem 2 with proof, server masquerading: Q1 yes, Q2 no, Q3 no → unnecessary\n- Theorem 3 with proof, privileged insider: Q1 yes, Q2 no, Q3 no → unnecessary\n- Theorem 4 with proof, password guessing: Q1 yes, Q2 no, Q3 no → unnecessary\n- Theorem 5 with proof, mutual authentication: Q1 yes, Q2 no, Q3 no → unnecessary\n- Theorem 6 with proof, replay: Q1 yes, Q2 no, Q3 no → unnecessary\n- Cost notations Th, Tm, Te with the Table 3 expressions and the bit-count sums behind Tables 1-2 (Sect. 6): Q1 yes, Q2 no, Q3 yes → necessary\n\n### Proportionality\nCalculated complexity: 48 (3 definitions × 2 + 6 theorems × 3 + 6 proofs × 4)\nExpected range (Level 3): 10-40\nRatio: 1.2x upper bound\n\n**Assessment:** Elevated — the count sits inside the 1-2× band, and it is the Theorem/Proof apparatus that lifts it above the bound, while the protocol and attack equations that do the real work are not counted. Six necessity failures set the formalism score to max(0, 60 − 6 × 15) = 0.\n\n### Issues\nEach of the six theorems states a security goal in a plain sentence (the scheme withstands user impersonation, server masquerading, the privileged insider, password guessing and replay, and provides mutual authentication) and proves it by assertion: the adversary cannot form M1, recover ri or test a guessed password without the server secret d; Theorem 5 follows from Theorems 1 and 2, and Theorem 6 from timestamp freshness. No adversary game, reduction to RSA or hash assumption is given, so the labels add no precision, constrain nothing in the protocol and carry no proof that prose could not; each fails the Necessity Test. FORMALISM_THEATER is not raised because its condition is confined to Levels 1-2. The braces in messages such as M1 = {IDi, Xi, n, e, Ti} list message fields, not set operations, so UNNECESSARY_SET_THEORY does not apply. By contrast, the attack in Sect. 3.3 and Eq. 1 is genuine algebra that proves the forged login passes Awasthi et al.'s check.\n\n---\n\n## Citation Analysis\n\nNo self-citations among the 11 references (SCR 0%); the Chen J. of [11] is not the second author. The list follows the line of password and RSA-based smart-card schemes (Lamport, Yang and Shieh, Chan and Cheng, Fan et al., Shen et al., Yoon et al., Liu et al., Awasthi et al.) and adds the power-analysis sources behind the card-extraction assumption; all are on topic. Yang and Shieh [2] is discussed by name but never cited by number. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe three attacks on Awasthi et al. are demonstrated constructively, the impersonation forgery with an algebraic check. The security of the new scheme rests on the prose arguments above, and the performance claims on bit and operation counts, which contain slips in both directions: Awasthi et al.'s Xi, a 1024-bit modular power, is counted as 160 bits (4384 rather than 5248 bits of communication), and the new Si, an XOR of 160-bit hashes, is counted as 1024 bits of card storage; neither reverses the comparison. CER is estimated at about 0.65 (adequate). There is no limitations section; the conclusion acknowledges that the scheme needs a true random number generator, at extra cost per user.\n\nArtifacts: none. The scheme is fully specified on paper and the evaluation is analytical, so there is nothing whose release the results depend on (relevant: false).\n\n---\n\n## Conclusion\n\nA competent cryptanalysis note in a well-worn genre: the impersonation attack on Awasthi et al. is a sound use of the extended Euclidean algorithm, and the modified scheme is specified precisely enough to implement. The weak point is the formal apparatus layered on top. Six Theorem/Proof pairs restate security goals and argue them by assertion; they fail the Necessity Test, drive the formalism score to the floor and push the formalism count to 1.2× the Level 3 bound (ELEVATED_FORMALISM).\n\nCitation conduct is clean, claims are adequately supported and one limitation is acknowledged. Recasting the theorems as an informal security discussion, or proving them in an explicit model, would remove the problem."
+  }
+ ]
+}

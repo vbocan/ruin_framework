@@ -1,0 +1,134 @@
+{
+ "batch_id": "2014-v17-n1",
+ "analysis_timestamp": "2026-10-18T05:34:30Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 17,
+  "issue": 1,
+  "year": 2014
+ },
+ "papers": [
+  {
+   "paper_id": "peng2014a",
+   "paper": {
+    "title": "A Region-based Color Image Segmentation Method Based on P Systems",
+    "authors": [
+     "Hong Peng",
+     "Yufan Yang",
+     "Jiarong Zhang",
+     "Xiaoli Huang",
+     "Jun Wang"
+    ],
+    "abstract": "A tissue-like P system is designed to select target regions adaptively for region-based colour image segmentation, with the aim of reducing the computational cost of region growing; the method is tested on several real colour images.",
+    "keywords": [
+     "Membrane computing",
+     "Tissue-like P systems",
+     "Color image segmentation",
+     "Region-based segmentation"
+    ],
+    "doi": null,
+    "pages": "63-75",
+    "source_file": "05-hpengyyang.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 35,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 26.0,
+    "composite": 19.5,
+    "final": 19.5
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "DECORATIVE_DEFINITIONS",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper whose tissue-like P system apparatus fails the Necessity Test: the generic construct of Eq. (1), the object declarations of Section 3.3, the designed construct of Eq. (8) and its evolution, division and communication rules restate in membrane notation the seeded region growing already given in plain English in Sections 3.1-3.2 and in the gloss beside each rule. No proof, bound or measurement is derived from them.",
+    "UNNECESSARY_SET_THEORY": "Set-builder notation and set operations stand in for arrays: Σ = {aij | ...} ∪ {Hij | ...} ∪ {Dij | ...} is the union of the pixel-value, similarity and distance arrays, Γ = Σ ∪ {A^Rt_ij | ...} adds the label map, E = Γ − Σ is a set difference that recovers the label objects, and the memberships a ∈ C ⊆ N, H ∈ E ⊂ R, D ∈ F ⊂ R state value types. No proof depends on them.",
+    "DECORATIVE_DEFINITIONS": "Eq. (1), the generic tissue-like P system as a tuple (Γ, Σ, E, ω1, ..., ωd, R, io), and Eq. (8), the designed system as the same tuple, are definitions never referenced in a proof. Removing them would not change what a programmer builds, and the components of Eq. (8) reduce to which arrays each of the three membranes holds at the start.",
+    "EXCESSIVE_SELF_CITATION": "9 of 24 references (37.5%) include at least one of the authors: [10], [11], [12], [13], [16], [17], [18], [19] and [21]."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A modified seeded region growing for colour images recast as a tissue-like P system whose tuples, set-builder alphabets and rewriting rules restate the plain-English procedure; the claimed speed-up is never measured, the evaluation is visual only, and 9 of 24 references are self-citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Region-based colour image segmentation. Seed (target) points are pixels whose 3×3 YCbCr similarity exceeds T1 (set by Otsu's method) and whose largest relative Euclidean distance to the eight neighbours is below T2 (set by hand); seeds grow over similar neighbours, regions smaller than 1/500 of the image are dropped, and the whole procedure is then written as a three-membrane tissue-like P system.\n**Level:** 2 (Low)\n**Rationale:** The authors present their target-point method as a modified version of Shih and Cheng's automatic seeded region growing [24], and the P system re-expresses that procedure rather than adding an algorithmic idea. There is no complexity analysis, no proof and no parallel implementation, and the evaluation is visual. An existing method carried into a new computational framing sits at Level 2; nothing in the paper justifies Level 3.\n\n### Formal Elements\n- Definitions: 3 (with constraints: 0). The generic construct of Eq. (1), the object declarations of Section 3.3, and the designed system of Eq. (8) with its rule set R; none of them constrains the implementation\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 numbered, of which (1) and (8) are the two construct definitions and (2)-(7) the pixel statistics, plus ten unnumbered rule displays (two evolution, one division, seven communication)\n\n### Necessity Test\n- Eq. (1), generic tissue-like P system Π = (Γ, Σ, E, ω1, ..., ωd, R, io), recapped from [7, 8, 22, 23]: Q1 yes, Q2 no, Q3 no → unnecessary\n- Object declarations of Section 3.3 (aij with a ∈ C ⊆ N, Hij with H ∈ E ⊂ R, Dij with D ∈ F ⊂ R, label objects A^Rt_ij, counter c ∈ N): Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (8), the designed system of degree 3, with Σ = {aij | ...} ∪ {Hij | ...} ∪ {Dij | ...}, Γ = Σ ∪ {A^Rt_ij | ...}, E = Γ − Σ, ω1 = Σ, ω2 = aij, ω3 = ∅, io = 3: Q1 yes, Q2 no, Q3 no → unnecessary\n- Evolution rules (ii)-(iii), which open a region label with c = c+1 and pass it between neighbours (rule (i) only renames Eqs. (5) and (7) as evolution rules): Q1 yes, Q2 no, Q3 no → unnecessary\n- Division rule [ ]2 -> [ ]2 [ ]4 ... [ ]c+3, one membrane per region: Q1 yes, Q2 no, Q3 no → unnecessary\n- Communication rules (i)-(vii), with triggering conditions Hij > T1 and Dij < T2, neighbour distance below T2, and St+3 > n×m/500: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (2), standard deviation of each channel over the nine-pixel window: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (3), sum of the three channel deviations: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (4), normalisation by the largest window deviation: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (5), similarity H = 1 − σ′: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (6), relative Euclidean distance to a neighbour in YCbCr: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (7), largest of the eight distances: Q1 yes, Q2 yes, Q3 no → necessary\n\nEqs. (2)-(7) define the quantities the method computes; they are the basic equations Level 2 expects. The P-system apparatus computes nothing they do not. The procedure is stated in prose in Sections 3.1-3.2 (two seed criteria, three growing steps, the 1/500 cut), and each rule in Section 3.3 is followed by a plain-English gloss that carries its content, including the label correction of rule (iv). A programmer would build the same seeded region growing without the tuples, alphabets or rules, and no proof, step count or bound is derived from them.\n\n### Proportionality\nCalculated complexity: 6\nExpected range (Level 2): 0-15\nRatio: 0.4x upper bound\n\n**Assessment:** Proportionate in volume, but at Level 2 the Necessity Test decides, and all three definitions and the whole rule set fail it.\n\n### Issues\n- Set notation stands in for arrays: Σ is the union of the pixel-value, similarity and distance arrays, Γ adds the label map, and E = Γ − Σ is a set difference whose only role is to name the label objects.\n- The notation is looser than the prose beside it. Evolution rule (ii) is said to apply when no neighbour is a target point, but its left-hand side lists only the neighbouring pixel objects and cannot express that condition; the counter update written on the arrow (c = c+1) and the real-valued triggering conditions lie outside the semantics recapped in Section 2; and the mode of rule application (maximally parallel or sequential) is never stated.\n- Symbols are inconsistent: E is both the environment alphabet (E = Γ − Σ) and the set of similarity values (E ⊂ R); indices run 1 ≤ i ≤ m, 1 ≤ j ≤ n in the object list but 1 ≤ i ≤ n, 1 ≤ j ≤ m in Eq. (8) and the rules; region indices t are drawn from C, the set of colour levels; the generic definition has degree d but labels up to q.\n- The only benefit attributed to the formalism, speed through P-system parallelism, is asserted (the conclusion says the method \"has the advantage of fast segmentation\") with no run time, step count or parallel implementation behind it.\n\n---\n\n## Citation Analysis\n\nNine of the 24 references include at least one of the five authors (SCR 37.5%): all nine through H. Peng, five of them also through J. Wang, and [21] through four of the five authors. Relevance: [21], the authors' region-based segmentation of grey images with P systems, is the direct predecessor (≈0.9); [16], [17] and [19] (image thresholding with P systems) and [18] (object segmentation with membrane computing) are related (≈0.6-0.7). [10]-[13], fuzzy spiking neural P systems for knowledge representation, fault diagnosis and fuzzy inference, are marginal (≈0.35): they fill four of the six places in a one-sentence list of P-system variants and bear neither on segmentation nor on tissue-like systems. None falls below 0.3, so IRRELEVANT_SELF_CITATION is not raised. The 2001 colour-segmentation survey [4] has a J. Wang among its authors, but nothing ties it to this group and it is not counted; counting it would give 10/24 and change nothing. No mutual-citation pattern can be established from the paper.\n\n---\n\n## Structural Analysis\n\nClaims outrun evidence (CER ≈ 0.45, weak). The motivating claim, that the P system overcomes the computational cost of region growing, and the conclusion's speed claim rest on no measurement or analysis. The quality claims rest on visual inspection of images the authors describe as collected at random from the Internet, with no ground truth and no metric: one T2 sweep on one image, and a single visual comparison with Shih and Cheng's method [24], judged closer to a manual segmentation that is not shown. The abstract's adaptive selection of target regions holds only for T1; T2 is set by hand, as the experiments concede. Limitations are acknowledged inline: regions are incomplete at their edges because H and D are computed over the eight neighbours, two of the six results in Fig. 3 are noisy, and the proposed method also leaves noise in the comparison image.\n\nArtifacts: no code, no data and no implementation details (language, platform, or how the P system was simulated); the test images are not identified. Nothing is linked or claimed.\n\n---\n\n## Conclusion\n\nThe contribution is a modest variant of seeded region growing for colour images. The tissue-like P system wrapped around it (two tuple constructs, set-builder alphabets combined by union and difference, and ten rewriting rules) restates in membrane notation a procedure the paper already gives in plain English, and supports no proof, bound or measurement. At Level 2 that is formalism theater, with set notation standing in for arrays.\n\nThe headline benefit, speed through P-system parallelism, is asserted but never measured, and the evaluation is qualitative. With 9 of 24 references self-citations, the paper would be disqualified on citation conduct alone."
+  },
+  {
+   "paper_id": "peng2014b",
+   "paper": {
+    "title": "DE-MC: A Membrane Clustering Algorithm Based on Differential Evolution Mechanism",
+    "authors": [
+     "Hong Peng",
+     "Jiarong Zhang",
+     "Yang Jiang",
+     "Xiaoli Huang",
+     "Jun Wang"
+    ],
+    "abstract": "DE-MC is a clustering algorithm framed as a two-layer cell-like P system: each object in the elementary membranes encodes a set of cluster centres and evolves by differential evolution, and the skin membrane keeps the best object found. Tested on one artificial and one real data set, it is reported to outperform k-means, GA-based and DE-based clustering in quality and robustness.",
+    "keywords": [
+     "Membrane computing",
+     "P systems",
+     "Clustering algorithm",
+     "Differential evolution"
+    ],
+    "doi": null,
+    "pages": "76-88",
+    "source_file": "06-hpengjzhang.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 75,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 40.0,
+    "composite": 42.5,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "a real-life data set (Iris) and an artificial data set (Data1) are used",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with two formal elements that fail the Necessity Test: the communication rules [Zi,best]i → Zi,best and Zbest → [Zbest]i restate in P-system notation the exchange with the global best that Eq. (5), the use of Zbest in Eq. (2), the prose beside each rule and the steps of Table 1 already specify. Removing them changes nothing a programmer builds, and nothing is proved from them; the differential evolution equations themselves are necessary.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of the method's or the evaluation's constraints. The only concession, a slightly higher standard deviation than k-means on Iris, is a reading of Table 2 rather than a limitation, and the paper still concludes better stability on Iris."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Multi-population differential evolution for centroid clustering presented as a two-layer cell-like P system: the DE equations are needed, but the two P-system communication rules only restate the global-best exchange, and a small evaluation (Iris and one synthetic set, five runs, four times the baselines' population) acknowledges no limitations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Partitional clustering by differential evolution organised as a two-layer cell-like P system (DE-MC): q elementary membranes each hold n candidate solutions, each a vector of k cluster centres, evolved by DE/best/1/bin with an adaptive scaling factor; a skin membrane keeps the global best, which every membrane updates and receives at each step.\n**Level:** 2 (Low)\n**Rationale:** Without the membrane vocabulary, DE-MC is a multi-population differential evolution sharing one global best, applied to centroid-based clustering with the sum of point-to-centre distances as fitness. Every component exists (the DE operators [21, 22], centroid encoding, the clustering metric), the combination comes with no complexity or convergence analysis, and the evaluation is empirical on two small data sets. That is a simple variant of existing methods, Level 2; without a complexity or convergence result, Level 3 is not justified.\n\n### Formal Elements\n- Definitions: 2 (with constraints: 2). The data set and partition notation of Section 2.2, and the object vector Z; both fix what Eqs. (1)-(6) operate on\n- Theorems: 0\n- Proofs: 0\n- Equations: 7 numbered ((1) assignment, (2)-(4) the DE operators, (5) global-best update, (6) clustering metric, (7) adaptive scaling factor), plus two unnumbered communication rules in P-system notation; Table 1 is pseudocode\n\n### Necessity Test\n- Data set D = {xi ∈ R^d | i = 1, ..., m}, clusters C1, ..., Ck and centres zi ∈ R^d: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (1), assignment of each point to the nearest centre: Q1 yes, Q2 yes, Q3 no → necessary\n- Object vector Z = (z11, ..., zkd), the k centres concatenated into one k×d vector: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (2), DE/best/1 mutation around the global best: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (3), binomial crossover with rate CR and one forced component: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (4), greedy selection between Zi,j and Vi,j: Q1 yes, Q2 yes, Q3 no → necessary\n- Communication rule [Zi,best]i -> Zi,best, the membrane's best sent to the skin: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (5), replacement of the global best by a strictly better membrane best: Q1 yes, Q2 yes, Q3 no → necessary\n- Communication rule Zbest -> [Zbest]i, the global best sent into each membrane: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (6), clustering metric M, the sum of point-to-centre Euclidean distances: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (7), adaptive scaling factor F = 1 − ∛(f(xbest)/f(Vi)): Q1 yes, Q2 yes, Q3 no → necessary\n\nThe assignment rule, the fitness, the encoding and the DE operators are what a programmer codes, and they are the basic equations a DE clustering method needs; the point-set notation is retained because the fitness (6) is a sum over the partition it introduces. The two communication rules are the only formal elements specific to the membrane framing, and they add nothing to what Eq. (5), the role of Zbest in Eq. (2), the prose beside each rule and the steps of Table 1 already fix. Removing them leaves the implementation unchanged, and nothing is proved from them.\n\n### Proportionality\nCalculated complexity: 4\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Proportionate. The equations are the ones a DE clustering method requires; the problem is confined to the two communication rules, but at Level 2 the zero-tolerance rule makes even those decisive.\n\n### Issues\n- The membrane vocabulary maps one-to-one onto an island-model DE: elementary membranes are subpopulations, the skin membrane is a shared best-so-far variable, the evolution rules are the DE operators, and the communication rules are the two exchanges with that variable.\n- Prose and formulas disagree in places: the crossover gloss attributes the forced component to Zi,j, whereas Eq. (3) takes it from the mutant Ui,j (the equation is the standard one); Eq. (7) uses f(xbest) and f(Vi), defined nowhere; the DE baseline's mutation factor is referred to Eq. (5), the global-best update; Eq. (1) measures distances to clusters Cp where the centres zp are meant.\n\n---\n\n## Citation Analysis\n\nFour of the 22 references include one of the authors (SCR 18.2%, above 15% but below the 20% flag threshold): [13], [16], [17] and [18], each with both H. Peng and J. Wang. [18], membrane-computing optimisation for image thresholding, is related (≈0.5). [13], [16] and [17], fuzzy spiking neural P systems for knowledge representation, fault diagnosis and weighted fuzzy reasoning, are marginal (≈0.35): they appear only in a list of nine P-system variants [12-20] and bear neither on clustering nor on evolutionary optimisation. None falls below 0.3. [20] has a G. Zhang, who does not match the co-author J. Zhang, and is not counted. No mutual-citation pattern can be established from the paper.\n\n---\n\n## Structural Analysis\n\nThe quality claims are backed by Tables 2-3 (five runs, means and standard deviations) and Figs. 5-6 (CER ≈ 0.7, adequate), but several are misreported or overstated. The Iris discussion says DE-MC is best in every run but the second, yet Table 2 shows it lowest in all five; on Data1 the text says DE-MC beats the other three, yet in run 2 DE (600.097933) is below DE-MC (600.115086). The conclusion calls the advantage significant without any test, on mean differences from DE of about 0.09 (Iris) and 0.13 (Data1) over five runs. DE-MC evolves 4 × 100 objects per step against populations of 100 for GA and DE over the same 100 iterations, so the comparison does not hold the evaluation budget equal, and the gain is credited to co-evolution across membranes without an ablation. Smaller slips: the text speaks of five algorithms where there are four, Fig. 6's caption lists k-means but its legend does not, and the efficiency the Introduction promises is never measured. No limitations are acknowledged.\n\nArtifacts: no code. Iris is named and described (three classes of 50 samples, four features), though neither cited nor linked; it is the standard public data set, so the category is data. Data1 is generated by the authors from stated class ranges and a triangular distribution and is not deposited.\n\n---\n\n## Conclusion\n\nDE-MC is a multi-population DE/best/1/bin with an adaptive scaling factor, sharing a global best across four subpopulations, applied to centroid clustering. Its equations are the basic ones the method needs and are proportionate, but the two P-system communication rules, the only formal elements the membrane framing contributes, restate an exchange that the prose, Eq. (5) and Table 1 already define. At Level 2 that unnecessary layer is formalism theater under the zero-tolerance rule.\n\nThe evaluation is quantitative but small (Iris and one synthetic set, five runs), gives DE-MC four times the population of its GA and DE baselines, contains text-table inconsistencies, and acknowledges no limitations. Self-citation is elevated (18.2%) but below the flag threshold."
+  }
+ ]
+}

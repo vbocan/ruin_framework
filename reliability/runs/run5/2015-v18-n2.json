@@ -1,0 +1,191 @@
+{
+ "batch_id": "2015-v18-n2",
+ "analysis_timestamp": "2026-10-18T17:09:12Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 18,
+  "issue": 2,
+  "year": 2015
+ },
+ "papers": [
+  {
+   "paper_id": "maican2015",
+   "paper": {
+    "title": "Minimum Spanning Tree Algorithm on MapReduce One-Chip Architecture",
+    "authors": [
+     "Voichiţa Maican"
+    ],
+    "abstract": "A parallel algorithm for minimum spanning tree and its implementation on a one-chip many-core structure with a MapReduce architecture is presented. The generic structure’s main features and performances are described, but also new general purpose features added for upgrading the existing generic structure in order to perform better in running the proposed algorithms. As the developed algorithm uses the representation of the graph as a matrix, both, dense and sparse cases are considered. A Verilog based simulator is used for evaluation. The main outcome of the presented research is that, compared with the hyper-cube architecture (having p processors and the size in O(p log p)), our MapReduce architecture (with p execution units and the size in O(p)) has the same theoretical time performance: O(N log N) for p = N = |V|. Also, the actual energy performance of our architecture is 7 pJ for 32-bit integer operation, compared with the ∼150 pJ per operation of the current many-cores.",
+    "keywords": [
+     "parallel computing",
+     "MapReduce",
+     "many core",
+     "minimum spanning tree",
+     "parallel algorithm"
+    ],
+    "doi": null,
+    "pages": "126-143",
+    "source_file": "02-vmaican.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 45.75,
+    "composite": 34.31,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (the assembly programs are printed in Appendices 1 and 2; the Verilog-based simulator is not released)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "DECORATIVE_DEFINITIONS",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with seven formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no): tuple notation for the data arrays, the instruction set as a Cartesian product and two unions of instruction subsets, the reduction formulas, Definitions 1 and 2, and the set-notation statement of sequential Prim.",
+    "UNNECESSARY_SET_THEORY": "ISA_mapReduce = (ISA_controller × ISA_array), with each ISA written as a union of three instruction subsets, stands for grouping lists of instructions; V − VT stands for what the program keeps as the activation vector. No proof depends on these operations.",
+    "DECORATIVE_DEFINITIONS": "Definition 1 (spanning tree) and Definition 2 (minimum spanning tree) restate textbook notions in Definition blocks; no proof or later step refers to them, and removing them changes nothing a programmer would build.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of the work's constraints (a single six-vertex example, simulator-only evaluation, unsupported energy figures); the \"TO BE SOLVED!\" comment left in the Appendix 2 program is not discussed."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 port of the textbook parallel Prim algorithm to a one-chip MapReduce many-core engine, with program-derived O(N log N) cycle counts and three new activation instructions. Set notation for the instruction set, tuple notation for arrays and textbook definitions fail the Necessity Test; the evaluation is one six-vertex example on an unreleased simulator, the energy comparison is unsupported, and no limitations are acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Parallel version of Prim's minimum spanning tree algorithm (dense adjacency-matrix and sparse edge-list forms) programmed for an existing one-chip MapReduce many-core engine, with three added activation instructions, evaluated on a Verilog simulator.\n**Level:** 2 (Low)\n**Rationale:** The algorithmic idea is the textbook data-parallel Prim (one column per cell, a min-reduction selects the next vertex), the formulation from which the paper also takes its example (Section 7.2 of [4]). The contribution is the mapping of that algorithm to a new platform plus an instruction-set extension; the execution-time formulas come from counting the cycles of the listed programs, not from a proof. Applying an existing algorithm to a new platform is Level 2; Level 3 was considered and rejected under the default-to-lower rule.\n\n### Formal Elements\n- Definitions: 2 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 34 formal expressions, grouped into 13 elements below (assembly listings and pseudocode are treated as code, not as formal elements)\n\n### Necessity Test\n- Data-domain tuple notation (S = <s0, ..., sn-1>, V = <v0, ..., vm-1, ix>, vi = <xi0, ..., xi,p-1>, indexVector, activeVector, accVector): Q1 yes, Q2 no, Q3 no → unnecessary\n- ISA_mapReduce = (ISA_controller × ISA_array): Q1 yes, Q2 no, Q3 no → unnecessary\n- ISA_controller and ISA_array as unions of three instruction subsets (SS_arith&logic ∪ SS_control ∪ SS_communication; SS_arith&logic ∪ SS_spatialControl ∪ SS_transfer): Q1 yes, Q2 no, Q3 no → unnecessary\n- Instruction-word layout mrInstruction[31:0] = {{instr[4:0], operand[2:0], value[7:0]}, {...}}: Q1 yes, Q2 yes, Q3 no → necessary\n- Operand-mode semantics (sign-extended immediate, op = mem[value], op = mem[value + addr], op = mem[coop], op = mem[value + coop], ...): Q1 yes, Q2 yes, Q3 no → necessary\n- Reduction outputs redSum = Σ acc_i, redMin = Min acc_i, redMax = Max acc_i, redBool = Σ a_i: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 1, spanning tree: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 2, minimum spanning tree: Q1 yes, Q2 no, Q3 no → unnecessary\n- Sequential Prim in set notation (G = (V, E, w), VT = {r} with r ∈ V, selection from V − VT, stop when VT = V, E′ ⊆ E with Σw′ minimal): Q1 yes, Q2 no, Q3 no → unnecessary\n- Dense execution time T_PRIM(N) = (N − 1)log N + 25N − 15 ∈ O(N log N): Q1 no, Q2 no, Q3 yes → necessary\n- Sparse execution time T_PRIM_SM_max = 2(N − 1)log N + 334N − 26 ∈ O(N log N): Q1 no, Q2 no, Q3 yes → necessary\n- Asymptotic size and latency statements (O(p), O(p log p), O(log p), O(N²)): Q1 no, Q2 no, Q3 yes → necessary\n- Activation-vector relation boolVect[k] = (actVect[k] == 0) || (actVect[k][a-1] == 1) and the actwhere/saveact/restact update rules: Q1 yes, Q2 yes, Q3 no → necessary\n\nSeven of the thirteen elements are unnecessary.\n\n### Proportionality\nCalculated complexity: 4 (2 definitions × 2)\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Proportionate by count, but seven elements fail the Necessity Test, and at Level 2 a single failure is formalism theater.\n\n### Issues\n- The instruction set is written as a Cartesian product of two unions of instruction subsets, while the prose that follows already says that each clock cycle reads \"a pair of instructions\" and that each ISA has three subsets of instructions; what an implementer needs is the separate bit-level format.\n- The data domains are given in tuple notation for what the paper itself calls \"a linear array of scalars\"; the role of each special vector is then explained in prose.\n- Definitions 1 and 2 restate textbook notions (spanning tree, minimum spanning tree) in Definition blocks that no later step uses.\n- The reduction formulas add nothing to the prose beside them (\"the sum of the accumulators from the active cells\") and are less precise than it, since their index range omits the activity condition.\n- The set-notation statement of sequential Prim (VT, V − VT) restates the algorithm of [6]; the parallel program realises V − VT as the activation vector.\n\n---\n\n## Citation Analysis\n\nNo self-citations: none of the nine references lists the author (0/9, SCR 0%). Four references ([2], [3], [7], [8]) come from the research group that developed the one-chip MapReduce architecture; they are not self-citations by name and they are on topic, since they document the engine and its applications. The list is short and cites no parallel-MST work beyond the textbook [4] and Prim's original paper [6]. No citation-integrity issues identified.\n\n---\n\n## Structural Analysis\n\nClaim-evidence ratio estimated at about 0.5 (adequate, at the lower edge). The O(N log N) time claim is supported by complete program listings (Appendices 1 and 2), cycle-count formulas derived from them, and simulator runs on one six-vertex graph (156 and 198 cycles); the spanning tree produced is correct. The comparison with the hypercube is asymptotic only, taken from the textbook, although the paper describes \"testing and comparing it\" with a hypercube implementation. The energy figures in the abstract and conclusion (7 pJ/op against about 150 pJ/op for Xeon Phi) and the statement that \"the actual measurements are very favourable\" have no measurement or citation behind them; the claims that the Intel SCC has \"a much slower response\" and that the hypercube is the most efficient network are also unsupported. Nothing is evaluated beyond N = 6. No limitations are acknowledged, and the sparse program in Appendix 2 still carries the comment \"TO BE SOLVED!\", which the text does not discuss.\n\nArtifacts: the assembly programs are printed in the appendices, but nothing is linked or offered, and the Verilog-based simulator is not released. Category none.\n\n---\n\n## Conclusion\n\nA modest systems contribution: the textbook parallel Prim algorithm programmed for the one-chip MapReduce engine, with three new activation instructions motivated by the sparse version. At Level 2, the set-theoretic description of the instruction set, the tuple notation for arrays, the reduction formulas, the set-notation restatement of Prim and the two textbook definitions all fail the Necessity Test, which raises FORMALISM_THEATER, UNNECESSARY_SET_THEORY and DECORATIVE_DEFINITIONS, each disqualifying at this level.\n\nThe evaluation is thin (one six-vertex example on an unreleased simulator, unsupported energy claims) and limitations are not discussed. Citation conduct is clean."
+  },
+  {
+   "paper_id": "hayat2015",
+   "paper": {
+    "title": "Computing Topological Indices of Honeycomb Derived Networks",
+    "authors": [
+     "Sakander Hayat",
+     "Mehar Ali Malik",
+     "Muhammad Imran"
+    ],
+    "abstract": "A topological index can be considered as a transformation of a chemical structure into a real number. The degree based topological indices such as Randić index, geometric-arithmetic (GA) index and atom-bond connectivity (ABC) index are of vital importance among all topological indices. These topological descriptors significantly correlate certain physico-chemical properties of the corresponding chemical compounds. Graph theory has been found to be very useful in this area of research. The topological indices of certain interconnection and mesh derived networks are recently studied by Imran et al. [17]. In this paper, we define some new classes of networks from honeycomb networks by using basic graph operations like stellation, medial and dual of a graph. We derive analytical close formulas of general Randić index Rα(G) (for different values of α) for hexagonal and honeycomb derived networks. We also compute first Zagreb, ABC, and GA indices for these important classes of networks.",
+    "keywords": [
+     "General Randić index",
+     "First Zagreb index",
+     "Atom-bond connectivity (ABC) index",
+     "Geometric-arithmetic (GA) index",
+     "Honeycomb derived networks"
+    ],
+    "doi": null,
+    "pages": "144-165",
+    "source_file": "03-mimran.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 34.75,
+    "composite": 26.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "DISPROPORTIONATE_FORMALISM",
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "ELEVATED_SELF_CITATION",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "DISPROPORTIONATE_FORMALISM": "Formalism complexity 124 (6 definitions, 16 theorems, 16 proofs) against a Level 2 upper bound of 15: 8.3 times the bound, above the 2x threshold of 30.",
+    "FORMALISM_THEATER": "Level 2 paper with formalism above 15 and three formal elements that fail the Necessity Test: the inline set-theoretic definition of a topological index, Definition 1.1 (Wiener index) and Definition 1.4 (second Zagreb index).",
+    "DECORATIVE_DEFINITIONS": "Definitions 1.1 (Wiener index) and 1.4 (second Zagreb index) are never referenced in any theorem or proof; removing them changes no result.",
+    "ELEVATED_SELF_CITATION": "8 of 33 references ([2], [12]-[15], [17], [18], [21]) include one of the authors: SCR = 24.2%.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 application of the standard degree-based edge-partition technique to four honeycomb-derived network families, presented as 16 theorem-proof pairs whose proofs are one-line substitutions into tabulated partitions. The formalism count (124) is over eight times the Level 2 upper bound, two numbered definitions are never used, self-citation is elevated at 24%, and several proofs contain copy-paste errors.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Closed-form degree-based topological indices (general Randić index for α = 1, 1/2, −1, −1/2; first Zagreb; ABC; GA) of four network families obtained by combining the honeycomb network with its stellation, bounded dual and medial.\n**Level:** 2 (Low)\n**Rationale:** The method is the standard degree-based edge partition: classify the edges by the degrees of their end vertices, count each class as a function of n, and substitute into the index formula. The paper applies this established technique to newly composed graph families. Each of the 16 proofs is a one-sentence substitution of a tabulated partition, and the partitions themselves, the only combinatorial work, are stated without derivation. There is no new algorithm, model or non-trivial argument. Applying an existing method to a new domain is Level 2; Level 3 (\"prove non-trivial properties\") was considered and rejected under the default-to-lower rule.\n\n### Formal Elements\n- Definitions: 6 numbered (with constraints: 4, the indices evaluated in the theorems), plus an inline formal definition of a topological index and prose definitions of stellation, dual and bounded dual\n- Theorems: 16\n- Proofs: 16\n- Equations: 7 defining formulas (Eqs. (1)-(5) and the Wiener and Randić formulas) and 28 closed forms stated in the theorems and repeated in the proofs\n\n### Necessity Test\n- Inline definition of a topological index as a function Top on the set of finite simple graphs, equal on isomorphic graphs: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 1.1, Wiener index W(G) = ½ Σ d(u, v): Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 1.2, Randić index R−1/2(G) = Σ 1/√(du dv): Q1 yes, Q2 no, Q3 yes → necessary\n- Eq. (1), general Randić index Rα(G) = Σ (du dv)^α: Q1 yes, Q2 no, Q3 yes → necessary\n- Def. 1.3 / Eq. (2), first Zagreb index M1: Q1 yes, Q2 no, Q3 yes → necessary\n- Def. 1.4 / Eq. (3), second Zagreb index M2: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 1.5 / Eq. (4), ABC index: Q1 yes, Q2 no, Q3 yes → necessary\n- Def. 1.6 / Eq. (5), GA index: Q1 yes, Q2 no, Q3 yes → necessary\n- Graph operations St(G), Du(G), Bdu(G) and the unions of Table 1 that define HcDN1-HcDN4: Q1 yes, Q2 no, Q3 yes → necessary\n- Vertex and edge counts (e.g. 9n² − 3n + 1 and 27n² − 21n + 6 for HcDN1): Q1 no, Q2 no, Q3 yes → necessary\n- Theorems 2.1.1-2.1.16, closed forms of the indices for HcDN1-HcDN4: Q1 no, Q2 no, Q3 yes → necessary\n- Proofs of Theorems 2.1.1-2.1.16 (substitution of Tables 2-5 into Eqs. (1), (2), (4), (5)): Q1 yes, Q2 no, Q3 yes → necessary\n\nThree of the twelve elements are unnecessary.\n\n### Proportionality\nCalculated complexity: 124 (6 × 2 + 16 × 3 + 16 × 4)\nExpected range (Level 2): 0-15\nRatio: 8.27x upper bound\n\n**Assessment:** Disproportionate — sixteen theorem-proof pairs for a table-driven evaluation of known formulas; the count is more than four times the 2x threshold of 30.\n\n### Issues\n- Definition 1.1 (Wiener index) and Definition 1.4 (second Zagreb index) are never used. The Wiener index belongs to the distance-based family the paper does not compute, and M2 is never named again, although R1 coincides with it.\n- The inline definition of a topological index as a function on the set of graphs is restated in prose in the next sentence and plays no later role.\n- Each proof reads \"By using the formula given by equation (k) and the edge partition given in Table m, we get\", followed by the theorem's expression; the edge partitions are asserted, not derived.\n- Copy-paste errors: the proof of Theorem 2.1.5 gives HcDN2 the vertex and edge counts of HcDN1 (Table 3 sums to 36n² − 36n + 12 edges, not 27n² − 21n + 6); the proofs of Theorems 2.1.7 and 2.1.8 call HcDN2 the network \"of first type\"; the proof of Theorem 2.1.12 (GA) cites equation (1); in the proof of Theorem 2.1.13, Case 2 (α = 1/2) displays the expression the theorem gives for α = −1/2, and Case 4 repeats the HcDN2 value of Theorem 2.1.5. The medial graph used for HcDN3 and HcDN4 is defined only by a figure.\n- Spot checks of stated results (M1 and R1 of HcDN1, M1 of HcDN2, the leading coefficients of Rα for HcDN4) agree with the tabulated partitions, so the errors found lie in the proof text rather than in those results.\n\n---\n\n## Citation Analysis\n\nEight of the 33 references include at least one of the authors ([2], [12]-[15], [17], [18], [21]): SCR = 24.2%, in the elevated band. All eight concern topological indices or related invariants of chemical graphs and networks. [17], the direct predecessor on interconnection networks, and [12] are closely related; [21], on the anti-Kekulé number of nanotubes and nanocones, is a different, matching-based invariant and only marginally related (similarity about 0.4). It is cited in a block \"For further study of topological indices of various graph families see [13–15, 19, 21]\" in which four of the five items are self-citations. No self-citation falls below 0.3, so IRRELEVANT_SELF_CITATION is not raised.\n\nSeparately, four references by other authors ([24], [25], [29], [32]), on evolutionary games on lattices, are cited with a generic justification (\"could benefit further from the insights of the new research\"). They are weakly related to the paper's content, but mutual citation cannot be established from the paper itself, so CITATION_RING_INDICATOR is not raised.\n\n---\n\n## Structural Analysis\n\nClaim-evidence ratio estimated at about 0.75 (adequate). Every theorem has a derivation the reader can check against the tabulated partition, and the introductory claims are mostly cited. The weaknesses are the partitions asserted without derivation, the copy-paste errors in the proofs listed above, and the unsupported closing claim that the results \"provide a basis to understand deep topology of these important networks\". No limitations are acknowledged: nothing on the n ≥ 3 restriction, on what the indices are expected to predict for interconnection networks, or on how the partitions were verified.\n\nArtifacts: pure mathematics with nothing to release. Category none, marked not relevant.\n\n---\n\n## Conclusion\n\nThe paper defines four honeycomb-derived network families and evaluates seven index variants on each with the standard edge-partition method. The results checked are correct, but the conceptual contribution is small and is presented as sixteen theorems with one-line proofs, a formalism count more than eight times the Level 2 upper bound. Together with two unused numbered definitions this raises DISPROPORTIONATE_FORMALISM, FORMALISM_THEATER and DECORATIVE_DEFINITIONS, all disqualifying at Level 2.\n\nSelf-citation is elevated (24%), limitations are absent, and several proofs carry copy-paste errors."
+  },
+  {
+   "paper_id": "teodorescu2015",
+   "paper": {
+    "title": "On the Regularities and Randomness of the Dynamics of Simple and Composed CAs with Applications",
+    "authors": [
+     "Horia-Nicolai Teodorescu"
+    ],
+    "abstract": "Several elementary dynamic properties of cyclic cellular automata are analyzed, with emphasis on the decorrelation of the cycles. Potential applications to the generation of pseudo-random sequences and to spread spectrum communications are briefly discussed.",
+    "keywords": [
+     "cellular automata",
+     "pseudo-random number generator",
+     "dynamics",
+     "spread spectrum",
+     "CDMA"
+    ],
+    "doi": null,
+    "pages": "166-181",
+    "source_file": "04-hnteodorescu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 78,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 42.3,
+    "composite": 31.72,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "DISPROPORTIONATE_FORMALISM",
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS"
+   ],
+   "flag_details": {
+    "DISPROPORTIONATE_FORMALISM": "Formalism complexity 34 (5 definitions, 4 properties, 3 proofs) against a Level 2 upper bound of 15: 2.27 times the bound, above the 2x threshold of 30.",
+    "FORMALISM_THEATER": "Level 2 paper with formalism above 15 and three formal elements that fail the Necessity Test: the d-divergence, the μ indicator and the normalized symbolic distance, all defined and never evaluated.",
+    "DECORATIVE_DEFINITIONS": "The d-divergence Definition block is never used in any property, proof or example; removing it changes nothing computed in the paper."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 analysis of elementary dynamic properties and cycle correlations of equal-length-cycle cellular automata, showing on small examples with rules 60 and 102 that the cycles are often highly correlated. Five definitions, four properties and three proofs give a formalism count (34) above twice the Level 2 bound, and three proposed indicators are never evaluated; limitations are acknowledged inline.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Elementary dynamic properties of finite, linear, elementary cellular automata that are completely periodic (CPCA) or have equal-length cycles (ELC-CA); measures of distance and correlation between their cycles; examples with rules 60 and 102 (n from 4 to 19) showing that the cycles are often strongly correlated; a sketch of hybrid (\"staked\") CAs. Motivated by pseudo-random generation and CDMA keys.\n**Level:** 2 (Low)\n**Rationale:** The properties are, in the paper's own words, \"elementary\": no fixed points or transients in a CPCA, independence from one boundary for one-sided rules, a lower bound on the distance between cycles. The empirical part computes correlations, distances and a runs count for a handful of small automata. This is an analysis of an existing class with basic statistics, with no non-trivial theorem, algorithm or validated model. Level 3 was considered and rejected under the default-to-lower rule.\n\n### Formal Elements\n- Definitions: 5 (with constraints: 4; the d-divergence is never used)\n- Theorems: 4 (Properties 1-4)\n- Proofs: 3 (Properties 2, 3 and 4)\n- Equations: about 20 formal expressions\n\n### Necessity Test\n- CA mapping notation (f(eL, b0, ..., bn−1, eR) = (e′L, b′0, ..., b′n−1, e′R), p′ = f(eL, eR, p), b′i = R(bi−1, bi, bi+1), |{B}| = 2^n, composition f1 ∘ f2): Q1 yes, Q2 yes, Q3 yes → necessary\n- Def., completely periodical CA (CPCA): Q1 yes, Q2 yes, Q3 yes → necessary\n- Def., equal length cycle CA (ELC-CA), restating the Section 2 definition: Q1 yes, Q2 yes, Q3 yes → necessary\n- Cycle-count relations (2^m cycles of length 2^(n−m); period L with f^L(B0) = B0): Q1 yes, Q2 no, Q3 yes → necessary\n- Property 1, the orbits of a CPCA partition the state space: Q1 yes, Q2 no, Q3 yes → necessary\n- Property 2 with proof, a CPCA has no fixed point and no transient state: Q1 yes, Q2 yes, Q3 yes → necessary\n- One-sided rule statement f(xi−p, ..., xi+p) = f(xi−p, ..., xi, ∗, ..., ∗): Q1 yes, Q2 yes, Q3 yes → necessary\n- Property 3 with proof, f(0,0,∗) = 0 or f(0,1,∗) = 0 rules out a CPCA for eL = 0: Q1 yes, Q2 yes, Q3 yes → necessary\n- Boolean formulas of rules 60 and 102 and the alternating hybrid rule (if t mod 2 = 0 ... else ...): Q1 yes, Q2 yes, Q3 no → necessary\n- Def., Euclidean distance between cycles d²(C1, C2) = min_k Σ (c1,h − c2,h+k)², with d²_N = d²/L: Q1 yes, Q2 yes, Q3 yes → necessary\n- Property 4 with proof, d² ≥ L and d²_N ≥ 1: Q1 yes, Q2 no, Q3 yes → necessary\n- Expansion d²_k = |c1|² + |c2|² − 2 c1·c2: Q1 yes, Q2 no, Q3 yes → necessary\n- Def., d-divergence Dd({Ci}) = (1/(LM(M − 1))) Σ d(Cj, Ck): Q1 yes, Q2 no, Q3 no → unnecessary\n- Quality indicator μ({Ci}) = M_dmin/|{Ci}|: Q1 yes, Q2 no, Q3 no → unnecessary\n- Maximal correlation Cxy and its Pearson variant CPxy: Q1 yes, Q2 yes, Q3 no → necessary\n- Def., c-divergence Dc({Ci}) = (1/(M(M − 1))) Σ (1 − Cor(Cj, Ck)): Q1 yes, Q2 yes, Q3 no → necessary\n- Expected number of runs µ = 2NaNb/(Na + Nb) + 1: Q1 yes, Q2 yes, Q3 no → necessary\n- Normalized symbolic distance ds = min_k (1/L) Σ (sj − s′j+k): Q1 yes, Q2 no, Q3 no → unnecessary\n\nThree of the eighteen elements are unnecessary. Each is a proposed indicator that is defined, never evaluated, and supports no property; the surrounding prose states each one in a sentence.\n\n### Proportionality\nCalculated complexity: 34 (5 × 2 + 4 × 3 + 3 × 4)\nExpected range (Level 2): 0-15\nRatio: 2.27x upper bound\n\n**Assessment:** Disproportionate — the count exceeds the 2x threshold of 30. The margin is narrow: the count stays above 30 if either Property 1 or the restated ELC-CA definition is left out, and falls to 29 only if both are.\n\n### Issues\n- The d-divergence (a full Definition block), the μ indicator and the normalized symbolic distance are introduced as quality indicators but never computed for any example; only the distance, the c-divergence and the correlations are used.\n- The sums over \"(j, k) ∈ M × M\" treat the cycle count M as a set.\n- Notation and labelling slips: \"(see Proposition 4)\" for Property 4; Cor(Cj, Ck) glossed as the correlation of Ci and Cj; m counts cycles in Section 2 (2^m cycles of length 2^(n−m)) but sets the cycle length in Section 4.1 (L = 2^m, with 2^(n−m) basins); an unresolved citation \"[?]\".\n\n---\n\n## Citation Analysis\n\nFour of the 25 references are the author's own ([16], [22], [23], [24]): SCR = 16%, elevated but below the 20% flag threshold. [16] (unpublished, with the collaborator thanked in the acknowledgments) is given as the source of the rule-60 and rule-102 ELC-CAs, and [24] (submitted) is where the cause of the high correlations \"will be proved elsewhere\"; both are on topic but unverifiable. [22], on characterising nonlinear dynamic systems, is related to the dynamics tools used. [23], on fuzzy CAs for medical and social sciences, is cited as an example of CA modelling and is only marginally related (about 0.4). No self-citation falls below 0.3. One further reference ([15]) is by the acknowledged collaborator. No ring pattern can be established from the paper.\n\n---\n\n## Structural Analysis\n\nClaim-evidence ratio estimated at about 0.7 (adequate). The central claim, that ELC-CA cycles are often far less decorrelated than assumed in [14] and [15], rests on concrete values: Cxy = 0.971 and CPxy = 0.956 for n = 4 with rule 60, inter-correlations above 0.95 for n = 5, a c-divergence below 0.03 for n = 8, and 0.946 after shifting for n = 19. These cover only rules 60 and 102, and the general explanation is deferred to a submitted paper. Two generalisations are explicitly labelled conjectures. The hybrid CAs rest on one example whose result is not an ELC-CA, and the hardware-cost arguments in the conclusion are reasoning without evidence. A paragraph of Section 4.2 is duplicated verbatim, and figure references are inconsistent (the n = 19 example is called Fig. 9 in the text but captioned Fig. 8). Limitations are acknowledged inline: there is \"no guarantee that increasing the number of cells would help\", and the staked CAs often yield cycles \"shorter than the ones of the original CAs\".\n\nArtifacts: the cycles and correlations come from computation (a systematic search for CPCAs and ELC-CAs is mentioned), but no code or data is linked or offered. Category none.\n\n---\n\n## Conclusion\n\nA short exploratory study that usefully questions the assumed independence of ELC-CA cycles for pseudo-random and CDMA use, with conjectures honestly labelled and some limitations acknowledged. At Level 2, its five definitions, four properties and three proofs give a formalism count of 34, above twice the expected bound, and three of the proposed indicators are defined and never used. This raises DISPROPORTIONATE_FORMALISM, FORMALISM_THEATER and DECORATIVE_DEFINITIONS, each disqualifying at this level.\n\nThe evidence covers two rules and small automata, editorial slips are frequent, and self-citation is moderate (16%)."
+  }
+ ]
+}

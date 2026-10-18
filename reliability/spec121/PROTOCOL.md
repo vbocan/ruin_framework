@@ -61,4 +61,24 @@ Nothing here is a pass/fail criterion. Output: [`results.json`](results.json).
 
 ## Deviations
 
-None so far.
+- **Two sessions.** The 50 issues ran on 2026-10-18 in two sittings. Eighteen of
+  the first twenty agents stopped at about 08:30 when the session reached its
+  usage limit; at about 20:05 each was resumed by a message and finished from
+  its saved transcript, and the remaining thirty issues were launched then.
+  Every agent read the same instructions and text, and `TODAY` was 2026-10-18
+  throughout.
+- **Abstracts paraphrased.** Several agents wrote a short paraphrase in the
+  `abstract` field instead of the verbatim abstract, to avoid reproducing the
+  publisher's text. The field is metadata: no judged or derived field depends on
+  it, and none of the metrics above reads it.
+- **Issue numbers.** For combined or special issues (`n34`, `nS`, `nT`) the
+  agents wrote `source.issue` inconsistently (null, 34, or an extra
+  `issue_label`); `scripts/finalize_run.py` rebuilt the `source` block of those
+  six batches from `source.json`, as it does for every run.
+- **Redaction.** In four records the model named a third-party author whose
+  work it found attached to unrelated sentences, the pattern described in the
+  manuscript's limitations. As in the other released runs, that name was
+  replaced by "[third-party author]" in records the author did not co-write,
+  after `rescore.py --write`. `--check` passes on the redacted files, and
+  `analyze.py` gives the same output on them as before the redaction; no
+  judged field changed.

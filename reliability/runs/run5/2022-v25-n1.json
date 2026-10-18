@@ -1,0 +1,186 @@
+{
+ "batch_id": "2022-v25-n1",
+ "analysis_timestamp": "2026-10-18T17:14:03Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 25,
+  "issue": 1,
+  "year": 2022
+ },
+ "papers": [
+  {
+   "paper_id": "nejkovic2022",
+   "paper": {
+    "title": "Application of Fuzzy Analytic Hierarchy Process to Inductive Steel Tube Welding",
+    "authors": [
+     "Valentina M. Nejković",
+     "Miroslav S. Milićević",
+     "Goran Janaćković",
+     "Miroljub Grozdanović"
+    ],
+    "abstract": "The paper presents the methods for the measurement and improvement of energy parameters and quality of high-frequency inductive steel tube welding. This improvement is shown through lessened energy and power consumption and increased weld quality. The key welding quality and energy efficiency indicators are obtained by group fuzzy analytic hierarchy process, including five experts in the assessment, based on the three groups of welding process characteristics and eleven indicators. Based on the selected key indicators and the results of the practical analysis, the new impeder with Fluxtrol magneto-dielectric material is designed and developed. The function of the impeder is to transfer and convert electromagnetic energy into heating energy in the best possible way. Practical results prove the quality and efficiency of the proposed solution.",
+    "keywords": [
+     "automation",
+     "fuzzy analytic hierarchy",
+     "fuzzy systems",
+     "hierarchy process",
+     "reasoning",
+     "welding"
+    ],
+    "doi": null,
+    "pages": "3-19",
+    "source_file": "paper703.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 55,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 30.5,
+    "composite": 22.88,
+    "final": 22.88
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with unnecessary formal elements: per-expert attribute arrays written as sets (\"B = {2, 1, 1, 1, 2} and C = {2, 2, 1, 1, 1}\", Γ described as \"the vector (or set) of weights\"), lists with repeated entries in set braces that add nothing to the subscripted Eq. (1); and an unused Greek symbol δ naming the fuzzy distance of a scale that is listed in full. The four numbered FAHP equations themselves are necessary.",
+    "ELEVATED_SELF_CITATION": "7 of 27 references are self-citations (SCR 25.9%): [7], [8], [10], [11], [12], [13], [25]. None judged below 0.3 similarity; [11] and [12] (arc-welding heat) and [25] (FAHP source in a railway-ergonomics study) are marginal."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Standard group fuzzy AHP plus an industrial impeder comparison; the FAHP equations are necessary, but expert-attribute arrays written as sets constitute formalism theater at Level 2, and the paper has elevated self-citation, expert weights that contradict its own Eq. (1), mislabelled tables, pasted text about coal-mine automation, and an unsupported 90% productivity claim.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Group fuzzy AHP ranking of eleven HF induction-welding indicators from five experts' pairwise judgments, followed by an industrial comparison of an impeder built with Fluxtrol A magneto-dielectric against ferrite impeders.\n**Level:** 2 (Low)\n**Rationale:** The decision-analysis part applies an existing group FAHP procedure, taken from the authors' earlier work [25], to a new domain; the engineering part is an empirical comparison of impeder materials read off production curves. No new algorithm, model, or proof is proposed.\n\n### Formal Elements\n- Definitions: 4 inline (with constraints: 2): the sets Γ, B, C of expert attributes (γk > 0, Σγk = 1), and the reciprocal pairwise comparison matrix A(k)\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 numbered (expert weights, weighted geometric aggregation, fuzzy geometric-mean weights, mean aggregated weight), plus the CR and CCI consistency thresholds\n\n### Necessity Test\n- Eq. (1), expert weight γk = bk·ck / Σ bk·ck: Q1 yes, Q2 yes, Q3 no → necessary\n- Inline definitions Γ = {γ1,…,γm}, B = {b1,…,bm}, C = {c1,…,cm}, instantiated as B = {2, 1, 1, 1, 2}, C = {2, 2, 1, 1, 1}, Γ = {0.4, 0.1, 0.1, 0.1, 0.2}: Q1 yes, Q2 no, Q3 no → unnecessary\n- Pairwise comparison matrix A(k) = (aij) with aij > 0, aij = 1/aji, aii = 1: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (2), weighted geometric aggregation of the experts' fuzzy judgments: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (3), fuzzy weights from row geometric means: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. (4), mean aggregated weight (MAW): Q1 yes, Q2 yes, Q3 no → necessary\n- Consistency thresholds CR ⩽ 0.10 and CCI < 0.35 (n = 4) / 0.37 (n > 4): Q1 yes, Q2 yes, Q3 no → necessary\n- Fuzzy distance δ = 2 (odd values) / δ = 1 (even values) of the triangular fuzzy number scale: Q1 yes, Q2 no, Q3 no → unnecessary\n\n### Proportionality\nCalculated complexity: 8 (4 definitions × 2)\nExpected range (Level 2): 0-15\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate by count. The four numbered equations are the standard group-FAHP steps and each constrains the computation, so they pass. Two notational elements fail the test.\n\n### Issues\n- Arrays written as sets. The text gives \"B = {2, 1, 1, 1, 2} and C = {2, 2, 1, 1, 1}\": with repeated entries these are lists indexed by expert, not sets, and the paper itself calls Γ \"the vector (or set) of weights\". The set braces add nothing that the subscripted Eq. (1) does not already state. This is the set-notation-for-lists pattern, which at Level 2 raises FORMALISM_THEATER. No set operation (union, intersection, difference, comprehension) is applied to them, so the detection patterns of UNNECESSARY_SET_THEORY are not met and that flag is not raised.\n- δ is introduced as the \"fuzzy distance\" of the scale but used nowhere; the full scale of triples is listed explicitly beside it.\n- Arithmetic error. Eq. (1) with the reported B and C gives products 4, 2, 1, 1, 2 (sum 10), hence Γ = {0.4, 0.2, 0.1, 0.1, 0.2}. The paper reports Γ = {0.4, 0.1, 0.1, 0.1, 0.2}, which sums to 0.9 and violates the paper's own condition Σγk = 1.\n\n---\n\n## Citation Analysis\n\nSeven of 27 references are self-citations (SCR 25.9%), which raises ELEVATED_SELF_CITATION.\n\n- [7], [8], [10], [13] (Milićević and co-authors on HF inductive welding and magneto-dielectric impeders): related.\n- [11] (temperature distribution in thermal processes) and [12] (cooling time and preheating temperature in arc welding): marginal. Both concern welding heat, but not HF induction welding. [12] is cited inside \"[7-12]\" as work \"for improving impeder by increasing the electric energy efficiency\", which its title does not support.\n- [25] (Grozdanović, Janaćković et al., ergonomic indicators in railway control rooms): the domain is unrelated, but it is the direct source of the group-FAHP formulas in Eqs. (1)-(4), so it is methodologically relevant (marginal to related).\n\nNo self-citation is judged below 0.3. Among the other references, [15]-[17] (fuzzy modus ponens in this journal, tower-crane modelling, signatures for expert systems) sit in a generic paragraph on fuzzy systems and have no bearing on the method or the results. They look like padding, but the paper gives no evidence of mutual citation, so CITATION_RING_INDICATOR is not raised.\n\n---\n\n## Structural Analysis\n\nThe manuscript shows serious editing failures:\n- Section 5.2 contains two paragraphs on redesigning acquisition and monitoring \"by functions of the remote control of underground exploitation and functions of coal transportation to the surface\", and on dispatch consoles in a mine. This text has nothing to do with tube welding.\n- Section 6.2 repeats the garbled fragment \"is shown, where the curve 'a' fits welding with the ferrite impede\" three times.\n- Sections 6 and 7 carry the same title.\n- Tables are misnumbered and mislabelled. The aggregated matrix announced as Table 3 is printed as Table 2. Table 6 reuses Table 5's caption. The ranking is referred to as Table 7, which is actually the material comparison. Table 1 omits c4 (production speed). In the ranking table the indicator labels are mismatched (c1 for tube diameter, a1 for impeder length and for coolant temperature, c3 for production speed).\n- The new impeder is 100 mm long in Section 5.2 but 120 mm in Table 7.\n\nOn evidence, the savings claims (above 40%) rest on figures that cannot be inspected in the text, and on Table 7, whose first two rows are taken from [9]. The conclusion's \"production velocity rise of steel tubes by up to 90%\" has no support anywhere in the results. The abstract says the impeder was designed \"based on the selected key indicators\", but magneto-dielectric impeders already appear in the authors' earlier publications ([8] 2002, [10] 2004, [13] 2006), and the text never shows how the FAHP ranking shaped the design. Estimated CER about 0.5, at the low end of adequate.\n\nThere is no limitations section. Constraints are acknowledged inline: the first magneto-dielectrics gave no power saving, the chosen material trades lifetime for efficiency, and overheating damages the impeder shell.\n\nNo code, data, or availability statement appears. The expert judgments are printed only as aggregated matrices.\n\nNo instructions addressed to an assessor were found in the text.\n\n---\n\n## Conclusion\n\nThis applied paper combines a textbook group fuzzy AHP with an industrial comparison of impeder materials. Its numbered equations are legitimate and necessary. The surrounding notation, however, writes per-expert attribute arrays as sets (with duplicate elements) and attaches an unused Greek symbol to the fuzzy scale. Under the zero-tolerance rule for Level 2 this is formalism theater, which disqualifies the paper.\n\nIndependently of the flag, the paper is weak. The computed expert weights contradict Eq. (1). Tables are mislabelled. A passage from an unrelated mining-automation text has been pasted into the results. The headline productivity claim is unsupported. Self-citation is elevated."
+  },
+  {
+   "paper_id": "aiordachioae2022",
+   "paper": {
+    "title": "LifeTags++: A Multi-User, Multi-Device, and Multi-Perspective System for Recording and Abstracting Visual Life with Tag Clouds",
+    "authors": [
+     "Adrian Aiordăchioae",
+     "Radu-Daniel Vatavu"
+    ],
+    "abstract": "We present LifeTags++, a multi-user multi-perspective lifelogging and life abstraction system designed to automatically record, extract, process, and store visual concepts from a wide range of video camera devices and systems, including personal mobile and wearable devices, video cameras worn on the body, and public IP video cameras from the environment. Other features of LifeTags++ include integration with mobile crowdsensing to accept queries and deliver notifications about specific concepts of interest entered by users. We present technical details regarding the design and engineering of LifeTags++ as a distributed, cloud-based software architecture accommodating mobile and wearable devices and public ambient video cameras. Also, we report the results of an evaluation study with a dataset of 18,780 visual concepts extracted from a number of nearly 1,000 snapshots captured from three video cameras simultaneously recording the life of a user from three different perspectives: egocentric eye-level provided by a pair of video camera glasses, egocentric back view with a wearable clip-on camera, and exocentric ambient from a public IP camera. Our results show the benefits of employing multi-perspective life abstraction for creating rich lifelogs of visual concepts. Based on our results, we present opportunities for future lifelogging systems that employ mobile devices, wearable cameras, and personal robots in the form of drones in conjunction with ambient sensing and computing infrastructure.",
+    "keywords": [
+     "Mobile",
+     "distributed systems",
+     "cloud computing",
+     "Lifelogging",
+     "Smartglasses",
+     "Camera glasses",
+     "Image processing",
+     "Smart wearables",
+     "Assistive vision"
+    ],
+    "doi": null,
+    "pages": "80-91",
+    "source_file": "paper708.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 52,
+    "structural_integrity": 55,
+    "artifact_availability": 100,
+    "intellectual_integrity": 31.95,
+    "composite": 48.96,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code_and_data",
+    "relevant": true,
+    "evidence": "\"Our implementations in the form of node.js, HTML/JavaScript, and Java for Android applications together with a sample of snapshots are available from http://www.eed.usv.ro/mintviz/projects/MintVizAwardingParticipationH2020.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 system (Clarifai API plus Firebase storage) whose tag clouds are formalised as CT = {ci = (wi, fi, Ωi) | i = 1..n} with union and difference equations (Eqs. 1-4); all four elements fail the necessity test, since a tag cloud is a list of (word, count, metadata) records and the evaluation uses only counts.",
+    "UNNECESSARY_SET_THEORY": "Set union (CT1 ∪ CT2 ∪ CT3, Eq. 2) stands for concatenating tag lists and summing frequencies, and set difference with non-membership on words (Eqs. 3-4) stands for filtering out words seen by another camera; no proof depends on these operations.",
+    "ELEVATED_SELF_CITATION": "9 of 33 references include an author (SCR 27.3%): [2], [3], [4], [5], [21], [22], [28], [29], [30]. [2]-[5] and [21] related; [22], [28], [29], [30] marginal; none judged below 0.3."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 1 lifelogging app built on Clarifai and Firebase whose tag lists are recast as sets of triples with union and difference equations the evaluation never needs; formalism theater and set-theory flags, elevated but coherent self-citation, a single-participant evaluation, and code with a sample of snapshots linked.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** LifeTags++, a lifelogging system in which an Android app collects snapshots from camera glasses, a clip-on camera, and a public IP camera, sends them to a node.js server that calls the Clarifai vision API, stores results in Firebase, and shows tag clouds and crowdsensing notifications.\n**Level:** 1 (Trivial)\n**Rationale:** The system integrates existing services (Clarifai, Firebase Storage and Realtime Database) in an app-and-server architecture. The evaluation counts the concepts returned per camera. This is the specification's own example of Level 1: \"App that calls Clarifai API and stores results in Firebase\".\n\n### Formal Elements\n- Definitions: 2 inline (with constraints: 0): the tag cloud CT as a set, and the concept ci = (wi, fi, Ωi) as a triple of word, frequency, and context set\n- Theorems: 0\n- Proofs: 0\n- Equations: 4 (Eq. 1 definition of CT; Eq. 2 union CT+; Eq. 3 difference CT−; Eq. 4 generalised difference)\n\n### Necessity Test\n- Eq. (1), CT = {ci = (wi, fi, Ωi) | i = 1..n}, a tag cloud as a set of triples: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (2), CT+ as the union of m tag clouds with frequencies summed and context sets merged per word: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (3), CT− as the concepts of CT1 whose words do not occur in CT3: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (4), CT− of CT* with respect to m other clouds: Q1 yes, Q2 no, Q3 no → unnecessary\n\n### Proportionality\nCalculated complexity: 4 (2 definitions × 2)\nExpected range (Level 1): 0-5\nRatio: 0.8x upper bound\n\n**Assessment:** Proportionate by count, but every formal element fails the necessity test. A tag cloud is a list of (word, count, metadata) records. \"Union\" means concatenating the lists and summing the counts per word. \"Difference\" means filtering out words seen by the other camera. In prose: \"combine the tags from all cameras\" and \"list the words only one camera saw\".\n\n### Issues\n- \"A cloud of tags CT is formally defined as a set composed of concepts ci\" and \"By representing tag clouds as sets, specific operations can be applied ... such as union or intersection of tag clouds\". This is set notation and set operations standing in for list concatenation and filtering, which raises FORMALISM_THEATER and UNNECESSARY_SET_THEORY.\n- The formalism is internally inconsistent. Eq. (2) indexes the merged concepts by i = 1..|∪CTj|, but a union of triples does not have as many elements as there are distinct words. Eq. (3) bounds i by |CT1 − CT3|, a difference of triples, while membership is tested on words.\n- Nothing in the evaluation depends on the equations. Section 4.2 reports counts of total and distinct concepts and lists example words, which is what the prose already describes.\n- DECORATIVE_DEFINITIONS is not raised, because there is no \"Definition N:\" block. The tuple-definition pattern is covered by FORMALISM_THEATER.\n\n---\n\n## Citation Analysis\n\nNine of 33 references include an author of this paper (SCR 27.3%), which raises ELEVATED_SELF_CITATION.\n\n- [4] LifeTags and [2] its crowdsensing follow-up: the direct predecessors, highly related.\n- [3] (lifelogging and alternate realities) and [5] (vehicular lifelogging design space): related.\n- [21] (security and privacy threats of camera glasses): related to the privacy discussion.\n- [22] (FlexiSee, mediated vision for smart-eyewear users), [28] (motor-impaired users' preferences for smart wearables), [29] (assistive vision and smart eyewear for crisis management): marginal, cited in lists of applications and future directions.\n- [30] (GestuRING, gesture input with rings): cited for \"smart rings for the control of remote devices and rapid POS payments\" in the introductory survey of wearables. It is marginal to a camera-based lifelogging paper, but it supports the sentence it is attached to, so it is not judged below 0.3.\n\nNo IRRELEVANT_SELF_CITATION. No citation-ring pattern is visible.\n\n---\n\n## Structural Analysis\n\nThe claims are modest and are backed by the reported counts: 939 snapshots, 18,780 concepts, 311 distinct, 57 shared between the two egocentric views, and 33 concepts that the glasses alone would have missed. Estimated CER about 0.6. The evaluation, however, is one volunteer on one walk, with descriptive counts only. The system is presented as multi-user, with drone and other-people perspectives, but none of these is evaluated; the drone appears only as a future-work snapshot.\n\nThere is no limitations section. One inline acknowledgment appears: the extended functionality \"demands revisiting the privacy and security implications\". The single-participant design is not acknowledged.\n\nArtifacts: the paper prints a project link for the authors' node.js, HTML/JavaScript, and Android code together with \"a sample of snapshots\". Only a sample of the 939 evaluation snapshots is stated to be released.\n\nNo instructions addressed to an assessor were found in the text.\n\n---\n\n## Conclusion\n\nLifeTags++ is a Level 1 integration of a hosted vision API with cloud storage and a mobile client. It is reported competently for a short systems paper, with a working prototype and released code. Its formal apparatus, which recasts tag lists as sets of triples with union and difference equations, performs none of the necessity functions and is not used by the evaluation. This is the set-notation pattern the framework treats as formalism theater, and at Level 1 it disqualifies the paper.\n\nSelf-citation is elevated but topically coherent. The evaluation is thin: one participant, counts only, and its limitations are not stated."
+  },
+  {
+   "paper_id": "mosteanu2022",
+   "paper": {
+    "title": "Machine Learning and Robotic Process Automation Take Higher Education One Step Further",
+    "authors": [
+     "Narcisa Roxana Moşteanu"
+    ],
+    "abstract": "Machine learning and digitization have been around for several years, but their use has become a necessity with the Covid-19 pandemic. Lockdown forced us to work remotely overnight, to use digital networks to communicate, make payments, learn all sectors of activity were forced to adapt to the digital age in one night. Digitization and involvement of machine learning become a necessity with the Covid-19 pandemic. This paper shows how artificial intelligence can be used to improve the effectiveness of teaching, research, and study plan, by adapting the new communication technologies and students' needs to achieve the course learning outcomes in a virtual environment. The paper proposes three ways of using artificial intelligence in higher education, namely physical robot at the entrance of the campus to guide the visitors, robotic process automation to assist admission and registration process, and robotic process automation to aid professors in student's evaluation process and improve the academic study plan.",
+    "keywords": [
+     "Machine learning",
+     "robotic process automation",
+     "higher education"
+    ],
+    "doi": null,
+    "pages": "92-99",
+    "source_file": "paper709.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 55,
+    "structural_integrity": 30,
+    "artifact_availability": 0,
+    "intellectual_integrity": 60.75,
+    "composite": 45.56,
+    "final": 25.56
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "UNSUPPORTED_CLAIMS",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "UNSUPPORTED_CLAIMS": "Estimated CER about 0.25: the methodology section reports no results, the proposals are neither implemented nor evaluated, and assertions such as \"Implementing AI within the university will have a positive impact and will not lead to job reduction\" rest on no evidence.",
+    "ELEVATED_SELF_CITATION": "3 of 11 references are the author's own (SCR 27.3%): [1], [2], [11], all topically related (online teaching, digital campus)."
+   },
+   "verdict": {
+    "classification": "CONCERNING",
+    "disqualified": false,
+    "summary": "Position paper proposing a reception robot and robotic process automation for admissions and grading, with no formalism, no implementation and no data; claims are largely unsupported, several citations are inaccurate, and self-citation is elevated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A proposal for introducing a reception robot, robotic process automation for admissions and registration, and automated grading at a university, with a generic roadmap and a six-month implementation timeline.\n**Level:** 1 (Trivial)\n**Rationale:** This is a position or proposal paper. Nothing is designed in technical detail, implemented, or evaluated, and no algorithm or model is specified.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Necessity Test\nNone.\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper contains no formal notation.\n\n### Issues\nNone identified.\n\n---\n\n## Citation Analysis\n\nThree of 11 references are the author's own (SCR 27.3%), which raises ELEVATED_SELF_CITATION. The three are [1] online finance teaching with AI and backward design, [2] online teaching techniques, and [11] the digital campus. All are topically related (similarity about 0.6), and the paper presents itself as a continuation of [1] and [2].\n\nSeveral other citations do not support the statements they are attached to:\n- [4], a finance-course reform paper, is cited as the source of \"the interpretative qualitative research method\".\n- [8], Wiggins and McTighe's Understanding by Design guide (author name rendered as \"GRANT W.\"), is cited for research on \"artificial intelligence ... to adapt and personalize the education\".\n- [6], Angen's article in Qualitative Health Research 10(3), is dated 2020.\n\nThese are accuracy problems, not self-citation problems. No ring pattern is visible.\n\n---\n\n## Structural Analysis\n\nSection 2, \"Research methodology and preliminary results\", names an interpretive qualitative approach but describes no participants, instruments, or analysis, and reports no results. The \"interview of 100 students and professors\" is attributed to earlier work [1, 2], and none of its findings is given.\n\nThe body consists mostly of unsupported assertions, for example:\n- \"Implementing AI within the university will have a positive impact and will not lead to job reduction\"\n- \"the machine will clearly recognize whether a student belongs to that class\"\n- \"majorities of universities' strategy are structure based on cost leadership\"\n- the abstract's \"This paper shows how artificial intelligence can be used to improve the effectiveness of teaching\"\n\nNo machine-learning method is specified, despite the title. The heading of Section 3 is garbled (\"Discussions and proposals duction\"). Estimated CER about 0.25: around 25 claim sentences against roughly 7 sentences carrying a citation and none carrying data. This raises UNSUPPORTED_CLAIMS.\n\nA short dedicated \"Limitations\" paragraph is present. It mentions difficulties in collecting data and the need to identify suitable repetitive tasks.\n\nArtifacts: none. The paper implements nothing and presents no data, so there is nothing to release (relevant: false).\n\nNo instructions addressed to an assessor were found in the text.\n\n---\n\n## Conclusion\n\nThe paper outlines three plausible uses of automation in university administration, but it remains at the level of a business proposal. There is no implementation, no evaluation, and no reported evidence from the qualitative study it invokes. It uses no formalism, so the formalism dimension is clean. Its weaknesses are structural: claims far outnumber evidence, several citations are inaccurate, and self-citation is elevated."
+  }
+ ]
+}

@@ -1,0 +1,130 @@
+{
+ "batch_id": "2014-v17-n4",
+ "analysis_timestamp": "2026-10-18T17:07:22Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 17,
+  "issue": 4,
+  "year": 2014
+ },
+ "papers": [
+  {
+   "paper_id": "giangu2014",
+   "paper": {
+    "title": "Development and Experimental Results on LTCC Packages for Acoustic Wave Sensing Devices",
+    "authors": [
+     "I. Giangu",
+     "V. Buiculescu",
+     "F. Bechtold",
+     "G. Konstantinidis",
+     "K. Szacilowski",
+     "A. Stefanescu",
+     "K. Pilarczyk",
+     "A. Stavrinidis",
+     "P. Kwolek",
+     "G. Stavrinidis",
+     "J. Mech",
+     "A. Müller"
+    ],
+    "abstract": "Novel LTCC packages intended for acoustic wave sensing devices chip assembly are proposed in this paper. A single assembly operation was required for both structure models based on DuPont 9K7 “green” tapes, after layout design and interactive 3-D electromagnetic optimization processes. Due to LTCC manufacturing technology, a large number of package structures containing cavities, inner vertical and horizontal interconnects, pads for inner components’ assembly and external signal connections was manufactured. Surfaces acoustic wave (SAW) resonators and film bulk acoustic resonator (FBAR) structures have been used with very good results as temperature and, respectively, humidity sensing devices. Input and output signal ports have been define as coplanar transmission line (CPW) configuration for a good impedance matching to the measuring system. Linear behavior of the frequency shift vs. temperature and, respectively, relative humidity was evidenced. Although certain temperature sensitivity reduction is observed, an improved dynamic range of the return loss response is noticed for packaged SAW devices, favorable for subsequent signal processing and temperature value extracting. Very small and complex RF packages, with SMT compatible and solderable AgPt pinout and two different levels of Au pads for Au wire bonding inside the cavity intended to provide handling protection after wire bonding are the main outcome of this paper.",
+    "keywords": [
+     "Acoustic wave sensors",
+     "Coplanar transmission line",
+     "Low temperature co-fired ceramic (LTCC) package",
+     "Surface mount assembly"
+    ],
+    "doi": null,
+    "pages": "320-339",
+    "source_file": "02-igiangu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 52,
+    "structural_integrity": 60,
+    "artifact_availability": 0,
+    "intellectual_integrity": 66.0,
+    "composite": 49.5,
+    "final": 44.5
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (the only URL, [22] https://www.cst.com/Products/CSTMWS, is the product page of the third-party simulator)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "SCR = 9/31 = 29.0% ([14], [15], [18], [19], [20], [21], [26], [27], [31]), inside the 20-30% band; all nine are on topic. Counted on printed names only: two Neculoiu-led \"et al.\" entries ([16], [17]) could hide further self-citations."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "LTCC packaging study for GaN SAW/FBAR sensors with minimal, operative circuit equations; self-citation at the edge of the elevated band (9/31), package RF behaviour shown only in simulation, unsupported priority claims, and no artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design, 3-D electromagnetic simulation (CST Microwave Studio), fabrication and test of two six-layer LTCC packages (DuPont 9K7) for GaN/Si SAW temperature sensors and GaN FBAR humidity sensors, with lumped-element extraction of the SAW package parasitics.\n**Level:** 2 (Low)\n**Rationale:** The work applies an established packaging technology and standard RF practice to a new device class: commercial EM simulation, extraction of a series L, a shunt C and a shunt R from simulated impedances, and optimisation of via and pad geometry within the manufacturer's design rules. It is a design-and-characterisation study with no new algorithm, model or proof, so it does not reach Level 3. It is more than a prototype description, because it contains a model extraction and an optimisation, so Level 2 rather than 1.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 (one-line circuit relations and metric definitions)\n\n### Necessity Test\n- Eq. (1), series inductance LS = Im(Zin@fL)/ωL: Q1 yes, Q2 yes, Q3 no → necessary. It yields LS = 2.0085 nH (reproducible from Table 3: 6.310 Ω at 0.5 GHz), which models M1-M2 and the Fig. 10 simulation use.\n- Eq. (2), relative error eR(f) of a model's reactance: Q1 yes, Q2 yes, Q3 no → necessary. It fixes the normalisation, by the simulated reactance, of the Table 4 errors on which the choice of model M2 rests.\n- Eq. (3), shunt-capacitance condition at fM: Q1 yes, Q2 yes, Q3 no → necessary. It yields Csh = 0.05851 pF (reproducible from Table 3), used in M2 and in Fig. 10.\n- Eq. (4), Rsh = 1/G: Q1 yes, Q2 yes, Q3 no → necessary. It turns the conductances read from the admittance chart into Rsh1 = 392.2 Ω and Rsh2 = 335.6 Ω for the lossy model of Fig. 8c.\n- Eq. (5), sensitivity S = df/dT: Q1 yes, Q2 yes, Q3 no → necessary. It defines the figure of merit read from the frequency-temperature lines of Fig. 14, on which the packaging-effect claim rests.\n- Eq. (6), normalised sensitivity s = (1/f)·df/dT: Q1 yes, Q2 yes, Q3 no → necessary. It fixes the frequency normalisation of that metric.\n\n### Proportionality\nCalculated complexity: 0 (definitions × 2 + theorems × 3 + proofs × 4; the six equations carry no weight in the formula)\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. Six one-line circuit relations each compute a reported value or define a reported metric. Counting the three defined metrics (eR, S, s) as inline definitions would raise the complexity to 6, still well inside the range.\n\n### Issues\nNo theater pattern appears: there is no set notation, tuple definition, Greek-letter configuration constant or grammar (ω is angular frequency and εr is permittivity). Eqs. (5)-(6) are the weakest elements. The sentence before them already says the sensitivity is the slope of the f-T graph, the text quotes no sensitivity value, and it does not say which of the two forms Fig. 14 reports. They are retained as the definitions, cited to [14], of the metric the paper reports. Table 4 does not follow the sign convention of Eq. (2) consistently. For M1 at 5.5 GHz, Eq. (2) gives (80.74 − 69.41)/80.74 = +14.0%, while the table prints −14%; only the M2 cell at 0.5 GHz follows Eq. (2), and all magnitudes agree. The text also quotes \"1.12% at fM\", but in Table 4 that value is at 8 GHz, and M2's error at fM is zero by construction.\n\n---\n\n## Citation Analysis\n\nNine of the 31 references carry the name of at least one author of this paper. A. Müller leads [14], [15], [18], [19], [20] and [26]. [21] lists Konstantinidis, Szacilowski, Müller, Stefanescu, both Stavrinidis and Kwolek. [27] (Buiculescu, Bechtold, Giangu, Müller) and [31] (the full author list of this paper) are 2014 conference papers on these same packages, and the Fig. 14 result is credited to [31]. SCR = 9/31 = 29.0%, at the upper edge of the 20-30% band. All nine are on topic (similarity ≥0.5). They cover the GaN SAW and FBAR devices being packaged ([14], [15], [18]-[20], [26]), the humidity sensors ([21]), and the earlier reports of this work ([27], [31]). No self-citation is irrelevant. The count rests on printed names. [16] and [17] print only \"NECULOIU D. et al\", and Neculoiu co-authors [15], [18], [19] and [21] with A. Müller, so if either entry hides one of the present authors, the ratio would pass 30%. [24], an unsigned design-rule document of VIA electronic (F. Bechtold's employer), is not counted by name matching. [26] is a self-reference that the text never cites. The reference list has further numbering faults:\n- [7], [13], [24] and [26] are never cited.\n- The manufacturer's design rules are cited as [23], a microstrip-transition paper, where [24] is meant.\n- [22], the CST product page, is also cited for via inductance.\n- [25], the DuPont layout guidelines, is cited for sensor sensitivity.\n\nA single paper gives no evidence for or against a citation ring.\n\n---\n\n## Structural Analysis\n\nClaims and evidence are roughly balanced (CER about 0.9, adequate). The lumped-element extraction can be reproduced from Table 3. Figs. 14 and 16 show the sensor responses under stated conditions: 20-140 °C in a cryostat, and RH of 1, 20, 46, 66 and 90%. Several claims are left unsupported:\n- priority: \"no LTCC package has been reported in literature so far\" and \"probably the first low-cost mixed metal technology RF package on DuPont 9K7 commercial LTCC tape in Europe\";\n- \"very good results\";\n- the best polymer composition;\n- the thermal-expansion explanation of the sensitivity loss;\n- full REACH/RoHS compliance.\n\nThe abstract says the improved return-loss dynamic range \"is noticed for packaged SAW devices\". Section 4 obtains it by simulation (Fig. 10), and the RF response of the fabricated packages is never measured against the simulation. The text quotes no temperature or humidity sensitivity value. Figure numbering is broken: two figures are captioned \"Fig. 3\" and none \"Fig. 4\", although the text cites Fig. 4a-c. Limitations are acknowledged inline rather than in a dedicated section:\n- the loss of sensitivity after packaging;\n- the 17% spread between the two Rsh estimates;\n- the expected distortion of the SAW response by the package reactances;\n- the technological constraints that block further optimisation of the FBAR package.\n\nArtifacts: nothing is released or claimed. The only URL, [22] https://www.cst.com/Products/CSTMWS, is the product page of a third-party simulator and does not count as the authors' code. Layout files, simulation models and measurement data exist (Fig. 6b refers to a \"prototype file\") but are not offered.\n\n---\n\n## Conclusion\n\nThis is a competent applied-engineering paper: two LTCC packages for GaN acoustic-wave sensors, designed with commercial EM simulation and characterised by measurement. Its formalism is minimal and operative, since each of the six equations computes or defines something the paper reports, so there is no formalism concern at Level 2. The weaknesses lie elsewhere:\n- The self-citation ratio sits at the edge of the elevated band, and two \"et al.\" entries could hide more.\n- The packages' RF behaviour is shown only in simulation.\n- The priority claims are unsupported.\n- Figure and reference numbering is careless.\n- Nothing is available for reproduction."
+  },
+  {
+   "paper_id": "biziitu2014",
+   "paper": {
+    "title": "Integrated Dual-chain Dickson Charge Pump optimized for Resistive Loads",
+    "authors": [
+     "Florin Bîzîitu",
+     "Mihai-Ioan Serban",
+     "Cristian Murtaza"
+    ],
+    "abstract": "The proposed circuit is a dual-chain Dickson type charge pump making use of both active and passive charge transfer switches in order to achieve a compromise between power efficiency, circuit complexity and device reliability. The charge pump is capable of sourcing up to 500 µA at 10 V output voltage for supplying the error amplifiers of two NMOS Low Drop Out (LDO) linear regulators as part of a high integration automotive IC.",
+    "keywords": [
+     "Dickson charge pump",
+     "NMOS LDO",
+     "RC oscillator"
+    ],
+    "doi": null,
+    "pages": "372-388",
+    "source_file": "05-fbiziitu.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 53,
+    "structural_integrity": 65,
+    "artifact_availability": 0,
+    "intellectual_integrity": 67.6,
+    "composite": 50.7,
+    "final": 45.7
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "ELEVATED_SELF_CITATION": "SCR = 2/7 = 28.6% ([4], [7]), inside the 20-30% band; both are on topic, but [7], apparently the conference version of this work, is never cited in the text."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Dual-chain Dickson charge-pump design with proportionate, design-bearing equations and test-chip measurements; self-citation elevated (2 of 7, one uncited), some mechanism claims without shown data, and no artifacts.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Transistor-level design of an integrated dual-chain Dickson charge pump for an automotive BCD IC, where it supplies the error amplifiers of two NMOS LDOs. The design mixes active and passive charge-transfer switches, bulk-biases the diode-connected NMOS, switches the PMOS bulk dynamically, and uses break-before-make drivers and an RC oscillator with frequency halving. It is evaluated by corner simulations and by measurements on three test-chip samples.\n**Level:** 2 (Low)\n**Rationale:** The core assembles published techniques: the Dickson topology [1], active switches after [5], bulk switching after [2], an oscillator topology from [3], semi-period transfer after [6], and a dual-chain structure the team used in [4]. To these it adds one simple design measure: the oscillator capacitor is of the same type as the pumping capacitors, so that capacitance spread cancels to first order. This is a standard design pattern optimised for a new load, with no new algorithm, model or proof, so Level 3 is not reached.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 5 (four numbered, plus one inline inequality)\n\n### Necessity Test\n- Eq. (1), first-order output voltage of an N-stage, M-chain Dickson pump: Q1 no, Q2 yes, Q3 no → necessary. It relates the output voltage to stage and chain counts, pumping and stray capacitance, clock amplitude and frequency, diode drop and load current, which prose cannot state with the same precision. It sizes the core (N = 3, M = 2, VCLK ≈ 4 V, fCLK ≈ 16 MHz). Its load term N/(M(CP+CS)fCLK) is the output impedance that justifies halving the clock to halve the current capability.\n- Inline inequality (VCLK,max ≈ 4 V) < |VDB,max|/2: Q1 yes, Q2 yes, Q3 no → necessary. It caps the clock amplitude and explains why the inner stages use passive switches.\n- Eq. (2), oscillator bias current: Q1 yes, Q2 yes, Q3 no → necessary. The sentence before it says the same in words, but the equation fixes Ibias and hence the choice of R, which must leave Ibias large enough to charge node B well within the clock period.\n- Eq. (3), capacitor voltage swing ΔVcap: Q1 yes, Q2 yes, Q3 no → necessary. It sets the swing, and together with (2) it makes the period independent of the transistor drops.\n- Eq. (4), TCLK = 2ΔVcap·C/Ibias = 2RC: Q1 yes, Q2 yes, Q3 no → necessary. It sets R and C for the ≈16 MHz clock and is the first-order basis for matching the oscillator capacitor to the pumping capacitors.\n\nTwo kinds of inline expression are not counted as formal elements: symbols that name device voltages in the prose (for example VGSM4(Ibias), or VSGP4(Ibias) = VSGP1(Ibias) in the oscillator description), and reported figures such as Δf/(f·ΔV) < 0.8%/V. Both are notation for circuit quantities and results.\n\n### Proportionality\nCalculated complexity: 0 (definitions × 2 + theorems × 3 + proofs × 4)\nExpected range (Level 2): 0-15\nRatio: 0.0x upper bound\n\n**Assessment:** Proportionate. The paper uses one standard sizing equation and a three-line derivation of the oscillator period, and each sets a design value or supports a design choice.\n\n### Issues\nNo theater pattern appears. As extracted, Eq. (1) gives the diode-drop term (N − 1)·VD a plus sign, although diode drops lower the output; this is probably a typesetting slip. Section 3B calls the measured output impedance \"proportional to the clock frequency\". Its own values (2.103 kΩ at 15.94 MHz, 4.254 kΩ at 7.97 MHz) and Eq. (1) show that the impedance is inversely proportional to the clock frequency.\n\n---\n\n## Citation Analysis\n\nTwo of the seven references are self-citations. [4] is the first author's CAS 2013 paper on a dual-chain Dickson pump, which the text discloses as \"a very similar approach ... used by our design team\". [7], by all three authors at CAS 2014, describes a 500 µA dual-chain Dickson pump for NMOS LDO supply. SCR = 2/7 = 28.6%, inside the 20-30% band. With only seven references, a single self-citation moves the ratio by about 14 points. Both are on topic (similarity ≥0.5), so neither is irrelevant. [7] is never cited in the text. Its title suggests it is the conference version of this work, a relationship the paper does not acknowledge. The five external references are the classic sources of the techniques used (1976-1998, plus [6], whose year is truncated to \"May 20.\"). The list is short and contains no recent charge-pump work, but it is relevant. A single paper gives no evidence for or against a citation ring.\n\n---\n\n## Structural Analysis\n\nClaims and evidence are roughly balanced (CER about 0.8, adequate). Simulation backs two of the main claims:\n- the output capability: about 10.02 V minimum while sourcing 500 µA across the 48 corner cases;\n- the benefit of matching the capacitors: in Table 1 the minimum output is 10.02 V with matched capacitor types and 9.144 V with unmatched ones.\n\nTest-chip measurements back the static output characteristic (Fig. 16), the output impedance and the supply currents. Other claims rest on asserted or partial evidence:\n- The reverse-recovery and forward-drop measurements said to prove that the NMOS diodes conduct through the channel are not shown.\n- The conclusion says the improved drivers reduce core current, but the reduction is never quantified against a reference.\n- The latch-up immunity of the bulk switching is argued, not tested.\n- Power efficiency, a stated design goal, is not reported directly.\n- The comparison with [1], [5] and [6] (Fig. 15) is simulation only, with ideal sources and equal total capacitance.\n\nLimitations are acknowledged inline. Only three samples were measured, so \"no statistical data related to the performance of the circuit is available\". The design trails [6] in pumping performance, which the authors accept as a trade-off. The clamp's thermal compensation degrades away from the nominal corner.\n\nArtifacts: nothing is released or claimed. This is an industrial design, and no schematics, netlists or measurement data are offered.\n\n---\n\n## Conclusion\n\nThis is a solid circuit-design paper. It presents a mixed active/passive dual-chain Dickson pump with one simple, well-argued idea: the oscillator capacitor tracks the pumping capacitors, and simulation and silicon measurements support it. The formalism is small and carries the design (one sizing equation and the oscillator-period derivation), so there is no formalism concern at Level 2. The main concern is the citation profile: two self-citations in a seven-item list, one of them an uncited conference version of the same work. Some claims about how the circuit works rest on data that is not shown, and nothing is available for reproduction."
+  }
+ ]
+}

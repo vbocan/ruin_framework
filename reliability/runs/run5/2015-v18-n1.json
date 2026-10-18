@@ -1,0 +1,130 @@
+{
+ "batch_id": "2015-v18-n1",
+ "analysis_timestamp": "2026-10-18T05:33:42Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 18,
+  "issue": 1,
+  "year": 2015
+ },
+ "papers": [
+  {
+   "paper_id": "sys2015",
+   "paper": {
+    "title": "On the Interpretation of Results from the NIST Statistical Test Suite",
+    "authors": [
+     "Marek Sýs",
+     "Zdeněk Říha",
+     "Vashek Matyáš",
+     "Kinga Márton",
+     "Alin Suciu"
+    ],
+    "abstract": "Paraphrased summary: The NIST STS documentation gives unclear or approximate guidance on interpreting results. It treats data as random only if every test passes, yet truly random data fail at least one test about 80% of the time. The authors test 819,200 sequences (about 100 GB) from a quantum random number generator and derive thresholds at α = 0.01 that need no additional samples: fewer than 7 failed NIST STS tests, 7 failed uniformity tests (100 sequences) or 10 failed proportion tests. They also propose a more accurate interval of acceptable proportions, with constant 2.6 instead of 3, under which 1000 sequences count as random if they fail fewer than 7 proportion tests.",
+    "keywords": [
+     "NIST STS",
+     "statistical randomness testing",
+     "hypothesis testing"
+    ],
+    "doi": null,
+    "pages": "18-32",
+    "source_file": "02-msys.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 95,
+    "structural_integrity": 70,
+    "artifact_availability": 50,
+    "intellectual_integrity": 50.75,
+    "composite": 50.56,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"100 GB of data (downloaded from [8]) produced by a physical source of randomness\"; [8] QRNG Service, https://qrng.physik.hu-berlin.de",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 empirical study with one formal element that fails the Necessity Test: the identity Pr(a ≤ p-value < b) = b − a in Remark 1. It repeats the preceding prose statement that p-values are uniform on [0, 1) (Q1 yes), changes nothing a tester implements (Q2 no) and is not used in any derivation (Q3 no). The other equations (Eqs. 1-3 and the cumulative binomial sum) do work; the flag rests on the zero-tolerance rule for Level 1-2 papers."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A useful Level 2 calibration of NIST STS pass/fail thresholds on 819,200 QRNG sequences, with a corrected proportion interval, and statistics that are functional and proportionate. One redundant identity (Remark 1) triggers FORMALISM_THEATER under the zero-tolerance rule. The single-sequence threshold is also reported inconsistently: 8 failed tests in Section 5.1, 7 in the abstract and conclusion.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** How to interpret NIST STS results. The authors measure, on 819,200 sequences from a quantum random number generator, how many NIST STS tests, uniformity tests of p-values and proportion tests truly random data fail. They also correct the interval of acceptable proportions (constant 2.6 instead of 3) and give exact binomial bounds.\n**Level:** 2 (Low)\n**Rationale:** This is an empirical study with basic statistics plus a parameter correction to an existing method. The new constant replaces the 3-sigma factor with one close to the two-sided 99% normal quantile. The reference tables are measured, not modelled. There is no new algorithm, model or proof, so the paper fits \"simple optimizations of existing methods\" and \"empirical studies with basic statistics\".\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0. Remarks 1-3 restate a cited property, a chi-square rule of thumb and a passage of the NIST documentation; none is proved or used as a lemma.\n- Proofs: 0\n- Equations: 6. Five are displayed: the uniformity identity in Remark 1, Eqs. (1)-(3) and the cumulative binomial sum. One is inline: the binomial formula for the expected rows of Table 3. Inline arithmetic (k = 1/α = 100, 0.99^188 = 0.15, p = 0.504 × 0.806 = 0.4) is treated as worked numbers, not formal elements.\n\n### Necessity Test\n- Remark 1 identity, Pr(a ≤ p-value < b) = b − a: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (1), NIST interval (1 − α) ± 3√(α(1 − α)/k): Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. (2), proposed interval 0.99 ± 2.6√(0.01·0.99/k): Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. (3), binomial probability that k1 of k sequences pass: Q1 no, Q2 yes, Q3 yes → necessary\n- Cumulative binomial sum for Pr(k1/k ≤ proportion ≤ k2/k), with its evaluations 0.9966, 0.9926 and 0.9904: Q1 no, Q2 yes, Q3 yes → necessary\n- Inline binomial C(k,i)·0.99^(k−i)·0.01^i, the expected rows for 188 independent tests: Q1 no, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. The paper uses only basic equations, as Level 2 expects, and five of the six do work. Eqs. (1)-(3) and the cumulative sum are the contribution itself: the corrected interval and its exact Type I error, 0.34% for the NIST interval against 0.74% and 0.96% for the corrected bounds.\n\n### Issues\nOnly the identity in Remark 1 fails the test. The two sentences before it already say that p-values are uniformly distributed on [0, 1), and the identity is never invoked again. Every fact the later sections need from it is restated in prose where it is used: a random sequence passes with probability 1 − α (Section 4.1), and each of the ten bins expects k/10 p-values (Section 4.2). The statement that the Type I error equals α is asserted, not derived from the identity. Under the zero-tolerance rule for Level 1-2 papers, this one redundant element raises FORMALISM_THEATER and caps the score, although the formalism around it is functional and modest.\n\nA separate slip: the text gives the interval of formula (2) as [0.9805, 0.9994], which is the interval of formula (1). Formula (2) gives about [0.9818, 0.9982], which matches the bounds 982 and 998 used in the computation beside it.\n\n---\n\n## Citation Analysis\n\nThere is one self-citation in 11 references (SCR 9.1%). It is [5], Sýs and Říha's optimised implementation of the NIST STS, which produced every result in the paper, so it is directly relevant. The other references are the expected ones: NIST SP 800-22, Dieharder, TestU01, Kenny and Mosurski, Doganaksoy et al. and Murdoch et al., plus three web resources (the QRNG service, WolframAlpha, the NIST handbook). Reference [2] (Marsaglia's Diehard) is listed but never cited in the text. No citation-integrity issues.\n\n---\n\n## Structural Analysis\n\nThe claims are well supported. The thresholds rest on 819,200 sequences (Tables 3-5), the interval correction rests on exact binomial computations, and the critique of the NIST guidance cites the documentation [1] and [6]. CER is well above 1.\n\nLimitations are acknowledged inline rather than in their own section:\n- only the default settings are analysed;\n- formula (2) is accurate only for large k;\n- additional samples are still needed to tell an anomaly from non-randomness;\n- the new interval must be checked by hand, because the NIST report marks only the old one.\n\nThe paper does not discuss that all reference distributions come from a single physical generator.\n\nInternal inconsistencies weaken the reporting:\n- **Single-sequence threshold.** Section 5.1 calls a sequence non-random at 8 or more failed tests, which matches Table 3 (1.6% at 7, 0.8% at 8). The abstract and conclusion say 7.\n- **Sequence length.** Section 5 gives 100000 bits, the conclusion 1000000. Only the latter is consistent with 100 GB spread over 819,200 sequences.\n- **Table 5.** The caption speaks of uniformity tests, though the table counts proportion tests. Its expected row reuses the 1%-per-test binomial, although the paper's own computation puts the false-failure rate of a proportion test at 0.34% for k = 1000.\n\nArtifacts: the data were downloaded from [8], the Humboldt University QRNG service, a named and linked public source. The specific sequences were not deposited. The authors' optimised NIST STS implementation [5] is cited as a paper, with no link to code. Category: data.\n\n---\n\n## Conclusion\n\nA useful and carefully argued calibration of NIST STS interpretation. It measures empirically how dependent tests behave on truly random data, and it gives a corrected acceptance interval with exact error rates. The statistics are the subject matter and are used, not displayed.\n\nThe specification nevertheless disqualifies the paper. At Level 2, the redundant uniformity identity in Remark 1 is enough for FORMALISM_THEATER, which caps the final score. Without that element the formalism would be proportionate and functional. The remaining concerns are the inconsistent 7-versus-8 threshold and the parameter misprints, which a careful reader can resolve from the tables."
+  },
+  {
+   "paper_id": "zene2015",
+   "paper": {
+    "title": "Efficient Hardware Implementation of Snapshotting Algorithms for NoC Applications",
+    "authors": [
+     "Andrei Zene",
+     "Claudiu-Teodor Chirap",
+     "Octavian Creţ",
+     "Lucia Văcariu"
+    ],
+    "abstract": "Paraphrased summary: Observing or debugging what happens inside a chip remains difficult, notably for long-running FPGA processes such as computational biology simulations. The authors implement three snapshot algorithms (Lai-Yang, Li et al. and Mattern) in hardware on a layered setup that separates the algorithm from the application and from the network. The network is generated with CONNECT, and snapshots go to a PC over UART. Comparing operating frequency, throughput and resource usage, they find Mattern's algorithm the best candidate for hardware implementation.",
+    "keywords": [
+     "FPGA",
+     "NoC debugging",
+     "network-on-chip",
+     "snapshot algorithms",
+     "observability",
+     "computational biology"
+    ],
+    "doi": null,
+    "pages": "79-92",
+    "source_file": "06-ocret.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 45.25,
+    "composite": 33.94,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "DECORATIVE_DEFINITIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 implementation-and-comparison paper whose Section 2.1 formalism fails the Necessity Test in all five elements: the system model S with channels SCij, the send/recv events, the global state GS (Eq. 1) and the consistency conditions (Eqs. 2-3). Each is restated in English, none constrains the VHDL design, and the paper proves nothing with them.",
+    "UNNECESSARY_SET_THEORY": "Eq. (1) builds the global state from unions of local and channel states, and Eqs. (2)-(3) state consistency through set membership. The implementation simply gathers each node's STATE, COUNTER and TRANSIT messages at the initiator, and no proof depends on these operations.",
+    "DECORATIVE_DEFINITIONS": "The formal definitions of the global state (Eq. 1) and of a consistent global state (Eqs. 2-3) are paraphrased in prose immediately after they are given and never referenced after Section 2.1. Removing them would not change what is built."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 FPGA implementation and comparison of three published snapshot algorithms; its throughput and resource results favour Mattern's algorithm. Decorative set-theoretic definitions of global-state consistency, never used and restated in prose, trigger the formalism flags. The comparison is confounded by throttling and theoretical throughput figures, and no code is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** VHDL implementation on an FPGA of three published non-FIFO snapshot algorithms (Lai-Yang, Li et al., Mattern). They run on a network-on-chip generated with CONNECT and send snapshots to a PC over UART. The three are compared on throughput, operating frequency and resource usage, with observability of biological simulations as the motivation.\n**Level:** 2 (Low)\n**Rationale:** The paper applies existing algorithms in a new medium and compares their performance. The surrounding system assembles existing components: the CONNECT NoC, credit-based flow control and UART. There is no new algorithm, model or proof.\n\n### Formal Elements\n- Definitions: 4 (with constraints: 1): the system model (S with channels SCij), the send/recv events, the global state GS (Eq. 1) and the consistent global state (Eqs. 2-3)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (Eqs. 1-3)\n\n### Necessity Test\n- System model, a distributed system S whose nodes are linked by channels SCij: Q1 yes, Q2 no, Q3 no → unnecessary\n- Events send(mij) and recv(mij): Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (1), global state GS as the set of the unions of the local states LSi and channel states SCij: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (2), send(mij) ∈ LSi → recv(mij) ∈ LSj ⊕ mij ∈ SCij: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. (3), send(mij) ∉ LSi → recv(mij) ∉ LSj ∧ mij ∉ SCij: Q1 yes, Q2 no, Q3 no → unnecessary\n\n### Proportionality\nCalculated complexity: 8\nExpected range (Level 2): 0-15\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate in count, but none of the five elements does any work. They are textbook definitions taken from [5], each restated in English as soon as it is given, and none appears after Section 2.1.\n\n### Issues\n**Restated in prose.** Eq. (1) is followed at once by an \"otherwise said\" sentence describing the global state as each node's local state together with the states of the channels. Eqs. (2)-(3) are followed by an English restatement of both conditions.\n\n**Never used again.** None of S, LSi, SCij, GS or the send/recv events appears later. Section 2.2 explains the algorithms in prose (colours, tags, counters). Sections 3-4 implement state machines that exchange GET STATE, STATE, COUNTER and TRANSIT messages, and no formula constrains them. The algorithms' correctness is taken from their original papers, so no proof needs the conditions.\n\n**Set notation for simple operations.** In the implementation, the union in Eq. (1) is the initiator gathering each node's state and the in-transit messages. The memberships in Eqs. (2)-(3) amount to looking a message up in a node's record.\n\n**Loose notation.** S is never used. SCij denotes both a channel and its state. The prose justification of Eq. (3) treats a received-but-unsent message as a message counted twice. The condition actually excludes an orphan message: a receipt with no matching send, an effect without its cause.\n\nThe definition usage ratio is 0. With four definitions, neither ORPHAN_DEFINITIONS nor THEOREMLESS_FORMALISM applies: both require more than five.\n\n---\n\n## Citation Analysis\n\nThere is one self-citation in 13 references (SCR 7.7%). It is [11], Chirap and Creţ on communication across several FPGAs, cited for scaling the NoC beyond one device, which is related work. The Cretu M. of [13] is a different author.\n\nThe core references are apt: Chandy-Lamport, Lai-Yang, Li et al., Mattern, Kshemkalyani et al., CONNECT, the Xilinx HWICAP specification, and Vermeulen and Goossens.\n\nTwo non-self citations do not support the claims they are attached to:\n- [12], on the workspace of a 3RUU parallel manipulator, is cited for artificial life;\n- [13], on magnetic stimulation of the spinal cord, is cited for biological simulations.\n\nThe self-citation flags do not cover these two, and one paper is not enough to judge whether they belong to a citation ring. They are reflected in a citation score at the bottom of its band.\n\n---\n\n## Structural Analysis\n\nTables 1-3 support the core comparison. Mattern's memory-free design needs far fewer initiator resources (396 LUTs against 4,285-5,729), uses no BRAM in the nodes, and lets nodes keep communicating during a snapshot.\n\nThe evaluation is thin, though:\n- The throughput without a snapshot was computed theoretically, not measured.\n- The authors throttled the Lai-Yang and Li et al. nodes, which largely decides the 30 KB/s against 600 MB/s comparison.\n- Operating frequency, one of the three comparison axes the abstract announces, is reported only for Mattern (Table 2).\n- There is a single test configuration, with no repetitions and no description of how throughput during a snapshot was measured.\n- The claim that the resource overhead is not significant has no baseline: no figures for the NoC, the application or the device capacity.\n- The conclusion claims direct applicability to biological simulations and an infrastructure for any network-on-chip. The only workload, however, was a counter of received messages on a CONNECT network.\n\nCER is around 0.5, adequate at its lower edge. Limitations are acknowledged inline:\n- the comparison was limited to 16 nodes by the two memory-bound algorithms;\n- the NoC stops working at full load, so the end-point frequency had to be reduced;\n- the UART link is slow;\n- the largest synthesised network has 128 nodes.\n\nArtifacts: the VHDL layers and the C# console application are described but not released, and CONNECT is a third-party generator. There is no link or availability statement. Category: none.\n\n---\n\n## Conclusion\n\nThe main finding is plausible and supported by the measurements: in hardware, Mattern's counter-based algorithm is the cheapest of the three and the only one that does not block the network. But the evaluation is confounded by throttling, theoretical throughput figures and the missing cross-algorithm frequency comparison, and the applicability claims run ahead of the evidence.\n\nThe formal apparatus of Section 2.1 is decorative: textbook set-theoretic definitions of global-state consistency, paraphrased in prose and never used, in a Level 2 implementation paper. This raises FORMALISM_THEATER, UNNECESSARY_SET_THEORY and DECORATIVE_DEFINITIONS, and the final score is capped."
+  }
+ ]
+}

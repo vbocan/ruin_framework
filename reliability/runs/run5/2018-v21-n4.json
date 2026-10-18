@@ -1,0 +1,195 @@
+{
+ "batch_id": "2018-v21-n4",
+ "analysis_timestamp": "2026-10-18T17:18:18Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 21,
+  "issue": 4,
+  "year": 2018
+ },
+ "papers": [
+  {
+   "paper_id": "zhao2018",
+   "paper": {
+    "title": "An extension of ELECTRE to multi-criteria decision making problems with extended hesitant fuzzy sets",
+    "authors": [
+     "Kexing Zhao",
+     "Xianjiu Huang"
+    ],
+    "abstract": "Extended hesitant fuzzy sets (EHFSs), which are an extension of hesitant fuzzy sets, consider possible value-groups for the membership of x into the set A and increase the richness of numerical representation based on the value-groups. Extended hesitant fuzzy set is a very useful tool in handling decision making problems, due to it can identify different decision makers (DMs) in decision making. Some extended hesitant fuzzy elements (EHFEs) aggregation operators are proposed. In this paper, the dominance relation and opposition relation for EHFEs which based on traditional ELECTRE methods are introduced and the method for comparing EHFEs is proposed. To extend EHFSs to multi-criteria decision making, we proposed an outranking approach which is similar to ELECTRE III, and the data of outranking approach is in the form of EHFEs. Then, we combine the propose method with the proposed outranking approach to ranking alternatives in multi-criteria decision making. Finally, an example is given to illustrate the developed approach.",
+    "keywords": [
+     "Extended hesitant fuzzy set",
+     "extended hesitant fuzzy elements",
+     "ELECTRE III",
+     "outranking approach",
+     "multi-criteria decision making"
+    ],
+    "doi": null,
+    "pages": "328-343",
+    "source_file": "paper605.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 42.75,
+    "composite": 32.06,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "DECORATIVE_DEFINITIONS",
+    "DISPROPORTIONATE_FORMALISM"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "This Level 2 paper transposes ELECTRE III to extended hesitant fuzzy sets, and 12 of its formal elements fail the Necessity Test. They include the set-builder definition of a hesitant fuzzy set (Def. 2.1), the mean-valued score function (Def. 2.2), the complement, union and intersection of EHFEs (Defs. 3.3-3.4), none of which is ever used, the unused generic function Θ (Def. 3.6) and the layout of the concordance matrix (Eq. 13).",
+    "UNNECESSARY_SET_THEORY": "Element-wise maps over finite lists of membership values are written as unions of singletons, e.g. h^c = ∪γ∈h {1 − γ} and H^c = ∪(γ1,...,γm)∈H {(1 − γ1, ..., 1 − γm)}. The reduced EHFE (Def. 3.2) is a flatten written as a union. No proof in the paper depends on these operations.",
+    "DECORATIVE_DEFINITIONS": "Definitions 2.2, 2.3, 3.2, 3.3, 3.4 and 3.6 change nothing a programmer would build. The two score functions are reviewed only to be set aside, and the outranking procedure and the proofs never use complement, union, intersection, the reduced EHFE or Θ. Definitions 4.3-4.4 are restated as Eqs. 5 and 8.",
+    "DISPROPORTIONATE_FORMALISM": "19 definitions, 6 properties and 4 proofs give a formalism complexity of 72, which is 4.8 times the Level 2 upper bound of 15 (the threshold is 30)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A Level 2 fuzzy-MCDM paper that transposes ELECTRE III to extended hesitant fuzzy sets under heavy, largely reviewed and unused formal apparatus. Its stated final ranking contradicts its own net-flow values, and the proof of one property is invalid.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Transposition of the ELECTRE III outranking method to extended hesitant fuzzy sets (EHFSs): concordance and discordance indices and dominance/opposition relations defined over membership units, illustrated on a five-alternative energy-policy example.\n**Level:** 2 (Low)\n**Rationale:** The paper applies an existing method (ELECTRE III, already extended to hesitant and multi-hesitant fuzzy sets by Wang et al. [19] and Peng et al. [14]) to a further fuzzy-set variant. The new indices (Eqs. 4-5, 7-8) are the multi-hesitant indices of Defs. 4.3-4.4 averaged over pairs of membership units. There is no complexity analysis, no convergence result and no non-trivial theorem; the properties proved are elementary. Fuzzy MCDM of this kind is the specification's Level 2 example.\n\n### Formal Elements\n- Definitions: 19 (with constraints on the procedure or proofs: 10). Twelve reproduce prior work (Defs. 2.1-2.3, 3.1-3.5, 4.1-4.4); seven are the authors' (3.6-3.8, 4.5-4.8).\n- Theorems: 6 (Properties 4.1-4.6)\n- Proofs: 4 (Properties 4.2, 4.3, 4.5, 4.6)\n- Equations: 15 numbered, plus the unnumbered operation lists of Sections 2 and 3\n\n### Necessity Test\n- Def. 2.1, hesitant fuzzy set as the set of pairs <x, h_E(x)>: Q1 yes, Q2 no, Q3 no → unnecessary\n- Torra's complement, union and intersection of HFEs, written as unions of singletons: Q1 yes, Q2 no, Q3 no → unnecessary\n- Xia-Xu operations h^λ, λh, ⊕, ⊗ on HFEs: Q1 no, Q2 yes, Q3 no → necessary (λh is the weighting of Eq. 10; ⊕ and ⊗ underlie Defs. 3.5, 3.7, 3.8)\n- Def. 2.2, score function as the mean of an HFE: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 2.3 / Eq. 1, Farhadinia's position-weighted score: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 3.1, EHFE as the Cartesian product of the decision makers' HFEs (membership units): Q1 yes, Q2 yes, Q3 yes → necessary\n- Def. 3.2, reduced EHFE (all values pooled): Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 3.3 / Eqs. 2-3, complement of an EHFE: Q1 yes, Q2 no, Q3 no → unnecessary\n- Minimum and maximum memberships of H and of u: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 3.4, union and intersection of EHFEs: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 3.5, operations H^λ, λH, ⊕, ⊗ on EHFEs: Q1 yes, Q2 yes, Q3 no → necessary (they define the EHFWA/EHFWG computation)\n- Def. 3.6, generic function Θ on a set of EHFEs: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 3.7, EHFWA operator: Q1 no, Q2 yes, Q3 no → necessary\n- Def. 3.8, EHFWG operator: Q1 no, Q2 yes, Q3 no → necessary\n- Def. 4.1, ELECTRE III preference relations and concordance index c_j: Q1 no, Q2 yes, Q3 yes → necessary\n- Def. 4.2, discordance index d_j: Q1 no, Q2 yes, Q3 yes → necessary\n- Def. 4.3, concordance index for multi-hesitant elements (from [19]): Q1 yes, Q2 no, Q3 no → unnecessary (restated as Eq. 5)\n- Def. 4.4, its discordance counterpart: Q1 yes, Q2 no, Q3 no → unnecessary (restated as Eq. 8)\n- Def. 4.5 / Eqs. 4-5, concordance index for EHFEs: Q1 no, Q2 yes, Q3 yes → necessary\n- Property 4.1 / Eq. 6, concordance index lies in [0,1]: Q1 yes, Q2 no, Q3 yes → necessary (invoked in the proof of Property 4.2)\n- Def. 4.6, strong/weak dominance and indifference of EHFEs: Q1 yes, Q2 yes, Q3 yes → necessary\n- Property 4.2 with proof, characterisation of strong dominance: Q1 yes, Q2 no, Q3 yes → necessary\n- Property 4.3 with proof, transitivity of strong dominance: Q1 yes, Q2 no, Q3 yes → necessary\n- Def. 4.7 / Eqs. 7-8, discordance index for EHFEs: Q1 no, Q2 yes, Q3 yes → necessary\n- Property 4.4 / Eq. 9, discordance index lies in [0,1]: Q1 yes, Q2 no, Q3 yes → necessary (invoked in the proof of Property 4.5)\n- Def. 4.8, opposition relations: Q1 yes, Q2 no, Q3 yes → necessary\n- Property 4.5 with proof, characterisation of strong opposition: Q1 yes, Q2 no, Q3 yes → necessary\n- Property 4.6 with proof, transitivity of strong opposition: Q1 yes, Q2 no, Q3 yes → necessary\n- Eq. 10, weighted HFE: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 11, concordance set O(Ai, As): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 12, concordance index C(Ai, As): Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 13, layout of the concordance matrix: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 14, credibility index σ: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 15, net ranking index δ: Q1 yes, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 72 (19×2 + 6×3 + 4×4)\nExpected range (Level 2): 0-15\nRatio: 4.8x upper bound\n\n**Assessment:** Disproportionate. Even counting only the seven definitions the authors introduce, the complexity (48) exceeds twice the Level 2 bound. Twelve elements perform none of the three functions, most of them reviewed background that the outranking procedure never uses.\n\n### Issues\n- **Set notation for list maps.** Element-wise maps over finite lists of values are written as set unions: \"h^c = ∪γ∈h {1 − γ}\" and \"H^c = ∪(γ1,...,γm)∈H {(1 − γ1, ..., 1 − γm)}\" both mean \"subtract each value from 1\", and the reduced EHFE (Def. 3.2) is a flatten. Complement, union and intersection of EHFEs (Defs. 3.3-3.4) and the generic function Θ (Def. 3.6) are never used again; Θ is typed [0,1]^N → [0,1] yet applied to tuples drawn from HFEs.\n- **Aggregation operators unused.** The EHFWA and EHFWG operators (Defs. 3.7-3.8) are worked through in Example 3.1 but play no part in the ELECTRE procedure of Section 5. The conclusion presents avoiding aggregation as the approach's advantage.\n- **Property 4.2 is false in one direction.** Take p = 0.1, q = 0.05, H1 = {(0.5, 0.25)} and H2 = {(0.2, 0.2)}. Then r(H1,H2) = 1 and r(H2,H1) = 0, because the inner minimum in Eq. 5 is 0 (0.2 + p ≤ 0.5). So H1 >S H2, yet min H1 − max H2 = 0.05 < p. The proof passes from r(u2,u1) = 0 to \"γ1 − γ2 ≥ p for any γ1, γ2\" and ignores that minimum. The proof of Property 4.3 depends on 4.2.\n- **Discordance definitions.** Definition 4.2's third case is printed as \"If gj(a1) + vj ≥ gj(a2), then dj(a1, a2) = 1\", which overlaps case (1), and its second case is labelled cj. Under the standard discordance index, full discordance needs the veto threshold v, so the threshold p in Property 4.5 is wrong. Definition 4.4 is called a \"concordance index\" although it defines discordance.\n\n---\n\n## Citation Analysis\n\nOne self-citation among 30 references (SCR 3.3%): [6] Chen, Huang and Tang on distance measures for higher-order dual hesitant fuzzy sets, co-authored by X. Huang and cited in a list of fuzzy decision-making work. It is topically related (similarity about 0.6). No ring pattern. There are minor attribution errors: the Xia-Xu operations used in Step 1 are credited to [25] (Zadeh), and Definition 4.3 is credited to Peng [14] in the text but cited as [19].\n\n---\n\n## Structural Analysis\n\nThe evidence is one illustrative example. Apart from the comparison with Zhu and Xu [29], the claims are modest, and the claim-evidence balance is adequate (CER about 0.6). Two inline limitations are stated: the thresholds are taken as constants for each criterion (Section 4 and the Conclusion).\n\nThe example contradicts its own conclusion. Step 6 says the larger δ(Ai), the better. The reported values, δ(A1) = −0.01, δ(A2) = 1.084, δ(A3) = −2.473, δ(A4) = 1.632 and δ(A5) = −0.255, therefore order the alternatives A4, A2, A1, A5, A3. The paper instead states A4 ≻ A2 ≻ A1 ≻ A3 ≻ A5, and presents the swap of A3 and A5 as the difference from the ranking of [29], A4 ≻ A2 ≻ A1 ≻ A5 ≻ A3. By the paper's own numbers the two rankings coincide. (Recomputing from the printed σ matrix gives δ(A1) = +0.010.)\n\nThe weighting step is also inconsistent. Step 1 specifies the Xia-Xu scalar multiplication (Eq. 10, 1 − (1 − γ)^w), but Table 2 holds plain products: A1/S1 (0.3, 0.4, 0.3, 0.4, 0.5) under ω = (0.3, 0.1, 0.3, 0.2, 0.1) becomes (0.09, 0.04, 0.09, 0.08, 0.05).\n\nArtifacts: there is no code or data availability statement. The example data are printed in Tables 1-2 and adapted from [8] and [29]. The procedure is computational, but no implementation is offered.\n\n---\n\n## Conclusion\n\nThis is a Level 2 fuzzy-MCDM paper whose formal apparatus (19 definitions, 6 properties, 4 proofs) far exceeds what the outranking procedure needs. Twelve elements, mostly reviewed operations on HFSs and EHFSs, are never used, and several are set unions standing in for element-wise list maps. That triggers the formalism family of flags, which disqualify at this level.\n\nThe genuinely new content, the EHFE concordance and discordance indices, is a direct average of existing multi-hesitant indices. One proved property is false. The illustrative example's final ranking contradicts its own net-flow values, so the claimed difference from the prior method does not exist."
+  },
+  {
+   "paper_id": "ngan2018",
+   "paper": {
+    "title": "Logic Connectives of Complex Fuzzy Sets",
+    "authors": [
+     "Tran Thi Ngan",
+     "Luong Thi Hong Lan",
+     "Mumtaz Ali",
+     "Dan Tamir",
+     "Le Hoang Son",
+     "Tran Manh Tuan",
+     "Naphtali Rishe",
+     "Abe Kandel"
+    ],
+    "abstract": "The Fuzzy Set Theory has been applied in various problems in numerous fields. In particular, the concepts of t-norms and t-conorms serve a significant role in shaping the theory and its applications. The notion of Complex Fuzzy Sets extends the Fuzzy Set Theory and provides several advantages over the classical theory, especially in terms of the capability to concisely, efficiently, and accurately represent complex relations between fuzzy set components. Some of the areas where complex fuzzy sets have been successfully applied are the areas of time series analysis and multi-criteria decision making problems. The notions of complex t-norms and t-conorms have not been fully developed so far. In this paper, we present the complex fuzzy set forms of t-norms and t-conorms and detail their properties. Additionally, we provide two numerical examples of applying the complex t-norm and t-conorm to multi-criteria decision making in the context of medicine- related problems using medical datasets.",
+    "keywords": [
+     "Fuzzy sets",
+     "Complex fuzzy sets",
+     "t-norm and t-conorm",
+     "Complex fuzzy t-norms and t-conorms",
+     "Multi-criteria decision making problem"
+    ],
+    "doi": null,
+    "pages": "344-357",
+    "source_file": "paper606.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 88,
+    "structural_integrity": 30,
+    "artifact_availability": 50,
+    "intellectual_integrity": 38.3,
+    "composite": 41.22,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"This example is performed on the Tsumoto dataset [14].\" (Example 5.2). Example 5.1 uses \"the real dataset of patient records from the Gangthep Hospital and the Thai Nguyen National Hospital\", which is not public. No code is linked or claimed.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "DISPROPORTIONATE_FORMALISM",
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "In this Level 2 paper, 26 of 29 formal elements fail the Necessity Test. The axiom lists for complex t-norms, t-conorms and negations (Defs. 4.1-4.4, 4.12-4.14) and eight propositions and theorems (4.8-4.11, 4.16-4.19) are stated without proof, and nothing later uses them. The decision procedure calls only the Lukasiewicz operator of Example 4.7.",
+    "DECORATIVE_DEFINITIONS": "Definitions 3.3-3.6 (complement, union, intersection and product of complex fuzzy sets), 3.9, 4.3 and 4.4 (Archimedean variants) and 4.13 (strict negation) are never referenced again, and the algorithm of Section 5 needs none of them.",
+    "DISPROPORTIONATE_FORMALISM": "16 definitions and 8 propositions and theorems, with no proofs, give a formalism complexity of 56, which is 3.7 times the Level 2 upper bound of 15 (the threshold is 30).",
+    "NO_LIMITATIONS": "There is no limitations section and no inline acknowledgment of constraints. The conclusion lists only future applications."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A Level 2 paper that restates the t-norm, t-conorm and negation axioms for complex fuzzy sets with no proofs; several of the stated properties are false in general. It then applies one operator in an underspecified decision procedure to two small medical examples.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Complex-valued versions of the t-norm, t-conorm and negation axioms for complex fuzzy sets, with stated algebraic properties, and a five-step decision procedure that applies a Lukasiewicz-type complex operator to two small medical examples.\n**Level:** 2 (Low)\n**Rationale:** The contribution transposes the standard real-valued t-norm, t-conorm and negation axioms (Defs. 3.7-3.9) to complex membership grades by substituting complex arguments. No result is proved and no new structure is analysed. The application is a weighted-scoring MCDM procedure. This is a standard pattern applied to a new set type rather than a substantive extension of the theory, and the specification says to default to the lower level.\n\n### Formal Elements\n- Definitions: 16 (with constraints on the procedure or proofs: 1)\n- Theorems: 8 (Propositions 4.8-4.10, 4.16, 4.17; Theorems 4.11, 4.18, 4.19)\n- Proofs: 0\n- Equations: 7 (operator formulas of Examples 4.5-4.7 and 4.15; normalisation formulas of Step 2 and of the two examples)\n\n### Necessity Test\n- Def. 3.1, fuzzy set as a set of pairs (x, η(x)): Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 3.2, complex fuzzy set with membership p·e^{jμ}: Q1 yes, Q2 yes, Q3 no → necessary (Section 5 computes on its amplitude and phase terms)\n- Def. 3.3, complement of a complex fuzzy set: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 3.4, union (max of amplitudes and phases): Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 3.5, intersection: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 3.6, complex fuzzy product: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 3.7, axioms of a real t-norm: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 3.8, axioms of a real t-conorm: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 3.9, Archimedean t-norm: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 4.1, axioms of a complex T-norm: Q1 yes, Q2 no, Q3 no → unnecessary (the procedure uses only Example 4.7, and no proof uses the axioms)\n- Def. 4.2, axioms of a complex T-conorm: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 4.3, Archimedean complex t-norm: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 4.4, Archimedean complex t-conorm: Q1 yes, Q2 no, Q3 no → unnecessary\n- Example 4.5, complex min and max: Q1 yes, Q2 no, Q3 no → unnecessary\n- Example 4.6, complex product and probabilistic sum: Q1 yes, Q2 no, Q3 no → unnecessary\n- Example 4.7, Lukasiewicz complex t-norm and t-conorm: Q1 no, Q2 yes, Q3 no → necessary (Step 3 applies it)\n- Proposition 4.8, distributivity (no proof): Q1 yes, Q2 no, Q3 no → unnecessary\n- Proposition 4.9, absorption (no proof): Q1 yes, Q2 no, Q3 no → unnecessary\n- Proposition 4.10, idempotency (no proof): Q1 yes, Q2 no, Q3 no → unnecessary\n- Theorem 4.11, distributivity ⇒ absorption ⇒ idempotency ⇒ min/max (no proof): Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 4.12, negation function: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 4.13, strict negation: Q1 yes, Q2 no, Q3 no → unnecessary\n- Def. 4.14, involutive negation: Q1 yes, Q2 no, Q3 no → unnecessary\n- Example 4.15, complex negation 1 − p: Q1 yes, Q2 no, Q3 no → unnecessary\n- Proposition 4.16, excluded-middle laws (no proof): Q1 yes, Q2 no, Q3 no → unnecessary\n- Proposition 4.17, De Morgan laws (no proof): Q1 yes, Q2 no, Q3 no → unnecessary\n- Theorem 4.18, equivalence under involutive negation (no proof): Q1 yes, Q2 no, Q3 no → unnecessary\n- Theorem 4.19, t-norm/t-conorm duality (no proof): Q1 yes, Q2 no, Q3 no → unnecessary\n- Normalisation λ_ik = γ_ik / max γ_ik (Step 2) and the column-wise A'_i, P'_i of the examples: Q1 yes, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 56 (16×2 + 8×3 + 0×4)\nExpected range (Level 2): 0-15\nRatio: 3.7x upper bound\n\n**Assessment:** Disproportionate. The paper's new axioms, propositions and theorems are never proved and never used. The decision procedure calls one operator (Example 4.7) and a normalisation, so 26 of the 29 formal elements perform none of the three functions.\n\n### Issues\n- **Ill-formed axioms.** The axioms are not well formed for complex arguments. Definition 4.1 takes \"[0,1]\" to be \"the unit complex disk\" and orders complex grades by \"≤\", which is never defined. Its associativity condition reads \"I(I(q, r)) = I(p, I(p, q), r)\". Definition 4.3 compares a modulus with a complex number (\"|I(p, p)| < p\").\n- **False properties.** None of the stated properties is proved, and several are false in general:\n  - Proposition 4.8 asserts distributivity for every complex T-norm and T-conorm, while Theorem 4.11 says distributivity forces I = min and I* = max. Together they would make min the only complex t-norm, against Examples 4.6-4.7.\n  - Proposition 4.10 writes idempotency as I(p, q) = p.\n  - Proposition 4.16's excluded-middle laws fail for the min t-norm with ℵ(p) = 1 − p.\n- **Incorrect complex arithmetic.** Example 4.7 rewrites p1·e^{jω1} + q1·e^{jω2} − 1 as (p1 + q1 − 1)·e^{j(ω1+ω2)} and applies max to complex numbers. Definition 3.5 uses ∨ (max) for the amplitude of an intersection.\n\n---\n\n## Citation Analysis\n\nFive of 35 references (SCR 14.3%) share authors with the paper, all from the Kandel-Tamir-Rishe group:\n- [1] Ali, Tamir, Rishe and Kandel, complex intuitionistic fuzzy classes\n- [26] Ramot et al., complex fuzzy sets\n- [27] Ramot et al., complex fuzzy logic\n- [30] Tamir, Rishe and Kandel, an overview of complex fuzzy sets and logic\n- [17] Kandel, Tamir and Rishe, fuzzy logic and data mining in disaster mitigation\n\nThe first four are foundations of the topic (similarity ≥ 0.7). [17] is marginal to related (about 0.5) and is cited for fuzzy and complex-fuzzy decision-making techniques. The ratio is just inside the normal band, and there is no ring pattern.\n\nThere are accuracy problems:\n- Section 5 cites the Tsumoto dataset as [14], a fuzzy-control textbook, while the introduction cites it as [15].\n- The introduction cites \"[23, 36, 14]\", but there is no reference 36.\n- Example 5.2 refers to \"Example 3.7\" for the operators of Example 4.7.\n\n---\n\n## Structural Analysis\n\nThe literature review is well referenced, but the paper's own claims rest on little. Eight formal statements are given without proof, and the application is underspecified:\n- Step 3 does not say which quantities the Lukasiewicz operator combines.\n- Phase values in Tables 4 and 9 reach 1.6667 and 1.7778, and the paper does not explain how.\n- The defuzzification that produces Tables 5 and 10 is not given.\n- Step 2 normalises by the global maximum, while the examples normalise column by column.\n\nThe statement that the results \"have been verified by physicians to be reasonable conclusions\" comes with no detail. The claim that the algorithm makes the problem \"efficiently tractable\" is not measured. Overall CER is adequate (about 0.6), carried by the cited review. There is no limitations section and no inline acknowledgment of constraints; the conclusion lists only future applications.\n\nArtifacts: no code. Example 5.1 uses non-public patient records from two hospitals, with a decision matrix \"based on expert knowledge\". Example 5.2 names the public Tsumoto dataset, but how its 3×3 decision matrix (Table 6) is derived from that dataset is not described. The category is data because of the named dataset.\n\n---\n\n## Conclusion\n\nThis is a Level 2 paper whose formal content consists of complex-valued axioms, eight unproved and partly false propositions and theorems, and operator examples with incorrect complex arithmetic. Apart from one operator and a normalisation step, neither the decision procedure nor any proof uses this material, so the formalism family of flags applies and disqualifies at this level.\n\nThe decision procedure is too underspecified to reproduce, its medical validation is asserted rather than shown, and no limitations are acknowledged."
+  },
+  {
+   "paper_id": "labdai2018",
+   "paper": {
+    "title": "Sliding Mode Control via Fuzzy Multi-Level Switching control scheme for DFIG based WECS",
+    "authors": [
+     "S. Labdai",
+     "N. Bounar",
+     "A. Boulkroune",
+     "B. Hemici"
+    ],
+    "abstract": "This paper presents a new sliding mode control (SMC) via fuzzy multi-level switching (FMLS) technique for doubly fed induction generator-based wind energy conversion system (DFIG-based WECS). The main objectives are: 1) extraction of maximum power from the wind by achieving maximal power point tracking (MPPT) strategy, and 2) supplying the grid with zero reactive power. The SMC is combined with FMLS control to minimize the undesirable effect of chattering inherent to the conventional SMC. Based on the measured error, five error levels are selected extra-small, small, middle, large, and extra-large. For each error level there is different switching level. The DFIG and MLS controller will be tested against various perturbations. Simulation results using Simulink/Matlab conclude that the proposed controller succeeded in eliminating perturbation and minimizing the chattering effect.",
+    "keywords": [
+     "Wind energy conversion system",
+     "MPPT",
+     "DFIG",
+     "Sliding mode control",
+     "Fuzzy control",
+     "Multi-level switching"
+    ],
+    "doi": null,
+    "pages": "429-445",
+    "source_file": "paper611.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 92,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 76.7,
+    "composite": 57.52,
+    "final": 52.52
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "There is no limitations section. The paper says the membership functions and baseline gains were set by 'try and fail', but it does not treat that, the simulation-only validation or the absence of a stability argument for the fuzzy-scheduled gain as limitations."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "A standard SMC design with a fuzzy-scheduled switching gain for a DFIG wind system. Its formalism is proportionate and functional, and simulations support its main claims. However, the computation-time claim contradicts the paper's own table, and no limitations are acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Rotor-current control of a wind energy conversion system based on a doubly fed induction generator (DFIG). It combines MPPT with a PI speed loop, stator-flux-oriented vector control, and sliding mode current controllers whose switching gain is scheduled by a five-rule fuzzy system on the size of the tracking error (\"fuzzy multi-level switching\"). The scheme is compared in Simulink with a fuzzy SMC.\n**Level:** 2 (Low)\n**Rationale:** Every component is standard: the DFIG dq model, vector control, a first-order SMC with its Lyapunov argument, the multi-level switching idea of [16] and the fuzzy SMC of [18]. The contribution is their combination for this plant, validated in simulation. There is no new stability or convergence analysis for the proposed gain scheduling. This is a standard design pattern applied to a new plant.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 1 (the stability argument of Section 3.3.4, which covers the classical SMC)\n- Equations: 30\n\n### Necessity Test\n- Eq. 1, aerodynamic power: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 2, aerodynamic torque: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 3, tip-speed ratio: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 4, dq stator and rotor voltage equations: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 5, flux equations: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 6, electromagnetic torque: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 7, mechanical equation: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 8, optimal speed reference: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 9, speed dynamics with the aerodynamic torque as a perturbation: Q1 yes, Q2 yes, Q3 no → necessary (the plant for the PI speed loop)\n- Eq. 10, stator-flux orientation: Q1 yes, Q2 yes, Q3 yes → necessary\n- Eq. 11, torque in the oriented frame: Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 12, q-axis rotor current reference: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 13, stator active and reactive power: Q1 no, Q2 no, Q3 yes → necessary (derivation of Eq. 18)\n- Eq. 14, grid-voltage simplification: Q1 yes, Q2 no, Q3 yes → necessary\n- Eq. 15, stator currents: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. 16, reactive power in terms of the rotor current: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. 17, zero reactive power condition: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. 18, d-axis rotor current reference: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 19, reduced rotor-current model with f1, f2, g and bounded uncertainties: Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 20, sliding surfaces: Q1 yes, Q2 yes, Q3 yes → necessary\n- Eq. 21, Lyapunov candidate: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. 22, its time derivative: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. 23, surface dynamics: Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 24, Lyapunov derivative along the dynamics: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. 25, control-law structure: Q1 yes, Q2 yes, Q3 yes → necessary\n- Eq. 26, equivalent and switching terms: Q1 no, Q2 yes, Q3 yes → necessary\n- Eq. 27, closed-loop Lyapunov derivative: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. 28, bound on the Lyapunov derivative: Q1 no, Q2 no, Q3 yes → necessary\n- Eq. 29, fuzzy SMC law: Q1 yes, Q2 yes, Q3 no → necessary\n- Eq. 30, switching-gain condition λj > Δj: Q1 yes, Q2 yes, Q3 yes → necessary\n\n### Proportionality\nCalculated complexity: 4 (0×2 + 0×3 + 1×4)\nExpected range (Level 2): 0-15\nRatio: 0.27x upper bound\n\n**Assessment:** Proportionate. Each equation is one of four things: a plant model that the simulation implements, a step in deriving the implemented current references, the control law, or a step of the Lyapunov argument. None of the notation is decorative.\n\n### Issues\nThere is no formalism theater, but the model contains typographical errors and the stability guarantee has a gap:\n- The fourth line of Eq. 4 is labelled vqs where the rotor q-axis voltage is meant.\n- The text after Eq. 3 calls R \"the blade diameter\", while the nomenclature gives Rb as the blade length.\n- The lemma invoked is spelled \"Barbalet\".\n- The stability argument assumes λj > |δj(x)| (Eqs. 28, 30). The proposed scheme lowers λj to 5 at small errors, and the paper does not show that the condition still holds. The formal guarantee therefore covers the classical SMC but not the proposed controller.\n\n---\n\n## Citation Analysis\n\nTwo self-citations among 18 references (SCR 11.1%): [9] Bounar, Boulkroune et al. on adaptive fuzzy vector control of the doubly-fed induction motor, and [13] Bounar et al. on adaptive sliding mode control of the doubly-fed induction machine. Both are on the paper's topic (similarity ≥ 0.7). No self-citation issues. References [5] and [6] are listed but never cited in the text. [3] and [4] are energy-policy reports with malformed URLs, cited for a technical claim about converter rating.\n\n---\n\n## Structural Analysis\n\nFigures 7-13 and Table 5 (mean square errors of currents, speed and reactive power under parametric changes) support the tracking and chattering claims. The claim-evidence balance is adequate (CER about 0.7). Three claims are not supported:\n- **Computation time.** The discussion claims that \"with the FMLS the controller calculation time is faster due to the rule reduction\", but Table 5 reports 3.311580 s for FSMC and 14.121723 s for FMLS.\n- **Baseline.** The abstract and Section 4.1 say the controller is compared with \"normal SMC\", but the figures and Table 5 compare it with the fuzzy SMC of [18], whose gains the authors chose \"based on try and fail\".\n- **Response speed.** The \"fast responses\" of the conclusion are not measured.\n\nThere is no limitations section. The paper does not acknowledge as limitations that validation is simulation-only, that tuning was by trial and error, or that the scheduled gain has no stability argument.\n\nArtifacts: the simulation uses Simulink/Matlab, a third-party tool. Parameters are listed in Table 4, but no model, code or data is released or claimed.\n\n---\n\n## Conclusion\n\nA competent but routine application paper. The formalism is proportionate and entirely functional (plant model, derivation of the references, control law, Lyapunov argument), and the simulations support the main tracking and chattering claims.\n\nThe weaknesses are structural. The computation-time advantage contradicts the paper's own Table 5, the comparison baseline is described inconsistently, the stability guarantee does not extend to the proposed gain scheduling, no artifacts are available, and no limitations are acknowledged."
+  }
+ ]
+}

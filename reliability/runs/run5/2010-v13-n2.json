@@ -1,0 +1,205 @@
+{
+ "batch_id": "2010-v13-n2",
+ "analysis_timestamp": "2026-10-18T17:16:58Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 13,
+  "issue": 2,
+  "year": 2010
+ },
+ "papers": [
+  {
+   "paper_id": "christinal2010",
+   "paper": {
+    "title": "Thresholding 2D Images with Cell-like P Systems",
+    "authors": [
+     "Hepzibah A. Christinal",
+     "Daniel Díaz-Pernil",
+     "Miguel A. Gutiérrez-Naranjo",
+     "Mario J. Pérez-Jiménez"
+    ],
+    "abstract": "Thresholding is the process of splitting a digital image into sets of pixels in order to make it easier to analyze. Pixels are ordered according to a scale of one of their features as brightness or color and the final image is obtained by comparing the measure of the feature with some thresholds. In this paper we present a family of cell-like P systems which solve the thresholding problem in linear time on the number of pixels.",
+    "keywords": [],
+    "doi": null,
+    "pages": "131-140",
+    "source_file": "christinal.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 82,
+    "citation_integrity": 92,
+    "structural_integrity": 72,
+    "artifact_availability": 0,
+    "intellectual_integrity": 83.0,
+    "composite": 62.25,
+    "final": 62.25
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "ADEQUATE",
+    "disqualified": false,
+    "summary": "Theoretical P-system algorithm for multi-level image thresholding, specified by its rules, argued correct and costed at t+1 steps; formalism proportionate to a Level 3 contribution, self-citation low and relevant, but index slips in the rules and no artifact behind the example figures.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A family of cell-like P systems with two polarizations and dissolution that performs multi-level image thresholding: every pixel object is released into the skin at the step equal to its colour index, and counters open a time window on each output-colour membrane, so the pixel enters the membrane of its output colour.\n**Level:** 3 (Medium)\n**Rationale:** The contribution is a new algorithm in a model of computation rather than an application of an existing one: the authors design the membrane structure, objects and rules, argue correctness (Section 2.1) and count steps and resources (Section 2.2). The image operation itself is elementary (a per-pixel lookup through the map ψ), there is no theorem, and the step bound is an exact count rather than a complexity result, so the paper does not go above Level 3.\n\n### Formal Elements\n- Definitions: 3, all inline (image and thresholding problem; thresholds and interval lengths; the P system Π with its rule set) (with constraints: 3)\n- Theorems: 0\n- Proofs: 1 (the informal correctness argument of Section 2.1, completed by the step count of Section 2.2)\n- Equations: about 8 (the problem equation I2(a) = ψ(I1(a)), the interval equations for ψ⁻¹(c_j), f_j = b_{j+1} − b_j, the rule schemes, the step and resource counts, and the threshold maps of the examples)\n\n### Necessity Test\nWorked examples are recorded with the element they instantiate.\n- Pixel set A, image I: A → H (with its reading as a set of pairs) and the problem I2(a) = ψ(I1(a)): Q1 yes, Q2 yes (fixes the initial multisets a_i I1(a_i) of the pixel membranes), Q3 yes (it is the property the Section 2.1 argument establishes) → necessary\n- Thresholds b_1 = 1 < … < b_{k+1} = t+1, intervals ψ⁻¹(c_j) and lengths f_j, with the 20-colour illustration: Q1 yes, Q2 yes (the initial objects z_{b_j} and the counters z_{f_j} are built from them), Q3 yes (the argument that membrane j is positive exactly in configurations b_j … b_{j+1}−1 rests on b_j + f_j = b_{j+1}) → necessary\n- P system Π = (Γ, E, µ, …, R) and its rule schemes: Q1 no (polarization-dependent send-in, send-out and dissolution rules under maximal parallelism are the program itself), Q2 yes, Q3 yes (correctness and the step count are argued from the rules) → necessary\n- Correctness argument (Section 2.1): Q1 no, Q2 no, Q3 yes → necessary\n- Step and resource counts (Section 2.2: t+1 steps, n+2t objects, tk+nk+t+h+k−1 rules, n+k+1 membranes): Q1 no, Q2 no, Q3 yes (bounds) → necessary\n- Threshold maps of the examples (ψ with threshold 4 in Section 3; ψ⁻¹(c_i) for Figs. 5 and 6): instances of the threshold definition, Q1 yes, Q2 yes (they fix the b_j and f_j of the systems whose outputs are shown), Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 10 (3 definitions × 2 + 1 proof × 4)\nExpected range (Level 3): 10-40\nRatio: 0.25x upper bound\n\n**Assessment:** Proportionate — the formalism is the algorithm (a P system is specified by its rules) plus the argument that it computes the thresholded image; none of it is notation for its own sake.\n\n### Issues\nNo unnecessary formalism. The formal text has slips a reader must repair: the pixel-counter rules are indexed \"for i ∈ {2, . . . , h}\" with h undefined (t is meant, and the ranges should start at 1); the halting argument says \"the index of objects hi is at most n\" where t is meant; the rule count tk + nk + t + h + k − 1 inherits the undefined h. In the 16-pixel walk-through the sentence describing a1 and a11 entering membrane 1 concludes that \"pixels a2 and a12 will have color c1\". The reading of an image as a set of pairs is stated once and never used, a harmless redundancy inside a necessary element.\n\n---\n\n## Citation Analysis\n\nTwo of the 15 references carry a co-author's name: [3] (the P-Lingua 2.0 overview, co-authored by Pérez-Jiménez) and [8] (the WMC 2009 proceedings he co-edited, listed as the container of [3] and [5]). SCR = 2/15 = 13.3%. Both are directly relevant: P-Lingua and hardware implementations are cited as the routes to implementing the proposed systems. The other references are standard segmentation work and membrane-computing foundations. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe central claims (the system computes the thresholded image, halts after t+1 steps, and uses resources linear or quadratic in the number of pixels) are backed by the construction, the correctness argument and the counts, and illustrated by a traced 16-pixel computation and two 30×30 outputs. Application claims in the introduction are cited. The final remarks acknowledge that the result is theoretical: P systems \"have not been implemented in vivo nor in vitro yet\", and an implementation on parallel hardware is left as the next step. How the outputs in Figs. 4–6 were computed is not stated, and no simulator file, code or image is offered; the only URL is the general P systems web page [15], which is not the authors' artifact.\n\n---\n\n## Conclusion\n\nA short theoretical paper whose formal apparatus is proportionate to what it does: it specifies a P system, argues that it is correct and counts its cost. The problem solved is elementary and \"linear time\" is a step count in an idealised maximally parallel model, which limits the contribution; the index slips in the rules weaken the presentation without affecting the construction. No integrity concerns. For reproducibility, the absence of anything behind the example figures is the main gap."
+  },
+  {
+   "paper_id": "diazpernil2010",
+   "paper": {
+    "title": "Computing Homology Groups in Binary 2D Imagery by Tissue-like P Systems",
+    "authors": [
+     "Daniel Díaz-Pernil",
+     "Miguel A. Gutiérrez-Naranjo",
+     "Pedro Real",
+     "Vanesa Sánchez-Canales"
+    ],
+    "abstract": "We present a new solution for the Homology Groups of Binary 2D Image (HGB2I) Problem by using Membrane Computing techniques. This is a classical problem in Homology Theory which tries to calculate the number of connected components and the representative curves of the holes of these components from a given binary 2D image. To this aim, we present a family of P systems which solves all the instances of the problem in the framework of Tissue-like P systems with catalysts. This is a new framework which combines the membrane structure and symport-antiport communication rules of tissue-like P systems with the power of catalysts.",
+    "keywords": [],
+    "doi": null,
+    "pages": "141-152",
+    "source_file": "diazpernil.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 72,
+    "citation_integrity": 93,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 72.6,
+    "composite": 54.45,
+    "final": 49.45
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no acknowledgment of any constraint on the results; the final remarks only say that 'a deeper study is necessary' and that research lines on suitable P system models 'are open'."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "New tissue-like P system variant with catalysts and full constructions for H0 and H1 of binary images; formalism proportionate, self-citation low and relevant, but the 'logarithmic' time claim contradicts the stated n+2 steps, the step bounds are not derived, counter indices are inconsistent, and no limitations are acknowledged.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A new variant, tissue-like P systems with catalysts, and two uniform families of such systems that compute the black connected components (H0) and the holes with their boundary pixels (H1) of an n × n binary image by label propagation between adjacent pixel objects.\n**Level:** 3 (Medium)\n**Rationale:** The paper defines a new model variant and designs algorithms in it, with step counts and resource bounds for both families. It proves nothing: there is no correctness argument and the step bounds are asserted, so it does not reach Level 4 even though it presents complexity figures.\n\n### Formal Elements\n- Definitions: 5 (Definition 2.1; the 4-/8-adjacency relations; the lexicographic order of footnote 4; the family Π0(n); the family Π1(n)) (with constraints: 5)\n- Theorems: 0\n- Proofs: 0\n- Equations: the rule schemes R1–R6 of Π0 and R1–R10 of Π1, the set expressions for alphabets and environments, and the complexity table\n\n### Necessity Test\nWorked examples are recorded with the element they instantiate.\n- Def. 2.1, tissue-like P system with catalysts, Π = (Γ, E, w1, …, wq, R, i0) with rules (cat | i, u/v, j), together with its semantics and Example 2.1 as an instance: Q1 no (the catalytic antiport rule and its maximally parallel application are what the new model consists of), Q2 yes (every later rule is written in this form), Q3 no → necessary\n- Pixel encoding K_ij and the 4-adjacency (black) / 8-adjacency (white) neighbour sets: Q1 yes (the paper restates them in prose as north, south, west, east and the diagonals), Q2 yes (they fix which pixel pairs rules R3, R4, R6 and R8 range over, and the 4/8 choice decides which white regions count as holes), Q3 no → necessary\n- Lexicographic order on positions (footnote 4): Q1 yes, Q2 yes (fixes which of two adjacent labels R3/R4 keep and the index ranges of the alphabet), Q3 no → necessary\n- Family Π0(n) with alphabet, environment and rules R1–R6: Q1 no, Q2 yes (the rules are the algorithm), Q3 no → necessary\n- Family Π1(n) with rules R1–R10 and the priority {R6, R8} > R1: Q1 no, Q2 yes, Q3 no → necessary\n- Complexity and resources table (n+2 and n+7 steps; O(n⁴) alphabet; O(n⁶) rules; rule length at most 5): Q1 no, Q2 no, Q3 yes (it states bounds, though none is derived) → necessary\n\n### Proportionality\nCalculated complexity: 10 (5 definitions × 2)\nExpected range (Level 3): 10-40\nRatio: 0.25x upper bound\n\n**Assessment:** Proportionate — the formal content is the model and the two system families, which is what an algorithm in membrane computing consists of. The formalism score is held below the proportionate baseline because the formal text is internally inconsistent where the stated bounds depend on it (see Issues).\n\n### Issues\nNo element fails the Necessity Test, but the formal text does not support its own headline claims:\n- The complexity claim is contradicted by the paper's own numbers. The introduction says the time \"is logarithmic with respect to the input data with size n2\" and Section 3.1 promises \"a logarithmic-time uniform solution\", yet the table gives n+2 and n+7 steps, which is linear in n, that is, in the square root of the input size, not logarithmic.\n- The step bounds are asserted without argument. Labels spread through adjacent pixels and the catalysts A_ijkl, and the answer stage is triggered by a fixed counter at step n+2; nothing shows that every component has finished relabelling by then (a long winding component is the obvious case to check), so the correctness of the answer at step n+2 is not established.\n- In Π1(n) the alphabet contains z_i only for i ≤ n+3, while R1 runs to i ≤ n+5 and R8 and R10 use z_{n+5} and z_{n+6}; the Segmenting Stage is said to start \"after n + 4 steps\" in one place and \"after n + 2 steps\" in another; the Deleting Stage \"takes only 2 steps\" in R7's description but needs \"a linear number of steps\" in the stage list; the priority is described as relating \"the sets R1 ,R6 and R1\".\n- The comparison with the O(n^{5/3}) algorithm of Peltier et al. [21] sets a step count in a maximally parallel model with O(n⁶) rules against a sequential algorithm without discussing the difference.\n\n---\n\n## Citation Analysis\n\nTwo of the 22 references are self-citations: [6] and [7] (Christinal, Díaz-Pernil, Real, 2009) on segmentation and on homology groups with tissue-like P systems. SCR = 2/22 = 9.1%. Both are the direct predecessors of this work and highly relevant. The introduction describes them as \"the work by Cristinal et al.\" without noting that two of the present authors co-wrote them, a disclosure nuance rather than a relevance problem. The remaining references cover tissue and catalytic P systems and homology computation. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe constructions are given in full and illustrated by two example computations (Figs. 1 and 2), which supports the claim that the systems can be built. The complexity claims, which are the paper's selling point (logarithmic time, an improvement over [21]), rest on assertion and a table, and the logarithmic claim conflicts with that table; the claim-evidence balance is weak. The final remarks call for \"a deeper study\" and list open research lines, but no constraint of the present results is acknowledged (square inputs are handled by padding with white pixels, a convention rather than a statement of limitation). The paper is pure theory: everything needed to rebuild the systems is printed, there is nothing further to release, and no link or availability statement appears.\n\n---\n\n## Conclusion\n\nThe paper introduces a sensible model variant and gives detailed P-system constructions for H0 and H1 of binary images, with formalism proportionate to a Level 3 contribution. Its complexity claims are its weakest part: \"logarithmic\" time contradicts the stated n+2 steps, the bounds are not derived, and the counter indices of Π1 are inconsistent. Self-citation is low and relevant. A correctness argument for the step bounds is needed before the comparison with prior algorithms can be taken at face value."
+  },
+  {
+   "paper_id": "lefticaru2010",
+   "paper": {
+    "title": "Model Checking Based Test Generation from P Systems Using P-Lingua",
+    "authors": [
+     "Raluca Lefticaru",
+     "Florentin Ipate",
+     "Marian Gheorghe"
+    ],
+    "abstract": "This paper presents an approach for P system testing, that uses model-checking for automatic test generation and P-Lingua as specification language. This approach is based on a transformation of the transitional, non-deterministic, cell-like P system into a Kripke structure, which is further used for test generation, by adding convenient temporal logic specifications. This paper extends our previous work in this field to multi-membrane, transitional P system, having cooperative rules, communication between membranes and membrane dissolution. A tool, which takes as input a P system specified in P-Lingua and translates it into the language accepted by the model checker NuSMV has been developed and used for test case generation. Some hints regarding the automatic test generation using NuSMV and P-Lingua are also given.",
+    "keywords": [],
+    "doi": null,
+    "pages": "153-168",
+    "source_file": "lefticaru.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 65,
+    "artifact_availability": 70,
+    "intellectual_integrity": 37.25,
+    "composite": 45.44,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "More details regarding the tool and some examples can be found at the following web page: http://fmi.upit.ro/evomt/psys/psys tools.html.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with two formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no): the set-builder state space S and propositions AP of Section 2.3, which the paper sets aside immediately ('in the sequel the expressions of AP and L will not be explicitly given'), and Theorem 4.1, a prose restatement of the main result of [14] with no proof. The formalism complexity of 27 also exceeds the Level 2 upper bound of 15.",
+    "ELEVATED_SELF_CITATION": "SCR = 6/22 = 27.3%: [11], [12], [13], [14], [15] and [22] include one or more of the authors. All six concern P system testing or model checking and are topically relevant."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Tool and encodings for model-checking-based test generation from multi-membrane P systems, with a linked tool page; a Level 2 contribution whose formalism exceeds the Level 2 bound and includes unused set-builder notation for Kripke states and a theorem restated without proof, so FORMALISM_THEATER applies; self-citation elevated but topical; no evaluation beyond toy systems.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Test generation for cell-like P systems by model checking: a tool translates a P-Lingua specification into a NuSMV model of the system's Kripke structure and adds LTL trap properties whose counterexamples become test cases for rule coverage and context-dependent rule coverage. The paper extends the authors' one-membrane encoding [14] to multi-membrane systems with communication and dissolution.\n**Level:** 2 (Low)\n**Rationale:** The method is the established model-checking route to test generation (trap properties, counterexamples as tests, surveyed in [9]) applied to P systems, and both the Kripke-structure construction and the main result come from the authors' earlier paper [14]. The new parts, the multi-membrane and dissolution encodings and the P-Lingua integration, are presented through worked examples, with no algorithm analysis, proof or evaluation. That is an existing technique applied to a further class of models, which the classification guide places at Level 2.\n\n### Formal Elements\n- Definitions: 12 (7 numbered: 2.1, 2.2, 3.1–3.5; 5 inline: string and Parikh-vector notation, the state space S and propositions AP of Section 2.3, the bounds Max and Sup with N^k_Max and N^m_Sup, the predicates MaxPar and Apply, the Kripke structure M of Π with its relation H) (with constraints: 11)\n- Theorems: 1 (Theorem 4.1, restated from [14], no proof)\n- Proofs: 0\n- Equations: about 8 (four LTL trap-property templates, the maximal-parallelism condition c_ij, the next-value equation, LTL properties in the examples), plus SMV listings\n\n### Necessity Test\nWorked examples are recorded with the element they instantiate.\n- String and multiset notation with the Parikh map Ψ_V: Q1 yes, Q2 yes (multisets become vectors of counters, the variable layout of the generated SMV model), Q3 no → necessary\n- Def. 2.1, P system with targets in/out/here, maximal parallelism and dissolution, with Π1–Π3 as instances: Q1 yes, Q2 yes (the translation must reproduce exactly this rule format and semantics), Q3 no → necessary\n- Def. 2.2, Kripke structure: Q1 yes, Q2 yes (left-totality is why the generated model has Halt and Crash self-loops), Q3 no → necessary\n- State space S = {(val1, …, valn) | val1 ∈ Val1, …} and propositions AP = {(var_i = val_i) | …} (Section 2.3): Q1 yes (\"a state gives each variable a value; the propositions are the equalities variable = value\"), Q2 no (the paper sets AP and L aside \"for convenience\", Section 4 defines S directly as N^k_Max ∪ {Halt, Crash}, and NuSMV builds the state space from the variable declarations), Q3 no → unnecessary\n- Def. 3.1, a multiset covering a rule: Q1 yes, Q2 yes (fixes what the RC trap property must witness), Q3 no → necessary\n- Def. 3.2, RC and RTC test sets: Q1 yes, Q2 yes, Q3 no → necessary\n- Def. 3.3, direct occurrences Occs(Π, b): Q1 no, Q2 yes (determines the rule pairs for which CDRC properties are generated), Q3 no → necessary\n- Def. 3.4, covering a rule for a direct occurrence: Q1 no (the computation pattern pins down \"in the context of\" exactly), Q2 yes, Q3 no → necessary\n- Def. 3.5, CDRC and CDRTC: Q1 yes, Q2 yes, Q3 no → necessary\n- Bounds Max and Sup with N^k_Max and N^m_Sup: Q1 yes, Q2 yes (they define the Crash transitions and keep the SMV model finite), Q3 no → necessary\n- Predicates MaxPar and Apply and the Kripke structure M = (S, H, I, L) of Π: Q1 no, Q2 yes (H is what the generated TRANS section encodes), Q3 no → necessary\n- Theorem 4.1 (from [14]): Q1 yes (the statement is already prose, test suites \"are generated based on LTL specifications\", and a sentence citing [14] would say the same), Q2 no (the tool implements the LTL templates listed after it, not the theorem), Q3 no (no proof or bound is given here and nothing later depends on it) → unnecessary\n- LTL trap-property templates for RC, RTC, CDRC and CDRTC: Q1 no, Q2 yes (they are what the tool generates), Q3 no → necessary\n- Maximal-parallelism condition c_ij and next-value equation (Section 5.2), with the SMV excerpts: Q1 no, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 27 (12 definitions × 2 + 1 theorem × 3)\nExpected range (Level 2): 0-15\nRatio: 1.8x upper bound\n\n**Assessment:** Disproportionate for Level 2, though below the 2× threshold of DISPROPORTIONATE_FORMALISM. Most of the apparatus does work, since the coverage criteria and the transition relation determine what the tool generates, but the count exceeds the Level 2 bound and two elements perform no function.\n\n### Issues\n- Section 2.3 builds the state space and the atomic propositions in set-builder notation and then drops them: \"For convenience, in the sequel the expressions of AP and L will not be explicitly given\".\n- Theorem 4.1 restates the main result of [14] in informal words, with no proof and no precise conditions, so it adds a theorem to the count without adding a result to the paper.\n- At Level 2 either element on its own triggers FORMALISM_THEATER, independently of the count; the count of 27 against a bound of 15 points the same way.\n\n---\n\n## Citation Analysis\n\nSix of the 22 references include one or more of the authors: [11], [12] and [13] (Gheorghe and Ipate on P system testing), [14] (Ipate, Gheorghe, Lefticaru, the paper this one extends), [15] (Lefticaru, Gheorghe, Ipate, an empirical evaluation of P system testing) and [22] (Romero-Campero, Gheorghe et al., probabilistic model checking of P systems). SCR = 6/22 = 27.3%, in the elevated band. All six concern P system testing or model checking and are relevant (similarity well above 0.5); the ratio reflects a small field in which the authors' group wrote most of the prior work, but it remains elevated. No irrelevant self-citation and no ring pattern.\n\n---\n\n## Structural Analysis\n\nThe claims about the encoding are supported by worked examples: SMV excerpts for a one-membrane, a two-membrane and a dissolving system, a NuSMV counterexample decoded into a test case, and a fault-detection example in which a mistyped P-Lingua rule is exposed by a true specification. There is no evaluation of the tool beyond these toy systems (no model sizes, run times or test-suite sizes), and the benefit of bounded model checking for short test cases is asserted, not shown. Section 5.2 refers to \"Section ??\", an unresolved cross-reference. Constraints are acknowledged inline: the Max and Sup bounds needed to keep the model finite, and the state-explosion problem \"which appears when more complex models are verified\". The tool is linked through the authors' page http://fmi.upit.ro/evomt/psys/psys tools.html (the space is probably an underscore lost in text extraction); the inputs are the example systems printed in the paper, and no dataset is deposited.\n\n---\n\n## Conclusion\n\nA useful tool-and-method paper that carries the authors' model-checking-based test generation over to multi-membrane P systems with communication and dissolution, and links the tool. Under the specification it is a Level 2 contribution whose formalism exceeds the Level 2 bound and includes two elements that do no work, unused set-builder notation for Kripke states and a theorem restated from prior work, which triggers FORMALISM_THEATER and the cap. Self-citation is elevated but topical. An evaluation of the tool on systems of realistic size would be the most valuable addition."
+  },
+  {
+   "paper_id": "leporati2010",
+   "paper": {
+    "title": "Modeling and Analysis of Firewalls by (Tissue-like) P Systems",
+    "authors": [
+     "Alberto Leporati",
+     "Claudio Ferretti"
+    ],
+    "abstract": "We propose to use tissue-like P systems as a tool to model and analyse the security properties of firewall systems. The idea comes from a clear analogy between firewall rules and P systems rules: they both modify and or move objects (data packets, or symbols of an alphabet) among the regions of the system. The use of P systems for modeling packet filters, routers and firewalls gives the possibility to check — and possibly mathematically prove — some security properties.",
+    "keywords": [],
+    "doi": null,
+    "pages": "169-180",
+    "source_file": "leporati.pdf"
+   },
+   "concept_level": 3,
+   "scores": {
+    "formalism": 30,
+    "citation_integrity": 95,
+    "structural_integrity": 58,
+    "artifact_availability": 0,
+    "intellectual_integrity": 59.75,
+    "composite": 44.81,
+    "final": 44.81
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": false,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "DECORATIVE_DEFINITIONS"
+   ],
+   "flag_details": {
+    "DECORATIVE_DEFINITIONS": "IP packets are defined as six-tuples (protocol, src IP, dst IP, src port, dst port, gateway) and rules as quadruples (priority, action, in fields, out fields): formal tuple definitions of records whose meaning is carried by the bullet lists and prose around them; removing them would not change what a programmer builds. Raised at Level 3, where the formalism family is recorded but does not cap the score."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Tissue-like P system model of packet-filter networks with a theorem that one membrane with priorities and catalysts simulates it; the model definition and theorem justify the formalism, but packets and rules are defined as decorative tuples, the proof is a sketch with open points on priorities and address expansion, and the model is not applied to any configuration; no self-citation.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A tissue-like P system model of networks of stateless packet filters (\"firewall P systems\"): zones are cells, IP packets are objects, and ordered filter lists sit on each cell's incoming edges. Theorem 4.1 states that any such system is simulated by a single-membrane transition P system with non-cooperative rules, priorities and catalysts.\n**Level:** 3 (Medium)\n**Rationale:** The paper defines a new model of computation and proves a property of it (a simulation theorem with a constructive proof, plus a short argument that the model is not universal), which places it above an application of an existing technique. It stays at Level 3: the proof is a sketch (\"It is not difficult to see\"), the precise computational power is left open, and the security-property proofs that motivate the model are explicitly not addressed.\n\n### Formal Elements\n- Definitions: 3 (the packet six-tuple; the rule quadruple with its in/out field tuples; the firewall P system Π = (O, Z1, …, Zm, conn)) (with constraints: 1)\n- Theorems: 1 (Theorem 4.1)\n- Proofs: 1\n- Equations: few (the tuple forms, the multigraph conn, and the rewriting rules a c_ij → b c_ij of the proof)\n\n### Necessity Test\n- IP packet as a six-tuple (protocol, src IP, dst IP, src port, dst port, gateway): Q1 yes (\"a packet is modelled by its protocol, source and destination addresses and ports, and the edge it takes next\"), Q2 no (a programmer writes the same record from the field list), Q3 no (the proof only adds a region field) → unnecessary\n- Rule as a quadruple (priority, action, in fields, out fields) with its in/out six-tuples: Q1 yes, Q2 no (the behaviour, first match by priority, subnet and wildcard matching, and the effects of accept, reject and drop, is defined in the prose that follows; the tuple only names the fields), Q3 no → unnecessary\n- Firewall P system Π = (O, Z1, …, Zm, conn) with Z_i = (w_i, L_i1, …, L_ik), the multigraph conn and the computation semantics: Q1 yes, Q2 yes (fixes one ordered rule list per incoming edge, sequential within a list and parallel across lists), Q3 yes (the proof of Theorem 4.1 builds Π′ from these components) → necessary\n- Theorem 4.1 and its proof: Q1 no, Q2 no, Q3 yes → necessary\n\n### Proportionality\nCalculated complexity: 13 (3 definitions × 2 + 1 theorem × 3 + 1 proof × 4)\nExpected range (Level 3): 10-40\nRatio: 0.33x upper bound\n\n**Assessment:** Proportionate in amount. The model definition and the theorem justify the formal apparatus, but two of the three definitions are tuple notation for records.\n\n### Issues\n- \"IP packets are represented as six-tuples\" and \"A rule is a quadruple of the form\" are the pattern the specification calls formal definitions for data structures: each is a struct whose meaning lies in the bullet lists and prose around it.\n- The set-builder for conn, {i, j} with i, j ∈ {1, …, m} and i ≠ j, describes every pair of distinct membranes rather than the multiset of actual connections it is said to be; the authors themselves note that conn can be removed from the definition.\n- The proof is a sketch. It expands every subnet into all address pairs (a finite but very large rule set) without remarking on it, does not mention expanding port wildcards, and does not argue why priorities, which in a single membrane relate all rules, leave the lists of different edges independent; \"It is not difficult to see\" carries the simulation.\n\n---\n\n## Citation Analysis\n\nNone of the 22 references is by Leporati or Ferretti (SCR = 0/22 = 0%). The references cover firewall analysis (Eronen and Zitting, Mayer et al., Hazelhurst et al., Guttman, Hari et al.), networking and security textbooks, and membrane-computing foundations, all relevant to the topic. No issues identified.\n\n---\n\n## Structural Analysis\n\nThe theorem is supported by a constructive proof sketch, and the non-universality claim by a short counting argument (rules never create objects). The motivating claims, that the model will let administrators test configurations and prove security properties, are not exercised: no firewall configuration is encoded, no reachability question is answered, and testing against real cases is listed as future work. The conclusion overreaches in calling the analysis of long filter lists \"a very simple task in the theory of membrane systems (one membrane suffices to simulate any packet filter)\"; a simulation result says nothing about how hard the analysis is. Limitations are acknowledged inline: proving security properties is \"not addressed in this paper\", the precise computational power is left open, and stateful firewalls and other header fields are out of scope. The paper is theory only, with nothing to release and no link.\n\n---\n\n## Conclusion\n\nA modelling proposal with a simulation theorem, with no self-citation and an honest statement of scope. The model definition and the theorem justify the formal apparatus, but the packet and rule tuples are record definitions in formal dress, and the proof sketch leaves the treatment of priorities and of address expansion open. The practical promise of the model is not yet tested on any configuration."
+  }
+ ]
+}

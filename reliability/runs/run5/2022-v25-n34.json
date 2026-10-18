@@ -1,0 +1,236 @@
+{
+ "batch_id": "2022-v25-n34",
+ "analysis_timestamp": "2026-10-18T17:20:38Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 25,
+  "issue": "3-4",
+  "year": 2022
+ },
+ "papers": [
+  {
+   "paper_id": "teodorescu2022",
+   "paper": {
+    "title": "A Comparative Lexical Analysis of Three Romanian Works – The Etymological Metalepsis Role and Etymological Indices",
+    "authors": [
+     "Horia Nicolai Teodorescu",
+     "Speranta Cecilia Bolea"
+    ],
+    "abstract": "Summary (not verbatim): introduces an etymological perspective in computational linguistics and the notion of 'etymological metalepsis', the mixing of loanwords of different origins to evoke an epoch, a region or a character; compares three Romanian works by the etymology of their most frequent words, proposes stylometric indices for the device, and relates the results to published literary criticism.",
+    "keywords": [
+     "Computational linguistic",
+     "etymology",
+     "style",
+     "stylistic device",
+     "stylometric indices",
+     "Zipf law"
+    ],
+    "doi": null,
+    "pages": "275-289",
+    "source_file": "paper722.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 34.75,
+    "composite": 38.56,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"Under Three Kings (UTK), by Nicolae Iorga, in 1932 [7]\" (with Averescu [6] and Teodoreanu [8]): the analysed texts are cited published works; no link to code, corrected texts or etymology labels.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNNECESSARY_SET_THEORY",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with two formal elements that fail the Necessity Test: Eq. 2 (n_h,T = count(w), w in L intersect T, rank(w) <= N) restates the preceding prose definition in set notation, and the etymologic vector Ve'(N) = (n1', ..., nl') is tuple notation for a list of counts that is never used.",
+    "UNNECESSARY_SET_THEORY": "Eq. 2 uses set membership and intersection for a filtered word count. L is defined as a set of language indices, so its intersection with a text is not well-formed, and no proof depends on the operation.",
+    "ELEVATED_SELF_CITATION": "5 of 19 references ([1]-[5]) are by the authors, SCR 26.3%; all are topically related stylometry papers. Reference [18] by M. Teodorescu, thanked for the study's basic idea, is a different person and is not counted."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 etymology-count study whose set notation for a count and unused tuple vector fail the Necessity Test; self-citation is elevated and the interpretive claims outrun the descriptive evidence.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Comparison of the etymological make-up of the most frequent words in three Romanian inter-war works (Averescu's war diary, Iorga's memoir, Teodoreanu's \"La Medeleni\"), with proposed ratio and entropy indices for a stylistic device the authors call \"etymological metalepsis\".\n**Level:** 2 (Low)\n**Rationale:** An empirical corpus study with basic statistics. The texts are tagged with an existing parser (TTL), the 250-300 most frequent non-stopwords are labelled by etymology by hand, and counts, normalised counts and an entropy are reported. The indices are simple ratios; there is no new algorithm, no validated model and no proof. Not Level 1, because the paper does propose quantitative indices and an analytical argument about Zipf-type growth.\n\n### Formal Elements\n- Definitions: 7 (inline: Ie, n_h,T, Iew, Ie', the etymologic vector Ve', E_w,T, E'; with constraints: 1, the rank condition in Eq. 2)\n- Theorems: 0\n- Proofs: 0\n- Equations: 6 numbered, plus inline model expressions (Zipf N[r] = A/r^alpha, harmonic-number approximation, the ratio Psi, the integral of r^-u, the Zipf-Mandelbrot form) and fitted regression lines\n\n### Necessity Test\n- Eq. 1, basic index Ie(N,T) = (1/N) sum n_h,T: Q1 yes, Q2 yes, Q3 no -> necessary (fixes the normalisation the Fig. 6 discussion relies on)\n- Eq. 2, n_h,T = count(w), w in L intersect T, rank(w) <= N: Q1 yes, Q2 no, Q3 no -> unnecessary (restates the prose definition given in the sentence before; L is defined as a set of language indices, so its intersection with a text is not well-formed)\n- Eq. 3, word-level index Iew(N,T): Q1 yes, Q2 yes, Q3 no -> necessary (the quantity reported in Table 4)\n- Eq. 4, weighted index Ie'(N,T): Q1 yes, Q2 yes, Q3 no -> necessary (specifies a proposed index, the ratio to root-language occurrences, not stated elsewhere; never computed)\n- Etymologic vector Ve'(N) = (n1', ..., nl'): Q1 yes, Q2 no, Q3 no -> unnecessary (tuple notation for the list of per-language counts; never used again)\n- Eq. 5, word-level entropy E_w,T(N): Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. 6, entropy E'(N,T): Q1 no, Q2 yes, Q3 no -> necessary (determines Table 5; differs from Eq. 5 without explanation)\n- Zipf and harmonic-number argument (N[r] = A/r^alpha, H_n ~ ln n + gamma, the ratio Psi, the integral of r^-u): Q1 no, Q2 no, Q3 yes -> necessary (carries the derivation that uniform mixing would give logarithmic rather than linear growth)\n- Zipf-Mandelbrot p(r) = a/(1+br)^c: Q1 no, Q2 no, Q3 no -> necessary (a specific functional form prose cannot state)\n\n### Proportionality\nCalculated complexity: 14 (7 definitions x 2)\nExpected range (Level 2): 0-15\nRatio: 0.93x upper bound\n\n**Assessment:** Proportionate in count. Two elements nevertheless fail the Necessity Test, and at Level 2 one is enough for FORMALISM_THEATER.\n\n### Issues\n- Eq. 2 writes a filtered word count as set membership and intersection after the prose has already defined the count; the intersection of a set of language indices with a text has no meaning.\n- The etymologic vector is introduced and never used.\n- Notation is inconsistent elsewhere: Eq. 4 divides occurrence counts by N minus a sum of occurrences, mixing word and occurrence counts; Eqs. 5 and 6 define two different entropies; the Zipf-Mandelbrot exponent is c in the formula and u in the parameter values; the harmonic sum drops the constant A.\n- Table 1 contradicts itself: for LM, most occurrence totals among the first 300 words are smaller than among the first 250 (alb./cognate 506 vs 561, gr./ngr. 255 vs 291, bg. 112 vs 130), which is impossible if the first 250 are a subset of the first 300.\n\n---\n\n## Citation Analysis\n\nFive of 19 references ([1]-[5]) are by the authors, an SCR of 26.3%. All five are on stylometric segmentation and analysis of Romanian texts and directly related to this paper. [3] and [4] carry the same title, one in a journal and one at a conference. Reference [18] is by M. Teodorescu, whom the acknowledgement thanks for the basic idea of the study; same surname, different person, so not counted (counting it would raise SCR to 31.6%). Reference [19], Montemurro's arXiv paper, is listed under the title of [18], a bibliographic error. Harmonic-number values are sourced to WolframAlpha [17].\n\n---\n\n## Structural Analysis\n\nThe descriptive findings (LM has more loanwords among its frequent words and 2.7 to 3.7 times the word-level entropy of the other two works) are supported by Tables 1, 4 and 5. The interpretive claims go further than the evidence: the paper says the stylistic use is proved by the statistics and that loanword use is a deliberate device rather than random, yet it computes no reference ('normal') index for Romanian against which departure could be measured, applies no significance test, uses three texts, and concedes that its Zipf argument is only partial. The linear fit for independent words (R^2 = 0.9996) is made on three points. Text lengths differ almost sevenfold (11,138 vs 75,642 words) and the occurrence counts are not normalised for length. Limitations are acknowledged inline: the treatment of adverbs as stopwords and the exclusion of Latin, Italian and French words are called disputable, the linearity in Fig. 6 is left unexplained, translation limits are noted, and future work is to extend the analysis to 500 words. No dedicated section. CER estimated at about 0.5.\n\nArtifacts: the three analysed works are published books, cited as [6]-[8]. The orthographically corrected texts, the etymology labels and the parsing code one author wrote (per the contributions statement) are not released. TTL is a third-party parser.\n\n---\n\n## Conclusion\n\nA modest Level 2 corpus study that proposes simple etymology-based indices and applies them to three texts. Most of its formal apparatus is legitimate (the indices and entropies define what is computed, and the Zipf discussion carries an argument), but Eq. 2's set notation for a count and the unused tuple vector are textbook theater patterns, which under the zero-tolerance rule raise FORMALISM_THEATER and UNNECESSARY_SET_THEORY.\n\nSeparately, self-citation is elevated, Table 1 is internally inconsistent, and the step from descriptive counts to an intentional stylistic device is asserted rather than tested."
+  },
+  {
+   "paper_id": "madani2022",
+   "paper": {
+    "title": "UV Effect on the Dielectric Properties of Al2O3/TiO2 Doped PVC",
+    "authors": [
+     "Lakhdar Madani",
+     "Kamel Salim Belkhir",
+     "Abdelkrim Zebar",
+     "Saad Belkhiat"
+    ],
+    "abstract": "Summary (not verbatim): PVC cable-insulation films are filled with alumina and titanium dioxide and exposed to 300 h of UV irradiation; FTIR, SEM, impedance analysis, volume resistivity and breakdown voltage are measured before and after exposure, and the fillers are reported to improve the dielectric properties and reduce UV ageing.",
+    "keywords": [
+     "Al2O3/TiO2 doped PVC",
+     "breakdown voltage",
+     "UV ageing",
+     "volume resistivity"
+    ],
+    "doi": null,
+    "pages": "322-337",
+    "source_file": "paper725.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 80,
+    "citation_integrity": 90,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 74.75,
+    "composite": 56.06,
+    "final": 51.06
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "NO_LIMITATIONS"
+   ],
+   "flag_details": {
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment. The purpose-built UV chamber with unmeasured irradiance and uncontrolled humidity, the single 300 h exposure and the unreported filler particle size are never discussed as constraints."
+   },
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Empirical dielectric study of filled PVC with proportionate formalism, but several textual conclusions contradict its own tables, limitations are not acknowledged, and no data is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Experimental characterisation of PVC filled with 10 wt% Al2O3, 10 wt% TiO2 or both, before and after 300 h of UV exposure, by impedance analysis (permittivity, loss index), FTIR, SEM, volume resistivity and breakdown voltage.\n**Level:** 2 (Low)\n**Rationale:** An empirical materials study with standard measurements and descriptive comparison of four formulations. No new model, algorithm or theoretical result.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 2\n\n### Necessity Test\n- Eq. 1, two-parameter Weibull P(U) = 1 - exp[-(U/U_cn)^beta]: Q1 yes, Q2 yes, Q3 no -> necessary (pins the two-parameter model from which the Table 3 averages are obtained)\n- Eq. 2, permittivity mixing relation from [1]: Q1 no, Q2 no, Q3 no -> necessary (a specific functional form prose cannot state; it is, however, never used)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Two equations, both physical models, neither decorative in kind.\n\n### Issues\nEq. 2 is retained under the combination rule but does no work: its symbols (epsilon_1, epsilon_c, epsilon_b, mu, P_Par) are never defined and it is never fitted to the data, so the statement that the observed variation is consistent with it is not demonstrated. The Weibull scale and shape parameters behind the average breakdown voltages are not reported.\n\n---\n\n## Citation Analysis\n\nTwo of 46 references are self-citations, [1] (Madani, Belkhiat et al., BaTiO3-filled XLPE) and [28] (Berrag, Belkhiat, Madani, BaTiO3-filled PVC), an SCR of 4.3%. Both concern the dielectric behaviour of ceramic-filled polymers and are relevant.\n\nSeveral other citations do not support the statements they are attached to. [22], given as the breakdown-test standard, is IEC 60240-1 on infra-red emitters for industrial heating. [7], a study of PVC, PTFE and HDPE by Mergos et al., is attributed to \"John A. et al.\" and tied to a chain-scission finding about XLPE. [12] (size dependence of breakdown strength) and [14] (partial-discharge resistance) are cited for fillers acting as UV screens. [30] (TiO2-doped ZnO gas sensors) is cited for FTIR ketone and ester bands. [11], a study of UV effects on cable insulation, is cited as the source of the sample-preparation conditions. These are citation-accuracy problems, not self-citation problems, and raise no flag.\n\n---\n\n## Structural Analysis\n\nThe measurements are described in detail, but several statements contradict the paper's own tables:\n- Volume resistivity: the text says it falls after ageing for every sample except sample 3. Table 2 shows sample 3 falling (6.12 to 1.69) while samples 2 and 4 rise (1.59 to 8.11; 1.84 to 2.18), and the Discussion names samples 3 and 4 as the exceptions.\n- The abstract says breakdown voltage increases with ceramic content. Before ageing, Table 3 gives 21.0 kV unfilled, 15.2 kV with 10% TiO2 and 17.6 kV with 20% filler.\n- Section 3.1 reports a 20% rise in permittivity of virgin PVC after ageing; Table 4 implies 77% at 100 Hz (2.6 to 4.6).\n- For 400 Hz before ageing, the text repeats the 230% and 250% ratios given for 100 Hz, while Table 4 gives about 300% and 336%.\n- The ageing time appears as 250 h in one place and 300 h elsewhere, and a \"sample 5\" is mentioned in a four-sample study.\n- The abstract calls the fillers nano-fillers, but particle size and source are never given.\n\nThe UV chamber is a purpose-built wooden box with two fluorescent lamps, unmeasured irradiance, uncontrolled humidity and one-sided exposure. None of this, nor the single exposure time, is discussed as a constraint: there is no limitations section and no inline acknowledgment. Measurement uncertainty is given only as the analyser's 0.05%; breakdown scatter is not reported. CER estimated at about 0.5.\n\nArtifacts: no data, measurement files or supplementary material are offered.\n\n---\n\n## Conclusion\n\nA conventional Level 2 experimental paper whose formalism is minimal and proportionate. Its weaknesses are structural: several textual conclusions, including one in the abstract, contradict the tables; limitations go unacknowledged; and a cluster of citations do not support the statements they are attached to. No data is available."
+  },
+  {
+   "paper_id": "arican2022",
+   "paper": {
+    "title": "An RGB-D Descriptor for Object Classification",
+    "authors": [
+     "Erkut Arican",
+     "Tarkan Aydin"
+    ],
+    "abstract": "Summary (not verbatim): proposes a 3D descriptor that adds depth information to the feature-extraction stage of Bag of Visual Words, so that RGB-D data is exploited for object detection and classification, and reports higher accuracy than the original RGB-only method.",
+    "keywords": [
+     "3D descriptor",
+     "bag of visual words",
+     "computer vision",
+     "depth image",
+     "object detection",
+     "RGB-D"
+    ],
+    "doi": null,
+    "pages": "338-349",
+    "source_file": "paper726.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 45.25,
+    "composite": 46.44,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"RGB-D Object Dataset [31] is used in this paper.\"",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with two formal elements that fail the Necessity Test: Eq. 1 (I~ = omega * I) restates the preceding sentence on generalised filtering, and Eq. 2 (the bilateral-filter closeness function) describes a filter the method does not use. Neither enters Algorithm 1."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Simple RGB-D extension of Bag of Visual Words; two unused background equations make it formalism theater at Level 2, and the accuracy gains over its own baselines are modest and overstated.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** An RGB-D descriptor for object classification. SURF descriptors computed on the grey-level image and on the Gaussian-smoothed, normalised depth image at the same keypoints are multiplied element-wise, then fed to a standard Bag of Visual Words pipeline (K-means with K = 20, polynomial multi-class SVM) and evaluated on subsets of the RGB-D Object Dataset.\n**Level:** 2 (Low)\n**Rationale:** A simple modification of an existing pipeline, assessed by accuracy against the unmodified pipeline. No complexity analysis or theoretical grounding.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3\n\n### Necessity Test\n- Eq. 1, generalised filtering I~ = omega * I: Q1 yes, Q2 no, Q3 no -> unnecessary (the sentence before already says filtering replaces values with a linear combination of others; the method never uses it)\n- Eq. 2, bilateral-filter closeness C(eta, rho) = exp(-||eta - rho||^2 / 2 sigma^2): Q1 yes, Q2 no, Q3 no -> unnecessary (background on bilateral filtering, which the paper calls inadequate and does not use; the Gaussian smoothing actually applied is fully specified by \"sigma = 8\")\n- Eq. 3, NFV as the element-wise product of SFV and DFV: Q1 yes, Q2 yes, Q3 no -> necessary (Algorithm 1 step f implements it, and the printed form shows a term e(.) that the prose does not describe)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in count. Two of the three equations fail the Necessity Test, which at Level 2 triggers FORMALISM_THEATER regardless of count.\n\n### Issues\nEqs. 1 and 2 are reproduced background from [29] and [28]. The paper says they give insight into adding depth, but neither enters Algorithm 1 or any result.\n\n---\n\n## Citation Analysis\n\nThree of 32 references ([10]-[12], Arican and Aydin 2017, 2018, 2019) are self-citations, an SCR of 9.4%. All three are on the same RGB-D descriptor line and relevant. The text says they provided the first insights for this study, but it never says how the present descriptor differs from the descriptors already published in [11] and [12], so novelty relative to the authors' own prior work is unclear. No other citation concerns.\n\n---\n\n## Structural Analysis\n\nThe claims are larger than the evidence. The abstract and introduction speak of object detection, but the experiments are classification only. The paper says the descriptor eliminates the disadvantages of brightness-based methods and gives a huge improvement in accuracy. The evidence is accuracy on 10, 20 and 30 of the 51 dataset categories against two BoVW variants of the authors' own implementation, averaged over 5 runs with no variance reported. Accuracy falls as classes are added (89.4%, 79.7%, 66.2%), and the margin over the best baseline is 9.7, 13.0 and 6.7 points. The method loses to a baseline in 2 of 10, 4 of 20 and 14 of 30 categories, yet the text mentions only four 30-class categories as close but not good enough; some losses are large (Soda Can 43.1% vs 70.9%, Food Jar 56.6% vs 76.7%, Camera 29.2% vs 56.3%). Table 3 quotes accuracies from [31] and [32] obtained on the full 51-category protocol, which are not comparable. There is no ablation (depth-only SURF, concatenation instead of multiplication) and no comparison with other RGB-D descriptors. The text refers to bold entries that are absent and calls Table 2 \"Table 1\". The only acknowledgment of a weakness is the single sentence on similar-looking categories, counted as an inline acknowledgment. CER estimated at about 0.5.\n\nArtifacts: the RGB-D Object Dataset [31] is public; no code is linked or offered.\n\n---\n\n## Conclusion\n\nA Level 2 applied computer-vision paper with a simple idea: multiply RGB and depth SURF descriptors. Two background equations that play no part in the method fail the Necessity Test and raise FORMALISM_THEATER. The evaluation supports a modest gain over the authors' own baselines on small category subsets, with absolute accuracy falling to 66% at 30 classes; it does not support the broader claims made in the abstract."
+  },
+  {
+   "paper_id": "ucgun2022",
+   "paper": {
+    "title": "Test Platform and Graphical User Interface Design for Vertical Take-Off and Landing Drones",
+    "authors": [
+     "Hakan Ucgun",
+     "Irfan Okten",
+     "Ugur Yuzgec",
+     "Metin Kesler"
+    ],
+    "abstract": "Summary (not verbatim): presents a pre-flight test system for VTOL multirotor drones, made of a test platform of nested rings in three dimensions, a graphical interface for sending test commands and control parameters and plotting on-board sensor data, and wireless communication modules, demonstrated with pre-flight tests on a six-rotor drone.",
+    "keywords": [
+     "Drone",
+     "flight control",
+     "GUI",
+     "test system",
+     "unmanned aerial vehicle",
+     "VTOL"
+    ],
+    "doi": null,
+    "pages": "350-367",
+    "source_file": "paper727.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 44.0,
+    "composite": 33.0,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 1 test-rig and GUI paper. The three set-point signals (Eqs. 1-3) are written in unit-step and sine notation that the following paragraph restates fully in prose; removing them changes nothing that is built or run. A mild case, but zero tolerance applies at Level 1."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 1 description of a drone test rig and GUI with qualitative pitch and roll demonstrations; set-point equations restated in prose trigger the zero-tolerance theater rule, and novelty relative to the authors' 2016 papers is not established.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A pre-flight test rig for multirotor drones (three nested rings, pulleys and a counterweight), a MATLAB GUI that exchanges commands, PID gains and sensor data with an open-source AeroQuad flight board over XBee, and trial-and-error PID tuning shown on pitch and roll tests of one hexacopter.\n**Level:** 1 (Trivial)\n**Rationale:** A prototype description that combines existing components (mechanical gimbal, off-the-shelf flight board with its own PID firmware, serial radio, MATLAB GUI). No algorithm, model or analysis is proposed.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 3 (the set-point signals; the test-software pseudocode is not counted)\n\n### Necessity Test\n- Eq. 1, x1(t) = 20[u(t) - u(t - 100)]: Q1 yes, Q2 no, Q3 no -> unnecessary (a 20-degree step held for 100 s, which the next paragraph states in prose)\n- Eq. 2, x2(t) = 20u(t) - 40u(t - 50) + 20u(t - 100): Q1 yes, Q2 no, Q3 no -> unnecessary (+20 degrees for 50 s, then -20 degrees; restated in Section 5 and Section 5.1)\n- Eq. 3, x3(t) = 30 sin(2 pi t / 100): Q1 yes, Q2 no, Q3 no -> unnecessary (a sinusoid of amplitude 30 and period 100 s, restated in prose)\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate in count, but at Level 1 the zero-tolerance rule applies: all three equations restate in unit-step and sine notation what the prose already specifies, so removing them changes nothing that is built or run.\n\n### Issues\nThis is a mild case: conventional notation for test inputs, not set theory or decorative definitions. It still meets the stated rule. The sinusoid's frequency is given in Section 5.2 as 10e-2 Hz (0.1 Hz), while Eq. 3 implies 0.01 Hz.\n\n---\n\n## Citation Analysis\n\nTwo of 28 references are self-citations, an SCR of 7.1%: [10], a 2016 paper on developing the test platform, and [11], a 2016 conference paper on the GUI. Both are directly related. Figs. 3, 8 and 9 are reproduced from [11], and [10] already reported the platform in 2016, but the paper does not say what is new relative to [10] and [11].\n\nOne passage in Section 2 cites work tangential to a drone test rig. Three ROMJIST articles appear: [24] on bat-algorithm fuzzy control, [26] on sliding-mode control of wind energy conversion, and [28], a MAC protocol for wireless sensor networks cited for power control. So do three papers co-authored by [third-party author] and a co-author ([23], [25], [27]). Mutual citation cannot be observed from one paper, so CITATION_RING_INDICATOR is not raised. Minor reference error: [18] is dated 2000, but volume 54 of that journal appeared in 2009.\n\n---\n\n## Structural Analysis\n\nClaims: a novel platform with four advantages, prevention of crashes in flight, suitability for drones with any number of rotors, and the ability to carry out all pre-flight tests. The evidence is photographs, a CAD drawing, GUI screenshots and qualitative pitch and roll plots for one hexacopter at one PID setting (Kp 5.5, Kd 1.5, Ki 0.5). Missing: quantitative tracking metrics (overshoot, settling time, error), yaw and altitude results (claimed but not shown), any drone with a different rotor count, free-flight validation that gains tuned on the rig transfer, and any analysis of how the rings' inertia and bearing friction change the dynamics compared with free flight. The one constraint acknowledged inline is that altitude travel is limited to 60 cm. CER estimated at about 0.4.\n\nArtifacts: the MATLAB GUI and test software are not released. AeroQuad is third-party open source and does not count as the authors' code.\n\n---\n\n## Conclusion\n\nA Level 1 engineering description of a test rig and GUI, with qualitative demonstrations. The only formalism, three set-point signals written as equations and then restated in prose, is unnecessary under the Necessity Test, and the zero-tolerance rule raises FORMALISM_THEATER. Apart from that, the evaluation is thin, novelty relative to the authors' 2016 publications is not established, and nothing is available for reuse."
+  }
+ ]
+}

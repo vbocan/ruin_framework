@@ -1,0 +1,76 @@
+{
+ "batch_id": "2025-v28-n1",
+ "analysis_timestamp": "2026-10-18T17:18:47Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 1,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "karadeniz2025",
+   "paper": {
+    "title": "Mobile Robot Environment Representation Through Fuzzy Signatures-Integrated Quadtrees",
+    "authors": [
+     "Ahmet Mehmet Karadeniz",
+     "Csaba Hajdu",
+     "László T. Kóczy"
+    ],
+    "abstract": "This paper presents an innovative environment representation technique for mobile robots, incorporating obstacle detection within their operational space. Leveraging the fuzzy signature method, this approach uses quadtrees for efficient data organization. A set of fuzzy rules evaluates feature points to ascertain the relevance of identified obstacles. These points and their fuzzy associations are systematically arranged using a quadtree structure. The environmental model is reconstructed by traversing this tree and applying the established fuzzy rules. This paper has achieved a high-resolution grid representation of 0.1m within a 20m×20m area. Notably, the inference operation completes in just 0.5 ms, underscoring the method’s efficiency. Additionally, the technique is optimized for low memory consumption, demonstrating effective resource management even on older PCs, such as an Intel Core Duo 2 with 16 GB RAM. This representation is designed to support advanced robotic functions, such as obstacle navigation in a distributed computing environment.",
+    "keywords": [
+     "A* search algorithm",
+     "environment representation",
+     "fuzzy signatures",
+     "fuzzy systems",
+     "quadtrees",
+     "robotics"
+    ],
+    "doi": null,
+    "pages": "103-116",
+    "source_file": "paper794.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 45,
+    "artifact_availability": 70,
+    "intellectual_integrity": 32.25,
+    "composite": 41.69,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "code",
+    "relevant": true,
+    "evidence": "'The software developed for this purpose is accessible for download from the Github repository' (footnote 1: https://github.com/robotlabor-nexus/fuzzy signatures, as extracted). The input points used in the demonstration are neither described nor deposited.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DECORATIVE_DEFINITIONS",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with nine formal elements that fail the Necessity Test: the recursive Cartesian-product definition of S(n) (Eq. 1), the map A : X → S(n), the nested-vector forms and worked aggregation examples (Eqs. 2-6 and the inline @ notation), and the position class P = [x, y, Fx(x), Fy(y)] (Eq. 7). None is used by the method, which stores a flat four-field record per quadtree node and infers with product-sum evaluation.",
+    "DECORATIVE_DEFINITIONS": "Four unnumbered formal definitions (S(n), A : X → S(n), the signature sets S(x), the class P) are never referenced in any proof, algorithm, or analysis. P is a record that Section 4 restates in prose as the node's 4-tuple, and S(n) is defined over the reals although fuzzy values lie in [0, 1]. Removing them would not change what a programmer builds.",
+    "ELEVATED_SELF_CITATION": "9 of 32 references (28.1%) share an author with the paper; 8 of 31 (25.8%) if the paper's own supplementary file [1] is excluded. All are on fuzzy signatures or fuzzy robot mapping, so none is irrelevant."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Preliminary prototype that stores fuzzy axis memberships of obstacle points in a quadtree and infers a grid for A*; it reproduces general fuzzy-signature formalism it never uses, rests on a single unbenchmarked demonstration, and self-cites at 28%, though its code is linked on GitHub.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** 2D environment representation for a mobile robot. Obstacle points are inserted into a point quadtree centred on the robot; each node stores the point's coordinates and its fuzzy memberships on the X and Y axes (five sets, Negative Far to Positive Far); the tree is traversed to infer a grid on which A* is run.\n**Level:** 2 (Low)\n**Rationale:** The contribution combines three existing components (fuzzy signatures from the third author's group, the Finkel-Bentley quadtree, and A*) and applies fuzzy rule evaluation to a new domain. Algorithm 1 is an eleven-line insertion loop with no complexity analysis, no correctness property, and no comparison, and the authors call the implementation rudimentary and the results preliminary. This is an existing method applied to a new domain, not a new algorithm with analysis (Level 3). A Level 1 reading (prototype combining existing components) would also be defensible and would not change the flags.\n\n### Formal Elements\n- Definitions: 4 (with constraints: 2): the recursive set S(n) (Eq. 1; each S_i is R or some S(m), m ≥ 1), the fuzzy signature as a map A : X → S(n), the fuzzy signature sets S(x) (Eq. 6; membership functions confined to [0, 1]), and the position fuzzy signature class P (Eq. 7)\n- Theorems: 0\n- Proofs: 0\n- Equations: 8 numbered displays, plus the inline aggregation notation a1 = (a11)@1(a12)\n\n### Necessity Test\n- Eq. 1, recursive definition of S(n) as a Cartesian product of copies of R or of S(m): Q1 yes, Q2 no, Q3 no → unnecessary\n- Inline definition A : X → S(n), the fuzzy signature as a map from data points into S(n): Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 2, general nested-vector form of A(x): Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 3, example nested vector with seven leaves (same content as Fig. 1): Q1 yes, Q2 no, Q3 no → unnecessary\n- Inline aggregation notation a1 = (a11)@1(a12): Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 4, numerical values of the example signature: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 5, worked min/max aggregation of the example to 0.9: Q1 yes, Q2 no, Q3 no → unnecessary (the method itself uses product-sum inference, not this aggregation)\n- Eq. 6, fuzzy signature sets S(x) as the same nested vector with membership functions as leaves: Q1 yes, Q2 no, Q3 no → unnecessary\n- Eq. 7, position fuzzy signature class P = [x, y, Fx(x), Fy(y)]^T: Q1 yes, Q2 no, Q3 no → unnecessary (Section 4 states the same four fields in prose)\n- Eq. 8, A* evaluation function f(n) = g(n) + h(n): Q1 yes, Q2 yes, Q3 no → necessary (the sum is stated only in the equation and fixes the node-selection rule)\n\n### Proportionality\nCalculated complexity: 8 (4 definitions × 2)\nExpected range (Level 2): 0-15\nRatio: 0.53x upper bound\n\n**Assessment:** Proportionate in volume, not in necessity. Sections 3.1-3.3 reproduce the general fuzzy-signature apparatus of [18], [19] (recursive Cartesian-product sets, maps into them, nested vectors, aggregation operators), and none of it is invoked again. The method stores a flat four-field record per quadtree node, the hierarchy comes from the quadtree rather than from S(n), and Section 5 evaluates nodes with product-sum inference rather than the min/max aggregation worked through in Eqs. 4-5. Nine of the ten formal elements do no work in the method.\n\n### Issues\n- Eq. 7 is the tuple-for-a-record pattern: the 'fuzzy signature class P' is a struct with fields x, y, Fx(x), Fy(y), and Section 4 says the same in words ('every node within the quadtree encapsulates a (x, y, Fx(x), Fy(y)) 4-tuple').\n- Eq. 1 builds S(n) from 'the set of real numbers R', whereas fuzzy signature values are membership degrees in [0, 1]; the definition as printed does not match the use made of it. Eq. 6 requires the membership functions' domain to lie in [0, 1], where the range is presumably meant.\n- Notation is reused: P is both the position signature class (Eq. 7) and the set of obstacle points (Section 4, Algorithm 1); S is S(n), the signature sets S(x), and the quadrants S1-S4 of Fig. 6.\n- Algorithm 1's 'for each point p ∈ P' is ordinary pseudocode iteration and is not counted. No set operations (union, intersection, difference, set-builder filters) appear, so UNNECESSARY_SET_THEORY is not raised; the Cartesian product of Eq. 1 defines a data type and is covered by DECORATIVE_DEFINITIONS.\n- No instructions addressed to reviewers or automated assessors were found in the text.\n\n---\n\n## Citation Analysis\n\nNine of 32 references share at least one author with the paper (SCR 28.1%). [1] is the paper's own supplementary material on GitHub, which holds the rest of the Introduction and the A* steps; [4] is the authors' 2021 SACI paper on the same quadtree and fuzzy-signature representation, the direct precursor; [17] is the first author's fuzzy-signature steering-control paper; [16], [18], [19], [20], [21] and [27] are fuzzy-signature theory and robot-application papers co-authored by Kóczy. All nine concern fuzzy signatures or fuzzy robot mapping (similarity ≥ 0.5), so none is irrelevant. Excluding the supplement the ratio is 8/31 = 25.8%, in the same 20-30% band, so ELEVATED_SELF_CITATION applies either way. Much of the concentration follows from fuzzy signatures having been developed in the third author's group, but the background of Section 3 rests on that group almost exclusively.\n\nOther observations, not flagged: five references point to ROMJIST itself ([2], [11], [12], [15], [30]); [11] (a fuzzy decision-support system) and [12] (multiplicative fuzzy regression) are cited for claims about navigation and indoor spatial modelling that they do not address. Reference [6] is listed but never cited in the text. No mutual-citation pattern can be established from a single paper, so CITATION_RING_INDICATOR is not raised.\n\n---\n\n## Structural Analysis\n\nThe paper is a short method description with one demonstration, and part of it sits outside the reviewed text: the printed Introduction is two paragraphs, and the authors state that the rest of it is provided as a separate file in [1], a PDF on GitHub, as are the steps of A*. The evaluation is one run of a 'rudimentary Python-based implementation' on an unspecified number of input points, reporting a 0.1 m grid over 20 m × 20 m and an inference time of about 0.5 ms; it is not stated whether that time is per node, per query, or for the whole 40,000-cell grid. There is no sensor data, no real robot, no baseline (occupancy grid, plain quadtree, octree), no accuracy measure for the reconstructed map, and no memory figure: the memory result is the qualitative statement that the process did not demand substantial memory on an Intel Core Duo 2 with 16 GB RAM. Against this, the abstract and introduction claim an innovative, scalable and adaptable solution with minimal memory usage, a significant contribution to the field, and support for distributed computing, none of which is tested. Estimated CER is about 0.4 (weak): the Related Work claims are cited, but most claims about the contribution rest on the single demonstration or on nothing.\n\nLimitations: no dedicated section. There is a weak inline acknowledgment: the implementation is called rudimentary, the results preliminary and initial, and the conclusion notes that handling moving or vanishing obstacles is needed before real-world use. That is enough to avoid NO_LIMITATIONS, but only just.\n\nArtifacts: a footnote links the authors' own software (github.com/robotlabor-nexus/fuzzy signatures in the extracted text, an underscore apparently lost in conversion), and the supplementary material is also on GitHub. The input points are neither described nor deposited, so the category is code.\n\n---\n\n## Conclusion\n\nAttaching fuzzy axis memberships to quadtree nodes so that a grid can be inferred at variable resolution is a sensible idea, and the authors release their code. The paper itself is a preliminary Level 2 prototype that reproduces the general fuzzy-signature formalism (recursive Cartesian-product sets, maps into them, nested vectors, worked aggregation examples) without using any of it, and presents a four-field node record as a fuzzy signature class. At Level 2 these unnecessary elements raise FORMALISM_THEATER and DECORATIVE_DEFINITIONS, both of which cap the score.\n\nBeyond the formalism, the evaluation is a single unbenchmarked demonstration whose efficiency, memory, and scalability claims exceed its evidence, and part of the introduction has been moved to an external file. Self-citation is elevated (28%) but topical throughout."
+  }
+ ]
+}

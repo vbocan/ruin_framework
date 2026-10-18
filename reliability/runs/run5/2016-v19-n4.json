@@ -1,0 +1,70 @@
+{
+ "batch_id": "2016-v19-n4",
+ "analysis_timestamp": "2026-10-18T17:09:48Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 19,
+  "issue": 4,
+  "year": 2016
+ },
+ "papers": [
+  {
+   "paper_id": "shukla2016",
+   "paper": {
+    "title": "Training Cellular Automata for Image Edge Detection",
+    "authors": [
+     "Anand Prakash Shukla"
+    ],
+    "abstract": "Cellular automata can be significantly applied in image processing tasks. In this paper, a novel method to train two dimensional cellular automata for detection of edges in digital images has been proposed and experiments have been carried out for the same. Training of two dimensional cellular automata means selecting the optimum rule set from the given set of rules to perform a particular task. In order to train the cellular automata first, the size of rule set is reduced on the basis of symmetry. Then the sequential floating forward search method for rule selection is used to select the best rule set for edge detection. The misclassification error has been used as an objective function to train the cellular automata for edge detection. The whole experiment has been divided in two parts. First the training was performed for binary images then it is performed for gray scale images. A novel method of thresholding the image by Otsu’s algorithm and then applying the cellular automata rules for the training purpose has been proposed. It has been observed that the proposed method significantly decreases the training time without affecting the results. Results are validated and compared with some standard edge detection methods both qualitatively and quantitatively and it is found better in terms of detecting the edges in digital images. Also the proposed method performs much better in corner detection as compared to the standard edge detection methods.",
+    "keywords": [
+     "Cellular Automata",
+     "Training of Cellular Automata",
+     "Sequential Floating Forward Search Algorithm",
+     "Misclassification Error",
+     "Otsu’s Algorithm",
+     "Corner Detection"
+    ],
+    "doi": null,
+    "pages": "338-359",
+    "source_file": "shukla.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 80,
+    "structural_integrity": 55,
+    "artifact_availability": 50,
+    "intellectual_integrity": 41.75,
+    "composite": 43.81,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "data",
+    "relevant": true,
+    "evidence": "\"images from the University of South Florida data set which contains images along with manually generated ground truth edges [2] are considered\"; no code link or availability statement in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with four formal elements that fail the Necessity Test (Q1 yes, Q2 no, Q3 no): the inline cellular-automaton triple A = (S, N, δ) with δ : S^N → S, the pixel triple (i; j; k), and the set-builder definitions of the von Neumann (Eq. 1) and Moore (Eq. 2) neighbourhoods. None is used again; the method is a 3×3 pattern match that the text and Algorithm 1 state fully in prose."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 application of an existing SFFS rule-training scheme for cellular automata to edge detection. Unused textbook formalism in the introduction (CA triple, pixel tuple, set-builder neighbourhoods) fails the Necessity Test and triggers formalism theater. The ten-image quantitative comparison shows small margins without statistics and is overclaimed. Self-citation is 16.7% and topical; the public USF dataset is used, but no code is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Training a two-dimensional binary cellular automaton for edge detection. Rules are selected from the 51 symmetry classes of 3×3 Moore patterns with Sequential Floating Forward Search (SFFS), the objective is the misclassification error against Canny or ground-truth edges, and grey-scale images are binarised with Otsu's threshold before the learned rule is applied.\n**Level:** 2 (Low)\n**Rationale:** The training scheme (symmetry reduction to 51 patterns, SFFS rule selection, an error-driven objective, inversion of the central pixel on a match) is Rosin's [18, 19], which the paper itself describes in its related-work section. What is new is the choice of objective (misclassification error from [30]) and a single Otsu threshold in place of full threshold decomposition: an existing method applied to a new task with a component substituted, not a new algorithm with analysis. The learned result, rule 51 (a white pixel turns black when its whole 3×3 neighbourhood is white), is the inner-boundary extraction of binary morphology (the image minus its 3×3 erosion); the paper does not make this connection.\n\n### Formal Elements\n- Definitions: 4, all inline (CA triple, pixel triple, von Neumann neighbourhood, Moore neighbourhood) (with constraints: 2, the two neighbourhood conditions)\n- Theorems: 1 (Pólya–Burnside counting lemma, Eq. 3, quoted from [16], not proved)\n- Proofs: 0\n- Equations: 12 (Eqs. 1–7 and five unnumbered ones: w0(t), w1(t), µ0(t), µ1(t), µT); in addition one asserted complexity bound (Sec. 4.3) and three pseudocode listings\n\n### Necessity Test\n- Sec. 1, CA \"defined by a triplet A = (S, N, δ)\" with δ : S^N → S: Q1 yes, Q2 no, Q3 no → unnecessary (the preceding sentence already says it in prose; S, N and δ never reappear)\n- Sec. 1.1, pixel \"characterized by the triplet (i; j; k)\": Q1 yes, Q2 no, Q3 no → unnecessary (position and value of a pixel; the tuple is never used)\n- Eq. 1, von Neumann neighbourhood in set-builder notation: Q1 yes, Q2 no, Q3 no → unnecessary (this neighbourhood is never used)\n- Eq. 2, Moore neighbourhood in set-builder notation: Q1 yes, Q2 no, Q3 no → unnecessary (only r = 1 is used, which the text states in prose as the \"3x3 neighborhood\", \"eight way connected\"; the formula adds nothing to the implementation)\n- Eq. 3, Pólya–Burnside lemma: Q1 yes, Q2 no, Q3 yes → necessary (the counting argument behind Eq. 4)\n- Eq. 4, class count (x^8 + 2x^2 + x^4 + 4x^5)/8 for the 8-neighbourhood under rotations and reflections: Q1 no, Q2 no, Q3 yes → necessary (gives 51 for x = 2, which checks: 408/8 = 51, and the >2×10^18 bound that rules out direct grey-level training)\n- Eq. 5, misclassification error built from intersections of edge and non-edge pixel sets: Q1 yes, Q2 yes, Q3 no → necessary (it is the objective SFFS optimises and the metric of Table 1)\n- Eq. 6, Otsu weighted within-class variance: Q1 no, Q2 yes, Q3 no → necessary\n- Unnumbered w0(t), w1(t), class probabilities from the histogram: Q1 no, Q2 yes, Q3 no → necessary\n- Eq. 7, between-class variance σb²(t): Q1 no, Q2 yes, Q3 no → necessary (the quantity maximised in Algorithm 3)\n- Unnumbered µ0(t), µ1(t), µT, class means: Q1 no, Q2 yes, Q3 no → necessary\n- Sec. 4.3, running time O(MN), \"independent of the number of rules\": Q1 yes, Q2 no, Q3 yes → necessary (it states a bound, though without derivation)\n- Algorithm 2, set-based SFFS steps (argmax J(Yk + x) over x ∉ Yk, and the removal step): Q1 yes, Q2 yes, Q3 no → necessary\n\n### Proportionality\nCalculated complexity: 11 (4 definitions × 2 + 1 theorem × 3)\nExpected range (Level 2): 0-15\nRatio: 0.73x upper bound\n\n**Assessment:** Proportionate in volume, but four elements fail the Necessity Test, and at Level 2 one unnecessary element is formalism theater.\n\n### Issues\n- The introduction formalises the cellular automaton as \"a triplet A = (S, N, δ)\" and gives both neighbourhoods in set-builder notation; none of this notation is used again. The method is a 3×3 pattern match, described adequately in prose and in Algorithm 1.\n- `UNNECESSARY_SET_THEORY` was considered and not raised: the set-builder expressions define neighbourhood geometry rather than standing in for list union, intersection or difference, and the one set operation the method uses (the intersections in Eq. 5) is retained under Q2.\n- `DECORATIVE_DEFINITIONS` was considered and not raised: the paper has no formal \"Definition N\" blocks, and the inline CA triple is covered by `FORMALISM_THEATER`.\n- Notation and pseudocode slips: Eq. 3 divides by P where |P| is meant; Algorithm 2 initialises Y ← {φ} (a set containing the empty set) and increments k after a removal where it should decrement it; in Algorithm 1 the else-branch sets every non-matching pixel to 1, including the black pixels the text says stay unchanged, the loop over the four rotations overwrites C[i, j] so that only the last rotation counts, and line 1 takes the size of an array A that the listing never introduces.\n- The O(MN) claim holds only if rules are looked up in a table indexed by the 8-bit neighbourhood pattern; Algorithm 1 as written compares against the rule matrices, whose cost grows with the number of rules K.\n\n---\n\n## Citation Analysis\n\nFive of the 30 references are the author's own ([21]–[25]): SCR = 16.7%, above 15% but below the 20% threshold of `ELEVATED_SELF_CITATION`. All five concern training two-dimensional cellular automata for image processing (salt-and-pepper noise filtering, image filtering, morphological operations, thinning and thickening), the same line of work as this paper, so each is topically related (similarity ≥ 0.5). They are cited once, as a group: \"noise filtering [21, 24] and morphological operations [22, 23, 25]\". The paper does not say how the present method differs from those earlier applications of the same training scheme, which matters because the learned edge rule is itself a morphological operation. Reference [23] has no venue or year, and some bibliographic details are wrong, e.g. Otsu [13] appears as \"Automatica 11, 285-296 (1975), 23–27\". A single paper shows no citation-ring pattern.\n\n---\n\n## Structural Analysis\n\nThe quantitative evidence is Table 1: misclassification error against USF ground truth for ten images, comparing LoG, Canny and the learned rule. The rule has the lowest error on 6 of 10 images, LoG on the other four (101, 108, 125, 126), and Canny on none. Most differences lie in the second or third decimal, every method's error lies between 0.24 and 0.54, and no variance or significance test is reported. The paper discusses only 108.pgm as an exception, concludes that the rule-set error \"is lesser in most of the cases\", and extends the conclusion to Roberts, Prewitt and Sobel, which are judged by eye only. The claims that the rule is superior to Canny on binary images and \"performs much better in corner detection\" rest on visual inspection of two images, in an experiment where Canny's output was the training target. The abstract's claim that the method \"significantly decreases the training time without affecting the results\" is backed by no timing at all. Twelve USF images are used for training and ten for testing, and the paper does not say whether the sets are disjoint. Section 1.1 lists advantages of cellular automata without citation. The related-work section is well cited, so the estimated CER is about 0.55 (adequate). A limitation is acknowledged inline in the conclusion (results depend on the sensitivity of Otsu's threshold, and weak edges are not controlled), and the 108.pgm discussion concedes the higher error, so `NO_LIMITATIONS` is not raised.\n\nArtifacts: no code is linked and there is no availability statement. The quantitative grey-scale results rest on the named public USF edge-detection dataset with manual ground truth [2], hence the category `data`; the 20 binary training images are not identified. The experiments ran in MATLAB 2014a, a third-party environment.\n\nThe text contains no instructions addressed to reviewers or automated assessors.\n\n---\n\n## Conclusion\n\nThe paper applies an existing rule-training scheme for cellular automata to edge detection, contributing a different objective and Otsu pre-thresholding: Level 2. The counting argument (Eqs. 3–4), the objective (Eq. 5) and the Otsu equations do real work, but the introduction's CA triple, pixel tuple and set-builder neighbourhoods are never used and say nothing the prose does not. At Level 2 that is formalism theater, which disqualifies.\n\nApart from the flag, the empirical case is thin. The learned single rule is equivalent to morphological boundary extraction, and the ten-image comparison shows small margins with no statistics. Claims of superiority, better corner detection and reduced training time go beyond the evidence, and the pseudocode contradicts the text. Self-citation is somewhat elevated but topical."
+  }
+ ]
+}

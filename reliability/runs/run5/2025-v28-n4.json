@@ -1,0 +1,132 @@
+{
+ "batch_id": "2025-v28-n4",
+ "analysis_timestamp": "2026-10-18T17:19:55Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 28,
+  "issue": 4,
+  "year": 2025
+ },
+ "papers": [
+  {
+   "paper_id": "balaban2025",
+   "paper": {
+    "title": "112 Emergency Video Call Response Pipeline for Car Crashes Using Computer Vision and Natural Language Processing",
+    "authors": [
+     "Béatrix-May Balaban",
+     "Ioan Sacală",
+     "Alina-Claudia Petrescu-Nită"
+    ],
+    "abstract": "Presents an emergency-response pipeline for 112 video calls after car accidents that combines speech recognition, object detection, natural language processing and a blockchain. Speech in the call video is transcribed and the people involved are detected; question-answer pairs extracted from the dialogue are rated to assess medical urgency; vehicle ownership stated in the call is checked against VIN-linked profiles on a blockchain ledger to retrieve the owner's name, age and medical background; and a lightweight web interface presents the result to first responders, with the aim of prioritizing cases and shortening response time. [Condensed paraphrase of the published abstract.]",
+    "keywords": [
+     "Blockchain",
+     "computational linguistics",
+     "computer vision",
+     "emergency services",
+     "natural language processing",
+     "object detection",
+     "semantic processing"
+    ],
+    "doi": "10.59277/ROMJIST.2025.4.01",
+    "pages": "315-326",
+    "source_file": "paper811.pdf"
+   },
+   "concept_level": 1,
+   "scores": {
+    "formalism": 85,
+    "citation_integrity": 90,
+    "structural_integrity": 55,
+    "artifact_availability": 0,
+    "intellectual_integrity": 79.25,
+    "composite": 59.44,
+    "final": 59.44
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "No code link and no availability statement for the CarEM-Vid videos. The only link is supplementary material [13], https://1drv.ms/b/s!Ajn0ZsYKsVKMkvFwQDqhmf-lpwuqBA?e=F0Zb8y, which the text describes as holding example transcriptions: \"Table 2 contains full examples of speech-to-text result for each scenario\".",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [],
+   "flag_details": {},
+   "verdict": {
+    "classification": "LIMITED",
+    "disqualified": false,
+    "summary": "Level 1 integration of pretrained detection, speech-to-text and sentence-similarity models with a rule table and a VIN-keyed ledger; no formalism and negligible self-citation, but a single undefined accuracy figure used for two tasks, a small scripted dataset, and no released code or data.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** End-to-end pipeline for 112 emergency video calls after car crashes: YOLOv8 with Deep SORT counts the occupants, Whisper transcribes the call, a SentenceTransformer matches operator questions in the transcript, rule tables map each answer to a severity, and a blockchain ledger keyed by VIN supplies the owner's medical data to a Flask interface.\n**Level:** 1 (Trivial)\n**Rationale:** Every component is an existing pretrained model or library; the contribution is their composition, a 49-video scripted dataset (CarEM-Vid), and an informal comparison of detectors and speech-to-text tools. No new algorithm is proposed: the urgency logic is a lookup of answer patterns plus a count threshold (three or more High answers give Critical, one gives Urgent). This is the case of a system that combines existing components.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 0\n\n### Necessity Test\nNone. The paper contains no formal elements; the urgency rule is stated in prose and in a flowchart (Fig. 5).\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 1): 0-5\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. A systems-integration paper written entirely in prose, which is what Level 1 calls for.\n\n### Issues\nNone identified in the formalism.\n\n---\n\n## Citation Analysis\n\n16 references. One self-citation: [13], the authors' own supplementary material for this same paper (a OneDrive link), topically identical (similarity 1.0) and not a metric-bearing publication. SCR = 1/16 = 6.3%. No other reference shares an author with the paper; [14] is a ROMJIST paper by other authors (journal, not author, self-citation).\n\nCitation accuracy is loose. The literature review announces five studies published between 2023 and 2025, but [2] dates from 2022, [4] from 2014 and [5] from 2007; [12] is labelled a ResearchGate preprint while its DOI is an arXiv one. The introduction, which carries the paper's motivation, has no citations at all. None of this meets a flag condition, but it keeps the score at the bottom of the normal band.\n\n---\n\n## Structural Analysis\n\nClaims are strong and the evidence thin. The quantitative evidence consists of a YOLOv5 accuracy under 50% and a YOLOv8 accuracy of 83.67% for person counting (Section 4.2), and an overall urgency-classification accuracy of 83.67% (Section 6), repeated as 83.6% in the conclusions. The identical figure is attributed to two different tasks, and neither is defined: no ground truth, no per-scenario breakdown, no confusion matrix. The speech-to-text comparison is qualitative (no word error rate), and Table 3 shows four illustrative cases. The dataset is 49 short videos with scripted dialogue, yet Section 6 credits the result to noisy, spontaneous speech in a real-world context. Claims of fewer false alarms, a lighter load on dispatchers, and that critical cases are never delayed have no supporting measurement. Estimated CER is about 0.45 (weak), above the 0.33 threshold of UNSUPPORTED_CLAIMS.\n\nLimitations: there is no dedicated section. One inline concession, that Romanian speech-to-text needs improvement in future work (Table 1 shows it error-prone), counts as a minimal acknowledgment, so NO_LIMITATIONS is not raised. Dataset size, the scripted recordings, the rule-based scoring, and the privacy of the medical ledger are not discussed.\n\nArtifacts: no code link. The CarEM-Vid dataset is presented as a novel contribution, but no availability statement is made for it. The only link is [13], supplementary material that the text says holds example transcriptions (a speech-to-text table per scenario), not the videos or the code the results rest on. Category: none.\n\nMinor: Fig. 4, which shows the no-driver scenarios, repeats the caption of the unconscious-driver figure.\n\n---\n\n## Conclusion\n\nA Level 1 integration paper whose prose-only presentation suits its complexity and whose only self-citation is its own supplementary file. Its weakness is evidential: a single undefined accuracy figure used for two tasks, a small scripted dataset described as real-world, qualitative tool comparisons, and no released code or videos. No flag is raised; the paper is held back by its structural integrity and the absence of artifacts."
+  },
+  {
+   "paper_id": "lazarescu2025",
+   "paper": {
+    "title": "Personalized Movement Algorithms for Neural Forearm Prostheses Using Convolutional Neural Networks",
+    "authors": [
+     "Sorin Lazarescu",
+     "Florin Istudor",
+     "Octavian Ionescu",
+     "David Dragomir",
+     "Marian Ion",
+     "Ladislau Székely",
+     "Szilárd Olasz",
+     "István Tüsez",
+     "Gabriela Ionescu",
+     "Stefanos P. Zaoutsos",
+     "Cătălin Niculae",
+     "Bogdan Sinatoma"
+    ],
+    "abstract": "Presents personalized movement algorithms for a neural forearm prosthesis with an AI module. They combine a finger-flexion glove worn on the patient's healthy hand, a neural interface whose plug electrodes are implanted in the motor fascicles of the median and ulnar nerves of the amputation stump, and a convolutional neural network: for each prosthesis movement the patient selects, the glove records the finger motion, the interface records the motor nerve signals, and the CNN learns the corresponding signal pattern, so that it can recognize the patient's commands and drive natural movements of the prosthesis. [Condensed paraphrase of the published abstract.]",
+    "keywords": [
+     "Convolutional neural networks",
+     "implantable neural interface",
+     "movement algorithms",
+     "neural prostheses"
+    ],
+    "doi": "10.59277/ROMJIST.2025.4.06",
+    "pages": "377-384",
+    "source_file": "paper816.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 90,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 41.5,
+    "composite": 31.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text (the only URLs point to third-party statistics, news items and the 5DT glove datasheet)",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "UNSUPPORTED_CLAIMS"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper whose one formal element, Eq. (1), the sum over i = 1..5 of C(5, i) = 31, fails the Necessity Test (Q1 yes, Q2 no, Q3 no): it writes 2^5 - 1 in summation notation, is restated in prose immediately after, supports no proof or bound, and does not determine the implemented 32-class network.",
+    "UNSUPPORTED_CLAIMS": "Estimated CER about 0.3. No nerve signals are recorded and the CNN is neither trained nor evaluated; the conclusions assert more movement functions than myoelectric prostheses, tactile-feedback functions, and successful in vitro and in vivo tests without evidence, and the physiological premises go uncited."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "Level 2 prosthesis-control design whose single equation, a binomial sum giving 31 movements, fails the Necessity Test; the CNN is not trained or evaluated, the conclusions outrun the evidence, several references are misattributed, and nothing is released.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Design of the movement-learning module of the NerveRepack neural forearm prosthesis: a data glove on the healthy hand labels nerve signals recorded by plug electrodes implanted in the median and ulnar nerves of the stump, a small CNN is to learn each movement's signal pattern, and glove reading, thresholding and autocalibration are implemented on a Basys3 FPGA.\n**Level:** 2 (Low)\n**Rationale:** The proposed method is a standard supervised CNN classifier applied to a new signal domain; the implemented part is glove thresholding to binary finger states and an FPGA deployment with a measured inference time of about 20 ms. There is no novel algorithm and no analysis. No nerve signals have been recorded (human implantation is planned for March 2027), so the CNN is neither trained nor evaluated, and a case could be made for Level 1 (prototype description). Level 2 is chosen because the authors design their own network rather than integrating existing services; both levels carry the same zero-tolerance rule.\n\n### Formal Elements\n- Definitions: 0 (with constraints: 0)\n- Theorems: 0\n- Proofs: 0\n- Equations: 1 (Eq. 1, movement count)\n\n### Necessity Test\n- Eq. 1, N_mvm = sum over i = 1..5 of C(5, i) = 31, the number of movements offered by five motor needles: Q1 yes, Q2 no, Q3 no -> unnecessary\n\nQ1 yes: the content is that every non-empty combination of the five needles gives a movement, that is 2^5 - 1 = 31, and the paragraph after the equation restates the result in prose. Q2 no: the classifier that is implemented has 32 output classes defined by finger flexion and extension combinations, not by this count, so deleting the equation changes nothing that is built. Q3 no: no proof, bound or later derivation uses it.\n\n### Proportionality\nCalculated complexity: 0 (definitions x 2 + theorems x 3 + proofs x 4; the formula does not weight the single equation, which counted as a theorem would give 3)\nExpected range (Level 2): 0-15\nRatio: 0x upper bound (0.2x if the equation were weighted)\n\n**Assessment:** Proportionate in quantity, but the one formal element fails the Necessity Test, which under the zero-tolerance rule for Levels 1-2 is formalism theater.\n\n### Issues\nBinomial-sum notation dresses up 2^5 - 1. It also gives mathematical form to an unargued premise, that each non-empty subset of the five needles yields a distinct movement the patient can command. Nothing in the paper shows that the nerve signals separate this way, and the count disagrees with the 32-class network described in Section 4.\n\n---\n\n## Citation Analysis\n\n8 references; none shares an author with the twelve authors of the paper (SCR = 0/8 = 0%). The concerns are accuracy and depth, not self-citation. The plug electrodes and neural interface are said to be presented in detail in [8], but [8] is the datasheet of the 5DT data glove. Amputation figures described as 2018 statistics are attributed to [2], a 2010 item, and a 2050 forecast attributed in the text to Advanced Amputee Solutions is cited to [4], a 2008 journal article by other authors. Five of the eight references are statistics or news sources and one is a datasheet; no work on CNNs, neural-signal decoding, or peripheral nerve interfaces after 2012 is cited. No flag condition is met; the score sits at the bottom of the normal band.\n\n---\n\n## Structural Analysis\n\nThe paper's central claims have no experimental support. The abstract is in the future tense, no nerve signals have been acquired, and the CNN is not trained or evaluated; the only measurement is an FPGA inference time of about 20 ms, alongside glove-signal plots (Fig. 6) and a design table of finger states (Table 1). The conclusions nonetheless say the presented results show that neural prostheses give patients more movement functions than myoelectric ones, and many tactile-feedback functions; neither was tested. Physiological premises, that a movement's nerve signal train is the same every time and unchanged after amputation and that it carries all the movement's information, are asserted without citation, as is the statement that the interface was successfully tested in vitro and in vivo. Internal inconsistencies: 31 movements against 32 output classes; a network with a single convolutional layer that also has two hidden layers; DSP throughput quoted as 929 GMAC/s and then as 2 to 8 MFLOPS. Estimated CER is about 0.3, below the 0.33 threshold.\n\nLimitations: there is no dedicated section, but inline acknowledgments exist (constant angular speed in this first iteration, human implantation still awaiting ethics approval, training valid only at constant finger speed), so NO_LIMITATIONS is not raised.\n\nArtifacts: no code, no data, and no availability statement. The glove datasheet is a third-party document. Category: none.\n\n---\n\n## Conclusion\n\nA project-design paper that presents a CNN-based control concept for a neural prosthesis without data on, or evaluation of, that concept. Its one formal element, a binomial sum giving 31 movements, can be said in a sentence and constrains nothing that is built, which at Level 2 is formalism theater and caps the score. The conclusions outrun the evidence (UNSUPPORTED_CLAIMS), several references do not support the statements they are attached to, and nothing is released."
+  }
+ ]
+}

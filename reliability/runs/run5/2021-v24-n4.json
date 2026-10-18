@@ -1,0 +1,174 @@
+{
+ "batch_id": "2021-v24-n4",
+ "analysis_timestamp": "2026-10-18T17:18:28Z",
+ "analysis_version": "1.2.1",
+ "models": {
+  "analysis": "claude-opus-5-5"
+ },
+ "source": {
+  "journal_acronym": "ROMJIST",
+  "journal_name": "Romanian Journal of Information Science and Technology",
+  "journal_issn": "1453-8245",
+  "volume": 24,
+  "issue": 4,
+  "year": 2021
+ },
+ "papers": [
+  {
+   "paper_id": "radulescu2021",
+   "paper": {
+    "title": "Cloud provider selection a complex multicriteria problem",
+    "authors": [
+     "Constanta Zoie Radulescu",
+     "Marius Radulescu",
+     "Florin Gheorghe Filip"
+    ],
+    "abstract": "Cloud provider (CP) selection problem is a complex decision-making problem that involves multiple criteria, often in conflict with one another. The purpose of the paper is to present a brief survey on CP selection problem and to formulate a group decision approach and a multi-objective model for CP selection. Starting from this model several single-objective models are derived. The objective functions are cost, evaluation risk and performance. A numerical example for the trade-off model is analyzed. Five scenarios are discussed, and a matrix of CPs ranks for each scenario is computed.",
+    "keywords": [
+     "Cloud computing",
+     "evaluation divergence",
+     "evaluation risk",
+     "group decision",
+     "multi-objective model",
+     "provider selection"
+    ],
+    "doi": null,
+    "pages": "337-352",
+    "source_file": "paper697.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 60,
+    "structural_integrity": 50,
+    "artifact_availability": 0,
+    "intellectual_integrity": 33.5,
+    "composite": 25.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "NO_LIMITATIONS",
+    "ELEVATED_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with six elements failing the Necessity Test. The first is the index sets C, A, E. Four more are the multi-objective, minimum-cost, minimum-risk and trade-off 0-1 programmes: under sum x_i = 1 they only restate choosing one provider from a list, the paper's own English statements of them are complete, and it notes that the trade-off solution is the argmin of b_i. The last is the permutation tau, which formalises sorting.",
+    "NO_LIMITATIONS": "No limitations section and no inline acknowledgment of constraints. The closing sentence proposes an extension (a combined weighting method), not a limitation of the results.",
+    "ELEVATED_SELF_CITATION": "11 of 43 references (25.6%) are by the authors (C. Z. Radulescu 8, F. G. Filip 3). All are topically related; two ([33], [34]) are marginal."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A survey plus a weighted-sum group-decision model for cloud-provider selection. Four 0-1 programmes only restate choosing one provider from a list, the evaluation-risk objective is too small in scale to affect any ranking in the example, no limitations are stated, and self-citation is elevated (25.6%).",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Literature survey of cloud-provider (CP) selection methods, followed by a group-decision, multi-objective 0-1 selection model (cost, expert-divergence \"evaluation risk\", weighted score) and a numerical trade-off example with ten providers.\n**Level:** 2 (Low)\n**Rationale:** About half the paper is a survey (Level 1 material). The modelling contribution is a weighted-sum MCDM scheme: expert scores are averaged with confidence weights, their weighted variance is taken as an evaluation-risk indicator, and one provider is chosen by cost, risk and score. The authors note that their own supplier-selection approach [17] \"can be adapted\" to CPs, and the model reads as that transfer. No new algorithm, proof or complexity result, so Level 2 rather than 3.\n\n### Formal Elements\n- Definitions: 5 inline concept definitions (mu, sigma, q, p, v) (with constraints: 2, the normalisations of w1 and w2); the variable declarations n, m, k, a, w, c, x are not counted\n- Theorems: 0\n- Proofs: 0\n- Equations: about 10 displayed formulas (sigma, four 0-1 programmes, b_i, the ranking permutation, the parameter ranges)\n\n### Necessity Test\n- Index sets C = {C1..Cm}, A = {A1..An}, E = {E1..Ek}: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Scores a_ijr and confidence weights w1,j,r with sum_r w1,j,r = 1: Q1 yes, Q2 yes, Q3 no -> necessary\n- Criterion weights w2,j with sum_j w2,j = 1: Q1 yes, Q2 yes, Q3 no -> necessary\n- mu_ij = sum_r w1,j,r a_ijr (weighted mean score): Q1 yes, Q2 yes, Q3 no -> necessary\n- sigma_ij = sum_r w1,j,r (a_ijr - mu_ij)^2 (evaluation risk): Q1 no, Q2 yes, Q3 no -> necessary\n- q_ir and p_i (weighted scores): Q1 yes, Q2 yes, Q3 no -> necessary\n- v_i = sum_j w2,j sigma_ij (overall evaluation risk): Q1 yes, Q2 yes, Q3 no -> necessary\n- Multi-objective 0-1 programme (Section 4.1), x_i in {0,1}, sum x_i = 1: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Minimum-cost 0-1 programme (Section 4.2) with the ranges for rho and theta: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Minimum-risk 0-1 programme (Section 4.3): Q1 yes, Q2 no, Q3 no -> unnecessary\n- Trade-off 0-1 programme (Section 4.4): Q1 yes, Q2 no, Q3 no -> unnecessary\n- Scalarised score b_i = alpha1 c_i + alpha2 v_i - alpha3 p_i, alphas summing to 1: Q1 yes, Q2 yes, Q3 no -> necessary\n- Ranking permutation tau with b_tau(1) <= ... <= b_tau(n): Q1 yes, Q2 no, Q3 no -> unnecessary\n\n### Proportionality\nCalculated complexity: 10\nExpected range (Level 2): 0-15\nRatio: 0.67x upper bound\n\n**Assessment:** Proportionate in count, but six elements fail the Necessity Test. Because the constraint sum x_i = 1 forces exactly one provider to be chosen, each 0-1 programme reduces to filtering a list of ten providers and taking the minimum. The English sentence printed above each programme already states its rule completely, and the paper concedes that \"The solution of the trade-off is simple\" (the argmin of b_i). The integer-programming notation tells the implementation nothing that a filter and a sort do not, and it supports no proof or bound.\n\n### Issues\n- Section 4.2 states the rule in full (\"choosing the CP that has a minimum cost when the evaluation risk is smaller than a given bound rho and the overall score of the CP is greater than a given bound theta\"); the 0-1 programme that follows only restates it. Sections 4.1, 4.3 and 4.4 repeat the pattern.\n- The permutation tau formalises sorting a vector.\n- The sets C, A, E name lists of labels already fixed by the counts n, m, k. No set operation is applied to them, so UNNECESSARY_SET_THEORY is not raised.\n- rho, theta, M and the alphas are user parameters given Greek names. The alphas are retained because they enter b_i.\n- As written, q_ir sums over criteria using the expert-confidence weights w1,j,r, so the criterion-importance weights w2,j enter only the risk v_i and never the performance score p_i.\n\n---\n\n## Citation Analysis\n\n11 of 43 references are self-citations (SCR 25.6%): C. Z. Radulescu [8], [9], [11], [12], [16], [17], [20], [21] and F. G. Filip [2], [33], [34]. The eight Radulescu works, on cloud-provider ranking, criteria weighting and group decision for supplier selection, are directly related (similarity of 0.5 or more). [2], a decision-making perspective on information-system design cited for selection criteria for IT products, is related. [33] and [34] (collaborative decision-making; DSS as evolving systems) are cited for multi-participant DSS in a general subsection and are marginal (0.3-0.5). None is unrelated, so IRRELEVANT_SELF_CITATION is not raised. Reference [6] is never cited in the text.\n\n---\n\n## Structural Analysis\n\nThe survey claims are cited. The model and the numerical example are internally consistent: the S1 and S2 rankings in Table 4 follow from Table 2 (cost ascending, score descending). The evidence has several gaps:\n\n- The origin of the example data is not stated. The expert scores a_ijr are not given, and \"normalized values of costs\" is not explained.\n- There is no comparison with any of the surveyed MCDM methods, and no sensitivity analysis beyond five weight vectors.\n- The evaluation risks v (about 5e-4) are three orders of magnitude smaller than the scores p (about 0.5). The evaluation-risk objective, the paper's novel element, therefore cannot change any ranking. The paper reports that the ranks in S2-S5 are identical without explaining this.\n- The introduction makes an unsupported and incorrect claim (\"The term was coined by Amazon in 1960s\") and cites a market-share figure to a blog that has no reference entry.\n\nNo limitations are acknowledged. The closing sentence proposes an extension (a combined subjective-objective weighting method) and does not state a constraint on the results. CER is adequate (about 0.6-0.8).\n\nArtifacts: no code, no data link, no availability statement. Tables 1-2 print derived values only.\n\n---\n\n## Conclusion\n\nThe paper surveys CP-selection methods and attaches a weighted-sum group-decision model of Level 2 complexity. The core computation (weighted mean, weighted variance, linear scalarisation, sort) is sound and simply stated. It is wrapped, however, in four 0-1 programmes and a permutation formalism that only restate choosing one item from a list, which at Level 2 triggers FORMALISM_THEATER.\n\nSelf-citation is elevated at 25.6%, though all of it is topically related. The example cannot show what the evaluation-risk indicator contributes, because the indicator's values are too small to influence any ranking."
+  },
+  {
+   "paper_id": "precup2021",
+   "paper": {
+    "title": "Evolving Fuzzy Models of Shape Memory Alloy Wire Actuators",
+    "authors": [
+     "Radu-Emil Precup",
+     "Claudia-Adina Bojan-Dragos",
+     "Elena-Lorena Hedrea",
+     "Raul-Cristian Roman",
+     "Emil M. Petriu"
+    ],
+    "abstract": "This paper suggests Takagi-Sugeno-Kang (TSK) fuzzy models that characterize the position of Shape Memory Alloy (SMA) wire actuators. The systems dynamics are important because, since SMA wire actuators are included in control systems in various critical applications, the position control systems have to ensure very good performance indices. The output of these systems, viewed as controlled processes, is the position of the SMA wire actuators, and the input is the current signal which supplies the actuator, i.e., it flows through the wire. Starting with these two input and output signals directly related to the process, different numbers of additional TSK fuzzy model inputs and outputs obtained from past inputs and/or outputs are considered. The structures and parameters of the fuzzy models are evolved by an incremental online identification algorithm. Two evolving TSK fuzzy models are derived, they are next tested against the experimental data and compared. The experimental results indicate that the proposed fuzzy models are consistent with training and validation data.",
+    "keywords": [],
+    "doi": null,
+    "pages": "353-365",
+    "source_file": "paper698.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 75,
+    "structural_integrity": 45,
+    "artifact_availability": 0,
+    "intellectual_integrity": 37.5,
+    "composite": 28.12,
+    "final": 24.0
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text. The data were \"generated by processing the input-output data given in [6]\", a third-party journal article, and the processed training and validation sets are not released.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with two elements failing the Necessity Test. One is the set-builder notation {p_k | k = 1...D} subset of R^(n+1) for the array of samples, used to say that the next sample is read. The other is Eq. (10), y_k = f(z_k), which says only that the output is a function of the inputs. The algorithmic equations (2)-(9), (11) and (12) are necessary."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "An existing evolving TSK identification algorithm applied to SMA actuator data. The algorithmic equations are needed, but the set notation for the sample array and a generic f(z) equation fail the Necessity Test at Level 2. Performance is judged only by eye from figures, with no metrics or baseline.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** Takagi-Sugeno-Kang (TSK) fuzzy models of the position of a shape-memory-alloy (SMA) wire actuator. The models are evolved by an existing incremental online identification algorithm (Angelov-Filev, implemented with the eFS Lab software) on input-output data taken from a third-party paper [6].\n**Level:** 2 (Low)\n**Rationale:** An existing identification algorithm is applied to a new process. The contribution is the choice of two regressor vectors and a visual comparison of the two resulting models; there is no new algorithm and no analysis.\n\n### Formal Elements\n- Definitions: 0\n- Theorems: 0\n- Proofs: 0\n- Equations: 12 numbered, plus the set-builder notation for the data set, repeated in Steps 1, 2 and 7\n\n### Necessity Test\n- Eq. (1), data point p = [z^T y]^T in R^(n+1): Q1 yes, Q2 yes, Q3 no -> necessary (it fixes the joint input-output space in which cluster potentials are computed)\n- Data set {p_k | k = 1...D} subset of R^(n+1) (Steps 1, 2, 7): Q1 yes, Q2 no, Q3 no -> unnecessary\n- Eq. (2), TSK rule base with affine consequents: Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (3), consequent parameter vector pi_i: Q1 yes, Q2 yes, Q3 no -> necessary\n- Eq. (4), weighted-average output with normalised firing degrees: Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (5), product t-norm firing degree: Q1 yes, Q2 yes, Q3 no -> necessary\n- Eq. (6), initialisation (theta_1 = 0, C_1 = Omega I, r_s = 0.4, n_R = 1, P_1 = 1): Q1 yes, Q2 yes, Q3 no -> necessary\n- Eq. (7), Gaussian membership functions: Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (8), one-step prediction y_(k+1) = psi_k^T theta_k: Q1 yes, Q2 yes, Q3 no -> necessary\n- Eq. (9), linear-in-parameters regression form used by RLS: Q1 no, Q2 yes, Q3 no -> necessary\n- Eq. (10), y_k = f(z_k): Q1 yes, Q2 no, Q3 no -> unnecessary\n- Eqs. (11)-(12), regressor vectors of the two models: Q1 yes, Q2 yes, Q3 no -> necessary\n\n### Proportionality\nCalculated complexity: 0\nExpected range (Level 2): 0-15\nRatio: 0x upper bound\n\n**Assessment:** Proportionate. Equations (2)-(9), (11) and (12) specify the eTS algorithm and the model structures that a programmer would implement. Two notational elements fail the Necessity Test.\n\n### Issues\n- The data set is written in set-builder notation, and Step 2 uses membership to describe reading the next element of an array of D samples: \"the next data sample pk that belongs to the input-output data set {pk |k = 1...D} ... is read\". This is the specification's \"set notation for lists\" pattern. No set operation is performed, so UNNECESSARY_SET_THEORY is not raised.\n- Eq. (10) says only that the output is a function of the input vector. The NARX remark that follows it is prose.\n\nThe theater is confined to these two elements, and the substantive formalism is legitimate. The zero-tolerance rule at Level 2 applies all the same.\n\n---\n\n## Citation Analysis\n\n9 of 53 references are self-citations (SCR 17.0%): [1], [19], [30], [31], [32], [36], [37], [39], [46].\n\n- Directly related: [1] (the authors' FuzzySMA project page), [19], [30]-[32] and [36] (evolving TSK fuzzy models).\n- Related: [37] (tensor-product modelling, cited for performance indices).\n- Marginal (0.3-0.5): [39] (grey-wolf path planning and fuzzy tracking control of mobile robots) and [46] (fuzzy ADRC for tower cranes).\n\nThe two marginal ones sit in a single closing sentence of Section 3. That sentence cites 16 works ([38]-[53]) on unrelated processes (community detection in networks, an FPGA genetic-algorithm core, fetal heart rate, reflux diagnosis, turbojet fault detection, drilling, car suspension) only to say that the conclusions cannot be generalised. This looks like citation padding. Mutual citation cannot be established from the paper alone, so CITATION_RING_INDICATOR is not raised. No self-citation is unrelated.\n\n---\n\n## Structural Analysis\n\nThe main claim, that the models are consistent with training and validation data, rests only on visual inspection of Figs. 4-7: \"since no numerical performance comparison is carried out, the visual comparison shows that the first model exhibits overall better performance\". Other gaps:\n\n- No error metric is reported.\n- There is no baseline model, for example a linear ARX.\n- No evidence is shown for the statements that RLS outperforms wRLS or that past inputs and outputs improve performance.\n- The training set is 500 samples (5 s).\n\nCER is weak (about 0.4). Limitations are acknowledged inline: model selection on validation data is named as a methodological issue, testing on unseen data is recommended, and the authors state that the conclusions cannot be generalised to other processes.\n\nArtifacts: no code or data is released. The data were \"generated by processing the input-output data given in [6]\", a third-party journal article, and the conclusion says these data were \"collected manually\". The eFS Lab software is a third-party tool.\n\n---\n\n## Conclusion\n\nThis is a straightforward application of an existing evolving-fuzzy identification algorithm to SMA actuator data (Level 2). The algorithmic equations are appropriate and needed. The set-builder notation for the sample array and the generic map y_k = f(z_k) fail the Necessity Test, and under the zero-tolerance rule that triggers FORMALISM_THEATER at Level 2.\n\nBeyond the flag, the paper's main weakness is evidential: performance is judged by eye from figures, with no metrics, no baseline and no released data."
+  },
+  {
+   "paper_id": "stefan2021",
+   "paper": {
+    "title": "Pseudo-Reconfigurable Computing",
+    "authors": [
+     "Gheorghe M. Ştefan"
+    ],
+    "abstract": "The pseudo-reconfigurable computing we propose is an implementation of heterogeneous computing in the form of a compromise between the realization of accelerators as circuits through reconfiguration techniques using FPGAs and the realization of accelerators as parallel computing structures made in ASIC technology. The proposed solution is implementable in FPGA in the form of a programmable structure that is parameterizable and configurable. The programmable accelerator is a cellular parallel engine with a structure and architecture that efficiently covers most of the parallel computing patterns. The structural and architectural aspects of the proposed system are introduced based on Stephen Kleene's Partial Recursive Function Model, and evaluated using: (1) Functional Forms introduced by John Backus, (2) \"dwarfs\" listed in the Berkeley's View of Parallel Landscape, and last but not least (3) patterns already imposed in the practice of parallel computing.",
+    "keywords": [],
+    "doi": null,
+    "pages": "366-383",
+    "source_file": "paper699.pdf"
+   },
+   "concept_level": 2,
+   "scores": {
+    "formalism": 0,
+    "citation_integrity": 35,
+    "structural_integrity": 40,
+    "artifact_availability": 0,
+    "intellectual_integrity": 22.25,
+    "composite": 16.69,
+    "final": 16.69
+   },
+   "artifact_assessment": {
+    "category": "none",
+    "relevant": true,
+    "evidence": "no availability statement or link in the text. The only links are to the author's Connex project page (http://users.dcae.pub.ro/~gstefan/2ndLevel/connex.html) and to a technical note on FFT, and neither is offered as an artifact of this paper.",
+    "assessor": "claude-opus-5-5",
+    "assessed": "2026-10-18",
+    "original_score": null
+   },
+   "flags": [
+    "FORMALISM_THEATER",
+    "DISPROPORTIONATE_FORMALISM",
+    "EXCESSIVE_SELF_CITATION"
+   ],
+   "flag_details": {
+    "FORMALISM_THEATER": "Level 2 paper with three elements failing the Necessity Test. The first is the Backus functional-form box, which restates [5] after Section 4 has already given the mapping in English. The second is Conjecture 1, which is unproved, enables nothing, and is later called 'the previous theorem'. The third is the V_i/W_j vector notation for the cell-memory matrix.",
+    "DISPROPORTIONATE_FORMALISM": "Formalism complexity is 35 (9 definitions, 3 theorems including the corollary, 2 proofs) against a Level 2 upper bound of 15. At 2.33x it exceeds the 2x threshold.",
+    "EXCESSIVE_SELF_CITATION": "11 of 24 references (45.8%) are the author's own. Even if the two 'STEFAN M. G.' entries other than the self-hosted [2] are excluded, the ratio is 9 of 24 (37.5%)."
+   },
+   "verdict": {
+    "classification": "CRITICAL",
+    "disqualified": true,
+    "summary": "A position paper on a programmable map-scan-reduce FPGA accelerator, assessed only by qualitative mapping. Its computability appendix is disproportionate for a Level 2 contribution and includes an unproved conjecture used as a theorem, and 45.8% of its references are self-citations.",
+    "record_type": "research"
+   },
+   "provenance": "## Formalism Analysis\n\n### Concept Complexity\n**Topic:** A position paper proposing \"pseudo-reconfigurable computing\" (pRC). Instead of synthesising a new FPGA circuit for each accelerated kernel, a parameterisable, programmable map-scan-reduce cellular accelerator (MSRA) is instantiated once, together with a kernel library. The design is justified by an appendix that re-reads Kleene's partial recursive functions as compositions, and assessed by qualitative mapping onto Backus's functional forms, McCool's parallel patterns and the Berkeley dwarfs.\n**Level:** 2 (Low)\n**Rationale:** The paper calls itself \"only a theoretical introduction to the concept of pRC\". The accelerator (MAP array, log-depth SCAN and REDUCE networks, controller) is the author's established Connex/map-scan-reduce architecture [16], [22], [23]. The new contribution is therefore a deployment concept plus a qualitative mapping, and nothing is implemented or measured in this paper.\n\nThe appendix makes universality-type claims (Corollary 1) that would argue for a higher level if they were proved rigorously. They are not:\n\n- Conjecture 1 is unproved.\n- The proofs of Theorems 1-2 are figure-based sketches over unbounded structures.\n- Those proofs use components outside Kleene's initial functions: the equality predicate y = i, conditional selection and bitwise OR.\n\nThe formal material thus does not establish the property it claims, and it gives no clear justification for a higher level. Level 3 is a possible alternative reading. Under it the formalism flags would not cap the score, but the paper is capped regardless (see Citation Analysis).\n\n### Formal Elements\n- Definitions: 9 (Def. 1-9) (with constraints: 0)\n- Theorems: 3 (Theorem 1, Theorem 2, Corollary 1); Conjecture 1 is unproved and not counted\n- Proofs: 2\n- Equations: about 20 (functional-form box, matrix and vector notation, composition and its tree decomposition, delta, the formulas inside the definitions, the proof expansions)\n\n### Necessity Test\n- Composition rule f(X) = g(h_0(X), ..., h_(p-1)(X)) (Section 3): Q1 no, Q2 no, Q3 yes -> necessary\n- Matrix M_mp with horizontal and vertical vectors V_i, W_j: Q1 yes, Q2 no, Q3 no -> unnecessary\n- Backus functional-form box (five formulas: apply-to-all, construction, insert, composition, condition): Q1 yes, Q2 no, Q3 no -> unnecessary\n- Acceleration and size bounds O(p), O(p/log p), O(p log p): Q1 no, Q2 yes, Q3 yes -> necessary\n- Def. 1, Kleene's model (initial functions and three rules): Q1 no, Q2 no, Q3 yes -> necessary\n- Conjecture 1 (map level plus reduce tree computes any f: N^n -> N): Q1 yes, Q2 no, Q3 no -> unnecessary\n- Tree decomposition of g and delta = (2p-1)/(1+log2 p): Q1 no, Q2 yes, Q3 yes -> necessary\n- Def. 2, map composition MC: Q1 yes, Q2 no, Q3 yes -> necessary\n- Def. 3, reduction composition RC: Q1 yes, Q2 no, Q3 yes -> necessary\n- Def. 4, redOR: Q1 yes, Q2 no, Q3 yes -> necessary\n- Def. 5, composing two MC: Q1 yes, Q2 no, Q3 yes -> necessary (it is cited in the proof of Theorem 1)\n- Def. 6, shift map composition: Q1 yes, Q2 yes, Q3 yes -> necessary\n- Def. 7, SCAN circuit as a (2 log2 n - 1)-layer Benes-based network: Q1 no, Q2 yes, Q3 no -> necessary\n- Def. 8, prefixSCAN: Q1 yes, Q2 yes, Q3 yes -> necessary\n- Def. 9, scanFIRST: Q1 no, Q2 yes, Q3 yes -> necessary\n- Theorem 1 with proof: Q1 no, Q2 no, Q3 yes -> necessary\n- Theorem 2 with proof: Q1 no, Q2 no, Q3 yes -> necessary\n- Corollary 1: Q1 yes, Q2 no, Q3 yes -> necessary\n\n### Proportionality\nCalculated complexity: 35 (9 x 2 + 3 x 3 + 2 x 4)\nExpected range (Level 2): 0-15\nRatio: 2.33x upper bound\n\n**Assessment:** Disproportionate. A position paper on an accelerator-deployment concept carries an appendix of nine definitions, two theorems, a corollary and a conjecture. None of this changes the accelerator design, which the main text fixes independently: the MAP array, SCAN, REDUCE and controller, and the parameter list of Section 6. Most definitions survive the test only because they feed the appendix proofs (Q3), and three elements perform no function at all.\n\n### Issues\n- The Backus box restates the definitions of [5]. Section 4 has already given each functional form's mapping in English, and no argument uses the formulas.\n- Conjecture 1 is said to have \"a big chance to become a theorem\". It is later invoked as \"the previous theorem\" (\"implementations involving only compositions for which the previous theorem applies\"), although it is never proved.\n- The appendix asserts that \"Composition is the only independent rule in Kleene's model\". The proofs reach this only by building unbounded circuits that use predicates and OR-reductions, none of which are initial functions. Within Kleene's model, composition of the initial functions alone does not yield primitive recursion.\n- Notation is inconsistent. Def. 5 mixes MAC_H and MAP_H. The proof of Theorem 1 cites Definition 5 for shiftMAP, which is Definition 6. The accelerator is named MSRA, MRSA and MRA in different places.\n\n---\n\n## Citation Analysis\n\n11 of 24 references are the author's own (SCR 45.8%): [1], [2], [8], [9], [10], [16], [17], [18], [21], [22], [23]. In [1], [2] and [10] the name is printed \"STEFAN M. G.\". Because [2] is hosted on the author's university pages, all three are attributed to the author. Excluding [1] and [10] would still give 9 of 24 (37.5%).\n\nAll of these works belong to the author's map-scan-reduce/Connex line and its applications. They are topically related, and none is irrelevant. However, nearly all the quantitative support in Section 6 rests on them: the speed-ups and energy ratios for dense and sparse linear algebra, FFT, N-body, SHA-256, graph traversal, HMMs and H.264. The ratio exceeds the 30% threshold, so EXCESSIVE_SELF_CITATION applies, and it disqualifies at any concept level.\n\n---\n\n## Structural Analysis\n\nThe paper reports no experiment of its own except Example 1: Vivado HLS used 20x the resources of hand-written Verilog for a 5x5 matrix product. This is an anecdote with no design details. Sections 5-6 consist of design assertions (\"is directly implemented\", \"fit perfectly\"). About a third are backed by citations to the author's earlier measurements; the rest are argued from the structure alone. The general claim that the acceleration is \"usually in O(p), but always at least in O(p/log p)\" is not derived. CER is weak (about 0.45).\n\nLimitations are acknowledged inline. The paper says pRC performance \"is sometimes lower\" than that of RC, that the Superscalar-sequence and Expand patterns are left to the host, and that it is \"only a theoretical introduction\". The journal header prints \"Volume 4\" instead of volume 24.\n\nArtifacts: nothing is released or claimed. The only links are to the author's Connex project page [23] and a technical note on FFT [2], and neither is offered as an artifact of this paper.\n\n---\n\n## Conclusion\n\nThis concept paper proposes deploying a programmable map-scan-reduce accelerator on FPGAs instead of reconfiguring circuits for each kernel, and assesses the idea qualitatively against three catalogues of parallel computation. At Level 2 its computability-theory appendix exceeds twice the expected formalism (35 against a threshold of 30), and three elements perform no function: the Backus box, Conjecture 1 and the matrix/vector notation. This yields DISPROPORTIONATE_FORMALISM and FORMALISM_THEATER.\n\nIndependently of the level judgment, the self-citation ratio of 45.8% disqualifies the paper."
+  }
+ ]
+}
