@@ -7,6 +7,51 @@ specification is versioned independently of the corpus analysis runs — the
 `analysis_version` field inside each batch JSON records which specification
 revision produced that file.
 
+## [1.2.1] — 2026-10-18
+
+Corrections to the specification text. No rule used to compute a published
+score changes; runs 1–4 were made under 1.2.0 (tag `spec-1.2.0`), and their
+derived fields come from `scripts/ruin_scoring.py`, which already implemented
+the rules below.
+
+### Framework specification
+- **Necessity Test combination rule.** The three questions were listed without
+  saying how the answers combine, and the files phrased the test differently
+  (`SKILL.md` reduced it to the second question; `flags.md` and `scoring.md`
+  let each question condemn an element on its own). The rule is now stated in
+  every file: an element is unnecessary only when it performs none of the three
+  functions (Q1 yes, Q2 no, Q3 no); any one function retains it.
+- **Per-element answers.** `output-format.md` asks for the three answers for
+  every formal element in the provenance, so an auditor can see which function
+  the assessor found missing.
+- **`SKILL.md` flag tiers.** Its summary table gave the cap as 25 and listed
+  `EXCESSIVE_SELF_CITATION` as a high-severity deduction. The flag reference,
+  the scoring reference, and the scoring code cap at 24 and treat it as
+  disqualifying; the table now agrees, and states the Level 1-2 precondition of
+  the formalism flags.
+- **Self-citation bands** are stated with their end points: elevated is 20% to
+  30% inclusive, excessive is above 30%. The 1.2.0 runs read 20% inclusively.
+
+## [Run 4: capped-paper retest] — 2026-10-18
+
+Every paper run 1 capped (148) and 40 uncapped Level 1-2 controls analysed once
+more under specification 1.2.0, by the protocol in `reliability/capped/`,
+fixed before the run. The cap recurred for 140 of 148 papers; Cohen's κ for the
+disqualification decision among Level 1-2 papers is 0.83 with the controls
+weighted to their population. Results in `reliability/capped/results.json`.
+
+### Repository
+- `data/README.md` described the December 2025 run; it now describes the
+  current one and states what the labels in the dataset mean.
+- The worked example no longer redistributes the publisher's PDF;
+  `samples/input/papers/README.md` gives its URL and SHA-256.
+- **Redaction.** In nine provenance texts (six in run 1, three in run 4) the
+  assessing model named the third-party author whose works it found cited
+  off-topic. The manuscript does not identify that author, and the name, with
+  the names of co-authors that would point to it, is replaced by
+  `[third-party author]`. No judged field, flag, or score changes;
+  `rescore.py --check` passes for both runs.
+
 ## [Run ROMJIST_2026-10-04] — 2026-10-04
 
 A complete re-analysis of the corpus and its test–retest study, under the

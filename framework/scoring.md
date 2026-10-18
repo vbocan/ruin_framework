@@ -33,11 +33,13 @@ specification, and `--write` to re-derive it where it does not.
 
 For each formal element (definition, theorem, equation):
 
-| Question | If YES | If NO |
-|----------|--------|-------|
-| Could this be said in plain English? | Unnecessary | May be necessary |
-| Would removing it change the implementation? | Necessary | Unnecessary |
-| Does it enable proofs/bounds? | Necessary | Unnecessary |
+| Question | Function it probes | Answer that shows the function |
+|----------|--------------------|--------------------------------|
+| Q1 Could this be said in plain English without loss of precision? | States what prose cannot | NO |
+| Q2 Would removing it change the implementation? | Constrains the implementation | YES |
+| Q3 Does it enable proofs/bounds? | Carries a proof or bound | YES |
+
+**Combination rule:** an element is **unnecessary** only if it shows none of the three functions (Q1 yes, Q2 no, Q3 no). Any one function retains it.
 
 **If ANY unnecessary formal element exists in a Level 1-2 paper → Flag and cap at 24.**
 
@@ -118,8 +120,8 @@ SCR = self_citations / total_citations
 | SCR | Assessment | Score |
 |-----|------------|-------|
 | ≤15% | Normal | 90-100 |
-| 15-20% | Elevated | 75-85 |
-| 20-30% | High | 50-70 |
+| >15% and <20% | Elevated | 75-85 |
+| 20% to 30% inclusive | High | 50-70 |
 | >30% | Excessive | Flag, cap at 40 |
 
 **Topical Similarity (for each self-citation):**

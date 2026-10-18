@@ -117,6 +117,12 @@ The `provenance` field contains analytical narrative in markdown. It **complemen
 - Proofs: [n]
 - Equations: [n]
 
+### Necessity Test
+One line per formal element (definition, theorem, equation with formal notation):
+- [element, e.g. "Def. 1, tag cloud as set of triples"]: Q1 [yes/no], Q2 [yes/no], Q3 [yes/no] → [necessary/unnecessary]
+
+An element is unnecessary only for Q1 yes, Q2 no, Q3 no. Write "None" if the paper has no formal elements.
+
 ### Proportionality
 Calculated complexity: [n]
 Expected range (Level [L]): [min]-[max]

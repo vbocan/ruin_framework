@@ -12,7 +12,7 @@ Analyze academic papers for intellectual integrity using the RUIN framework.
 
 **Formalism should be proportional to conceptual complexity.** A paper about logging doesn't need set theory. A paper about distributed consensus does.
 
-**The Necessity Test:** Before accepting ANY formal element, ask: *"Would a competent programmer need this math to implement this?"* If the answer is no, it's formalism theater.
+**The Necessity Test:** Before accepting ANY formal element, ask the three questions below. The element is unnecessary only if it performs none of their functions: it could be said in plain English without loss of precision (Q1 yes), removing it would not change the implementation (Q2 no), and it enables no proof or bound (Q3 no). Any one function retains it. In a Level 1-2 paper, one unnecessary element is formalism theater.
 
 ## When to Use
 
@@ -141,9 +141,11 @@ Papers that:
 
 For each definition, theorem, or equation, ask:
 
-1. **Could this be said in plain English?** If yes, formalism adds no value.
-2. **Would removing this math change the implementation?** If no, it's decorative.
-3. **Does this enable something English cannot?** (e.g., precise complexity bounds, proofs)
+1. **Could this be said in plain English without loss of precision?** A *no* means the notation states something prose cannot.
+2. **Would removing this math change the implementation?** A *yes* means it constrains the implementation.
+3. **Does this enable something English cannot?** (e.g., precise complexity bounds, proofs) A *yes* means it carries a proof or bound.
+
+**Combination rule.** An element is **unnecessary** only when the answers are Q1 *yes*, Q2 *no*, Q3 *no*: it performs none of the three functions. Any other combination retains it. Record the three answers for every formal element (see `output-format.md`).
 
 ### Common Theater Patterns
 
@@ -177,7 +179,9 @@ The new rule is: "Level ≤2 AND (Formalism >15 OR unnecessary_formal_elements >
 | `PDF_CORRUPTED` | PDF file unreadable or malformed |
 | `EDITORIAL` | Content is editorial, not research paper |
 
-### Disqualifying (cap score at 25)
+### Disqualifying (cap final score at 24)
+
+The four formalism flags cap the score only at concept Level 1-2; above Level 2 they are recorded but do not cap. The citation flags cap at any level.
 
 | Flag | Condition |
 |------|-----------|
@@ -187,6 +191,7 @@ The new rule is: "Level ≤2 AND (Formalism >15 OR unnecessary_formal_elements >
 | `DECORATIVE_DEFINITIONS` | Formal definitions that could be plain English |
 | `IRRELEVANT_SELF_CITATION` | Self-cite with similarity <0.3 |
 | `CITATION_RING_INDICATOR` | Mutual citation on unrelated topics |
+| `EXCESSIVE_SELF_CITATION` | SCR > 30% |
 
 ### High Severity (-15 points)
 
@@ -194,7 +199,6 @@ The new rule is: "Level ≤2 AND (Formalism >15 OR unnecessary_formal_elements >
 |------|-----------|
 | `ORPHAN_DEFINITIONS` | Definitions introduced but never used |
 | `THEOREMLESS_FORMALISM` | Many definitions, zero theorems |
-| `EXCESSIVE_SELF_CITATION` | SCR >30% |
 | `UNSUPPORTED_CLAIMS` | CER <0.33 |
 
 ### Medium Severity (-5 points)
@@ -203,7 +207,7 @@ The new rule is: "Level ≤2 AND (Formalism >15 OR unnecessary_formal_elements >
 |------|-----------|
 | `ELEVATED_FORMALISM` | Level 3+ with formalism 1×-2× upper bound |
 | `NO_LIMITATIONS` | No limitations acknowledged |
-| `ELEVATED_SELF_CITATION` | SCR 20-30% |
+| `ELEVATED_SELF_CITATION` | 20% ≤ SCR ≤ 30% |
 
 See [flags.md](flags.md) for complete list.
 

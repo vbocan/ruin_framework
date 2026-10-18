@@ -6,6 +6,10 @@ its prompt. It is published so the runs can be reproduced and criticised. It was
 amended once, after the two-issue pilot and before the corpus run; see
 `DEVIATIONS.md`.
 
+These instructions name the specification files by path. Runs 1–4 used
+specification 1.2.0, tagged `spec-1.2.0`; check out that tag to repeat them
+exactly, since `framework/` on the main branch has moved on to 1.2.1.
+
 ---
 
 You are running the RUIN framework analysis on one issue of the Romanian Journal

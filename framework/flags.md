@@ -28,9 +28,11 @@ These flags indicate processing issues rather than quality assessments.
 
 **Before evaluating any flag, apply this test to each formal element:**
 
-1. **Could this be said in plain English?** → If yes, it's unnecessary
-2. **Would a competent programmer need this math?** → If no, it's decorative
-3. **Does it enable proofs or bounds that English cannot?** → If no, it's theater
+1. **Could this be said in plain English without loss of precision?** → a *no* means it states what prose cannot
+2. **Would removing it change what a competent programmer implements?** → a *yes* means it constrains the implementation
+3. **Does it enable proofs or bounds that English cannot?** → a *yes* means it carries a proof or bound
+
+**Combination rule.** The three questions probe three functions an element can perform: stating what prose cannot state precisely, constraining the implementation, and carrying a proof or bound. An element is **unnecessary** only when it performs none of them, that is, Q1 *yes*, Q2 *no*, Q3 *no*. Any other combination retains it. Only unnecessary elements feed the formalism flags. Record the three answers for every element (see `output-format.md`).
 
 ---
 
@@ -139,7 +141,7 @@ SCR = self_citations / total_citations
 
 **Rationale:** A self-citation ratio above 30% inflates personal metrics at the
 expense of the paper's intellectual content. Distinguish from
-`ELEVATED_SELF_CITATION` (20-30%), which is a medium-severity warning.
+`ELEVATED_SELF_CITATION` (20% to 30% inclusive), which is a medium-severity warning.
 
 ### CITATION_RING_INDICATOR
 
@@ -216,7 +218,7 @@ Trigger: upper_bound < formalism_score ≤ 2 × upper_bound
 
 ### ELEVATED_SELF_CITATION
 
-**Condition:** SCR between 20-30%
+**Condition:** 20% ≤ SCR ≤ 30% (both ends inclusive)
 
 ---
 
